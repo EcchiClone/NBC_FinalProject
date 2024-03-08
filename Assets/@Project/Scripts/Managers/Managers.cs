@@ -8,9 +8,11 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } }
 
     #region # Core
+    ResourceManager _resouceManager = new ResourceManager();
+    UIManager _uiManager = new UIManager();
 
-
-
+    public static ResourceManager RM => Instance?._resouceManager;
+    public static UIManager UI => Instance?._uiManager;
     #endregion
 
     #region # Contents
