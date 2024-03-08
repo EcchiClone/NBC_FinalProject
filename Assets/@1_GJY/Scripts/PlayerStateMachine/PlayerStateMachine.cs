@@ -28,6 +28,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public Vector2 _currentMovementInput;
     public Vector3 _currentMovementDirection;
+    public Vector3 _cameraRelativeMovement;
 
     public PlayerBaseState CurrentSuperState { get; set; }    
     public PlayerStateFactory StateFactory { get; private set; }
@@ -59,7 +60,9 @@ public class PlayerStateMachine : MonoBehaviour
         HandleRotation();
 
         CurrentSuperState.UpdateStates();
-        Controller.Move(_currentMovementDirection * _movementSpeed * Time.deltaTime);        
+
+        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * _movementSpeed);
+        Controller.Move(_cameraRelativeMovement * Time.deltaTime);        
     }
 
     private void AddInputCallBacks()
@@ -91,16 +94,37 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Vector3 positionToLookAt;
 
-        positionToLookAt.x = _currentMovementDirection.x;
+        positionToLookAt.x = _cameraRelativeMovement.x;
         positionToLookAt.y = 0f;
-        positionToLookAt.z = _currentMovementDirection.z;
+        positionToLookAt.z = _cameraRelativeMovement.z;
 
         Quaternion currentRotation = transform.rotation;
 
-        if (IsMoveInputPressed)
+        if (IsMoveInputPressed && positionToLookAt != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
             transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _smoothRotateValue * Time.deltaTime);
         }
+    }
+
+    private Vector3 ConvertToCameraSpace(Vector3 vectorToRotate)
+    {
+        float currentYValue = vectorToRotate.y;
+
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+        cameraForward = cameraForward.normalized;
+        cameraRight = cameraRight.normalized;
+
+        Vector3 cameraForwardZ = vectorToRotate.z * cameraForward;
+        Vector3 cameraRightX = vectorToRotate.x * cameraRight;
+
+        Vector3 vectorRotateToCameraSpace = cameraForwardZ + cameraRightX;
+        vectorRotateToCameraSpace.y = currentYValue;
+        return vectorRotateToCameraSpace;
     }
 }
