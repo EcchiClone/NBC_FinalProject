@@ -12,4 +12,5 @@ public class PlayerStateFactory
     public PlayerBaseState Jump() => new PlayerJumpState(_context, this);
     public PlayerBaseState Grounded() => new PlayerGroundedState(_context, this);
     public PlayerBaseState Fall() => new PlayerFallState(_context, this);
+    public PlayerBaseState Combat() => new PlayerCombatState(_context, this);
 }

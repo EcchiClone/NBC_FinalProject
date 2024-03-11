@@ -14,9 +14,9 @@ public class Managers : MonoBehaviour
     #endregion
 
     #region # Contents
+    ModuleManager _module = new ModuleManager();
 
-
-
+    public static ModuleManager Module => Instance?._module;
     #endregion
 
 
@@ -34,6 +34,8 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._module.Init();
         }
     }
 

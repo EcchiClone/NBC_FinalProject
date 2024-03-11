@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public abstract class PlayerBaseState
 {
     protected bool IsRootState { get; set; } = false;
@@ -35,9 +37,11 @@ public abstract class PlayerBaseState
         newState.EnterState();
 
         if (IsRootState)
-            Context.CurrentSuperState = newState;
+            Context.CurrentState = newState;
         else if (_currentSuperState != null)
             _currentSuperState.SetSubState(newState);
+
+        Debug.Log($"현재 State : {Context.CurrentState}");
     }
 
     protected void SetSuperState(PlayerBaseState newSuperState)
