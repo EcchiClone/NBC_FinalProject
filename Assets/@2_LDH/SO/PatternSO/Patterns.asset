@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
+  m_Name: Patterns
+  m_EditorClassIdentifier: 
+  patternDatas:
+  - patternName: LinearTest01
+    danmakuSettings:
+      danmakuPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 3
+      setDelay: 1
+      shotPerSet: 10
+      shotDelay: 0.1
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 1}
+      danmakuShape: 0
+      initDistance: 2
+      numPerShot: 1
+      shotVerticalDistance: 0
+      shotVerticalNum: 0
+      danmakuToDirection: 1
+      initSpeed: 1
+      initDirection: {x: -1, y: 0, z: 1}
+      nextPatternMethod: 0
+      releaseMethod: 0
+      releaseTimer: 3
