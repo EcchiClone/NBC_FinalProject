@@ -9,6 +9,7 @@ public class ModuleManager
     // ToDo - 마지막으로 저장된 파츠 정보를 토대로 현재 Module 정보 생성에 사용.
     // ToDo - MainScene의 Module 창에서 파츠 변경 시 갱신된 정보를 저장.
 
+    // Think - 굳이 Key로 Type을 쓸 필요가 있을까?
     private Dictionary<Type, BasePart[]> _modules = new Dictionary<Type, BasePart[]>();
 
     public LowerPart CurrentLowerPart { get; private set; }
@@ -33,13 +34,13 @@ public class ModuleManager
     public void CreateModule(Transform createPosition, Module module) // Lower - Upper 순차적 생성 및 Pivot 할당.
     {
         // Lower 생성 및 Upper Pivot 할당.
-        LowerPart lower = CreateAndSetupPart<LowerPart>(createPosition);        
-        Transform upperPivot = FindPivot(lower.transform);
+        CurrentLowerPart = CreateAndSetupPart<LowerPart>(createPosition);        
+        Transform upperPivot = FindPivot(CurrentLowerPart.transform);
         module.SetPivot(upperPivot);
 
         // Upper 생성 및 Weapon Pivot 할당.
-        UpperPart upper = CreateAndSetupPart<UpperPart>(upperPivot);
-        Transform weaponPivot = FindPivot(upper.transform);
+        CurrentUpperPart = CreateAndSetupPart<UpperPart>(upperPivot);
+        Transform weaponPivot = FindPivot(CurrentUpperPart.transform);
         module.SetPivot(weaponPivot);
     }
 
@@ -53,7 +54,7 @@ public class ModuleManager
         }
 
         return pivot.transform;
-    }
+    }    
 
     private T CreateAndSetupPart<T>(Transform createPosition , int index = 0) where T : BasePart
     {

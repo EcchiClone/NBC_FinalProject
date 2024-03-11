@@ -19,8 +19,8 @@ public class PlayerStateMachine : MonoBehaviour
     [field: SerializeField] public CinemachineFreeLook CurrentCam { get; private set; }
 
     // # Parts Temp
-    public Transform upperPart;
-    public Transform lowerPart;
+    public LowerPart CurrentLowerPart { get; private set; }
+    public UpperPart CurrentUpperPart { get; private set; }
 
     // # AnimationData
     [field: Header("# Animation")]
@@ -28,7 +28,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // # Components
     public Module Module { get; private set; }
-    public PlayerInput Input { get; private set; }
+    public PlayerInput P_Input { get; private set; }
     public CharacterController Controller { get; private set; }
     public Animator Anim { get; private set; }
 
@@ -42,7 +42,8 @@ public class PlayerStateMachine : MonoBehaviour
     // # States
     public bool IsMoveInputPressed { get; private set; }
     public bool IsJumpInputPressed { get; private set; }
-    public bool IsFireInputPressed { get; private set; }
+    public bool IsPrimaryWeaponInputPressed { get; private set; }
+    public bool IsSecondaryWeaponInputPressed { get; private set; }
     public bool IsJumping { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
@@ -63,11 +64,14 @@ public class PlayerStateMachine : MonoBehaviour
 
         // 컴포넌트 Get
         Module = GetComponent<Module>();
-        Input = GetComponent<PlayerInput>();
-        Controller = GetComponent<CharacterController>();        
+        P_Input = GetComponent<PlayerInput>();
+        Controller = GetComponent<CharacterController>();
 
         // Setup
         Managers.Module.CreateModule(Module.LowerPosition, Module);
+        CurrentLowerPart = Managers.Module.CurrentLowerPart;
+        CurrentUpperPart = Managers.Module.CurrentUpperPart;
+
         Anim = GetComponentInChildren<Animator>();
 
         StateFactory = new PlayerStateFactory(this);
@@ -90,19 +94,22 @@ public class PlayerStateMachine : MonoBehaviour
 
         CurrentState.UpdateStates();
 
-        
-        HandleMove();        
+        HandleMove();
+        HandleUseWeaponPrimary();        
     }
 
     private void AddInputCallBacks()
     {
-        Input.Actions.Move.started += OnMovementInput;
-        Input.Actions.Move.performed += OnMovementInput;
-        Input.Actions.Move.canceled += OnMovementInput;
-        Input.Actions.Jump.started += OnJump;
-        Input.Actions.Jump.canceled += OnJump;
-        Input.Actions.Fire.started += OnFire;
-        Input.Actions.Fire.canceled += OnFire;
+        P_Input.Actions.Move.started += OnMovementInput;
+        P_Input.Actions.Move.performed += OnMovementInput;
+        P_Input.Actions.Move.canceled += OnMovementInput;
+        P_Input.Actions.Jump.started += OnJump;
+        P_Input.Actions.Jump.canceled += OnJump;
+
+        P_Input.Actions.PrimaryWeapon.started += OnPrimaryWeapon;
+        P_Input.Actions.PrimaryWeapon.canceled += OnPrimaryWeapon;
+        P_Input.Actions.SecondaryWeapon.started += OnSecondaryWeapon;
+        P_Input.Actions.SecondaryWeapon.canceled += OnSecondaryWeapon;
     }
 
     // InputAction 에 콜백 함수로 등록하여 입력값 받아옴. (이동관련)
@@ -121,19 +128,32 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // InputAction 에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
-    private void OnFire(InputAction.CallbackContext context)
+    private void OnPrimaryWeapon(InputAction.CallbackContext context)
     {
-        IsFireInputPressed = context.ReadValueAsButton();
+        IsPrimaryWeaponInputPressed = context.ReadValueAsButton();
+    }
+
+    private void OnSecondaryWeapon(InputAction.CallbackContext context)
+    {
+        IsSecondaryWeaponInputPressed = context.ReadValueAsButton();
+        if (IsSecondaryWeaponInputPressed)
+            CurrentUpperPart.UseWeapon_Secondary();
     }
 
     private void HandleMove()
-    {        
+    {
         _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * _movementSpeed);
 
         //###### Debuging
         currentCamRelative = _cameraRelativeMovement;
         //######
-        Controller.Move(_cameraRelativeMovement * Time.deltaTime);        
+        Controller.Move(_cameraRelativeMovement * Time.deltaTime);
+    }
+
+    private void HandleUseWeaponPrimary()
+    {
+        if (IsPrimaryWeaponInputPressed)
+            CurrentUpperPart.UseWeapon_Primary();
     }
 
     // 회전 제어

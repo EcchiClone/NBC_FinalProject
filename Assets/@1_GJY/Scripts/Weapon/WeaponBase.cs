@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasePart : MonoBehaviour
+public class WeaponBase : MonoBehaviour
 {
-    // LowerPart == UpperPoint / UpperPart == WeaponPoint    
+    [field: SerializeField] public WeaponSO WeaponSO {  get; private set; }
 
     public virtual void Setup() { }
 }

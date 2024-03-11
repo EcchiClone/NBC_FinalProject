@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
-    
+    public override void Setup()
+    {
+        base.Setup();
+
+
+    }
 }

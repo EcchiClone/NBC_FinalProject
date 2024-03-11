@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCombatState : PlayerBaseState
 {
-    private float _timeToNonCombat;
+    private float _timeToNonCombat;    
 
     public PlayerCombatState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory)
     {
@@ -20,7 +20,7 @@ public class PlayerCombatState : PlayerBaseState
     {
         CheckSwitchStates();
         TimeToNonCombatMode();
-        HandleGravity();
+        HandleGravity();        
     }
 
     public override void ExitState()
@@ -47,7 +47,7 @@ public class PlayerCombatState : PlayerBaseState
 
     private void TimeToNonCombatMode()
     {
-        if (!Context.IsFireInputPressed)
+        if (!Context.IsPrimaryWeaponInputPressed)
             _timeToNonCombat += Time.deltaTime;
         else
             _timeToNonCombat = 0;

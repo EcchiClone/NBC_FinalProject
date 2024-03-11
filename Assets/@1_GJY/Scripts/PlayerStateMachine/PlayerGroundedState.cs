@@ -42,7 +42,7 @@ public class PlayerGroundedState : PlayerBaseState
         else if (!Context.Controller.isGrounded)
             SwitchState(Factory.Fall());
 
-        else if (Context.IsFireInputPressed)
+        else if (Context.IsPrimaryWeaponInputPressed || Context.IsSecondaryWeaponInputPressed)
             SwitchState(Factory.Combat());
     }
 }
