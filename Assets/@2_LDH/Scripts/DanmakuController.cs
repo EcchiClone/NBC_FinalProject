@@ -6,9 +6,8 @@ using static PhaseSO;
 
 public class DanmakuController : PoolAble
 {
-    public IObjectPool<GameObject> Pool { get; set; }
-
     private DanmakuParameters _currentParameters; // 현재 탄막의 파라미터
+    private Coroutine releaseCoroutine;
 
     // 탄막에 파라미터를 설정하는 메서드 추가
     public void Initialize(DanmakuParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns)
@@ -17,7 +16,7 @@ public class DanmakuController : PoolAble
 
         // 이동 및 반환 로직
         StartCoroutine(UpdateMoveParameter());
-        StartCoroutine(Co_Release());
+        releaseCoroutine = StartCoroutine(Co_Release());
         // 하위 패턴 실행 로직
         if (subPatterns != null)
         {
@@ -31,6 +30,11 @@ public class DanmakuController : PoolAble
 
     void Update()
     {
+        //if (_currentParameters == null) // 왜 null이 되는지 예상이 안되는데, 무튼 자주 되어서 그를 위한 처리
+        //{
+        //    //StopCoroutine(releaseCoroutine); // 오류 여기
+        //    ReleaseObject();
+        //}
         Move();
     }
 
@@ -49,16 +53,17 @@ public class DanmakuController : PoolAble
 
     IEnumerator UpdateMoveParameter()
     {
-        // 이동 파라미터 업데이트, 예를 들어 방향 변경, 속도 변경 등
-        // 현재 예제에서는 추가적인 이동 파라미터 업데이트가 없으므로 바로 종료
         yield return null;
     }
 
     IEnumerator Co_Release()
     {
-        // 지정된 시간 후에 탄막을 객체 풀로 반환
         yield return new WaitForSeconds(_currentParameters.releaseTimer);
         ReleaseObject();
     }
+
+    //private void OnDisable()
+    //{
+    //}
 
 }

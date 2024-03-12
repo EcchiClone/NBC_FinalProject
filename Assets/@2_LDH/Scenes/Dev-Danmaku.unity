@@ -445,7 +445,7 @@ MonoBehaviour:
   - objectName: EnemyDanmaku01
     perfab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
       type: 3}
-    count: 5
+    count: 4100
 --- !u!4 &1640865030
 Transform:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 8296861634081347087, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8296861634081347087, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}

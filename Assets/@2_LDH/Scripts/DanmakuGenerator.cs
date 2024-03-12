@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using static PhaseSO;
 
 public class DanmakuGenerator : MonoBehaviour
 {
     public static DanmakuGenerator instance;
+    public IObjectPool<GameObject> Pool { get; set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -55,6 +58,11 @@ public class DanmakuGenerator : MonoBehaviour
         {
             for (int shotNum = 0; shotNum < settings.shotPerSet; ++shotNum)
             {
+                // masterObject의 상태 확인
+                if (masterObject == null || !masterObject.activeInHierarchy)
+                {
+                    yield break; // masterObject가 비활성화되거나 파괴되면 코루틴 중단
+                }
                 var danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
                 if (danmakuGo != null)
                 {
