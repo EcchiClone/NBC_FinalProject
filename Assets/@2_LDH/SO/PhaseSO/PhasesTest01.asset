@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 10
+  cycleTime: 999
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
     patternName: LinearTest01
