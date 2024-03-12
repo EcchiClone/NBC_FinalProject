@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class DanmakuLinear : MonoBehaviour
 {
-    //무브무브
 }

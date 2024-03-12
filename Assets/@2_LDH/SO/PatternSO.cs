@@ -34,7 +34,8 @@ public class DanmakuPatternData
 [System.Serializable]
 public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지로 {1.생성-2.이동-3.하층생성-4.반환} 명심하여 작성
 {
-    // 아래의 내용은 전-부 PhaseSO 작성 시 커스텀이 가능. 다만 선택적 커스텀을 어떻게 해야할지 떠오르지가 않음. 커스텀 값을 기본적으로 모두 null로 둘 수 있을까?
+    // 아래의 내용은 전-부 PhaseSO 작성 시 커스텀이 가능하도록(현재 불가능).
+    // 다만 선택적 커스텀을 어떻게 해야할지 떠오르지가 않음. 커스텀 값을 기본적으로 모두 null로 둘 수 있을까?
 
     // 1. 생성 ---------------------------------//------------------------------------------------------------------
 
@@ -42,14 +43,14 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     public GameObject danmakuPrefab;            // 탄막 기본 프리팹
 
     // 1-2. 생성 시간과 횟수에 관련된 정보
-    public float initDelay;                     // 첫 탄막 생성까지의 지연
+    public float initDelay;                     // 첫 탄막 생성까지의 지연. 불필요 가능성 큼.
     public int numOfSet;                        // 총 세트 수
     public float setDelay;                      // 세트 사이의 지연
     public int shotPerSet;                      // 한 세트에서 탄막을 몇 차례 생성할지
     public float shotDelay;                     // 탄막 생성 사이의 지연
 
     // 1-3. 생성 모양에 관한 정보
-    // Memo. 여기서 할게 꽤 많음. 차차 작성. 03월 11일 목표는 여기! SO 정보를 읽어 구 모양으로 발사하기. 필수요소만 준비하여 시연을 해 보자.
+    // Memo. 여기서 할게 꽤 많음. 차차 작성.
 
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
     public PosDirection posDirection;           // 주체 기준으로 생성될 방향
@@ -89,23 +90,26 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
 
 
     // 탄막의 방향 : 일단 주체기준으로 밖으로 퍼지도록 Outer로 설정하여 테스트
-    public DanmakuToDirection danmakuToDirection;
+    public DanmakuToDirection initDirectionType;
+    public Vector3 initCustomDirection;
 
     // 2. 이동 ---------------------------------//------------------------------------------------------------------
     // 탄막 자체의 세팅
+    public DanmakuMoveType danmakuMoveType;     // 
     public float initSpeed;                     // 시작속도. 일단은 정속으로 테스트, 추후 수정.
-    public Vector3 initDirection;               // 시작방향. 일단 보는방향으로 테스트, 추후 수정.
+                                                //public Vector3 initMoveDirection;         // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
                                                 // 변속정보.
                                                 // 변향정보. 플레이어에 유도 등 여러가지 요인으로 변수 추가 가능성 높음.
                                                 // 변속정보(불연속) 리스트
                                                 // 변향정보(불연속) 리스트
                                                 // 나중에 필요하면 이어서 추가
 
-    // 3. 클론 ---------------------------------//------------------------------------------------------------------
-    public NextPatternMethod nextPatternMethod; // 하위 탄막을 생성의 조건.
-                                                // 타이머일 경우, 그 시간
-                                                // UserTrigger일 경우, 이벤트 구독
-                                                // 마찬가지로 테스트 이후 필요한만큼 추가
+    // 3. 클론 ---------------------------------//------------------------------------------------------------------ // 이 경우, PhaseSO에서 담당.
+    //public NextPatternMethod[] nextPatternMethod;// 하위 탄막 생성의 조건.
+    //public float[] nextPatternTimer;            // 타이머일 경우, 그 시간
+    //                                            // UserTrigger일 경우, 이벤트 구독
+    //                                            // 마찬가지로 테스트 이후 필요한만큼 추가
+    //public List<PhaseSO.PatternHierarchy> subPatternSO; // 하위 패턴 정보 필드 추가
 
     // 4. 반환 ---------------------------------//------------------------------------------------------------------
     public ReleaseMethod releaseMethod;         // Pool 반환의 조건.
@@ -137,20 +141,25 @@ public enum DanmakuToDirection
 {
     World,              // 탄막의 방향과 무관계한
     Outer,              // 주체와 반대방향
+    MasterLookPlayer,   // 주체가 플레이어를 바라보도록
     LookPlayer,         // 탄막이 플레이어를 바라보도록
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
-public enum NextPatternMethod
+public enum DanmakuMoveType
 {
-    Timer,              // 특정 시간 뒤 터뜨리기
-    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    UserTrigger,        // Manager에서 트리거 관리. 트리거 작동 시, 구독한 탄막들 터뜨리기.
+    Head,
 }
+//public enum NextPatternMethod // PhaseSO에서 담당
+//{
+//    Timer,              // 특정 시간 뒤 터뜨리기
+//    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+//    UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
+//}
 public enum ReleaseMethod
 {
     Timer,              // 특정 시간 뒤 터뜨리기
     WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    UserTrigger,        // Manager에서 트리거 관리. 트리거 작동 시, 구독한 탄막들 터뜨리기.
+    UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
 }
 public enum DanmakuShape
 {
