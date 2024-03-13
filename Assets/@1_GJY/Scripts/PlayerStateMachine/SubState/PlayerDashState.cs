@@ -8,26 +8,29 @@ public class PlayerDashState : PlayerBaseState
 
     public override void EnterState()
     {
+        Context.StartDash();
         Context._currentMovementDirection.y = 0;
         StartAnimation(Context.AnimationData.DashParameterName);
         RemoveSubState();
-        Context.BoostAndRun();
     }
 
     public override void UpdateState()
     {
         HandleGravity();
         CheckSwitchStates();
+        if (!Context.IsDashInputPressed && Context.CanJudgeDashing)
+            Context.IsDashing = false;
     }
 
     public override void ExitState()
     {
+        Context.StopDash();
         StopAnimation(Context.AnimationData.DashParameterName);
     }
 
     public override void CheckSwitchStates()
     {
-        if(!Context.IsDashInputPressed && Context.IsDashing)
+        if(!Context.IsDashInputPressed && !Context.IsDashing)
         {
             if (Context.Controller.isGrounded)
                 SwitchState(Factory.Grounded());

@@ -25,8 +25,8 @@ public class PlayerFallState : PlayerBaseState
     public override void CheckSwitchStates()
     {
         if (Context.Controller.isGrounded)
-            SwitchState(Factory.Grounded());        
-        else if (Context.IsDashInputPressed)
+            SwitchState(Factory.Grounded());
+        else if (Context.IsDashInputPressed && Context.CanDash)
             SwitchState(Factory.Dash());
     }
 

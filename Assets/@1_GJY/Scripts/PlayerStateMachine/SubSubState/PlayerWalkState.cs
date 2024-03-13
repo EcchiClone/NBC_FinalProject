@@ -16,6 +16,11 @@ public class PlayerWalkState : PlayerBaseState
         CheckSwitchStates();
     }
 
+    public override void ExitState()
+    {
+        StopAnimation(Context.AnimationData.WalkParameterHash);
+    }
+
     public override void CheckSwitchStates()
     {
         if (!Context.IsMoveInputPressed)

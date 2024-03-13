@@ -38,7 +38,7 @@ public class PlayerGroundedState : PlayerBaseState
             SwitchState(Factory.Jump());
         else if (!Context.Controller.isGrounded)
             SwitchState(Factory.Fall());
-        else if (Context.IsDashInputPressed)
+        else if (Context.IsDashInputPressed && Context.CanDash)
             SwitchState(Factory.Dash());
     }
 

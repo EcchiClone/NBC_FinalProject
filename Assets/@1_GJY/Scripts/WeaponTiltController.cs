@@ -31,15 +31,6 @@ public class WeaponTiltController
         _upper.WeaponTilt.rotation = Quaternion.Slerp(currentWeaponTilt, targetWeaponTilt, _smoothValue * Time.deltaTime);
     }
 
-    public void WeaponTiltControl()
-    {
-        Vector3 positionToLookAt = Camera.main.transform.forward;        
-
-        Quaternion currentRotation = _upper.WeaponTilt.rotation;
-        Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-        
-    }
-
     public IEnumerator CoResetRoutine()
     {
         Quaternion currentHead = _upper.transform.localRotation;

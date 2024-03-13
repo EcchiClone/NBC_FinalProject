@@ -10,11 +10,11 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector3 currentCamRelative;
 
     [field: Header("# Test")]
-    [field: Range(2f, 10f)][field: SerializeField] public float MovementSpeed { get; private set; }
+    [field: Range(2f, 10f)][field: SerializeField] public float MovementSpeed { get; private set; }    
     [field: Range(5f, 15f)][field: SerializeField] public float SmoothRotateValue { get; private set; }
     [field: Range(0.1f, 1f)][field: SerializeField] public float MinDownForceValue { get; private set; } // 접지 중일 때 최소 중력배율
-    [field: Range(1f, 100f)][field: SerializeField] public float JumpPower { get; private set; } // 점프 높이
-    [field: Range(1f, 3f)][field: SerializeField] public float DashCoolDown { get; private set; } // 대쉬 쿨타임
+    [field: Range(1f, 100f)][field: SerializeField] public float JumpPower { get; private set; } // 점프 높이    
+    [field: Range(2f, 3f)][field: SerializeField] public float BoostPower { get; private set; } // 부스터 출력   
 
     [field: Header("# Cam")]    
     [field: SerializeField] public CinemachineFreeLook CurrentCam { get; private set; }
@@ -26,6 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
     // # AnimationData
     [field: Header("# Animation")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+    [SerializeField] private AnimationCurve _boostDragCurve;
 
     // # Components
     public Module Module { get; private set; }
@@ -48,12 +49,18 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsSecondaryWeaponInputPressed { get; private set; }
     public bool IsJumping { get; set; }
     public bool IsDashing { get; set; }
+    public bool CanDash { get; set; }
+    public bool CanJudgeDashing { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
     public PlayerStateFactory StateFactory { get; private set; }
     public WeaponTiltController TiltController { get; private set; }
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
+    public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
+
+    private float _dashCoolDownTime = float.MaxValue;
+    private float _movementModifier = 1;
 
     private void Awake()
     {
@@ -87,7 +94,8 @@ public class PlayerStateMachine : MonoBehaviour
 
         // 초기 중력값 조절
         InitialGravity = Physics.gravity.y;
-        _currentMovementDirection.y = -MinDownForceValue;        
+        _currentMovementDirection.y = -MinDownForceValue;
+        CanDash = true;
     }
 
     private void Start()
@@ -98,19 +106,23 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        
-
         CurrentState.UpdateStates();
 
         HandleMove();
         HandleRotation();
         HandleUseWeaponPrimary();
+        HandleDashCoolDown();
 
+        // Test
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log(CurrentState._currentSubState);
             Debug.Log(CurrentState._currentSubState._currentSubState);
-        }        
+        }
+#endif
+
+        Debug.Log(_movementModifier);
     }
 
     private void AddInputCallBacks()
@@ -151,7 +163,7 @@ public class PlayerStateMachine : MonoBehaviour
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
     private void OnDash(InputAction.CallbackContext context)
     {
-        IsDashInputPressed = context.ReadValueAsButton();
+        IsDashInputPressed = context.ReadValueAsButton();        
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
@@ -169,7 +181,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void HandleMove()
     {
-        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * MovementSpeed);
+        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * MovementSpeed * _movementModifier);
 
         //###### Debuging
         currentCamRelative = _cameraRelativeMovement;
@@ -259,18 +271,55 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region Dash
-    public void BoostAndRun()
-    {        
+    private void HandleDashCoolDown()
+    {
+        if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
+            return;
+
+        _dashCoolDownTime += Time.deltaTime;
+        if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
+        {
+            CanDash = true;
+            _dashCoolDownTime = TIME_TO_SWITCHABLE_DASH_MODE;            
+            Debug.Log("대시 가능");
+        }
+    }
+
+    public void StartDash()
+    {
+        _dashCoolDownTime = 0;
+        CanDash = false;
+        CanJudgeDashing = false;
+        IsDashing = true;
+        
         StartCoroutine(CoBoostOn());
+    }
+
+    public void StopDash()
+    {
+        _movementModifier = 1f;
     }
 
     private IEnumerator CoBoostOn()
     {
+        // Test 하드코딩        
+        float startSpeed = _movementModifier * BoostPower;
+        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;        
 
+        float current = 0f;
+        float percent = 0f;
+        float time = 2f;
 
-        yield return new WaitForSeconds(2f);
+        while (percent < 1f)
+        {
+            current += Time.deltaTime;
+            percent = current / time;
 
-        IsDashing = true;
+            _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));
+            yield return null;
+        }
+        _movementModifier = endSpeed;
+        CanJudgeDashing = true;
     }
     #endregion
 }
