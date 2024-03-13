@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class PlayerCombatState : PlayerBaseState
@@ -13,7 +14,9 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("컴뱃모드 진입");
+        StateType = RootStateType.Combat;
+        StartAnimation(Context.AnimationData.CombatParameterName);
+        InitailizeSubState();        
     }
 
     public override void UpdateState()
@@ -25,7 +28,20 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void ExitState()
     {
-        Debug.Log("컴뱃모드 종료");
+        StopAnimation(Context.AnimationData.CombatParameterName);
+    }
+
+    public override void InitailizeSubState()
+    {
+        if (Context.Controller.isGrounded)
+            SetSubState(Factory.Grounded());
+        else
+        {
+            if (Context.IsJumping)
+                SetSubState(Factory.Jump());
+            else
+                SetSubState(Factory.Fall());
+        }            
     }
 
     public override void CheckSwitchStates()
@@ -33,16 +49,8 @@ public class PlayerCombatState : PlayerBaseState
         if (_timeToNonCombat > Context.TIME_TO_NON_COMBAT_MODE)
         {
             _timeToNonCombat = 0;
-            SwitchState(Factory.Grounded());
+            SwitchState(Factory.NonCombat());
         }
-    }
-
-    public override void InitailizeSubState()
-    {
-        if (!Context.IsMoveInputPressed)
-            SetSubState(Factory.Idle());
-        else if (Context.IsMoveInputPressed)
-            SetSubState(Factory.Walk());
     }
 
     private void TimeToNonCombatMode()

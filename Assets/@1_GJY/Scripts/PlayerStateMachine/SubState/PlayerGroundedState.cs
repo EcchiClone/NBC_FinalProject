@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerBaseState
 {
-    public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory stateFactory) : base(currentContext, stateFactory) 
-    {
-        InitailizeSubState();
-        IsRootState = true;
-    }
+    public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory stateFactory) : base(currentContext, stateFactory) { }
 
     public override void EnterState()
     {
-        Context._currentMovementDirection.y = -Context.MinDownForceValue;
-        
+        HandleGravity();
+        InitailizeSubState();
     }
 
     public override void UpdateState()
     {
-        CheckSwitchStates();        
+        CheckSwitchStates();
     }
 
     public override void ExitState()
     {
-        
+        _currentSubState.ExitState();
     }
 
     public override void InitailizeSubState()
@@ -32,17 +28,22 @@ public class PlayerGroundedState : PlayerBaseState
             SetSubState(Factory.Idle());
         else if (Context.IsMoveInputPressed)
             SetSubState(Factory.Walk());
+
+        _currentSubState.EnterState();
     }
 
     public override void CheckSwitchStates()
     {
         if (Context.IsJumpInputPressed)
             SwitchState(Factory.Jump());
-
         else if (!Context.Controller.isGrounded)
             SwitchState(Factory.Fall());
+        else if (Context.IsDashInputPressed)
+            SwitchState(Factory.Dash());
+    }
 
-        else if (Context.IsPrimaryWeaponInputPressed || Context.IsSecondaryWeaponInputPressed)
-            SwitchState(Factory.Combat());
+    private void HandleGravity()
+    {
+        Context._currentMovementDirection.y = -Context.MinDownForceValue;
     }
 }

@@ -8,22 +8,12 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void EnterState()
     {
-        StartAnimation(Context.AnimationData.WalkParameterHash);
+        StartAnimation(Context.AnimationData.WalkParameterHash);        
     }
-
+        
     public override void UpdateState()
     {
         CheckSwitchStates();
-    }
-
-    public override void ExitState()
-    {
-        StopAnimation(Context.AnimationData.WalkParameterHash);
-    }
-
-    public override void InitailizeSubState()
-    {
-        
     }
 
     public override void CheckSwitchStates()

@@ -63,8 +63,7 @@ public class ModuleManager
         {
             Debug.Log("Upper 파츠 정보가 없습니다.");
             return null;
-        }
-        Debug.Log(parts.Length);
+        }        
 
         GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);
         T part = go.GetComponent<T>();
