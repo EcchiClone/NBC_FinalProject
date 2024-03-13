@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6a44bcf0d4ad545af7f622c137d67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <WeaponTilt>k__BackingField: {fileID: 4264020004977597763}
   _primaryMuzzles:
   - {fileID: 2269993593499379566}
   - {fileID: 2834875425581590389}

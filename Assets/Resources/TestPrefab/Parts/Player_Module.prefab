@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8872714411655168895}
   m_Layer: 0
   m_Name: Player_Module
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2850199524926614390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0, z: -18.25}
+  m_LocalPosition: {x: 0.25, y: 6.58, z: 7.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56,7 +56,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.7
+  m_Height: 1.8
   m_Radius: 0.45
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -111,17 +111,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCamRelative: {x: 0, y: 0, z: 0}
-  _movementSpeed: 10
-  _smoothRotateValue: 15
-  <MinDownForceValue>k__BackingField: 1
-  <JumpPower>k__BackingField: 8
+  <MovementSpeed>k__BackingField: 3
+  <SmoothRotateValue>k__BackingField: 8
+  <MinDownForceValue>k__BackingField: 0.1
+  <JumpPower>k__BackingField: 5
   <CurrentCam>k__BackingField: {fileID: 0}
-  upperPart: {fileID: 0}
-  lowerPart: {fileID: 0}
   <AnimationData>k__BackingField:
-    walkParameterName: IsWalk
+    walkParameterName: Walk
     walkForNAftParameterName: ForAndAft
     walkLeftNRightParameterName: LeftAndRight
+    jumpParameterName: Jump
+    nonCombatParameterName: '@NonCombat'
+    combatParameterName: '@Combat'
+    boostParameterName: '@Dash'
   _currentMovementInput: {x: 0, y: 0}
   _currentMovementDirection: {x: 0, y: 0, z: 0}
   _cameraRelativeMovement: {x: 0, y: 0, z: 0}
