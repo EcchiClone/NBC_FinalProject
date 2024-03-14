@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-    [field: SerializeField] public Transform LowerPosition { get; private set; }
+    [field: SerializeField] public Transform LowerPivot { get; private set; }
 
-    private Transform _upperPivot;
-    private Transform _weaponPivot;
+    public Transform UpperPivot { get; private set; }
+    public Transform WeaponPivot { get; private set; }  
+    
+    public bool IsPlayable { get; private set; }
+
+    private void Awake()
+    {
+        if (GetComponent<PlayerStateMachine>() != null)
+        {
+            IsPlayable = true;
+            return;
+        }
+        Managers.Module.CreateModule(LowerPivot, this);
+    }
 
     public void SetPivot(Transform pivot)
     {
-        if (_upperPivot == null)
+        if (UpperPivot == null)
         {
-            _upperPivot = pivot;
+            UpperPivot = pivot;
             return;
         }
-        _weaponPivot = pivot;
+        WeaponPivot = pivot;
     }
 }

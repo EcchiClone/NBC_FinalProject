@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
-    public override void Setup()
+    public override void Setup(Module module)
     {
-        base.Setup();
-
-
+        base.Setup(module);
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   dev_Name: TempRocket
   displayName: 
   description: 
-  bulletPrefab: {fileID: 1483916376805044650, guid: 8aa417d9b9aac6346841e804f44acb79,
+  bulletPrefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
     type: 3}
   fireRate: 0.5
   coolDownTime: 2

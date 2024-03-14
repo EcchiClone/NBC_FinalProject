@@ -51,7 +51,7 @@ public abstract class PlayerBaseState : IPlayerState
             _currentSuperState.SetSubState(newState);        
     }
 
-    protected void SetSuperState(PlayerBaseState newSuperState)
+    protected void SetSuperState(PlayerBaseState newSuperState) 
     {
         _currentSuperState = newSuperState;
     }

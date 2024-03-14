@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneInitTester : MonoBehaviour
+public class SelectorSceneTester : MonoBehaviour
 {
     private void Awake()
     {
-        Managers.Module.CreatePlayerModule();
+        Managers.Module.CreateSelectorModule();
     }
 }

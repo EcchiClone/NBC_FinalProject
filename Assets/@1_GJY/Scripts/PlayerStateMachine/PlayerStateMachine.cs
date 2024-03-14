@@ -28,11 +28,11 @@ public class PlayerStateMachine : MonoBehaviour
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     [SerializeField] private AnimationCurve _boostDragCurve;
 
-    // # Components
-    public Module Module { get; private set; }
+    // # Components    
     public PlayerInput P_Input { get; private set; }
     public CharacterController Controller { get; private set; }    
     public Animator Anim { get; private set; }
+    public Module Module { get; private set; }
 
     // # Info
     public float InitialGravity { get; private set; }
@@ -75,13 +75,13 @@ public class PlayerStateMachine : MonoBehaviour
         // 애니메이션 Hash 초기화
         AnimationData.Init();
 
-        // 컴포넌트 Get
-        Module = GetComponent<Module>();
+        // 컴포넌트 Get        
         P_Input = GetComponent<PlayerInput>();
-        Controller = GetComponent<CharacterController>();        
+        Controller = GetComponent<CharacterController>();
+        Module = GetComponent<Module>();
 
-        // Setup
-        Managers.Module.CreateModule(Module.LowerPosition, Module);
+        // Setup        
+        Managers.Module.CreateModule(Module.LowerPivot, Module);
         CurrentLowerPart = Managers.Module.CurrentLowerPart;
         CurrentUpperPart = Managers.Module.CurrentUpperPart;        
 
@@ -120,9 +120,7 @@ public class PlayerStateMachine : MonoBehaviour
             Debug.Log(CurrentState._currentSubState);
             Debug.Log(CurrentState._currentSubState._currentSubState);
         }
-#endif
-
-        Debug.Log(_movementModifier);
+#endif        
     }
 
     private void AddInputCallBacks()

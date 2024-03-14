@@ -15,19 +15,25 @@ public class UpperPart : BasePart
     private float _primaryFireRate = float.MaxValue;
     private float _secondaryCoolDown = float.MaxValue;
 
-    public override void Setup()
+    public override void Setup(Module module)
     {
-        base.Setup();
+        base.Setup(module);
     }
 
     private void Start()
     {
+        if (!_module.IsPlayable)
+            return;
+
         Primary = GetComponent<Weapon_Primary>();
         Secondary = GetComponent<Weapon_Secondary>();
     }
 
     private void Update()
     {
+        if (!_module.IsPlayable)
+            return;
+
         if (_primaryFireRate < Primary.WeaponSO.fireRate)
             _primaryFireRate += Time.deltaTime;
         if (_secondaryCoolDown < Secondary.WeaponSO.coolDownTime)

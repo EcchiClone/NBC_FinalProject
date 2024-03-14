@@ -38,13 +38,10 @@ public class PlayerNonCombatState : PlayerBaseState
                 SetSubState(Factory.Grounded());
             else
             {
-                if (!Context.Controller.isGrounded)
-                {
-                    if (Context.IsJumping)
-                        SetSubState(Factory.Jump());
-                    else
-                        SetSubState(Factory.Fall());
-                }
+                if (Context.IsJumping)
+                    SetSubState(Factory.Jump());
+                else
+                    SetSubState(Factory.Fall());
             }
         }
     }
