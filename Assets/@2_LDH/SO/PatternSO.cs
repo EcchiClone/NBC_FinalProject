@@ -53,7 +53,7 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     // Memo. 여기서 할게 꽤 많음. 차차 작성.
 
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
-    public PosDirection posDirection;           // 주체 기준으로 생성될 방향
+    public PosDirection posDirection;           // 마스터 기준으로 생성될 방향
     public Vector3 customPosDirection;          // > posDirection이 World일 경우 지정
                                                 // a-plug. 기준 방향에 랜덤성을 줄 것인지.
                                                 // public bool posDirectionHasRandomness;    // 랜덤성 부여
@@ -89,7 +89,7 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
 
 
 
-    // 탄막의 방향 : 일단 주체기준으로 밖으로 퍼지도록 Outer로 설정하여 테스트
+    // 탄막의 방향 : 일단 마스터기준으로 밖으로 퍼지도록 Outer로 설정하여 테스트
     public DanmakuToDirection initDirectionType;
     public Vector3 initCustomDirection;
 
@@ -116,7 +116,7 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     public float releaseTimer;                  // 방법1. 반환까지의 타이머. 일단 이거로 테스트.
                                                 // 방법2. 충돌체크. Ground를 만날 시 반환 여부. 이벤트 감지 로직은 각 탄막에서보다 Ground에서 작성하는 것이 자원을 아낄 수 있을 것으로 보임.
                                                 // 방법3. 하위 탄막의 모든 세트 생성을 끝마친 경우
-                                                // 방법4. 주체의 트리거(구독)
+                                                // 방법4. 마스터의 트리거(구독)
     
     // 그리고 이 모든것을 하나의 뭉치로하여, 하위 탄막에 전해주거나 할 것으로 일단 보임.
     // 하위 탄막에 전해줄 내용 : 뭉탱이.
@@ -125,9 +125,9 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
 
 public enum PosDirection
 {
-    World,              // 주체 또는 플레이어의 방향과 무관계한
-    Look,               // 주체가 바라보는
-    LookPlayer,         // 주체가 플레이어를 바라볼 경우
+    World,              // 마스터 또는 플레이어의 방향과 무관계한
+    Look,               // 마스터가 바라보는
+    LookPlayer,         // 마스터가 플레이어를 바라볼 경우
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 
@@ -140,8 +140,8 @@ public enum PosDirectionRandomType
 public enum DanmakuToDirection
 {
     World,              // 탄막의 방향과 무관계한
-    Outer,              // 주체와 반대방향
-    MasterLookPlayer,   // 주체가 플레이어를 바라보도록
+    Outer,              // 마스터와 반대방향
+    MasterLookPlayer,   // 마스터가 플레이어를 바라보도록
     LookPlayer,         // 탄막이 플레이어를 바라보도록
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }

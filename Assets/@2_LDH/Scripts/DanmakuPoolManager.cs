@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -88,7 +89,7 @@ public class DanmakuPoolManager : MonoBehaviour
         poolGo.SetActive(true);
     }
 
-    // 반환
+    // 반환 -> 대량 탄막에는 지양. 큐 사용한 배치처리로 프레임당 횟수 제한
     private void OnReturnedToPool(GameObject poolGo)
     {
         poolGo.SetActive(false);
@@ -112,4 +113,37 @@ public class DanmakuPoolManager : MonoBehaviour
 
         return ojbectPoolDic[goName].Get();
     }
+
+    // 배치 처리를 통한 반환 최적화
+    private Queue<GameObject> releaseQueue = new Queue<GameObject>();
+    private int releaseBatchSize = 30; // 한 프레임에 반환할 오브젝트 수
+
+    private void Update()
+    {
+        ProcessReleaseQueue();
+    }
+    private void ProcessReleaseQueue()
+    {
+        for (int i = 0; i < releaseBatchSize && releaseQueue.Count > 0; i++)
+        {
+            GameObject poolGo = releaseQueue.Dequeue(); // 안전 검사: 오브젝트가 아직 활성화 상태인지 확인
+
+            if (poolGo.activeInHierarchy)
+            {
+                poolGo.SetActive(false); // 비활성화하거나 반환 로직 수행
+            }
+        }
+    }
+
+    public void ScheduleRelease(GameObject poolGo, float delay)
+    {
+        StartCoroutine(Co_ScheduleRelease(poolGo, delay));
+    }
+
+    private IEnumerator Co_ScheduleRelease(GameObject poolGo, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        releaseQueue.Enqueue(poolGo); // 반환 대기열에 추가
+    }
+
 }
