@@ -461,6 +461,7 @@ MonoBehaviour:
     perfab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
       type: 3}
     count: 3000
+  releaseBatchSize: 5
 --- !u!4 &1640865030
 Transform:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d97d5d3a3eb2043aadb850c5b1cf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rentalBatchSize: 10
+  rentalBatchSize: 300
 --- !u!1 &2058039656
 GameObject:
   m_ObjectHideFlags: 0

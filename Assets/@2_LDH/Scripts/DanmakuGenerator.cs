@@ -73,21 +73,14 @@ public class DanmakuGenerator : MonoBehaviour
                 }
 
                 // 1. 초기화 및 위치, 방향 일괄적용
-                List<GameObject> danmakuGoList = new List<GameObject>();
-                SetupDanmakuGoList(settings, danmakuGoList, playerGo, masterGo);
+                //List<GameObject> danmakuGoList = new List<GameObject>();
+                List<LightTransform> danmakuTransformList = new List<LightTransform>();
 
-                // 2. 그 외 세팅 파라미터 등 하위 탄막의 DanmakuController에 전달
-                foreach (GameObject danmakuGo in danmakuGoList)
-                {
-                    DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
-                    if (danmakuController != null)
-                    {
-                        DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
-                        danmakuController.Initialize(parameters, nextCycleTime, subPatterns);
-                    }
-                    // else{} // danmakuController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
-                    //           풀을 사용하지 않는 방향으로, 그냥 Instantiate만 사용하면 될 것으로 예상됨.
-                }
+                SetupDanmakuGoList(settings, danmakuTransformList, playerGo, masterGo);
+
+                EnqueueDanmakuSpawnInfo(settings, danmakuTransformList, subPatterns, nextCycleTime);
+
+
 
                 if (settings.shotDelay > 0)
                     yield return new WaitForSeconds(settings.shotDelay); // 각 발사 사이의 지연
@@ -98,12 +91,16 @@ public class DanmakuGenerator : MonoBehaviour
 
         yield return null;
     }
+    public class LightTransform {
+        public Vector3 position { get; set; }
+        public Quaternion rotation { get; set; }
+    }
 
     // 탄막의 생성 및 위치 초기화
-    private void SetupDanmakuGoList(DanmakuSettings settings, List<GameObject> danmakuGoList, GameObject playerGo, GameObject masterGo)
+    private void SetupDanmakuGoList(DanmakuSettings settings, List<LightTransform> danmakuTransformList, GameObject playerGo, GameObject masterGo)
     {
         Vector3 pivotPosition = masterGo.transform.position; // 마스터의 위치를 기본값으로
-
+        
         // 1. 위치
         switch (settings.danmakuShape)
         {
@@ -112,7 +109,9 @@ public class DanmakuGenerator : MonoBehaviour
                 // 생성(현재 1개만 대응)
                 for(int i = 0; i < 1; i++)
                 {
-                    GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
+                    //GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
+                    LightTransform danmakuTransform = new LightTransform();
+
                     Vector3 initPosition = pivotPosition;
                     // 위치 설정
                     switch (settings.posDirection)
@@ -134,20 +133,19 @@ public class DanmakuGenerator : MonoBehaviour
                             initPosition += Random.onUnitSphere * settings.initDistance;
                             break;
                     }
-                    danmakuGo.transform.position = initPosition;
-                    danmakuGoList.Add(danmakuGo);
+                    danmakuTransform.position = initPosition;
+                    danmakuTransformList.Add(danmakuTransform);
                 }
                 break;
 
             case (DanmakuShape.Sphere):
                 // 한 층의 둘레에 생기게 할 탄막 수 : settings.numPerShot
                 // 몇 층으로 쌓을지에 대한 수 : settings.shotVerticalNum
-
-                foreach (Vector3 newGoPos in MathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
+                foreach (Vector3 spherePoint in MathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
-                    GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
-                    danmakuGo.transform.position = pivotPosition + newGoPos;
-                    danmakuGoList.Add(danmakuGo);
+                    LightTransform danmakuTransform = new LightTransform();
+                    danmakuTransform.position = pivotPosition + spherePoint;
+                    danmakuTransformList.Add(danmakuTransform);
                 }
                 break;
 
@@ -161,52 +159,53 @@ public class DanmakuGenerator : MonoBehaviour
         switch (settings.initDirectionType)
         {
             case DanmakuToDirection.World: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
-                foreach (GameObject danmakuGo in danmakuGoList)
+                foreach (LightTransform danmakuTransform in danmakuTransformList)
                 {
-                    danmakuGo.transform.rotation = Quaternion.Euler(settings.initCustomDirection);
+                    danmakuTransform.rotation = Quaternion.Euler(settings.initCustomDirection);
                 }
                 break;
 
             case DanmakuToDirection.Outer: // 마스터(masterGo)와 반대되는 방향으로
-                foreach (GameObject danmakuGo in danmakuGoList)
+                foreach (LightTransform danmakuTransform in danmakuTransformList)
                 {
-                    Vector3 directionMasterToDanmaku = (danmakuGo.transform.position - masterGo.transform.position).normalized;
-                    danmakuGo.transform.rotation = Quaternion.LookRotation(directionMasterToDanmaku);
+                    Vector3 directionMasterToDanmaku = (danmakuTransform.position - masterGo.transform.position).normalized;
+                    danmakuTransform.rotation = Quaternion.LookRotation(directionMasterToDanmaku);
                 }
                 break;
 
             case DanmakuToDirection.MasterLookPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
 
-                foreach (GameObject danmakuGo in danmakuGoList)
+                foreach (LightTransform danmakuTransform in danmakuTransformList)
                 {
                     if (playerGo != null)
                     {
                         Vector3 directionMasterToPlayer = (playerGo.transform.position - masterGo.transform.position).normalized;
-                        danmakuGo.transform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
+                        danmakuTransform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
                     }
                     else
                     {
                         // playerGo가 없을 경우, DanmakuToDirection.Outer 와 같도록
-                        Vector3 directionToMaster = (danmakuGo.transform.position - masterGo.transform.position).normalized;
-                        danmakuGo.transform.rotation = Quaternion.LookRotation(-directionToMaster);
+                        Vector3 directionToMaster = (danmakuTransform.position - masterGo.transform.position).normalized;
+                        danmakuTransform.rotation = Quaternion.LookRotation(-directionToMaster);
                     }
                 }
                 break;
 
             case DanmakuToDirection.LookPlayer: // 탄막이 플레이어를 바라보도록
-                foreach (GameObject danmakuGo in danmakuGoList)
+                foreach (LightTransform danmakuTransform in danmakuTransformList)
                 {
                     if (playerGo != null)
                     {
-                        danmakuGo.transform.LookAt(playerGo.transform);
+                        Vector3 directionToPlayer = (playerGo.transform.position - danmakuTransform.position).normalized;
+                        danmakuTransform.rotation = Quaternion.LookRotation(directionToPlayer);
                     }
                 }
                 break;
 
             case DanmakuToDirection.CompletelyRandom: // 모든 방향으로 랜덤
-                foreach (GameObject danmakuGo in danmakuGoList)
+                foreach (LightTransform danmakuTransform in danmakuTransformList)
                 {
-                    danmakuGo.transform.rotation = Random.rotation;
+                    danmakuTransform.rotation = Random.rotation;
                 }
                 break;
         }
@@ -240,17 +239,17 @@ public class DanmakuGenerator : MonoBehaviour
     }
     // 탄막 생성 정보를 담은 큐
     private Queue<DanmakuSpawnInfo> spawnQueue = new Queue<DanmakuSpawnInfo>();
-    public int rentalBatchSize = 10;
+    public int rentalBatchSize = 200;
 
-    private void EnqueueDanmakuSpawnInfo(DanmakuSettings settings, List<GameObject> danmakuGoList, List<PatternHierarchy> subPatterns, float nextCycleTime)
+    private void EnqueueDanmakuSpawnInfo(DanmakuSettings settings, List<LightTransform> danmakuTransformList, List<PatternHierarchy> subPatterns, float nextCycleTime)
     {
-        foreach (GameObject danmakuGo in danmakuGoList)
+        foreach (LightTransform danmakuTransform in danmakuTransformList)
         {
             DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
             DanmakuSpawnInfo spawnInfo = new DanmakuSpawnInfo(
                 settings.danmakuPrefab.name,
-                danmakuGo.transform.position,
-                danmakuGo.transform.rotation,
+                danmakuTransform.position,
+                danmakuTransform.rotation,
                 parameters,
                 nextCycleTime,
                 subPatterns);
@@ -258,30 +257,51 @@ public class DanmakuGenerator : MonoBehaviour
             spawnQueue.Enqueue(spawnInfo);
         }
     }
-    // 큐로 관리하는 탄막 생성 함수
-    //private void Update()
-    //{
-    //    ProcessSpawnQueue();
-    //}
+    //큐로 관리하는 탄막 생성 함수
+    private void Update()
+    {
+        ProcessSpawnQueue();
+    }
 
-    //private void ProcessSpawnQueue()
-    //{
-    //    int spawnCountThisFrame = 0;
-    //    while (spawnQueue.Count > 0 && spawnCountThisFrame < rentalBatchSize)
-    //    {
-    //        DanmakuSpawnInfo spawnInfo = spawnQueue.Dequeue();
-    //        GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(spawnInfo.prefabName);
+    private void ProcessSpawnQueue()
+    {
+        int spawnCountThisFrame = 0;
+        while (spawnQueue.Count > 0 && spawnCountThisFrame < rentalBatchSize)
+        {
+            //Debug.Log($"{spawnQueue.Count}, {spawnCountThisFrame}");
+            DanmakuSpawnInfo spawnInfo = spawnQueue.Dequeue();
+            GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(spawnInfo.prefabName);
 
-    //        danmakuGo.transform.position = spawnInfo.position;
-    //        danmakuGo.transform.rotation = spawnInfo.rotation;
+            danmakuGo.transform.position = spawnInfo.position;
+            danmakuGo.transform.rotation = spawnInfo.rotation;
 
-    //        DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
-    //        if (danmakuController != null)
-    //        {
-    //            danmakuController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
-    //        }
+            DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
+            if (danmakuController != null)
+            {
+                danmakuController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
+            }
+            else
+            {
+                // danmakuController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
+                // Pool을 사용하지 않는 방향으로, 그냥 Instantiate만 사용하면 될 것으로 예상됨.
+            }
 
-    //        spawnCountThisFrame++;
-    //    }
-    //}
+            spawnCountThisFrame++;
+        }
+    }
+    //GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
+    /*
+                // 2. 그 외 세팅 파라미터 등 하위 탄막의 DanmakuController에 전달
+                foreach (GameObject danmakuGo in danmakuGoList)
+                {
+                    DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
+                    if (danmakuController != null)
+                    {
+                        DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
+                        danmakuController.Initialize(parameters, nextCycleTime, subPatterns);
+                    }
+                    // else{} // danmakuController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
+                    //           풀을 사용하지 않는 방향으로, 그냥 Instantiate만 사용하면 될 것으로 예상됨.
+                }
+    */
 }

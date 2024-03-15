@@ -21,5 +21,6 @@ public class PoolAble : MonoBehaviour
             Debug.LogWarning("해당 오브젝트는 이미 inactive 상태: " + gameObject.name);
         }
     }
+    
 
 }

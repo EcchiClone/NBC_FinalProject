@@ -37,14 +37,20 @@ public class DanmakuPoolManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60; // 임시작성
         if (instance == null)
+        {
             instance = this;
+        }
+
         else
             Destroy(this.gameObject);
 
         Init();
     }
 
+    IObjectPool<GameObject> pool;
+    int nowActiveItem;
 
     private void Init()
     {
@@ -52,9 +58,9 @@ public class DanmakuPoolManager : MonoBehaviour
 
         for (int idx = 0; idx < objectInfos.Length; idx++)
         {
-            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool,
+            pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool,
             OnDestroyPoolObject, true, objectInfos[idx].count, objectInfos[idx].count);
-
+            
             if (goDic.ContainsKey(objectInfos[idx].objectName))
             {
                 Debug.LogFormat("{0} 이미 등록된 오브젝트입니다.", objectInfos[idx].objectName);
@@ -78,6 +84,8 @@ public class DanmakuPoolManager : MonoBehaviour
     // 생성
     private GameObject CreatePooledItem()
     {
+        //Debug.Log("생성");
+        nowActiveItem++; // 갯수추적
         GameObject poolGo = Instantiate(goDic[objectName]);
         poolGo.GetComponent<PoolAble>().Pool = ojbectPoolDic[objectName];
         return poolGo;
@@ -86,24 +94,29 @@ public class DanmakuPoolManager : MonoBehaviour
     // 대여
     private void OnTakeFromPool(GameObject poolGo)
     {
+        //Debug.Log("대여");
+        nowActiveItem++; // 갯수추적
         poolGo.SetActive(true);
     }
 
     // 반환 -> 대량 탄막에는 지양. 큐 사용한 배치처리로 프레임당 횟수 제한
     private void OnReturnedToPool(GameObject poolGo)
     {
+        nowActiveItem--; // 갯수추적
         poolGo.SetActive(false);
     }
 
     // 삭제
     private void OnDestroyPoolObject(GameObject poolGo)
     {
+        nowActiveItem--; // 갯수추적
         Destroy(poolGo);
     }
 
     public GameObject GetGo(string goName)
     {
         objectName = goName;
+        //Debug.Log(objectName);
 
         if (goDic.ContainsKey(goName) == false)
         {
@@ -116,11 +129,12 @@ public class DanmakuPoolManager : MonoBehaviour
 
     // 배치 처리를 통한 반환 최적화
     private Queue<GameObject> releaseQueue = new Queue<GameObject>();
-    private int releaseBatchSize = 30; // 한 프레임에 반환할 오브젝트 수
+    public int releaseBatchSize = 100; // 한 프레임에 반환할 오브젝트 수
 
     private void Update()
     {
         ProcessReleaseQueue();
+        print($"현재 Active 수 : {nowActiveItem}");
     }
     private void ProcessReleaseQueue()
     {
@@ -130,7 +144,8 @@ public class DanmakuPoolManager : MonoBehaviour
 
             if (poolGo.activeInHierarchy)
             {
-                poolGo.SetActive(false); // 비활성화하거나 반환 로직 수행
+                this.pool.Release(poolGo);
+                //poolGo.SetActive(false); // 비활성화하거나 반환 로직 수행 > 허... 됐다. 
             }
         }
     }

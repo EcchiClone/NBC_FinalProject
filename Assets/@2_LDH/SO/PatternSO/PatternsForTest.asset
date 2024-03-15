@@ -62,7 +62,7 @@ MonoBehaviour:
       danmakuPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
         type: 3}
       initDelay: 0
-      numOfSet: 3
+      numOfSet: 1
       setDelay: 2
       shotPerSet: 1
       shotDelay: 0
@@ -70,9 +70,9 @@ MonoBehaviour:
       customPosDirection: {x: 0, y: 0, z: 1}
       danmakuShape: 2
       initDistance: 0.01
-      numPerShot: 8
+      numPerShot: 10
       shotVerticalDistance: 0
-      shotVerticalNum: 5
+      shotVerticalNum: 4
       initDirectionType: 1
       initCustomDirection: {x: 0, y: 0, z: 0}
       danmakuMoveType: 0
