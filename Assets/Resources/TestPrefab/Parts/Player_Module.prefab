@@ -192,7 +192,7 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _scanRange: 30
+  _scanRange: 20
 --- !u!1 &7861864500905756129
 GameObject:
   m_ObjectHideFlags: 0

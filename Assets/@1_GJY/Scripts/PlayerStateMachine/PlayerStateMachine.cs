@@ -10,7 +10,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector3 currentCamRelative;
 
     [field: Header("# Test")]
-    [field: Range(2f, 10f)][field: SerializeField] public float MovementSpeed { get; private set; }    
+    [field: Range(2f, 10f)][field: SerializeField] public float MovementSpeed { get; private set; }
     [field: Range(5f, 15f)][field: SerializeField] public float SmoothRotateValue { get; private set; }
     [field: Range(0.1f, 1f)][field: SerializeField] public float MinDownForceValue { get; private set; } // 접지 중일 때 최소 중력배율
     [field: Range(1f, 100f)][field: SerializeField] public float JumpPower { get; private set; } // 점프 높이    
@@ -27,10 +27,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     // # Components    
     public PlayerInput P_Input { get; private set; }
-    public CharacterController Controller { get; private set; }    
+    public CharacterController Controller { get; private set; }
     public Animator Anim { get; private set; }
     public Module Module { get; private set; }
-    public WeaponSystem WeaponSystem { get; private set; }
+    public LockOnSystem LockOnSystem { get; private set; }
 
     // # Info
     public float InitialGravity { get; private set; }
@@ -63,7 +63,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;       
+        Cursor.lockState = CursorLockMode.Locked;
 
         // 애니메이션 Hash 초기화
         AnimationData.Init();
@@ -72,22 +72,22 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
         Module = GetComponent<Module>();
-        WeaponSystem = GetComponent<WeaponSystem>();
-
+        LockOnSystem = GetComponent<LockOnSystem>();
 
         // Setup
-        WeaponSystem.Setup();
-
         Managers.Module.CreateModule(Module.LowerPivot, Module);
         CurrentLowerPart = Managers.Module.CurrentLowerPart;
-        CurrentUpperPart = Managers.Module.CurrentUpperPart;        
+        CurrentLowerPart.Setup(Module, this);
+        CurrentUpperPart = Managers.Module.CurrentUpperPart;
+        CurrentUpperPart.Setup(Module, this);
+        LockOnSystem.Setup();
 
         Anim = GetComponentInChildren<Animator>();
 
         TiltController = new WeaponTiltController(this);
         StateFactory = new PlayerStateFactory(this);
         CurrentState = StateFactory.NonCombat();
-        CurrentState.EnterState();        
+        CurrentState.EnterState();
 
         // 초기값 설정
         InitialGravity = Physics.gravity.y;
@@ -116,8 +116,8 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Debug.Log(CurrentState._currentSubState);
             Debug.Log(CurrentState._currentSubState._currentSubState);
-        }        
-#endif        
+        }
+#endif
     }
 
     private void AddInputCallBacks()
@@ -159,7 +159,7 @@ public class PlayerStateMachine : MonoBehaviour
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
     private void OnDash(InputAction.CallbackContext context)
     {
-        IsDashInputPressed = context.ReadValueAsButton();        
+        IsDashInputPressed = context.ReadValueAsButton();
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
@@ -180,15 +180,15 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsLockOn)
         {
             IsLockOn = false;
-            WeaponSystem.ReleaseTarget();
+            LockOnSystem.ReleaseTarget();
         }
         else
         {
-            if (WeaponSystem.IsThereEnemyScanned())
+            if (LockOnSystem.IsThereEnemyScanned())
             {
                 IsLockOn = true;
-                WeaponSystem.LockOnTarget();
-            }            
+                LockOnSystem.LockOnTarget();
+            }
         }
     }
 
@@ -200,7 +200,7 @@ public class PlayerStateMachine : MonoBehaviour
         currentCamRelative = _cameraRelativeMovement;
         //######
 
-        Controller.Move(_cameraRelativeMovement * Time.deltaTime);        
+        Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
     private void HandleUseWeaponPrimary()
@@ -266,20 +266,31 @@ public class PlayerStateMachine : MonoBehaviour
     public void StopResetWeaponTilt()
     {
         StopCoroutine(TiltController.CoResetRoutine());
-    }    
+    }
     #endregion
 
     #region CombatMode
-    private void CombatRotation()
+    private void CombatRotation() // 컴뱃 + 락온일 때 틸트 조절 << 작업해야함
     {
-        Vector3 positionToLookAt = Camera.main.transform.forward;
-        positionToLookAt.y = 0;
-
         Quaternion currentRotation = transform.rotation;
-        Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+        Quaternion targetRotation;
+        Vector3 positionToLookAt;
 
-        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, SmoothRotateValue * Time.deltaTime);
-        TiltController.CombatUpperControl();               
+        if (IsLockOn)
+        {
+            TiltController.CombatLockOnControl();
+            positionToLookAt = LockOnSystem.TargetEnemy.transform.position - transform.position;
+        }            
+        else
+        {
+            TiltController.CombatFreeFireControl();
+            positionToLookAt = Camera.main.transform.forward;
+        }            
+
+        positionToLookAt.y = 0;
+        targetRotation = Quaternion.LookRotation(positionToLookAt);
+
+        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, SmoothRotateValue * Time.deltaTime);        
     }
     #endregion
 
@@ -293,7 +304,7 @@ public class PlayerStateMachine : MonoBehaviour
         if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
         {
             CanDash = true;
-            _dashCoolDownTime = TIME_TO_SWITCHABLE_DASH_MODE;            
+            _dashCoolDownTime = TIME_TO_SWITCHABLE_DASH_MODE;
             Debug.Log("대시 가능");
         }
     }
@@ -304,7 +315,7 @@ public class PlayerStateMachine : MonoBehaviour
         CanDash = false;
         CanJudgeDashing = false;
         IsDashing = true;
-        
+
         StartCoroutine(CoBoostOn());
     }
 
@@ -317,7 +328,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         // Test 하드코딩        
         float startSpeed = _movementModifier * BoostPower;
-        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;        
+        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
 
         float current = 0f;
         float percent = 0f;

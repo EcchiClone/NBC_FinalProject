@@ -81,8 +81,6 @@ public class ModuleManager
 
         GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);        
         T part = go.GetComponent<T>();
-        part.Setup(CurrentModule);
-
 
         return part;
     }
