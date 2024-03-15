@@ -16,9 +16,6 @@ public class PlayerStateMachine : MonoBehaviour
     [field: Range(1f, 100f)][field: SerializeField] public float JumpPower { get; private set; } // 점프 높이    
     [field: Range(2f, 3f)][field: SerializeField] public float BoostPower { get; private set; } // 부스터 출력   
 
-    [field: Header("# Cam")]    
-    [field: SerializeField] public CinemachineFreeLook CurrentCam { get; private set; }
-
     // # Parts Temp
     public LowerPart CurrentLowerPart { get; private set; }
     public UpperPart CurrentUpperPart { get; private set; }
@@ -33,6 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     public CharacterController Controller { get; private set; }    
     public Animator Anim { get; private set; }
     public Module Module { get; private set; }
+    public WeaponSystem WeaponSystem { get; private set; }
 
     // # Info
     public float InitialGravity { get; private set; }
@@ -47,6 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsDashInputPressed { get; private set; }
     public bool IsPrimaryWeaponInputPressed { get; private set; }
     public bool IsSecondaryWeaponInputPressed { get; private set; }
+    public bool IsLockOn { get; private set; }
     public bool IsJumping { get; set; }
     public bool IsDashing { get; set; }
     public bool CanDash { get; set; }
@@ -64,13 +63,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
-        // 시네머신 카메라 초기화
-        GameObject cam = GameObject.Find("@FollowCam");
-        CurrentCam = cam.GetComponent<CinemachineFreeLook>();
-        CurrentCam.Follow = transform;
-        CurrentCam.LookAt = transform;
+        Cursor.lockState = CursorLockMode.Locked;       
 
         // 애니메이션 Hash 초기화
         AnimationData.Init();
@@ -79,8 +72,12 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
         Module = GetComponent<Module>();
+        WeaponSystem = GetComponent<WeaponSystem>();
 
-        // Setup        
+
+        // Setup
+        WeaponSystem.Setup();
+
         Managers.Module.CreateModule(Module.LowerPivot, Module);
         CurrentLowerPart = Managers.Module.CurrentLowerPart;
         CurrentUpperPart = Managers.Module.CurrentUpperPart;        
@@ -92,7 +89,7 @@ public class PlayerStateMachine : MonoBehaviour
         CurrentState = StateFactory.NonCombat();
         CurrentState.EnterState();        
 
-        // 초기 중력값 조절
+        // 초기값 설정
         InitialGravity = Physics.gravity.y;
         _currentMovementDirection.y = -MinDownForceValue;
         CanDash = true;
@@ -119,7 +116,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Debug.Log(CurrentState._currentSubState);
             Debug.Log(CurrentState._currentSubState._currentSubState);
-        }
+        }        
 #endif        
     }
 
@@ -137,6 +134,7 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.PrimaryWeapon.canceled += OnPrimaryWeapon;
         P_Input.Actions.SecondaryWeapon.started += OnSecondaryWeapon;
         P_Input.Actions.SecondaryWeapon.canceled += OnSecondaryWeapon;
+        P_Input.Actions.LockOn.started += OnLockOn;
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (이동관련)
@@ -175,6 +173,23 @@ public class PlayerStateMachine : MonoBehaviour
         IsSecondaryWeaponInputPressed = context.ReadValueAsButton();
         if (IsSecondaryWeaponInputPressed)
             CurrentUpperPart.UseWeapon_Secondary();
+    }
+
+    private void OnLockOn(InputAction.CallbackContext context)
+    {
+        if (IsLockOn)
+        {
+            IsLockOn = false;
+            WeaponSystem.ReleaseTarget();
+        }
+        else
+        {
+            if (WeaponSystem.IsThereEnemyScanned())
+            {
+                IsLockOn = true;
+                WeaponSystem.LockOnTarget();
+            }            
+        }
     }
 
     private void HandleMove()

@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 805635073131409904}
   - component: {fileID: 1589648756558438989}
   m_Layer: 0
-  m_Name: Bullet_Temp
+  m_Name: Bullet_Gatling_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7491137368802061240}
   - component: {fileID: 2197579354297049829}
   - component: {fileID: 8872714411655168895}
+  - component: {fileID: 3460564395347822094}
   m_Layer: 0
   m_Name: Player_Module
   m_TagString: Player
@@ -116,15 +117,14 @@ MonoBehaviour:
   <MinDownForceValue>k__BackingField: 0.1
   <JumpPower>k__BackingField: 6
   <BoostPower>k__BackingField: 3
-  <CurrentCam>k__BackingField: {fileID: 0}
   <AnimationData>k__BackingField:
     walkParameterName: Walk
     walkForNAftParameterName: ForAndAft
     walkLeftNRightParameterName: LeftAndRight
     jumpParameterName: Jump
+    dashParameterName: Dash
     nonCombatParameterName: '@NonCombat'
     combatParameterName: '@Combat'
-    dashParameterName: '@Dash'
   _boostDragCurve:
     serializedVersion: 2
     m_Curve:
@@ -177,6 +177,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LowerPivot>k__BackingField: {fileID: 3780814506189941856}
+--- !u!114 &3460564395347822094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850199524926614390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf55aeb8fbb12b4483993ca004bb411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _scanRange: 30
 --- !u!1 &7861864500905756129
 GameObject:
   m_ObjectHideFlags: 0

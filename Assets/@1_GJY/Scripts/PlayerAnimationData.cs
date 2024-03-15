@@ -10,9 +10,9 @@ public class PlayerAnimationData
     [SerializeField] string walkForNAftParameterName = "ForAndAft";
     [SerializeField] string walkLeftNRightParameterName = "LeftAndRight";
     [SerializeField] string jumpParameterName = "Jump";
+    [SerializeField] string dashParameterName = "Dash";
     [SerializeField] string nonCombatParameterName = "@NonCombat";
-    [SerializeField] string combatParameterName = "@Combat";
-    [SerializeField] string dashParameterName = "@Dash";
+    [SerializeField] string combatParameterName = "@Combat";    
 
     public int WalkParameterHash { get; private set; }
     public int WalkFnAParameterHash { get; private set; }

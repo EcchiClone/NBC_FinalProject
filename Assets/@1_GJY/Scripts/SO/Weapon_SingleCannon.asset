@@ -21,3 +21,4 @@ MonoBehaviour:
   fireRate: 0.05
   coolDownTime: 2
   projectilesPerShot: 0
+  shotErrorRange: 1

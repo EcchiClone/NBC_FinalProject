@@ -16,8 +16,9 @@ MonoBehaviour:
   dev_Name: Weapon_RocketLauncher
   displayName: RocketLauncherx9
   description: Desc
-  bulletPrefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
+  bulletPrefab: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
     type: 3}
   fireRate: 0.1
   coolDownTime: 5
-  projectilesPerShot: 15
+  projectilesPerShot: 10
+  shotErrorRange: 2

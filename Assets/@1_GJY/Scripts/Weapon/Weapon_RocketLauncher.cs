@@ -16,13 +16,9 @@ public class Weapon_RocketLauncher : Weapon_Secondary
 
         for (int i = 0; i < WeaponSO.projectilesPerShot; i++)
         {
-            foreach(Transform muzzle in muzzlePoints)
-            {
-                GameObject bullet = Instantiate(WeaponSO.bulletPrefab);
-                bullet.transform.position = muzzle.position;
-                bullet.transform.rotation = muzzle.rotation;
-            }
-            yield return _coolDown;
+            RandomDirectionShot(muzzlePoints);
+
+            yield return _fireRate;
         }        
 
         StartCoroutine(CoWaitCoolDownTime());

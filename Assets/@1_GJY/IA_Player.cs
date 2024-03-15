@@ -80,6 +80,15 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LockOn"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d4c51a3-15c8-4e87-b5c4-c1e7730c5732"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47c623d7-3f13-40b8-9029-a94b9e3bdd2f"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockOn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_PlayerInput_PrimaryWeapon = m_PlayerInput.FindAction("PrimaryWeapon", throwIfNotFound: true);
         m_PlayerInput_SecondaryWeapon = m_PlayerInput.FindAction("SecondaryWeapon", throwIfNotFound: true);
         m_PlayerInput_Dash = m_PlayerInput.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerInput_LockOn = m_PlayerInput.FindAction("LockOn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_PrimaryWeapon;
     private readonly InputAction m_PlayerInput_SecondaryWeapon;
     private readonly InputAction m_PlayerInput_Dash;
+    private readonly InputAction m_PlayerInput_LockOn;
     public struct PlayerInputActions
     {
         private @IA_Player m_Wrapper;
@@ -283,6 +305,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @PrimaryWeapon => m_Wrapper.m_PlayerInput_PrimaryWeapon;
         public InputAction @SecondaryWeapon => m_Wrapper.m_PlayerInput_SecondaryWeapon;
         public InputAction @Dash => m_Wrapper.m_PlayerInput_Dash;
+        public InputAction @LockOn => m_Wrapper.m_PlayerInput_LockOn;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +333,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @LockOn.started += instance.OnLockOn;
+            @LockOn.performed += instance.OnLockOn;
+            @LockOn.canceled += instance.OnLockOn;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -332,6 +358,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @LockOn.started -= instance.OnLockOn;
+            @LockOn.performed -= instance.OnLockOn;
+            @LockOn.canceled -= instance.OnLockOn;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -357,5 +386,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnPrimaryWeapon(InputAction.CallbackContext context);
         void OnSecondaryWeapon(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnLockOn(InputAction.CallbackContext context);
     }
 }

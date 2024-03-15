@@ -27,6 +27,8 @@ public class UpperPart : BasePart
 
         Primary = GetComponent<Weapon_Primary>();
         Secondary = GetComponent<Weapon_Secondary>();
+        Primary.Setup();
+        Secondary.Setup();
     }
 
     private void Update()
