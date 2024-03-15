@@ -86,10 +86,4 @@ public class LockOnSystem : MonoBehaviour
         TargetEnemy = null;
         LockOnCam.gameObject.SetActive(false);        
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red; // 레이캐스트 색상 설정
-        Gizmos.DrawWireSphere(Camera.main.transform.position, _scanRange); // 구체 형태의 레이캐스트를 그립니다.
-    }
 }

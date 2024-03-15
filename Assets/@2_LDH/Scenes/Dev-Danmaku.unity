@@ -426,70 +426,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1640865028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1640865030}
-  - component: {fileID: 1640865029}
-  - component: {fileID: 1640865031}
-  m_Layer: 0
-  m_Name: '@DanmakuPoolManager'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1640865029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640865028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e3300085938454bb0f76502d86cc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectInfos:
-  - objectName: EnemyDanmaku01
-    perfab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
-      type: 3}
-    count: 3000
-  releaseBatchSize: 5
---- !u!4 &1640865030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640865028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.501297, y: 5.3564587, z: -13.809713}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1640865031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640865028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d97d5d3a3eb2043aadb850c5b1cf54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rentalBatchSize: 300
 --- !u!1 &2058039656
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,3 +634,76 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 799bbda3f0b4c9543b26d21e1e759105, type: 3}
+--- !u!1001 &7806051852731528744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.501297
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.3564587
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.809713
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228472949567077939, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: m_Name
+      value: '@DanmakuPoolManager'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b74317c1997a5dc4ca57831b9339a986, type: 3}

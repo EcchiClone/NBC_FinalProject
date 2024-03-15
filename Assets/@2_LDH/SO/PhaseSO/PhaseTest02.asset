@@ -14,60 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 15
+  cycleTime: 999
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
     patternName: Sphere01
     genCondition: 0
     startTime: 0
-    cycleTime: 999
-    subPatterns:
-    - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-      patternName: Sphere01
-      genCondition: 0
-      startTime: 1
-      cycleTime: 99
-      subPatterns:
-      - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-        patternName: Linear01
-        genCondition: 0
-        startTime: 1
-        cycleTime: 99
-        subPatterns:
-        - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-          patternName: Linear02
-          genCondition: 0
-          startTime: 1
-          cycleTime: 99
-          subPatterns: []
-  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-    patternName: Sphere01
-    genCondition: 0
-    startTime: 2
-    cycleTime: 999
-    subPatterns:
-    - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-      patternName: Sphere01
-      genCondition: 0
-      startTime: 1
-      cycleTime: 99
-      subPatterns:
-      - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-        patternName: Linear01
-        genCondition: 0
-        startTime: 1
-        cycleTime: 99
-        subPatterns:
-        - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-          patternName: Linear02
-          genCondition: 0
-          startTime: 1
-          cycleTime: 99
-          subPatterns: []
-  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-    patternName: Sphere01
-    genCondition: 0
-    startTime: 4
     cycleTime: 999
     subPatterns:
     - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}

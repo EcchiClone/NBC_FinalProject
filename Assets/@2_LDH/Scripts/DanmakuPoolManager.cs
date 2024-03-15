@@ -37,7 +37,7 @@ public class DanmakuPoolManager : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 60; // 임시작성
+        //Application.targetFrameRate = 60; // 임시작성
         if (instance == null)
         {
             instance = this;
