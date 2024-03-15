@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class UpperPart : BasePart
 {
+    [field: SerializeField] public Transform WeaponTilt { get; private set; }
     [SerializeField] Transform[] _primaryMuzzles;
-    [SerializeField] Transform[] _secondaryMuzzles;
+    [SerializeField] Transform[] _secondaryMuzzles;    
 
     public Weapon_Primary Primary { get; private set; }
     public Weapon_Secondary Secondary { get; private set; }
@@ -13,19 +14,27 @@ public class UpperPart : BasePart
     private float _primaryFireRate = float.MaxValue;
     private float _secondaryCoolDown = float.MaxValue;
 
-    public override void Setup()
+    public override void Setup(Module module, PlayerStateMachine stateMachine)
     {
-        base.Setup();
+        base.Setup(module, stateMachine);
     }
 
     private void Start()
     {
+        if (!_module.IsPlayable)
+            return;
+
         Primary = GetComponent<Weapon_Primary>();
         Secondary = GetComponent<Weapon_Secondary>();
+        Primary.Setup(_stateMachine);
+        Secondary.Setup(_stateMachine);
     }
 
     private void Update()
     {
+        if (!_module.IsPlayable)
+            return;
+
         if (_primaryFireRate < Primary.WeaponSO.fireRate)
             _primaryFireRate += Time.deltaTime;
         if (_secondaryCoolDown < Secondary.WeaponSO.coolDownTime)

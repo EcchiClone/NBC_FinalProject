@@ -6,6 +6,6 @@ public class SceneInitTester : MonoBehaviour
 {
     private void Awake()
     {
-        Managers.Module.CreateEmptyModule();
+        Managers.Module.CreatePlayerModule();
     }
 }

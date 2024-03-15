@@ -18,20 +18,42 @@ MonoBehaviour:
       danmakuPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
         type: 3}
       initDelay: 0
-      numOfSet: 3
-      setDelay: 1
-      shotPerSet: 10
+      numOfSet: 1
+      setDelay: 10
+      shotPerSet: 5
       shotDelay: 0.1
       posDirection: 0
       customPosDirection: {x: 0, y: 0, z: 1}
       danmakuShape: 0
-      initDistance: 2
+      initDistance: 5
       numPerShot: 1
       shotVerticalDistance: 0
       shotVerticalNum: 0
-      danmakuToDirection: 1
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      danmakuMoveType: 0
       initSpeed: 1
-      initDirection: {x: -1, y: 0, z: 1}
-      nextPatternMethod: 0
+      releaseMethod: 0
+      releaseTimer: 3
+  - patternName: LinearTest02
+    danmakuSettings:
+      danmakuPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 10
+      shotPerSet: 1
+      shotDelay: 0.1
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      danmakuShape: 0
+      initDistance: 0
+      numPerShot: 1
+      shotVerticalDistance: 0
+      shotVerticalNum: 0
+      initDirectionType: 4
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      danmakuMoveType: 0
+      initSpeed: 3
       releaseMethod: 0
       releaseTimer: 3
