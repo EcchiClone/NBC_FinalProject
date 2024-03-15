@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePart : MonoBehaviour
-{
-    // LowerPart == UpperPoint / UpperPart == WeaponPoint    
+{    
+    [field: SerializeField] public int ID { get; private set; }
 
-    public virtual void Setup() { }
+    protected Module _module;
+    protected PlayerStateMachine _stateMachine;
+
+    public virtual void Setup(Module module, PlayerStateMachine stateMachine) 
+    {
+        _module = module;
+        _stateMachine = stateMachine;
+    }
 }

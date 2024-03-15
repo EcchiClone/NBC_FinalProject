@@ -17,7 +17,9 @@ public class WeaponSO : ScriptableObject
     [Header("Stats")]
     public GameObject bulletPrefab;
 
-    [Range(0.01f, 2f)] public float fireRate;
-    [Range(1f, 5f)] public float coolDownTime;
-    [Range(1, 20)] public float projectilesPerShot;    
+    [Range(5f, 50f)]    public float speed;
+    [Range(0.01f, 2f)]  public float fireRate;
+    [Range(1f, 5f)]     public float coolDownTime;
+    [Range(1, 20)]      public float projectilesPerShot;
+    [Range(0f, 3f)]     public float shotErrorRange;
 }

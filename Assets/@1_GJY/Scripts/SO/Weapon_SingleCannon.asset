@@ -16,8 +16,10 @@ MonoBehaviour:
   dev_Name: Weapon_SingleCannon
   displayName: SingleBarrel Cannon
   description: Desc
-  bulletPrefab: {fileID: 1483916376805044650, guid: d31e936e78b9d674a9958de044d2b8b3,
+  bulletPrefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
     type: 3}
+  speed: 25
   fireRate: 0.05
   coolDownTime: 2
   projectilesPerShot: 0
+  shotErrorRange: 1
