@@ -17,12 +17,26 @@ public class WeaponTiltController
         _smoothValue = _stateMachine.SmoothRotateValue;
     }
 
-    public void CombatUpperControl()
+    public void CombatFreeFireControl()
     {
         Vector3 headToLookAt = Camera.main.transform.forward;
         Vector3 weaponToLookAt = Camera.main.transform.forward;
         headToLookAt.y = 0;
 
+        LookRotationToTarget(headToLookAt, weaponToLookAt);
+    }
+
+    public void CombatLockOnControl()
+    {
+        Vector3 headToLookAt = _stateMachine.LockOnSystem.TargetEnemy.transform.position - _stateMachine.transform.position;
+        Vector3 weaponToLookAt = _stateMachine.LockOnSystem.TargetEnemy.transform.position - _stateMachine.transform.position;
+        headToLookAt.y = 0;
+
+        LookRotationToTarget(headToLookAt, weaponToLookAt);
+    }
+
+    private void LookRotationToTarget(Vector3 headToLookAt, Vector3 weaponToLookAt)
+    {
         Quaternion currentHeadRot = _upper.transform.rotation;
         Quaternion currentWeaponTilt = _upper.WeaponTilt.rotation;
         Quaternion targetHeadRotation = Quaternion.LookRotation(headToLookAt);

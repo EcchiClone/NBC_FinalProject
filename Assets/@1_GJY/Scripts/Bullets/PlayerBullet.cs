@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class PlayerBullet : PlayerProjectile
 {
-    public float speed;    
-
-    private void Update()
+    public override void Setup(Transform target, float speed, Vector3 groundTargetPos)
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-    }
+        base.Setup(target, speed, groundTargetPos);
 
-    private void OnEnable()
-    {
+        _rigid.velocity = transform.forward * _speed;
         Destroy(gameObject, 5f);
-    }
+    }    
 }

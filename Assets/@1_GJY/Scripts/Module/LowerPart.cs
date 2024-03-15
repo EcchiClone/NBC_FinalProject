@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
-    public override void Setup(Module module)
+    public override void Setup(Module module, PlayerStateMachine stateMachine)
     {
-        base.Setup(module);
+        base.Setup(module, stateMachine);
     }
 }

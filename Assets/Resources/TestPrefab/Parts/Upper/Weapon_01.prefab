@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006603323072619543}
   m_Layer: 0
-  m_Name: Secondary
+  m_Name: Secondary_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,14 +54,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710687922980827708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8, z: -2.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.8024907, z: -4.9053564}
+  m_LocalScale: {x: 1.0225999, y: 1.0225999, z: 1.0225999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7023021723230587494}
   - {fileID: 3532945112250781136}
-  m_Father: {fileID: 4264020004977597763}
+  m_Father: {fileID: 2463420628103036609}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2249893139343726252
@@ -93,7 +93,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1006603323072619543}
   m_Father: {fileID: 1817755234544321587}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,39 +148,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2767611328359529408
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4702629768171221719}
-  m_Layer: 0
-  m_Name: Primary
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4702629768171221719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767611328359529408}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2269993593499379566}
-  - {fileID: 2834875425581590389}
-  m_Father: {fileID: 4264020004977597763}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3394430649800794885
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4702629768171221719}
+  m_Father: {fileID: 4264020004977597763}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4444813006276546601
@@ -270,7 +238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4702629768171221719}
+  m_Father: {fileID: 4264020004977597763}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6570822311439694444
@@ -286,7 +254,7 @@ GameObject:
   - component: {fileID: 7148223090052259774}
   - component: {fileID: 3872684391096149871}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Primary_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,8 +272,8 @@ Transform:
   m_LocalScale: {x: 0.10225999, y: 0.10225999, z: 0.10225999}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4702629768171221719}
-  - {fileID: 1006603323072619543}
+  - {fileID: 2269993593499379566}
+  - {fileID: 2834875425581590389}
   m_Father: {fileID: 1817755234544321587}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -441,6 +409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponSO>k__BackingField: {fileID: 11400000, guid: c50fc8de23eae6a48b89c4be96422602,
     type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &5334244729481353940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,3 +426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponSO>k__BackingField: {fileID: 11400000, guid: d06029e51be94f64986404427b3be8c6,
     type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
