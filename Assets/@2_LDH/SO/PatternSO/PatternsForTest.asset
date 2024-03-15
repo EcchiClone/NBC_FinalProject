@@ -70,9 +70,9 @@ MonoBehaviour:
       customPosDirection: {x: 0, y: 0, z: 1}
       danmakuShape: 2
       initDistance: 0.01
-      numPerShot: 6
+      numPerShot: 8
       shotVerticalDistance: 0
-      shotVerticalNum: 4
+      shotVerticalNum: 5
       initDirectionType: 1
       initCustomDirection: {x: 0, y: 0, z: 0}
       danmakuMoveType: 0

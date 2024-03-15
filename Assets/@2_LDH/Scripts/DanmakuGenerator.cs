@@ -66,10 +66,10 @@ public class DanmakuGenerator : MonoBehaviour
                 {
                     yield break; // masterObject가 비활성화되거나 파괴되면 코루틴 중단
                 }
-                var enemyDanmakuTrigger = masterGo.GetComponent<EnemyDanmakuTrigger>();
-                if (enemyDanmakuTrigger != null && enemyDanmakuTrigger.isShooting == false)
+                var enemyPhaseStarter = masterGo.GetComponent<EnemyPhaseStarter>();
+                if (enemyPhaseStarter != null && enemyPhaseStarter.isShooting == false)
                 {
-                    yield break; // EnemyDanmakuTrigger 컴포넌트가 있으면서, isShooting이 false 면 코루틴 중단
+                    yield break; // EnemyPhaseStarter 컴포넌트가 있으면서, isShooting이 false 면 코루틴 중단
                 }
 
                 // 1. 초기화 및 위치, 방향 일괄적용
@@ -217,4 +217,71 @@ public class DanmakuGenerator : MonoBehaviour
 
     }
 
+    // 배치 처리를 위한 큐 구조체 정의
+    [System.Serializable]
+    public class DanmakuSpawnInfo
+    {
+        public string prefabName;
+        public Vector3 position;
+        public Quaternion rotation;
+        public DanmakuParameters parameters;
+        public float nextCycleTime;
+        public List<PatternHierarchy> subPatterns;
+
+        public DanmakuSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, DanmakuParameters parameters, float nextCycleTime, List<PatternHierarchy> subPatterns)
+        {
+            this.prefabName = prefabName;
+            this.position = position;
+            this.rotation = rotation;
+            this.parameters = parameters;
+            this.nextCycleTime = nextCycleTime;
+            this.subPatterns = subPatterns;
+        }
+    }
+    // 탄막 생성 정보를 담은 큐
+    private Queue<DanmakuSpawnInfo> spawnQueue = new Queue<DanmakuSpawnInfo>();
+    public int rentalBatchSize = 10;
+
+    private void EnqueueDanmakuSpawnInfo(DanmakuSettings settings, List<GameObject> danmakuGoList, List<PatternHierarchy> subPatterns, float nextCycleTime)
+    {
+        foreach (GameObject danmakuGo in danmakuGoList)
+        {
+            DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
+            DanmakuSpawnInfo spawnInfo = new DanmakuSpawnInfo(
+                settings.danmakuPrefab.name,
+                danmakuGo.transform.position,
+                danmakuGo.transform.rotation,
+                parameters,
+                nextCycleTime,
+                subPatterns);
+
+            spawnQueue.Enqueue(spawnInfo);
+        }
+    }
+    // 큐로 관리하는 탄막 생성 함수
+    //private void Update()
+    //{
+    //    ProcessSpawnQueue();
+    //}
+
+    //private void ProcessSpawnQueue()
+    //{
+    //    int spawnCountThisFrame = 0;
+    //    while (spawnQueue.Count > 0 && spawnCountThisFrame < rentalBatchSize)
+    //    {
+    //        DanmakuSpawnInfo spawnInfo = spawnQueue.Dequeue();
+    //        GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(spawnInfo.prefabName);
+
+    //        danmakuGo.transform.position = spawnInfo.position;
+    //        danmakuGo.transform.rotation = spawnInfo.rotation;
+
+    //        DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
+    //        if (danmakuController != null)
+    //        {
+    //            danmakuController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
+    //        }
+
+    //        spawnCountThisFrame++;
+    //    }
+    //}
 }

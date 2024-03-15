@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyDanmakuTrigger : MonoBehaviour
+public class EnemyPhaseStarter : MonoBehaviour
 {
     public PhaseSO currentPhase;
 
@@ -16,4 +16,5 @@ public class EnemyDanmakuTrigger : MonoBehaviour
             DanmakuGenerator.instance.StartPatternHierarchy(patternHierarchy, currentPhase.cycleTime, gameObject);
         }
     }
+    
 }

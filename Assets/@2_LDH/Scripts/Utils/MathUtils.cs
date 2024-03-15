@@ -55,6 +55,8 @@ public class MathUtils : MonoBehaviour
                     Mathf.Cos(phi) * distanceMultiplier,
                     Mathf.Sin(phi) * Mathf.Cos(theta) * distanceMultiplier
                 ));
+                if (layerIndex == 0 || layerIndex == numberOfLayers - 1)
+                    break;
             }
         }
 
