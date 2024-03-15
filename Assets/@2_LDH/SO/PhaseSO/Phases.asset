@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6562e598098c824a9e8ccaadc276b5d, type: 3}
-  m_Name: PhasesTest01
+  m_Name: Phases
   m_EditorClassIdentifier: 
-  cycleTime: 20
+  genCondition: 0
+  startTime: 0
+  cycleTime: 30
   hierarchicalPatterns:
-  - patternSO: {fileID: 11400000, guid: e64fbaea271f476499d1434c9f73db2a, type: 2}
-    patternName: LinearTest01
+  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+    patternName: Sphere01
+    genCondition: 0
     startTime: 0
     cycleTime: 0
-    subPatterns: []
-  - patternSO: {fileID: 11400000, guid: e64fbaea271f476499d1434c9f73db2a, type: 2}
-    patternName: LinearTest01
-    startTime: 10
-    cycleTime: 0
-    subPatterns: []
+    subPatterns:
+    - patternSO: {fileID: 0}
+      patternName: 
+      genCondition: 0
+      startTime: 0
+      cycleTime: 0
+      subPatterns: []
