@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.Pool;
 using static PhaseSO;
 
-public class DanmakuController : PoolAble
+public class EnemyBulletController : PoolAble
 {
     [SerializeField] TrailRenderer _trailRenderer;
-    private DanmakuParameters _currentParameters; // 현재 탄막의 파라미터
+    private EnemyBulletParameters _currentParameters; // 현재 탄막의 파라미터
     private Coroutine releaseCoroutine;
 
     // 탄막에 파라미터를 설정하는 메서드 추가
-    public void Initialize(DanmakuParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns)
+    public void Initialize(EnemyBulletParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns)
     {
         _trailRenderer.Clear();
 
@@ -26,7 +26,7 @@ public class DanmakuController : PoolAble
         {
             foreach (var patternHierarchy in subPatterns)
             {
-                DanmakuGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, gameObject);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, gameObject);
             }
         }
     }
@@ -40,9 +40,9 @@ public class DanmakuController : PoolAble
     void Move()
     {
         // 탄막 이동 로직
-        switch (_currentParameters.danmakuMoveType)
+        switch (_currentParameters.enemyBulletMoveType)
         {
-            case DanmakuMoveType.Head: // 오브젝트가 향하는 방향으로 이동
+            case EnemyBulletMoveType.Head: // 오브젝트가 향하는 방향으로 이동
                 transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
                 break;
         }

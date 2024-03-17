@@ -14,7 +14,7 @@ public class PoolAble : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
-            DanmakuPoolManager.instance.ScheduleRelease(gameObject, releaseTimer);
+            EnemyBulletPoolManager.instance.ScheduleRelease(gameObject, releaseTimer);
         }
         else
         {

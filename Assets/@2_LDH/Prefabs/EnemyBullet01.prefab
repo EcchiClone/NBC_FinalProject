@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2034608278902461265}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8278450177946971904}
@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9034946517484139348
 Transform:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 3126753519861618447}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8278450177946971904}
@@ -213,7 +213,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -223,8 +223,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.35
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1302,8 +1302,8 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 157.07964
-      minScalar: 78.53982
+      scalar: 2.0943952
+      minScalar: 8.377581
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5126,7 +5126,7 @@ GameObject:
   - component: {fileID: -1574576398056007791}
   - component: {fileID: 5970853864419647240}
   m_Layer: 0
-  m_Name: EnemyDanmaku01
+  m_Name: EnemyBullet01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5157,7 +5157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8213430085926567989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a5db178d325954f96851421cc83f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: feceaaa42d9744e459fa8be7a6ab9251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _trailRenderer: {fileID: 2239565291903497638}

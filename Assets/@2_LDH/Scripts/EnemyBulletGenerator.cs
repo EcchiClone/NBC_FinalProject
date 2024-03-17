@@ -5,10 +5,10 @@ using UnityEngine.Pool;
 using static PhaseSO;
 using static UnityEngine.UIElements.VisualElement;
 
-public class DanmakuGenerator : MonoBehaviour
+public class EnemyBulletGenerator : MonoBehaviour
 {
     // 싱글톤
-    public static DanmakuGenerator instance;
+    public static EnemyBulletGenerator instance;
     public IObjectPool<GameObject> Pool { get; set; }
 
     private void Awake()
@@ -49,11 +49,11 @@ public class DanmakuGenerator : MonoBehaviour
         var patternData = patternSO.GetSpawnInfoByPatternName(patternName);
         if (patternData != null)
         {
-            StartCoroutine(Co_ExecutePattern(patternData.danmakuSettings, subPatterns, nextCycleTime, masterObject));
+            StartCoroutine(Co_ExecutePattern(patternData.enemyBulletSettings, subPatterns, nextCycleTime, masterObject));
         }
     }
 
-    IEnumerator Co_ExecutePattern(DanmakuSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject masterGo)
+    IEnumerator Co_ExecutePattern(EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject masterGo)
     {
         GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
 
@@ -73,12 +73,12 @@ public class DanmakuGenerator : MonoBehaviour
                 }
 
                 // 1. 초기화 및 위치, 방향 일괄적용
-                //List<GameObject> danmakuGoList = new List<GameObject>();
-                List<LightTransform> danmakuTransformList = new List<LightTransform>();
+                //List<GameObject> enemyBulletGoList = new List<GameObject>();
+                List<LightTransform> enemyBulletTransformList = new List<LightTransform>();
 
-                SetupDanmakuGoList(settings, danmakuTransformList, playerGo, masterGo);
+                SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerGo, masterGo);
 
-                EnqueueDanmakuSpawnInfo(settings, danmakuTransformList, subPatterns, nextCycleTime);
+                EnqueueEnemyBulletSpawnInfo(settings, enemyBulletTransformList, subPatterns, nextCycleTime);
 
 
 
@@ -97,20 +97,20 @@ public class DanmakuGenerator : MonoBehaviour
     }
 
     // 탄막의 생성 및 위치 초기화
-    private void SetupDanmakuGoList(DanmakuSettings settings, List<LightTransform> danmakuTransformList, GameObject playerGo, GameObject masterGo)
+    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, GameObject playerGo, GameObject masterGo)
     {
         Vector3 pivotPosition = masterGo.transform.position; // 마스터의 위치를 기본값으로
         
         // 1. 위치
-        switch (settings.danmakuShape)
+        switch (settings.enemyBulletShape)
         {
-            case(DanmakuShape.Linear):
+            case(EnemyBulletShape.Linear):
                 // 몇 개의 탄막씩 발사할지 : settings.numPerShot
                 // 생성(현재 1개만 대응)
-                for(int i = 0; i < 1; i++)
+                for(int i = 0; i < settings.numPerShot; i++)
                 {
-                    //GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
-                    LightTransform danmakuTransform = new LightTransform();
+                    //GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(settings.enemyBulletPrefab.name);
+                    LightTransform enemyBulletTransform = new LightTransform();
 
                     Vector3 initPosition = pivotPosition;
                     // 위치 설정
@@ -133,19 +133,19 @@ public class DanmakuGenerator : MonoBehaviour
                             initPosition += Random.onUnitSphere * settings.initDistance;
                             break;
                     }
-                    danmakuTransform.position = initPosition;
-                    danmakuTransformList.Add(danmakuTransform);
+                    enemyBulletTransform.position = initPosition;
+                    enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
 
-            case (DanmakuShape.Sphere):
+            case (EnemyBulletShape.Sphere):
                 // 한 층의 둘레에 생기게 할 탄막 수 : settings.numPerShot
                 // 몇 층으로 쌓을지에 대한 수 : settings.shotVerticalNum
                 foreach (Vector3 spherePoint in MathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
-                    LightTransform danmakuTransform = new LightTransform();
-                    danmakuTransform.position = pivotPosition + spherePoint;
-                    danmakuTransformList.Add(danmakuTransform);
+                    LightTransform enemyBulletTransform = new LightTransform();
+                    enemyBulletTransform.position = pivotPosition + spherePoint;
+                    enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
 
@@ -158,54 +158,54 @@ public class DanmakuGenerator : MonoBehaviour
         // 2. 방향
         switch (settings.initDirectionType)
         {
-            case DanmakuToDirection.World: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
-                foreach (LightTransform danmakuTransform in danmakuTransformList)
+            case EnemyBulletToDirection.World: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
-                    danmakuTransform.rotation = Quaternion.Euler(settings.initCustomDirection);
+                    enemyBulletTransform.rotation = Quaternion.Euler(settings.initCustomDirection);
                 }
                 break;
 
-            case DanmakuToDirection.Outer: // 마스터(masterGo)와 반대되는 방향으로
-                foreach (LightTransform danmakuTransform in danmakuTransformList)
+            case EnemyBulletToDirection.Outer: // 마스터(masterGo)와 반대되는 방향으로
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
-                    Vector3 directionMasterToDanmaku = (danmakuTransform.position - masterGo.transform.position).normalized;
-                    danmakuTransform.rotation = Quaternion.LookRotation(directionMasterToDanmaku);
+                    Vector3 directionMasterToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
+                    enemyBulletTransform.rotation = Quaternion.LookRotation(directionMasterToEnemyBullet);
                 }
                 break;
 
-            case DanmakuToDirection.MasterLookPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
+            case EnemyBulletToDirection.MasterLookPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
 
-                foreach (LightTransform danmakuTransform in danmakuTransformList)
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
                     if (playerGo != null)
                     {
                         Vector3 directionMasterToPlayer = (playerGo.transform.position - masterGo.transform.position).normalized;
-                        danmakuTransform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
                     }
                     else
                     {
-                        // playerGo가 없을 경우, DanmakuToDirection.Outer 와 같도록
-                        Vector3 directionToMaster = (danmakuTransform.position - masterGo.transform.position).normalized;
-                        danmakuTransform.rotation = Quaternion.LookRotation(-directionToMaster);
+                        // playerGo가 없을 경우, EnemyBulletToDirection.Outer 와 같도록
+                        Vector3 directionToMaster = (enemyBulletTransform.position - masterGo.transform.position).normalized;
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(-directionToMaster);
                     }
                 }
                 break;
 
-            case DanmakuToDirection.LookPlayer: // 탄막이 플레이어를 바라보도록
-                foreach (LightTransform danmakuTransform in danmakuTransformList)
+            case EnemyBulletToDirection.LookPlayer: // 탄막이 플레이어를 바라보도록
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
                     if (playerGo != null)
                     {
-                        Vector3 directionToPlayer = (playerGo.transform.position - danmakuTransform.position).normalized;
-                        danmakuTransform.rotation = Quaternion.LookRotation(directionToPlayer);
+                        Vector3 directionToPlayer = (playerGo.transform.position - enemyBulletTransform.position).normalized;
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionToPlayer);
                     }
                 }
                 break;
 
-            case DanmakuToDirection.CompletelyRandom: // 모든 방향으로 랜덤
-                foreach (LightTransform danmakuTransform in danmakuTransformList)
+            case EnemyBulletToDirection.CompletelyRandom: // 모든 방향으로 랜덤
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
-                    danmakuTransform.rotation = Random.rotation;
+                    enemyBulletTransform.rotation = Random.rotation;
                 }
                 break;
         }
@@ -218,16 +218,16 @@ public class DanmakuGenerator : MonoBehaviour
 
     // 배치 처리를 위한 큐 구조체 정의
     [System.Serializable]
-    public class DanmakuSpawnInfo
+    public class EnemyBulletSpawnInfo
     {
         public string prefabName;
         public Vector3 position;
         public Quaternion rotation;
-        public DanmakuParameters parameters;
+        public EnemyBulletParameters parameters;
         public float nextCycleTime;
         public List<PatternHierarchy> subPatterns;
 
-        public DanmakuSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, DanmakuParameters parameters, float nextCycleTime, List<PatternHierarchy> subPatterns)
+        public EnemyBulletSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, EnemyBulletParameters parameters, float nextCycleTime, List<PatternHierarchy> subPatterns)
         {
             this.prefabName = prefabName;
             this.position = position;
@@ -238,18 +238,18 @@ public class DanmakuGenerator : MonoBehaviour
         }
     }
     // 탄막 생성 정보를 담은 큐
-    private Queue<DanmakuSpawnInfo> spawnQueue = new Queue<DanmakuSpawnInfo>();
+    private Queue<EnemyBulletSpawnInfo> spawnQueue = new Queue<EnemyBulletSpawnInfo>();
     public int rentalBatchSize = 200;
 
-    private void EnqueueDanmakuSpawnInfo(DanmakuSettings settings, List<LightTransform> danmakuTransformList, List<PatternHierarchy> subPatterns, float nextCycleTime)
+    private void EnqueueEnemyBulletSpawnInfo(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, List<PatternHierarchy> subPatterns, float nextCycleTime)
     {
-        foreach (LightTransform danmakuTransform in danmakuTransformList)
+        foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
         {
-            DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
-            DanmakuSpawnInfo spawnInfo = new DanmakuSpawnInfo(
-                settings.danmakuPrefab.name,
-                danmakuTransform.position,
-                danmakuTransform.rotation,
+            EnemyBulletParameters parameters = EnemyBulletParameters.FromSettings(settings);
+            EnemyBulletSpawnInfo spawnInfo = new EnemyBulletSpawnInfo(
+                settings.enemyBulletPrefab.name,
+                enemyBulletTransform.position,
+                enemyBulletTransform.rotation,
                 parameters,
                 nextCycleTime,
                 subPatterns);
@@ -269,38 +269,38 @@ public class DanmakuGenerator : MonoBehaviour
         while (spawnQueue.Count > 0 && spawnCountThisFrame < rentalBatchSize)
         {
             //Debug.Log($"{spawnQueue.Count}, {spawnCountThisFrame}");
-            DanmakuSpawnInfo spawnInfo = spawnQueue.Dequeue();
-            GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(spawnInfo.prefabName);
+            EnemyBulletSpawnInfo spawnInfo = spawnQueue.Dequeue();
+            GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(spawnInfo.prefabName);
 
-            danmakuGo.transform.position = spawnInfo.position;
-            danmakuGo.transform.rotation = spawnInfo.rotation;
+            enemyBulletGo.transform.position = spawnInfo.position;
+            enemyBulletGo.transform.rotation = spawnInfo.rotation;
 
-            DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
-            if (danmakuController != null)
+            EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
+            if (enemyBulletController != null)
             {
-                danmakuController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
+                enemyBulletController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
             }
             else
             {
-                // danmakuController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
+                // enemyBulletController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
                 // Pool을 사용하지 않는 방향으로, 그냥 Instantiate만 사용하면 될 것으로 예상됨.
             }
 
             spawnCountThisFrame++;
         }
     }
-    //GameObject danmakuGo = DanmakuPoolManager.instance.GetGo(settings.danmakuPrefab.name);
+    //GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(settings.enemyBulletPrefab.name);
     /*
-                // 2. 그 외 세팅 파라미터 등 하위 탄막의 DanmakuController에 전달
-                foreach (GameObject danmakuGo in danmakuGoList)
+                // 2. 그 외 세팅 파라미터 등 하위 탄막의 EnemyBulletController에 전달
+                foreach (GameObject enemyBulletGo in enemyBulletGoList)
                 {
-                    DanmakuController danmakuController = danmakuGo.GetComponent<DanmakuController>();
-                    if (danmakuController != null)
+                    EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
+                    if (enemyBulletController != null)
                     {
-                        DanmakuParameters parameters = DanmakuParameters.FromSettings(settings);
-                        danmakuController.Initialize(parameters, nextCycleTime, subPatterns);
+                        EnemyBulletParameters parameters = EnemyBulletParameters.FromSettings(settings);
+                        enemyBulletController.Initialize(parameters, nextCycleTime, subPatterns);
                     }
-                    // else{} // danmakuController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
+                    // else{} // enemyBulletController가 null일 경우, 해당 오브젝트는 다른 몬스터일 가능성이 큼.
                     //           풀을 사용하지 않는 방향으로, 그냥 Instantiate만 사용하면 될 것으로 예상됨.
                 }
     */
