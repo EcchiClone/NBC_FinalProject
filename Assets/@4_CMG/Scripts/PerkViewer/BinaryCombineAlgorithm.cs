@@ -19,7 +19,7 @@ public class BinaryCombineAlgorithm : MonoBehaviour
         //Debug.Log(ConvertStructureToBinary(24, 12, 2704156));
     }
 
-    // 시도 1 - 개같이 멸망
+    // 시도 1 - 실패. 삭제 예정
     private void PermuWithRepetition(int length, int num, int index)
     {
         // 원소가 두 개(0, 1)인 중복순열 알고리즘
@@ -165,7 +165,6 @@ public class BinaryCombineAlgorithm : MonoBehaviour
     private void RecursiveFunction(int length, int num, int idx)
     {
         // 재귀 함수.
-        // 이 미친 알고리즘 오늘에야말로 널 끝장내고야 만다
 
         _before = _count;
 

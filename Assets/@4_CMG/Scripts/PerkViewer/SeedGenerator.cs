@@ -6,6 +6,7 @@ using UnityEngine;
 public class SeedGenerator : MonoBehaviour
 {
 
+    System.Random _random = new System.Random();
 
     // TODO: 정규분포를 따르는 확률로 무작위 시드 생성기 제작
     private void Start()
