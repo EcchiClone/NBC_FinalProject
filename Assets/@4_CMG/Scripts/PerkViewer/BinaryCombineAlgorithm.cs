@@ -15,7 +15,8 @@ public class BinaryCombineAlgorithm : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(ConvertStructureToBinary(24, 15, 1307504));
+        //Debug.Log(ConvertStructureToBinary(24, 12, 1));
+        //Debug.Log(ConvertStructureToBinary(24, 12, 2704156));
     }
 
     // 시도 1 - 개같이 멸망
