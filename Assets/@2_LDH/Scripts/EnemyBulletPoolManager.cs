@@ -134,7 +134,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
     private void Update()
     {
         ProcessReleaseQueue();
-        print($"현재 Active 수 : {nowActiveItem}");
+        //print($"현재 Active 수 : {nowActiveItem}");
     }
     private void ProcessReleaseQueue()
     {

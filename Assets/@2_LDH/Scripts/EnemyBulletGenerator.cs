@@ -99,57 +99,79 @@ public class EnemyBulletGenerator : MonoBehaviour
     // 탄막의 생성 및 위치 초기화
     private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, GameObject playerGo, GameObject masterGo)
     {
-        Vector3 pivotPosition = masterGo.transform.position; // 마스터의 위치를 기본값으로
-        
-        // 1. 위치
+        // 1. 패턴을 생성할 기준 위치 설정
+        Vector3 pivotPosition = masterGo.transform.position; // (임시)마스터의 위치를 Pivot으로
+
+        // 1. 패턴을 생성할 기준 방향 벡터 설정
+        Vector3 pivotDirection;
+
+        switch (settings.posDirection)
+        {
+            case PosDirection.Forward:
+                pivotDirection = masterGo.transform.forward;
+                break;
+            case PosDirection.ToPlayer:
+                if (playerGo != null)
+                {
+                    Vector3 directionToPlayer = (playerGo.transform.position - transform.position).normalized;
+                    pivotDirection = directionToPlayer;
+                }
+                else pivotDirection = masterGo.transform.forward; // Player 없을 시, Forward를 사용
+                break;
+            case PosDirection.CompletelyRandom:
+                pivotDirection = Random.onUnitSphere;
+                break;
+            case PosDirection.CustomWorld:
+                pivotDirection = settings.customPosDirection.normalized;
+                break;
+            case PosDirection.CustomLocal:
+                pivotDirection = masterGo.transform.TransformDirection(settings.customPosDirection).normalized;
+                break;
+            default:
+                pivotDirection = masterGo.transform.forward; // 예외 발생 시, Forward를 사용
+                break;
+        }
+
+        // 1. 기준 방향 벡터 오차 주기
+        if (settings.spreadA == SpreadType.Spread)
+            pivotDirection = GameMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
+
+
+        // 2. 위치 선정
         switch (settings.enemyBulletShape)
         {
-            case(EnemyBulletShape.Linear):
-                // 몇 개의 탄막씩 발사할지 : settings.numPerShot
-                // 생성
+            case(EnemyBulletShape.Linear): // 선형 발사
                 for(int i = 0; i < settings.numPerShot; i++)
                 {
-                    //GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(settings.enemyBulletPrefab.name);
-                    LightTransform enemyBulletTransform = new LightTransform();
+                    LightTransform enemyBulletTransform = new LightTransform(); // 위치와 방향을 담을 클래스
 
-                    Vector3 initPosition = pivotPosition;
-                    // 위치 설정
-                    switch (settings.posDirection)
-                    {
-                        case PosDirection.World:
-                            initPosition += settings.customPosDirection * settings.initDistance;
-                            break;
-                        case PosDirection.Forward:
-                            initPosition += masterGo.transform.forward * settings.initDistance;
-                            break;
-                        case PosDirection.ToPlayer:
-                            if (playerGo != null)
-                            {
-                                Vector3 directionToPlayer = (playerGo.transform.position - transform.position).normalized;
-                                initPosition += directionToPlayer * settings.initDistance;
-                            }
-                            break;
-                        case PosDirection.CompletelyRandom:
-                            initPosition += Random.onUnitSphere * settings.initDistance;
-                            break;
-                    }
+                    Vector3 initPosition = pivotPosition + pivotDirection * settings.initDistance;
+
                     enemyBulletTransform.position = initPosition;
                     enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
 
             case (EnemyBulletShape.Sphere):
-                // 한 층의 둘레에 생기게 할 탄막 수 : settings.numPerShot
-                // 몇 층으로 쌓을지에 대한 수 : settings.shotVerticalNum
-                foreach (Vector3 spherePoint in MathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
+                // 스피어 포인트를 월드의 위쪽(예: Vector3.up)에서 기준 방향으로 회전시키는 Quaternion 계산
+                Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.up, pivotDirection.normalized);
+
+                foreach (Vector3 spherePoint in GameMathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
                     LightTransform enemyBulletTransform = new LightTransform();
-                    enemyBulletTransform.position = pivotPosition + spherePoint;
+
+                    // 스피어 포인트를 기준 방향으로 회전
+                    Vector3 rotatedSpherePoint = rotationToPivotDirection * spherePoint;
+
+                    enemyBulletTransform.position = pivotPosition + rotatedSpherePoint; // 회전된 포인트를 기준 위치에 추가
                     enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
-
         }
+
+        // 2. 
+
+
         // 1>?. 마스터기준 회전
         // 1>?. 평행이동
         // 1>?. 위치에 오차 주기
@@ -209,11 +231,19 @@ public class EnemyBulletGenerator : MonoBehaviour
                 }
                 break;
         }
-        // 2>?. 방향에 일괄 오차 주기
+
+        // 2. 방향에 일괄 오차 주기
+
+        if (settings.spreadB == SpreadType.Spread)
+        {
+            foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+            {
+                Vector3 direction = enemyBulletTransform.rotation * Vector3.forward; // Q to V3
+                Vector3 newDirection = GameMathUtils.CalculateSpreadDirection(direction, settings.maxSpreadAngleB, settings.concentrationB);
+                enemyBulletTransform.rotation = Quaternion.LookRotation(newDirection); // V3 to Q
+            }
+        }
         // 1>?. 에서 행했던 것 또 넣어도 될 듯 함
-
-
-
 
     }
 

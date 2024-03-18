@@ -16,9 +16,9 @@ public class EnemyBulletController : PoolAble
         _trailRenderer.Clear();
 
         _currentParameters = parameters;
-
+        
         // 이동 및 반환 로직
-        StartCoroutine(UpdateMoveParameter());
+        UpdateMoveParameter();
         ReleaseObject(_currentParameters.releaseTimer);
 
         // 하위 패턴 실행 로직
@@ -35,6 +35,7 @@ public class EnemyBulletController : PoolAble
     void Update()
     {
         Move();
+        Accel();
     }
 
     void Move()
@@ -45,11 +46,43 @@ public class EnemyBulletController : PoolAble
             case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 이동
                 transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
                 break;
+            //case EnemyBulletMoveType.LerpToPlayer:
+            //    GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 찾기
+            //    if (player != null)
+            //    {
+            //        // 플레이어를 향한 방향 벡터 계산
+            //        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+
+            //        // 현재 방향에서 플레이어를 향한 방향으로의 회전 Quaternion 생성
+            //        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+
+            //        // 현재 회전에서 목표 회전으로 부드럽게 변환
+            //        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.갯 * Time.deltaTime);
+            //    }
+            //    transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
+            //    break;
         }
     }
-
-    IEnumerator UpdateMoveParameter()
+    void Accel()
     {
-        yield return null;
+        //_currentParameters.speed *= _currentParameters.accelMultiple;
+        //_currentParameters.speed += _currentParameters.accelPlus;
+    }
+
+    void UpdateMoveParameter()
+    {
+        foreach (EnemyBulletChangePropertys e in _currentParameters.enemyBulletChangeMoveProperty)
+        {
+            StartCoroutine(Co_UpdateMoveParameter(e));
+        }
+    }
+    IEnumerator Co_UpdateMoveParameter(EnemyBulletChangePropertys e)
+    {
+        yield return new WaitForSeconds(e._timer);
+        //try
+        //{
+        //    switch(e.)
+        //    }
+        //    catch {}
     }
 }

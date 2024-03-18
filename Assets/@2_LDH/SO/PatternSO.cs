@@ -60,10 +60,10 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
     [Header("마스터 기준 생성 방향 벡터")]
     public PosDirection posDirection;           // 마스터 기준으로 생성될 방향
-    public Vector3 customPosDirection;          // > World: 직접지정
+    public Vector3 customPosDirection;          // > CustomWorld: 직접지정
     // a-plug. 기준 방향 지정 시 탄퍼짐
     //[Header("오차")]
-    public SpreadType spreadA;                  // 탄퍼짐 유무
+    public SpreadType spreadA;                  // 기준방향벡터 오차의 유무
     public float maxSpreadAngleA;               // > 최대 퍼짐 각도
     public float concentrationA;                // > 집중 정도 (0.0 ~ 1.0)
                                                 // public PosDirectionRandomType posDirectionRandomType;    // > 랜덤성이 직선인지, 평면인지. 이후에 고려할 사항도 다수
@@ -75,8 +75,10 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // b. 기준방향을 중심으로 어떤 형태의 방사를 사용할지. 거리와 방향을 포함.
     // 간단한 선형 단일 발사부터, 정육면체 모양으로 속도를 달리 한 발사, 특별한 모양으로 생성되어 각각이 랜덤한 타이밍에 발사 등 다양한 형태.
     // b-1. 형태에 관해. 기본적인 프리셋을 제공하되, 유저가 Vector3를 직접 작성하여 입력할 수 있도록도 하자.
-    [Header("탄막 형태")]
+    [Header("탄막 형태A")]
     public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
+
+
     // b-2. 거의 모든 모양에서 사용할 변수들
     //[Header("생성 거리")]
     public float initDistance;                  // 모든 탄막에 대한 생성거리의 기준
@@ -86,11 +88,15 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public int numPerShot;                      // 한번 발사에 사용되는 탄막 갯수. 
     // 참고: 일부 Shape들()에 대해서는 numPerShot으로 해결이 되기 때문에 이러한 형태들은 b-3항목 불필요.
     // b-3. 탄막 모양에 따라 선택적 변수들(이후, 조건부로 Inspector에 보여주는 것이 과제)
-    public float shotVerticalDistance;          // Circle: 원의 면과 보스의 수직거리
+    //public float shotVerticalDistance;          // Circle: 원의 면과 보스의 수직거리
     public int shotVerticalNum;                 // Sphere: 구의 '단' 갯수
                                                 // Cone: 허용각도. 얘는 자료형을 뭘로 해야할지 모르겠음.
                                                 // 전체 모양의 회전을 틀어버릴 요소(정해진 값)
                                                 // 전체 모양의 회전을 틀어버릴 값의 랜덤 여부. true라면 위 값을 범위로 사용. // 이 두 랜덤변수는 a-plug에서 커버 가능한 부분으로 보임. 삭제 예정
+
+    public SpreadType spreadB;                  // 전체 탄에 대한 탄퍼짐 유무
+    public float maxSpreadAngleB;               // > 최대 퍼짐 각도
+    public float concentrationB;                // > 집중 정도 (0.0 ~ 1.0)
 
     // b-99. 유저 커스텀 입력
     // 유저입력1. 원하는 범위에 a.N개를 균일배치(어려울듯), b.N개를 랜덤배치
@@ -107,14 +113,15 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
 
     // 2. 이동 ---------------------------------//------------------------------------------------------------------
     // 탄막 자체의 세팅
-    public EnemyBulletMoveType enemyBulletMoveType;     // 
-    public float initSpeed;                     // 시작속도. 일단은 정속으로 테스트, 추후 수정.
-                                                //public Vector3 initMoveDirection;         // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
-                                                // 변속정보.
-                                                // 변향정보. 플레이어에 유도 등 여러가지 요인으로 변수 추가 가능성 높음.
-                                                // 변속정보(불연속) 리스트
-                                                // 변향정보(불연속) 리스트
-                                                // 나중에 필요하면 이어서 추가
+    public EnemyBulletMoveType enemyBulletMoveType; // 움직임 타입(트리거로 변화 요소)
+    public float initSpeed;                         // 시작속도. 일단은 정속으로 테스트, 추후 수정.
+    public Vector3 initMoveDirection;               // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
+    public float initAccelMultiple;                         // 가속도(트리거로 변화요소)
+    public float initAccelPlus;                         // 가속도(트리거로 변화요소)
+
+    [Header("탄막 움직임 변화")]
+    public EnemyBulletChangeMoveMethod enemyBulletChangeMoveMethod;         // 타이머로 할 것인지, 마스터의 트리거로 할 것인지
+    public List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty; // Move 변환에 대한 각종 프로퍼티
 
     // 3. 클론 ---------------------------------//------------------------------------------------------------------ // 이 경우, PhaseSO에서 담당.
     //public NextPatternMethod[] nextPatternMethod;// 하위 탄막 생성의 조건.
@@ -124,6 +131,8 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     //public List<PhaseSO.PatternHierarchy> subPatternSO; // 하위 패턴 정보 필드 추가
 
     // 4. 반환 ---------------------------------//------------------------------------------------------------------
+
+    [Header("탄막 반환")]
     public ReleaseMethod releaseMethod;         // Pool 반환의 조건.
     public float releaseTimer;                  // 방법1. 반환까지의 타이머. 일단 이거로 테스트.
                                                 // 방법2. 충돌체크. Ground를 만날 시 반환 여부. 이벤트 감지 로직은 각 탄막에서보다 Ground에서 작성하는 것이 자원을 아낄 수 있을 것으로 보임.
@@ -143,10 +152,11 @@ public enum SpreadType
 
 public enum PosDirection
 {
-    World,              // 마스터 또는 플레이어의 방향과 무관계한
     Forward,            // 마스터가 바라보는
     ToPlayer,           // 마스터가 플레이어를 바라볼 경우
     CompletelyRandom,   // 완전히 랜덤한 방향으로
+    CustomWorld,        // 마스터 또는 플레이어의 방향과 무관계한
+    CustomLocal,        // 마스터 기준 직접 입력
 }
 
 public enum PosDirectionRandomType
@@ -166,13 +176,44 @@ public enum EnemyBulletToDirection
 public enum EnemyBulletMoveType
 {
     Forward,
+    LerpToPlayer,
 }
-//public enum NextPatternMethod // PhaseSO에서 담당
-//{
-//    Timer,              // 특정 시간 뒤 터뜨리기
-//    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-//    UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
-//}
+public enum EnemyBulletChangeMoveMethod
+{
+    Timer,
+    MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
+}
+[System.Serializable]
+public struct EnemyBulletChangePropertys
+{
+    public string _desc;
+    public float _timer;
+    public EnemyBulletChangeMoveType _moveType;
+    public Vector3 _moveDirection;          // >World/Local : 직접 입력
+
+    public bool _isResetSpeed;
+    public float _speed;
+    public float _accelPlus;
+    public float _accelMultiple;
+
+    public EnemyBulletMoveType _resetMoveType;
+}
+public enum EnemyBulletChangeMoveType
+{
+    Continue,
+    LookToPlayer,
+    LookToMaster,
+    Reverse,
+    World,
+    Local,
+}
+
+public enum NextPatternMethod // PhaseSO에서 담당
+{
+    Timer,              // 특정 시간 뒤 터뜨리기
+    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+    MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
+}
 public enum ReleaseMethod
 {
     Timer,              // 특정 시간 뒤 터뜨리기
@@ -181,7 +222,7 @@ public enum ReleaseMethod
 }
 public enum EnemyBulletShape
 {
-    Linear,             // 가장 단순한 선형 사출
+    Linear,             // 가장 단순한 선형 사출. SpreadB 설정으로 샷건
     Circle,             // 원형 (참고: 플레이어를 본 방향으로 원형으로 만들어 Enemy->Player 벡터로 방향을 주거나, 무작위 방향으로 원형 바깥방향으로 사출하면 자연스러울 듯.)
     Sphere,             // 구형
     Cube,               // 큐브형태. (참고: 레퍼런스 있음)
