@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Patterns", menuName = "DanmakuSO/Pattern", order = 0)]
+[CreateAssetMenu(fileName = "Patterns", menuName = "EnemyBulletSO/Pattern", order = 0)]
 public class PatternSO : ScriptableObject
 {
-    public List<DanmakuPatternData> patternDatas;
+    public List<EnemyBulletPatternData> patternDatas;
 
     // 패턴 이름을 통해 패턴 정보를 찾기 -> 추후 최적화를 위한 수정 필요. 어떻게 쓰일지도 살짝 애매모호한 상태.
     // ▲ 현재 상태 : PhaseSO에서 patternName을 입력하여 저장, Enemy에서 'GetSpawnInfoByPatternName' 이용하여 탄막패턴 사용. 일단 OK
     // TODO.
     // But, 커스텀 고려해서 수정 필요.
     // 그리고 GetSpawnInfoByPatternName 자체에 대해서도 연산 더 낮은 방식으로 바꾸어야 함.
-    public DanmakuPatternData GetSpawnInfoByPatternName(string patternName)
+    public EnemyBulletPatternData GetSpawnInfoByPatternName(string patternName)
     {
         foreach (var patternData in patternDatas)
         {
@@ -25,14 +25,15 @@ public class PatternSO : ScriptableObject
 }
 
 [System.Serializable]
-public class DanmakuPatternData
+public class EnemyBulletPatternData
 {
     public string patternName;
-    public DanmakuSettings danmakuSettings;
+    public string Desc;
+    public EnemyBulletSettings enemyBulletSettings;
 }
 
 [System.Serializable]
-public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지로 {1.생성-2.이동-3.하층생성-4.반환} 명심하여 작성
+public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이미지로 {1.생성-2.이동-3.하층생성-4.반환} 명심하여 작성
 {
     // 아래의 내용은 전-부 PhaseSO 작성 시 커스텀이 가능하도록(현재 불가능).
     // 다만 선택적 커스텀을 어떻게 해야할지 떠오르지가 않음. 커스텀 값을 기본적으로 모두 null로 둘 수 있을까?
@@ -40,12 +41,16 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     // 1. 생성 ---------------------------------//------------------------------------------------------------------
 
     // 1-1. 탄막의 모양
-    public GameObject danmakuPrefab;            // 탄막 기본 프리팹
+    //[Header("탄막 오브젝트")]
+    public GameObject enemyBulletPrefab;            // 탄막 기본 프리팹
 
     // 1-2. 생성 시간과 횟수에 관련된 정보
+    [Header("시작 지연")]
     public float initDelay;                     // 첫 탄막 생성까지의 지연. 불필요 가능성 큼.
+    [Header("세트 수와 그 간격")]
     public int numOfSet;                        // 총 세트 수
     public float setDelay;                      // 세트 사이의 지연
+    [Header("한 세트 내 발사 횟수와 그 간격")]
     public int shotPerSet;                      // 한 세트에서 탄막을 몇 차례 생성할지
     public float shotDelay;                     // 탄막 생성 사이의 지연
 
@@ -53,10 +58,14 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     // Memo. 여기서 할게 꽤 많음. 차차 작성.
 
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
+    [Header("마스터 기준 생성 방향 벡터")]
     public PosDirection posDirection;           // 마스터 기준으로 생성될 방향
-    public Vector3 customPosDirection;          // > posDirection이 World일 경우 지정
-                                                // a-plug. 기준 방향에 랜덤성을 줄 것인지.
-                                                // public bool posDirectionHasRandomness;    // 랜덤성 부여
+    public Vector3 customPosDirection;          // > World: 직접지정
+    // a-plug. 기준 방향 지정 시 탄퍼짐
+    //[Header("오차")]
+    public SpreadType spreadA;                  // 탄퍼짐 유무
+    public float maxSpreadAngleA;               // > 최대 퍼짐 각도
+    public float concentrationA;                // > 집중 정도 (0.0 ~ 1.0)
                                                 // public PosDirectionRandomType posDirectionRandomType;    // > 랜덤성이 직선인지, 평면인지. 이후에 고려할 사항도 다수
                                                 // >a> 랜덤성이 직선일 경우, 그 직선의 형태
                                                 // >a> 랜덤성이 직선일 경우, 그 직선의 범위 또는 양 방향 각각의 범위(각도가 될 듯)
@@ -66,11 +75,14 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     // b. 기준방향을 중심으로 어떤 형태의 방사를 사용할지. 거리와 방향을 포함.
     // 간단한 선형 단일 발사부터, 정육면체 모양으로 속도를 달리 한 발사, 특별한 모양으로 생성되어 각각이 랜덤한 타이밍에 발사 등 다양한 형태.
     // b-1. 형태에 관해. 기본적인 프리셋을 제공하되, 유저가 Vector3를 직접 작성하여 입력할 수 있도록도 하자.
-    public DanmakuShape danmakuShape;           // 탄막 모양의 타입
+    [Header("탄막 형태")]
+    public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
     // b-2. 거의 모든 모양에서 사용할 변수들
+    //[Header("생성 거리")]
     public float initDistance;                  // 모든 탄막에 대한 생성거리의 기준
                                                 // 기준 거리에 대한 랜덤성 부여. 여유가 되면 작성.
                                                 // 이 랜덤성을, 모든 탄막에 동일부여할지, 각 탄막에 따로 부여할지의 여부.
+    //[Header("1회 발사 당 탄수")]
     public int numPerShot;                      // 한번 발사에 사용되는 탄막 갯수. 
     // 참고: 일부 Shape들()에 대해서는 numPerShot으로 해결이 되기 때문에 이러한 형태들은 b-3항목 불필요.
     // b-3. 탄막 모양에 따라 선택적 변수들(이후, 조건부로 Inspector에 보여주는 것이 과제)
@@ -88,14 +100,14 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
 
 
 
-
+    [Header("탄막 움직임")]
     // 탄막의 방향 : 일단 마스터기준으로 밖으로 퍼지도록 Outer로 설정하여 테스트
-    public DanmakuToDirection initDirectionType;
+    public EnemyBulletToDirection initDirectionType;
     public Vector3 initCustomDirection;
 
     // 2. 이동 ---------------------------------//------------------------------------------------------------------
     // 탄막 자체의 세팅
-    public DanmakuMoveType danmakuMoveType;     // 
+    public EnemyBulletMoveType enemyBulletMoveType;     // 
     public float initSpeed;                     // 시작속도. 일단은 정속으로 테스트, 추후 수정.
                                                 //public Vector3 initMoveDirection;         // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
                                                 // 변속정보.
@@ -123,11 +135,17 @@ public struct DanmakuSettings // 추가 할 게 진짜 많다.. 트리 이미지
     // 하위 탄막이 뭉탱이를 언패킹하여, 위의 내용을 모두 적용, 하위 뭉탱이가 있으면 이를 반복.
 }
 
+public enum SpreadType
+{
+    None,
+    Spread,
+}
+
 public enum PosDirection
 {
     World,              // 마스터 또는 플레이어의 방향과 무관계한
-    Look,               // 마스터가 바라보는
-    LookPlayer,         // 마스터가 플레이어를 바라볼 경우
+    Forward,            // 마스터가 바라보는
+    ToPlayer,           // 마스터가 플레이어를 바라볼 경우
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 
@@ -137,17 +155,17 @@ public enum PosDirectionRandomType
     Plane               // 평면 범위에서 랜덤
 }
 
-public enum DanmakuToDirection
+public enum EnemyBulletToDirection
 {
     World,              // 탄막의 방향과 무관계한
-    Outer,              // 마스터와 반대방향
-    MasterLookPlayer,   // 마스터가 플레이어를 바라보도록
-    LookPlayer,         // 탄막이 플레이어를 바라보도록
+    MasterOut,          // 마스터와 반대방향
+    MasterToPlayer,     // 마스터가 플레이어를 바라보도록
+    ToPlayer,           // 탄막이 플레이어를 바라보도록
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
-public enum DanmakuMoveType
+public enum EnemyBulletMoveType
 {
-    Head,
+    Forward,
 }
 //public enum NextPatternMethod // PhaseSO에서 담당
 //{
@@ -161,7 +179,7 @@ public enum ReleaseMethod
     WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
     UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
 }
-public enum DanmakuShape
+public enum EnemyBulletShape
 {
     Linear,             // 가장 단순한 선형 사출
     Circle,             // 원형 (참고: 플레이어를 본 방향으로 원형으로 만들어 Enemy->Player 벡터로 방향을 주거나, 무작위 방향으로 원형 바깥방향으로 사출하면 자연스러울 듯.)

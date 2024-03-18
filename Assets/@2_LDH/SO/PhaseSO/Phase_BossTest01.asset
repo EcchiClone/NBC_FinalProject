@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6562e598098c824a9e8ccaadc276b5d, type: 3}
+  m_Name: Phase_BossTest01
+  m_EditorClassIdentifier: 
+  genCondition: 0
+  startTime: 0
+  cycleTime: 10
+  hierarchicalPatterns:
+  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+    patternName: LinearToPlayer
+    genCondition: 0
+    startTime: 0
+    cycleTime: 999
+    subPatterns:
+    - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+      patternName: LinearToRandomN
+      genCondition: 0
+      startTime: 1
+      cycleTime: 999
+      subPatterns:
+      - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+        patternName: LinearToPlayer
+        genCondition: 0
+        startTime: 1
+        cycleTime: 999
+        subPatterns:
+        - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+          patternName: LinearToRandomN
+          genCondition: 0
+          startTime: 1
+          cycleTime: 999
+          subPatterns:
+          - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+              type: 2}
+            patternName: LinearToPlayer
+            genCondition: 0
+            startTime: 1
+            cycleTime: 999
+            subPatterns:
+            - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+                type: 2}
+              patternName: LinearToRandomN
+              genCondition: 0
+              startTime: 1
+              cycleTime: 999
+              subPatterns:
+              - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+                  type: 2}
+                patternName: LinearToPlayer
+                genCondition: 0
+                startTime: 1
+                cycleTime: 999
+                subPatterns:
+                - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+                    type: 2}
+                  patternName: LinearToRandomN
+                  genCondition: 0
+                  startTime: 1
+                  cycleTime: 999
+                  subPatterns: []

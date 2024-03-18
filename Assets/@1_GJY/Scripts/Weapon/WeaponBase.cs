@@ -22,12 +22,12 @@ public class WeaponBase : MonoBehaviour
     {
         foreach (Transform muzzle in muzzlePoints)
         {
-            Vector3 target = Vector3.up * 100f;
+            Vector3 freeFirePoint = Vector3.up * 100f;
             if (_target == null)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
-                    target = hit.point;
+                    freeFirePoint = hit.point;
             }
 
             GameObject go = Instantiate(WeaponSO.bulletPrefab, muzzle.position, muzzle.rotation);            
@@ -37,7 +37,7 @@ public class WeaponBase : MonoBehaviour
             go.transform.rotation *= rotation; // 현재 방향에 추가 회전을 적용
 
             PlayerProjectile projectile = go.GetComponent<PlayerProjectile>();
-            projectile.Setup(_target, WeaponSO.speed, target);
+            projectile.Setup(WeaponSO.speed, freeFirePoint, _target);
         }
     }
 

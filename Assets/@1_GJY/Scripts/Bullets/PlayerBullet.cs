@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerBullet : PlayerProjectile
 {
-    public override void Setup(Transform target, float speed, Vector3 groundTargetPos)
+    public override void Setup(float speed, Vector3 groundTargetPos, Transform target = null)
     {
-        base.Setup(target, speed, groundTargetPos);
+        base.Setup(speed, groundTargetPos);
 
         _rigid.velocity = transform.forward * _speed;
         Destroy(gameObject, 5f);

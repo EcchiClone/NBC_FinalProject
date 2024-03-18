@@ -9,8 +9,8 @@ public class PlayerDashState : PlayerBaseState
     public override void EnterState()
     {
         Context.StartDash();
-        Context._currentMovementDirection.y = 0;
-        StartAnimation(Context.AnimationData.DashParameterName);
+        Context._currentMovementDirection.y = 0;        
+        StartAnimation(Context.AnimationData.DashParameterName);        
         RemoveSubState();
     }
 
