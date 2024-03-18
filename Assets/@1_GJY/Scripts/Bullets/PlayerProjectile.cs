@@ -13,7 +13,7 @@ public class PlayerProjectile : MonoBehaviour
         Destroy(gameObject, 5f);
     }
 
-    public virtual void Setup(Transform target, float speed, Vector3 groundTargetPos)
+    public virtual void Setup(float speed, Vector3 groundTargetPos, Transform target = null)
     {
         _speed = speed;
     }   

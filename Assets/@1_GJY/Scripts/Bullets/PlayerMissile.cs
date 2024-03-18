@@ -12,9 +12,9 @@ public class PlayerMissile : PlayerProjectile
     private bool _isTracking = false;
     private readonly float TRAKING_RATIO = 5f;
 
-    public override void Setup(Transform target, float speed, Vector3 groundTargetPos)
+    public override void Setup(float speed, Vector3 groundTargetPos, Transform target = null)
     {
-        base.Setup(target, speed, groundTargetPos);
+        base.Setup(speed, groundTargetPos);
         _target = target;
         _groundTargetPos = groundTargetPos;
         StartCoroutine(CoTracking());

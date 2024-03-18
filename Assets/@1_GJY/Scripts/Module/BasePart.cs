@@ -6,6 +6,8 @@ public class BasePart : MonoBehaviour
 {    
     [field: SerializeField] public int ID { get; private set; }
 
+    [SerializeField] GameObject[] _boosterEffects;    
+
     protected Module _module;
     protected PlayerStateMachine _stateMachine;
 
@@ -14,4 +16,10 @@ public class BasePart : MonoBehaviour
         _module = module;
         _stateMachine = stateMachine;
     }
+
+    public virtual void BoostOnOff(bool isActive)
+    {
+        foreach(var effect in _boosterEffects)
+            effect.SetActive(isActive);
+    }    
 }
