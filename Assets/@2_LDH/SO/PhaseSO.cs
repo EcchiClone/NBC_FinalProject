@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Phases", menuName = "DanmakuSO/Phase", order = 1)]
+[CreateAssetMenu(fileName = "Phases", menuName = "EnemyBulletSO/Phase", order = 1)]
 public class PhaseSO : ScriptableObject
 {
     [System.Serializable]

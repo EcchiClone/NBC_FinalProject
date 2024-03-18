@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class DanmakuPoolManager : MonoBehaviour
+public class EnemyBulletPoolManager : MonoBehaviour
 {
     [System.Serializable]
     private class ObjectInfo
@@ -18,7 +18,7 @@ public class DanmakuPoolManager : MonoBehaviour
     }
 
 
-    public static DanmakuPoolManager instance;
+    public static EnemyBulletPoolManager instance;
 
     // 오브젝트풀 매니저 준비 완료표시
     public bool IsReady { get; private set; }

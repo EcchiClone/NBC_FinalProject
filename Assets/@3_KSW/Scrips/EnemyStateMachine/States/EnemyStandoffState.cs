@@ -92,7 +92,7 @@ public class EnemyStandoffState : EnemyBaseState
             // TODO : 무언가 쏘는 함수 호출
             foreach (var patternHierarchy in _ctx.currentPhase.hierarchicalPatterns)
             {
-                DanmakuGenerator.instance.StartPatternHierarchy(patternHierarchy, _ctx.currentPhase.cycleTime, _ctx.gameObject);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, _ctx.currentPhase.cycleTime, _ctx.gameObject);
             }
 
             // 0.5초 대기
