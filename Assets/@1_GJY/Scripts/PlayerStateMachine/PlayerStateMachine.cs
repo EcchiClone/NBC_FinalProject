@@ -316,12 +316,16 @@ public class PlayerStateMachine : MonoBehaviour
         CanJudgeDashing = false;
         IsDashing = true;
 
+        CurrentLowerPart.BoostOnOff(true);
+        CurrentUpperPart.BoostOnOff(true);
         StartCoroutine(CoBoostOn());
     }
 
     public void StopDash()
     {
         _movementModifier = 1f;
+        CurrentLowerPart.BoostOnOff(false);
+        CurrentUpperPart.BoostOnOff(false);
     }
 
     private IEnumerator CoBoostOn()

@@ -68,7 +68,7 @@ public class PlayerCombatState : PlayerBaseState
 
     private void HandleGravity()
     {
-        if (!Context.Controller.isGrounded)
+        if (!Context.Controller.isGrounded && !Context.IsDashing)
             Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
     }
 }
