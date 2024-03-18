@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePart : MonoBehaviour
-{    
-    [field: SerializeField] public int ID { get; private set; }
-
+{
     [SerializeField] GameObject[] _boosterEffects;    
 
     protected Module _module;

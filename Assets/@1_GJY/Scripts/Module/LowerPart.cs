@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
+    public LowerPartsSO lowerSO;
+
     [SerializeField] GameObject[] _footSparks;
 
     public override void Setup(Module module, PlayerStateMachine stateMachine)

@@ -89,7 +89,7 @@ public class ModuleManager
 
     public void ChangeLowerPart(int index)
     {
-        if (CurrentLowerPart.ID == index) // 같은 파츠면 바꿀 필요X
+        if (CurrentLowerPart.lowerSO.dev_ID == index) // 같은 파츠면 바꿀 필요X
             return;
 
         CurrentUpperPart.transform.SetParent(CurrentModule.transform); // 하체 파괴전 상체를 모듈 하위로 이동시켜 파괴방지.
@@ -104,7 +104,7 @@ public class ModuleManager
 
     public void ChangeUpperPart(int index)
     {
-        if(CurrentUpperPart.ID == index) // 같은 파츠면 바꿀 필요X
+        if(CurrentUpperPart.upperSO.dev_ID == index) // 같은 파츠면 바꿀 필요X
             return;
 
         UnityEngine.Object.DestroyImmediate(CurrentUpperPart.gameObject); // 즉시 파괴로 Transform 참조를 이전 Upper가 아니게 방지.

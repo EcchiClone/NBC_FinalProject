@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UpperPart : BasePart
 {
+    public UpperPartsSO upperSO;
+
     [field: SerializeField] public Transform WeaponTilt { get; private set; }
     [SerializeField] Transform[] _primaryMuzzles;
     [SerializeField] Transform[] _secondaryMuzzles;    

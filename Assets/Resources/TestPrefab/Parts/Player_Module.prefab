@@ -41,11 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5177040827029649724}
   - component: {fileID: 2880896505936220109}
+  - component: {fileID: 8872714411655168895}
   - component: {fileID: 5245987810503798519}
   - component: {fileID: 7491137368802061240}
   - component: {fileID: 2197579354297049829}
-  - component: {fileID: 8872714411655168895}
-  - component: {fileID: 3460564395347822094}
   m_Layer: 0
   m_Name: Player_Module
   m_TagString: Player
@@ -96,6 +95,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &8872714411655168895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850199524926614390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cc03ba5d9e1ac45b4bb7a042634b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LowerPivot>k__BackingField: {fileID: 3780814506189941856}
 --- !u!114 &5245987810503798519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,12 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fc14d3e898f474ca07f309bb1f8395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCamRelative: {x: 0, y: 0, z: 0}
-  <MovementSpeed>k__BackingField: 5
-  <SmoothRotateValue>k__BackingField: 8
-  <MinDownForceValue>k__BackingField: 0.1
-  <JumpPower>k__BackingField: 6
-  <BoostPower>k__BackingField: 3
   <AnimationData>k__BackingField:
     walkParameterName: Walk
     walkForNAftParameterName: ForAndAft
@@ -181,6 +187,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  <LockOnSystem>k__BackingField:
+    _followOnTargetMode: {fileID: 330272713035144040}
+    _targetLayer:
+      serializedVersion: 2
+      m_Bits: 1024
+    _scanRange: 10
   _currentMovementInput: {x: 0, y: 0}
   _currentMovementDirection: {x: 0, y: 0, z: 0}
   _cameraRelativeMovement: {x: 0, y: 0, z: 0}
@@ -196,36 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b4934d58a5b5745ba0f7f175ddaf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8872714411655168895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2850199524926614390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cc03ba5d9e1ac45b4bb7a042634b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <LowerPivot>k__BackingField: {fileID: 3780814506189941856}
---- !u!114 &3460564395347822094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2850199524926614390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf55aeb8fbb12b4483993ca004bb411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _followOnTargetMode: {fileID: 330272713035144040}
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  _scanRange: 20
 --- !u!1 &7861864500905756129
 GameObject:
   m_ObjectHideFlags: 0

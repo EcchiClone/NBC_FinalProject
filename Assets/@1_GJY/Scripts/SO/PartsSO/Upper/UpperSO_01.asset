@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27bb5f06f3357e4789a96699bca3790, type: 3}
+  m_Name: UpperSO_01
+  m_EditorClassIdentifier: 
+  dev_ID: 20001
+  dev_Name: Upper_01
+  display_Name: Not_Assigned
+  display_Description: Not_Assigned
+  armor: 250
+  weight: 150
+  smoothRotation: 3
+  boosterPower: 5
