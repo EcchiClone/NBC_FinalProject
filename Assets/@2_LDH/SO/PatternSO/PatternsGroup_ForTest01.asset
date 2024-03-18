@@ -22,18 +22,18 @@ MonoBehaviour:
       numOfSet: 1
       setDelay: 0
       shotPerSet: 1
-      shotDelay: 0
-      posDirection: 1
+      shotDelay: 0.1
+      posDirection: 2
       customPosDirection: {x: 0, y: 0, z: 0}
       spreadA: 0
       maxSpreadAngleA: 0
       concentrationA: 0
       enemyBulletShape: 0
       initDistance: 0
-      numPerShot: 8
+      numPerShot: 1
       shotVerticalDistance: 0
       shotVerticalNum: 0
-      initDirectionType: 4
+      initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 30
@@ -56,7 +56,7 @@ MonoBehaviour:
       concentrationA: 0
       enemyBulletShape: 0
       initDistance: 0
-      numPerShot: 8
+      numPerShot: 5
       shotVerticalDistance: 0
       shotVerticalNum: 0
       initDirectionType: 4
@@ -82,9 +82,9 @@ MonoBehaviour:
       concentrationA: 0
       enemyBulletShape: 2
       initDistance: 0.05
-      numPerShot: 8
+      numPerShot: 6
       shotVerticalDistance: 0
-      shotVerticalNum: 6
+      shotVerticalNum: 5
       initDirectionType: 1
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
