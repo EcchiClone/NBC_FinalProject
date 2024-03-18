@@ -106,7 +106,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         {
             case(EnemyBulletShape.Linear):
                 // 몇 개의 탄막씩 발사할지 : settings.numPerShot
-                // 생성(현재 1개만 대응)
+                // 생성
                 for(int i = 0; i < settings.numPerShot; i++)
                 {
                     //GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(settings.enemyBulletPrefab.name);
@@ -119,10 +119,10 @@ public class EnemyBulletGenerator : MonoBehaviour
                         case PosDirection.World:
                             initPosition += settings.customPosDirection * settings.initDistance;
                             break;
-                        case PosDirection.Look:
+                        case PosDirection.Forward:
                             initPosition += masterGo.transform.forward * settings.initDistance;
                             break;
-                        case PosDirection.LookPlayer:
+                        case PosDirection.ToPlayer:
                             if (playerGo != null)
                             {
                                 Vector3 directionToPlayer = (playerGo.transform.position - transform.position).normalized;
@@ -165,7 +165,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 }
                 break;
 
-            case EnemyBulletToDirection.Outer: // 마스터(masterGo)와 반대되는 방향으로
+            case EnemyBulletToDirection.MasterOut: // 마스터(masterGo)와 반대되는 방향으로
                 foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
                     Vector3 directionMasterToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
@@ -173,7 +173,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 }
                 break;
 
-            case EnemyBulletToDirection.MasterLookPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
+            case EnemyBulletToDirection.MasterToPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
 
                 foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
@@ -184,14 +184,14 @@ public class EnemyBulletGenerator : MonoBehaviour
                     }
                     else
                     {
-                        // playerGo가 없을 경우, EnemyBulletToDirection.Outer 와 같도록
+                        // playerGo가 없을 경우, EnemyBulletToDirection.MasterOut 와 같도록
                         Vector3 directionToMaster = (enemyBulletTransform.position - masterGo.transform.position).normalized;
                         enemyBulletTransform.rotation = Quaternion.LookRotation(-directionToMaster);
                     }
                 }
                 break;
 
-            case EnemyBulletToDirection.LookPlayer: // 탄막이 플레이어를 바라보도록
+            case EnemyBulletToDirection.ToPlayer: // 탄막이 플레이어를 바라보도록
                 foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
                     if (playerGo != null)
@@ -211,6 +211,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         }
         // 2>?. 방향에 일괄 오차 주기
         // 1>?. 에서 행했던 것 또 넣어도 될 듯 함
+
 
 
 

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternDatas:
   - patternName: LinearToPlayer
-    Desc: "\uC2DC\uC791 \uC2DC\uC810\uC5D0 \uC720\uC800 \uBC29\uD5A5\uC73C\uB85C
-      \uC9C1\uC120"
+    Desc: "\uD50C\uB808\uC774\uC5B4 \uBC29\uD5A5\uC73C\uB85C \uC9C1\uC120"
     enemyBulletSettings:
       enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
         type: 3}
@@ -24,34 +23,14 @@ MonoBehaviour:
       setDelay: 0
       shotPerSet: 1
       shotDelay: 0
-      posDirection: 2
+      posDirection: 1
       customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 0
+      concentrationA: 0
       enemyBulletShape: 0
       initDistance: 0
-      numPerShot: 1
-      shotVerticalDistance: 0
-      shotVerticalNum: 0
-      initDirectionType: 3
-      initCustomDirection: {x: 0, y: 0, z: 0}
-      enemyBulletMoveType: 0
-      initSpeed: 30
-      releaseMethod: 0
-      releaseTimer: 1.05
-  - patternName: LinearToRandom
-    Desc: "\uB79C\uB364\uD55C \uBC29\uD5A5\uC73C\uB85C \uC9C1\uC120"
-    enemyBulletSettings:
-      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
-        type: 3}
-      initDelay: 0
-      numOfSet: 1
-      setDelay: 0
-      shotPerSet: 1
-      shotDelay: 0
-      posDirection: 0
-      customPosDirection: {x: 0, y: 0, z: 0}
-      enemyBulletShape: 0
-      initDistance: 0
-      numPerShot: 1
+      numPerShot: 8
       shotVerticalDistance: 0
       shotVerticalNum: 0
       initDirectionType: 4
@@ -70,8 +49,11 @@ MonoBehaviour:
       setDelay: 0
       shotPerSet: 1
       shotDelay: 0
-      posDirection: 0
+      posDirection: 1
       customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 0
+      concentrationA: 0
       enemyBulletShape: 0
       initDistance: 0
       numPerShot: 8
@@ -95,6 +77,9 @@ MonoBehaviour:
       shotDelay: 0
       posDirection: 0
       customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 0
+      concentrationA: 0
       enemyBulletShape: 2
       initDistance: 0.05
       numPerShot: 8
@@ -118,6 +103,9 @@ MonoBehaviour:
       shotDelay: 0.1
       posDirection: 0
       customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 0
+      concentrationA: 0
       enemyBulletShape: 0
       initDistance: 0
       numPerShot: 1

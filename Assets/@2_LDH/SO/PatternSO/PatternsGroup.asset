@@ -12,4 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
   m_Name: PatternsGroup
   m_EditorClassIdentifier: 
-  patternDatas: []
+  patternDatas:
+  - patternName: 
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 0}
+      initDelay: 0
+      numOfSet: 0
+      setDelay: 0
+      shotPerSet: 0
+      shotDelay: 0
+      posDirection: 0
+      customPosDirection: {x: 1, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 0
+      concentrationA: 0
+      enemyBulletShape: 0
+      initDistance: 0
+      numPerShot: 0
+      shotVerticalDistance: 0
+      shotVerticalNum: 0
+      initDirectionType: 0
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 0
+      releaseMethod: 0
+      releaseTimer: 0

@@ -42,7 +42,7 @@ public class EnemyBulletController : PoolAble
         // 탄막 이동 로직
         switch (_currentParameters.enemyBulletMoveType)
         {
-            case EnemyBulletMoveType.Head: // 오브젝트가 향하는 방향으로 이동
+            case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 이동
                 transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
                 break;
         }
