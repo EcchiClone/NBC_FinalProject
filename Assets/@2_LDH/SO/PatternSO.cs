@@ -116,8 +116,9 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public EnemyBulletMoveType enemyBulletMoveType; // 움직임 타입(트리거로 변화 요소)
     public float initSpeed;                         // 시작속도. 일단은 정속으로 테스트, 추후 수정.
     public Vector3 initMoveDirection;               // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
-    public float initAccelMultiple;                         // 가속도(트리거로 변화요소)
-    public float initAccelPlus;                         // 가속도(트리거로 변화요소)
+    public float initAccelMultiple;                         // 가속도(곱)(트리거로 변화요소)
+    public float initAccelPlus;                         // 가속도(합)(트리거로 변화요소)
+    public float initRotationSpeed;                         // 회전속도(트리거로 변화요소)
 
     [Header("탄막 움직임 변화")]
     public EnemyBulletChangeMoveMethod enemyBulletChangeMoveMethod;         // 타이머로 할 것인지, 마스터의 트리거로 할 것인지
@@ -167,7 +168,7 @@ public enum PosDirectionRandomType
 
 public enum EnemyBulletToDirection
 {
-    World,              // 탄막의 방향과 무관계한
+    Local,              // 탄막의 방향과 무관계한
     MasterOut,          // 마스터와 반대방향
     MasterToPlayer,     // 마스터가 플레이어를 바라보도록
     ToPlayer,           // 탄막이 플레이어를 바라보도록
@@ -186,24 +187,35 @@ public enum EnemyBulletChangeMoveMethod
 [System.Serializable]
 public struct EnemyBulletChangePropertys
 {
+    // Custom Editor에서 중복 표시되는 버그에 대한 임시조치를 위해 언더바 변수명 사용
+
     public string _desc;
     public float _timer;
-    public EnemyBulletChangeMoveType _moveType;
-    public Vector3 _moveDirection;          // >World/Local : 직접 입력
 
-    public bool _isResetSpeed;
-    public float _speed;
+    public EnemyBulletChangeSpeedType _changeSpeedType;
+    public EnemyBulletChangeRotationType _changeRotationType;
+    public Vector3 _moveDirection;                      // >Local/Local : 직접 입력
+
+    public float _speed;                                // isResetSpeed && 
     public float _accelPlus;
     public float _accelMultiple;
+    public float _rotationSpeed;
 
     public EnemyBulletMoveType _resetMoveType;
 }
-public enum EnemyBulletChangeMoveType
+public enum EnemyBulletChangeSpeedType
 {
-    Continue,
-    LookToPlayer,
-    LookToMaster,
+    Continue, // 속도 가속도 유지
+    Change, // 속도 가속도 변화
+    ChangeSpeedOnly, // 속도만 변화
+    ChangeAccelOnly, // 가속도만 변화
+}
+public enum EnemyBulletChangeRotationType
+{
+    Continue, // 각도 유지
     Reverse,
+    LookToPlayer, 
+    LookToMaster,
     World,
     Local,
 }

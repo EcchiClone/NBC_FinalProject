@@ -151,7 +151,7 @@ public class PatternSOEditor : Editor
             if (property.name == "shotVerticalNum")
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
             if (property.name == "initCustomDirection")
-                if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.World)) continue;
+                if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.Local)) continue;
             if (property.name == "maxSpreadAngleB")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
             if (property.name == "concentrationB")

@@ -9,6 +9,7 @@ public class EnemyBulletParameters
     public float speed;
     public float accelMultiple;
     public float accelPlus;
+    public float rotationSpeed;
     public Vector3 moveDirection;
     public EnemyBulletMoveType enemyBulletMoveType;
     public List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty;
@@ -22,6 +23,7 @@ public class EnemyBulletParameters
         float speed,
         float accelMultiple,
         float accelPlus,
+        float rotationSpeed,
         Vector3 moveDirection, 
         EnemyBulletMoveType enemyBulletMoveType,
         List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty,
@@ -32,6 +34,7 @@ public class EnemyBulletParameters
         this.speed = speed;
         this.accelMultiple = accelMultiple;
         this.accelPlus = accelPlus;
+        this.rotationSpeed = rotationSpeed;
         this.moveDirection = moveDirection;
         this.enemyBulletMoveType = enemyBulletMoveType;
         this.enemyBulletChangeMoveProperty = enemyBulletChangeMoveProperty;
@@ -47,6 +50,7 @@ public class EnemyBulletParameters
             settings.initSpeed,
             settings.initAccelMultiple,
             settings.initAccelPlus,
+            settings.initRotationSpeed,
             settings.initCustomDirection,
             settings.enemyBulletMoveType,
             settings.enemyBulletChangeMoveProperty,

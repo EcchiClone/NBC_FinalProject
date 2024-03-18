@@ -14,5 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 0
-  hierarchicalPatterns: []
+  cycleTime: 60
+  hierarchicalPatterns:
+  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+    patternName: dadada
+    genCondition: 0
+    startTime: 0
+    cycleTime: 0
+    subPatterns:
+    - patternSO: {fileID: 0}
+      patternName: 
+      genCondition: 0
+      startTime: 0
+      cycleTime: 0
+      subPatterns: []
+  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+    patternName: Linear
+    genCondition: 0
+    startTime: 10
+    cycleTime: 0
+    subPatterns: []
+  - patternSO: {fileID: 0}
+    patternName: 
+    genCondition: 0
+    startTime: 0
+    cycleTime: 0
+    subPatterns: []
+  - patternSO: {fileID: 0}
+    patternName: 
+    genCondition: 0
+    startTime: 0
+    cycleTime: 0
+    subPatterns: []

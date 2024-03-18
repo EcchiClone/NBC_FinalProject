@@ -180,7 +180,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         // 2. 방향
         switch (settings.initDirectionType)
         {
-            case EnemyBulletToDirection.World: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
+            case EnemyBulletToDirection.Local: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
                 foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
                     enemyBulletTransform.rotation = Quaternion.Euler(settings.initCustomDirection);
