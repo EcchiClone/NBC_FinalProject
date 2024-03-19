@@ -148,14 +148,19 @@ public class PatternSOEditor : Editor
                 if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
             if (property.name == "concentrationA")
                 if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
+
             if (property.name == "shotVerticalNum")
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
+            if (property.name == "customBulletPosList")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom)) continue;
             if (property.name == "initCustomDirection")
                 if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.Local)) continue;
             if (property.name == "maxSpreadAngleB")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
             if (property.name == "concentrationB")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+            if (property.name == "initMoveDirection")
+                 continue; // 현재 미사용, 임시 비활성화
 
             if (property.name == "enemyBulletPrefab") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 오브젝트")); continue; }
             if (property.name == "initDelay") { EditorGUILayout.PropertyField(property, new GUIContent("시작지연")); continue; }
@@ -171,6 +176,7 @@ public class PatternSOEditor : Editor
             if (property.name == "concentrationA") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
 
             if (property.name == "enemyBulletShape") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 형태")); continue; }
+            if (property.name == "customBulletPosList") { EditorGUILayout.PropertyField(property, new GUIContent("커스텀 위치")); continue; }
             if (property.name == "initDistance") { EditorGUILayout.PropertyField(property, new GUIContent("생성 거리")); continue; }
             if (property.name == "numPerShot") { EditorGUILayout.PropertyField(property, new GUIContent("1회 당 탄수")); continue; }
             if (property.name == "shotVerticalNum") { EditorGUILayout.PropertyField(property, new GUIContent("층 수")); continue; }
@@ -182,7 +188,11 @@ public class PatternSOEditor : Editor
             if (property.name == "initCustomDirection") { EditorGUILayout.PropertyField(property, new GUIContent("직접 지정")); continue; }
             if (property.name == "enemyBulletMoveType") { EditorGUILayout.PropertyField(property, new GUIContent("움직임 유형")); continue; }
             if (property.name == "initSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("생성 시 속도")); continue; }
-            if (property.name == "enemyBulletChangeMethod") { EditorGUILayout.PropertyField(property, new GUIContent("작동 방식")); continue; }
+            if (property.name == "initMoveDirection") { EditorGUILayout.PropertyField(property, new GUIContent("이동 방향(게 처럼 옆으로 움직이는 게 아니라면 미사용)")); continue; }
+            if (property.name == "initAccelMultiple") { EditorGUILayout.PropertyField(property, new GUIContent("가속도(곱)")); continue; }
+            if (property.name == "initAccelPlus") { EditorGUILayout.PropertyField(property, new GUIContent("가속도(합)")); continue; }
+            if (property.name == "initRotationSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("회전 속도")); continue; }
+            if (property.name == "enemyBulletChangeMoveMethod") { EditorGUILayout.PropertyField(property, new GUIContent("작동 방식")); continue; }
             if (property.name == "enemyBulletChangeMoveProperty") { EditorGUILayout.PropertyField(property, new GUIContent("변화 목록")); continue; }
 
             if (property.name == "releaseMethod") { EditorGUILayout.PropertyField(property, new GUIContent("추가 반환 방법(미지원)")); continue; }
@@ -198,7 +208,7 @@ public class PatternSOEditor : Editor
                 continue;
             if (property.name.StartsWith("_"))
                 continue;
-            //Debug.Log(property.name);
+
             EditorGUILayout.PropertyField(property, true);
         }
 

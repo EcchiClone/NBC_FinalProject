@@ -14,11 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 1
+  cycleTime: 8
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-    patternName: ShotgunToPlayer
+    patternName: Sphere01
     genCondition: 0
     startTime: 0
-    cycleTime: 0
-    subPatterns: []
+    cycleTime: 999
+    subPatterns:
+    - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+      patternName: Sphere01
+      genCondition: 0
+      startTime: 1
+      cycleTime: 99
+      subPatterns:
+      - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
+        patternName: LinearToPlayer
+        genCondition: 0
+        startTime: 1
+        cycleTime: 99
+        subPatterns: []

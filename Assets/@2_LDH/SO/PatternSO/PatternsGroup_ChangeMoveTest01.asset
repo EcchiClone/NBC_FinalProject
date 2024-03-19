@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: PatternsGroup_ChangeMoveTest01
   m_EditorClassIdentifier: 
   patternDatas:
-  - patternName: No1
+  - patternName: "\uC720\uB3C4\uBBF8\uC138\uC774\uB8E8"
     Desc: "\uD558\uB298\uC744 \uD5A5\uD574 \uBC1C\uC0AC"
     enemyBulletSettings:
-      enemyBulletPrefab: {fileID: 0}
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: f0d76639162b1c74ea3aa40cefcdf1f7,
+        type: 3}
       initDelay: 0
       numOfSet: 1
       setDelay: 0
@@ -28,34 +29,45 @@ MonoBehaviour:
       maxSpreadAngleA: 8
       concentrationA: 0.7
       enemyBulletShape: 0
-      initDistance: 0
+      customBulletPosList: []
+      initDistance: 0.1
       numPerShot: 3
       shotVerticalNum: 0
       spreadB: 1
-      maxSpreadAngleB: 20
+      maxSpreadAngleB: 90
       concentrationB: 0.7
-      initDirectionType: 0
+      initDirectionType: 1
       initCustomDirection: {x: 0, y: 1, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 20
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
-      initAccelPlus: 0
+      initAccelPlus: -25
       initRotationSpeed: 1
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
       - _desc: "\uD50C\uB808\uC774\uC5B4\uC5D0 \uC720\uB3C4 \uC2DC\uC791"
         _timer: 1
-        _changeSpeedType: 0
+        _changeSpeedType: 3
+        _changeRotationType: 0
+        _moveDirection: {x: 0, y: 0, z: 0}
+        _speed: 0
+        _accelPlus: 25
+        _accelMultiple: 1
+        _rotationSpeed: 3
+        _resetMoveType: 1
+      - _desc: "\uAC00\uC18D \uC885\uB8CC"
+        _timer: 2
+        _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
         _speed: 0
         _accelPlus: 0
-        _accelMultiple: 0
-        _rotationSpeed: 1
+        _accelMultiple: 1
+        _rotationSpeed: 2.5
         _resetMoveType: 1
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
-        _timer: 3
+        _timer: 6
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}

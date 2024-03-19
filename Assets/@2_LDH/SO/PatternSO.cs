@@ -78,6 +78,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     [Header("탄막 형태A")]
     public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
 
+    public Vector3[] customBulletPosList; // 유저 커스텀 입력
 
     // b-2. 거의 모든 모양에서 사용할 변수들
     //[Header("생성 거리")]
@@ -88,7 +89,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public int numPerShot;                      // 한번 발사에 사용되는 탄막 갯수. 
     // 참고: 일부 Shape들()에 대해서는 numPerShot으로 해결이 되기 때문에 이러한 형태들은 b-3항목 불필요.
     // b-3. 탄막 모양에 따라 선택적 변수들(이후, 조건부로 Inspector에 보여주는 것이 과제)
-    //public float shotVerticalDistance;          // Circle: 원의 면과 보스의 수직거리
+    // public float shotVerticalDistance;       // Circle: 원의 면과 보스의 수직거리
     public int shotVerticalNum;                 // Sphere: 구의 '단' 갯수
                                                 // Cone: 허용각도. 얘는 자료형을 뭘로 해야할지 모르겠음.
                                                 // 전체 모양의 회전을 틀어버릴 요소(정해진 값)
@@ -98,7 +99,8 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public float maxSpreadAngleB;               // > 최대 퍼짐 각도
     public float concentrationB;                // > 집중 정도 (0.0 ~ 1.0)
 
-    // b-99. 유저 커스텀 입력
+
+
     // 유저입력1. 원하는 범위에 a.N개를 균일배치(어려울듯), b.N개를 랜덤배치
     //            원하는 범위는... 일단 x, y, z의 범위? 이것만으로는 마음엔 들진 않을 듯.(이 방식으론 직육면체 밖에 불가능)
     //            그래프의 형태로 입력받아 활용할 수 있을 것 같지만 난이도가 있을 듯 하다.
@@ -182,7 +184,7 @@ public enum EnemyBulletMoveType
 public enum EnemyBulletChangeMoveMethod
 {
     Timer,
-    MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
+    RootTrigger,      // Root에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
 }
 [System.Serializable]
 public struct EnemyBulletChangePropertys
@@ -196,7 +198,7 @@ public struct EnemyBulletChangePropertys
     public EnemyBulletChangeRotationType _changeRotationType;
     public Vector3 _moveDirection;                      // >Local/Local : 직접 입력
 
-    public float _speed;                                // isResetSpeed && 
+    public float _speed;
     public float _accelPlus;
     public float _accelMultiple;
     public float _rotationSpeed;

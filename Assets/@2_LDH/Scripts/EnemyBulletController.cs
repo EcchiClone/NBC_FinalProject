@@ -66,8 +66,13 @@ public class EnemyBulletController : PoolAble
     }
     void Accel()
     {
-        _currentParameters.speed *= _currentParameters.accelMultiple;
-        _currentParameters.speed += _currentParameters.accelPlus;
+        // 곱셈 가속
+        float accelFactor = Mathf.Exp(Mathf.Log(_currentParameters.accelMultiple) * Time.deltaTime);
+        _currentParameters.speed *= accelFactor;
+
+        // 합 가속
+        _currentParameters.speed += _currentParameters.accelPlus * Time.deltaTime;
+
     }
 
     void UpdateMoveParameter()

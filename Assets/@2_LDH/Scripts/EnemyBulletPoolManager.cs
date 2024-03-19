@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -17,7 +18,6 @@ public class EnemyBulletPoolManager : MonoBehaviour
         public int count;
     }
 
-
     public static EnemyBulletPoolManager instance;
 
     // 오브젝트풀 매니저 준비 완료표시
@@ -30,7 +30,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
     private string objectName;
 
     // 오브젝트풀들을 관리할 딕셔너리
-    private Dictionary<string, IObjectPool<GameObject>> ojbectPoolDic = new Dictionary<string, IObjectPool<GameObject>>();
+    private Dictionary<string, IObjectPool<GameObject>> objectPoolDic = new Dictionary<string, IObjectPool<GameObject>>();
 
     // 오브젝트풀에서 오브젝트를 새로 생성할때 사용할 딕셔너리
     private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
@@ -68,7 +68,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
             }
 
             goDic.Add(objectInfos[idx].objectName, objectInfos[idx].perfab);
-            ojbectPoolDic.Add(objectInfos[idx].objectName, pool);
+            objectPoolDic.Add(objectInfos[idx].objectName, pool);
 
             // 미리 오브젝트 생성 해놓기
             for (int i = 0; i < objectInfos[idx].count; i++)
@@ -79,7 +79,20 @@ public class EnemyBulletPoolManager : MonoBehaviour
             }
         }
         IsReady = true;
+        LogDictionary(objectPoolDic);
+        LogDictionary(goDic);
     }
+    void LogDictionary<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("Dictionary Contents:\n");
+        foreach (KeyValuePair<TKey, TValue> kvp in dictionary)
+        {
+            sb.AppendLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+        }
+        Debug.Log(sb.ToString());
+    }
+
 
     // 생성
     private GameObject CreatePooledItem()
@@ -87,7 +100,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
         //Debug.Log("생성");
         nowActiveItem++; // 갯수추적
         GameObject poolGo = Instantiate(goDic[objectName]);
-        poolGo.GetComponent<PoolAble>().Pool = ojbectPoolDic[objectName];
+        poolGo.GetComponent<PoolAble>().Pool = objectPoolDic[objectName];
         return poolGo;
     }
 
@@ -116,7 +129,6 @@ public class EnemyBulletPoolManager : MonoBehaviour
     public GameObject GetGo(string goName)
     {
         objectName = goName;
-        //Debug.Log(objectName);
 
         if (goDic.ContainsKey(goName) == false)
         {
@@ -124,7 +136,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
             return null;
         }
 
-        return ojbectPoolDic[goName].Get();
+        return objectPoolDic[goName].Get();
     }
 
     // 배치 처리를 통한 반환 최적화

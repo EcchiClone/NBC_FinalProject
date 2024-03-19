@@ -113,7 +113,7 @@ public class EnemyBulletGenerator : MonoBehaviour
             case PosDirection.ToPlayer:
                 if (playerGo != null)
                 {
-                    Vector3 directionToPlayer = (playerGo.transform.position - transform.position).normalized;
+                    Vector3 directionToPlayer = (playerGo.transform.position - masterGo.transform.position).normalized;
                     pivotDirection = directionToPlayer;
                 }
                 else pivotDirection = masterGo.transform.forward; // Player 없을 시, Forward를 사용
@@ -301,7 +301,10 @@ public class EnemyBulletGenerator : MonoBehaviour
         {
             //Debug.Log($"{spawnQueue.Count}, {spawnCountThisFrame}");
             EnemyBulletSpawnInfo spawnInfo = spawnQueue.Dequeue();
+
+            //Debug.Log(spawnInfo.prefabName);
             GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(spawnInfo.prefabName);
+            //Debug.Log(enemyBulletGo.gameObject.ToString());
 
             enemyBulletGo.transform.position = spawnInfo.position;
             enemyBulletGo.transform.rotation = spawnInfo.rotation;

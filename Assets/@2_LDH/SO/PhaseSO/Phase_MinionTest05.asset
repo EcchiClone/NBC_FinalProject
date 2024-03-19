@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6562e598098c824a9e8ccaadc276b5d, type: 3}
-  m_Name: Phase_MinionTest03
+  m_Name: Phase_MinionTest05
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 2
+  cycleTime: 4
   hierarchicalPatterns:
-  - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-    patternName: dadada
+  - patternSO: {fileID: 11400000, guid: 1ac20cafbc4006d4c928ffd2d8049086, type: 2}
+    patternName: "\uC720\uB3C4\uBBF8\uC138\uC774\uB8E8"
     genCondition: 0
     startTime: 0
     cycleTime: 0

@@ -10,27 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6562e598098c824a9e8ccaadc276b5d, type: 3}
-  m_Name: Phase_BossTest02
+  m_Name: Phase_MinionTest04
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
-  cycleTime: 8
+  cycleTime: 1
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-    patternName: Sphere01
+    patternName: ShotgunToPlayer
     genCondition: 0
     startTime: 0
-    cycleTime: 999
-    subPatterns:
-    - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-      patternName: Sphere01
-      genCondition: 0
-      startTime: 1
-      cycleTime: 99
-      subPatterns:
-      - patternSO: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7, type: 2}
-        patternName: LinearToPlayer
-        genCondition: 0
-        startTime: 1
-        cycleTime: 99
-        subPatterns: []
+    cycleTime: 0
+    subPatterns: []
