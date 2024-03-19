@@ -20,21 +20,27 @@ public class PlayerStatus
     public float SmoothRotateValue { get; private set; }
     public float BoostPower { get; private set; } // 부스터 출력  
 
+    public static event Action<float, float> OnChangeArmorPoint;
+
+    private float _currentArmor;
+
     public PlayerStatus(LowerPartsSO lowerSO, UpperPartsSO upperSO)
     {
-        Armor = lowerSO.armor + upperSO.armor;
+        Armor = lowerSO.armor + upperSO.armor;        
         Weight = lowerSO.weight + upperSO.weight;
+        _currentArmor = Armor;
 
         MovementSpeed = lowerSO.speed;
         JumpPower = lowerSO.jumpPower;
         CanJump = lowerSO.canJump;
 
         SmoothRotateValue = upperSO.smoothRotation;
-        BoostPower = upperSO.boosterPower;
+        BoostPower = upperSO.boosterPower;        
     }
 
     public void GetDamage(float damage)
     {
-        Armor -= damage;
+        _currentArmor -= damage;        
+        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
 }

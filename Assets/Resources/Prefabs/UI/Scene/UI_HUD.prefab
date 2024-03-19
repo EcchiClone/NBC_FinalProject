@@ -533,7 +533,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.697
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -575,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.600006, y: 0}
   m_SizeDelta: {x: 540.1, y: 88.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2643970454859332171
@@ -951,6 +951,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _crossHair: {fileID: 673224227009471779}
   _lockOnIndicator: {fileID: 7574131506484601173}
+  _apFill: {fileID: 2588907438727414418}
+  _apValueText: {fileID: 5585415302455755470}
 --- !u!1 &7732474367147394054
 GameObject:
   m_ObjectHideFlags: 0

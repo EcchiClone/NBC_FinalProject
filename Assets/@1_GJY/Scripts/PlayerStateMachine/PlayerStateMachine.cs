@@ -93,6 +93,19 @@ public class PlayerStateMachine : MonoBehaviour
     {
         // 콜백 함수 등록
         AddInputCallBacks();
+
+        StartCoroutine(Co_TestDamage());
+    }
+
+    WaitForSeconds wait = new WaitForSeconds(0.2f);
+    private IEnumerator Co_TestDamage()
+    {
+        while (true)
+        {
+            Player.GetDamage(2.5f);
+
+            yield return wait;
+        }        
     }
 
     private void Update()

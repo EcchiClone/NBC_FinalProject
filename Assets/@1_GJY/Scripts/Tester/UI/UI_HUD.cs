@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_HUD : UI_Scene
 {
+    [Header("Aim")]
     [SerializeField] GameObject _crossHair;
     [SerializeField] GameObject _lockOnIndicator;
+
+    [Header("AP")]
+    [SerializeField] Image _apFill;
+    [SerializeField] TextMeshProUGUI _apValueText;
+
 
     private Transform _target;
 
@@ -15,6 +23,7 @@ public class UI_HUD : UI_Scene
 
         LockOnSystem.OnLockOn += GetTargetedEnemy;
         LockOnSystem.OnRelease += ReleaseTarget;
+        PlayerStatus.OnChangeArmorPoint += ChangeAPValue;
     }
 
     private void GetTargetedEnemy(Transform target)
@@ -29,6 +38,12 @@ public class UI_HUD : UI_Scene
         _target = null;
         _crossHair.SetActive(true);
         _lockOnIndicator.SetActive(false);
+    }
+
+    private void ChangeAPValue(float totalAP, float remainAP)
+    {
+        _apFill.fillAmount = remainAP / totalAP;
+        _apValueText.text = $"{(int)remainAP}";
     }
 
     private void Update()
