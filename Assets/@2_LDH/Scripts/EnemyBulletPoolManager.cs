@@ -79,8 +79,8 @@ public class EnemyBulletPoolManager : MonoBehaviour
             }
         }
         IsReady = true;
-        LogDictionary(objectPoolDic);
-        LogDictionary(goDic);
+        //LogDictionary(objectPoolDic);
+        //LogDictionary(goDic);
     }
     void LogDictionary<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
     {

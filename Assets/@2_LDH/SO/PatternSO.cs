@@ -120,7 +120,10 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public Vector3 initMoveDirection;               // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
     public float initAccelMultiple;                         // 가속도(곱)(트리거로 변화요소)
     public float initAccelPlus;                         // 가속도(합)(트리거로 변화요소)
+    public float minSpeed;
+    public float maxSpeed;
     public float initRotationSpeed;                         // 회전속도(트리거로 변화요소)
+    public float initLocalYRotationSpeed;                         // 회전속도(트리거로 변화요소)
 
     [Header("탄막 움직임 변화")]
     public EnemyBulletChangeMoveMethod enemyBulletChangeMoveMethod;         // 타이머로 할 것인지, 마스터의 트리거로 할 것인지
@@ -173,6 +176,7 @@ public enum EnemyBulletToDirection
     Local,              // 탄막의 방향과 무관계한
     MasterOut,          // 마스터와 반대방향
     MasterToPlayer,     // 마스터가 플레이어를 바라보도록
+    MuzzleOut,          // 총구와 반대 방향
     ToPlayer,           // 탄막이 플레이어를 바라보도록
     CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
@@ -216,8 +220,11 @@ public enum EnemyBulletChangeRotationType
 {
     Continue, // 각도 유지
     Reverse,
-    LookToPlayer, 
+    LookToPlayer,
+    RootLookPlayer,
+    MasterLookPlayer,
     LookToMaster,
+    LookToRoot,
     World,
     Local,
 }

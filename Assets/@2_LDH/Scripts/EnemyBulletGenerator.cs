@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 using static PhaseSO;
@@ -20,40 +21,40 @@ public class EnemyBulletGenerator : MonoBehaviour
     }
 
     // 탄막 생성 및 하위 패턴 실행
-    public void StartPatternHierarchy(PatternHierarchy hierarchy, float cycleTime, GameObject masterObject)
+    public void StartPatternHierarchy(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
     {
         if (hierarchy.patternSO != null)
         {
-            StartCoroutine(Co_ExecutePatternForCycleTime(hierarchy, cycleTime, masterObject));
+            StartCoroutine(Co_ExecutePatternForCycleTime(hierarchy, cycleTime, rootObject, masterObject, muzzleTransform));
         }
     }
     // 코루틴을 실행. CycleTime마다 주어진 패턴구성을 반복
-    private IEnumerator Co_ExecutePatternForCycleTime(PatternHierarchy hierarchy, float cycleTime, GameObject masterObject)
+    private IEnumerator Co_ExecutePatternForCycleTime(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
     {
         while (true)
         {
-            StartCoroutine(Co_ExecutePatternHierarchy(hierarchy, hierarchy.cycleTime, masterObject)); // 여러 패턴 대응, 여기에 넣으면 괜찮을듯? foreach로. 추후 수정.
+            StartCoroutine(Co_ExecutePatternHierarchy(hierarchy, hierarchy.cycleTime, rootObject, masterObject, muzzleTransform)); // 여러 패턴 대응, 여기에 넣으면 괜찮을듯? foreach로. 추후 수정.
             yield return new WaitForSeconds(cycleTime);
         }
     }
     // startTime 만큼 기다린 후, 패턴 코루틴을 실행
-    private IEnumerator Co_ExecutePatternHierarchy(PatternHierarchy hierarchy, float nextCycleTime, GameObject masterObject)
+    private IEnumerator Co_ExecutePatternHierarchy(PatternHierarchy hierarchy, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
     {
         yield return new WaitForSeconds(hierarchy.startTime);
         if (masterObject != null)
-            ExecutePattern(hierarchy.patternSO, hierarchy.patternName, hierarchy.subPatterns, nextCycleTime, masterObject);
+            ExecutePattern(hierarchy.patternSO, hierarchy.patternName, hierarchy.subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform);
     }
 
-    private void ExecutePattern(PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject masterObject)
+    private void ExecutePattern(PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
     {
         var patternData = patternSO.GetSpawnInfoByPatternName(patternName);
         if (patternData != null)
         {
-            StartCoroutine(Co_ExecutePattern(patternData.enemyBulletSettings, subPatterns, nextCycleTime, masterObject));
+            StartCoroutine(Co_ExecutePattern(patternData.enemyBulletSettings, subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform));
         }
     }
 
-    IEnumerator Co_ExecutePattern(EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject masterGo)
+    IEnumerator Co_ExecutePattern(EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null)
     {
         GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
 
@@ -76,9 +77,9 @@ public class EnemyBulletGenerator : MonoBehaviour
                 //List<GameObject> enemyBulletGoList = new List<GameObject>();
                 List<LightTransform> enemyBulletTransformList = new List<LightTransform>();
 
-                SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerGo, masterGo);
+                SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform);
 
-                EnqueueEnemyBulletSpawnInfo(settings, enemyBulletTransformList, subPatterns, nextCycleTime);
+                EnqueueEnemyBulletSpawnInfo(settings, enemyBulletTransformList, subPatterns, nextCycleTime, rootGo, masterGo.transform);
 
 
 
@@ -97,10 +98,14 @@ public class EnemyBulletGenerator : MonoBehaviour
     }
 
     // 탄막의 생성 및 위치 초기화
-    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, GameObject playerGo, GameObject masterGo)
+    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, GameObject playerGo, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null)
     {
         // 1. 패턴을 생성할 기준 위치 설정
-        Vector3 pivotPosition = masterGo.transform.position; // (임시)마스터의 위치를 Pivot으로
+        Vector3 pivotPosition;
+        if (muzzleTransform != null)
+            pivotPosition = muzzleTransform.position;
+        else
+            pivotPosition = masterGo.transform.position;
 
         // 1. 패턴을 생성할 기준 방향 벡터 설정
         Vector3 pivotDirection;
@@ -213,6 +218,17 @@ public class EnemyBulletGenerator : MonoBehaviour
                 }
                 break;
 
+            case EnemyBulletToDirection.MuzzleOut: // 생성위치와 반대되는 방향으로
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                {
+                    Vector3 directionMuzzleToEnemyBullet;
+                    if (muzzleTransform != null)
+                        directionMuzzleToEnemyBullet = (enemyBulletTransform.position - muzzleTransform.position).normalized;
+                    else
+                        directionMuzzleToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
+                    enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToEnemyBullet);
+                }
+                break;
             case EnemyBulletToDirection.ToPlayer: // 탄막이 플레이어를 바라보도록
                 foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
                 {
@@ -256,15 +272,19 @@ public class EnemyBulletGenerator : MonoBehaviour
         public Quaternion rotation;
         public EnemyBulletParameters parameters;
         public float nextCycleTime;
+        public GameObject rootGo;
+        public Transform masterTf;
         public List<PatternHierarchy> subPatterns;
 
-        public EnemyBulletSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, EnemyBulletParameters parameters, float nextCycleTime, List<PatternHierarchy> subPatterns)
+        public EnemyBulletSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, EnemyBulletParameters parameters, float nextCycleTime, GameObject rootGo, Transform masterTf, List<PatternHierarchy> subPatterns)
         {
             this.prefabName = prefabName;
             this.position = position;
             this.rotation = rotation;
             this.parameters = parameters;
             this.nextCycleTime = nextCycleTime;
+            this.rootGo = rootGo;
+            this.masterTf = masterTf;
             this.subPatterns = subPatterns;
         }
     }
@@ -272,7 +292,7 @@ public class EnemyBulletGenerator : MonoBehaviour
     private Queue<EnemyBulletSpawnInfo> spawnQueue = new Queue<EnemyBulletSpawnInfo>();
     public int rentalBatchSize = 200;
 
-    private void EnqueueEnemyBulletSpawnInfo(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, List<PatternHierarchy> subPatterns, float nextCycleTime)
+    private void EnqueueEnemyBulletSpawnInfo(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, Transform masterTf)
     {
         foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
         {
@@ -283,6 +303,8 @@ public class EnemyBulletGenerator : MonoBehaviour
                 enemyBulletTransform.rotation,
                 parameters,
                 nextCycleTime,
+                rootGo,
+                masterTf,
                 subPatterns);
 
             spawnQueue.Enqueue(spawnInfo);
@@ -312,7 +334,12 @@ public class EnemyBulletGenerator : MonoBehaviour
             EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
             if (enemyBulletController != null)
             {
-                enemyBulletController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns);
+                Debug.Log(spawnInfo.parameters);
+                Debug.Log(spawnInfo.nextCycleTime);
+                Debug.Log(spawnInfo.subPatterns);
+                Debug.Log(spawnInfo.rootGo);
+                Debug.Log(spawnInfo.masterTf);
+                enemyBulletController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf);
             }
             else
             {

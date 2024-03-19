@@ -6,17 +6,27 @@ using static PhaseSO;
 
 public class EnemyBulletController : PoolAble
 {
-    [SerializeField] TrailRenderer _trailRenderer;
+    [SerializeField] TrailRenderer[] _trailRenderers;
     private EnemyBulletParameters _currentParameters; // 현재 탄막의 파라미터
-    private Coroutine releaseCoroutine;
+    private Coroutine _releaseCoroutine;
+    private GameObject _rootGo;
+    private Transform _masterTf;
+
 
     // 탄막에 파라미터를 설정하는 메서드 추가
-    public void Initialize(EnemyBulletParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns)
+    public void Initialize(EnemyBulletParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
     {
-        _trailRenderer.Clear();
+        foreach(TrailRenderer t in _trailRenderers)
+        {
+            t.Clear();
+        }
 
         _currentParameters = parameters;
-        
+
+        _rootGo = rootGo;
+
+        _masterTf = masterTf;
+
         // 이동 및 반환 로직
         UpdateMoveParameter();
         ReleaseObject(_currentParameters.releaseTimer);
@@ -26,7 +36,7 @@ public class EnemyBulletController : PoolAble
         {
             foreach (var patternHierarchy in subPatterns)
             {
-                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, gameObject);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
             }
         }
     }
@@ -63,6 +73,8 @@ public class EnemyBulletController : PoolAble
                 transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
                 break;
         }
+        // LocalYRotation
+        transform.Rotate(Vector3.forward, _currentParameters.localYRotationSpeed * 360 * Time.deltaTime, Space.Self);
     }
     void Accel()
     {
@@ -72,6 +84,8 @@ public class EnemyBulletController : PoolAble
 
         // 합 가속
         _currentParameters.speed += _currentParameters.accelPlus * Time.deltaTime;
+
+        _currentParameters.speed = Mathf.Clamp(_currentParameters.speed, _currentParameters.minSpeed, _currentParameters.maxSpeed);
 
     }
 
@@ -88,6 +102,7 @@ public class EnemyBulletController : PoolAble
 
         if (gameObject.activeSelf == true)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
             float speed = _currentParameters.speed;
             float accelMultiple = _currentParameters.accelMultiple;
             float accelPlus = _currentParameters.accelPlus;
@@ -114,27 +129,64 @@ public class EnemyBulletController : PoolAble
             switch (e._changeRotationType)
             {
                 case EnemyBulletChangeRotationType.LookToPlayer:
-                    moveDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+                    if (player != null)
+                    {
+                        Vector3 directionToPlayer = player.transform.position - transform.position;
+                        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                        transform.rotation = lookRotation;
+                    }
                     break;
-                case EnemyBulletChangeRotationType.LookToMaster: // 보류
-                    moveDirection = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+                case EnemyBulletChangeRotationType.MasterLookPlayer:
+                    if (player != null && _masterTf != null)
+                    {
+                        Vector3 directionToPlayer = player.transform.position - _masterTf.position;
+                        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                        transform.rotation = lookRotation;
+                    }
+                    break;
+                case EnemyBulletChangeRotationType.RootLookPlayer:
+                    if (player != null && _rootGo != null)
+                    {
+                        Vector3 directionToPlayer = player.transform.position - _rootGo.transform.position;
+                        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                        transform.rotation = lookRotation;
+                    }
+                    break;
+                case EnemyBulletChangeRotationType.LookToMaster:
+                    if (_masterTf != null)
+                    {
+                        Vector3 directionToMaster = _masterTf.position - transform.position;
+                        Quaternion lookRotation = Quaternion.LookRotation(directionToMaster);
+                        transform.rotation = lookRotation;
+                    }
+                    break;
+                case EnemyBulletChangeRotationType.LookToRoot:
+                    if (_masterTf != null)
+                    {
+                        Vector3 directionToRoot = _rootGo.transform.position - transform.position;
+                        Quaternion lookRotation = Quaternion.LookRotation(directionToRoot);
+                        transform.rotation = lookRotation;
+                    }
                     break;
                 case EnemyBulletChangeRotationType.Reverse:
-                    moveDirection = -moveDirection;
+                    transform.rotation = Quaternion.Euler(transform.eulerAngles.x + 180, transform.eulerAngles.y + 180, transform.eulerAngles.z + 180);
                     break;
                 case EnemyBulletChangeRotationType.World:
-                    moveDirection = e._moveDirection;
+                    transform.rotation = Quaternion.LookRotation(e._moveDirection);
                     break;
-                case EnemyBulletChangeRotationType.Local:
-                    moveDirection = transform.TransformDirection(e._moveDirection);
+                case EnemyBulletChangeRotationType.Local: // 회전 방식에 따라 경우가 갈림. 보류.
+                    transform.rotation = Quaternion.LookRotation(e._moveDirection);
                     break;
             }
 
             _currentParameters = new EnemyBulletParameters(
                 speed,
+                _currentParameters.minSpeed,
+                _currentParameters.maxSpeed,
                 accelMultiple,
                 accelPlus,
                 e._rotationSpeed,
+                _currentParameters.localYRotationSpeed,
                 moveDirection,
                 e._resetMoveType,
                 _currentParameters.enemyBulletChangeMoveProperty,

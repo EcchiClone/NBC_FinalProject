@@ -5161,7 +5161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feceaaa42d9744e459fa8be7a6ab9251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trailRenderer: {fileID: 2239565291903497638}
+  _trailRenderers:
+  - {fileID: 2239565291903497638}
 --- !u!114 &5970853864419647240
 MonoBehaviour:
   m_ObjectHideFlags: 0

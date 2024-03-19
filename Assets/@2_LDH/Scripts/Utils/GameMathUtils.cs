@@ -28,11 +28,13 @@ public class GameMathUtils : MonoBehaviour
         // int numberOfLayers : 층 수
         // float distanceMultiplier : 거리계수
 
+        //Debug.Log($"{pointsPerLayer}, {numberOfLayers}");
+
         List<Vector3> spherePoints = new List<Vector3>();
         
         for (int layerIndex = 0; layerIndex < numberOfLayers; layerIndex++)
         {
-            float layerHeightRatio = (numberOfLayers == 1 ? 0 : layerIndex / (float)(numberOfLayers - 1));
+            float layerHeightRatio = (numberOfLayers == 1 ? 0.5f : layerIndex / (float)(numberOfLayers - 1));
 
             for (int pointIndex = 0; pointIndex < pointsPerLayer; pointIndex++)
             {
@@ -44,7 +46,7 @@ public class GameMathUtils : MonoBehaviour
                     Mathf.Cos(phi) * distanceMultiplier,
                     Mathf.Sin(phi) * Mathf.Cos(theta) * distanceMultiplier
                 ));
-                if (layerIndex == 0 || layerIndex == numberOfLayers - 1)
+                if ( (layerIndex == 0 || layerIndex == numberOfLayers - 1) && numberOfLayers!=1 ) // 최상단 및 최하단은 1개만 생성. 단 층이 하나일 경우 제외
                     break;
             }
         }

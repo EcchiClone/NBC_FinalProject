@@ -7,9 +7,12 @@ public class EnemyBulletParameters
 {
     // 이동 관련 파라미터
     public float speed;
+    public float minSpeed;
+    public float maxSpeed;
     public float accelMultiple;
     public float accelPlus;
     public float rotationSpeed;
+    public float localYRotationSpeed;
     public Vector3 moveDirection;
     public EnemyBulletMoveType enemyBulletMoveType;
     public List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty;
@@ -21,9 +24,12 @@ public class EnemyBulletParameters
     // 생성자
     public EnemyBulletParameters(
         float speed,
+        float minSpeed,
+        float maxSpeed,
         float accelMultiple,
         float accelPlus,
         float rotationSpeed,
+        float localYRotationSpeed,
         Vector3 moveDirection, 
         EnemyBulletMoveType enemyBulletMoveType,
         List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty,
@@ -32,9 +38,12 @@ public class EnemyBulletParameters
         )
     {
         this.speed = speed;
+        this.minSpeed = minSpeed;
+        this.maxSpeed = maxSpeed;
         this.accelMultiple = accelMultiple;
         this.accelPlus = accelPlus;
         this.rotationSpeed = rotationSpeed;
+        this.localYRotationSpeed = localYRotationSpeed;
         this.moveDirection = moveDirection;
         this.enemyBulletMoveType = enemyBulletMoveType;
         this.enemyBulletChangeMoveProperty = enemyBulletChangeMoveProperty;
@@ -48,9 +57,12 @@ public class EnemyBulletParameters
         // 여기서 settings.initDirectionType을 처리할 수 있도록 수정
         return new EnemyBulletParameters(
             settings.initSpeed,
+            settings.minSpeed,
+            settings.maxSpeed,
             settings.initAccelMultiple,
             settings.initAccelPlus,
             settings.initRotationSpeed,
+            settings.initLocalYRotationSpeed,
             settings.initCustomDirection,
             settings.enemyBulletMoveType,
             settings.enemyBulletChangeMoveProperty,

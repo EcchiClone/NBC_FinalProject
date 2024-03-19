@@ -29,13 +29,13 @@ MonoBehaviour:
       maxSpreadAngleA: 90
       concentrationA: 0.5
       enemyBulletShape: 0
+      customBulletPosList: []
       initDistance: 1
       numPerShot: 1
       shotVerticalNum: 0
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      customBulletPosList: []
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
@@ -64,13 +66,13 @@ MonoBehaviour:
       maxSpreadAngleA: 90
       concentrationA: 0.5
       enemyBulletShape: 0
+      customBulletPosList: []
       initDistance: 1
       numPerShot: 1
       shotVerticalNum: 0
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      customBulletPosList: []
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
@@ -78,6 +80,8 @@ MonoBehaviour:
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
@@ -99,13 +103,13 @@ MonoBehaviour:
       maxSpreadAngleA: 0
       concentrationA: 0
       enemyBulletShape: 0
+      customBulletPosList: []
       initDistance: 0
       numPerShot: 3
       shotVerticalNum: 0
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      customBulletPosList: []
       initDirectionType: 4
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
@@ -113,6 +117,8 @@ MonoBehaviour:
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
@@ -134,13 +140,13 @@ MonoBehaviour:
       maxSpreadAngleA: 0
       concentrationA: 0.5
       enemyBulletShape: 0
+      customBulletPosList: []
       initDistance: 0
-      numPerShot: 30
+      numPerShot: 20
       shotVerticalNum: 0
       spreadB: 1
       maxSpreadAngleB: 45
       concentrationB: 0.5
-      customBulletPosList: []
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
@@ -148,6 +154,8 @@ MonoBehaviour:
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
@@ -169,13 +177,13 @@ MonoBehaviour:
       maxSpreadAngleA: 90
       concentrationA: 0.8
       enemyBulletShape: 2
+      customBulletPosList: []
       initDistance: 0.05
-      numPerShot: 6
-      shotVerticalNum: 3
+      numPerShot: 4
+      shotVerticalNum: 4
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      customBulletPosList: []
       initDirectionType: 1
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
@@ -183,6 +191,8 @@ MonoBehaviour:
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
@@ -204,20 +214,22 @@ MonoBehaviour:
       maxSpreadAngleA: 8
       concentrationA: 0.5
       enemyBulletShape: 0
+      customBulletPosList: []
       initDistance: 1
       numPerShot: 1
       shotVerticalNum: 0
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      customBulletPosList: []
-      initDirectionType: 1
+      initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 10
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
+      minSpeed: 0
+      maxSpeed: 0
       initRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
