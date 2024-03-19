@@ -34,12 +34,12 @@ public class EnemyPhaseStarter : MonoBehaviour
         // TestPhaseStarter 만큼 사용
         foreach (TestPhaseStarter t in onStartPhase)
         {
-            isShooting = true; // 테스트 중일 경우, On한 후 사용. 실 사용시에는 testStartList 지우고, startPhase 직접 사용하는 걸로.
-            startPhase(t.phaseNum, t.muzzleNum);
+            isShooting = true; // 테스트 중일 경우, On한 후 사용. 실 사용시에는 testStartList 지우고, StartPhase 직접 사용하는 걸로.
+            StartPhase(t.phaseNum, t.muzzleNum);
         }
     }
 
-    public void startPhase(int PhaseNum, int muzzleNum = 0) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
+    public void StartPhase(int PhaseNum, int muzzleNum = 0) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
     {
         if (PhaseNum<Phases.Length)
         {
@@ -51,7 +51,7 @@ public class EnemyPhaseStarter : MonoBehaviour
         }
     }
 
-    public void stopPhase()
+    public void StopPhase()
     {
         isShooting = false;
     }
