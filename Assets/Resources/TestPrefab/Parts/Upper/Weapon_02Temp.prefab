@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6a44bcf0d4ad545af7f622c137d67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: 111111
+  _boosterEffects: []
+  upperSO: {fileID: 11400000, guid: f57f1dd04fb3d6940ba1dc8a0abd0e13, type: 2}
   <WeaponTilt>k__BackingField: {fileID: 0}
   _primaryMuzzles: []
   _secondaryMuzzles: []

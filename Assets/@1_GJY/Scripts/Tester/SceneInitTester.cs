@@ -7,5 +7,6 @@ public class SceneInitTester : MonoBehaviour
     private void Awake()
     {
         Managers.Module.CreatePlayerModule();
+        Managers.UI.ShowSceneUI<UI_HUD>();
     }
 }

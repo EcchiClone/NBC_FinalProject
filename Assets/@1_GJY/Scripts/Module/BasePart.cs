@@ -6,13 +6,11 @@ public class BasePart : MonoBehaviour
 {
     [SerializeField] GameObject[] _boosterEffects;    
 
-    protected Module _module;
-    protected PlayerStateMachine _stateMachine;
+    protected Module _module;    
 
-    public virtual void Setup(Module module, PlayerStateMachine stateMachine) 
+    public virtual void Setup(Module module) 
     {
-        _module = module;
-        _stateMachine = stateMachine;
+        _module = module;        
     }
 
     public virtual void BoostOnOff(bool isActive)

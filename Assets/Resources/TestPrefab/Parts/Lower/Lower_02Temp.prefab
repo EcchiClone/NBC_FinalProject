@@ -341,4 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75807926d6dd3f0498e64f75a5d432df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: 123123
+  _boosterEffects: []
+  lowerSO: {fileID: 11400000, guid: dedab7001475e7d4c93884c1361708de, type: 2}
+  _footSparks: []

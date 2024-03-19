@@ -48,12 +48,14 @@ public class ModuleManager
         CurrentModule = module;
 
         // Lower 생성 및 Upper Pivot 할당.
-        CurrentLowerPart = CreatePart<LowerPart>(createPosition);        
+        CurrentLowerPart = CreatePart<LowerPart>(createPosition);
+        CurrentLowerPart.Setup(module);
         Transform upperPivot = FindPivot(CurrentLowerPart.transform);
         module.SetPivot(upperPivot);
 
         // Upper 생성 및 Weapon Pivot 할당.
         CurrentUpperPart = CreatePart<UpperPart>(upperPivot);
+        CurrentUpperPart.Setup(module);
         Transform weaponPivot = FindPivot(CurrentUpperPart.transform);
         module.SetPivot(weaponPivot);
     }
@@ -109,7 +111,8 @@ public class ModuleManager
 
         UnityEngine.Object.DestroyImmediate(CurrentUpperPart.gameObject); // 즉시 파괴로 Transform 참조를 이전 Upper가 아니게 방지.
 
-        CurrentUpperPart = CreatePart<UpperPart>(CurrentModule.UpperPivot, index); 
+        CurrentUpperPart = CreatePart<UpperPart>(CurrentModule.UpperPivot, index);
+        CurrentUpperPart.Setup(CurrentModule);
         CurrentModule.SetPivot(FindPivot(CurrentUpperPart.transform));
     }
 

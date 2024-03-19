@@ -51,7 +51,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
-    public readonly float MIN_GRAVITY_VALUE = -0.1f; // 접지 중일 때 최소 중력배율
+    public readonly float MIN_GRAVITY_VALUE = -0.5f; // 접지 중일 때 최소 중력배율
 
     private float _dashCoolDownTime = float.MaxValue;
     private float _movementModifier = 1;
@@ -71,10 +71,8 @@ public class PlayerStateMachine : MonoBehaviour
 
         // Setup
         Managers.Module.CreateModule(Module.LowerPivot, Module);
-        CurrentLowerPart = Managers.Module.CurrentLowerPart;
-        CurrentLowerPart.Setup(Module, this);
-        CurrentUpperPart = Managers.Module.CurrentUpperPart;
-        CurrentUpperPart.Setup(Module, this);
+        CurrentLowerPart = Managers.Module.CurrentLowerPart;        
+        CurrentUpperPart = Managers.Module.CurrentUpperPart;        
         LockOnSystem.Setup(this);
 
         Anim = GetComponentInChildren<Animator>();
