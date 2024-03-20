@@ -77,8 +77,11 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // b-1. 형태에 관해. 기본적인 프리셋을 제공하되, 유저가 Vector3를 직접 작성하여 입력할 수 있도록도 하자.
     [Header("탄막 형태A")]
     public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
+                                                        // Todo 커스텀입력과 주기성 가지는 탄막
 
-    public Vector3[] customBulletPosList; // 유저 커스텀 입력
+    public Vector3[] customBulletPosList;       // 유저 커스텀 입력
+    public int divisionPointsPerEdge;           // 보간점을 입력값 사이사이에 추가. 0일경우 추가 없음
+
 
     // b-2. 거의 모든 모양에서 사용할 변수들
     //[Header("생성 거리")]
@@ -144,12 +147,29 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
                                                 // 방법2. 충돌체크. Ground를 만날 시 반환 여부. 이벤트 감지 로직은 각 탄막에서보다 Ground에서 작성하는 것이 자원을 아낄 수 있을 것으로 보임.
                                                 // 방법3. 하위 탄막의 모든 세트 생성을 끝마친 경우
                                                 // 방법4. 마스터의 트리거(구독)
-    
+
     // 그리고 이 모든것을 하나의 뭉치로하여, 하위 탄막에 전해주거나 할 것으로 일단 보임.
     // 하위 탄막에 전해줄 내용 : 뭉탱이.
     // 하위 탄막이 뭉탱이를 언패킹하여, 위의 내용을 모두 적용, 하위 뭉탱이가 있으면 이를 반복.
 }
-
+public enum EnemyBulletType
+{
+    Shape,      // 모양을 가지는
+    Cycle,      // 주기성을 가지는
+}
+public enum EnemyBulletShape
+{
+    Linear,             // 가장 단순한 선형 사출. SpreadB 설정으로 샷건
+    Circle,             // 원형 (참고: 플레이어를 본 방향으로 원형으로 만들어 Enemy->Player 벡터로 방향을 주거나, 무작위 방향으로 원형 바깥방향으로 사출하면 자연스러울 듯.)
+    Sphere,             // 구형
+    Cube,               // 큐브형태. (참고: 레퍼런스 있음)
+    Custom,             // 유저 입력을 받아 모양을 커스텀. Vector3리스트의 깡 입력으로 여러가지 모양을 만들 수도 있도록.
+}
+public enum EnemyBulletCycleShape
+{
+    Circle,
+    Sin,
+}
 public enum SpreadType
 {
     None,
@@ -240,12 +260,4 @@ public enum ReleaseMethod
     Timer,              // 특정 시간 뒤 터뜨리기
     WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
     UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
-}
-public enum EnemyBulletShape
-{
-    Linear,             // 가장 단순한 선형 사출. SpreadB 설정으로 샷건
-    Circle,             // 원형 (참고: 플레이어를 본 방향으로 원형으로 만들어 Enemy->Player 벡터로 방향을 주거나, 무작위 방향으로 원형 바깥방향으로 사출하면 자연스러울 듯.)
-    Sphere,             // 구형
-    Cube,               // 큐브형태. (참고: 레퍼런스 있음)
-    Custom,             // 유저 입력을 받아 모양을 커스텀. Vector3리스트의 깡 입력으로 여러가지 모양을 만들 수도 있도록.
 }

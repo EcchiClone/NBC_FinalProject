@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -141,6 +142,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         if (settings.spreadA == SpreadType.Spread)
             pivotDirection = GameMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
 
+        Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.forward, pivotDirection.normalized);
 
         // 2. 위치 선정
         switch (settings.enemyBulletShape)
@@ -158,8 +160,6 @@ public class EnemyBulletGenerator : MonoBehaviour
                 break;
 
             case (EnemyBulletShape.Sphere):
-                // 스피어 포인트를 월드의 위쪽(예: Vector3.up)에서 기준 방향으로 회전시키는 Quaternion 계산
-                Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.up, pivotDirection.normalized);
 
                 foreach (Vector3 spherePoint in GameMathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
@@ -172,6 +172,48 @@ public class EnemyBulletGenerator : MonoBehaviour
                     enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
+            case (EnemyBulletShape.Custom):
+                List<Vector3> expandedPoints = new List<Vector3>();
+                int pointsCount = settings.customBulletPosList.Length;
+                bool isClosedShape = settings.customBulletPosList[0] == settings.customBulletPosList[pointsCount - 1];
+
+                for (int i = 0; i < (isClosedShape ? pointsCount - 1 : pointsCount); i++)
+                {
+                    Vector3 start = settings.customBulletPosList[i];
+                    Vector3 end = settings.customBulletPosList[(i + 1) % pointsCount];
+
+                    expandedPoints.Add(start);
+
+                    for (int j = 1; j <= settings.divisionPointsPerEdge; j++)
+                    {
+                        float t = (float)j / (settings.divisionPointsPerEdge + 1);
+                        Vector3 additionalPoint = Vector3.Lerp(start, end, t);
+                        expandedPoints.Add(additionalPoint);
+                    }
+                }
+
+                // 첫 번째와 마지막 점이 동일한 경우 마지막 점 추가 방지
+                if (!isClosedShape)
+                {
+                    expandedPoints.Add(settings.customBulletPosList[pointsCount - 1]);
+                }
+
+                // 기준 방향으로 모든 점 회전 적용
+                for (int i = 0; i < expandedPoints.Count; i++)
+                {
+                    Vector3 rotatedPoint = rotationToPivotDirection * expandedPoints[i];
+                    expandedPoints[i] = rotatedPoint;
+                }
+
+                foreach (Vector3 point in expandedPoints)
+                {
+                    LightTransform enemyBulletTransform = new LightTransform();
+                    // 기준 위치와 회전된 점을 사용하여 위치 설정
+                    enemyBulletTransform.position = pivotPosition + point * settings.initDistance;
+                    enemyBulletTransformList.Add(enemyBulletTransform);
+                }
+                break;
+
         }
 
         // 2. 
@@ -334,11 +376,6 @@ public class EnemyBulletGenerator : MonoBehaviour
             EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
             if (enemyBulletController != null)
             {
-                Debug.Log(spawnInfo.parameters);
-                Debug.Log(spawnInfo.nextCycleTime);
-                Debug.Log(spawnInfo.subPatterns);
-                Debug.Log(spawnInfo.rootGo);
-                Debug.Log(spawnInfo.masterTf);
                 enemyBulletController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf);
             }
             else

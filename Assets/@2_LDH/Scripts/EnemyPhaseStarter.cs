@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using static UnityEngine.UIElements.VisualElement;
 
 public class EnemyPhaseStarter : MonoBehaviour
 {
@@ -41,7 +42,19 @@ public class EnemyPhaseStarter : MonoBehaviour
 
     public void StartPhase(int PhaseNum, int muzzleNum = 0) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
     {
-        if (PhaseNum<Phases.Length)
+        StartCoroutine(Co_StartPhase(PhaseNum, muzzleNum));
+    }
+
+    public void StopPhase()
+    {
+        isShooting = false;
+    }
+
+    private IEnumerator Co_StartPhase(int PhaseNum, int muzzleNum)
+    {
+        yield return new WaitForSeconds(Phases[PhaseNum].startTime);
+
+        if (PhaseNum < Phases.Length)
         {
             int _muzzleNum = (muzzle[muzzleNum] != null) ? muzzleNum : 0;
             foreach (var patternHierarchy in Phases[PhaseNum].hierarchicalPatterns)
@@ -49,11 +62,6 @@ public class EnemyPhaseStarter : MonoBehaviour
                 EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, Phases[PhaseNum].cycleTime, gameObject, gameObject, muzzle[_muzzleNum]);
             }
         }
-    }
-
-    public void StopPhase()
-    {
-        isShooting = false;
     }
 
 }

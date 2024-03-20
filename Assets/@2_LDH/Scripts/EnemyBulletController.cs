@@ -169,7 +169,7 @@ public class EnemyBulletController : PoolAble
                     }
                     break;
                 case EnemyBulletChangeRotationType.Reverse:
-                    transform.rotation = Quaternion.Euler(transform.eulerAngles.x + 180, transform.eulerAngles.y + 180, transform.eulerAngles.z + 180);
+                    transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
                     break;
                 case EnemyBulletChangeRotationType.World:
                     transform.rotation = Quaternion.LookRotation(e._moveDirection);
