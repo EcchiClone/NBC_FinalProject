@@ -3,27 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedGenerator : MonoBehaviour
+public class SeedGenerator : HexDecConverter
 {
-
     System.Random _random = new System.Random();
 
     // TODO: 정규분포를 따르는 확률로 무작위 시드 생성기 제작
     private void Start()
     {
-        Debug.Log(DecToHex(15));
+        Debug.Log(RandomSeedGenerator());
     }
 
-    private string DecToHex(int i)
+    private int RandomWithRange(int range)
     {
-        // 10진수 -> 16진수 변환 함수
-        string hex = i.ToString("X"); // 소문자 'x'면 소문자로 출력
-        return hex;
+        return _random.Next(range) + 1;
     }
 
-    private int HexToDec(string hex)
+    private string RandomSeedGenerator()
     {
-        // 16진수 -> 10진수 변환 함수
-        return Convert.ToInt32(hex, 16);
+        string tier1 = DecToHex(RandomWithRange(181), 2);
+        string tier2 = DecToHex(RandomWithRange(51766), 4);
+        string tier3 = DecToHex(RandomWithRange(14233963), 6);
+
+        return tier1 + tier2 + tier3;
     }
 }
