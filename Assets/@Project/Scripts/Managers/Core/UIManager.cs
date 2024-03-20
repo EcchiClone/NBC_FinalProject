@@ -68,6 +68,19 @@ public class UIManager
         return world3D;
     }
 
+    public T ShowItemUI<T>(Transform transform, string name = null) where T : UI_Item
+    {
+        if (string.IsNullOrEmpty(name))
+            name = typeof(T).Name;
+
+        GameObject go = Managers.RM.Instantiate($"UI/Item/{name}");
+        T item = go.GetOrAddComponent<T>();
+
+        go.transform.SetParent(transform);
+
+        return item;
+    }
+
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
     {
         if (string.IsNullOrEmpty(name))

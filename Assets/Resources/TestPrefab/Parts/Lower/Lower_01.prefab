@@ -20515,10 +20515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75807926d6dd3f0498e64f75a5d432df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: 0
   _boosterEffects:
   - {fileID: 7141324049120467043}
   - {fileID: 4792654370594182030}
+  lowerSO: {fileID: 11400000, guid: 7f8dabf0621d5334c989842e6696c8a2, type: 2}
   _footSparks:
   - {fileID: 6732721715757876199}
   - {fileID: 1435960943632515504}

@@ -1,18 +1,16 @@
 using Cinemachine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LockOnSystem : MonoBehaviour
+[Serializable]
+public class LockOnSystem
 {
-    enum CamRig { Top, Middle, Bottom }
-
     // To - Do List
     // 기능 1. 락온시스템 : 마우스 휠 Started시, SphereCast로 주변 적 검색.
     // 기능 2. 타겟팅 시스템 : 다중 락온시스템에 의해 검색된 적들 중 가장 가까운 적 타겟팅
-    // 기능 3. 카메라 추적 시스템 : 타겟팅 된 적에게 Cinemachine Cam - Look At Transform 이 해당 적으로 변경.
-    // 기능 4. 다중 공격시스템 : 다중 락온에 의해 검색된 적들을 다중 공격이 가능한 무기로 공격 시 랜덤한 적에게 공격.
+    // 기능 3. 카메라 추적 시스템 : 타겟팅 된 적에게 Cinemachine Cam - Look At Transform 이 해당 적으로 변경.    
+    private PlayerStateMachine _stateMachine;
+
     [SerializeField] Transform _followOnTargetMode;
     [SerializeField] LayerMask _targetLayer;
     [SerializeField] private float _scanRange;
@@ -26,22 +24,23 @@ public class LockOnSystem : MonoBehaviour
     public static event Action<Transform> OnLockOn;
     public static event Action OnRelease;    
 
-    public void Setup()
+    public void Setup(PlayerStateMachine stateMachine)
     {
+        _stateMachine = stateMachine;
+
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
         LockOnCam = GameObject.Find("@LockOnCam").GetComponent<CinemachineVirtualCamera>();
-        TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();
-       
+        TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();       
 
-        FollowCam.Follow = transform;
-        FollowCam.LookAt = transform;
+        FollowCam.Follow = _stateMachine.transform;
+        FollowCam.LookAt = _stateMachine.transform;
 
         LockOnCam.Follow = _followOnTargetMode;
         LockOnCam.LookAt = TargetGroup.transform;
         LockOnCam.gameObject.SetActive(false);
 
-        TargetGroup.AddMember(transform, 1, 0);
+        TargetGroup.AddMember(_stateMachine.transform, 1, 0);
         TargetGroup.AddMember(_followOnTargetMode, 1, 0);
     }
 
@@ -85,7 +84,8 @@ public class LockOnSystem : MonoBehaviour
 
     public void ReleaseTarget()
     {
-        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;        
+        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
+        Debug.Log(LockOnCam.transform.rotation.eulerAngles.y);
 
         OnRelease.Invoke();
         LockOnCam.gameObject.SetActive(false);
