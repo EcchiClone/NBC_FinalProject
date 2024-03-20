@@ -30,7 +30,7 @@ public class AirBossController : BossController
 
     public override void Move()
     {
-        boss.transform.position = Vector3.Lerp(boss.transform.position, destination, boss.data.moveSpeed * Time.deltaTime);
+        boss.transform.position = Vector3.Lerp(boss.transform.position, destination, boss.Data.moveSpeed * Time.deltaTime);
         //AltitudeAdjustment();
     }
 

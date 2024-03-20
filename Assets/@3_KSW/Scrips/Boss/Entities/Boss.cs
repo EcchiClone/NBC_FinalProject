@@ -9,7 +9,7 @@ public abstract class Boss : MonoBehaviour
 
 
     public float CurrentHelth { get; protected set; }
-    public bool IsAlive { get; private set; } // 피격 처리 함수에서만 수정할 수 있도록
+    public bool IsAlive { get; private set; } = true;// 피격 처리 함수에서만 수정할 수 있도록
 
 
     public BossController Controller { get; protected set; }
@@ -18,7 +18,7 @@ public abstract class Boss : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        Initialize();        
     }
 
     protected abstract void Initialize();
