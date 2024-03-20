@@ -84,7 +84,8 @@ public class LockOnSystem
 
     public void ReleaseTarget()
     {
-        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;        
+        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
+        Debug.Log(LockOnCam.transform.rotation.eulerAngles.y);
 
         OnRelease.Invoke();
         LockOnCam.gameObject.SetActive(false);

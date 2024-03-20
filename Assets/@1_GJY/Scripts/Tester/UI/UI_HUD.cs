@@ -14,8 +14,7 @@ public class UI_HUD : UI_Scene
     [SerializeField] Image _apFill;
     [SerializeField] TextMeshProUGUI _apValueText;
 
-
-    private Transform _target;
+    private Transform _target;    
 
     protected override void Init()
     {
@@ -40,9 +39,9 @@ public class UI_HUD : UI_Scene
         _lockOnIndicator.SetActive(false);
     }
 
-    private void ChangeAPValue(float totalAP, float remainAP)
+    private void ChangeAPValue(float remainAP, float damage)
     {
-        _apFill.fillAmount = remainAP / totalAP;
+        _apFill.fillAmount = remainAP - damage / remainAP;
         _apValueText.text = $"{(int)remainAP}";
     }
 
@@ -51,7 +50,6 @@ public class UI_HUD : UI_Scene
         if (!_lockOnIndicator.activeSelf || _target == null)
             return;
 
-        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.position);
-        Debug.Log(Camera.main.WorldToScreenPoint(_lockOnIndicator.transform.position));
+        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.position);        
     }
 }

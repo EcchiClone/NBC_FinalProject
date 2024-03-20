@@ -10,6 +10,9 @@ public class SelectorSceneTester : MonoBehaviour
 
     private void Awake()
     {
+        Texture2D cursor = Resources.Load<Texture2D>("Cursor");
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+
         Managers.Module.CreateSelectorModule();
         UI_MainMenuPopup mainUI = Managers.UI.ShowPopupUI<UI_MainMenuPopup>();
         mainUI.BindCamAction(CamChange);

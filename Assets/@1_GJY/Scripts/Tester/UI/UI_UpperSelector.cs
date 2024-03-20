@@ -19,7 +19,8 @@ public class UI_UpperSelector : UI_Popup
         int createUI = Managers.Module.UpperPartsCount;
 
         for (int i = 0; i < createUI; i++)
-            Managers.UI.ShowItemUI<UI_UpperChangeBtn>(_contents);
+            Managers.UI.ShowItemUI<UI_UpperChangeBtn>(_contents).SetParentUI(this);
+
 
         BindButton(typeof(Buttons));
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);

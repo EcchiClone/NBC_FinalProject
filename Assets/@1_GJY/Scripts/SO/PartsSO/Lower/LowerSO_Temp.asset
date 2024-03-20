@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dev_ID: 10002
   dev_Name: Lower_Temp
-  display_Name: Not_Assigned
-  display_Description: Not_Assigned
+  display_Name: "\uD558\uCCB4 2\uBC88 \uC784\uC2DC\uC6A9"
+  display_Description: "\uBB34\uC329\uAE34 \uD558\uCCB42\uBC88"
   armor: 700
   weight: 350
   speed: 3

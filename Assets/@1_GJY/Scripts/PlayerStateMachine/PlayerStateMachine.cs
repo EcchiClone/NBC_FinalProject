@@ -75,26 +75,28 @@ public class PlayerStateMachine : MonoBehaviour
         CurrentUpperPart = Managers.Module.CurrentUpperPart;        
         LockOnSystem.Setup(this);
 
-        Anim = GetComponentInChildren<Animator>();
-
-        Player = new PlayerStatus(CurrentLowerPart.lowerSO, CurrentUpperPart.upperSO);        
-        TiltController = new WeaponTiltController(this);        
-        StateFactory = new PlayerStateFactory(this);
-        CurrentState = StateFactory.NonCombat();
-        CurrentState.EnterState();
-
-        // 초기값 설정
-        InitialGravity = Physics.gravity.y;
-        _currentMovementDirection.y = MIN_GRAVITY_VALUE;
-        CanDash = true;
+        Anim = GetComponentInChildren<Animator>();        
     }
 
     private void Start()
+    {        
+        PlayerSetting();
+        StartCoroutine(Co_TestDamage());        
+    }
+
+    private void PlayerSetting()
     {
-        // 콜백 함수 등록
         AddInputCallBacks();
 
-        StartCoroutine(Co_TestDamage());
+        Player = new PlayerStatus(CurrentLowerPart.lowerSO, CurrentUpperPart.upperSO);
+        TiltController = new WeaponTiltController(this);
+        StateFactory = new PlayerStateFactory(this);
+        CurrentState = StateFactory.NonCombat();
+        CurrentState.EnterState();
+        
+        InitialGravity = Physics.gravity.y;
+        _currentMovementDirection.y = MIN_GRAVITY_VALUE;
+        CanDash = true;
     }
 
     WaitForSeconds wait = new WaitForSeconds(0.2f);

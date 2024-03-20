@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 448786619}
   - component: {fileID: 448786618}
   - component: {fileID: 448786617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 841991853}
   - component: {fileID: 841991852}
   - component: {fileID: 841991851}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 1043650964}
   - component: {fileID: 1043650963}
   - component: {fileID: 1043650962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 1453356737}
   - component: {fileID: 1453356736}
   - component: {fileID: 1453356735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 1542485122}
   - component: {fileID: 1542485121}
   - component: {fileID: 1542485120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673647078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 1860714510}
   - component: {fileID: 1860714509}
   - component: {fileID: 1860714508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubicPlane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1848,35 +1848,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 714529591755892297, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 714529591755892297, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 2982303069682808064, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 4418451211071496129, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_Name
       value: '# Cams'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739055494037000883, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6739055494037000883, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7652905404802226764, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
@@ -1932,16 +1912,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9112600245745216651, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9112600245745216651, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -26,7 +26,7 @@ public class PlayerStatus
 
     public PlayerStatus(LowerPartsSO lowerSO, UpperPartsSO upperSO)
     {
-        Armor = lowerSO.armor + upperSO.armor;        
+        Armor = lowerSO.armor + upperSO.armor;
         Weight = lowerSO.weight + upperSO.weight;
         _currentArmor = Armor;
 
@@ -35,12 +35,14 @@ public class PlayerStatus
         CanJump = lowerSO.canJump;
 
         SmoothRotateValue = upperSO.smoothRotation;
-        BoostPower = upperSO.boosterPower;        
+        BoostPower = upperSO.boosterPower;
+
+        OnChangeArmorPoint?.Invoke(_currentArmor, 0);
     }
 
     public void GetDamage(float damage)
     {
-        _currentArmor -= damage;        
-        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
+        _currentArmor -= damage;
+        OnChangeArmorPoint?.Invoke(_currentArmor, damage);
     }
 }

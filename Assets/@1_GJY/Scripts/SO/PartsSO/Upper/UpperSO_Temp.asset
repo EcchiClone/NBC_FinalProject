@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dev_ID: 20002
   dev_Name: Upper_Temp
-  display_Name: Not_Assigned
-  display_Description: Not_Assigned
+  display_Name: "\uBB34\uC329\uAE34 \uC0C1\uCCB4 2\uBC88"
+  display_Description: "\uBB34\uC329\uACBC\uB2E4"
   armor: 300
   weight: 175
   smoothRotation: 3

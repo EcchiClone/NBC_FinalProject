@@ -12,17 +12,27 @@ public class ModuleManager
     // Think - 굳이 Key로 Type을 쓸 필요가 있을까?
     private Dictionary<Type, BasePart[]> _modules = new Dictionary<Type, BasePart[]>();
 
+    #region Events
+    public event Action<BasePart> OnPartChange;
+    public event Action<string> OnInfoChange;
+    public event Action<float, float, float, float, float> OnUpperSpecsChange;
+
+    public void CallPartChange(BasePart part) => OnPartChange?.Invoke(part);
+    public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);
+    public void CallUpperSpecsChange(float ap, float weight, float attackP, float attacS, float coolDownS) => OnUpperSpecsChange?.Invoke(ap, weight, attackP, attacS, coolDownS);
+    #endregion
+
     public Module CurrentModule { get; private set; }
     public LowerPart CurrentLowerPart { get; private set; }
-    public UpperPart CurrentUpperPart { get; private set; }    
+    public UpperPart CurrentUpperPart { get; private set; }
 
     public int LowerPartsCount { get; private set; }
     public int UpperPartsCount { get; private set; }
 
     public void Init() // 게임 시작 시 Resources 폴더 내 모든 파츠 담기.
-    {        
-        BasePart[] lowerParts = Resources.LoadAll<LowerPart>("TestPrefab/Parts/Lower");
-        BasePart[] upperParts = Resources.LoadAll<UpperPart>("TestPrefab/Parts/Upper");
+    {
+        LowerPart[] lowerParts = Resources.LoadAll<LowerPart>("TestPrefab/Parts/Lower");
+        UpperPart[] upperParts = Resources.LoadAll<UpperPart>("TestPrefab/Parts/Upper");
 
         LowerPartsCount = lowerParts.Length;
         UpperPartsCount = upperParts.Length;
@@ -32,7 +42,7 @@ public class ModuleManager
     }
 
     // Player 또는 Selector 빈 모듈 생성 : Scene Script에서 처리하는게 맞다고 봄.
-    public void CreatePlayerModule() => CreateEmptyModule("TestPrefab/Parts/Player_Module"); 
+    public void CreatePlayerModule() => CreateEmptyModule("TestPrefab/Parts/Player_Module");
     public void CreateSelectorModule() => CreateEmptyModule("TestPrefab/Parts/Selector_Module");
 
     public void CreateEmptyModule(string path)
@@ -63,14 +73,14 @@ public class ModuleManager
     private Transform FindPivot(Transform part)
     {
         Pivot pivot = part.GetComponentInChildren<Pivot>();
-        if(pivot == null)
+        if (pivot == null)
         {
             Debug.Log($"Pivot이 존재하지 않습니다. : {part.name}");
             return null;
         }
 
         return pivot.transform;
-    }    
+    }
 
     private T CreatePart<T>(Transform createPosition, int index = 0) where T : BasePart
     {
@@ -79,9 +89,9 @@ public class ModuleManager
         {
             Debug.Log("Upper 파츠 정보가 없습니다.");
             return null;
-        }        
+        }
 
-        GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);        
+        GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);
         T part = go.GetComponent<T>();
 
         return part;
@@ -106,7 +116,7 @@ public class ModuleManager
 
     public void ChangeUpperPart(int index)
     {
-        if(CurrentUpperPart.upperSO.dev_ID == index) // 같은 파츠면 바꿀 필요X
+        if (CurrentUpperPart.upperSO.dev_ID == index) // 같은 파츠면 바꿀 필요X
             return;
 
         UnityEngine.Object.DestroyImmediate(CurrentUpperPart.gameObject); // 즉시 파괴로 Transform 참조를 이전 Upper가 아니게 방지.
@@ -119,13 +129,30 @@ public class ModuleManager
     public string GetPartName<T>(int index) where T : BasePart
     {
         BasePart[] parts;
-        if(_modules.TryGetValue(typeof(T), out parts) == false)
+        if (_modules.TryGetValue(typeof(T), out parts) == false)
         {
             Debug.LogWarning("파츠가 없는디?");
             return "없음";
         }
 
         return parts[index].name;
+    }
+
+    public T GetPartOfIndex<T>(int index) where T : BasePart
+    {
+        if (!_modules.TryGetValue(typeof(T), out BasePart[] parts))
+        {
+            Debug.Log($"type 잘못 입력{typeof(T)}");
+            return null;
+        }
+
+        if (index >= parts.Length || parts[index] == null)
+        {
+            Debug.Log($"해당 번호의 파츠는 없어용{index}");
+            return null;
+        }
+
+        return parts[index] as T;
     }
 
     public void Clear()
