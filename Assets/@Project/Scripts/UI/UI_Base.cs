@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public abstract class UI_Base : MonoBehaviour
 {
-    private Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+    private Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();    
 
     private void Awake()
     {
@@ -57,5 +57,5 @@ public abstract class UI_Base : MonoBehaviour
     protected GameObject GetGameObject(int index) => Get<GameObject>(index); //UI의 컴포넌트를 가져올 때 사용되기도 함
     protected Button GetButton(int index) => Get<Button>(index);
     protected Text GetText(int index) => Get<Text>(index);
-    protected Image GetImage(int index) => Get<Image>(index);
+    protected Image GetImage(int index) => Get<Image>(index);    
 }

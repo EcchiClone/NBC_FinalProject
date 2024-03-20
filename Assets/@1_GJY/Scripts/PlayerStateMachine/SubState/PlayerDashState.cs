@@ -30,7 +30,7 @@ public class PlayerDashState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if(!Context.IsDashInputPressed && !Context.IsDashing)
+        if (!Context.IsDashInputPressed && !Context.IsDashing)
         {
             if (Context.Controller.isGrounded)
                 SwitchState(Factory.Grounded());
@@ -47,8 +47,8 @@ public class PlayerDashState : PlayerBaseState
     private void HandleGravity()
     {
         if (!Context.Controller.isGrounded)
-            Context._currentMovementDirection.y += -Context.MinDownForceValue * Time.deltaTime;
+            Context._currentMovementDirection.y += Context.MIN_GRAVITY_VALUE * Time.deltaTime;
         else
-            Context._currentMovementDirection.y = -Context.MinDownForceValue;
+            Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f5678c5dd3fd24cb7048a3d5935268, type: 3}
+  m_Name: LowerSO_01
+  m_EditorClassIdentifier: 
+  dev_ID: 10001
+  dev_Name: Lower_01
+  display_Name: "\uD558\uCCB4 1\uBC88"
+  display_Description: "\uBD80\uB7EC\uC9C8 \uAC83 \uAC19\uC740 \uC587\uC740 \uB2E4\uB9AC"
+  armor: 500
+  weight: 250
+  speed: 3
+  jumpPower: 5
+  canJump: 1

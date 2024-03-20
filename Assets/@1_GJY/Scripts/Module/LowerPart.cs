@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
-    public override void Setup(Module module, PlayerStateMachine stateMachine)
+    public LowerPartsSO lowerSO;
+
+    [SerializeField] GameObject[] _footSparks;
+
+    public override void Setup(Module module)
     {
-        base.Setup(module, stateMachine);
+        base.Setup(module);
+    }
+
+    public override void BoostOnOff(bool isActive)
+    {
+        base.BoostOnOff(isActive);
+
+        foreach (var spark in _footSparks)
+            spark.SetActive(isActive);
     }
 }

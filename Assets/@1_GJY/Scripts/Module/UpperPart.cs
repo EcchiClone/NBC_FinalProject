@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UpperPart : BasePart
 {
+    public UpperPartsSO upperSO;
+
     [field: SerializeField] public Transform WeaponTilt { get; private set; }
     [SerializeField] Transform[] _primaryMuzzles;
     [SerializeField] Transform[] _secondaryMuzzles;    
@@ -14,20 +16,17 @@ public class UpperPart : BasePart
     private float _primaryFireRate = float.MaxValue;
     private float _secondaryCoolDown = float.MaxValue;
 
-    public override void Setup(Module module, PlayerStateMachine stateMachine)
+    public override void Setup(Module module)
     {
-        base.Setup(module, stateMachine);
-    }
+        base.Setup(module);
 
-    private void Start()
-    {
         if (!_module.IsPlayable)
             return;
 
         Primary = GetComponent<Weapon_Primary>();
         Secondary = GetComponent<Weapon_Secondary>();
-        Primary.Setup(_stateMachine);
-        Secondary.Setup(_stateMachine);
+        Primary.Setup();
+        Secondary.Setup();
     }
 
     private void Update()

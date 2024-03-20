@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePart : MonoBehaviour
-{    
-    [field: SerializeField] public int ID { get; private set; }
+{
+    [SerializeField] GameObject[] _boosterEffects;    
 
-    protected Module _module;
-    protected PlayerStateMachine _stateMachine;
+    protected Module _module;    
 
-    public virtual void Setup(Module module, PlayerStateMachine stateMachine) 
+    public virtual void Setup(Module module) 
     {
-        _module = module;
-        _stateMachine = stateMachine;
+        _module = module;        
     }
+
+    public virtual void BoostOnOff(bool isActive)
+    {
+        foreach(var effect in _boosterEffects)
+            effect.SetActive(isActive);
+    }    
 }

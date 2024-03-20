@@ -9,7 +9,7 @@ public class EnemyStandoffState : EnemyBaseState
     private float _passedTime;*/
 
     private WaitForSeconds _attackDuration = new WaitForSeconds(3.0f); // 공격 시간
-    private WaitForSeconds _attackInterval = new WaitForSeconds(0.5f); // 공격 간격
+    private WaitForSeconds _attackInterval = new WaitForSeconds(2f); // 공격 간격
     private WaitForSeconds _restDuration = new WaitForSeconds(2.0f); // 쉬는 시간
 
     public EnemyStandoffState(EnemyStateMachine currentContext, EnemyStateFactory enemyStateFactory) 
@@ -85,10 +85,15 @@ public class EnemyStandoffState : EnemyBaseState
 
     private IEnumerator Attack()
     {
+
         while (true)
         {
             _ctx.GizmoColor = Color.red;
             // TODO : 무언가 쏘는 함수 호출
+            foreach (var patternHierarchy in _ctx.currentPhase.hierarchicalPatterns)
+            {
+                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, _ctx.currentPhase.cycleTime, _ctx.gameObject, _ctx.gameObject);
+            }
 
             // 0.5초 대기
             yield return _attackInterval;

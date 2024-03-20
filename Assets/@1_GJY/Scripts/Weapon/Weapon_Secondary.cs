@@ -9,9 +9,9 @@ public class Weapon_Secondary : WeaponBase, IWeapon
 
     protected bool _isCoolDown = false;
 
-    public override void Setup(PlayerStateMachine stateMachine)
+    public override void Setup()
     {
-        base.Setup(stateMachine);
+        base.Setup();
 
         _fireRate = new WaitForSeconds(WeaponSO.fireRate);
         _coolDown = new WaitForSeconds(WeaponSO.coolDownTime);

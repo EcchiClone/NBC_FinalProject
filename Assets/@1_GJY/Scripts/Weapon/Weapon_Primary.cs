@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Weapon_Primary : WeaponBase, IWeapon
 {
-    public override void Setup(PlayerStateMachine stateMachine)
+    public override void Setup()
     {
-        base.Setup(stateMachine);
+        base.Setup();
     }
 
     public virtual void UseWeapon_Primary(Transform[] muzzlePoints) { }    

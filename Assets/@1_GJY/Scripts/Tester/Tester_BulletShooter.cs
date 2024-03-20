@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tester_BulletShooter : MonoBehaviour
 {
     public GameObject m_bullet;
+    public Transform m_target;
 
     public float _standard;
     public float _delay;
@@ -18,7 +19,7 @@ public class Tester_BulletShooter : MonoBehaviour
     {
         _time += Time.deltaTime;
 
-        if( _time > _delay)
+        if (_time > _delay)
         {
             _time = 0;
             if (!_isMultiple)
@@ -45,7 +46,7 @@ public class Tester_BulletShooter : MonoBehaviour
             RandomDirectionShot();
 
             yield return _wait;
-        }            
+        }
     }
 
     private void RandomDirectionShot()
@@ -58,10 +59,10 @@ public class Tester_BulletShooter : MonoBehaviour
         bullet.transform.rotation = transform.rotation;
 
         Quaternion rotation = Quaternion.Euler(yError, xError, 0f); // 각도 계산
-
         bullet.transform.rotation *= rotation; // 현재 방향에 추가 회전을 적용
-    }
 
+        bullet.GetComponent<PlayerProjectile>().Setup(25f, Vector3.zero, m_target);
+    }
 
     private float SetShotErrorRange(float standard = 0.5f)
     {
