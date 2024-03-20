@@ -6,8 +6,7 @@ public class WeaponBase : MonoBehaviour
 {
     [field: SerializeField] public WeaponSO WeaponSO { get; private set; }
     [SerializeField] private LayerMask _groundLayer;
-
-    protected PlayerStateMachine _stateMachine;
+    
     protected Transform _target;
 
     private void Awake()
@@ -16,7 +15,7 @@ public class WeaponBase : MonoBehaviour
         LockOnSystem.OnRelease += Release;
     }
 
-    public virtual void Setup(PlayerStateMachine stateMachine) { _stateMachine = stateMachine; }
+    public virtual void Setup() {}
 
     protected void RandomDirectionShot(Transform[] muzzlePoints)
     {

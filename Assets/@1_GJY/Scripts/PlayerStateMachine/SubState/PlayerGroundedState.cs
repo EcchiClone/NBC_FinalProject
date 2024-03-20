@@ -44,6 +44,6 @@ public class PlayerGroundedState : PlayerBaseState
 
     private void HandleGravity()
     {
-        Context._currentMovementDirection.y = -Context.MinDownForceValue;
+        Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
     }
 }

@@ -6,17 +6,7 @@ using Cinemachine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    [Header("# Debuging Panel")]
-    public Vector3 currentCamRelative;
-
-    [field: Header("# Test")]
-    [field: Range(2f, 10f)][field: SerializeField] public float MovementSpeed { get; private set; }
-    [field: Range(5f, 15f)][field: SerializeField] public float SmoothRotateValue { get; private set; }
-    [field: Range(0.1f, 1f)][field: SerializeField] public float MinDownForceValue { get; private set; } // 접지 중일 때 최소 중력배율
-    [field: Range(1f, 100f)][field: SerializeField] public float JumpPower { get; private set; } // 점프 높이    
-    [field: Range(2f, 3f)][field: SerializeField] public float BoostPower { get; private set; } // 부스터 출력   
-
-    // # Parts Temp
+    // # Parts
     public LowerPart CurrentLowerPart { get; private set; }
     public UpperPart CurrentUpperPart { get; private set; }
 
@@ -25,13 +15,17 @@ public class PlayerStateMachine : MonoBehaviour
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
     [SerializeField] private AnimationCurve _boostDragCurve;
 
+    // # Class
+    [field: Header("# LockOn")]
+    [field: SerializeField] public LockOnSystem LockOnSystem { get; private set; }
+    public PlayerStatus Player { get; private set; }
+
     // # Components    
     public PlayerInput P_Input { get; private set; }
-    public CharacterController Controller { get; private set; }
+    public CharacterController Controller { get; private set; }    
     public Animator Anim { get; private set; }
     public Module Module { get; private set; }
-    public LockOnSystem LockOnSystem { get; private set; }
-
+    
     // # Info
     public float InitialGravity { get; private set; }
 
@@ -57,9 +51,11 @@ public class PlayerStateMachine : MonoBehaviour
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
+    public readonly float MIN_GRAVITY_VALUE = -0.5f; // 접지 중일 때 최소 중력배율
 
     private float _dashCoolDownTime = float.MaxValue;
     private float _movementModifier = 1;
+    
 
     private void Awake()
     {
@@ -72,33 +68,46 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
         Module = GetComponent<Module>();
-        LockOnSystem = GetComponent<LockOnSystem>();
 
         // Setup
         Managers.Module.CreateModule(Module.LowerPivot, Module);
-        CurrentLowerPart = Managers.Module.CurrentLowerPart;
-        CurrentLowerPart.Setup(Module, this);
-        CurrentUpperPart = Managers.Module.CurrentUpperPart;
-        CurrentUpperPart.Setup(Module, this);
-        LockOnSystem.Setup();
+        CurrentLowerPart = Managers.Module.CurrentLowerPart;        
+        CurrentUpperPart = Managers.Module.CurrentUpperPart;        
+        LockOnSystem.Setup(this);
 
-        Anim = GetComponentInChildren<Animator>();
+        Anim = GetComponentInChildren<Animator>();        
+    }
 
+    private void Start()
+    {        
+        PlayerSetting();
+        StartCoroutine(Co_TestDamage());        
+    }
+
+    private void PlayerSetting()
+    {
+        AddInputCallBacks();
+
+        Player = new PlayerStatus(CurrentLowerPart.lowerSO, CurrentUpperPart.upperSO);
         TiltController = new WeaponTiltController(this);
         StateFactory = new PlayerStateFactory(this);
         CurrentState = StateFactory.NonCombat();
         CurrentState.EnterState();
-
-        // 초기값 설정
+        
         InitialGravity = Physics.gravity.y;
-        _currentMovementDirection.y = -MinDownForceValue;
+        _currentMovementDirection.y = MIN_GRAVITY_VALUE;
         CanDash = true;
     }
 
-    private void Start()
+    WaitForSeconds wait = new WaitForSeconds(0.2f);
+    private IEnumerator Co_TestDamage()
     {
-        // 콜백 함수 등록
-        AddInputCallBacks();
+        while (true)
+        {
+            Player.GetDamage(2.5f);
+
+            yield return wait;
+        }        
     }
 
     private void Update()
@@ -109,15 +118,6 @@ public class PlayerStateMachine : MonoBehaviour
         HandleRotation();
         HandleUseWeaponPrimary();
         HandleDashCoolDown();
-
-        // Test
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log(CurrentState._currentSubState);
-            Debug.Log(CurrentState._currentSubState._currentSubState);
-        }
-#endif
     }
 
     private void AddInputCallBacks()
@@ -194,12 +194,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void HandleMove()
     {
-        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * MovementSpeed * _movementModifier);
-
-        //###### Debuging
-        currentCamRelative = _cameraRelativeMovement;
-        //######
-
+        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * Player.MovementSpeed * _movementModifier);
         Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
@@ -232,7 +227,7 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsMoveInputPressed && positionToLookAt != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, SmoothRotateValue * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Player.SmoothRotateValue * Time.deltaTime);
         }
     }
 
@@ -280,17 +275,17 @@ public class PlayerStateMachine : MonoBehaviour
         {
             TiltController.CombatLockOnControl();
             positionToLookAt = LockOnSystem.TargetEnemy.transform.position - transform.position;
-        }            
+        }
         else
         {
             TiltController.CombatFreeFireControl();
             positionToLookAt = Camera.main.transform.forward;
-        }            
+        }
 
         positionToLookAt.y = 0;
         targetRotation = Quaternion.LookRotation(positionToLookAt);
 
-        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, SmoothRotateValue * Time.deltaTime);        
+        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Player.SmoothRotateValue * Time.deltaTime);
     }
     #endregion
 
@@ -331,7 +326,7 @@ public class PlayerStateMachine : MonoBehaviour
     private IEnumerator CoBoostOn()
     {
         // Test 하드코딩        
-        float startSpeed = _movementModifier * BoostPower;
+        float startSpeed = _movementModifier * Player.BoostPower;
         float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
 
         float current = 0f;

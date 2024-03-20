@@ -10314,10 +10314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6a44bcf0d4ad545af7f622c137d67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: 0
   _boosterEffects:
   - {fileID: 7711052126539825034}
   - {fileID: 8757635719490115302}
+  upperSO: {fileID: 11400000, guid: 7e6360b73a165984f878896329a486a5, type: 2}
   <WeaponTilt>k__BackingField: {fileID: 4264020004977597763}
   _primaryMuzzles:
   - {fileID: 2269993593499379566}

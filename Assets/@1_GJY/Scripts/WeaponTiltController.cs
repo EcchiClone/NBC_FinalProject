@@ -14,7 +14,7 @@ public class WeaponTiltController
         _stateMachine = stateMachine;
 
         _upper = _stateMachine.CurrentUpperPart;
-        _smoothValue = _stateMachine.SmoothRotateValue;
+        _smoothValue = _stateMachine.Player.SmoothRotateValue;
     }
 
     public void CombatFreeFireControl()

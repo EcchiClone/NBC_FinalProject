@@ -17,8 +17,10 @@ public class Managers : MonoBehaviour
 
     #region # Contents
     ModuleManager _module = new ModuleManager();
+    StatusManager _statusManager = new StatusManager();
 
     public static ModuleManager Module => Instance?._module;
+    public static StatusManager StatusManager => Instance?._statusManager;
     #endregion
 
 

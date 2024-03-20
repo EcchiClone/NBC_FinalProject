@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &837814536834773590
 MonoBehaviour:
@@ -46,10 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfos:
-  - objectName: EnemyDanmaku01
+  - objectName: EnemyBullet01_Orange
     perfab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
       type: 3}
-    count: 3000
+    count: 1000
+  - objectName: EnemyBullet01_Red
+    perfab: {fileID: 8213430085926567989, guid: f0d76639162b1c74ea3aa40cefcdf1f7,
+      type: 3}
+    count: 1000
+  - objectName: EnemyBullet01_Purple
+    perfab: {fileID: 8213430085926567989, guid: 0cf29143d33b1784c988944d8b81f09b,
+      type: 3}
+    count: 1000
+  - objectName: EnemyBulletCluster_Triangle
+    perfab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
+    count: 100
   releaseBatchSize: 150
 --- !u!114 &8533242424720147686
 MonoBehaviour:
