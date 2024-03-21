@@ -20,6 +20,7 @@ public class EnemyPhaseStarter : MonoBehaviour
     {
         public int phaseNum;
         public int muzzleNum;
+        public bool isOneTime;
     }
     private void Start()
     {
@@ -36,13 +37,13 @@ public class EnemyPhaseStarter : MonoBehaviour
         foreach (TestPhaseStarter t in onStartPhase)
         {
             isShooting = true; // 테스트 중일 경우, On한 후 사용. 실 사용시에는 testStartList 지우고, StartPhase 직접 사용하는 걸로.
-            StartPhase(t.phaseNum, t.muzzleNum);
+            StartPhase(t.phaseNum, t.muzzleNum, t.isOneTime);
         }
     }
 
-    public void StartPhase(int PhaseNum, int muzzleNum = 0) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
+    public void StartPhase(int PhaseNum, int muzzleNum = 0, bool isOneTime = false) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
     {
-        StartCoroutine(Co_StartPhase(PhaseNum, muzzleNum));
+        StartCoroutine(Co_StartPhase(PhaseNum, muzzleNum, isOneTime));
     }
 
     public void StopPhase()
@@ -50,7 +51,7 @@ public class EnemyPhaseStarter : MonoBehaviour
         isShooting = false;
     }
 
-    private IEnumerator Co_StartPhase(int PhaseNum, int muzzleNum)
+    private IEnumerator Co_StartPhase(int PhaseNum, int muzzleNum, bool isOneTime)
     {
         yield return new WaitForSeconds(Phases[PhaseNum].startTime);
 
@@ -59,7 +60,7 @@ public class EnemyPhaseStarter : MonoBehaviour
             int _muzzleNum = (muzzle[muzzleNum] != null) ? muzzleNum : 0;
             foreach (var patternHierarchy in Phases[PhaseNum].hierarchicalPatterns)
             {
-                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, Phases[PhaseNum].cycleTime, gameObject, gameObject, muzzle[_muzzleNum]);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, Phases[PhaseNum].cycleTime, gameObject, gameObject, muzzle[_muzzleNum], isOneTime);
             }
         }
     }

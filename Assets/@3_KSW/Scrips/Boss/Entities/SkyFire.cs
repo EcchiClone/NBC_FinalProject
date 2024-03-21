@@ -19,7 +19,7 @@ public class SkyFire : Boss
     //TODO : update 이벤트 만들어서 묶을 필요 있음
     void Update()
     {
-        if (Controller != null) 
+        if (Controller != null)
         {
             Controller.Update();
         }
@@ -27,6 +27,6 @@ public class SkyFire : Boss
         if(StateMachine != null)
         {
             StateMachine.Update();
-        }    
+        }
     }
 }

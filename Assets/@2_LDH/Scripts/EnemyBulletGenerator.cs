@@ -22,21 +22,24 @@ public class EnemyBulletGenerator : MonoBehaviour
     }
 
     // 탄막 생성 및 하위 패턴 실행
-    public void StartPatternHierarchy(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
+    public void StartPatternHierarchy(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false)
     {
         if (hierarchy.patternSO != null)
         {
-            StartCoroutine(Co_ExecutePatternForCycleTime(hierarchy, cycleTime, rootObject, masterObject, muzzleTransform));
+            StartCoroutine(Co_ExecutePatternForCycleTime(hierarchy, cycleTime, rootObject, masterObject, muzzleTransform, isOneTime));
         }
     }
     // 코루틴을 실행. CycleTime마다 주어진 패턴구성을 반복
-    private IEnumerator Co_ExecutePatternForCycleTime(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
+    private IEnumerator Co_ExecutePatternForCycleTime(PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false)
     {
         while (true)
         {
             StartCoroutine(Co_ExecutePatternHierarchy(hierarchy, hierarchy.cycleTime, rootObject, masterObject, muzzleTransform)); // 여러 패턴 대응, 여기에 넣으면 괜찮을듯? foreach로. 추후 수정.
+            if (isOneTime)
+                break;
             yield return new WaitForSeconds(cycleTime);
         }
+        yield return null;
     }
     // startTime 만큼 기다린 후, 패턴 코루틴을 실행
     private IEnumerator Co_ExecutePatternHierarchy(PatternHierarchy hierarchy, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null)
@@ -268,7 +271,8 @@ public class EnemyBulletGenerator : MonoBehaviour
                         directionMuzzleToEnemyBullet = (enemyBulletTransform.position - muzzleTransform.position).normalized;
                     else
                         directionMuzzleToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
-                    enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToEnemyBullet);
+                    if(directionMuzzleToEnemyBullet!=Vector3.zero)
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToEnemyBullet);
                 }
                 break;
             case EnemyBulletToDirection.ToPlayer: // 탄막이 플레이어를 바라보도록
