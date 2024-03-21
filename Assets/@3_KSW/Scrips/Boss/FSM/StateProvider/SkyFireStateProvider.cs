@@ -5,11 +5,12 @@ using UnityEngine;
 public enum SkyFire_States
 {
     Chasing,
-    Attack,
-    Dead,
 
     Phase1,
     Phase2,
+
+    Dead,
+       
 
     Pattern1_1,
     Pattern1_2,
@@ -29,14 +30,14 @@ public class SkyFireStateProvider : BossStateProvider
         : base(context)
     {
         _states[SkyFire_States.Chasing] = new SkyFire_ChasingState(context, this);
-        _states[SkyFire_States.Attack] = new SkyFire_AttackState(context, this);
+        _states[SkyFire_States.Phase1] = new SkyFire_Phase1State(context, this);
         _states[SkyFire_States.Dead] = new SkyFire_DeadState(context, this);
     }
 
 
     // Root
     public override BossBaseState Chasing() => _states[SkyFire_States.Chasing];
-    public override BossBaseState Attack() => _states[SkyFire_States.Attack];
+    public override BossBaseState Phase1() => _states[SkyFire_States.Phase1];
     public override BossBaseState Dead() => _states[SkyFire_States.Dead];
 
     //Sub

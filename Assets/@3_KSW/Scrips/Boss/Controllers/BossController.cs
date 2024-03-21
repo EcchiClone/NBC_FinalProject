@@ -7,10 +7,11 @@ public abstract class BossController
     protected Boss boss;
 
     protected Vector3 destination;
+    protected Vector3 stopPoint;
 
     protected float stopDistance;
 
-    protected bool isMoving = true;
+    public bool IsMoving { get; protected set; } = true;
 
     public Vector3 Destination { 
         get { return destination; } 
@@ -26,12 +27,14 @@ public abstract class BossController
     public void Initialize()
     {
         destination = boss.transform.position;
-        stopDistance = boss.data.stopDistance;
+        stopDistance = boss.Data.stopDistance;
     }
 
     public abstract void Update();
 
-    public abstract void Move();
+    protected abstract void Move();
+
+    protected abstract void Look();
 
     public abstract void SetDestination(Vector3 target);
 
