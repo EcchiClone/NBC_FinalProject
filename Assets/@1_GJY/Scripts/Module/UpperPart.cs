@@ -20,11 +20,12 @@ public class UpperPart : BasePart
     {
         base.Setup(module);
 
-        if (!_module.IsPlayable)
-            return;
-
         Primary = GetComponent<Weapon_Primary>();
         Secondary = GetComponent<Weapon_Secondary>();
+
+        if (!_module.IsPlayable)
+            return;
+        
         Primary.Setup();
         Secondary.Setup();
     }

@@ -39,9 +39,9 @@ public class UI_HUD : UI_Scene
         _lockOnIndicator.SetActive(false);
     }
 
-    private void ChangeAPValue(float remainAP, float damage)
+    private void ChangeAPValue(float totalAP, float remainAP)
     {
-        _apFill.fillAmount = remainAP - damage / remainAP;
+        _apFill.fillAmount = remainAP / totalAP;
         _apValueText.text = $"{(int)remainAP}";
     }
 

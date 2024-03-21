@@ -18,6 +18,7 @@ MonoBehaviour:
   description: Desc
   bulletPrefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
     type: 3}
+  atk: 3.15
   speed: 35
   fireRate: 0.05
   coolDownTime: 2

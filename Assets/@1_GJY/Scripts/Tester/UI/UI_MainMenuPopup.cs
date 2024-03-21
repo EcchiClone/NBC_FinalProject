@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UI_MainMenuPopup : UI_Popup
 {
@@ -21,7 +22,7 @@ public class UI_MainMenuPopup : UI_Popup
 
         BindButton(typeof(Buttons));        
 
-        //GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(() => /*ToDo - 게임시작*/);
+        GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(() => SceneManager.LoadScene(1));
         GetButton((int)Buttons.Module_Select_Btn).onClick.AddListener(OpenModuleSelector);
     }
 

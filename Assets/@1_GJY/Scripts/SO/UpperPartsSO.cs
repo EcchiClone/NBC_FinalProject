@@ -7,6 +7,4 @@ public class UpperPartsSO : BasePartsSO
 {
     [Header("# Upper Stats")]
     public float smoothRotation;
-    public float boosterPower;
-
 }

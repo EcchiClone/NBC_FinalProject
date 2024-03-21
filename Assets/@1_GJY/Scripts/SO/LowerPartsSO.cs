@@ -8,5 +8,6 @@ public class LowerPartsSO : BasePartsSO
     [Header("# Lower Stats")]
     public float speed;
     public float jumpPower;
+    public float boosterPower;
     public bool canJump;
 }

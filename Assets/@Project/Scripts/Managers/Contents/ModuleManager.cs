@@ -15,11 +15,13 @@ public class ModuleManager
     #region Events
     public event Action<BasePart> OnPartChange;
     public event Action<string> OnInfoChange;
-    public event Action<float, float, float, float, float> OnUpperSpecsChange;
+    public event Action<float, float, float, float, float> OnLowerSpecsChange;
+    public event Action<float, float, float, float, float, float> OnUpperSpecsChange;    
 
     public void CallPartChange(BasePart part) => OnPartChange?.Invoke(part);
     public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);
-    public void CallUpperSpecsChange(float ap, float weight, float attackP, float attacS, float coolDownS) => OnUpperSpecsChange?.Invoke(ap, weight, attackP, attacS, coolDownS);
+    public void CallLowerSpecsChange(float ap, float weight, float moveSpeed, float jumpPower, float boostPower) => OnLowerSpecsChange?.Invoke(ap, weight, moveSpeed, jumpPower, boostPower);
+    public void CallUpperSpecsChange(float ap, float weight, float attackP, float attacS, float coolDownS, float rotSpeed) => OnUpperSpecsChange?.Invoke(ap, weight, attackP, attacS, coolDownS, rotSpeed);    
     #endregion
 
     public Module CurrentModule { get; private set; }
