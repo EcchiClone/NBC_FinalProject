@@ -26,7 +26,7 @@ public abstract class BossController
     public void Initialize()
     {
         destination = boss.transform.position;
-        stopDistance = boss.data.stopDistance;
+        stopDistance = boss.Data.stopDistance;
     }
 
     public abstract void Update();

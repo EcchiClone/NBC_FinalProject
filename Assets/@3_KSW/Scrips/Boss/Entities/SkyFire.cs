@@ -7,7 +7,7 @@ public class SkyFire : Boss
 {
     protected override void Initialize()
     {
-        CurrentHelth = data.maxHealth;
+        CurrentHelth = Data.maxHealth;
 
         Controller = new AirBossController(this);
         Controller.Initialize();

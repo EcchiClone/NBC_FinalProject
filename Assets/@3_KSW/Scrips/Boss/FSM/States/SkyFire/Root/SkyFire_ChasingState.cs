@@ -11,7 +11,7 @@ public class SkyFire_ChasingState : BossBaseState
         : base(context, provider) 
     {
         IsRootState = true;
-        chasingInterval = Context.Boss.data.chasingInterval;
+        chasingInterval = Context.Boss.Data.chasingInterval;
     }
 
     public override void EnterState()
