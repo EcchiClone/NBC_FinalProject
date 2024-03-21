@@ -20,4 +20,5 @@ MonoBehaviour:
   weight: 250
   speed: 3
   jumpPower: 5
+  boosterPower: 5
   canJump: 1

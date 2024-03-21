@@ -29,7 +29,7 @@ public abstract class Boss : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        Initialize();        
     }
 
     protected abstract void Initialize();

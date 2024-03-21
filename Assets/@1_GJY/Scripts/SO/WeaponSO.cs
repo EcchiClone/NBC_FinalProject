@@ -12,10 +12,13 @@ public class WeaponSO : ScriptableObject
     public string dev_Name;
 
     public string displayName;
+    public string bulletName;
     public string description;
 
     [Header("Stats")]
     public GameObject bulletPrefab;
+
+    public float atk;
 
     [Range(5f, 50f)]    public float speed;
     [Range(0.01f, 2f)]  public float fireRate;

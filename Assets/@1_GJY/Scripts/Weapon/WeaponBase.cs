@@ -28,8 +28,11 @@ public class WeaponBase : MonoBehaviour
                 if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
                     freeFirePoint = hit.point;
             }
+            
+            GameObject go = EnemyBulletPoolManager.instance.GetGo(WeaponSO.bulletName);
+            go.transform.position = muzzle.position;
+            go.transform.rotation = muzzle.rotation;
 
-            GameObject go = Instantiate(WeaponSO.bulletPrefab, muzzle.position, muzzle.rotation);            
             float xError = SetShotErrorRange(WeaponSO.shotErrorRange);
             float yError = SetShotErrorRange(WeaponSO.shotErrorRange);
             Quaternion rotation = Quaternion.Euler(yError, xError, 0f); // 각도 계산

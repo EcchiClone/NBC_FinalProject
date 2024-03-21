@@ -13,12 +13,15 @@ public class PlayerStatus
 
     // # Lower Stats
     public float MovementSpeed { get; private set; }
-    public float JumpPower { get; private set; } // 점프 높이    
+    public float JumpPower { get; private set; }
+    public float BoostPower { get; private set; }    
     public bool CanJump { get; private set; }
 
     // # Upper Stats
+    public float AttackPrimary { get; private set; }
+    public float AttackSecondary { get; private set; }
+    public float ReloadSecondary { get; private set; }
     public float SmoothRotateValue { get; private set; }
-    public float BoostPower { get; private set; } // 부스터 출력  
 
     public static event Action<float, float> OnChangeArmorPoint;
 
@@ -33,16 +36,16 @@ public class PlayerStatus
         MovementSpeed = lowerSO.speed;
         JumpPower = lowerSO.jumpPower;
         CanJump = lowerSO.canJump;
+        BoostPower = lowerSO.boosterPower;
 
         SmoothRotateValue = upperSO.smoothRotation;
-        BoostPower = upperSO.boosterPower;
 
-        OnChangeArmorPoint?.Invoke(_currentArmor, 0);
+        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
 
     public void GetDamage(float damage)
     {
         _currentArmor -= damage;
-        OnChangeArmorPoint?.Invoke(_currentArmor, damage);
+        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
 }

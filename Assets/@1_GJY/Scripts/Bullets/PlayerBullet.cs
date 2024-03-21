@@ -8,7 +8,6 @@ public class PlayerBullet : PlayerProjectile
     {
         base.Setup(speed, groundTargetPos);
 
-        _rigid.velocity = transform.forward * _speed;
-        Destroy(gameObject, 5f);
+        _rigid.velocity = transform.forward * _speed;        
     }    
 }

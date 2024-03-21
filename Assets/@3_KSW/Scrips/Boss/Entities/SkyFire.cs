@@ -7,6 +7,7 @@ public class SkyFire : Boss
 {
     protected override void Initialize()
     {
+        Target = FindObjectOfType<PlayerStateMachine>().transform;
         CurrentHelth = Data.maxHealth;
 
         Controller = new AirBossController(this);
@@ -26,7 +27,7 @@ public class SkyFire : Boss
     //TODO : update 이벤트 만들어서 묶을 필요 있음
     void Update()
     {
-        if (Controller != null) 
+        if (Controller != null)
         {
             Controller.Update();
         }
@@ -34,7 +35,7 @@ public class SkyFire : Boss
         if(StateMachine != null)
         {
             StateMachine.Update();
-        }    
+        }
     }
 
     public void DummyFunction(string something)

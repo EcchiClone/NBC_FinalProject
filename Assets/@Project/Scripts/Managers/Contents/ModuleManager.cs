@@ -13,13 +13,13 @@ public class ModuleManager
     private Dictionary<Type, BasePart[]> _modules = new Dictionary<Type, BasePart[]>();
 
     #region Events
-    public event Action<BasePart> OnPartChange;
-    public event Action<string> OnInfoChange;
-    public event Action<float, float, float, float, float> OnUpperSpecsChange;
+    public event Action<UpperPart> OnUpperChange;
+    public event Action<LowerPart> OnLowerChange;
+    public event Action<string> OnInfoChange;    
 
-    public void CallPartChange(BasePart part) => OnPartChange?.Invoke(part);
-    public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);
-    public void CallUpperSpecsChange(float ap, float weight, float attackP, float attacS, float coolDownS) => OnUpperSpecsChange?.Invoke(ap, weight, attackP, attacS, coolDownS);
+    public void CallUpperPartChange(UpperPart part) => OnUpperChange?.Invoke(part);
+    public void CallLowerPartChange(LowerPart lower) => OnLowerChange?.Invoke(lower);    
+    public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);    
     #endregion
 
     public Module CurrentModule { get; private set; }
