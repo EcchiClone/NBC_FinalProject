@@ -41,8 +41,8 @@ public class UI_SelectorMenu : UI_Popup
     {
         base.Init();
 
-        Managers.Module.OnLowerSpecsChange += ApplyLowerModuleSpec;
-        Managers.Module.OnUpperSpecsChange += ApplyUpperModuleSpec;        
+        Managers.Module.OnLowerChange += ApplyLowerModuleSpec;
+        Managers.Module.OnUpperChange += ApplyUpperModuleSpec;        
         InitSpecTexts();
 
         BindButton(typeof(Buttons));
@@ -106,30 +106,30 @@ public class UI_SelectorMenu : UI_Popup
         _specTexts[(int)SpecType.BoostPower].text = $"{boostPower}";
     }
 
-    private void ApplyLowerModuleSpec(float ap, float weight, float moveSpeed, float jumpPower, float boostPower)
+    private void ApplyLowerModuleSpec(LowerPart lower)
     {
-        lowerAP = ap;
-        lowerWeight = weight;
+        lowerAP = lower.lowerSO.armor;
+        lowerWeight = lower.lowerSO.weight;
 
-        _specTexts[(int)SpecType.AP].text = $"{upperAP + ap}";
-        _specTexts[(int)SpecType.Weight].text = $"{upperWeight + weight}";
+        _specTexts[(int)SpecType.AP].text = $"{upperAP + lower.lowerSO.armor}";
+        _specTexts[(int)SpecType.Weight].text = $"{upperWeight + lower.lowerSO.weight}";
 
-        _specTexts[(int)SpecType.MoveSpeed].text = $"{moveSpeed}";        
-        _specTexts[(int)SpecType.JumpPower].text = $"{jumpPower}";
-        _specTexts[(int)SpecType.BoostPower].text = $"{boostPower}";
+        _specTexts[(int)SpecType.MoveSpeed].text = $"{lower.lowerSO.speed}";        
+        _specTexts[(int)SpecType.JumpPower].text = $"{lower.lowerSO.jumpPower}";
+        _specTexts[(int)SpecType.BoostPower].text = $"{lower.lowerSO.boosterPower}";
     }
 
-    private void ApplyUpperModuleSpec(float ap, float weight, float attackP, float attacS, float coolDownS, float rotSpeed)
+    private void ApplyUpperModuleSpec(UpperPart upper)
     {
-        upperAP = ap;
-        upperWeight = weight;
+        upperAP = upper.upperSO.armor;
+        upperWeight = upper.upperSO.weight;
 
-        _specTexts[(int)SpecType.AP].text = $"{lowerAP + ap}";
-        _specTexts[(int)SpecType.Weight].text = $"{lowerWeight + weight}";
+        _specTexts[(int)SpecType.AP].text = $"{lowerAP + upper.upperSO.armor}";
+        _specTexts[(int)SpecType.Weight].text = $"{lowerWeight + upper.upperSO.weight}";
 
-        _specTexts[(int)SpecType.AttackMain].text = $"{attackP}";
-        _specTexts[(int)SpecType.AttackSub].text = $"{attacS}";
-        _specTexts[(int)SpecType.ReloadSub].text = $"{coolDownS}";
-        _specTexts[(int)SpecType.RotateSpeed].text = $"{rotSpeed}";
+        _specTexts[(int)SpecType.AttackMain].text = $"{upper.Primary.WeaponSO.atk}";
+        _specTexts[(int)SpecType.AttackSub].text = $"{upper.Secondary.WeaponSO.atk}";
+        _specTexts[(int)SpecType.ReloadSub].text = $"{upper.Secondary.WeaponSO.coolDownTime}";
+        _specTexts[(int)SpecType.RotateSpeed].text = $"{upper.upperSO.smoothRotation}";
     }
 }
