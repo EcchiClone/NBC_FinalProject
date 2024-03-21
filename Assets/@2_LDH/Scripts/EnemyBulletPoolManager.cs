@@ -24,7 +24,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
     public bool IsReady { get; private set; }
 
     [SerializeField]
-    private ObjectInfo[] objectInfos = null;
+    private ObjectInfo[] objectInfos = null;    
 
     // 생성할 오브젝트의 key값지정을 위한 변수
     private string objectName;
@@ -113,7 +113,7 @@ public class EnemyBulletPoolManager : MonoBehaviour
     }
 
     // 반환 -> 대량 탄막에는 지양. 큐 사용한 배치처리로 프레임당 횟수 제한
-    private void OnReturnedToPool(GameObject poolGo)
+    public void OnReturnedToPool(GameObject poolGo)
     {
         nowActiveItem--; // 갯수추적
         poolGo.SetActive(false);

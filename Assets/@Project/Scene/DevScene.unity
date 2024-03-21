@@ -443,6 +443,43 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[4].count
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[5].count
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[4].perfab
+      value: 
+      objectReference: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
+        type: 3}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[5].perfab
+      value: 
+      objectReference: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
+        type: 3}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[4].objectName
+      value: Bullet_Gatling_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 837814536834773590, guid: b74317c1997a5dc4ca57831b9339a986,
+        type: 3}
+      propertyPath: objectInfos.Array.data[5].objectName
+      value: Bullet_Missile_01
+      objectReference: {fileID: 0}
     - target: {fileID: 906469638426854602, guid: b74317c1997a5dc4ca57831b9339a986,
         type: 3}
       propertyPath: m_RootOrder
@@ -550,7 +587,7 @@ PrefabInstance:
     - target: {fileID: 2426079046754461775, guid: 5e477fe31e3cf624d95aeba538464d43,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 2426079046754461775, guid: 5e477fe31e3cf624d95aeba538464d43,
         type: 3}
@@ -601,7 +638,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Phases.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e46aeb535cc86e340969ce90696c0cc3,
+      objectReference: {fileID: 11400000, guid: 91e03ad64f8e5f847941f6dcd330a935,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

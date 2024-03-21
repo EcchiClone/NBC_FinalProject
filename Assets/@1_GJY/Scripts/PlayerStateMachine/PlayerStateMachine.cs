@@ -81,7 +81,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void Start()
     {        
         PlayerSetting();
-        StartCoroutine(Co_TestDamage());        
+        //StartCoroutine(Co_TestDamage());        
     }
 
     private void PlayerSetting()

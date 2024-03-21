@@ -12,6 +12,7 @@ public class WeaponSO : ScriptableObject
     public string dev_Name;
 
     public string displayName;
+    public string bulletName;
     public string description;
 
     [Header("Stats")]

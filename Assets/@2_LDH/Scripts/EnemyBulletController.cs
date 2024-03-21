@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using static PhaseSO;
 
-public class EnemyBulletController : PoolAble
+public class EnemyBulletController : Bullet
 {
     [SerializeField] TrailRenderer[] _trailRenderers;
     private EnemyBulletParameters _currentParameters; // 현재 탄막의 파라미터
