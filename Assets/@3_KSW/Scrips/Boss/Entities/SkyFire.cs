@@ -8,12 +8,20 @@ public class SkyFire : Boss
     protected override void Initialize()
     {
         Target = FindObjectOfType<PlayerStateMachine>().transform;
-
         CurrentHelth = Data.maxHealth;
 
         Controller = new AirBossController(this);
         Controller.Initialize();
         StateMachine = new SkyFireStateMachine(this);
+
+        // 패턴 메서드 넣는 곳
+        Patterns.Add(Pattern.Phase1_Pattern1, DummyFunction);
+        Patterns.Add(Pattern.Phase1_Pattern2, DummyFunction);
+        Patterns.Add(Pattern.Phase1_Pattern3, DummyFunction);
+
+        Patterns.Add(Pattern.Phase2_Pattern1, DummyFunction);
+        Patterns.Add(Pattern.Phase2_Pattern2, DummyFunction);
+        Patterns.Add(Pattern.Phase2_Pattern3, DummyFunction);
     }
 
     //TODO : update 이벤트 만들어서 묶을 필요 있음
@@ -28,5 +36,10 @@ public class SkyFire : Boss
         {
             StateMachine.Update();
         }
+    }
+
+    public void DummyFunction(string something)
+    {
+        Debug.Log(something);
     }
 }
