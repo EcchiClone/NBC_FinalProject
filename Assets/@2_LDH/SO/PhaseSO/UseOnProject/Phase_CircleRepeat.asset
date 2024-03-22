@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6562e598098c824a9e8ccaadc276b5d, type: 3}
-  m_Name: Phase_MinionTest_CircleRepeat
+  m_Name: Phase_CircleRepeat
   m_EditorClassIdentifier: 
   genCondition: 0
   startTime: 0
