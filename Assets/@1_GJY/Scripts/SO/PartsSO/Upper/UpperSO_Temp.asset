@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dev_ID: 20002
   dev_Name: Upper_Temp
-  display_Name: "\uBB34\uC329\uAE34 \uC0C1\uCCB4 2\uBC88"
-  display_Description: "\uBB34\uC329\uACBC\uB2E4"
-  armor: 300
-  weight: 175
-  smoothRotation: 3
-  boosterPower: 5
+  display_Name: TEST HEAD
+  display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+  armor: 5000
+  weight: 1
+  smoothRotation: 1000

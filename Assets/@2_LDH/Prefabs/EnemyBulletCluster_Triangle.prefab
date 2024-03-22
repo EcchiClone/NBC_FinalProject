@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5201237864717169090}
   - component: {fileID: 5337497753886052865}
   - component: {fileID: 6399831604581718683}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBullet01_Orange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 2590409939100266447}
   - component: {fileID: 3974728011485853356}
   - component: {fileID: 3854832394889546468}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBulletCluster_Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8993100168850279867}
   - component: {fileID: 8287130369690969305}
   - component: {fileID: 1338639964113002493}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4977,7 +4977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4734609430549538007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5012,7 +5012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 612068723393184257}
   - component: {fileID: 8072560720923763118}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5158,7 +5158,7 @@ GameObject:
   - component: {fileID: 3158448980936010141}
   - component: {fileID: 8002308648251948860}
   - component: {fileID: 3585765281233561800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9986,7 +9986,7 @@ GameObject:
   - component: {fileID: 6522818214734835864}
   - component: {fileID: 7242091263256884444}
   - component: {fileID: 2744360794027932938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBullet01_Orange (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10047,7 +10047,7 @@ GameObject:
   - component: {fileID: 6964160698770981736}
   - component: {fileID: 6634761312552038687}
   - component: {fileID: 3409544681665942860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10149,7 +10149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3824227236773667841}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10186,7 +10186,7 @@ GameObject:
   - component: {fileID: 2356906135232416135}
   - component: {fileID: 1964450073548110182}
   - component: {fileID: 1105192062616805172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10288,7 +10288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6410762591882800270}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10323,7 +10323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6874039149972886516}
   - component: {fileID: 3178844204259307961}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10469,7 +10469,7 @@ GameObject:
   - component: {fileID: 7851151472520263321}
   - component: {fileID: 2578729116060627199}
   - component: {fileID: 4534112543168108188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBullet01_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10529,7 +10529,7 @@ GameObject:
   - component: {fileID: 983509077306689718}
   - component: {fileID: 1420975808946573474}
   - component: {fileID: 7944024469375963621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15356,7 +15356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2471978935846164133}
   - component: {fileID: 4251964886175139092}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15503,7 +15503,7 @@ GameObject:
   - component: {fileID: 6987692705413104076}
   - component: {fileID: 4450661554219158851}
   - component: {fileID: 8078787552937184753}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

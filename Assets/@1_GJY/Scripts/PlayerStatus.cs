@@ -48,4 +48,10 @@ public class PlayerStatus
         _currentArmor -= damage;
         OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
+
+    public void Repair()
+    {
+        _currentArmor = Mathf.Min(_currentArmor + 250, Armor);
+        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);        
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6615772646131027788}
   - component: {fileID: 7775365759189082227}
   - component: {fileID: 5877739294214169832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2426079046754461775}
   - component: {fileID: 6630598493877107350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_Dev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ Transform:
   m_Children:
   - {fileID: 4120305382067784534}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6630598493877107350
 MonoBehaviour:
@@ -151,9 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phases:
-  - {fileID: 11400000, guid: 2991cc2f036e6654b87b0d91b9e3f1f6, type: 2}
+  - {fileID: 11400000, guid: 91e03ad64f8e5f847941f6dcd330a935, type: 2}
   muzzle: []
   isShooting: 1
   onStartPhase:
   - phaseNum: 0
     muzzleNum: 0
+    isOneTime: 0

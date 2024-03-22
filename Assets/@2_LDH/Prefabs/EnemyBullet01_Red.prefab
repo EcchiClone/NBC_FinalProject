@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9034946517484139348}
   - component: {fileID: 254978511683536715}
   - component: {fileID: 1681494150154083944}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820137491466338278}
   - component: {fileID: 2239565291903497638}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4982,7 +4982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8278450177946971904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5019,7 +5019,7 @@ GameObject:
   - component: {fileID: -1574576398056007791}
   - component: {fileID: 5970853864419647240}
   - component: {fileID: -3069463387222619929}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBullet01_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5088,7 +5088,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -5108,7 +5108,7 @@ GameObject:
   - component: {fileID: 3587675819105969004}
   - component: {fileID: 654744764576212020}
   - component: {fileID: 4004796856737203684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

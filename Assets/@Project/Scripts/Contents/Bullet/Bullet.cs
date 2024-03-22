@@ -24,15 +24,18 @@ public class Bullet : PoolAble, IDamagable
                     EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
                 }
                 break;
-            case BulletOwner.Enemy:
-                if (other.TryGetComponent(out PlayerStateMachine playerState) == true && owenr == BulletOwner.Enemy)
-                {
-                    playerState.Player.GetDamage(5);
 
-                    EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
-                }
-                break;
+                // 콜리젼으로 바뀜
+            //case BulletOwner.Enemy:
+            //    if (other.TryGetComponent(out PlayerStateMachine playerState) == true && owenr == BulletOwner.Enemy)
+            //    {
+            //        playerState.Player.GetDamage(5);
+
+            //        EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+            //    }
+            //    break;
         }
+
     }
 
     public void HitTarget()
