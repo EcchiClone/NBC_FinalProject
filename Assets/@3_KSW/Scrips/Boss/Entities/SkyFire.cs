@@ -13,7 +13,7 @@ public class SkyFire : Boss
 
     protected override void Initialize()
     {
-        Target = FindObjectOfType<PlayerStateMachine>().transform;
+        Target = FindObjectOfType<TargetCenter>().transform;
         CurrentHelth = Data.maxHealth;
 
         Controller = new AirBossController(this);
