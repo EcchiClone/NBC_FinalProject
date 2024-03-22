@@ -16,5 +16,5 @@ MonoBehaviour:
   stopDistance: 50
   chasingInterval: 0.5
   rotationSpeed: 0
-  maxHealth: 100
+  maxHealth: 5000
   moveSpeed: 2

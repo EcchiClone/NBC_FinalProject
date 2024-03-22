@@ -184,7 +184,7 @@ MonoBehaviour:
       initAccelMultiple: 0.2
       initAccelPlus: 0
       minSpeed: -100
-      maxSpeed: 100
+      maxSpeed: 999
       initRotationSpeed: 1
       initLocalYRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
@@ -196,12 +196,12 @@ MonoBehaviour:
         _changeRotationType: 2
         _moveDirection: {x: 0, y: 0, z: 0}
         _speed: 0
-        _accelPlus: 25
+        _accelPlus: 300
         _accelMultiple: 1
-        _rotationSpeed: 5
-        _resetMoveType: 0
+        _rotationSpeed: 100
+        _resetMoveType: 1
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
-        _timer: 2
+        _timer: 1.5
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
