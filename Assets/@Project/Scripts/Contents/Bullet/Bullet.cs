@@ -24,6 +24,8 @@ public class Bullet : PoolAble, IDamagable
                     EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
                 }
                 break;
+
+                // 콜리젼으로 바뀜
             //case BulletOwner.Enemy:
             //    if (other.TryGetComponent(out PlayerStateMachine playerState) == true && owenr == BulletOwner.Enemy)
             //    {

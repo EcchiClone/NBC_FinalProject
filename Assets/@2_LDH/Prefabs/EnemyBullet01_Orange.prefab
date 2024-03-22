@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9034946517484139348}
   - component: {fileID: 254978511683536715}
   - component: {fileID: 1681494150154083944}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820137491466338278}
   - component: {fileID: 2239565291903497638}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4985,7 +4985,7 @@ GameObject:
   - component: {fileID: 589130790107147765}
   - component: {fileID: 5479814522796798469}
   - component: {fileID: 3900650292059379672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5087,7 +5087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8278450177946971904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5125,7 +5125,7 @@ GameObject:
   - component: {fileID: 5970853864419647240}
   - component: {fileID: 3498745439620727750}
   - component: {fileID: 4941705877858150900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBullet01_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5194,14 +5194,14 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!135 &4941705877858150900
 SphereCollider:
   m_ObjectHideFlags: 0
