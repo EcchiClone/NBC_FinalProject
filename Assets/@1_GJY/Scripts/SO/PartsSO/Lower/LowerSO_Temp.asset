@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dev_ID: 10002
   dev_Name: Lower_Temp
-  display_Name: "\uD558\uCCB4 2\uBC88 \uC784\uC2DC\uC6A9"
-  display_Description: "\uBB34\uC329\uAE34 \uD558\uCCB42\uBC88"
-  armor: 700
-  weight: 350
-  speed: 3
-  jumpPower: 5
+  display_Name: TEST LEG
+  display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+  armor: 5000
+  weight: 1
+  speed: 1000
+  jumpPower: 1000
+  boosterPower: 1000
   canJump: 1
