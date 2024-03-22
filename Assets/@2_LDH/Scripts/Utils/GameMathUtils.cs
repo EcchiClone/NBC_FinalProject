@@ -5,6 +5,7 @@ using UnityEngine;
 // 벡터 계산 등 필요한 복잡한 연산을 모두 모아두는 역할
 public class GameMathUtils : MonoBehaviour
 {
+    #region 원점 기준 Vector3 전체 회전
     // 전체 회전(아직 테스트 안 해봄)
     public static List<Vector3> RotateVectors(List<Vector3> originalVectors, Quaternion rotation, float distanceMultiplier)
     {
@@ -20,7 +21,9 @@ public class GameMathUtils : MonoBehaviour
         }
         return rotatedVectors;
     }
+    #endregion
 
+    #region Shape: 구형 타입A
     // 구형 타입A(최상/최하단 채우기. 가장 일반적인 이미지.)
     public static List<Vector3> GenerateSpherePointsTypeA(int pointsPerLayer, int numberOfLayers, float distanceMultiplier)
     {
@@ -53,8 +56,9 @@ public class GameMathUtils : MonoBehaviour
 
         return spherePoints;
     }
+    #endregion
 
-    // 탄퍼짐
+    #region 탄퍼짐(각,집중도)
     public static Vector3 CalculateSpreadDirection(Vector3 originalDirection, float maxSpreadAngle, float concentration)
     {
         // 랜덤 각도를 계산
@@ -71,4 +75,7 @@ public class GameMathUtils : MonoBehaviour
 
         return spreadDirection.normalized; // 노멀라이즈된 조정된 방향 반환
     }
+    #endregion
+
+
 }

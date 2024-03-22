@@ -11,8 +11,8 @@ public class WeaponBase : MonoBehaviour
 
     private void Awake()
     {
-        LockOnSystem.OnLockOn += Targeting;
-        LockOnSystem.OnRelease += Release;
+        Managers.ActionManager.OnLockOnTarget += Targeting;
+        Managers.ActionManager.OnReleaseTarget += Release;
     }
 
     public virtual void Setup() {}

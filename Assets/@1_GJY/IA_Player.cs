@@ -89,6 +89,15 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RePair"",
+                    ""type"": ""Button"",
+                    ""id"": ""38afc111-1ebd-4c63-9b7c-9e14a93c7831"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""LockOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94eb4fbc-3829-45e9-b765-bfaf8d5fbf47"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RePair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +247,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_PlayerInput_SecondaryWeapon = m_PlayerInput.FindAction("SecondaryWeapon", throwIfNotFound: true);
         m_PlayerInput_Dash = m_PlayerInput.FindAction("Dash", throwIfNotFound: true);
         m_PlayerInput_LockOn = m_PlayerInput.FindAction("LockOn", throwIfNotFound: true);
+        m_PlayerInput_RePair = m_PlayerInput.FindAction("RePair", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_SecondaryWeapon;
     private readonly InputAction m_PlayerInput_Dash;
     private readonly InputAction m_PlayerInput_LockOn;
+    private readonly InputAction m_PlayerInput_RePair;
     public struct PlayerInputActions
     {
         private @IA_Player m_Wrapper;
@@ -306,6 +328,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @SecondaryWeapon => m_Wrapper.m_PlayerInput_SecondaryWeapon;
         public InputAction @Dash => m_Wrapper.m_PlayerInput_Dash;
         public InputAction @LockOn => m_Wrapper.m_PlayerInput_LockOn;
+        public InputAction @RePair => m_Wrapper.m_PlayerInput_RePair;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +359,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @LockOn.started += instance.OnLockOn;
             @LockOn.performed += instance.OnLockOn;
             @LockOn.canceled += instance.OnLockOn;
+            @RePair.started += instance.OnRePair;
+            @RePair.performed += instance.OnRePair;
+            @RePair.canceled += instance.OnRePair;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -361,6 +387,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @LockOn.started -= instance.OnLockOn;
             @LockOn.performed -= instance.OnLockOn;
             @LockOn.canceled -= instance.OnLockOn;
+            @RePair.started -= instance.OnRePair;
+            @RePair.performed -= instance.OnRePair;
+            @RePair.canceled -= instance.OnRePair;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -387,5 +416,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnSecondaryWeapon(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnLockOn(InputAction.CallbackContext context);
+        void OnRePair(InputAction.CallbackContext context);
     }
 }

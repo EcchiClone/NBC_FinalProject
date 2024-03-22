@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkyFire_Data
   m_EditorClassIdentifier: 
   BossType: 1
-  stopDistance: 40
-  chasingInterval: 0.2
-  maxHealth: 100
-  moveSpeed: 1
+  stopDistance: 50
+  chasingInterval: 0.5
+  rotationSpeed: 0
+  maxHealth: 5000
+  moveSpeed: 2

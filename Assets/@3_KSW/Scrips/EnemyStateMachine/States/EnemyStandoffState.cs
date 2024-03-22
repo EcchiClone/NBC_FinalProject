@@ -90,10 +90,10 @@ public class EnemyStandoffState : EnemyBaseState
         {
             _ctx.GizmoColor = Color.red;
             // TODO : 무언가 쏘는 함수 호출
-            foreach (var patternHierarchy in _ctx.currentPhase.hierarchicalPatterns)
+            /*foreach (var patternHierarchy in _ctx.currentPhase.hierarchicalPatterns)
             {
                 EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, _ctx.currentPhase.cycleTime, _ctx.gameObject, _ctx.gameObject);
-            }
+            }*/
 
             // 0.5초 대기
             yield return _attackInterval;

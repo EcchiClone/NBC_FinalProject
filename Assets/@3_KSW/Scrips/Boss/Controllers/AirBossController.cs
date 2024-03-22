@@ -21,50 +21,86 @@ public class AirBossController : BossController
             return;
         }
 
+        AltitudeAdjustment();
+        Look();
         CheckDistance();
-        if (isMoving)
+        
+        if (IsMoving)
         {
             Move();
         }
+        
     }
 
-    public override void Move()
+    protected override void Move()
     {
-        boss.transform.position = Vector3.Lerp(boss.transform.position, destination, boss.Data.moveSpeed * Time.deltaTime);
-        //AltitudeAdjustment();
+        //boss.transform.position = Vector3.Lerp(boss.transform.position, stopPoint, boss.Data.moveSpeed * Time.deltaTime);
+        //boss.transform.position = Vector3.MoveTowards(boss.transform.position, StopPoint, boss.Data.moveSpeed * Time.deltaTime);
+
+        // 이동 방향 벡터 계산
+        Vector3 moveDirection = (StopPoint - boss.transform.position).normalized;
+
+        float distanceToStopPoint = Vector3.Distance(boss.transform.position, StopPoint);
+
+        float forceMagnitude = distanceToStopPoint / boss.Data.moveSpeed;
+
+        forceMagnitude = Mathf.Clamp(forceMagnitude, 4, 10);
+
+        // Rigidbody에 힘을 가해 이동
+        boss.GetComponent<Rigidbody>().AddForce(moveDirection * forceMagnitude);
+    }
+    protected override void Look()
+    {
+        // 타겟 방향 계산
+        Vector3 targetDirection = (boss.Target.transform.position - boss.transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
+
+        // 쿼터니언의 오일러 각도를 제한해준다.
+        Vector3 euler = lookRotation.eulerAngles;
+        euler.x = Mathf.Min(euler.x, 40f);
+
+        // 나온 오일러 각도를 다시 방향으로
+        lookRotation = Quaternion.Euler(euler);
+        boss.transform.rotation = Quaternion.RotateTowards(boss.transform.rotation, lookRotation, 30 * Time.deltaTime);
+    }
+
+    private void AltitudeAdjustment()
+    {
+        Vector3 nowPosition = boss.transform.position;
+
+        boss.transform.position = Vector3.Lerp(nowPosition, new Vector3(nowPosition.x, TargetAltitude, nowPosition.z), Time.deltaTime);
     }
 
     public override void SetDestination(Vector3 target)
     {
-        float altitude = boss.transform.position.y;
+        //float altitude = boss.transform.position.y;
 
         target.y = TargetAltitude;
+        Destination = target;
 
-        float distanceToTarget = Vector3.Distance(boss.transform.position, target);
+        //float distanceToTarget = Vector3.Distance(boss.transform.position, target);
 
         Vector3 stopDirection = boss.transform.position - target;
         stopDirection.y = 0f;
         stopDirection.Normalize();
-        destination = target + stopDirection * stopDistance;
+        StopPoint = target + stopDirection * StopDistance;
     }
 
     protected override void CheckDistance()
     {
         Vector3 currentPosition = boss.transform.position;
-        Vector3 targetPosition = boss.Target.position;
 
-        //currentPosition.y = 0f;
-        targetPosition.y = currentPosition.y;
+        currentPosition.y = Destination.y;
 
+        float distanceToDestination = Vector3.Distance(currentPosition, Destination);
 
-        float distanceToDestination = Vector3.Distance(currentPosition, targetPosition);
-
-        isMoving = distanceToDestination > stopDistance + 5; // 선형보간 다 따라오면 절대 안멈춰서 임의의 숫자로 미리 멈추게 함
+        IsMoving = distanceToDestination > StopDistance;
     }
 
     public override void Stop()
     {
-        stopDistance = 0f;
+        StopDistance = 0f;
         SetDestination(boss.transform.position);
     }
+
 }

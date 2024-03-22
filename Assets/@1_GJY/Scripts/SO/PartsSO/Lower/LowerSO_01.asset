@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dev_ID: 10001
   dev_Name: Lower_01
-  display_Name: "\uD558\uCCB4 1\uBC88"
-  display_Description: "\uBD80\uB7EC\uC9C8 \uAC83 \uAC19\uC740 \uC587\uC740 \uB2E4\uB9AC"
-  armor: 500
+  display_Name: DG-001
+  display_Description: "\uACBD\uB7C9\uD615 \uC5ED\uAD00\uC808 \uD558\uCCB4\n\uAC00\uBCCD\uACE0
+    \uBE60\uB974\uC9C0\uB9CC \uBE48\uC57D\uD55C \uC7A5\uAC11"
+  armor: 200
   weight: 250
-  speed: 3
+  speed: 5
   jumpPower: 5
   boosterPower: 5
   canJump: 1

@@ -6,32 +6,27 @@ public abstract class BossController
 {
     protected Boss boss;
 
-    protected Vector3 destination;
+    public Vector3 Destination { get; protected set; }
+    public Vector3 StopPoint { get; protected set; }
 
-    protected float stopDistance;
+    public bool IsMoving { get; protected set; } = true;
 
-    protected bool isMoving = true;
+    public float StopDistance { get; protected set; }
 
-    public Vector3 Destination { 
-        get { return destination; } 
-        set { destination = value; }
-    }
-
-    public float StopDistance 
-    {
-        get { return stopDistance; }
-        set { stopDistance = value; }
-    }
+    public Rigidbody Rigidbody { get; protected set; }
 
     public void Initialize()
     {
-        destination = boss.transform.position;
-        stopDistance = boss.Data.stopDistance;
+        Destination = boss.transform.position;
+        StopDistance = boss.Data.stopDistance;
+        Rigidbody = boss.GetComponent<Rigidbody>();
     }
 
     public abstract void Update();
 
-    public abstract void Move();
+    protected abstract void Move();
+
+    protected abstract void Look();
 
     public abstract void SetDestination(Vector3 target);
 

@@ -17,6 +17,7 @@ public class BossDataSO : ScriptableObject
     public BossType BossType;
     public float stopDistance;
     public float chasingInterval;
+    public float rotationSpeed;
 
     [Header("Status")]
     public float maxHealth;

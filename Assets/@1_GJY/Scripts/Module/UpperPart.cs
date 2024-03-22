@@ -10,8 +10,8 @@ public class UpperPart : BasePart
     [SerializeField] Transform[] _primaryMuzzles;
     [SerializeField] Transform[] _secondaryMuzzles;    
 
-    public Weapon_Primary Primary { get; private set; }
-    public Weapon_Secondary Secondary { get; private set; }
+    public Weapon_Primary Primary { get { return GetComponent<Weapon_Primary>(); } }
+    public Weapon_Secondary Secondary { get { return GetComponent<Weapon_Secondary>(); } }
 
     private float _primaryFireRate = float.MaxValue;
     private float _secondaryCoolDown = float.MaxValue;
@@ -19,9 +19,6 @@ public class UpperPart : BasePart
     public override void Setup(Module module)
     {
         base.Setup(module);
-
-        Primary = GetComponent<Weapon_Primary>();
-        Secondary = GetComponent<Weapon_Secondary>();
 
         if (!_module.IsPlayable)
             return;

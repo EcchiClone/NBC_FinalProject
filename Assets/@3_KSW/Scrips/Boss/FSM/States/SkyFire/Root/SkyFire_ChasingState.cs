@@ -18,6 +18,7 @@ public class SkyFire_ChasingState : BossBaseState
     {
         Debug.Log("SkyFire : Enter Chasing State");
         passedTime = 0f;
+        Context.Boss.Controller.SetDestination(Context.Boss.Target.position);
     }
 
     public override void UpdateState()
@@ -34,8 +35,10 @@ public class SkyFire_ChasingState : BossBaseState
 
     public override void ExitState()
     {
+        //Context.Boss.Controller.Stop();
         Debug.Log("SkyFire : Exit Chasing State");
     }
+
     public override void CheckSwitchStates()
     {
         // 공격할 조건 됐는지 판단
@@ -44,7 +47,15 @@ public class SkyFire_ChasingState : BossBaseState
         // 죽었는지 판단
 
         if (!Context.Boss.IsAlive)
+        {
             SwitchState(Provider.Dead());
+            return;
+        }
+
+        if(!Context.Boss.Controller.IsMoving) // 일단 컨트롤러의 IsMoving이 false면 바로 공격으로
+        {
+            SwitchState(Provider.Phase1());
+        }
     }
 
     public override void InitializeSubState()

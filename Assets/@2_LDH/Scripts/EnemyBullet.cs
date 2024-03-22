@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyEnemyBullet : MonoBehaviour
+public class EnemyBullet : Bullet
 {
-    // 적 탄막이 공통적으로 가질 내용을 기재
-    
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent(out PlayerStateMachine playerState) == true)
+        {
+            playerState.Player.GetDamage(5);
 
-    // 1. 각자의 탄막 파괴를 위한 메서드
-    // 2. 일괄 삭제를 위한 구독
+            EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+        }
 
-    // 해당되는 타겟 쪽으로/ 10발을 따다다닥
-
-
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            //Debug.Log(other.gameObject.layer);
+            EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+        }        
+    }
 }
