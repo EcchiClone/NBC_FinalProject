@@ -13,5 +13,6 @@ public abstract class BossStateProvider // 객체화만 막으려고 추상화 (
     // Root
     public abstract BossBaseState Chasing();
     public abstract BossBaseState Phase1();
+    public abstract BossBaseState Phase2();
     public abstract BossBaseState Dead();
 }
