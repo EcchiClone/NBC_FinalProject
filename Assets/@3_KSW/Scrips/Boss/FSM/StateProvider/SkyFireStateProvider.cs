@@ -31,6 +31,7 @@ public class SkyFireStateProvider : BossStateProvider
     {
         _states[SkyFire_States.Chasing] = new SkyFire_ChasingState(context, this);
         _states[SkyFire_States.Phase1] = new SkyFire_Phase1State(context, this);
+        _states[SkyFire_States.Phase2] = new SkyFire_Phase2State(context, this);
         _states[SkyFire_States.Dead] = new SkyFire_DeadState(context, this);
     }
 
@@ -38,6 +39,7 @@ public class SkyFireStateProvider : BossStateProvider
     // Root
     public override BossBaseState Chasing() => _states[SkyFire_States.Chasing];
     public override BossBaseState Phase1() => _states[SkyFire_States.Phase1];
+    public override BossBaseState Phase2() => _states[SkyFire_States.Phase2];
     public override BossBaseState Dead() => _states[SkyFire_States.Dead];
 
     //Sub
