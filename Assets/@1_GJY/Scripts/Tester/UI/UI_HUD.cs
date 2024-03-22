@@ -41,9 +41,10 @@ public class UI_HUD : UI_Scene
         Managers.ActionManager.OnCoolDownRepair += (percent) => _repairFill.fillAmount = percent;
         Managers.ActionManager.OnCoolDownBooster += (percent) => _boosterFill.fillAmount = percent;
         Managers.ActionManager.OnBossAPChanged += (percent) => _bossAPFill.fillAmount = percent;
+        Managers.ActionManager.OnPlayerDead += () => _gameOverPanel.SetActive(true);        
 
         _returnBtn.onClick.AddListener(() => SceneManager.LoadScene(0));
-    }    
+    }
 
     private void GetTargetedEnemy(Transform target)
     {
