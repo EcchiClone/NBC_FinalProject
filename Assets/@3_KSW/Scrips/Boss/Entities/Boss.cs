@@ -37,6 +37,8 @@ public abstract class Boss : MonoBehaviour
     public void GetDamaged(float damage)
     {
         CurrentHelth = Mathf.Max(0, CurrentHelth - damage);
+        float percent = CurrentHelth / Data.maxHealth;
+        Managers.ActionManager.CallBossAPChanged(percent);
         if(CurrentHelth <= 0)
             IsAlive = false;
     }

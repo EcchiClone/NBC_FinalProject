@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerBaseState CurrentState { get; set; }
     public PlayerStateFactory StateFactory { get; private set; }
     public WeaponTiltController TiltController { get; private set; }
+    public ISkill Skill { get; private set; }
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
@@ -89,6 +91,8 @@ public class PlayerStateMachine : MonoBehaviour
         AddInputCallBacks();
 
         Player = new PlayerStatus(CurrentLowerPart.lowerSO, CurrentUpperPart.upperSO);
+
+        Skill = new RepairKit();        
         TiltController = new WeaponTiltController(this);
         StateFactory = new PlayerStateFactory(this);
         CurrentState = StateFactory.NonCombat();
@@ -97,17 +101,6 @@ public class PlayerStateMachine : MonoBehaviour
         InitialGravity = Physics.gravity.y;
         _currentMovementDirection.y = MIN_GRAVITY_VALUE;
         CanDash = true;
-    }
-
-    WaitForSeconds wait = new WaitForSeconds(0.2f);
-    private IEnumerator Co_TestDamage()
-    {
-        while (true)
-        {
-            Player.GetDamage(2.5f);
-
-            yield return wait;
-        }        
     }
 
     private void Update()
@@ -120,6 +113,7 @@ public class PlayerStateMachine : MonoBehaviour
         HandleDashCoolDown();
     }
 
+    #region InputCallBacks
     private void AddInputCallBacks()
     {
         P_Input.Actions.Move.started += OnMovementInput;
@@ -135,6 +129,8 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.SecondaryWeapon.started += OnSecondaryWeapon;
         P_Input.Actions.SecondaryWeapon.canceled += OnSecondaryWeapon;
         P_Input.Actions.LockOn.started += OnLockOn;
+
+        P_Input.Actions.RePair.started += OnRepair;
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (이동관련)
@@ -174,6 +170,16 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsSecondaryWeaponInputPressed)
             CurrentUpperPart.UseWeapon_Secondary();
     }
+
+    private void OnRepair(InputAction.CallbackContext context)
+    {
+        if (Skill.IsActive)
+        {
+            Skill.UseSkill(this);
+            StartCoroutine(Skill.Co_CoolDown());            
+        }        
+    }
+    #endregion
 
     private void OnLockOn(InputAction.CallbackContext context)
     {
@@ -296,6 +302,9 @@ public class PlayerStateMachine : MonoBehaviour
             return;
 
         _dashCoolDownTime += Time.deltaTime;
+        float percent = _dashCoolDownTime / TIME_TO_SWITCHABLE_DASH_MODE;
+        Managers.ActionManager.CallUseBooster(percent);
+
         if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
         {
             CanDash = true;
@@ -338,7 +347,8 @@ public class PlayerStateMachine : MonoBehaviour
             current += Time.deltaTime;
             percent = current / time;
 
-            _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));
+            _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));            
+
             yield return null;
         }
         _movementModifier = endSpeed;
