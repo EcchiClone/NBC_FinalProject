@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Pool;
 using static PhaseSO;
 
-public class EnemyBulletController : Bullet
+public class EnemyBulletController : EnemyBullet
 {
     [SerializeField] TrailRenderer[] _trailRenderers;
     private EnemyBulletParameters _currentParameters; // 현재 탄막의 파라미터
     private Coroutine _releaseCoroutine;
     private GameObject _rootGo;
     private Transform _masterTf;
+    private Rigidbody _rb; 
 
 
     // 탄막에 파라미터를 설정하는 메서드 추가
@@ -26,6 +27,8 @@ public class EnemyBulletController : Bullet
         _rootGo = rootGo;
 
         _masterTf = masterTf;
+
+        _rb = GetComponent<Rigidbody>();
 
         // 이동 및 반환 로직
         UpdateMoveParameter();
@@ -49,32 +52,57 @@ public class EnemyBulletController : Bullet
     }
 
     void Move()
+    
     {
-        // 탄막 이동 로직
+        #region velocity 사용
         switch (_currentParameters.enemyBulletMoveType)
         {
-            case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 이동
-                transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
+            case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 velocity 설정
+                _rb.velocity = transform.forward * _currentParameters.speed;
                 break;
 
             case EnemyBulletMoveType.LerpToPlayer:
                 GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 찾기
                 if (player != null)
                 {
-                    // 플레이어를 향한 방향 벡터 계산
                     Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-
-                    // 현재 방향에서 플레이어를 향한 방향으로의 회전 Quaternion 생성
                     Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-
-                    // 현재 회전에서 목표 회전으로 부드럽게 변환
                     transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.rotationSpeed * Time.deltaTime);
+                    _rb.velocity = transform.forward * _currentParameters.speed;
                 }
-                transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
                 break;
         }
         // LocalYRotation
-        transform.Rotate(Vector3.forward, _currentParameters.localYRotationSpeed * 360 * Time.deltaTime, Space.Self);
+        _rb.angularVelocity = Vector3.up * _currentParameters.localYRotationSpeed * Mathf.Deg2Rad * 360;
+        #endregion
+
+        #region Transform 사용
+        // 탄막 이동 로직
+        //switch (_currentParameters.enemyBulletMoveType)
+        //{
+        //    case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 이동
+        //        transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
+        //        break;
+
+        //    case EnemyBulletMoveType.LerpToPlayer:
+        //        GameObject player = GameObject.FindGameObjectWithTag("Player"); // 플레이어 찾기
+        //        if (player != null)
+        //        {
+        //            // 플레이어를 향한 방향 벡터 계산
+        //            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+
+        //            // 현재 방향에서 플레이어를 향한 방향으로의 회전 Quaternion 생성
+        //            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+
+        //            // 현재 회전에서 목표 회전으로 부드럽게 변환
+        //            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.rotationSpeed * Time.deltaTime);
+        //        }
+        //        transform.Translate(transform.forward * _currentParameters.speed * Time.deltaTime, Space.World);
+        //        break;
+        //}
+        //// LocalYRotation
+        //transform.Rotate(Vector3.forward, _currentParameters.localYRotationSpeed * 360 * Time.deltaTime, Space.Self);
+        #endregion
     }
     void Accel()
     {

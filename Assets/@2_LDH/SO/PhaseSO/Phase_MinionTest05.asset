@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Phase_MinionTest05
   m_EditorClassIdentifier: 
   genCondition: 0
-  startTime: 8
+  startTime: 0
   cycleTime: 4
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 1ac20cafbc4006d4c928ffd2d8049086, type: 2}
