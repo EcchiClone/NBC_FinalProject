@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8296861634081347087}
   - component: {fileID: -1267083373645125802}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPhase: {fileID: 0}
+  Phases: []
+  muzzle: []
+  isShooting: 0
+  onStartPhase: []
 --- !u!1 &6783847995057961567
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +61,7 @@ GameObject:
   - component: {fileID: 1740407917692597611}
   - component: {fileID: 4911923560515414744}
   - component: {fileID: 2914441101410588663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

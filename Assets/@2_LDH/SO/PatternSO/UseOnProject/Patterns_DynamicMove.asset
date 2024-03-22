@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
-  m_Name: PatternsGroup_ChangeMoveTest01
+  m_Name: Patterns_DynamicMove
   m_EditorClassIdentifier: 
   patternDatas:
   - patternName: Missiles
@@ -30,6 +30,7 @@ MonoBehaviour:
       concentrationA: 0.7
       enemyBulletShape: 0
       customBulletPosList: []
+      divisionPointsPerEdge: 0
       initDistance: 0.1
       numPerShot: 3
       shotVerticalNum: 0
@@ -70,7 +71,7 @@ MonoBehaviour:
         _rotationSpeed: 2.5
         _resetMoveType: 1
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
-        _timer: 6
+        _timer: 2.1
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -92,12 +93,13 @@ MonoBehaviour:
       shotPerSet: 5
       shotDelay: 0.1
       posDirection: 3
-      customPosDirection: {x: 1, y: 0, z: 0}
+      customPosDirection: {x: 0, y: 1, z: 0}
       spreadA: 1
       maxSpreadAngleA: 8
       concentrationA: 0.7
       enemyBulletShape: 0
       customBulletPosList: []
+      divisionPointsPerEdge: 0
       initDistance: 0.1
       numPerShot: 5
       shotVerticalNum: 0
@@ -167,6 +169,7 @@ MonoBehaviour:
       concentrationA: 0.7
       enemyBulletShape: 2
       customBulletPosList: []
+      divisionPointsPerEdge: 0
       initDistance: 0.1
       numPerShot: 10
       shotVerticalNum: 1
@@ -190,7 +193,7 @@ MonoBehaviour:
           \uC2DC\uC791"
         _timer: 1
         _changeSpeedType: 3
-        _changeRotationType: 3
+        _changeRotationType: 2
         _moveDirection: {x: 0, y: 0, z: 0}
         _speed: 0
         _accelPlus: 25
@@ -237,6 +240,7 @@ MonoBehaviour:
       concentrationA: 0.7
       enemyBulletShape: 2
       customBulletPosList: []
+      divisionPointsPerEdge: 0
       initDistance: 0.1
       numPerShot: 10
       shotVerticalNum: 1
@@ -260,7 +264,7 @@ MonoBehaviour:
           \uC2DC\uC791"
         _timer: 0.5
         _changeSpeedType: 3
-        _changeRotationType: 3
+        _changeRotationType: 2
         _moveDirection: {x: 0, y: 0, z: 0}
         _speed: 0
         _accelPlus: 25

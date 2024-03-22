@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Phase_Star
   m_EditorClassIdentifier: 
   genCondition: 0
-  startTime: 1
+  startTime: 0
   cycleTime: 2
   hierarchicalPatterns:
   - patternSO: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47, type: 2}
-    patternName: CustomStar
+    patternName: StarToPlayer
     genCondition: 0
     startTime: 0
     cycleTime: 0

@@ -35,16 +35,18 @@ public class SkyFire_Phase1State : BossBaseState
             {
                 case 0:
                     Context.Boss.enemyPhaseStarter.StartPhase(0, 1, true);
+                    Context.Boss.enemyPhaseStarter.StartPhase(0, 2, true);
                     Debug.Log("Pattern 1");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴1");
                     break;
                 case 1:
-                    Context.Boss.enemyPhaseStarter.StartPhase(1, 2, true);
+                    Context.Boss.enemyPhaseStarter.StartPhase(1, 3, true);
+                    Context.Boss.enemyPhaseStarter.StartPhase(1, 4, true);
                     Debug.Log("Pattern 2");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴2");
                     break;
                 case 2:
-                    Context.Boss.enemyPhaseStarter.StartPhase(2, 3, true);
+                    Context.Boss.enemyPhaseStarter.StartPhase(2, 5, true);
                     Debug.Log("Pattern 3");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴3");
                     break;

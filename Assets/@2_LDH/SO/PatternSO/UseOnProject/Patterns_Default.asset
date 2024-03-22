@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
-  m_Name: PatternsGroup_ForTest01
+  m_Name: Patterns_Default
   m_EditorClassIdentifier: 
   patternDatas:
   - patternName: LinearToPlayer
@@ -51,7 +51,7 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 1.05
+      releaseTimer: 5
   - patternName: LinearToPlayerPurple
     Desc: "\uD50C\uB808\uC774\uC5B4 \uBC29\uD5A5\uC73C\uB85C \uC9C1\uC120"
     enemyBulletSettings:
@@ -90,7 +90,7 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 1.05
+      releaseTimer: 5
   - patternName: LinearToRandomN
     Desc: "\uB79C\uB364\uD55C \uBC29\uD5A5\uC73C\uB85C \uC9C1\uC120"
     enemyBulletSettings:
@@ -129,7 +129,7 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 1.05
+      releaseTimer: 5
   - patternName: ShotgunToPlayer
     Desc: "\uD50C\uB808\uC774\uC5B4 \uBC29\uD5A5\uC73C\uB85C \uC0F7\uAC74"
     enemyBulletSettings:
@@ -148,7 +148,7 @@ MonoBehaviour:
       enemyBulletShape: 0
       customBulletPosList: []
       divisionPointsPerEdge: 0
-      initDistance: 0
+      initDistance: 0.1
       numPerShot: 20
       shotVerticalNum: 0
       spreadB: 1
@@ -168,8 +168,8 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 1.5
-  - patternName: dadada
+      releaseTimer: 5
+  - patternName: Tarara
     Desc: "\uC720\uC800 \uBC29\uD5A5\uC73C\uB85C 10\uD68C \uC9C1\uC120"
     enemyBulletSettings:
       enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
@@ -193,7 +193,7 @@ MonoBehaviour:
       spreadB: 0
       maxSpreadAngleB: 0
       concentrationB: 0
-      initDirectionType: 3
+      initDirectionType: 4
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 10
@@ -246,7 +246,7 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 1.05
+      releaseTimer: 5
   - patternName: CircleRepeat
     Desc: "\uC6D0\uD615 \uBC18\uBCF5"
     enemyBulletSettings:
@@ -285,4 +285,4 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 3
+      releaseTimer: 5

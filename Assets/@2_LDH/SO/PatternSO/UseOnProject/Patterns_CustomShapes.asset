@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
-  m_Name: PatternsGroup_CustomShape
+  m_Name: Patterns_CustomShapes
   m_EditorClassIdentifier: 
   patternDatas:
-  - patternName: CustomStar
+  - patternName: StarToPlayer
     Desc: "\uBCC4\uBAA8\uC591\uC5D0 \uBCF4\uAC04\uC810 \uCD94\uAC00"
     enemyBulletSettings:
       enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
