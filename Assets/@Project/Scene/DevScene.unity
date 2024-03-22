@@ -186,6 +186,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8335211131454290253, guid: 999094864e8976648b58cf290d699da4,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335211131454290253, guid: 999094864e8976648b58cf290d699da4,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8475372386317770468, guid: 999094864e8976648b58cf290d699da4,
         type: 3}
       propertyPath: m_Name
@@ -199,6 +209,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1044519155}
+    - targetCorrespondingSourceObject: {fileID: 8475372386317770468, guid: 999094864e8976648b58cf290d699da4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1044519156}
   m_SourcePrefab: {fileID: 100100000, guid: 999094864e8976648b58cf290d699da4, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -566,6 +580,38 @@ MonoBehaviour:
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
+  enemyPhaseStarter: {fileID: 0}
+  launcher1: {fileID: 1420684666}
+  launcher2: {fileID: 1420684666}
+  launcher3: {fileID: 1420684666}
+--- !u!114 &1044519156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044519148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases:
+  - {fileID: 11400000, guid: 0034a3e674640b14897d36e357250637, type: 2}
+  - {fileID: 11400000, guid: 234095aa933569644a972b8d666de16a, type: 2}
+  - {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39, type: 2}
+  muzzle:
+  - {fileID: 1420684666}
+  - {fileID: 1420684666}
+  - {fileID: 1420684666}
+  isShooting: 0
+  onStartPhase: []
+--- !u!4 &1420684666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1243263462154905160, guid: 999094864e8976648b58cf290d699da4,
+    type: 3}
+  m_PrefabInstance: {fileID: 43119072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1570212864
 PrefabInstance:
   m_ObjectHideFlags: 0

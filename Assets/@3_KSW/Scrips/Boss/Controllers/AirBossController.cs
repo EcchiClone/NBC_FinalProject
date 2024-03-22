@@ -24,6 +24,7 @@ public class AirBossController : BossController
         AltitudeAdjustment();
         Look();
         CheckDistance();
+        
         if (IsMoving)
         {
             Move();
@@ -33,8 +34,20 @@ public class AirBossController : BossController
 
     protected override void Move()
     {
-        boss.transform.position = Vector3.Lerp(boss.transform.position, stopPoint, boss.Data.moveSpeed * Time.deltaTime);
-        //AltitudeAdjustment();
+        //boss.transform.position = Vector3.Lerp(boss.transform.position, stopPoint, boss.Data.moveSpeed * Time.deltaTime);
+        //boss.transform.position = Vector3.MoveTowards(boss.transform.position, StopPoint, boss.Data.moveSpeed * Time.deltaTime);
+
+        // 이동 방향 벡터 계산
+        Vector3 moveDirection = (StopPoint - boss.transform.position).normalized;
+
+        float distanceToStopPoint = Vector3.Distance(boss.transform.position, StopPoint);
+
+        float forceMagnitude = distanceToStopPoint / boss.Data.moveSpeed;
+
+        forceMagnitude = Mathf.Clamp(forceMagnitude, 4, 10);
+
+        // Rigidbody에 힘을 가해 이동
+        boss.GetComponent<Rigidbody>().AddForce(moveDirection * forceMagnitude);
     }
     protected override void Look()
     {
@@ -63,30 +76,30 @@ public class AirBossController : BossController
         //float altitude = boss.transform.position.y;
 
         target.y = TargetAltitude;
-        destination = target;
+        Destination = target;
 
         //float distanceToTarget = Vector3.Distance(boss.transform.position, target);
 
         Vector3 stopDirection = boss.transform.position - target;
         stopDirection.y = 0f;
         stopDirection.Normalize();
-        stopPoint = target + stopDirection * stopDistance;
+        StopPoint = target + stopDirection * StopDistance;
     }
 
     protected override void CheckDistance()
     {
         Vector3 currentPosition = boss.transform.position;
 
-        currentPosition.y = destination.y;
+        currentPosition.y = Destination.y;
 
-        float distanceToDestination = Vector3.Distance(currentPosition, destination);
+        float distanceToDestination = Vector3.Distance(currentPosition, Destination);
 
-        IsMoving = distanceToDestination > stopDistance + 5; // 선형보간 다 따라오면 절대 안멈춰서 임의의 숫자로 미리 멈추게 함
+        IsMoving = distanceToDestination > StopDistance;
     }
 
     public override void Stop()
     {
-        stopDistance = 0f;
+        StopDistance = 0f;
         SetDestination(boss.transform.position);
     }
 

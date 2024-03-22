@@ -17,20 +17,23 @@ public class rigidbodyTest : MonoBehaviour
     [SerializeField] float _centerToGroundDistance = 0.0f;
     [SerializeField] float _floatForce = 0.0f;
 
+    RaycastHit _groundCheckHit = new RaycastHit();
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
     }
 
-    /*// Update is called once per frame
     void FixedUpdate()
     {
-        float 
+        float boxHalfHeight = _boxCollider.bounds.extents.y;
+        Physics.Raycast(new Vector3(_rigidBody.position.x, _rigidBody.position.y, _rigidBody.position.z),
+            -transform.up, out _groundCheckHit);
     }
 
     private float Float()
     {
-
-    }*/
+        return 0;
+    }
 }

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class SkyFire : Boss
 {
+    public Transform launcher1;
+    public Transform launcher2;
+    public Transform launcher3;
+
+    
+
     protected override void Initialize()
     {
         Target = FindObjectOfType<PlayerStateMachine>().transform;
@@ -14,6 +20,8 @@ public class SkyFire : Boss
         Controller.Initialize();
         StateMachine = new SkyFireStateMachine(this);
 
+        
+
         // 패턴 메서드 넣는 곳
         Patterns.Add(Pattern.Phase1_Pattern1, DummyFunction);
         Patterns.Add(Pattern.Phase1_Pattern2, DummyFunction);
@@ -22,6 +30,8 @@ public class SkyFire : Boss
         Patterns.Add(Pattern.Phase2_Pattern1, DummyFunction);
         Patterns.Add(Pattern.Phase2_Pattern2, DummyFunction);
         Patterns.Add(Pattern.Phase2_Pattern3, DummyFunction);
+
+        Controller.SetDestination(Target.position);
     }
 
     //TODO : update 이벤트 만들어서 묶을 필요 있음

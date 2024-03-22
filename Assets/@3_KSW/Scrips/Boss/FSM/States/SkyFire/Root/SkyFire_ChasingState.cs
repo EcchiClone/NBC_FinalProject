@@ -18,7 +18,6 @@ public class SkyFire_ChasingState : BossBaseState
     {
         Debug.Log("SkyFire : Enter Chasing State");
         passedTime = 0f;
-        Context.Boss.Controller.StopDistance = Context.Boss.Data.stopDistance;
         Context.Boss.Controller.SetDestination(Context.Boss.Target.position);
     }
 
@@ -36,7 +35,7 @@ public class SkyFire_ChasingState : BossBaseState
 
     public override void ExitState()
     {
-        Context.Boss.Controller.Stop();
+        //Context.Boss.Controller.Stop();
         Debug.Log("SkyFire : Exit Chasing State");
     }
 

@@ -27,8 +27,11 @@ public abstract class Boss : MonoBehaviour
 
     public Dictionary<Pattern, Action<string>> Patterns { get; protected set; } = new Dictionary<Pattern, Action<string>>();
 
+    public EnemyPhaseStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
+
     private void Start()
     {
+        enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
         Initialize();        
     }
 
