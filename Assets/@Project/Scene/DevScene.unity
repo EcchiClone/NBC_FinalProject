@@ -1169,15 +1169,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
+      propertyPath: isShooting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
+        type: 3}
+      propertyPath: muzzle.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
+        type: 3}
       propertyPath: Phases.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f,
+      objectReference: {fileID: 11400000, guid: 0034a3e674640b14897d36e357250637,
         type: 2}
     - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
       propertyPath: Phases.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f,
+      objectReference: {fileID: 11400000, guid: 234095aa933569644a972b8d666de16a,
         type: 2}
     - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
@@ -1189,17 +1199,27 @@ PrefabInstance:
         type: 3}
       propertyPath: muzzle.Array.data[0]
       value: 
-      objectReference: {fileID: 1420684666}
+      objectReference: {fileID: 2086727130}
     - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
       propertyPath: muzzle.Array.data[1]
       value: 
-      objectReference: {fileID: 1420684666}
+      objectReference: {fileID: 714573729}
     - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
       propertyPath: muzzle.Array.data[2]
       value: 
-      objectReference: {fileID: 1420684666}
+      objectReference: {fileID: 966167723}
+    - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
+        type: 3}
+      propertyPath: muzzle.Array.data[3]
+      value: 
+      objectReference: {fileID: 928899451}
+    - target: {fileID: 2436861439967985903, guid: b677483011e75de468ece296ebbcc9de,
+        type: 3}
+      propertyPath: muzzle.Array.data[4]
+      value: 
+      objectReference: {fileID: 578127382}
     - target: {fileID: 5532213489777232370, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
       propertyPath: m_Name
