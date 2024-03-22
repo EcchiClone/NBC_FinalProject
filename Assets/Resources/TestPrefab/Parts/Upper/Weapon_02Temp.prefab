@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5952425310534349162}
   - component: {fileID: 6108507245842741332}
+  - component: {fileID: 4407327154920519525}
+  - component: {fileID: -1706991007786052541}
   m_Layer: 0
   m_Name: Weapon_02Temp
   m_TagString: Untagged
@@ -133,6 +135,40 @@ MonoBehaviour:
   <WeaponTilt>k__BackingField: {fileID: 0}
   _primaryMuzzles: []
   _secondaryMuzzles: []
+--- !u!114 &4407327154920519525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000254691743029151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87836cd5a304b0242b712329ed666e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponSO>k__BackingField: {fileID: 11400000, guid: d5ded81bdb117704fa1cde2197db438b,
+    type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &-1706991007786052541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000254691743029151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14931fdf995261446b3324f1c1e569c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponSO>k__BackingField: {fileID: 11400000, guid: 339b3a7b96c454745be93a526e3a20bf,
+    type: 2}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6095780464801245902
 GameObject:
   m_ObjectHideFlags: 0

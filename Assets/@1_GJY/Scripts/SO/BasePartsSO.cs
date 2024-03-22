@@ -9,6 +9,7 @@ public class BasePartsSO : ScriptableObject
     public string dev_Name;
 
     public string display_Name;
+    [TextArea]
     public string display_Description;
 
     [Header("# Common Stats")]

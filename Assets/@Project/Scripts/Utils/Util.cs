@@ -5,6 +5,18 @@ using UnityEngine;
 
 public static class Util
 {
+    private static Dictionary<float, WaitForSeconds> _waitDict = new Dictionary<float, WaitForSeconds>();
+
+    public static WaitForSeconds GetWaitSeconds(float seconds)
+    {
+        if (_waitDict.TryGetValue(seconds, out var wait) == false)
+        {
+            _waitDict.Add(seconds, new WaitForSeconds(seconds));
+            return _waitDict[seconds];
+        }
+        return wait;
+    }
+
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
         Transform transform = FindChild<Transform>(go, name, recursive);

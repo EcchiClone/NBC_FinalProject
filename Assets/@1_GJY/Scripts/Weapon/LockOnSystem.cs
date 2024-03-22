@@ -19,10 +19,7 @@ public class LockOnSystem
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
 
-    public Transform TargetEnemy { get; private set; }    
-
-    public static event Action<Transform> OnLockOn;
-    public static event Action OnRelease;    
+    public Transform TargetEnemy { get; private set; }        
 
     public void Setup(PlayerStateMachine stateMachine)
     {
@@ -77,7 +74,7 @@ public class LockOnSystem
 
     public void LockOnTarget()
     {
-        OnLockOn.Invoke(TargetEnemy);
+        Managers.ActionManager.CallLockOn(TargetEnemy);
         LockOnCam.gameObject.SetActive(true);
         TargetGroup.AddMember(TargetEnemy, 1, 0);        
     }
@@ -87,7 +84,7 @@ public class LockOnSystem
         FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
         Debug.Log(LockOnCam.transform.rotation.eulerAngles.y);
 
-        OnRelease.Invoke();
+        Managers.ActionManager.CallRelease();
         LockOnCam.gameObject.SetActive(false);
         TargetGroup.RemoveMember(TargetEnemy);
         TargetEnemy = null;
