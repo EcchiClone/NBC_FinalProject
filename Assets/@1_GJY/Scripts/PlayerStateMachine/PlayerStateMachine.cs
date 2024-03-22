@@ -35,6 +35,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector3 _cameraRelativeMovement;
 
     // # States
+    public bool IsDead { get; private set; } = false;
     public bool IsMoveInputPressed { get; private set; }
     public bool IsJumpInputPressed { get; private set; }
     public bool IsDashInputPressed { get; private set; }
@@ -72,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour
         Module = GetComponent<Module>();
 
         // Setup
+        Managers.ActionManager.OnPlayerDead += PlayerDestroyed;
         Managers.Module.CreateModule(Module.LowerPivot, Module);
         CurrentLowerPart = Managers.Module.CurrentLowerPart;        
         CurrentUpperPart = Managers.Module.CurrentUpperPart;        
@@ -82,8 +84,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Start()
     {        
-        PlayerSetting();
-        //StartCoroutine(Co_TestDamage());        
+        PlayerSetting();        
     }
 
     private void PlayerSetting()
@@ -105,6 +106,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
+        if (Player.IsDead)
+            return;
+
         CurrentState.UpdateStates();
 
         HandleMove();
@@ -180,6 +184,19 @@ public class PlayerStateMachine : MonoBehaviour
         }        
     }
     #endregion
+
+    private void PlayerDestroyed()
+    {
+        IsDead = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        
+        //Fracture fract = Resources.Load<Fracture>("Prefabs/Weapon_01_Fracture");
+        //Instantiate(fract.gameObject);
+        //fract.transform.position = transform.position;
+        //fract.Explode();
+
+        gameObject.SetActive(false);
+    }
 
     private void OnLockOn(InputAction.CallbackContext context)
     {

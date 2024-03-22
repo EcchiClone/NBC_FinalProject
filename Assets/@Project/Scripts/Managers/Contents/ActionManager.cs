@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ActionManager
 {
+    // # Player
+    public event Action OnPlayerDead;
+
     // # HUD
     public event Action<float> OnCoolDownRepair;
     public event Action<float> OnCoolDownBooster;
@@ -13,6 +16,8 @@ public class ActionManager
     public event Action<Transform> OnLockOnTarget;
     public event Action OnReleaseTarget;
     public event Action<float> OnBossAPChanged;
+
+    public void CallPlayerDead() => OnPlayerDead?.Invoke();
 
     public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
     public void CallUseBooster(float percent) => OnCoolDownBooster?.Invoke(percent);
