@@ -11,7 +11,7 @@ public class EnemyBulletController : EnemyBullet
     private Coroutine _releaseCoroutine;
     private GameObject _rootGo;
     private Transform _masterTf;
-    private Rigidbody _rb; 
+    private Rigidbody _rb;
 
 
     // 탄막에 파라미터를 설정하는 메서드 추가
@@ -54,6 +54,9 @@ public class EnemyBulletController : EnemyBullet
     void Move()
     
     {
+        //if(_currentParameters.enemyBulletMoveType==EnemyBulletMoveType.Continues)
+        //    _currentParameters.enemyBulletMoveType = EnemyBulletMoveType.Forward;
+
         #region velocity 사용
         switch (_currentParameters.enemyBulletMoveType)
         {
@@ -71,6 +74,22 @@ public class EnemyBulletController : EnemyBullet
                     _rb.velocity = transform.forward * _currentParameters.speed;
                 }
                 break;
+
+            //default:
+            //    // moveDirection을 moveDirectionAim에 가까워지도록 점진적으로 회전
+            //    if (_currentParameters.moveDirection != _currentParameters.moveDirectionAim)
+            //    {
+            //        Quaternion currentRotation = Quaternion.LookRotation(_currentParameters.moveDirection);
+            //        Quaternion targetRotation = Quaternion.LookRotation(_currentParameters.moveDirectionAim);
+            //        Quaternion newRotation = Quaternion.Slerp(currentRotation, targetRotation, _currentParameters.rotationSpeed * Time.deltaTime);
+            //        _currentParameters.moveDirection = newRotation * Vector3.forward;
+            //    }
+
+            //    // 총알의 회전 설정 및 방향으로 이동
+            //    _rb.rotation = Quaternion.LookRotation(_currentParameters.moveDirection);
+            //    _rb.velocity = _currentParameters.moveDirection.normalized * _currentParameters.speed;
+            //    break;
+
         }
         // LocalYRotation
         _rb.angularVelocity = Vector3.up * _currentParameters.localYRotationSpeed * Mathf.Deg2Rad * 360;
@@ -136,6 +155,7 @@ public class EnemyBulletController : EnemyBullet
             float accelPlus = _currentParameters.accelPlus;
 
             Vector3 moveDirection = _currentParameters.moveDirection;
+            Vector3 moveDirectionAim = _currentParameters.moveDirection;
 
             switch (e._changeSpeedType)
             {
@@ -207,6 +227,39 @@ public class EnemyBulletController : EnemyBullet
                     break;
             }
 
+            //switch (e._resetMoveType)
+            //{
+            //    case EnemyBulletMoveType.Continues:
+            //        if (player != null)
+            //        {
+            //            moveDirectionAim = (player.transform.position - transform.position).normalized;
+            //        }
+            //        break;
+            //    case EnemyBulletMoveType.FixedToPlayer:
+            //        if (player != null)
+            //        {
+            //            moveDirectionAim = (player.transform.position - transform.position).normalized;
+            //        }
+            //        break;
+            //    case EnemyBulletMoveType.MuzzleToPlayer: // 작성 보류
+            //        if (player != null)
+            //        {
+            //            moveDirectionAim = (player.transform.position - _masterTf.position).normalized;
+            //        }
+            //        break;
+            //    case EnemyBulletMoveType.MasterToPlayer:
+            //        if (player != null)
+            //        {
+            //            moveDirectionAim = (player.transform.position - _masterTf.position).normalized;
+            //        }
+            //        break;
+            //    case EnemyBulletMoveType.CompletelyRandom:
+            //        moveDirectionAim = Random.insideUnitSphere.normalized;
+            //        break;
+            //}
+
+            //EnemyBulletMoveType _resetMoveType = (e._resetMoveType == EnemyBulletMoveType.Continues)?_currentParameters.enemyBulletMoveType:e._resetMoveType;
+
             _currentParameters = new EnemyBulletParameters(
                 speed,
                 _currentParameters.minSpeed,
@@ -216,15 +269,12 @@ public class EnemyBulletController : EnemyBullet
                 e._rotationSpeed,
                 _currentParameters.localYRotationSpeed,
                 moveDirection,
+                moveDirectionAim,
                 e._resetMoveType,
                 _currentParameters.enemyBulletChangeMoveProperty,
                 _currentParameters.releaseMethod,
                 _currentParameters.releaseTimer
                 );
         }
-        try
-        {
-            
-        } catch { }
     }
 }

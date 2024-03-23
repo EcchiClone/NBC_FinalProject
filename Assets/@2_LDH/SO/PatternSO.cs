@@ -58,7 +58,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // Memo. 여기서 할게 꽤 많음. 차차 작성.
 
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
-    [Header("마스터 기준 생성 방향 벡터")]
+    [Header("총구 기준 생성 방향 벡터")]
     public PosDirection posDirection;           // 마스터 기준으로 생성될 방향
     public Vector3 customPosDirection;          // > CustomWorld: 직접지정
     // a-plug. 기준 방향 지정 시 탄퍼짐
@@ -75,7 +75,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // b. 기준방향을 중심으로 어떤 형태의 방사를 사용할지. 거리와 방향을 포함.
     // 간단한 선형 단일 발사부터, 정육면체 모양으로 속도를 달리 한 발사, 특별한 모양으로 생성되어 각각이 랜덤한 타이밍에 발사 등 다양한 형태.
     // b-1. 형태에 관해. 기본적인 프리셋을 제공하되, 유저가 Vector3를 직접 작성하여 입력할 수 있도록도 하자.
-    [Header("탄막 형태A")]
+    [Header("탄막 형태")]
     public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
                                                         // Todo 커스텀입력과 주기성 가지는 탄막
 
@@ -199,11 +199,21 @@ public enum EnemyBulletToDirection
     MuzzleOut,          // 총구와 반대 방향
     ToPlayer,           // 탄막이 플레이어를 바라보도록
     CompletelyRandom,   // 완전히 랜덤한 방향으로
+    MuzzleToPlayer,     // 총구에서 플레이어 방향
 }
 public enum EnemyBulletMoveType
 {
     Forward,
+
+    //Continues,
+
+    //FixedToPlayer,
+    //MuzzleToPlayer, // 보류
+    //MasterToPlayer,
+
     LerpToPlayer,
+
+    //CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 public enum EnemyBulletChangeMoveMethod
 {
@@ -220,14 +230,20 @@ public struct EnemyBulletChangePropertys
 
     public EnemyBulletChangeSpeedType _changeSpeedType;
     public EnemyBulletChangeRotationType _changeRotationType;
+
     public Vector3 _moveDirection;                      // >Local/Local : 직접 입력
+
+    public EnemyBulletMoveType _resetMoveType;  // 
+
+    public SpreadType spreadA;                  // 기준방향벡터 오차의 유무
+    public float maxSpreadAngleA;               // > 최대 퍼짐 각도
+    public float concentrationA;                // > 집중 정도 (0.0 ~ 1.0)
 
     public float _speed;
     public float _accelPlus;
     public float _accelMultiple;
     public float _rotationSpeed;
 
-    public EnemyBulletMoveType _resetMoveType;
 }
 public enum EnemyBulletChangeSpeedType
 {

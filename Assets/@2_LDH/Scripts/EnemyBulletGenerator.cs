@@ -271,8 +271,26 @@ public class EnemyBulletGenerator : MonoBehaviour
                         directionMuzzleToEnemyBullet = (enemyBulletTransform.position - muzzleTransform.position).normalized;
                     else
                         directionMuzzleToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
-                    if(directionMuzzleToEnemyBullet!=Vector3.zero)
+                    if (directionMuzzleToEnemyBullet != Vector3.zero)
                         enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToEnemyBullet);
+                }
+                break;
+
+            case EnemyBulletToDirection.MuzzleToPlayer: // 생성위치에서 플레이어 방향으로
+
+                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                {
+                    if (playerGo != null)
+                    {
+                        Vector3 directionMuzzleToPlayer = (playerGo.transform.position - muzzleTransform.transform.position).normalized;
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToPlayer);
+                    }
+                    else
+                    {
+                        // playerGo가 없을 경우, EnemyBulletToDirection.MuzzleOut 와 같도록
+                        Vector3 directionToMuzzle = (enemyBulletTransform.position - muzzleTransform.transform.position).normalized;
+                        enemyBulletTransform.rotation = Quaternion.LookRotation(-directionToMuzzle);
+                    }
                 }
                 break;
             case EnemyBulletToDirection.ToPlayer: // 탄막이 플레이어를 바라보도록
