@@ -234,8 +234,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets/@4_CMG/FMOD/nbc-finalProject-fmod-projectFIle/nbc-finalProject-fmod-projectFIle.fspro
-  sourceBankPath: Assets/@4_CMG/FMOD/nbc-finalProject-fmod-projectFIle/Build
+  sourceProjectPath: Assets/@Project/Sounds/FMOD/nbc-finalProject-fmod-projectFIle/nbc-finalProject-fmod-projectFIle.fspro
+  sourceBankPath: Assets/@Project/Sounds/FMOD/nbc-finalProject-fmod-projectFIle/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -256,12 +256,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks:
-  - Master
-  Banks:
-  - Ambience
-  - Music
-  - SFX
+  MasterBanks: []
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -274,7 +270,7 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131616
-  HideSetupWizard: 1
+  HideSetupWizard: 0
   LastEventReferenceScanVersion: 131616
   Platforms:
   - {fileID: -8894896805805580881}
@@ -288,7 +284,7 @@ MonoBehaviour:
   - {fileID: 6716109641037342915}
   - {fileID: 6840843298935738274}
   - {fileID: 8979308888549445554}
-  MigratedPlatforms: 12000000150000000a000000090000000600000005000000080000000b0000000c0000000200000001000000
+  MigratedPlatforms: 090000001500000008000000120000000a0000000b000000060000000c000000050000000200000001000000
 --- !u!114 &660976870943983929
 MonoBehaviour:
   m_ObjectHideFlags: 0
