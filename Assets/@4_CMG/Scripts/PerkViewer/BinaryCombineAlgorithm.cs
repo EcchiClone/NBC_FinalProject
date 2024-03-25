@@ -19,7 +19,7 @@ public class BinaryCombineAlgorithm : MonoBehaviour
         //Debug.Log(ConvertStructureToBinary(24, 12, 2704156));
     }
 
-    private string ConvertStructureToBinary(int length, int num, int idx)
+    public string ConvertStructureToBinary(int length, int num, int idx)
     {
         FindIdxRange(length, num, idx);
 
