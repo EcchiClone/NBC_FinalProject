@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1921004239555479950}
   - component: {fileID: 3771760284111785932}
   m_Layer: 0
-  m_Name: EnemyHasMuzzles
+  m_Name: Enemy_Dev_LDH_HasMuzzles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
