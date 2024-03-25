@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5246010773339831628}
   - component: {fileID: 3343504317080236427}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Samsoon_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
