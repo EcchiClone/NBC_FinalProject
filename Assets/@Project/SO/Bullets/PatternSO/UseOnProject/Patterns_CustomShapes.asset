@@ -41,7 +41,7 @@ MonoBehaviour:
       - {x: -5, y: 1.38, z: 1}
       - {x: -1.54, y: 1.89, z: 1}
       - {x: 0, y: 5, z: 1}
-      divisionPointsPerEdge: 5
+      divisionPointsPerEdge: 0
       initDistance: 1
       numPerShot: 1
       shotVerticalNum: 0
@@ -66,20 +66,26 @@ MonoBehaviour:
         _changeSpeedType: 0
         _changeRotationType: 1
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 1.2
         _rotationSpeed: 0
-        _resetMoveType: 0
       - _desc: 
         _timer: 0.5
         _changeSpeedType: 1
         _changeRotationType: 1
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 240
         _accelPlus: -50
         _accelMultiple: 0.015
         _rotationSpeed: 0
-        _resetMoveType: 0
       releaseMethod: 0
       releaseTimer: 5

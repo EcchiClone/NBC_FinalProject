@@ -153,6 +153,8 @@ public class PatternSOEditor : Editor
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
             if (property.name == "customBulletPosList")
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom)) continue;
+            if (property.name == "divisionPointsPerEdge")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom)) continue;
             if (property.name == "initCustomDirection")
                 if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.Local)) continue;
             if (property.name == "maxSpreadAngleB")
@@ -177,6 +179,7 @@ public class PatternSOEditor : Editor
 
             if (property.name == "enemyBulletShape") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 형태")); continue; }
             if (property.name == "customBulletPosList") { EditorGUILayout.PropertyField(property, new GUIContent("커스텀 위치")); continue; }
+            if (property.name == "customBulletPosList") { EditorGUILayout.PropertyField(property, new GUIContent("추가 보간점 갯수")); continue; }
             if (property.name == "initDistance") { EditorGUILayout.PropertyField(property, new GUIContent("생성 거리")); continue; }
             if (property.name == "numPerShot") { EditorGUILayout.PropertyField(property, new GUIContent("1회 당 탄수")); continue; }
             if (property.name == "shotVerticalNum") { EditorGUILayout.PropertyField(property, new GUIContent("층 수")); continue; }

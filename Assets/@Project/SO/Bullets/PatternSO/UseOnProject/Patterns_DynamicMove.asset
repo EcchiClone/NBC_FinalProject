@@ -55,31 +55,40 @@ MonoBehaviour:
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 2
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 25
         _accelMultiple: 1
         _rotationSpeed: 3
-        _resetMoveType: 1
       - _desc: "\uAC00\uC18D \uC885\uB8CC"
         _timer: 2
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 1
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 1
         _rotationSpeed: 2.5
-        _resetMoveType: 1
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
         _timer: 2.1
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 0
         _rotationSpeed: 0
-        _resetMoveType: 0
       releaseMethod: 0
       releaseTimer: 10
   - patternName: MissileClusters
@@ -122,33 +131,42 @@ MonoBehaviour:
       - _desc: "\uD50C\uB808\uC774\uC5B4\uC5D0 \uC720\uB3C4 \uC2DC\uC791"
         _timer: 1
         _changeSpeedType: 3
-        _changeRotationType: 3
+        _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 1
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 25
         _accelMultiple: 1
         _rotationSpeed: 3
-        _resetMoveType: 0
       - _desc: "\uAC00\uC18D \uC885\uB8CC"
         _timer: 2
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 1
         _rotationSpeed: 2.5
-        _resetMoveType: 0
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
         _timer: 6
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 0
         _rotationSpeed: 0
-        _resetMoveType: 0
       releaseMethod: 0
       releaseTimer: 10
   - patternName: CircleToPlayer
@@ -161,8 +179,8 @@ MonoBehaviour:
       numOfSet: 1
       setDelay: 0
       shotPerSet: 5
-      shotDelay: 0.1
-      posDirection: 1
+      shotDelay: 0.05
+      posDirection: 3
       customPosDirection: {x: 0, y: 1, z: 0}
       spreadA: 0
       maxSpreadAngleA: 8
@@ -171,7 +189,7 @@ MonoBehaviour:
       customBulletPosList: []
       divisionPointsPerEdge: 0
       initDistance: 0.1
-      numPerShot: 10
+      numPerShot: 5
       shotVerticalNum: 1
       spreadB: 1
       maxSpreadAngleB: 90
@@ -195,31 +213,40 @@ MonoBehaviour:
         _changeSpeedType: 3
         _changeRotationType: 2
         _moveDirection: {x: 0, y: 0, z: 0}
-        _speed: 0
-        _accelPlus: 300
-        _accelMultiple: 1
-        _rotationSpeed: 100
         _resetMoveType: 1
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
+        _speed: 0
+        _accelPlus: 250
+        _accelMultiple: 1
+        _rotationSpeed: 80
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
         _timer: 1.5
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 0
         _rotationSpeed: 0
-        _resetMoveType: 0
       - _desc: "\uAC00\uC18D \uC885\uB8CC"
         _timer: 3
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 1
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 1
         _rotationSpeed: 0
-        _resetMoveType: 1
       releaseMethod: 0
       releaseTimer: 10
   - patternName: CircleToPlayerB
@@ -266,30 +293,39 @@ MonoBehaviour:
         _changeSpeedType: 3
         _changeRotationType: 2
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 25
         _accelMultiple: 1
         _rotationSpeed: 5
-        _resetMoveType: 0
       - _desc: "\uC720\uB3C4 \uC885\uB8CC"
         _timer: 2
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 0
         _rotationSpeed: 0
-        _resetMoveType: 0
       - _desc: "\uAC00\uC18D \uC885\uB8CC"
         _timer: 3
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 1
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
         _speed: 0
         _accelPlus: 0
         _accelMultiple: 1
         _rotationSpeed: 0
-        _resetMoveType: 1
       releaseMethod: 0
       releaseTimer: 10
