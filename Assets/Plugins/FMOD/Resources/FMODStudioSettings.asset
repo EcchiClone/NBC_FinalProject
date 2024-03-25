@@ -234,8 +234,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets/@4_CMG/FMOD/nbc-finalProject-fmod-projectFIle/nbc-finalProject-fmod-projectFIle.fspro
-  sourceBankPath: Assets/@4_CMG/FMOD/nbc-finalProject-fmod-projectFIle/Build
+  sourceProjectPath: Assets/@Project/Sounds/FMOD/nbc-finalProject-fmod-projectFIle/nbc-finalProject-fmod-projectFIle.fspro
+  sourceBankPath: Assets/@Project/Sounds/FMOD/nbc-finalProject-fmod-projectFIle/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
