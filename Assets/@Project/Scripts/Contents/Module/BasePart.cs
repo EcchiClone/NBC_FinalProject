@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class BasePart : MonoBehaviour
 {
-    [SerializeField] GameObject[] _boosterEffects;    
+    public int ID { get; private set; }
 
-    protected Module _module;    
+    [SerializeField] GameObject[] _boosterEffects;
 
-    public virtual void Setup(Module module) 
-    {
-        _module = module;        
-    }
+    protected Module Module { get; private set; }
+
+    public void SetID(int id) => ID = id;
+
+    public virtual void Setup(Module module) => Module = module;
 
     public virtual void BoostOnOff(bool isActive)
     {
-        foreach(var effect in _boosterEffects)
+        foreach (var effect in _boosterEffects)
             effect.SetActive(isActive);
-    }    
+    }
 }

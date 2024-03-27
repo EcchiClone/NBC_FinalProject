@@ -8,6 +8,9 @@ public class Module : MonoBehaviour
 
     public Transform UpperPivot { get; private set; }
     public Transform WeaponPivot { get; private set; }  
+
+    public LowerPart CurrentLower { get; private set; }
+    public UpperPart CurrentUpper { get; private set; }
     
     public bool IsPlayable { get; private set; }
 
@@ -18,7 +21,12 @@ public class Module : MonoBehaviour
             IsPlayable = true;
             return;
         }
-        Managers.Module.CreateModule(LowerPivot, this);
+    }
+
+    public void Setup(LowerPart lowerPart, UpperPart upperPart)
+    {
+        CurrentLower = lowerPart;
+        CurrentUpper = upperPart;
     }
 
     public void SetPivot(Transform pivot)

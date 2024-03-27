@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWeapon
+public interface IEntity
 {
-    void UseWeapon(Transform[] muzzlePoints);    
+    int Dev_ID { get; }
 }

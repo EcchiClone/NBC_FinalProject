@@ -7,10 +7,6 @@ using UnityEditor.Experimental.GraphView;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    // # Parts
-    public LowerPart CurrentLowerPart { get; private set; }
-    public UpperPart CurrentUpperPart { get; private set; }
-
     // # AnimationData
     [field: Header("# Animation")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -23,10 +19,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     // # Components    
     public PlayerInput P_Input { get; private set; }
-    public CharacterController Controller { get; private set; }    
+    public CharacterController Controller { get; private set; }
     public Animator Anim { get; private set; }
     public Module Module { get; private set; }
-    
+
     // # Info
     public float InitialGravity { get; private set; }
 
@@ -58,7 +54,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private float _dashCoolDownTime = float.MaxValue;
     private float _movementModifier = 1;
-    
+
 
     private void Awake()
     {
@@ -73,32 +69,28 @@ public class PlayerStateMachine : MonoBehaviour
         Module = GetComponent<Module>();
 
         // Setup
-        Managers.ActionManager.OnPlayerDead += PlayerDestroyed;
-        Managers.Module.CreateModule(Module.LowerPivot, Module);
-        CurrentLowerPart = Managers.Module.CurrentLowerPart;        
-        CurrentUpperPart = Managers.Module.CurrentUpperPart;        
-        LockOnSystem.Setup(this);
-
-        Anim = GetComponentInChildren<Animator>();        
+        Managers.ActionManager.OnPlayerDead += PlayerDestroyed;        
+        LockOnSystem.Setup(this);        
     }
 
     private void Start()
-    {        
-        PlayerSetting();        
+    {
+        PlayerSetting();
     }
 
     private void PlayerSetting()
     {
         AddInputCallBacks();
 
-        Player = new PlayerStatus(CurrentLowerPart.lowerSO, CurrentUpperPart.upperSO);
-
-        Skill = new RepairKit();        
+        Player = new PlayerStatus(Module.CurrentLower, Module.CurrentUpper);
+        Skill = new RepairKit();
         TiltController = new WeaponTiltController(this);
         StateFactory = new PlayerStateFactory(this);
+
+        Anim = GetComponentInChildren<Animator>();
         CurrentState = StateFactory.NonCombat();
         CurrentState.EnterState();
-        
+
         InitialGravity = Physics.gravity.y;
         _currentMovementDirection.y = MIN_GRAVITY_VALUE;
         CanDash = true;
@@ -172,7 +164,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         IsSecondaryWeaponInputPressed = context.ReadValueAsButton();
         if (IsSecondaryWeaponInputPressed)
-            CurrentUpperPart.UseWeapon_Secondary();
+            Module.CurrentUpper.UseWeapon_Secondary();
     }
 
     private void OnRepair(InputAction.CallbackContext context)
@@ -180,8 +172,8 @@ public class PlayerStateMachine : MonoBehaviour
         if (Skill.IsActive)
         {
             Skill.UseSkill(this);
-            StartCoroutine(Skill.Co_CoolDown());            
-        }        
+            StartCoroutine(Skill.Co_CoolDown());
+        }
     }
     #endregion
 
@@ -189,7 +181,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         IsDead = true;
         Cursor.lockState = CursorLockMode.Confined;
-        
+
         //Fracture fract = Resources.Load<Fracture>("Prefabs/Weapon_01_Fracture");
         //Instantiate(fract.gameObject);
         //fract.transform.position = transform.position;
@@ -224,7 +216,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void HandleUseWeaponPrimary()
     {
         if (IsPrimaryWeaponInputPressed)
-            CurrentUpperPart.UseWeapon_Primary();
+            Module.CurrentUpper.UseWeapon_Primary();
     }
 
     // 회전 제어
@@ -337,16 +329,16 @@ public class PlayerStateMachine : MonoBehaviour
         CanJudgeDashing = false;
         IsDashing = true;
 
-        CurrentLowerPart.BoostOnOff(true);
-        CurrentUpperPart.BoostOnOff(true);
+        Module.CurrentLower.BoostOnOff(true);
+        Module.CurrentUpper.BoostOnOff(true);
         StartCoroutine(CoBoostOn());
     }
 
     public void StopDash()
     {
         _movementModifier = 1f;
-        CurrentLowerPart.BoostOnOff(false);
-        CurrentUpperPart.BoostOnOff(false);
+        Module.CurrentLower.BoostOnOff(false);
+        Module.CurrentUpper.BoostOnOff(false);
     }
 
     private IEnumerator CoBoostOn()
@@ -364,7 +356,7 @@ public class PlayerStateMachine : MonoBehaviour
             current += Time.deltaTime;
             percent = current / time;
 
-            _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));            
+            _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));
 
             yield return null;
         }

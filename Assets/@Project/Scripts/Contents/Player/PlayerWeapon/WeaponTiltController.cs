@@ -13,7 +13,7 @@ public class WeaponTiltController
     {
         _stateMachine = stateMachine;
 
-        _upper = _stateMachine.CurrentUpperPart;
+        _upper = _stateMachine.Module.CurrentUpper;
         _smoothValue = _stateMachine.Player.SmoothRotateValue;
     }
 

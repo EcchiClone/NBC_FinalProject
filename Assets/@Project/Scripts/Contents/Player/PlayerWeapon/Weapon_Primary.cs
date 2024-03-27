@@ -10,7 +10,5 @@ public class Weapon_Primary : WeaponBase, IWeapon
         base.Setup();
     }
 
-    public virtual void UseWeapon_Primary(Transform[] muzzlePoints) { }    
-
-    public virtual IEnumerator UseWeapon_Secondary(Transform[] muzzlePoints) { yield return null; } // Not Used
+    public virtual void UseWeapon(Transform[] muzzlePoints) { }    
 }

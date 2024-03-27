@@ -8,7 +8,7 @@ public class PlayerStatus
     // To Do - SO 받아서 기본 능력치 Setup 하기
 
     // # Common Stats
-    public float Armor { get; private set; }
+    public float Armor { get; private set; } // HP
     public float Weight { get; private set; }
 
     // # Lower Stats
@@ -29,18 +29,21 @@ public class PlayerStatus
 
     public bool IsDead { get; private set; } = false;
 
-    public PlayerStatus(LowerPartsSO lowerSO, UpperPartsSO upperSO)
+    public PlayerStatus(LowerPart lower, UpperPart upper)
     {
-        Armor = lowerSO.armor + upperSO.armor;
-        Weight = lowerSO.weight + upperSO.weight;
+        PartData lowerData = Managers.Data.GetPartData(lower.ID);
+        PartData upperData = Managers.Data.GetPartData(upper.ID);
+
+        Armor = lowerData.Armor + upperData.Armor;
+        Weight = lowerData.Weight + upperData.Weight;
         _currentArmor = Armor;
 
-        MovementSpeed = lowerSO.speed;
-        JumpPower = lowerSO.jumpPower;
-        CanJump = lowerSO.canJump;
-        BoostPower = lowerSO.boosterPower;
+        MovementSpeed = lowerData.Speed;
+        JumpPower = lowerData.JumpPower;
+        CanJump = lowerData.CanJump;
+        BoostPower = lowerData.BoosterPower;
 
-        SmoothRotateValue = upperSO.smoothRotation;
+        SmoothRotateValue = upperData.SmoothRotation;
 
         OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
