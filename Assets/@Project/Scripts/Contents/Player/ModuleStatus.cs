@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus
+public class ModuleStatus
 {
     // To Do - SO 받아서 기본 능력치 Setup 하기
 
@@ -29,13 +29,17 @@ public class PlayerStatus
 
     public bool IsDead { get; private set; } = false;
 
-    public PlayerStatus(LowerPart lower, UpperPart upper)
+    public ModuleStatus(LowerPart lower, UpperPart upper, WeaponPart leftArm, WeaponPart rightArm, WeaponPart leftShoulder, WeaponPart rightShoulder)
     {
         PartData lowerData = Managers.Data.GetPartData(lower.ID);
         PartData upperData = Managers.Data.GetPartData(upper.ID);
+        PartData leftArmData = Managers.Data.GetPartData(leftArm.ID);
+        PartData rightArmData = Managers.Data.GetPartData(rightArm.ID);
+        PartData leftShoulderData = Managers.Data.GetPartData(leftShoulder.ID);
+        PartData rightShoulderData = Managers.Data.GetPartData(rightShoulder.ID);
 
         Armor = lowerData.Armor + upperData.Armor;
-        Weight = lowerData.Weight + upperData.Weight;
+        Weight = lowerData.Weight + upperData.Weight + leftArmData.Weight + rightArmData.Weight + leftShoulderData.Weight + rightShoulderData.Weight;
         _currentArmor = Armor;
 
         MovementSpeed = lowerData.Speed;

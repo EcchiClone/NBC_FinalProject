@@ -11,5 +11,6 @@ public class WeaponPart : BasePart
     public override void Setup(Module module)
     {
         base.Setup(module);
+        _weapon = new Weapon_SingleCannon();
     }
 }

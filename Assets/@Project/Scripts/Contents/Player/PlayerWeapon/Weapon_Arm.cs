@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_Arm : WeaponBase, IWeapon
+public class Weapon_Arm : WeaponBase
 {
     public override void Setup(Transform bodyTransform, LayerMask layerMask)
     {

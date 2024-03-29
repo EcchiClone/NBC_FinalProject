@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class WeaponTiltController
 {
-    private PlayerStateMachine _stateMachine;
+    private Module _module;
 
     private UpperPart _upper;
     private float _smoothValue;
 
-    public WeaponTiltController(PlayerStateMachine stateMachine)
+    public WeaponTiltController(Module moudle)
     {
-        _stateMachine = stateMachine;
+        _module = moudle;
 
-        _upper = _stateMachine.Module.CurrentUpper;
-        _smoothValue = _stateMachine.Player.SmoothRotateValue;
+        _upper = _module.CurrentUpper;
+        _smoothValue = _module.ModuleStatus.SmoothRotateValue;
     }
 
     public void CombatFreeFireControl()
@@ -28,8 +28,8 @@ public class WeaponTiltController
 
     public void CombatLockOnControl()
     {
-        Vector3 headToLookAt = _stateMachine.LockOnSystem.TargetEnemy.transform.position - _stateMachine.transform.position;
-        Vector3 weaponToLookAt = _stateMachine.LockOnSystem.TargetEnemy.transform.position - _stateMachine.transform.position;
+        Vector3 headToLookAt = _module.LockOnSystem.TargetEnemy.transform.position - _module.transform.position;
+        Vector3 weaponToLookAt = _module.LockOnSystem.TargetEnemy.transform.position - _module.transform.position;
         headToLookAt.y = 0;
 
         LookRotationToTarget(headToLookAt, weaponToLookAt);

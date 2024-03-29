@@ -10,12 +10,7 @@ public class PlayerStateMachine : MonoBehaviour
     // # AnimationData
     [field: Header("# Animation")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
-    [SerializeField] private AnimationCurve _boostDragCurve;
-
-    // # Class
-    [field: Header("# LockOn")]
-    [field: SerializeField] public LockOnSystem LockOnSystem { get; private set; }
-    public PlayerStatus Player { get; private set; }
+    [SerializeField] private AnimationCurve _boostDragCurve;    
 
     // # Components    
     public PlayerInput P_Input { get; private set; }
@@ -44,9 +39,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool CanJudgeDashing { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
-    public PlayerStateFactory StateFactory { get; private set; }
-    public WeaponTiltController TiltController { get; private set; }
-    public ISkill Skill { get; private set; }
+    public PlayerStateFactory StateFactory { get; private set; }    
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
@@ -69,8 +62,7 @@ public class PlayerStateMachine : MonoBehaviour
         Module = GetComponent<Module>();
 
         // Setup
-        Managers.ActionManager.OnPlayerDead += PlayerDestroyed;        
-        LockOnSystem.Setup(this);        
+        Managers.ActionManager.OnPlayerDead += PlayerDestroyed;
     }
 
     private void Start()
@@ -80,11 +72,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void PlayerSetting()
     {
-        AddInputCallBacks();
-
-        Player = new PlayerStatus(Module.CurrentLower, Module.CurrentUpper);
-        Skill = new RepairKit();
-        TiltController = new WeaponTiltController(this);
+        AddInputCallBacks();        
+           
         StateFactory = new PlayerStateFactory(this);
 
         Anim = GetComponentInChildren<Animator>();
@@ -98,7 +87,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (Player.IsDead)
+        if (Module.ModuleStatus.IsDead)
             return;
 
         CurrentState.UpdateStates();
@@ -167,10 +156,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnRepair(InputAction.CallbackContext context)
     {
-        if (Skill.IsActive)
+        if (Module.Skill.IsActive)
         {
-            Skill.UseSkill(this);
-            StartCoroutine(Skill.Co_CoolDown());
+            Module.Skill.UseSkill(Module);
+            StartCoroutine(Module.Skill.Co_CoolDown());
         }
     }
     #endregion
@@ -193,21 +182,21 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsLockOn)
         {
             IsLockOn = false;
-            LockOnSystem.ReleaseTarget();
+            Module.LockOnSystem.ReleaseTarget();
         }
         else
         {
-            if (LockOnSystem.IsThereEnemyScanned())
+            if (Module.LockOnSystem.IsThereEnemyScanned())
             {
                 IsLockOn = true;
-                LockOnSystem.LockOnTarget();
+                Module.LockOnSystem.LockOnTarget();
             }
         }
     }
 
     private void HandleMove()
     {
-        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * Player.MovementSpeed * _movementModifier);
+        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * Module.ModuleStatus.MovementSpeed * _movementModifier);
         Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
@@ -244,7 +233,7 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsMoveInputPressed && positionToLookAt != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Player.SmoothRotateValue * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Module.ModuleStatus.SmoothRotateValue * Time.deltaTime);
         }
     }
 
@@ -272,12 +261,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void ResetWeaponTilt()
     {
-        StartCoroutine(TiltController.CoResetRoutine());
+        StartCoroutine(Module.TiltController.CoResetRoutine());
     }
 
     public void StopResetWeaponTilt()
     {
-        StopCoroutine(TiltController.CoResetRoutine());
+        StopCoroutine(Module.TiltController.CoResetRoutine());
     }
     #endregion
 
@@ -290,19 +279,19 @@ public class PlayerStateMachine : MonoBehaviour
 
         if (IsLockOn)
         {
-            TiltController.CombatLockOnControl();
-            positionToLookAt = LockOnSystem.TargetEnemy.transform.position - transform.position;
+            Module.TiltController.CombatLockOnControl();
+            positionToLookAt = Module.LockOnSystem.TargetEnemy.transform.position - transform.position;
         }
         else
         {
-            TiltController.CombatFreeFireControl();
+            Module.TiltController.CombatFreeFireControl();
             positionToLookAt = Camera.main.transform.forward;
         }
 
         positionToLookAt.y = 0;
         targetRotation = Quaternion.LookRotation(positionToLookAt);
 
-        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Player.SmoothRotateValue * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Module.ModuleStatus.SmoothRotateValue * Time.deltaTime);
     }
     #endregion
 
@@ -346,7 +335,7 @@ public class PlayerStateMachine : MonoBehaviour
     private IEnumerator CoBoostOn()
     {
         // Test 하드코딩        
-        float startSpeed = _movementModifier * Player.BoostPower;
+        float startSpeed = _movementModifier * Module.ModuleStatus.BoostPower;
         float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
 
         float current = 0f;

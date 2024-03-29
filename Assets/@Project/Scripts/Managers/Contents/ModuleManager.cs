@@ -35,10 +35,10 @@ public class ModuleManager
     public Module CurrentModule { get; private set; }
     public LowerPart CurrentLowerPart { get; private set; }
     public UpperPart CurrentUpperPart { get; private set; }
-    public WeaponPart CurrentLeftArmPart { get; private set; }
-    public WeaponPart CurrentRightArmPart { get; private set; }
-    public WeaponPart CurrentLeftShoulderPart { get; private set; }
-    public WeaponPart CurrentRightShoulderPart { get; private set; }
+    public ArmsPart CurrentLeftArmPart { get; private set; }
+    public ArmsPart CurrentRightArmPart { get; private set; }
+    public ShouldersPart CurrentLeftShoulderPart { get; private set; }
+    public ShouldersPart CurrentRightShoulderPart { get; private set; }
 
     public int LowerPartsCount { get; private set; }
     public int UpperPartsCount { get; private set; }
@@ -117,7 +117,7 @@ public class ModuleManager
         CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);
         CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);
 
-        CurrentModule.Setup(CurrentLowerPart, CurrentUpperPart);
+        CurrentModule.Setup(CurrentLowerPart, CurrentUpperPart, CurrentLeftArmPart, CurrentRightArmPart, CurrentLeftShoulderPart, CurrentRightShoulderPart);
     }
 
     private T CreatePart<T>(Transform createPosition, int index = 0) where T : BasePart
@@ -188,7 +188,7 @@ public class ModuleManager
 
                 UnityEngine.Object.DestroyImmediate(CurrentLeftShoulderPart.gameObject);
 
-                CurrentLeftShoulderPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);
+                CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);
                 CurrentLeftShoulderPart.Setup(CurrentModule);
                 CurrentLeftShoulderIndex = index;
                 break;
@@ -197,7 +197,7 @@ public class ModuleManager
 
                 UnityEngine.Object.DestroyImmediate(CurrentRightShoulderPart.gameObject);
 
-                CurrentRightShoulderPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);
+                CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);
                 CurrentRightShoulderPart.Setup(CurrentModule);
                 CurrentRightShoulderIndex = index;
                 break;
