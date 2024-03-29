@@ -48,7 +48,7 @@ public class PlayerNonCombatState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.IsPrimaryWeaponInputPressed || Context.IsSecondaryWeaponInputPressed)
+        if (Context.IsLeftArmWeaponInputPressed || Context.IsRightArmWeaponInputPressed)
             SwitchState(Factory.Combat());
     }
 }

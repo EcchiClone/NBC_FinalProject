@@ -342,5 +342,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boosterEffects: []
-  lowerSO: {fileID: 11400000, guid: dedab7001475e7d4c93884c1361708de, type: 2}
+  <UpperPositions>k__BackingField: {fileID: 3091303616801895327}
   _footSparks: []

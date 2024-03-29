@@ -10276,10 +10276,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1817755234544321587}
   - component: {fileID: 8040438215548801413}
-  - component: {fileID: 3739213126097822144}
-  - component: {fileID: 5334244729481353940}
   m_Layer: 0
-  m_Name: Weapon_01
+  m_Name: Upper_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10314,52 +10312,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6a44bcf0d4ad545af7f622c137d67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _partName: 10002001
   _boosterEffects:
   - {fileID: 7711052126539825034}
   - {fileID: 8757635719490115302}
-  upperSO: {fileID: 11400000, guid: 7e6360b73a165984f878896329a486a5, type: 2}
   <WeaponTilt>k__BackingField: {fileID: 4264020004977597763}
+  _weaponPositions: []
   _primaryMuzzles:
   - {fileID: 2269993593499379566}
   - {fileID: 2834875425581590389}
   _secondaryMuzzles:
   - {fileID: 7023021723230587494}
   - {fileID: 3532945112250781136}
---- !u!114 &3739213126097822144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7866450561419468749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfe8f415a2146f4dac6a6143c5279c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <WeaponSO>k__BackingField: {fileID: 11400000, guid: c50fc8de23eae6a48b89c4be96422602,
-    type: 2}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
---- !u!114 &5334244729481353940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7866450561419468749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c981bb2f4e9504a893222b3a0793e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <WeaponSO>k__BackingField: {fileID: 11400000, guid: d06029e51be94f64986404427b3be8c6,
-    type: 2}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &8757635719490115302
 GameObject:
   m_ObjectHideFlags: 0

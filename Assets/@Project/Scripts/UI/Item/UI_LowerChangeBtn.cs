@@ -52,7 +52,7 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
     private void ChangePart()
     {
-        Managers.Module.ChangeLowerPart(currentIndex);
+        Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Lower);
         Managers.Module.CallLowerPartChange(_currentLowerData);
     }
 }

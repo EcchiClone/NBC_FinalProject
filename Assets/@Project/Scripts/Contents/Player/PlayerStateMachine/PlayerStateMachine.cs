@@ -35,8 +35,8 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsMoveInputPressed { get; private set; }
     public bool IsJumpInputPressed { get; private set; }
     public bool IsDashInputPressed { get; private set; }
-    public bool IsPrimaryWeaponInputPressed { get; private set; }
-    public bool IsSecondaryWeaponInputPressed { get; private set; }
+    public bool IsLeftArmWeaponInputPressed { get; private set; }
+    public bool IsRightArmWeaponInputPressed { get; private set; }
     public bool IsLockOn { get; private set; }
     public bool IsJumping { get; set; }
     public bool IsDashing { get; set; }
@@ -105,7 +105,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         HandleMove();
         HandleRotation();
-        HandleUseWeaponPrimary();
+        HandleUseWeapon();
         HandleDashCoolDown();
     }
 
@@ -120,10 +120,10 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.Dash.started += OnDash;
         P_Input.Actions.Dash.canceled += OnDash;
 
-        P_Input.Actions.PrimaryWeapon.started += OnPrimaryWeapon;
-        P_Input.Actions.PrimaryWeapon.canceled += OnPrimaryWeapon;
-        P_Input.Actions.SecondaryWeapon.started += OnSecondaryWeapon;
-        P_Input.Actions.SecondaryWeapon.canceled += OnSecondaryWeapon;
+        P_Input.Actions.PrimaryWeapon.started += OnLeftArmWeapon;
+        P_Input.Actions.PrimaryWeapon.canceled += OnLeftArmWeapon;
+        P_Input.Actions.SecondaryWeapon.started += OnRightArmWeapon;
+        P_Input.Actions.SecondaryWeapon.canceled += OnRightArmWeapon;
         P_Input.Actions.LockOn.started += OnLockOn;
 
         P_Input.Actions.RePair.started += OnRepair;
@@ -155,16 +155,14 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
-    private void OnPrimaryWeapon(InputAction.CallbackContext context)
+    private void OnLeftArmWeapon(InputAction.CallbackContext context)
     {
-        IsPrimaryWeaponInputPressed = context.ReadValueAsButton();
+        IsLeftArmWeaponInputPressed = context.ReadValueAsButton();
     }
 
-    private void OnSecondaryWeapon(InputAction.CallbackContext context)
+    private void OnRightArmWeapon(InputAction.CallbackContext context)
     {
-        IsSecondaryWeaponInputPressed = context.ReadValueAsButton();
-        if (IsSecondaryWeaponInputPressed)
-            Module.CurrentUpper.UseWeapon_Secondary();
+        IsRightArmWeaponInputPressed = context.ReadValueAsButton();        
     }
 
     private void OnRepair(InputAction.CallbackContext context)
@@ -213,10 +211,14 @@ public class PlayerStateMachine : MonoBehaviour
         Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
-    private void HandleUseWeaponPrimary()
+    private void HandleUseWeapon()
     {
-        if (IsPrimaryWeaponInputPressed)
-            Module.CurrentUpper.UseWeapon_Primary();
+        // To Do - 각 무기 파츠들 공격 입력 시 공격 로직... 근데 로직을 다른 클래스로 옮기는 것도 고려를 해봐야함.
+
+        if (IsLeftArmWeaponInputPressed)
+            return;
+        if (IsRightArmWeaponInputPressed)
+            return;
     }
 
     // 회전 제어

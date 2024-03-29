@@ -52,7 +52,7 @@ public class UI_UpperChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
     private void ChangePart()
     {        
-        Managers.Module.ChangeUpperPart(currentIndex);
+        Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Upper);
         Managers.Module.CallUpperPartChange(_currentUpperData);
     }
 }

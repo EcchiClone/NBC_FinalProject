@@ -8,7 +8,7 @@ using static Define;
 
 public class UI_SelectorMenu : UI_Popup
 {
-    private UI_Popup[] _partsMenus = new UI_Popup[2];
+    private UI_Popup[] _partsMenus = new UI_Popup[4];
     private UnityAction _camAction;
 
     [SerializeField] TextMeshProUGUI[] _specTexts;
@@ -17,6 +17,8 @@ public class UI_SelectorMenu : UI_Popup
     {
         UpperParts_Btn,
         LowerParts_Btn,
+        ArmWeaponParts_Btn,
+        ShoulderWeaponParts_Btn,
         BackToMain,
     }
 
@@ -54,6 +56,8 @@ public class UI_SelectorMenu : UI_Popup
         GetButton((int)Buttons.BackToMain).onClick.AddListener(BackToMain);
         GetButton((int)Buttons.UpperParts_Btn).onClick.AddListener(() => OpenParts<UI_UpperSelector>((int)Buttons.UpperParts_Btn));
         GetButton((int)Buttons.LowerParts_Btn).onClick.AddListener(() => OpenParts<UI_LowerSelector>((int)Buttons.LowerParts_Btn));
+        GetButton((int)Buttons.ArmWeaponParts_Btn).onClick.AddListener(() => OpenParts<UI_ArmSelector>((int)Buttons.ArmWeaponParts_Btn));
+        GetButton((int)Buttons.ShoulderWeaponParts_Btn).onClick.AddListener(() => OpenParts<UI_ShoulderSelector>((int)Buttons.ShoulderWeaponParts_Btn));
     }
 
     public void BindCamAction(UnityAction camAction)
@@ -88,9 +92,9 @@ public class UI_SelectorMenu : UI_Popup
         _lowerData = Managers.Data.GetPartData(initData.LowerPartId[0]);
         _upperData = Managers.Data.GetPartData(initData.UpperPartId[0]);
 
-        float attakMain = Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk;
-        float attakSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk;
-        float reloadSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime;
+        //float attakMain = Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk;
+        //float attakSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk;
+        //float reloadSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime;
         float rotSpeed = _upperData.SmoothRotation;
 
         float moveSpeed = _lowerData.Speed;
@@ -99,9 +103,9 @@ public class UI_SelectorMenu : UI_Popup
 
         _specTexts[(int)SpecType.AP].text = $"{_lowerData.Armor + _upperData.Armor}";
         _specTexts[(int)SpecType.Weight].text = $"{_lowerData.Weight + _upperData.Weight}";
-        _specTexts[(int)SpecType.AttackMain].text = $"{attakMain}";
-        _specTexts[(int)SpecType.AttackSub].text = $"{attakSub}";
-        _specTexts[(int)SpecType.ReloadSub].text = $"{reloadSub}";
+        //_specTexts[(int)SpecType.AttackMain].text = $"{attakMain}";
+        //_specTexts[(int)SpecType.AttackSub].text = $"{attakSub}";
+        //_specTexts[(int)SpecType.ReloadSub].text = $"{reloadSub}";
 
         _specTexts[(int)SpecType.MoveSpeed].text = $"{moveSpeed}";
         _specTexts[(int)SpecType.RotateSpeed].text = $"{rotSpeed}";
@@ -128,9 +132,9 @@ public class UI_SelectorMenu : UI_Popup
         _specTexts[(int)SpecType.AP].text = $"{lowerAP + upperData.Armor}";
         _specTexts[(int)SpecType.Weight].text = $"{lowerWeight + upperData.Weight}";
 
-        _specTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
-        _specTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
-        _specTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
+        //_specTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
+        //_specTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
+        //_specTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
         _specTexts[(int)SpecType.RotateSpeed].text = $"{upperData.SmoothRotation}";
     }
 }

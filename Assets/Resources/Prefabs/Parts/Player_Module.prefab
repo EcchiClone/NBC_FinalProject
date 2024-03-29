@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cc03ba5d9e1ac45b4bb7a042634b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LowerPivot>k__BackingField: {fileID: 3780814506189941856}
+  <LowerPosition>k__BackingField: {fileID: 3780814506189941856}
 --- !u!114 &5245987810503798519
 MonoBehaviour:
   m_ObjectHideFlags: 0

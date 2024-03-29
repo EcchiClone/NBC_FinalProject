@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
+    [field: SerializeField] public Transform UpperPositions { get; private set; }
+
     [SerializeField] GameObject[] _footSparks;
 
     public override void Setup(Module module)
