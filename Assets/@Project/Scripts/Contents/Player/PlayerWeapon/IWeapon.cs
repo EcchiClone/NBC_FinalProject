@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    void UseWeapon_Primary(Transform[] muzzlePoints);
-    IEnumerator UseWeapon_Secondary(Transform[] muzzlePoints);    
+    void UseWeapon(Transform[] muzzlePoints);    
 }

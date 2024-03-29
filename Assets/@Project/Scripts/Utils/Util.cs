@@ -58,4 +58,21 @@ public static class Util
 
         return null;
     }
+
+    public static Quaternion RandomDirectionFromMuzzle(float shotErrorRange)
+    {
+        float xError = SetShotErrorRange(shotErrorRange);
+        float yError = SetShotErrorRange(shotErrorRange);
+        Quaternion rotation = Quaternion.Euler(yError, xError, 0f); // 각도 계산
+
+        return rotation;
+    }
+
+    public static float SetShotErrorRange(float standard)
+    {
+        float x1 = Random.Range(0f, 1f);
+        float x2 = Random.Range(0f, 1f);
+
+        return standard * (Mathf.Sqrt(-2.0f * Mathf.Log(x1)) * Mathf.Sin(2.0f * Mathf.PI * x2));
+    }
 }

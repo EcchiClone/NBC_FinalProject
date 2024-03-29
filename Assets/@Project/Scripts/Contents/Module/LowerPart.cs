@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LowerPart : BasePart
 {
-    public LowerPartsSO lowerSO;
+    [field: SerializeField] public Transform UpperPositions { get; private set; }
 
     [SerializeField] GameObject[] _footSparks;
 

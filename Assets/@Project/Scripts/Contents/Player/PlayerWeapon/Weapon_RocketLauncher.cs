@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Weapon_RocketLauncher : Weapon_Secondary
 {    
-    public override IEnumerator UseWeapon_Secondary(Transform[] muzzlePoints)
-    {
-        if (_isCoolDown)
-        {
-            Debug.Log("CoolDownTime");
-            yield break;
-        }
+    //public override IEnumerator UseWeapon_Secondary(Transform[] muzzlePoints)
+    //{
+    //    if (_isCoolDown)
+    //    {
+    //        Debug.Log("CoolDownTime");
+    //        yield break;
+    //    }
 
-        base.UseWeapon_Secondary(muzzlePoints);        
+    //    base.UseWeapon_Secondary(muzzlePoints);        
 
-        for (int i = 0; i < WeaponSO.projectilesPerShot; i++)
-        {
-            RandomDirectionShot(muzzlePoints);
+    //    for (int i = 0; i < WeaponSO.projectilesPerShot; i++)
+    //    {
+    //        ShotBullets(muzzlePoints);
 
-            yield return _fireRate;
-        }        
+    //        yield return _fireRate;
+    //    }        
 
-        StartCoroutine(CoWaitCoolDownTime());
-    }    
+    //    StartCoroutine(CoWaitCoolDownTime());
+    //}    
 }

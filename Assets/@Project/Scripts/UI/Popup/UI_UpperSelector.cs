@@ -25,13 +25,13 @@ public class UI_UpperSelector : UI_Popup
         AttackSub,
         ReloadSub,
         RotateSpeed,
-    }
+    }    
 
     protected override void Init()
     {
         base.Init();
 
-        int createUI = Managers.Module.UpperPartsCount;
+        int createUI = Managers.Module.UpperPartsCount;        
 
         for (int i = 0; i < createUI; i++)
             Managers.UI.ShowItemUI<UI_UpperChangeBtn>(_contents).SetParentUI(this);
@@ -49,35 +49,36 @@ public class UI_UpperSelector : UI_Popup
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
-
+    
     public void ResetText()
     {
-        UpperPart upper = Managers.Module.CurrentUpperPart;        
+        int partID = Managers.Module.GetPartOfIndex<UpperPart>(0).ID;
+        PartData currentPartData = Managers.Data.GetPartData(partID);
 
-        UpdateSelectedPartSpecText(upper);
+        UpdateSelectedPartSpecText(currentPartData);
     }
 
-    private void UpdateSelectedPartSpecText(UpperPart upper)
+    private void UpdateSelectedPartSpecText(PartData upperData)
     {
         _nextGroup.SetActive(false);
-        _specTexts[(int)SpecType.AP].text = $"{upper.upperSO.armor}";
-        _specTexts[(int)SpecType.Weight].text = $"{upper.upperSO.weight}";
+        _specTexts[(int)SpecType.AP].text = $"{upperData.Armor}";
+        _specTexts[(int)SpecType.Weight].text = $"{upperData.Weight}";
 
-        _specTexts[(int)SpecType.AttackMain].text = $"{upper.Primary.WeaponSO.atk}";
-        _specTexts[(int)SpecType.AttackSub].text = $"{upper.Secondary.WeaponSO.atk}";
-        _specTexts[(int)SpecType.ReloadSub].text = $"{upper.Secondary.WeaponSO.coolDownTime}";
-        _specTexts[(int)SpecType.RotateSpeed].text = $"{upper.upperSO.smoothRotation}";
+        //_specTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
+        //_specTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
+        //_specTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
+        _specTexts[(int)SpecType.RotateSpeed].text = $"{upperData.SmoothRotation}";
     }
 
-    public void DisPlayNextPartSpecText(UpperPart nextUpper)
+    public void DisPlayNextPartSpecText(PartData nextUpperData)
     {
         _nextGroup.SetActive(true);
-        _nextSpecTexts[(int)SpecType.AP].text = $"{nextUpper.upperSO.armor}";
-        _nextSpecTexts[(int)SpecType.Weight].text = $"{nextUpper.upperSO.weight}";
+        _nextSpecTexts[(int)SpecType.AP].text = $"{nextUpperData.Armor}";
+        _nextSpecTexts[(int)SpecType.Weight].text = $"{nextUpperData.Weight}";
 
-        _nextSpecTexts[(int)SpecType.AttackMain].text = $"{nextUpper.Primary.WeaponSO.atk}";
-        _nextSpecTexts[(int)SpecType.AttackSub].text = $"{nextUpper.Secondary.WeaponSO.atk}";
-        _nextSpecTexts[(int)SpecType.ReloadSub].text = $"{nextUpper.Secondary.WeaponSO.coolDownTime}";
-        _nextSpecTexts[(int)SpecType.RotateSpeed].text = $"{nextUpper.upperSO.smoothRotation}";
+        //_nextSpecTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
+        //_nextSpecTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
+        //_nextSpecTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
+        _nextSpecTexts[(int)SpecType.RotateSpeed].text = $"{nextUpperData.SmoothRotation}";
     }
 }

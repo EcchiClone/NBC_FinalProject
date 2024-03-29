@@ -12,7 +12,7 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
     public int currentIndex;
     public static int IndexOfLowerPart = 0;
 
-    private LowerPart _currentLower;
+    private PartData _currentLowerData;
 
     protected override void Init()
     {
@@ -21,11 +21,13 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
         currentIndex = IndexOfLowerPart;
         ++IndexOfLowerPart;
 
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ChangePart);
+        int partID = Managers.Module.GetPartOfIndex<LowerPart>(currentIndex).ID;
+        _currentLowerData = Managers.Data.GetPartData(partID);
 
-        _currentLower = Managers.Module.GetPartOfIndex<LowerPart>(currentIndex);
-        _partText.text = _currentLower.lowerSO.display_Name;
+        Button button = GetComponent<Button>();
+        button.onClick.AddListener(ChangePart);        
+
+        _partText.text = _currentLowerData.Display_Name;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -39,8 +41,8 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
         _parentUI._sidePopup.gameObject.SetActive(true);
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
-        selector.DisPlayNextPartSpecText(_currentLower);
-        Managers.Module.CallInfoChange(_currentLower.lowerSO.display_Description);
+        selector.DisPlayNextPartSpecText(_currentLowerData);
+        Managers.Module.CallInfoChange(_currentLowerData.Display_Description);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -50,7 +52,7 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
     private void ChangePart()
     {
-        Managers.Module.ChangeLowerPart(currentIndex);
-        Managers.Module.CallLowerPartChange(_currentLower);
+        Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Lower);
+        Managers.Module.CallLowerPartChange(_currentLowerData);
     }
 }
