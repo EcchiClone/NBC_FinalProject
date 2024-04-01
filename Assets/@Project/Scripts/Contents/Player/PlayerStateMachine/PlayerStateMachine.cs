@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEditor.Experimental.GraphView;
+using System;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     public PlayerBaseState CurrentState { get; set; }
     public PlayerStateFactory StateFactory { get; private set; }
+
+    public static event Action OnChargingCut;
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;

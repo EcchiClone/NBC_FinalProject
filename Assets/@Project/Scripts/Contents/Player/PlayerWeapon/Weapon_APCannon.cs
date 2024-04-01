@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_SingleCannon : WeaponBase
+public class Weapon_APCannon : WeaponBase
 {
     private float _delayTime = float.MaxValue;
 

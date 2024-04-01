@@ -1,10 +1,14 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_SingleCannon : WeaponBase
+public class Weapon_GatlingGun : WeaponBase
 {
+    [SerializeField] Transform _barrelTransform;
+
     private float _delayTime = float.MaxValue;
+    private readonly float TORQUE_POWER = 360f;
 
     public override void UseWeapon(Transform[] muzzlePoints)
     {
@@ -14,8 +18,8 @@ public class Weapon_SingleCannon : WeaponBase
         if (_delayTime >= _partData.FireRate)
         {
             _delayTime = 0;
-            GunFire(muzzlePoints);
-        }
+            GunFire(muzzlePoints);            
+        }            
     }
 
     private void Update()
@@ -26,6 +30,8 @@ public class Weapon_SingleCannon : WeaponBase
 
     private void GunFire(Transform[] muzzlePoints)
     {
+        _barrelTransform.localEulerAngles += Vector3.forward * TORQUE_POWER * Time.deltaTime;
+
         foreach (Transform muzzle in muzzlePoints)
         {
             GameObject bullet = CreateBullet(muzzle);

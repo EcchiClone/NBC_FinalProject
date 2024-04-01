@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Weapon_RocketLauncher : WeaponBase
 {
-    private bool _isCoolDown = false;
-
     public override void UseWeapon(Transform[] muzzlePoints)
     {
         if (_isCoolDown)
@@ -27,7 +25,7 @@ public class Weapon_RocketLauncher : WeaponBase
                 GameObject bullet = CreateBullet(muzzle);
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
-                missile.Setup(_partData.BulletSpeed, freeFireTarget, _target);
+                missile.Setup(_partData.BulletSpeed, _partData.Damage, freeFireTarget, _target);
 
                 yield return Util.GetWaitSeconds(_partData.FireRate);
             }

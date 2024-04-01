@@ -4,13 +4,13 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    protected Transform _target;
+    protected Transform _target;    
     protected Transform _weaponTransform { get; set; }
-    protected LayerMask _groundLayer;
+    protected LayerMask _groundLayer;    
 
     protected PartData _partData;
 
-    public abstract void UseWeapon(Transform[] muzzlePoints);
+    protected bool _isCoolDown = false;
 
     public virtual void Setup(int partID, Transform bodyTransform, LayerMask layerMask) 
     {
@@ -45,6 +45,7 @@ public abstract class WeaponBase : MonoBehaviour
         return freeFirePoint;
     }
 
+    public abstract void UseWeapon(Transform[] muzzlePoints);
     private void Targeting(Transform target) => _target = target;
     private void Release() => _target = null;
 }

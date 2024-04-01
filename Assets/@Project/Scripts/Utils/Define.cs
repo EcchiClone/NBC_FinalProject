@@ -22,18 +22,11 @@ public class Define
         Weapon_Shoulder_R,
     }
 
-    public enum Weapon_Arm
+    public enum BulletType
     {
-        Weapon_SingleCannon,
-        Weapon_GatlingGun,
-        Weapon_BeamCharger,
-        Weapon_APC
-    }
-
-    public enum Weapon_Shoulder
-    {
-        Weapon_RocketLauncher,
-
+        Gun,
+        Cannon,
+        Missile
     }
 
     public class InitData
