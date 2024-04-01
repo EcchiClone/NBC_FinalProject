@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 1458095624550508365}
   - component: {fileID: 1650062719853625785}
   - component: {fileID: 8412722899300311605}
-  - component: {fileID: 5817790987515131477}
-  - component: {fileID: 2419966963399683206}
-  - component: {fileID: 7873660048543713049}
+  - component: {fileID: 6305737709420608924}
+  - component: {fileID: 8690699978218876110}
   m_Layer: 5
-  m_Name: Tier3Perk
-  m_TagString: Tier3
+  m_Name: SubPerk
+  m_TagString: Tier1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1650062719853625785
 CanvasRenderer:
@@ -62,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.88322544, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -79,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!120 &5817790987515131477
+--- !u!120 &6305737709420608924
 LineRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -183,7 +182,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &2419966963399683206
+--- !u!114 &8690699978218876110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,18 +191,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321998276632128008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d1c90ec0c777142a64b14650c4b9cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7873660048543713049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321998276632128008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53daff21b1c0534096dfa7c5e9b8fd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b3fd01b3449890419c0c852a341bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -35,9 +35,9 @@ public class PerkGenerator : MonoBehaviour
         _seed = GetComponent<SeedGenerator>();
         _algorithm = GetComponent<BinaryCombineAlgorithm>();
         _hexdec = GetComponent<HexDecConverter>();
-        _tier1Perk = Resources.Load<GameObject>("Prefabs/Tier1Perk");
-        _tier2Perk = Resources.Load<GameObject>("Prefabs/Tier2Perk");
-        _tier3Perk = Resources.Load<GameObject>("Prefabs/Tier3Perk");
+        _tier1Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier1Perk");
+        _tier2Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier2Perk");
+        _tier3Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier3Perk");
     }
 
     private void Start()
@@ -208,7 +208,7 @@ public class PerkGenerator : MonoBehaviour
                         y = 0f + 900f * m;
                         break;
                 }
-                Instantiate(_tier1Perk, new Vector3(x, y, 0), Quaternion.identity, _tier1UI);
+                Instantiate(_tier1Perk, new Vector3(x, y, -2), Quaternion.identity, _tier1UI);
             }
         }
     }
@@ -243,7 +243,7 @@ public class PerkGenerator : MonoBehaviour
                         y = -900f + 900f * m;
                         break;
                 }
-                Instantiate(_tier2Perk, new Vector3(x, y, 0), Quaternion.identity, _tier2UI);
+                Instantiate(_tier2Perk, new Vector3(x, y, -2), Quaternion.identity, _tier2UI);
             }
         }
     }
@@ -278,7 +278,7 @@ public class PerkGenerator : MonoBehaviour
                         y = -1800f + 900f * m;
                         break;
                 }
-                Instantiate(_tier3Perk, new Vector3(x, y, 0), Quaternion.identity, _tier3UI);
+                Instantiate(_tier3Perk, new Vector3(x, y, -2), Quaternion.identity, _tier3UI);
             }
         }
     }

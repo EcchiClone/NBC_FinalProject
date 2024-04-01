@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Tier1PerkBehaviour : MonoBehaviour
+public class Tier2PerkBehaviour : MonoBehaviour
 {
     private System.Random _random = new System.Random();
     private BinaryCombineAlgorithm _algorithm;
@@ -12,25 +13,47 @@ public class Tier1PerkBehaviour : MonoBehaviour
     private string _subBin;
     private bool[] _subArr = new bool[8];
 
+    private GameObject[] _tier1Perks;
+    private Vector3 _minPerk;
+
     private void Awake()
     {
         _algorithm = GetComponent<BinaryCombineAlgorithm>();
         _line = GetComponent<LineRenderer>();
         _subPerk = Resources.Load<GameObject>("Prefabs/Perk/SubPerk");
+        _tier1Perks = GameObject.FindGameObjectsWithTag("Tier1");
     }
 
     private void Start()
     {
-        LineToOrigin();
+        FindMinDistanceOfTier1Perks();
+        LineToTier1Perk();
         _subBin = _algorithm.ConvertStructureToBinary(8, 3, RandomWithRange(56));
         BinaryStrToBoolArr(8, ref _subArr, ref _subBin);
         GenerateSubPerks();
     }
 
-    private void LineToOrigin()
+    private void FindMinDistanceOfTier1Perks()
+    {
+        float min = 0f;
+        float distance;
+
+        foreach (GameObject perk in  _tier1Perks)
+        {
+            distance = Vector3.Distance(perk.transform.position, transform.position);
+
+            if (min == 0f || distance < min)
+            {
+                min = distance;
+                _minPerk = perk.transform.position;
+            }
+        }
+    }
+
+    private void LineToTier1Perk()
     {
         _line.widthMultiplier = 10f;
-        _line.SetPosition(0, new Vector3(0f, 0f, -1f));
+        _line.SetPosition(0, new Vector3(_minPerk.x, _minPerk.y, -1f));
         _line.SetPosition(1, new Vector3(transform.position.x, transform.position.y, -1f));
     }
 
