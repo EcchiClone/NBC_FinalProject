@@ -9,7 +9,7 @@ public class LockOnSystem
     // 기능 1. 락온시스템 : 마우스 휠 Started시, SphereCast로 주변 적 검색.
     // 기능 2. 타겟팅 시스템 : 다중 락온시스템에 의해 검색된 적들 중 가장 가까운 적 타겟팅
     // 기능 3. 카메라 추적 시스템 : 타겟팅 된 적에게 Cinemachine Cam - Look At Transform 이 해당 적으로 변경.    
-    private PlayerStateMachine _stateMachine;
+    private Module _module;
 
     [SerializeField] Transform _followOnTargetMode;
     [SerializeField] LayerMask _targetLayer;
@@ -21,23 +21,23 @@ public class LockOnSystem
 
     public Transform TargetEnemy { get; private set; }        
 
-    public void Setup(PlayerStateMachine stateMachine)
+    public void Setup(Module module)
     {
-        _stateMachine = stateMachine;
+        _module = module;
 
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
         LockOnCam = GameObject.Find("@LockOnCam").GetComponent<CinemachineVirtualCamera>();
         TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();       
 
-        FollowCam.Follow = _stateMachine.transform;
-        FollowCam.LookAt = _stateMachine.transform;
+        FollowCam.Follow = _module.transform;
+        FollowCam.LookAt = _module.transform;
 
         LockOnCam.Follow = _followOnTargetMode;
         LockOnCam.LookAt = TargetGroup.transform;
         LockOnCam.gameObject.SetActive(false);
 
-        TargetGroup.AddMember(_stateMachine.transform, 1, 0);
+        TargetGroup.AddMember(_module.transform, 1, 0);
         TargetGroup.AddMember(_followOnTargetMode, 1, 0);
     }
 

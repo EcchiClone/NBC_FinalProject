@@ -5,6 +5,6 @@ using UnityEngine;
 public interface ISkill
 {
     bool IsActive { get; }
-    void UseSkill(PlayerStateMachine stateMachine);
+    void UseSkill(Module module);
     IEnumerator Co_CoolDown();
 }

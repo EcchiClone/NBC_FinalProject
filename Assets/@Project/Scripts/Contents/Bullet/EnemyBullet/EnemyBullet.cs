@@ -6,9 +6,9 @@ public class EnemyBullet : Bullet
 {
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerStateMachine playerState) == true)
+        if (other.gameObject.TryGetComponent(out Module module) == true)
         {
-            playerState.Player.GetDamage(5);
+            module.ModuleStatus.GetDamage(5);
 
             EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
         }

@@ -41,7 +41,7 @@ public class PlayerJumpState : PlayerBaseState
     private void HandleJump()
     {
         Context.IsJumping = true;
-        Context._currentMovementDirection.y = Context.Player.JumpPower;
+        Context._currentMovementDirection.y = Context.Module.ModuleStatus.JumpPower;
     }
 
     private void HandleGravity()

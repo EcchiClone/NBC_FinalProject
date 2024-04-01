@@ -22,7 +22,7 @@ public class UI_LowerSelector : UI_Popup
         MoveSpeed,
         JumpPower,
         BoostPower,
-    }
+    }    
 
     protected override void Init()
     {
@@ -38,6 +38,14 @@ public class UI_LowerSelector : UI_Popup
 
         BindButton(typeof(Buttons));
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);
+    }    
+
+    public void ResetText()
+    {
+        int partID = Managers.Module.GetPartOfIndex<LowerPart>(0).ID;
+        PartData currentPartData = Managers.Data.GetPartData(partID);
+
+        UpdateSelectedPartSpecText(currentPartData);
     }
 
     private void BackToSelector()
@@ -47,32 +55,25 @@ public class UI_LowerSelector : UI_Popup
         gameObject.SetActive(false);
     }
 
-    private void ResetText()
-    {
-        LowerPart lower = Managers.Module.CurrentLowerPart;
-
-        UpdateSelectedPartSpecText(lower);
-    }
-
-    private void UpdateSelectedPartSpecText(LowerPart lower)
+    private void UpdateSelectedPartSpecText(PartData lowerData)
     {
         _nextGroup.SetActive(false);
-        _specTexts[(int)SpecType.AP].text = $"{lower.lowerSO.armor}";
-        _specTexts[(int)SpecType.Weight].text = $"{lower.lowerSO.weight}";
+        _specTexts[(int)SpecType.AP].text = $"{lowerData.Armor}";
+        _specTexts[(int)SpecType.Weight].text = $"{lowerData.Weight}";
 
-        _specTexts[(int)SpecType.MoveSpeed].text = $"{lower.lowerSO.speed}";
-        _specTexts[(int)SpecType.JumpPower].text = $"{lower.lowerSO.jumpPower}";
-        _specTexts[(int)SpecType.BoostPower].text = $"{lower.lowerSO.boosterPower}";        
+        _specTexts[(int)SpecType.MoveSpeed].text = $"{lowerData.Speed}";
+        _specTexts[(int)SpecType.JumpPower].text = $"{lowerData.JumpPower}";
+        _specTexts[(int)SpecType.BoostPower].text = $"{lowerData.BoosterPower}";        
     }
 
-    public void DisPlayNextPartSpecText(LowerPart nextLower)
+    public void DisPlayNextPartSpecText(PartData nextLowerData)
     {
         _nextGroup.SetActive(true);
-        _nextSpecTexts[(int)SpecType.AP].text = $"{nextLower.lowerSO.armor}";
-        _nextSpecTexts[(int)SpecType.Weight].text = $"{nextLower.lowerSO.weight}";
+        _nextSpecTexts[(int)SpecType.AP].text = $"{nextLowerData.Armor}";
+        _nextSpecTexts[(int)SpecType.Weight].text = $"{nextLowerData.Weight}";
 
-        _nextSpecTexts[(int)SpecType.MoveSpeed].text = $"{nextLower.lowerSO.speed}";
-        _nextSpecTexts[(int)SpecType.JumpPower].text = $"{nextLower.lowerSO.jumpPower}";
-        _nextSpecTexts[(int)SpecType.BoostPower].text = $"{nextLower.lowerSO.boosterPower}";
+        _nextSpecTexts[(int)SpecType.MoveSpeed].text = $"{nextLowerData.Speed}";
+        _nextSpecTexts[(int)SpecType.JumpPower].text = $"{nextLowerData.JumpPower}";
+        _nextSpecTexts[(int)SpecType.BoostPower].text = $"{nextLowerData.BoosterPower}";
     }
 }

@@ -4,30 +4,39 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-    [field: SerializeField] public Transform LowerPivot { get; private set; }
+    [field: SerializeField] public Transform LowerPosition { get; private set; }        
 
-    public Transform UpperPivot { get; private set; }
-    public Transform WeaponPivot { get; private set; }  
-    
+    public LowerPart CurrentLower { get; private set; }
+    public UpperPart CurrentUpper { get; private set; }
+    public ArmsPart CurrentLeftArm { get; private set; }
+    public ArmsPart CurrentRightArm { get; private set; }
+    public ShouldersPart CurrentLeftShoulder { get; private set; }
+    public ShouldersPart CurrentRightShoulder {  get; private set; }
+
+    public ModuleStatus ModuleStatus { get; private set; }
+    public WeaponTiltController TiltController { get; private set; }
+    [field: SerializeField] public LockOnSystem LockOnSystem { get; private set; }
+
+    public ISkill Skill { get; private set; }
+
     public bool IsPlayable { get; private set; }
 
-    private void Awake()
+    public void Setup(LowerPart lowerPart, UpperPart upperPart, ArmsPart leftArm, ArmsPart rightArm, ShouldersPart leftShoulder, ShouldersPart rightShoulder)
     {
-        if (GetComponent<PlayerStateMachine>() != null)
-        {
-            IsPlayable = true;
-            return;
-        }
-        Managers.Module.CreateModule(LowerPivot, this);
-    }
+        CurrentLower = lowerPart;
+        CurrentUpper = upperPart;
+        CurrentLeftArm = leftArm;
+        CurrentRightArm = rightArm;
+        CurrentLeftShoulder = leftShoulder;
+        CurrentRightShoulder = rightShoulder;
 
-    public void SetPivot(Transform pivot)
-    {
-        if (UpperPivot == null)
-        {
-            UpperPivot = pivot;
+        if (GetComponent<PlayerStateMachine>() == null)
             return;
-        }
-        WeaponPivot = pivot;
+
+        IsPlayable = true;
+        ModuleStatus = new ModuleStatus(lowerPart, upperPart, leftArm, rightArm, leftShoulder, rightShoulder);
+        TiltController = new WeaponTiltController(this);
+        LockOnSystem.Setup(this);
+        Skill = new RepairKit();
     }
 }

@@ -8,9 +8,11 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } }
 
     #region # Core
+    DataManager _dataManager = new DataManager();
     ResourceManager _resouceManager = new ResourceManager();
     UIManager _uiManager = new UIManager();
 
+    public static DataManager Data => Instance?._dataManager;
     public static ResourceManager RM => Instance?._resouceManager;
     public static UIManager UI => Instance?._uiManager;
     #endregion
@@ -41,7 +43,8 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
 
-            s_instance._module.Init();
+            s_instance._dataManager.Init();
+            s_instance._module.Init();            
         }
     }
 

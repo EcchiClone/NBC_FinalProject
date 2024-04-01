@@ -37,7 +37,7 @@ public class UI_HUD : UI_Scene
 
         Managers.ActionManager.OnLockOnTarget += GetTargetedEnemy;
         Managers.ActionManager.OnReleaseTarget += ReleaseTarget;
-        PlayerStatus.OnChangeArmorPoint += ChangeAPValue;
+        ModuleStatus.OnChangeArmorPoint += ChangeAPValue;
         Managers.ActionManager.OnCoolDownRepair += (percent) => _repairFill.fillAmount = percent;
         Managers.ActionManager.OnCoolDownBooster += (percent) => _boosterFill.fillAmount = percent;
         Managers.ActionManager.OnBossAPChanged += (percent) => _bossAPFill.fillAmount = percent;

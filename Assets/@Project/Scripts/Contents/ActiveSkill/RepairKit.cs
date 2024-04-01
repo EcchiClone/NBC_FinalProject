@@ -9,13 +9,13 @@ public class RepairKit : ISkill
 
     public bool IsActive => _isAcitve;
 
-    public void UseSkill(PlayerStateMachine stateMachine)
+    public void UseSkill(Module module)
     {
         if (!_isAcitve)
             return;
         
         _isAcitve = false;
-        stateMachine.Player.Repair();
+        module.ModuleStatus.Repair();
     }
 
     public IEnumerator Co_CoolDown()

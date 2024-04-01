@@ -12,7 +12,7 @@ public class UI_UpperChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
     public int currentIndex;
     public static int IndexOfUpperPart = 0;
 
-    private UpperPart _currentUpper;
+    private PartData _currentUpperData;
 
     protected override void Init()
     {
@@ -21,11 +21,13 @@ public class UI_UpperChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
         currentIndex = IndexOfUpperPart;
         ++IndexOfUpperPart;
 
+        int partID = Managers.Module.GetPartOfIndex<UpperPart>(currentIndex).ID;
+        _currentUpperData = Managers.Data.GetPartData(partID);
+
         Button button = GetComponent<Button>();
         button.onClick.AddListener(ChangePart);
-
-        _currentUpper = Managers.Module.GetPartOfIndex<UpperPart>(currentIndex);
-        _partText.text = _currentUpper.upperSO.display_Name;
+        
+        _partText.text = _currentUpperData.Display_Name;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -39,8 +41,8 @@ public class UI_UpperChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
         _parentUI._sidePopup.gameObject.SetActive(true);
         UI_UpperSelector selector = _parentUI as UI_UpperSelector;
-        selector.DisPlayNextPartSpecText(_currentUpper);
-        Managers.Module.CallInfoChange(_currentUpper.upperSO.display_Description);
+        selector.DisPlayNextPartSpecText(_currentUpperData);
+        Managers.Module.CallInfoChange(_currentUpperData.Display_Description);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -49,8 +51,8 @@ public class UI_UpperChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
     }
 
     private void ChangePart()
-    {
-        Managers.Module.ChangeUpperPart(currentIndex);
-        Managers.Module.CallUpperPartChange(_currentUpper);
+    {        
+        Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Upper);
+        Managers.Module.CallUpperPartChange(_currentUpperData);
     }
 }
