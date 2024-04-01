@@ -5318,7 +5318,6 @@ GameObject:
   - component: {fileID: 4264020004977597763}
   - component: {fileID: 758300479029456654}
   - component: {fileID: 7148223090052259774}
-  - component: {fileID: 3872684391096149871}
   m_Layer: 0
   m_Name: Primary_Weapon
   m_TagString: Untagged
@@ -5393,18 +5392,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3872684391096149871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570822311439694444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a411e58bf8598d49806beb8c7b5f17d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6777600766584072920
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,13 +10303,7 @@ MonoBehaviour:
   - {fileID: 7711052126539825034}
   - {fileID: 8757635719490115302}
   <WeaponTilt>k__BackingField: {fileID: 4264020004977597763}
-  _weaponPositions: []
-  _primaryMuzzles:
-  - {fileID: 2269993593499379566}
-  - {fileID: 2834875425581590389}
-  _secondaryMuzzles:
-  - {fileID: 7023021723230587494}
-  - {fileID: 3532945112250781136}
+  <WeaponPositions>k__BackingField: []
 --- !u!1 &8757635719490115302
 GameObject:
   m_ObjectHideFlags: 0

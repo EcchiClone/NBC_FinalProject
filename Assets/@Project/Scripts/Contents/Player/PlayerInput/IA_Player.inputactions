@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "PrimaryWeapon",
+                    "name": "LeftArm",
                     "type": "Button",
                     "id": "40e5378d-7bc2-4dea-9703-67d566d21e76",
                     "expectedControlType": "Button",
@@ -42,9 +42,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SecondaryWeapon",
+                    "name": "RightArm",
                     "type": "Button",
                     "id": "19ab5c9e-9794-4500-a130-b4f2604fec25",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftShoulder",
+                    "type": "Button",
+                    "id": "bc9d8a02-c407-46cd-a143-ab293154ab5b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightShoulder",
+                    "type": "Button",
+                    "id": "24e3670f-2a75-4fb0-94d5-d5c4866bb1f7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -163,7 +181,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PrimaryWeapon",
+                    "action": "LeftArm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -174,7 +192,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SecondaryWeapon",
+                    "action": "RightArm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,6 +226,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "RePair",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55ffb20b-fc3f-4aad-a61f-be19f9b3cd91",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2eb036a-9603-4846-be17-953958be9df8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightShoulder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

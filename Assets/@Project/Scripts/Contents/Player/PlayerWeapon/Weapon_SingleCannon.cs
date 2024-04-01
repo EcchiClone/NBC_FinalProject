@@ -2,34 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_SingleCannon : Weapon_Arm
+public class Weapon_SingleCannon : WeaponBase
 {
+    private float _delayTime = float.MaxValue;
+
     public override void UseWeapon(Transform[] muzzlePoints)
     {
-        ShotBullets(muzzlePoints);
+        if(_delayTime < _partData.FireRate)
+        {
+            _delayTime += Time.deltaTime;
+            return;
+        }
+
+        _delayTime = 0;
+        ShotCannon(muzzlePoints);        
     }
 
-    protected void ShotBullets(Transform[] muzzlePoints)
+    private void ShotCannon(Transform[] muzzlePoints)
     {
         foreach (Transform muzzle in muzzlePoints)
         {
-            Vector3 freeFirePoint = Vector3.up * 100f;
-            if (_target == null)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(_weaponTransform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
-                    freeFirePoint = hit.point;
-            }
+            GameObject bullet = CreateBullet(muzzle);
 
-            GameObject go = EnemyBulletPoolManager.instance.GetGo(WeaponSO.bulletName);
-            go.transform.position = muzzle.position;
-            go.transform.rotation = muzzle.rotation;
+            Quaternion rotation = Util.RandomDirectionFromMuzzle(_partData.ShotErrorRange);
+            bullet.transform.rotation *= rotation;
 
-            Quaternion rotation = Util.RandomDirectionFromMuzzle(WeaponSO.shotErrorRange);
-            go.transform.rotation *= rotation;
-
-            PlayerProjectile projectile = go.GetComponent<PlayerProjectile>();
-            projectile.Setup(WeaponSO.speed, freeFirePoint, _target);
+            PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
+            projectile.Setup(_partData.BulletSpeed, Vector3.zero, _target);
         }
     }
 }

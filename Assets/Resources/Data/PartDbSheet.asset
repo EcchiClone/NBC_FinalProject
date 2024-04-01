@@ -109,16 +109,56 @@ MonoBehaviour:
     canJump: 0
     smoothRotation: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
-    damage: 1
-    bulletSpeed: 2
-    fireRate: 3
-    coolDownTime: 4
-    projectilesPerShot: 5
-    shotErrorRange: 6
+    damage: 5
+    bulletSpeed: 25
+    fireRate: 0.1
+    coolDownTime: 3
+    projectilesPerShot: 1
+    shotErrorRange: 2
   - dev_ID: 10003002
     dev_Name: Arm_02
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_02
     display_Name: TEST WEAPON_ARM_02
+    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+    partType: 2
+    armor: 275
+    weight: 10
+    speed: 0
+    jumpPower: 0
+    boosterPower: 0
+    canJump: 0
+    smoothRotation: 0
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
+    damage: 2
+    bulletSpeed: 3
+    fireRate: 4
+    coolDownTime: 5
+    projectilesPerShot: 6
+    shotErrorRange: 7
+  - dev_ID: 10003003
+    dev_Name: Arm_03
+    prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_03
+    display_Name: TEST WEAPON_ARM_03
+    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+    partType: 2
+    armor: 275
+    weight: 10
+    speed: 0
+    jumpPower: 0
+    boosterPower: 0
+    canJump: 0
+    smoothRotation: 0
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
+    damage: 2
+    bulletSpeed: 3
+    fireRate: 4
+    coolDownTime: 5
+    projectilesPerShot: 6
+    shotErrorRange: 7
+  - dev_ID: 10003004
+    dev_Name: Arm_04
+    prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_04
+    display_Name: TEST WEAPON_ARM_04
     display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
     partType: 2
     armor: 275
@@ -148,12 +188,12 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
-    damage: 1
-    bulletSpeed: 1
-    fireRate: 1
-    coolDownTime: 1
-    projectilesPerShot: 1
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
+    damage: 5
+    bulletSpeed: 15
+    fireRate: 0.05
+    coolDownTime: 5
+    projectilesPerShot: 5
     shotErrorRange: 1
   - dev_ID: 10004002
     dev_Name: Shoulder_02

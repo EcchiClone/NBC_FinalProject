@@ -24,9 +24,4 @@ public class PlayerProjectile : Bullet
         _speed = speed;
         StartCoroutine(Co_ReleaseBullet());
     }
-
-    public void HitTarget()
-    {
-        
-    }
 }
