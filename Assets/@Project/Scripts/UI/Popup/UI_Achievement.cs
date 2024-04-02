@@ -28,29 +28,15 @@ public class UI_Achievement : UI_Popup
 
         GetButton((int)Buttons.Back_Btn).onClick.AddListener(BackToMain);
         // 이하 버튼 세개에 대해서는 수정 예정
-        GetButton((int)Buttons.AllAchievements_Btn).onClick.AddListener(() => OpenParts<UI_UpperSelector>((int)Buttons.AllAchievements_Btn));
-        GetButton((int)Buttons.ProgressAchievements_Btn).onClick.AddListener(() => OpenParts<UI_LowerSelector>((int)Buttons.ProgressAchievements_Btn));
-        GetButton((int)Buttons.CompletedAchievements_Btn).onClick.AddListener(() => OpenParts<UI_ArmSelector>((int)Buttons.CompletedAchievements_Btn));
+        //GetButton((int)Buttons.AllAchievements_Btn).onClick.AddListener(() => OpenParts<UI_UpperSelector>((int)Buttons.AllAchievements_Btn));
+        //GetButton((int)Buttons.ProgressAchievements_Btn).onClick.AddListener(() => OpenParts<UI_LowerSelector>((int)Buttons.ProgressAchievements_Btn));
+        //GetButton((int)Buttons.CompletedAchievements_Btn).onClick.AddListener(() => OpenParts<UI_ArmSelector>((int)Buttons.CompletedAchievements_Btn));
     }
 
     public void BindCamAction(UnityAction camAction)
     {
         _camAction = camAction;
     }
-
-    private void OpenParts<T>(int index) where T : UI_Popup
-    {
-        if (_partsMenus[index] == null)
-        {
-            _partsMenus[index] = Managers.UI.ShowPopupUI<T>();
-            _partsMenus[index].SetPreviousPopup(this);
-        }
-        else
-            _partsMenus[index].gameObject.SetActive(true);
-
-        gameObject.SetActive(false);
-    }
-
     private void BackToMain()
     {
         _previousPopup.gameObject.SetActive(true);
