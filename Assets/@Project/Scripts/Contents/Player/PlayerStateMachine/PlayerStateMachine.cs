@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEditor.Experimental.GraphView;
+using System;
 
 public class PlayerStateMachine : MonoBehaviour
 {
     // # AnimationData
     [field: Header("# Animation")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
-    [SerializeField] private AnimationCurve _boostDragCurve;    
+    [SerializeField] private AnimationCurve _boostDragCurve;
 
     // # Components    
     public PlayerInput P_Input { get; private set; }
@@ -32,6 +33,8 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsDashInputPressed { get; private set; }
     public bool IsLeftArmWeaponInputPressed { get; private set; }
     public bool IsRightArmWeaponInputPressed { get; private set; }
+    public bool IsLeftShoulderWeaponInputPressed { get; private set; }
+    public bool IsRightShoulderWeaponInputPressed { get; private set; }
     public bool IsLockOn { get; private set; }
     public bool IsJumping { get; set; }
     public bool IsDashing { get; set; }
@@ -39,7 +42,9 @@ public class PlayerStateMachine : MonoBehaviour
     public bool CanJudgeDashing { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
-    public PlayerStateFactory StateFactory { get; private set; }    
+    public PlayerStateFactory StateFactory { get; private set; }
+
+    public static event Action OnChargingCut;
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
@@ -72,8 +77,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void PlayerSetting()
     {
-        AddInputCallBacks();        
-           
+        AddInputCallBacks();
+
         StateFactory = new PlayerStateFactory(this);
 
         Anim = GetComponentInChildren<Animator>();
@@ -109,10 +114,14 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.Dash.started += OnDash;
         P_Input.Actions.Dash.canceled += OnDash;
 
-        P_Input.Actions.PrimaryWeapon.started += OnLeftArmWeapon;
-        P_Input.Actions.PrimaryWeapon.canceled += OnLeftArmWeapon;
-        P_Input.Actions.SecondaryWeapon.started += OnRightArmWeapon;
-        P_Input.Actions.SecondaryWeapon.canceled += OnRightArmWeapon;
+        P_Input.Actions.LeftArm.started += OnLeftArmWeapon;
+        P_Input.Actions.LeftArm.canceled += OnLeftArmWeapon;
+        P_Input.Actions.RightArm.started += OnRightArmWeapon;
+        P_Input.Actions.RightArm.canceled += OnRightArmWeapon;
+        P_Input.Actions.LeftShoulder.started += OnLeftShoulderWeapon;
+        P_Input.Actions.LeftShoulder.canceled += OnLeftShoulderWeapon;
+        P_Input.Actions.RightShoulder.started += OnRightShoulderWeapon;
+        P_Input.Actions.RightShoulder.canceled += OnRightShoulderWeapon;
         P_Input.Actions.LockOn.started += OnLockOn;
 
         P_Input.Actions.RePair.started += OnRepair;
@@ -132,27 +141,15 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (점프관련)
-    private void OnJump(InputAction.CallbackContext context)
-    {
-        IsJumpInputPressed = context.ReadValueAsButton();
-    }
-
+    private void OnJump(InputAction.CallbackContext context) => IsJumpInputPressed = context.ReadValueAsButton();
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
-    private void OnDash(InputAction.CallbackContext context)
-    {
-        IsDashInputPressed = context.ReadValueAsButton();
-    }
-
+    private void OnDash(InputAction.CallbackContext context) => IsDashInputPressed = context.ReadValueAsButton();
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
-    private void OnLeftArmWeapon(InputAction.CallbackContext context)
-    {
-        IsLeftArmWeaponInputPressed = context.ReadValueAsButton();
-    }
+    private void OnLeftArmWeapon(InputAction.CallbackContext context) => IsLeftArmWeaponInputPressed = context.ReadValueAsButton();
+    private void OnRightArmWeapon(InputAction.CallbackContext context) => IsRightArmWeaponInputPressed = context.ReadValueAsButton();
+    private void OnLeftShoulderWeapon(InputAction.CallbackContext context) => IsLeftShoulderWeaponInputPressed = context.ReadValueAsButton();
+    private void OnRightShoulderWeapon(InputAction.CallbackContext context) => IsRightShoulderWeaponInputPressed = context.ReadValueAsButton();
 
-    private void OnRightArmWeapon(InputAction.CallbackContext context)
-    {
-        IsRightArmWeaponInputPressed = context.ReadValueAsButton();        
-    }
 
     private void OnRepair(InputAction.CallbackContext context)
     {
@@ -205,9 +202,13 @@ public class PlayerStateMachine : MonoBehaviour
         // To Do - 각 무기 파츠들 공격 입력 시 공격 로직... 근데 로직을 다른 클래스로 옮기는 것도 고려를 해봐야함.
 
         if (IsLeftArmWeaponInputPressed)
-            return;
+            Module.CurrentLeftArm.UseWeapon();
         if (IsRightArmWeaponInputPressed)
-            return;
+            Module.CurrentRightArm.UseWeapon();
+        if (IsLeftShoulderWeaponInputPressed)
+            Module.CurrentLeftShoulder.UseWeapon();
+        if (IsRightShoulderWeaponInputPressed)
+            Module.CurrentRightShoulder.UseWeapon();
     }
 
     // 회전 제어

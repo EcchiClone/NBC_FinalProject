@@ -13,10 +13,7 @@ public class UpperPart : BasePart
     }
 
     [field: SerializeField] public Transform WeaponTilt { get; private set; }
-    [field: SerializeField] public Transform[] WeaponPositions { get; private set; }
-
-    [SerializeField] Transform[] _primaryMuzzles;
-    [SerializeField] Transform[] _secondaryMuzzles;
+    [field: SerializeField] public Transform[] WeaponPositions { get; private set; }    
 
     public override void Setup(Module module)
     {

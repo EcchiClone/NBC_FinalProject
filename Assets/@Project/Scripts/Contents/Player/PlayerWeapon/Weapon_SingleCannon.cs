@@ -2,34 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_SingleCannon : Weapon_Arm
+public class Weapon_SingleCannon : WeaponBase
 {
+    private float _delayTime = float.MaxValue;
+
     public override void UseWeapon(Transform[] muzzlePoints)
     {
-        ShotBullets(muzzlePoints);
+        if (_isCoolDown)
+            return;
+
+        if (_delayTime >= _partData.FireRate)
+        {
+            _delayTime = 0;
+            GunFire(muzzlePoints);
+        }
     }
 
-    protected void ShotBullets(Transform[] muzzlePoints)
+    private void Update()
+    {
+        if (_delayTime < _partData.FireRate)
+            _delayTime += Time.deltaTime;
+    }
+
+    private void GunFire(Transform[] muzzlePoints)
     {
         foreach (Transform muzzle in muzzlePoints)
         {
-            Vector3 freeFirePoint = Vector3.up * 100f;
-            if (_target == null)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(_weaponTransform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
-                    freeFirePoint = hit.point;
-            }
+            GameObject bullet = CreateBullet(muzzle);
 
-            GameObject go = EnemyBulletPoolManager.instance.GetGo(WeaponSO.bulletName);
-            go.transform.position = muzzle.position;
-            go.transform.rotation = muzzle.rotation;
+            Quaternion rotation = Util.RandomDirectionFromMuzzle(_partData.ShotErrorRange);
+            bullet.transform.rotation *= rotation;
 
-            Quaternion rotation = Util.RandomDirectionFromMuzzle(WeaponSO.shotErrorRange);
-            go.transform.rotation *= rotation;
-
-            PlayerProjectile projectile = go.GetComponent<PlayerProjectile>();
-            projectile.Setup(WeaponSO.speed, freeFirePoint, _target);
+            PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
+            projectile.Setup(_partData.BulletSpeed, _partData.Damage, Vector3.zero, _target);
         }
     }
 }

@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] TextMeshProUGUI _partText;
-    
+    [SerializeField] GameObject _equip;
+
     public int currentIndex;
     public static int IndexOfLowerPart = 0;
 
@@ -21,6 +22,9 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
         currentIndex = IndexOfLowerPart;
         ++IndexOfLowerPart;
 
+        if (currentIndex == Managers.Module.CurrentLowerIndex)
+            _equip.SetActive(true);
+
         int partID = Managers.Module.GetPartOfIndex<LowerPart>(currentIndex).ID;
         _currentLowerData = Managers.Data.GetPartData(partID);
 
@@ -32,17 +36,22 @@ public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        string name = _currentLowerData.Display_Name;
+        string desc = _currentLowerData.Display_Description;
+
         if (_parentUI._sidePopup == null)
         {
-            UI_PartsStatus info = Managers.UI.ShowPopupUI<UI_PartsStatus>();
+            UI_PartsInfo info = Managers.UI.ShowPopupUI<UI_PartsInfo>();
             _parentUI.SetSidePopup(info);
+            Managers.Module.CallInfoChange(name, desc);
             return;
         }
 
         _parentUI._sidePopup.gameObject.SetActive(true);
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
         selector.DisPlayNextPartSpecText(_currentLowerData);
-        Managers.Module.CallInfoChange(_currentLowerData.Display_Description);
+        
+        Managers.Module.CallInfoChange(name, desc);        
     }
 
     public void OnPointerExit(PointerEventData eventData)

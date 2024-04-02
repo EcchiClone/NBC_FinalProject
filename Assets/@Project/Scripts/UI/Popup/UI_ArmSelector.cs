@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -37,7 +38,7 @@ public class UI_ArmSelector : UI_Popup
         RightArm,
     }
 
-    public ChangeArmMode CurrentChangeMode { get; private set; }
+    public ChangeArmMode CurrentChangeMode { get; private set; }    
 
     protected override void Init()
     {
@@ -56,21 +57,26 @@ public class UI_ArmSelector : UI_Popup
 
         BindButton(typeof(Buttons));
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);
-        GetButton((int)Buttons.L_Btn).onClick.AddListener(() => CurrentChangeMode = ChangeArmMode.LeftArm);
-        GetButton((int)Buttons.R_Btn).onClick.AddListener(() => CurrentChangeMode = ChangeArmMode.RightArm);
+        GetButton((int)Buttons.L_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeArmMode.LeftArm; Managers.ActionManager.CallArmModeChange(CurrentChangeMode); });
+        GetButton((int)Buttons.R_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeArmMode.RightArm; Managers.ActionManager.CallArmModeChange(CurrentChangeMode); });
     }
 
     public void ResetText()
     {
-        int partID = Managers.Module.GetPartOfIndex<LowerPart>(0).ID;
-        PartData currentPartData = Managers.Data.GetPartData(partID);
+        int leftID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.Module.CurrentLeftArmIndex).ID;
+        int rightID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.Module.CurrentRightArmIndex).ID;
+        PartData leftArmPartData = Managers.Data.GetPartData(leftID);
+        PartData rightArmPartData = Managers.Data.GetPartData(rightID);
 
-        UpdateSelectedPartSpecText_L(currentPartData);
+        UpdateSelectedPartSpecText_L(leftArmPartData);
+        UpdateSelectedPartSpecText_R(rightArmPartData);
     }
 
     private void BackToSelector()
     {
-        ResetText();
+        Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Holder);
+
+        ResetText();        
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

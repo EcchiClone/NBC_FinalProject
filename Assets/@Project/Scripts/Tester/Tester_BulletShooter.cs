@@ -61,7 +61,7 @@ public class Tester_BulletShooter : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(yError, xError, 0f); // 각도 계산
         bullet.transform.rotation *= rotation; // 현재 방향에 추가 회전을 적용
 
-        bullet.GetComponent<PlayerProjectile>().Setup(25f, Vector3.zero, m_target);
+        bullet.GetComponent<PlayerProjectile>().Setup(25f, 1f, Vector3.zero, m_target);
     }
 
     private float SetShotErrorRange(float standard = 0.5f)

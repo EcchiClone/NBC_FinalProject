@@ -9,6 +9,7 @@ public class PartData : IEntity
     [SerializeField] private int dev_ID;
     [SerializeField] private string dev_Name;
     [SerializeField] private string prefab_Path;
+    [SerializeField] private string sprite_Path;
 
     [SerializeField] private string display_Name;
     [TextArea]
@@ -36,10 +37,12 @@ public class PartData : IEntity
     [SerializeField] private float coolDownTime;
     [SerializeField] private int projectilesPerShot;
     [SerializeField] private float shotErrorRange;
+    [SerializeField] private int ammo;
 
     public int Dev_ID => dev_ID;
     public string Dev_Name => dev_Name;
     public string Prefab_Path => prefab_Path;
+    public string Sprite_Path => sprite_Path;
     public string Display_Name => display_Name;
     public string Display_Description=> display_Description;
     public PartsType PartType => partType;
@@ -61,4 +64,5 @@ public class PartData : IEntity
     public float CoolDownTime => coolDownTime;
     public int ProjectilesPerShot => projectilesPerShot;
     public float ShotErrorRange => shotErrorRange;
+    public int Ammo => ammo;
 }

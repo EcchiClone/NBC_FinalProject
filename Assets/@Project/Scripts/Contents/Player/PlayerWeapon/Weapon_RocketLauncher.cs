@@ -2,25 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_RocketLauncher : Weapon_Secondary
-{    
-    //public override IEnumerator UseWeapon_Secondary(Transform[] muzzlePoints)
-    //{
-    //    if (_isCoolDown)
-    //    {
-    //        Debug.Log("CoolDownTime");
-    //        yield break;
-    //    }
+public class Weapon_RocketLauncher : WeaponBase
+{
+    public override void UseWeapon(Transform[] muzzlePoints)
+    {
+        if (_isCoolDown)
+            return;
 
-    //    base.UseWeapon_Secondary(muzzlePoints);        
+        StartCoroutine(Co_UseWeapon(muzzlePoints));
+    }
 
-    //    for (int i = 0; i < WeaponSO.projectilesPerShot; i++)
-    //    {
-    //        ShotBullets(muzzlePoints);
+    public IEnumerator Co_UseWeapon(Transform[] muzzlePoints)
+    {
+        _isCoolDown = true;
 
-    //        yield return _fireRate;
-    //    }        
+        foreach (Transform muzzle in muzzlePoints)
+        {
+            for (int i = 0; i < _partData.ProjectilesPerShot; i++)
+            {
+                Vector3 freeFireTarget = GetFreeFireDest();
 
-    //    StartCoroutine(CoWaitCoolDownTime());
-    //}    
+                GameObject bullet = CreateBullet(muzzle);
+
+                PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
+                missile.Setup(_partData.BulletSpeed, _partData.Damage, freeFireTarget, _target);
+
+                yield return Util.GetWaitSeconds(_partData.FireRate);
+            }
+        }        
+
+        yield return Util.GetWaitSeconds(_partData.CoolDownTime);
+        _isCoolDown = false;
+    }
 }

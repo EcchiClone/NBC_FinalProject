@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538540402351457656}
-  - component: {fileID: 8165939654360388458}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 5034161037343936902}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8165939654360388458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8829165004457894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a411e58bf8598d49806beb8c7b5f17d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &404920848304574202
 GameObject:
   m_ObjectHideFlags: 0
@@ -20518,7 +20505,7 @@ MonoBehaviour:
   _boosterEffects:
   - {fileID: 7141324049120467043}
   - {fileID: 4792654370594182030}
-  lowerSO: {fileID: 11400000, guid: 7f8dabf0621d5334c989842e6696c8a2, type: 2}
+  <UpperPositions>k__BackingField: {fileID: 4538540402351457656}
   _footSparks:
   - {fileID: 6732721715757876199}
   - {fileID: 1435960943632515504}

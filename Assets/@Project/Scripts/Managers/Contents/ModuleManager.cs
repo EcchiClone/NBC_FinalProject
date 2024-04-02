@@ -21,7 +21,7 @@ public class ModuleManager
     public event Action<PartData> OnRightArmChange;
     public event Action<PartData> OnLeftShoulderChange;
     public event Action<PartData> OnRightSoulderChange;
-    public event Action<string> OnInfoChange;
+    public event Action<string, string> OnInfoChange;
 
     public void CallUpperPartChange(PartData part) => OnUpperChange?.Invoke(part);
     public void CallLowerPartChange(PartData lower) => OnLowerChange?.Invoke(lower);
@@ -29,7 +29,7 @@ public class ModuleManager
     public void CallRightArmPartChange(PartData lower) => OnRightArmChange?.Invoke(lower);
     public void CallLeftShoulderPartChange(PartData lower) => OnLeftShoulderChange?.Invoke(lower);
     public void CallRightShoulderPartChange(PartData lower) => OnRightSoulderChange?.Invoke(lower);
-    public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);
+    public void CallInfoChange(string name, string desc) => OnInfoChange?.Invoke(name, desc);
     #endregion
 
     public Module CurrentModule { get; private set; }
@@ -103,19 +103,17 @@ public class ModuleManager
 
     public void AssembleModule(Transform createPosition) // Lower - Upper 순차적 생성 및 Pivot 할당.
     {
-        int index = 0;
-
         // Lower 생성
-        CurrentLowerPart = CreatePart<LowerPart>(createPosition, index);        
+        CurrentLowerPart = CreatePart<LowerPart>(createPosition, CurrentLowerIndex);        
 
         // Upper 생성
-        CurrentUpperPart = CreatePart<UpperPart>(CurrentLowerPart.UpperPositions, index);
+        CurrentUpperPart = CreatePart<UpperPart>(CurrentLowerPart.UpperPositions, CurrentUpperIndex);
 
         // Weapon 생성
-        CurrentLeftArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], index);
-        CurrentRightArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], index);
-        CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);
-        CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);
+        CurrentLeftArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], CurrentLeftArmIndex);
+        CurrentRightArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], CurrentRightArmIndex);
+        CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], CurrentLeftShoulderIndex);
+        CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], CurrentRightShoulderIndex);
 
         CurrentModule.Setup(CurrentLowerPart, CurrentUpperPart, CurrentLeftArmPart, CurrentRightArmPart, CurrentLeftShoulderPart, CurrentRightShoulderPart);
     }
