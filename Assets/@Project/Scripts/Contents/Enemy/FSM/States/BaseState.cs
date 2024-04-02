@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public abstract class BaseState<StateEnum> where StateEnum : Enum
+public abstract class BaseState
 {
     protected bool IsRootState { get; set; } = false;
     protected BaseStateMachine Context { get; private set; }
-    protected BaseStateProvider<StateEnum> Provider { get; private set; }
-    protected BaseState<StateEnum> _currentSuperState;
-    protected BaseState<StateEnum> _currentSubState;
+    protected BaseStateProvider Provider { get; private set; }
+    protected BaseState _currentSuperState;
+    protected BaseState _currentSubState;
 
-    public BaseState(BaseStateMachine context, BaseStateProvider<StateEnum> provider)
+    public BaseState(BaseStateMachine context, BaseStateProvider provider)
     {
         Context = context;
         Provider = provider;
@@ -31,7 +31,7 @@ public abstract class BaseState<StateEnum> where StateEnum : Enum
             _currentSubState.UpdateStates();
     }
 
-    protected void SwitchState(BaseState<StateEnum> newState)
+    protected void SwitchState(BaseState newState)
     {
         ExitState();
 
@@ -47,12 +47,12 @@ public abstract class BaseState<StateEnum> where StateEnum : Enum
         }
     }
 
-    public void SetSuperState(BaseState<StateEnum> newSuperState)
+    public void SetSuperState(BaseState newSuperState)
     {
         _currentSuperState = newSuperState;
     }
 
-    public void SetSubState(BaseState<StateEnum> newSubState)
+    public void SetSubState(BaseState newSubState)
     {
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
