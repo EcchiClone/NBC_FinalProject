@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Define
 {
+    public enum CamType
+    {
+        Main,
+        Module,
+        Lower,
+        Upper,
+        Arm_Holder,
+        Shoulder_Holder,
+        Arm_Right,        
+        Shoulder_Right,
+    }
+
     public enum PartsType
     {
         Lower,

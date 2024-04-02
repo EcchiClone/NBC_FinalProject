@@ -66,9 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Part Description\n\uBD80\uC2A4\uD130\uAC00 \uC5B4\uCA4C\uACE0 \uACBD\uB7C9\uD654\uAC00
-    \uC5B4\uCA4C\uACE0\n\uC131\uB2A5\uC774 \uC5B4\uCA4C\uACE0 \uBC38\uB7F0\uC2A4\uAC00
-    \uC5B4\uCA4C\uACE0"
+  m_text: Part Description
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -359,7 +357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Parts Info
+  m_text: Parts Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -443,7 +441,7 @@ GameObject:
   - component: {fileID: 1962243844684514013}
   - component: {fileID: 8504647047178957816}
   m_Layer: 5
-  m_Name: UI_PartsStatus
+  m_Name: UI_PartsInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,7 +461,7 @@ RectTransform:
   m_Children:
   - {fileID: 2715817625222890637}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -545,9 +543,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22dc573caf43f75429b5dd7abef9cd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameText: {fileID: 7340222812808970914}
   _descText: {fileID: 4080118438293494538}
-  _apText: {fileID: 0}
-  _weightText: {fileID: 0}
-  _primaryAttackText: {fileID: 0}
-  _secondaryAttackText: {fileID: 0}
-  _secondaryCoolDownText: {fileID: 0}

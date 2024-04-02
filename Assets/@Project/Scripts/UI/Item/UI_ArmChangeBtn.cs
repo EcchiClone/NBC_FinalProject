@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] TextMeshProUGUI _partText;
+    [SerializeField] Image _partImage;
+    [SerializeField] GameObject _equip;
 
     public int currentIndex;
     public static int IndexOfArmPart = 0;
@@ -16,10 +15,13 @@ public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandle
 
     protected override void Init()
     {
-        base.Init();
+        base.Init();        
 
         currentIndex = IndexOfArmPart;
         ++IndexOfArmPart;
+
+        if (currentIndex == Managers.Module.CurrentLeftArmIndex)
+            _equip.SetActive(true);
 
         int partID = Managers.Module.GetPartOfIndex<ArmsPart>(currentIndex).ID;
         _currentArmData = Managers.Data.GetPartData(partID);
@@ -27,15 +29,51 @@ public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandle
         Button button = GetComponent<Button>();
         button.onClick.AddListener(ChangePart);
 
-        _partText.text = _currentArmData.Display_Name;
+        Managers.ActionManager.OnArmModeChange += ChangeMode;
+        Managers.ActionManager.OnArmPartChange += ChangePart;
+
+        Sprite weaponSprite = Resources.Load<Sprite>(_currentArmData.Sprite_Path);
+        _partImage.sprite = weaponSprite;
+    }
+
+    private void ChangePart(int index)
+    {
+        if (currentIndex != index)
+            _equip.SetActive(false);
+        else
+            _equip.SetActive(true);
+    }
+
+    private void ChangeMode(UI_ArmSelector.ChangeArmMode changeMode)
+    {
+        if (changeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
+        {
+            Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Right);
+            if (Managers.Module.CurrentLeftArmIndex == currentIndex)
+                _equip.SetActive(true);
+            else
+                _equip.SetActive(false);
+        }
+        else
+        {
+            Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Right);
+            if (Managers.Module.CurrentRightArmIndex == currentIndex)
+                _equip.SetActive(true);
+            else
+                _equip.SetActive(false);
+        }            
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        string name = _currentArmData.Display_Name;
+        string desc = _currentArmData.Display_Description;
+
         if (_parentUI._sidePopup == null)
         {
-            UI_PartsStatus info = Managers.UI.ShowPopupUI<UI_PartsStatus>();
+            UI_PartsInfo info = Managers.UI.ShowPopupUI<UI_PartsInfo>();
             _parentUI.SetSidePopup(info);
+            Managers.Module.CallInfoChange(name, desc);
             return;
         }
 
@@ -45,8 +83,8 @@ public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandle
             selector.DisplayNextPartSpecText_L(_currentArmData);
         else
             selector.DisplayNextPartSpecText_R(_currentArmData);
-
-        Managers.Module.CallInfoChange(_currentArmData.Display_Description);
+        
+        Managers.Module.CallInfoChange(name, desc);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -57,6 +95,7 @@ public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandle
     private void ChangePart()
     {
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
+        Managers.ActionManager.CallArmPartChange(currentIndex);        
 
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {

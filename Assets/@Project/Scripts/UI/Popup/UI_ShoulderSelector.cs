@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -37,7 +38,7 @@ public class UI_ShoulderSelector : UI_Popup
         RightShoulder,
     }
 
-    public ChangeShoulderMode CurrentChangeMode { get; private set; }
+    public ChangeShoulderMode CurrentChangeMode { get; private set; }    
 
     protected override void Init()
     {
@@ -56,8 +57,8 @@ public class UI_ShoulderSelector : UI_Popup
 
         BindButton(typeof(Buttons));
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);
-        GetButton((int)Buttons.L_Btn).onClick.AddListener(() => CurrentChangeMode = ChangeShoulderMode.LeftShoulder);
-        GetButton((int)Buttons.R_Btn).onClick.AddListener(() => CurrentChangeMode = ChangeShoulderMode.RightShoulder);
+        GetButton((int)Buttons.L_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeShoulderMode.LeftShoulder; Managers.ActionManager.CallShoulderModeChange(CurrentChangeMode); });
+        GetButton((int)Buttons.R_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeShoulderMode.RightShoulder; Managers.ActionManager.CallShoulderModeChange(CurrentChangeMode); });
     }
 
     public void ResetText()
@@ -70,6 +71,8 @@ public class UI_ShoulderSelector : UI_Popup
 
     private void BackToSelector()
     {
+        Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Holder);
+
         ResetText();
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
