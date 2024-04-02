@@ -1754,6 +1754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc53836e0f0e7488231422675aa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Target>k__BackingField: {fileID: 530822728}
+  enemyPhaseStarter: {fileID: 0}
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 530822728}
@@ -1935,7 +1937,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   gridWorldSize: {x: 100, y: 100}
-  nodeRadius: 0.2
+  nodeRadius: 0.5
   displayGridGizmos: 1
 --- !u!4 &1879048349
 Transform:

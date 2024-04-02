@@ -17,7 +17,7 @@ public class Bullet : PoolAble, IDamagable
         switch (owenr)
         {
             case BulletOwner.Player:
-                if (other.TryGetComponent(out Boss boss) == true && owenr == BulletOwner.Player)
+                if (other.TryGetComponent(out Entity boss) == true && owenr == BulletOwner.Player)
                 {
                     boss.GetDamaged(5);
 
