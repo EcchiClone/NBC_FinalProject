@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AchievementSaveData : MonoBehaviour
+public struct AchievementSaveData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string codeName;
+    public AchievementState state;
+    public int taskGroupIndex;
+    public int[] taskSuccessCounts;
 }

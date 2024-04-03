@@ -43,7 +43,7 @@ public class AchievementTask : ScriptableObject
     private int needSuccessToComplete; // 달성에 필요한 수치
     [SerializeField]
     private bool canReceiveReportsDuringCompletion; // Task가 완료되었어도 계속 성공횟수를 보고받을 것인지에 대한 옵션.
-    // 예를들어 Item 100개를 모아 완료하는 Quest인데, User가 아이템을 100개를 모았지만 Quest를 완료하기 전에 50개를 버릴 경우, 더 이상 보고를 안 받아 버리면 Task는 여전히 완료되어있는 상태라 Quest를 완료 할 수 있음.
+    // 예를들어 Item 100개를 모아 완료하는 achievement인데, User가 아이템을 100개를 모았지만 achievement를 완료하기 전에 50개를 버릴 경우, 더 이상 보고를 안 받아 버리면 Task는 여전히 완료되어있는 상태라 achievement를 완료 할 수 있음.
 
     private TaskState state;
     private int currentSuccess;
