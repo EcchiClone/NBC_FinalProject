@@ -35,6 +35,7 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
   - dev_ID: 10001002
     dev_Name: Lower_Temp
     prefab_Path: Prefabs/Parts/Lower/Lower_02Temp
@@ -56,6 +57,7 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
   - dev_ID: 10002001
     dev_Name: Upper_01
     prefab_Path: Prefabs/Parts/Upper/Upper_01
@@ -78,6 +80,7 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
   - dev_ID: 10002002
     dev_Name: Upper_Temp
     prefab_Path: Prefabs/Parts/Upper/Upper_02Temp
@@ -99,6 +102,7 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
   - dev_ID: 10003001
     dev_Name: Arm_01
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_01
@@ -121,6 +125,7 @@ MonoBehaviour:
     coolDownTime: 2.5
     projectilesPerShot: 1
     shotErrorRange: 0.5
+    ammo: 50
   - dev_ID: 10003002
     dev_Name: Arm_02
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_02
@@ -144,6 +149,7 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 2
+    ammo: 200
   - dev_ID: 10003003
     dev_Name: Arm_03
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_03
@@ -161,13 +167,14 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
+    bulletPrefab_Path: None
     damage: 2
     bulletSpeed: 0
     fireRate: 2
     coolDownTime: 3
     projectilesPerShot: 1
     shotErrorRange: 0
+    ammo: 1
   - dev_ID: 10003004
     dev_Name: Arm_04
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_04
@@ -190,10 +197,11 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 0.2
+    ammo: 10
   - dev_ID: 10004001
     dev_Name: Shoulder_01
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_01
-    sprite_Path: 
+    sprite_Path: Images/Weapon_S01
     display_Name: TEST WEAPON_SHOULDER
     display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
     partType: 3
@@ -211,6 +219,7 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 5
     shotErrorRange: 1
+    ammo: 80
   - dev_ID: 10004002
     dev_Name: Shoulder_02
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_02
@@ -232,3 +241,4 @@ MonoBehaviour:
     coolDownTime: 1
     projectilesPerShot: 1
     shotErrorRange: 1
+    ammo: 0
