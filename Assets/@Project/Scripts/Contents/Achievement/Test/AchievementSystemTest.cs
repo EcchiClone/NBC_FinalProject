@@ -34,10 +34,10 @@ public class AchievementSystemTest : MonoBehaviour
         };
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+            // 몬스터 잡는 등 카운트 갱신할 곳에 추가하면 될 듯.
             AchievementSystem.Instance.ReceiveReport(category, target, 1);
     }
 }
