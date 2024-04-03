@@ -104,21 +104,21 @@ public class ModuleManager
     public void AssembleModule(Transform createPosition) // Lower - Upper 순차적 생성 및 Pivot 할당.
     {
         // Lower 생성
-        CurrentLowerPart = CreatePart<LowerPart>(createPosition, CurrentLowerIndex);        
+        CurrentLowerPart = CreatePart<LowerPart>(PartsType.Lower, createPosition, CurrentLowerIndex);
 
         // Upper 생성
-        CurrentUpperPart = CreatePart<UpperPart>(CurrentLowerPart.UpperPositions, CurrentUpperIndex);
+        CurrentUpperPart = CreatePart<UpperPart>(PartsType.Upper, CurrentLowerPart.UpperPositions, CurrentUpperIndex);
 
         // Weapon 생성
-        CurrentLeftArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], CurrentLeftArmIndex);
-        CurrentRightArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], CurrentRightArmIndex);
-        CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], CurrentLeftShoulderIndex);
-        CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], CurrentRightShoulderIndex);
+        CurrentLeftArmPart = CreatePart<ArmsPart>(PartsType.Weapon_Arm_L, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], CurrentLeftArmIndex);
+        CurrentRightArmPart = CreatePart<ArmsPart>(PartsType.Weapon_Arm_R, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], CurrentRightArmIndex);
+        CurrentLeftShoulderPart = CreatePart<ShouldersPart>(PartsType.Weapon_Shoulder_L, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], CurrentLeftShoulderIndex);
+        CurrentRightShoulderPart = CreatePart<ShouldersPart>(PartsType.Weapon_Shoulder_R, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], CurrentRightShoulderIndex);
 
         CurrentModule.Setup(CurrentLowerPart, CurrentUpperPart, CurrentLeftArmPart, CurrentRightArmPart, CurrentLeftShoulderPart, CurrentRightShoulderPart);
     }
 
-    private T CreatePart<T>(Transform createPosition, int index = 0) where T : BasePart
+    private T CreatePart<T>(PartsType type, Transform createPosition, int index = 0) where T : BasePart
     {
         List<BasePart> parts;
         if (_modules.TryGetValue(typeof(T), out parts) == false)
@@ -132,71 +132,65 @@ public class ModuleManager
         GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);
         T part = go.GetComponent<T>();
         part.SetID(id);
-        part.Setup(CurrentModule);
+        part.Setup(type,CurrentModule);
 
         return part;
     }
 
-    public void ChangePart(int index, ChangePartsType partsType) // 디자인 패턴을 사용해 만들어보자
+    public void ChangePart(int index, PartsType partsType) // 디자인 패턴을 사용해 만들어보자... 할 수 있으면 ㅠ
     {
         switch (partsType)
         {
-            case ChangePartsType.Lower:
+            case PartsType.Lower:
                 if (CurrentLowerIndex == index) return;
 
                 CurrentUpperPart.transform.SetParent(CurrentModule.transform); // 상체 부모 오브젝트 변경
                 UnityEngine.Object.DestroyImmediate(CurrentLowerPart.gameObject); // 즉시 파괴
 
-                CurrentLowerPart = CreatePart<LowerPart>(CurrentModule.LowerPosition, index); // 하체 생성                
-                CurrentLowerPart.Setup(CurrentModule);
+                CurrentLowerPart = CreatePart<LowerPart>(partsType, CurrentModule.LowerPosition, index); // 하체 생성
                 CurrentLowerIndex = index;
 
                 CurrentUpperPart.transform.SetParent(CurrentLowerPart.UpperPositions); // 상체 부모 오브젝트 변경
                 CurrentUpperPart.transform.localPosition = Vector3.zero; // 상체 위치 조정
                 break;
-            case ChangePartsType.Upper:
+            case PartsType.Upper:
                 if (CurrentUpperIndex == index) return;
 
                 UnityEngine.Object.DestroyImmediate(CurrentUpperPart.gameObject);
 
-                CurrentUpperPart = CreatePart<UpperPart>(CurrentLowerPart.UpperPositions, index);
-                CurrentUpperPart.Setup(CurrentModule);                
+                CurrentUpperPart = CreatePart<UpperPart>(partsType, CurrentLowerPart.UpperPositions, index);                
                 CurrentUpperIndex = index;
                 break;
-            case ChangePartsType.Weapon_Arm_L:
+            case PartsType.Weapon_Arm_L:
                 if (CurrentLeftArmIndex == index) return;
 
                 UnityEngine.Object.DestroyImmediate(CurrentLeftArmPart.gameObject);
 
-                CurrentLeftArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], index);
-                CurrentLeftArmPart.Setup(CurrentModule);
+                CurrentLeftArmPart = CreatePart<ArmsPart>(partsType, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm], index);                
                 CurrentLeftArmIndex = index;
                 break;
-            case ChangePartsType.Weapon_Arm_R:
-                if(CurrentRightArmIndex == index) return;
+            case PartsType.Weapon_Arm_R:
+                if (CurrentRightArmIndex == index) return;
 
                 UnityEngine.Object.DestroyImmediate(CurrentRightArmPart.gameObject);
 
-                CurrentRightArmPart = CreatePart<ArmsPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], index);
-                CurrentRightArmPart.Setup(CurrentModule);
+                CurrentRightArmPart = CreatePart<ArmsPart>(partsType, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm], index);                
                 CurrentRightArmIndex = index;
                 break;
-            case ChangePartsType.Weapon_Shoulder_L:
+            case PartsType.Weapon_Shoulder_L:
                 if (CurrentLeftShoulderIndex == index) return;
 
                 UnityEngine.Object.DestroyImmediate(CurrentLeftShoulderPart.gameObject);
 
-                CurrentLeftShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);
-                CurrentLeftShoulderPart.Setup(CurrentModule);
+                CurrentLeftShoulderPart = CreatePart<ShouldersPart>(partsType, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder], index);                
                 CurrentLeftShoulderIndex = index;
                 break;
-            case ChangePartsType.Weapon_Shoulder_R:
+            case PartsType.Weapon_Shoulder_R:
                 if (CurrentRightShoulderIndex == index) return;
 
                 UnityEngine.Object.DestroyImmediate(CurrentRightShoulderPart.gameObject);
 
-                CurrentRightShoulderPart = CreatePart<ShouldersPart>(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);
-                CurrentRightShoulderPart.Setup(CurrentModule);
+                CurrentRightShoulderPart = CreatePart<ShouldersPart>(partsType, CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder], index);                
                 CurrentRightShoulderIndex = index;
                 break;
         }

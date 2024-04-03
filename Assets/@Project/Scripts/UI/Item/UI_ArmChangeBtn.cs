@@ -99,12 +99,12 @@ public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandle
 
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Arm_L);
+            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Arm_L);
             Managers.Module.CallLeftArmPartChange(_currentArmData);
         }
         else
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Arm_R);
+            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Arm_R);
             Managers.Module.CallRightArmPartChange(_currentArmData);
         }        
     }

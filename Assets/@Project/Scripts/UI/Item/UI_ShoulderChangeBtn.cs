@@ -102,12 +102,12 @@ public class UI_ShoulderChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitH
 
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Shoulder_L);
+            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Shoulder_L);
             Managers.Module.CallLeftShoulderPartChange(_currentShoulderData);
         }
         else
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Shoulder_R);
+            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Shoulder_R);
             Managers.Module.CallRightShoulderPartChange(_currentShoulderData);
         }
     }

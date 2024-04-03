@@ -12,7 +12,7 @@ public class Weapon_LaserCannon : WeaponBase
     private readonly float LASER_CUT_TIME = 1f;
 
     public override void UseWeapon(Transform[] muzzlePoints)
-    {
+    {        
         if (_isCoolDown)
             return;
 
@@ -63,6 +63,7 @@ public class Weapon_LaserCannon : WeaponBase
             yield return null;
         }
 
+        Ammo--;
         LaserClear(startLaserWidth, muzzle);
 
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);
