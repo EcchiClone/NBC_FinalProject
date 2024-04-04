@@ -8,11 +8,11 @@ using Debug = UnityEngine.Debug;
 
 public enum AchievementState
 {
-    Inactive,
-    Running,
-    Complete,
-    Cancel,
-    WaitingForCompletion
+    Inactive, // 비활성화 상태
+    Running, // 진행중인 상태
+    WaitingForCompletion, // 완료를 기다리는 상태(해당 방식 채택)
+    Complete, // 완료 상태
+    Cancel, // 중단 상태(구현 예정 없음)
 }
 
 [CreateAssetMenu(menuName = "Achievement/Achievement", fileName = "Achievement_")]
@@ -20,19 +20,17 @@ public class Achievement : ScriptableObject
 {
     #region Events
     public delegate void TaskSuccessChangedHandler(Achievement achievement, AchievementTask task, int currentSuccess, int prevSuccess);
+    public delegate void WaitingForCompletionHandler(Achievement achievement);
     public delegate void CompletedHandler(Achievement achievement);
     public delegate void CanceledHandler(Achievement achievement);
     public delegate void NewTaskGroupHandler(Achievement achievement, AchievementTaskGroup currentTaskGroup, AchievementTaskGroup prevTaskGroup);
     #endregion
 
-    [SerializeField]
-    private TaskCategory category;
+    [Header("Text")]
+    [SerializeField] 
+    private string codeName;
     [SerializeField]
     private Sprite icon;
-
-    [Header("Text")]
-    [SerializeField]
-    private string codeName;
     [SerializeField]
     private string displayName;
     [SerializeField, TextArea]
@@ -46,40 +44,53 @@ public class Achievement : ScriptableObject
     [SerializeField]
     private AchievementReward[] rewards;
 
+    // 부가옵션, 미사용 예정
     [Header("Option")]
     [SerializeField]
-    private bool useAutoComplete;
-    [SerializeField]
-    private bool isCancelable;
-    [SerializeField]
-    private bool isSavable;
+    private bool useAutoComplete; // 삭제... 했었으나 일단 되살림. 문제 없을듯.
+    //[SerializeField]
+    //private bool isCancelable; // 삭제
+    //[SerializeField]
+    //private bool isSavable;
 
-    [Header("Condition")]
-    [SerializeField]
-    private AchievementCondition[] acceptionConditions;
-    [SerializeField]
-    private AchievementCondition[] cancelConditions;
+    // 업적 활성화 조건과 업적퀘 중단(cancel) 조건
+    //[Header("Condition")]
+    //[SerializeField]
+    //private AchievementCondition[] acceptionConditions;
+    //[SerializeField]
+    //private AchievementCondition[] cancelConditions;
 
+    private AchievementState state;
     private int currentTaskGroupIndex;
 
-    public TaskCategory Category => category;
-    public Sprite Icon => icon;
     public string CodeName => codeName;
+    public Sprite Icon => icon;
     public string DisplayName => displayName;
     public string Description => description;
-    public AchievementState State { get; private set; }
+    public AchievementState State{
+        get
+        {
+            return state;
+        }
+        private set
+        {
+            state = value;
+        }
+    }
     public AchievementTaskGroup CurrentTaskGroup => taskGroups[currentTaskGroupIndex];
     public IReadOnlyList<AchievementTaskGroup> TaskGroups => taskGroups;
     public IReadOnlyList<AchievementReward> Rewards => rewards;
+    public bool IsAutoComplete => useAutoComplete;
     public bool IsRegistered => State != AchievementState.Inactive;
-    public bool IsComplatable => State == AchievementState.WaitingForCompletion;
+    public bool IsWaitingForCompletion => State == AchievementState.WaitingForCompletion;
     public bool IsComplete => State == AchievementState.Complete;
     public bool IsCancel => State == AchievementState.Cancel;
-    public virtual bool IsCancelable => isCancelable && cancelConditions.All(x => x.IsPass(this));
-    public bool IsAcceptable => acceptionConditions.All(x => x.IsPass(this));
-    public virtual bool IsSavable => isSavable;
+    //public virtual bool IsCancelable => isCancelable && cancelConditions.All(x => x.IsPass(this));
+    //public bool IsAcceptable => acceptionConditions.All(x => x.IsPass(this));
+    //public virtual bool IsSavable => isSavable;
 
     public event TaskSuccessChangedHandler onTaskSuccessChanged;
+    public event WaitingForCompletionHandler onWaitForComplete;
     public event CompletedHandler onCompleted;
     public event CanceledHandler onCanceled;
     public event NewTaskGroupHandler onNewTaskGroup;
@@ -104,7 +115,7 @@ public class Achievement : ScriptableObject
         Debug.Assert(IsRegistered, "This achievement has already been registered.");
         Debug.Assert(!IsCancel, "This achievement has been canceled.");
 
-        if (IsComplete)
+        if (IsComplete||IsWaitingForCompletion)
             return;
 
         CurrentTaskGroup.ReceiveReport(category, target, successCount);
@@ -113,8 +124,10 @@ public class Achievement : ScriptableObject
         {
             if (currentTaskGroupIndex + 1 == taskGroups.Length)
             {
-                State = AchievementState.WaitingForCompletion;
-                if (useAutoComplete)
+                //State = AchievementState.WaitingForCompletion;
+                if (!useAutoComplete)
+                    SetWaitForCompletion();
+                else
                     Complete();
             }
             else
@@ -129,11 +142,23 @@ public class Achievement : ScriptableObject
             State = AchievementState.Running;
     }
 
-    public void Complete()
+    public void SetWaitForCompletion()
     {
         CheckIsRunning();
 
         foreach (var taskGroup in taskGroups)
+            taskGroup.Complete();
+
+        State = AchievementState.WaitingForCompletion;
+
+        onWaitForComplete?.Invoke(this);
+    }
+
+    public void Complete()
+    {
+        CheckIsRunning();
+
+        foreach (var taskGroup in taskGroups) // SetWaitForCompletion() 과 중복처리지만, 굳이 뺄 이유는 없어서 남겨둠
             taskGroup.Complete();
 
         State = AchievementState.Complete;
@@ -149,13 +174,32 @@ public class Achievement : ScriptableObject
         onNewTaskGroup = null;
     }
 
-    public virtual void Cancel()
+    public virtual void Cancel() // 퀘스트가 아니라 업적이므로 아무래도 미사용 예정
     {
         CheckIsRunning();
-        Debug.Assert(IsCancelable, "This achievement can't be canceled");
+        //Debug.Assert(IsCancelable, "This achievement can't be canceled");
 
         State = AchievementState.Cancel;
         onCanceled?.Invoke(this);
+    }
+
+    public void ReceiveRewardsAndComplete()
+    {
+        if (State == AchievementState.WaitingForCompletion)
+        {
+            foreach (var reward in rewards)
+            {
+                reward.Give(this);
+            }
+
+            State = AchievementState.Complete;
+
+            onCompleted?.Invoke(this);
+        }
+        else
+        {
+            Debug.LogWarning("업적이 완료 대기 상태가 아님. 버튼 미반응.");
+        }
     }
 
     public Achievement Clone()

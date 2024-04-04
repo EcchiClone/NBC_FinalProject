@@ -18,11 +18,11 @@ public class AchievementTaskGroup
 
     public IReadOnlyList<AchievementTask> Tasks => tasks;
     public Achievement Owner { get; private set; }
-    public bool IsAllTaskComplete => tasks.All(x => x.IsComplete);
+    public bool IsAllTaskComplete => tasks.All(x => x.IsComplete); // 모든 태스크 완료인지 확인용.
     public bool IsComplete => State == TaskGroupState.Complete;
     public TaskGroupState State { get; private set; }
 
-    public AchievementTaskGroup(AchievementTaskGroup copyTarget)
+    public AchievementTaskGroup(AchievementTaskGroup copyTarget) // ??? 엥... 어떻게 돌아가는거지
     {
         tasks = copyTarget.Tasks.Select(x => Object.Instantiate(x)).ToArray();
     }

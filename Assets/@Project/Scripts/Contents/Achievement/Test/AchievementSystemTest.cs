@@ -5,7 +5,7 @@ using UnityEngine;
 public class AchievementSystemTest : MonoBehaviour
 {
     [SerializeField]
-    private Achievement achievement;
+    private Achievement[] achievements;
     [SerializeField]
     private TaskCategory category;
     [SerializeField]
@@ -17,23 +17,23 @@ public class AchievementSystemTest : MonoBehaviour
 
         achievementSystem.onAchievementRegistered += (achievement) =>
         {
-            print($"New Achievement:{achievement.CodeName} Registered");
-            print($"Active Achievements Count:{achievementSystem.ActiveAchievements.Count}");
+            print($"새 업적 [{achievement.CodeName}]을 등록했습니다");
         };
 
         achievementSystem.onAchievementCompleted += (achievement) =>
         {
-            print($"Achievement:{achievement.CodeName} Completed");
-            print($"Completed Achievements Count:{achievementSystem.CompletedAchievements.Count}");
+            print($"업적 [{achievement.CodeName}]를 완료");
         };
 
-        var newAchievement = achievementSystem.Register(achievement);
-        newAchievement.onTaskSuccessChanged += (achievement, task, currentSuccess, prevSuccess) =>
+        foreach (var achievement in achievements)
         {
-            print($"Achievement:{achievement.CodeName}, Task:{task.CodeName}, CurrentSuccess:{currentSuccess}");
-        };
+            var newAchievement = achievementSystem.Register(achievement);
+            newAchievement.onTaskSuccessChanged += (achievement, task, currentSuccess, prevSuccess) =>
+            {
+                print($"[{achievement.CodeName}/{task.CodeName}]의 현재 성공 수: {currentSuccess}");
+            };
+        }
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

@@ -18,7 +18,7 @@ public class AchievementSystem : MonoBehaviour
     public delegate void AchievementCanceledHandler(Achievement achievement);
     #endregion
 
-    private static AchievementSystem instance;
+    public static AchievementSystem instance;
     private static bool isApplicationQuitting;
 
     public static AchievementSystem Instance
@@ -30,7 +30,7 @@ public class AchievementSystem : MonoBehaviour
                 instance = FindObjectOfType<AchievementSystem>();
                 if (instance == null)
                 {
-                    instance = new GameObject("Achievement System").AddComponent<AchievementSystem>();
+                    instance = new GameObject("Achievement System").AddComponent<AchievementSystem>(); // 여기 빨간줄
                     DontDestroyOnLoad(instance.gameObject);
                 }
             }
@@ -108,11 +108,24 @@ public class AchievementSystem : MonoBehaviour
             Achievement.ReceiveReport(category, target, successCount);
     }
 
-    public void CompleteWaitingAchievements()
+    public void ReceiveRewardsAndCompleteAchievement(string codeName)
+    {
+        var achievement = activeAchievements.FirstOrDefault(a => a.CodeName == codeName && a.IsWaitingForCompletion);
+        if (achievement != null)
+        {
+            achievement.ReceiveRewardsAndComplete();
+        }
+        else
+        {
+            Debug.LogWarning("지정된 코드 이름의 업적을 찾을 수 없거나, 업적이 완료 대기 상태가 아님.");
+        }
+    }
+
+    public void CompleteWaitingAchievements() // 완료대기 일괄수령 버튼
     {
         foreach (var achievement in activeAchievements.ToList())
         {
-            if (achievement.IsComplatable)
+            if (achievement.IsWaitingForCompletion)
                 achievement.Complete();
         }
     }
@@ -150,7 +163,7 @@ public class AchievementSystem : MonoBehaviour
         var saveDatas = new JArray();
         foreach (var achievement in achievements)
         {
-            if (achievement.IsSavable)
+            //if (achievement.IsSavable)
                 saveDatas.Add(JObject.FromObject(achievement.ToSaveData()));
         }
         return saveDatas;
@@ -158,12 +171,19 @@ public class AchievementSystem : MonoBehaviour
 
     private void LoadSaveDatas(JToken datasToken, AchievementDatabase database, System.Action<AchievementSaveData, Achievement> onSuccess)
     {
-        var datas = datasToken as JArray;
-        foreach (var data in datas)
+        try
         {
-            var saveData = data.ToObject<AchievementSaveData>();
-            var achievement = database.FindAchievementBy(saveData.codeName);
-            onSuccess.Invoke(saveData, achievement);
+            var datas = datasToken as JArray;
+            foreach (var data in datas)
+            {
+                var saveData = data.ToObject<AchievementSaveData>();
+                var achievement = database.FindAchievementBy(saveData.codeName);
+                onSuccess.Invoke(saveData, achievement);
+            }
+        }
+        catch
+        {
+            Debug.LogError("업적데이터 불러오기 쪽 문제임다 일단 무시해주세용");
         }
     }
 

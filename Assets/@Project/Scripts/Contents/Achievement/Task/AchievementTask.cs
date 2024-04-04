@@ -14,6 +14,7 @@ public class AchievementTask : ScriptableObject
     #region Events
 
     public delegate void StateChangedHandler(AchievementTask task, TaskState currentState, TaskState prevState);
+
     // CurrentSuccess 값이 변했을 때 알려주는 event. State와 마찬가지로 다른 곳에서 계속 Update로 추적하지 않아도 되게 하기 위함.
     public delegate void SuccessChangedHandler(AchievementTask task, int currentSuccess, int prevSuccess);
 
@@ -24,7 +25,7 @@ public class AchievementTask : ScriptableObject
 
     [Header("Text")]
     [SerializeField]
-    private string codeName; // Task 구분을 위한 Key로써 추후 사용 가능
+    private string codeName; // Task 구분을 위한 Key로써 사용
     [SerializeField]
     private string description;
 
@@ -38,14 +39,14 @@ public class AchievementTask : ScriptableObject
 
     [Header("Settings")]
     [SerializeField]
-    private InitialSuccessValue initialSuccessValue; // 퀘 시작 시점의 달성도 수치
+    private InitialSuccessValue initialSuccessValue; // 퀘 시작 시점의 달성도 수치. 미사용시 null, 0부터 시작 할 듯 함
     [SerializeField]
     private int needSuccessToComplete; // 달성에 필요한 수치
     [SerializeField]
     private bool canReceiveReportsDuringCompletion; // Task가 완료되었어도 계속 성공횟수를 보고받을 것인지에 대한 옵션.
     // 예를들어 Item 100개를 모아 완료하는 achievement인데, User가 아이템을 100개를 모았지만 achievement를 완료하기 전에 50개를 버릴 경우, 더 이상 보고를 안 받아 버리면 Task는 여전히 완료되어있는 상태라 achievement를 완료 할 수 있음.
 
-    private TaskState state;
+    private TaskState state; // 태스크의 상태
     private int currentSuccess;
 
     public event StateChangedHandler onStateChanged; // Task 상태 설정 시(실제 코드에서는 변화가 아니라 Set 시에 호출), 사용할 메서드를 여기에 구독
@@ -77,7 +78,8 @@ public class AchievementTask : ScriptableObject
         {
             var prevState = state;
             state = value;
-            onStateChanged?.Invoke(this, state, prevState);
+            if(value != prevState) // enum값이 다른 경우, 콜백
+                onStateChanged?.Invoke(this, state, prevState);
         }
     }
     public bool IsComplete => State == TaskState.Complete;
@@ -95,8 +97,8 @@ public class AchievementTask : ScriptableObject
     }
     public void End()
     {
-        onStateChanged = null; // 이벤트 초기화
-        onSuccessChanged = null; // 이벤트 초기화
+        onStateChanged = null; // State변화 시의 구독목록 초기화
+        onSuccessChanged = null; // 진행도 변화 시의 구독목록 초기화
     }
 
     public void ReceiveReport(int successCount)
@@ -108,7 +110,7 @@ public class AchievementTask : ScriptableObject
         CurrentSuccess = needSuccessToComplete;
     }
     public bool IsTarget(string category, object target)
-        => Category == category &&
-        targets.Any(x => x.IsEqual(target)) &&
+        => Category == category && // ex.KILL
+        targets.Any(x => x.IsEqual(target)) && // target 배열 중 어느 하나와 동일하고,
         (!IsComplete || (IsComplete && canReceiveReportsDuringCompletion));
 }

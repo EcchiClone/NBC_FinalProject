@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
-  m_Name: Achievement_Test
+  m_Name: Achievement_Test1
   m_EditorClassIdentifier: 
-  category: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
-  icon: {fileID: 0}
-  codeName: TEST
-  displayName: test
-  description: 
+  codeName: Space5
+  icon: {fileID: 21300000, guid: e3123bceb272fdb4a88af6945c8aa195, type: 3}
+  displayName: "\uC2A4\uD398\uC774\uC2A4 \uB09C\uBBFC"
+  description: "SpaceBar\uB97C 5\uBC88 \uB204\uB974\uAE30"
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: f91905b90bc58ab4da16272a1d48c53b, type: 2}
-  rewards: []
-  useAutoComplete: 1
-  isCancelable: 0
-  isSavable: 1
-  acceptionConditions: []
-  cancelConditions: []
+  rewards:
+  - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
+  useAutoComplete: 0
