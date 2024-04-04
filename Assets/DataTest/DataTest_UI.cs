@@ -8,7 +8,6 @@ public class DataTest_UI : MonoBehaviour
 
     private void Start()
     {
-        PartData data = Managers.Data.GetPartData(10001001);
-        Debug.Log(data.PartType);
+        PartData data = Managers.Data.GetPartData(10001001);        
     }
 }

@@ -14,8 +14,7 @@ public class PartData : IEntity
     [SerializeField] private string display_Name;
     [TextArea]
     [SerializeField] private string display_Description;
-
-    [SerializeField] private PartsType partType;
+    
     [SerializeField] private float armor;
     [SerializeField] private float weight;
 
@@ -38,14 +37,14 @@ public class PartData : IEntity
     [SerializeField] private int projectilesPerShot;
     [SerializeField] private float shotErrorRange;
     [SerializeField] private int ammo;
+    [SerializeField] private bool isReloadable;
 
     public int Dev_ID => dev_ID;
     public string Dev_Name => dev_Name;
     public string Prefab_Path => prefab_Path;
     public string Sprite_Path => sprite_Path;
     public string Display_Name => display_Name;
-    public string Display_Description=> display_Description;
-    public PartsType PartType => partType;
+    public string Display_Description=> display_Description;    
 
     public float Armor => armor;
     public float Weight => weight;
@@ -65,4 +64,5 @@ public class PartData : IEntity
     public int ProjectilesPerShot => projectilesPerShot;
     public float ShotErrorRange => shotErrorRange;
     public int Ammo => ammo;
+    public bool IsReloadable => isReloadable;
 }

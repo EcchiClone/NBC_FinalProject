@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,16 @@ using UnityEngine;
 public class WeaponPart : BasePart
 {
     [SerializeField] Transform[] _muzzlePoints;
-    [SerializeField] LayerMask _groundLayer;
+    [SerializeField] LayerMask _groundLayer;    
 
-    protected WeaponBase _weapon;
+    public WeaponBase Weapon { get; private set; }
 
-    public override void Setup(Module module)
+    public override void Setup(Define.PartsType type, Module module)
     {
-        base.Setup(module);
-        _weapon = GetComponent<WeaponBase>();
-        _weapon.Setup(ID, transform, _groundLayer);
+        base.Setup(type, module);
+        Weapon = GetComponent<WeaponBase>();
+        Weapon.Setup(ID, type, _groundLayer);
     }
 
-    public void UseWeapon() => _weapon.UseWeapon(_muzzlePoints);
+    public void UseWeapon() => Weapon.UseWeapon(_muzzlePoints);
 }

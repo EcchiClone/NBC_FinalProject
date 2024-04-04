@@ -42,9 +42,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool CanJudgeDashing { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
-    public PlayerStateFactory StateFactory { get; private set; }
-
-    public static event Action OnChargingCut;
+    public PlayerStateFactory StateFactory { get; private set; }    
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;

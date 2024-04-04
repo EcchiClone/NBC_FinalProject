@@ -52,12 +52,11 @@ public class UI_MainMenuPopup : UI_Popup
         if (_selector == null)
         {
             _achievement = Managers.UI.ShowPopupUI<UI_Achievement>(); // Set on scene about Achievement UI
-            _achievement.SetPreviousPopup(this);    // Set prev value(this(MainMenu))
-           
+            _achievement.SetPreviousPopup(this);    // Set prev value(this(MainMenu))            
         }
         else
             _achievement.gameObject.SetActive(true); // Show UI
-
+        
         gameObject.SetActive(false); // Disable this(MainMenu)
     }
 

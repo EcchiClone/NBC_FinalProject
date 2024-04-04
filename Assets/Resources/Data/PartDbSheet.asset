@@ -16,11 +16,10 @@ MonoBehaviour:
   - dev_ID: 10001001
     dev_Name: Lower_01
     prefab_Path: Prefabs/Parts/Lower/Lower_01
-    sprite_Path: 
+    sprite_Path: Images/Lower_01
     display_Name: DG-001
     display_Description: "\uACBD\uB7C9\uD615 \uC5ED\uAD00\uC808 \uD558\uCCB4\n\uAC00\uBCCD\uACE0
       \uBE60\uB974\uC9C0\uB9CC \uBE48\uC57D\uD55C \uC7A5\uAC11"
-    partType: 0
     armor: 2300
     weight: 250
     speed: 5
@@ -35,13 +34,14 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
+    isReloadable: 0
   - dev_ID: 10001002
     dev_Name: Lower_Temp
     prefab_Path: Prefabs/Parts/Lower/Lower_02Temp
-    sprite_Path: 
+    sprite_Path: Images/Lower_02
     display_Name: TEST LEG
     display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
-    partType: 0
     armor: 10000
     weight: 1
     speed: 1000
@@ -56,14 +56,15 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
+    isReloadable: 0
   - dev_ID: 10002001
     dev_Name: Upper_01
     prefab_Path: Prefabs/Parts/Upper/Upper_01
-    sprite_Path: 
+    sprite_Path: Images/Upper_01
     display_Name: UH-001
     display_Description: "\uC900\uC218\uD55C \uC131\uB2A5\uC744 \uAC00\uC9C4 \uD5E4\uB4DC\uD30C\uCE20\n1\uC5F0\uC7A5
       \uAC1C\uD2C0\uB9C1\uAC74x2\n\uB2E4\uC5F0\uC7A5 \uD0C0\uAC9F \uCD94\uC801 \uBBF8\uC0AC\uC77Cx2"
-    partType: 1
     armor: 3000
     weight: 150
     speed: 0
@@ -78,13 +79,14 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
+    isReloadable: 0
   - dev_ID: 10002002
     dev_Name: Upper_Temp
     prefab_Path: Prefabs/Parts/Upper/Upper_02Temp
-    sprite_Path: 
+    sprite_Path: Images/Upper_02
     display_Name: TEST HEAD
     display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
-    partType: 1
     armor: 10000
     weight: 1
     speed: 0
@@ -99,14 +101,15 @@ MonoBehaviour:
     coolDownTime: 0
     projectilesPerShot: 0
     shotErrorRange: 0
+    ammo: 0
+    isReloadable: 0
   - dev_ID: 10003001
     dev_Name: Arm_01
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_01
-    sprite_Path: Images/Weapon_01
+    sprite_Path: Images/Weapon_A01
     display_Name: CA-STD
     display_Description: "\uBC38\uB7F0\uC2A4\uD615 1\uC5F0\uC7A5 \uCE90\uB17C\n\uC801\uB2F9\uD55C
       \uC5F0\uC0AC\uB825\uACFC \uC9D1\uD0C4\uB825\uC744 \uAC00\uC9C0\uACE0\uC788\uB2E4"
-    partType: 2
     armor: 350
     weight: 5
     speed: 0
@@ -121,15 +124,16 @@ MonoBehaviour:
     coolDownTime: 2.5
     projectilesPerShot: 1
     shotErrorRange: 0.5
+    ammo: 50
+    isReloadable: 1
   - dev_ID: 10003002
     dev_Name: Arm_02
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_02
-    sprite_Path: Images/Weapon_02
+    sprite_Path: Images/Weapon_A02
     display_Name: GA-S
     display_Description: "\uC18C\uD615 \uAC1C\uD2C0\uB9C1\uAC74\n\uC9D1\uC911\uD3EC\uD654\uAC00
       \uAC00\uB2A5\uD558\uC9C0\uB9CC\n\uBA40\uB9AC\uC788\uB294 \uD0C0\uAC9F\uC5D0\uC11C
       \uADF8\uB2E4\uC9C0 \uC88B\uC740 \uD6A8\uACFC\uB97C \uB0B4\uC9C4 \uBABB\uD55C\uB2E4"
-    partType: 2
     armor: 275
     weight: 10
     speed: 0
@@ -144,16 +148,17 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 2
+    ammo: 200
+    isReloadable: 1
   - dev_ID: 10003003
     dev_Name: Arm_03
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_03
-    sprite_Path: Images/Weapon_03
+    sprite_Path: Images/Weapon_A03
     display_Name: LC-S
     display_Description: "\uC18C\uD615 \uB808\uC774\uC800\uCE90\uB17C\n\uB2E8\uC77C
       \uD0C0\uAC9F\uC5D0 \uB300\uD55C \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uAC00\uD55C\uB2E4\n\uCDA9\uC804\uC2DC\uAC04\uACFC
       \uC7AC\uC7A5\uC804 \uC2DC\uAC04\uC774 \uAE38\uC9C0\uB9CC \uD654\uB825\uC740
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
-    partType: 2
     armor: 275
     weight: 10
     speed: 0
@@ -161,21 +166,22 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
+    bulletPrefab_Path: None
     damage: 2
     bulletSpeed: 0
     fireRate: 2
     coolDownTime: 3
     projectilesPerShot: 1
     shotErrorRange: 0
+    ammo: 1
+    isReloadable: 1
   - dev_ID: 10003004
     dev_Name: Arm_04
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_04
-    sprite_Path: Images/Weapon_04
+    sprite_Path: Images/Weapon_A04
     display_Name: CA-AP
     display_Description: "1\uC5F0\uC7A5 AP \uCE90\uB17C\n\uAC15\uB825\uD55C \uD55C
       \uBC29\uC744 \uC790\uB791\uD558\uC9C0\uB9CC \uC5F0\uC0AC\uB825\uC774 \uC88B\uC9C0\uC54A\uB2E4"
-    partType: 2
     armor: 275
     weight: 10
     speed: 0
@@ -190,13 +196,16 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 0.2
+    ammo: 10
+    isReloadable: 1
   - dev_ID: 10004001
     dev_Name: Shoulder_01
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_01
-    sprite_Path: 
-    display_Name: TEST WEAPON_SHOULDER
-    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
-    partType: 3
+    sprite_Path: Images/Weapon_S01
+    display_Name: RL-Rapid
+    display_Description: "\uACE0\uC815\uD615 \uB85C\uCF13\uB7F0\uCC98\n5\uBC1C\uC744
+      \uCC28\uB840\uB85C \uACF5\uC911\uC73C\uB85C \uBC1C\uC0AC \uD6C4 \uD0C0\uAC9F\uC744
+      \uD5A5\uD574 \uC720\uB3C4\uD55C\uB2E4"
     armor: 120
     weight: 5
     speed: 0
@@ -211,13 +220,17 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 5
     shotErrorRange: 1
+    ammo: 10
+    isReloadable: 0
   - dev_ID: 10004002
     dev_Name: Shoulder_02
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_02
-    sprite_Path: 
-    display_Name: TEST WEAPON_SHOULDER
-    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
-    partType: 3
+    sprite_Path: Images/Weapon_S02
+    display_Name: ML-HellFire
+    display_Description: "2\uC5F0\uC7A5 \uBBF8\uC0AC\uC77C\uB7F0\uCC98\n\uACE0\uD3ED\uD0C4\uC744
+      \uC801\uC7AC\uD55C \uC911\uD615 \uBBF8\uC0AC\uC77C\uC744 \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C
+      \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD790
+      \uC218 \uC788\uB2E4"
     armor: 200
     weight: 5
     speed: 0
@@ -225,10 +238,12 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
-    damage: 1
-    bulletSpeed: 1
-    fireRate: 1
-    coolDownTime: 1
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
+    damage: 50
+    bulletSpeed: 20
+    fireRate: 0.5
+    coolDownTime: 5
     projectilesPerShot: 1
-    shotErrorRange: 1
+    shotErrorRange: 0
+    ammo: 5
+    isReloadable: 0

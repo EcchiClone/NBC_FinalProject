@@ -20,14 +20,6 @@ public class Define
     {
         Lower,
         Upper,
-        Weapon_Arm,        
-        Weapon_Shoulder,        
-    }
-
-    public enum ChangePartsType
-    {
-        Lower,
-        Upper,
         Weapon_Arm_L,
         Weapon_Arm_R,
         Weapon_Shoulder_L,
@@ -50,7 +42,7 @@ public class Define
 
         public readonly List<int> UpperPartId = new()
         {
-            10002002,            
+            10002001,            
         };
 
         public readonly List<int> ArmWeaponPartId = new()

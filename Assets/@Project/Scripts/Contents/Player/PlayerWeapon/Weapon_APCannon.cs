@@ -11,9 +11,10 @@ public class Weapon_APCannon : WeaponBase
         if (_isCoolDown)
             return;
 
-        if (_delayTime >= _partData.FireRate)
+        if (_delayTime >= _partData.FireRate && Ammo > 0)
         {
-            _delayTime = 0;
+            _delayTime = 0;            
+            Ammo--;
             GunFire(muzzlePoints);
         }
     }

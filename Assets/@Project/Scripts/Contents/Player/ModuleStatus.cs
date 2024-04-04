@@ -17,10 +17,7 @@ public class ModuleStatus
     public float BoostPower { get; private set; }
     public bool CanJump { get; private set; }
 
-    // # Upper Stats
-    public float AttackPrimary { get; private set; }
-    public float AttackSecondary { get; private set; }
-    public float ReloadSecondary { get; private set; }
+    // # Upper Stats 
     public float SmoothRotateValue { get; private set; }
 
     public static event Action<float, float> OnChangeArmorPoint;

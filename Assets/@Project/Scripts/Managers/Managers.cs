@@ -44,7 +44,7 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
 
             s_instance._dataManager.Init();
-            s_instance._module.Init();            
+            s_instance._module.Init();
         }
     }
 

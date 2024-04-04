@@ -440,6 +440,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01624380d0d93f44483d6df7ed328d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _partText: {fileID: 0}
+  _partImage: {fileID: 8377962971848788149}
   _equip: {fileID: 3233389000321737099}
-  currentIndex: 0
