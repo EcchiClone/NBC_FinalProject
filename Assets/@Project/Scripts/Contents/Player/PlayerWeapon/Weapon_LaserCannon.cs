@@ -12,7 +12,7 @@ public class Weapon_LaserCannon : WeaponBase
     private readonly float LASER_CUT_TIME = 1f;
 
     public override void UseWeapon(Transform[] muzzlePoints)
-    {
+    {        
         if (_isCoolDown)
             return;
 
@@ -57,12 +57,13 @@ public class Weapon_LaserCannon : WeaponBase
             _laser.endWidth = Mathf.Lerp(startLaserWidth, 0, _laserCurve.Evaluate(percent));
 
             if (isHit)
-                if (hit.transform.TryGetComponent(out Boss boss) == true)
+                if (hit.transform.TryGetComponent(out Entity boss) == true)
                     boss.GetDamaged(_partData.Damage);
 
             yield return null;
         }
 
+        Ammo--;
         LaserClear(startLaserWidth, muzzle);
 
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);

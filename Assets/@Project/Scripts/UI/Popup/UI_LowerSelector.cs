@@ -50,7 +50,9 @@ public class UI_LowerSelector : UI_Popup
 
     private void BackToSelector()
     {
-        ResetText();
+        Managers.ActionManager.CallUndoMenuCam(Define.CamType.Lower);
+
+        ResetText();        
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

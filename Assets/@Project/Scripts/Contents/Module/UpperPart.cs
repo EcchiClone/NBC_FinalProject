@@ -15,8 +15,8 @@ public class UpperPart : BasePart
     [field: SerializeField] public Transform WeaponTilt { get; private set; }
     [field: SerializeField] public Transform[] WeaponPositions { get; private set; }    
 
-    public override void Setup(Module module)
+    public override void Setup(Define.PartsType type, Module module)
     {
-        base.Setup(module);
+        base.Setup(type, module);
     }
 }

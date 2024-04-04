@@ -1,72 +1,83 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_ArmChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandler
+public class UI_ArmChangeBtn : UI_ChangeButton
 {
-    [SerializeField] TextMeshProUGUI _partText;
-
-    public int currentIndex;
-    public static int IndexOfArmPart = 0;
-
-    private PartData _currentArmData;
-
     protected override void Init()
     {
         base.Init();
 
-        currentIndex = IndexOfArmPart;
+        _currentIndex = IndexOfArmPart;
         ++IndexOfArmPart;
 
-        int partID = Managers.Module.GetPartOfIndex<ArmsPart>(currentIndex).ID;
-        _currentArmData = Managers.Data.GetPartData(partID);
+        if (_currentIndex == Managers.Module.CurrentLeftArmIndex)
+            _equip.SetActive(true);
 
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ChangePart);
+        GetCurrentPartData<ArmsPart>();
+        AddListenerToBtn(ChangePart);
+        LoadPartImage();
 
-        _partText.text = _currentArmData.Display_Name;
+        Managers.ActionManager.OnArmModeChange += ChangeMode;
+        Managers.ActionManager.OnArmPartChange += ChangePart;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void ChangePart(int index)
     {
-        if (_parentUI._sidePopup == null)
-        {
-            UI_PartsStatus info = Managers.UI.ShowPopupUI<UI_PartsStatus>();
-            _parentUI.SetSidePopup(info);
-            return;
-        }
-
-        _parentUI._sidePopup.gameObject.SetActive(true);
-        UI_ArmSelector selector = _parentUI as UI_ArmSelector;
-        if(selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
-            selector.DisplayNextPartSpecText_L(_currentArmData);
+        if (_currentIndex != index)
+            _equip.SetActive(false);
         else
-            selector.DisplayNextPartSpecText_R(_currentArmData);
-
-        Managers.Module.CallInfoChange(_currentArmData.Display_Description);
+            _equip.SetActive(true);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void ChangeMode(UI_ArmSelector.ChangeArmMode changeMode)
     {
-        _parentUI._sidePopup.gameObject.SetActive(false);
+        if (changeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
+        {
+            Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Right);
+            if (Managers.Module.CurrentLeftArmIndex == _currentIndex)
+                _equip.SetActive(true);
+            else
+                _equip.SetActive(false);
+        }
+        else
+        {
+            Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Right);
+            if (Managers.Module.CurrentRightArmIndex == _currentIndex)
+                _equip.SetActive(true);
+            else
+                _equip.SetActive(false);
+        }
+    }
+
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+        base.OnPointerEnter(eventData);
+
+        UI_ArmSelector selector = _parentUI as UI_ArmSelector;
+        if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
+            selector.DisplayNextPartSpecText_L(_currentData);
+        else
+            selector.DisplayNextPartSpecText_R(_currentData);
+
+        Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
 
     private void ChangePart()
     {
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
+        Managers.ActionManager.CallArmPartChange(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Arm_L);
-            Managers.Module.CallLeftArmPartChange(_currentArmData);
+            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Arm_L);
+            Managers.Module.CallLeftArmPartChange(_currentData);
         }
         else
         {
-            Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Weapon_Arm_R);
-            Managers.Module.CallRightArmPartChange(_currentArmData);
-        }        
+            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Arm_R);
+            Managers.Module.CallRightArmPartChange(_currentData);
+        }
     }
 }

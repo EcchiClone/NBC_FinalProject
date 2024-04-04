@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Define
 {
-    public enum PartsType
+    public enum CamType
     {
+        Main,
+        Module,
         Lower,
         Upper,
-        Weapon_Arm,        
-        Weapon_Shoulder,        
+        Arm_Holder,
+        Shoulder_Holder,
+        Arm_Right,        
+        Shoulder_Right,
     }
 
-    public enum ChangePartsType
+    public enum PartsType
     {
         Lower,
         Upper,
@@ -38,7 +42,7 @@ public class Define
 
         public readonly List<int> UpperPartId = new()
         {
-            10002002,            
+            10002001,            
         };
 
         public readonly List<int> ArmWeaponPartId = new()

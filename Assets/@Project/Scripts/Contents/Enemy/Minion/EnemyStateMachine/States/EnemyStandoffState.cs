@@ -28,24 +28,6 @@ public class EnemyStandoffState : EnemyBaseState
 
     public override void UpdateState()
     {
-        /*_passedTime += Time.deltaTime;
-
-        if (_passedTime >= _attackInterval)
-        {
-            if (_passedTime <= _attackInterval + _attackDuration)
-            {
-                Attack(); // 공격 시간 동안 Attack 호출
-            }
-            else
-            {
-                _ctx.GizmoColor = Color.green;
-            }
-
-            if (_passedTime >= _attackInterval + _attackDuration)// 타이머 초기화
-            {
-                _passedTime = 0f;
-            }
-        }*/
 
         LookAtTarget();
 

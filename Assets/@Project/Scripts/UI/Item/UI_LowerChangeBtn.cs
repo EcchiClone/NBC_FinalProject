@@ -5,54 +5,36 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_LowerChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandler
+public class UI_LowerChangeBtn : UI_ChangeButton
 {
-    [SerializeField] TextMeshProUGUI _partText;
-    
-    public int currentIndex;
-    public static int IndexOfLowerPart = 0;
-
-    private PartData _currentLowerData;
-
     protected override void Init()
     {
         base.Init();
 
-        currentIndex = IndexOfLowerPart;
+        _currentIndex = IndexOfLowerPart;
         ++IndexOfLowerPart;
 
-        int partID = Managers.Module.GetPartOfIndex<LowerPart>(currentIndex).ID;
-        _currentLowerData = Managers.Data.GetPartData(partID);
+        if (_currentIndex == Managers.Module.CurrentLowerIndex)
+            _equip.SetActive(true);
 
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ChangePart);        
-
-        _partText.text = _currentLowerData.Display_Name;
+        GetCurrentPartData<LowerPart>();
+        AddListenerToBtn(ChangePart);
+        LoadPartImage();        
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
-        if (_parentUI._sidePopup == null)
-        {
-            UI_PartsStatus info = Managers.UI.ShowPopupUI<UI_PartsStatus>();
-            _parentUI.SetSidePopup(info);
-            return;
-        }
+        base.OnPointerEnter(eventData);
 
-        _parentUI._sidePopup.gameObject.SetActive(true);
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
-        selector.DisPlayNextPartSpecText(_currentLowerData);
-        Managers.Module.CallInfoChange(_currentLowerData.Display_Description);
-    }
+        selector.DisPlayNextPartSpecText(_currentData);
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _parentUI._sidePopup.gameObject.SetActive(false);
+        Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
 
     private void ChangePart()
     {
-        Managers.Module.ChangePart(currentIndex, Define.ChangePartsType.Lower);
-        Managers.Module.CallLowerPartChange(_currentLowerData);
+        Managers.Module.ChangePart(_currentIndex, Define.PartsType.Lower);
+        Managers.Module.CallLowerPartChange(_currentData);
     }
 }
