@@ -53,7 +53,6 @@ public class UI_Achievement : UI_Popup
     private void BackToMain()
     {
         _previousPopup.gameObject.SetActive(true);
-        _camAction.Invoke();
         gameObject.SetActive(false);
     }
     void PopulateAchievements(bool viewActive, bool viewCompleted)
