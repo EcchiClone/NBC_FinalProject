@@ -5,25 +5,31 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    protected Transform _target;    
-    protected Transform _weaponTransform { get; set; }
-    protected LayerMask _groundLayer;    
+    protected Transform _target;
+    protected LayerMask _groundLayer;
 
     protected PartData _partData;
-    protected bool _isCoolDown = false;    
+    protected bool _isCoolDown = false;
 
     private Define.PartsType _type;
     private int _ammo;
-    public int Ammo { get => _ammo; protected set { _ammo = value;  OnWeaponFire?.Invoke(_ammo, _partData.IsReloadable, _type); } }
+    public int Ammo
+    {
+        get => _ammo;
+        protected set
+        {
+            _ammo = value;
+            OnWeaponFire?.Invoke(_ammo, _partData.IsReloadable, _type);
+        }
+    }
 
     public event Action<int, bool, Define.PartsType> OnWeaponFire;
 
-    public virtual void Setup(int partID, Define.PartsType type, Transform bodyTransform, LayerMask layerMask) 
+    public virtual void Setup(int partID, Define.PartsType type, LayerMask layerMask)
     {
         Managers.ActionManager.OnLockOnTarget += Targeting;
         Managers.ActionManager.OnReleaseTarget += Release;
 
-        _weaponTransform = bodyTransform;
         _groundLayer = layerMask;
         _type = type;
         _partData = Managers.Data.GetPartData(partID);
@@ -53,7 +59,7 @@ public abstract class WeaponBase : MonoBehaviour
         if (_target == null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(_weaponTransform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
+            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit, float.MaxValue, _groundLayer))
                 freeFirePoint = hit.point;
         }
 

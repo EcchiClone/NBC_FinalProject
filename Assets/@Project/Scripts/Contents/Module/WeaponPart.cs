@@ -14,7 +14,7 @@ public class WeaponPart : BasePart
     {
         base.Setup(type, module);
         Weapon = GetComponent<WeaponBase>();
-        Weapon.Setup(ID, type, transform, _groundLayer);
+        Weapon.Setup(ID, type, _groundLayer);
     }
 
     public void UseWeapon() => Weapon.UseWeapon(_muzzlePoints);

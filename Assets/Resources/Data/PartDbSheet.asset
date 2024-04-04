@@ -202,8 +202,10 @@ MonoBehaviour:
     dev_Name: Shoulder_01
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_01
     sprite_Path: Images/Weapon_S01
-    display_Name: TEST WEAPON_SHOULDER
-    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+    display_Name: RL-Rapid
+    display_Description: "\uACE0\uC815\uD615 \uB85C\uCF13\uB7F0\uCC98\n5\uBC1C\uC744
+      \uCC28\uB840\uB85C \uACF5\uC911\uC73C\uB85C \uBC1C\uC0AC \uD6C4 \uD0C0\uAC9F\uC744
+      \uD5A5\uD574 \uC720\uB3C4\uD55C\uB2E4"
     armor: 120
     weight: 5
     speed: 0
@@ -224,8 +226,11 @@ MonoBehaviour:
     dev_Name: Shoulder_02
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_02
     sprite_Path: Images/Weapon_S02
-    display_Name: TEST WEAPON_SHOULDER
-    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
+    display_Name: ML-HellFire
+    display_Description: "2\uC5F0\uC7A5 \uBBF8\uC0AC\uC77C\uB7F0\uCC98\n\uACE0\uD3ED\uD0C4\uC744
+      \uC801\uC7AC\uD55C \uC911\uD615 \uBBF8\uC0AC\uC77C\uC744 \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C
+      \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD790
+      \uC218 \uC788\uB2E4"
     armor: 200
     weight: 5
     speed: 0
@@ -233,12 +238,12 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
-    damage: 1
-    bulletSpeed: 1
-    fireRate: 1
-    coolDownTime: 1
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
+    damage: 50
+    bulletSpeed: 20
+    fireRate: 0.5
+    coolDownTime: 5
     projectilesPerShot: 1
-    shotErrorRange: 1
-    ammo: 0
-    isReloadable: 1
+    shotErrorRange: 0
+    ammo: 5
+    isReloadable: 0

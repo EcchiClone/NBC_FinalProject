@@ -11,8 +11,8 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     {
         base.Init();
 
-        _currentIndex = IndexOfArmPart;
-        ++IndexOfArmPart;
+        _currentIndex = IndexOfShoulderPart;
+        ++IndexOfShoulderPart;
 
         if (_currentIndex == Managers.Module.CurrentLeftShoulderIndex)
             _equip.SetActive(true);

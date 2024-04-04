@@ -75,4 +75,12 @@ public static class Util
 
         return standard * (Mathf.Sqrt(-2.0f * Mathf.Log(x1)) * Mathf.Sin(2.0f * Mathf.PI * x2));
     }
+
+    public static float GetCurrentAnimationClipLength(Animator animator)
+    {
+        AnimatorStateInfo clipInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float length = clipInfo.length;
+
+        return length;
+    }
 }

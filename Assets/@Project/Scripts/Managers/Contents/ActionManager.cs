@@ -21,12 +21,6 @@ public class ActionManager
     public event Action OnReleaseTarget;
     public event Action<float> OnBossAPChanged;
 
-    // # UI_LowerSelector
-
-
-    // # UI_UpperSelector
-
-
     // # UI_ArmSelector
     public event Action<UI_ArmSelector.ChangeArmMode> OnArmModeChange;
     public event Action<int> OnArmPartChange;
