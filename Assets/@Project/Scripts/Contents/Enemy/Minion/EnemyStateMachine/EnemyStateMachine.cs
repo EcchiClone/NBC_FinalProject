@@ -18,15 +18,6 @@ public class EnemyStateMachine : MonoBehaviour
     private float _moveSpeed = 10f;
     public float gizmoLength = 10f; // 기즈모 길이
 
-    /*#region 삭제하세용
-    [Header("# Test 꼭 수정하시길...")]
-    public PhaseSO currentPhase;
-
-    public bool isShooting = true;  // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다.
-                                    // 사이클 돌리던 코루틴이 완전히 멈추는 것이므로 StartPatternHierarchy 를 다시 해줘야 함.
-    public bool[] isTriggerOn;      // 탄막 일괄 이벤트를 위한 트리거를 위해 추후 준비.
-    #endregion*/
-
 
 
     public EnemyBaseState CurrentState

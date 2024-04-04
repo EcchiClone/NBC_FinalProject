@@ -45,6 +45,8 @@ public class UI_UpperSelector : UI_Popup
 
     private void BackToSelector()
     {
+        Managers.ActionManager.CallUndoMenuCam(Define.CamType.Upper);
+
         ResetText();
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);

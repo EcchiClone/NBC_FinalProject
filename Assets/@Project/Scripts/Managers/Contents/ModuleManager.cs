@@ -21,7 +21,7 @@ public class ModuleManager
     public event Action<PartData> OnRightArmChange;
     public event Action<PartData> OnLeftShoulderChange;
     public event Action<PartData> OnRightSoulderChange;
-    public event Action<string> OnInfoChange;
+    public event Action<string, string> OnInfoChange;
 
     public void CallUpperPartChange(PartData part) => OnUpperChange?.Invoke(part);
     public void CallLowerPartChange(PartData lower) => OnLowerChange?.Invoke(lower);
@@ -29,7 +29,7 @@ public class ModuleManager
     public void CallRightArmPartChange(PartData lower) => OnRightArmChange?.Invoke(lower);
     public void CallLeftShoulderPartChange(PartData lower) => OnLeftShoulderChange?.Invoke(lower);
     public void CallRightShoulderPartChange(PartData lower) => OnRightSoulderChange?.Invoke(lower);
-    public void CallInfoChange(string info) => OnInfoChange?.Invoke(info);
+    public void CallInfoChange(string name, string desc) => OnInfoChange?.Invoke(name, desc);
     #endregion
 
     public Module CurrentModule { get; private set; }

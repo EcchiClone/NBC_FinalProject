@@ -1,12 +1,9 @@
-using Cinemachine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class SelectorSceneTester : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera _currentSceneCam;
+    [SerializeField] GameObject[] _cineCams;
 
     private void Awake()
     {
@@ -15,12 +12,10 @@ public class SelectorSceneTester : MonoBehaviour
 
         Managers.Module.CreateSelectorModule();
         UI_MainMenuPopup mainUI = Managers.UI.ShowPopupUI<UI_MainMenuPopup>();
-        mainUI.BindCamAction(CamChange);
+        Managers.ActionManager.OnSelectorCam += CamChange;
+        Managers.ActionManager.OnUndoMenuCam += CamInActive;
     }
 
-    public void CamChange()
-    {
-        bool active = !_currentSceneCam.gameObject.activeSelf;
-        _currentSceneCam.gameObject.SetActive(active);
-    }
+    public void CamChange(CamType camType) => _cineCams[(int)camType].SetActive(true);
+    public void CamInActive(CamType camType) => _cineCams[(int)camType].SetActive(false);
 }

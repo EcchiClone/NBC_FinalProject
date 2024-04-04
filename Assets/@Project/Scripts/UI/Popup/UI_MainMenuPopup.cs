@@ -9,8 +9,7 @@ public class UI_MainMenuPopup : UI_Popup
 {
     private UI_SelectorMenu _selector;
     private UI_Achievement _achievement;
-    private UnityAction _camAction;
-
+    
     enum Buttons
     {
         GameStart_Btn,
@@ -35,23 +34,17 @@ public class UI_MainMenuPopup : UI_Popup
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);
     }
 
-    public void BindCamAction(UnityAction camAction)
-    {
-        _camAction = camAction;
-    }
-
     private void OpenModuleSelector()
     {
         if (_selector == null)
         {
             _selector = Managers.UI.ShowPopupUI<UI_SelectorMenu>();
-            _selector.SetPreviousPopup(this);
-            _selector.BindCamAction(_camAction);
+            _selector.SetPreviousPopup(this);            
         }
         else
             _selector.gameObject.SetActive(true);
 
-        _camAction.Invoke();
+        Managers.ActionManager.CallSelectorCam(Define.CamType.Module);
         gameObject.SetActive(false);
     }
     private void OpenAchievement()
@@ -60,12 +53,11 @@ public class UI_MainMenuPopup : UI_Popup
         {
             _achievement = Managers.UI.ShowPopupUI<UI_Achievement>(); // Set on scene about Achievement UI
             _achievement.SetPreviousPopup(this);    // Set prev value(this(MainMenu))
-            _achievement.BindCamAction(_camAction); // Cam Move setting
+           
         }
         else
             _achievement.gameObject.SetActive(true); // Show UI
 
-        _camAction.Invoke(); // Cam Move
         gameObject.SetActive(false); // Disable this(MainMenu)
     }
 
