@@ -6,42 +6,32 @@ public class Spider_AliveState : BaseState
 {
     public Spider_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
+        IsRootState = true;
     }
-
-    public override void CheckSwitchStates()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void InitializeSubState()
-    {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void UpdateState()
     {
-        throw new System.NotImplementedException();
+        CheckSwitchStates();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void CheckSwitchStates()
     {
-        
+        if (Context.Entity.CurrentHelth <= 0f)
+            SwitchState(Provider.GetState(Spider_States.Dead));
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ExitState()
     {
-        
+        // 애니메이션 등 뭔가 다 멈춰버리기 or 네비매쉬 강체 해제?
     }
+
+    public override void InitializeSubState() // 처음 적용할 상태
+    {
+        SetSubState(Provider.GetState(Spider_States.Chasing));
+    }
+
 }

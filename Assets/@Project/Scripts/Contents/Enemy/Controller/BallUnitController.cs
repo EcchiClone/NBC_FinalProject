@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BallUnitController : Controller
 {
+    public BallUnitController(Entity entity) : base(entity)
+    {
+    }
+
     public override void SetDestination(Vector3 target)
     {
         throw new System.NotImplementedException();
@@ -40,9 +44,5 @@ public class BallUnitController : Controller
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

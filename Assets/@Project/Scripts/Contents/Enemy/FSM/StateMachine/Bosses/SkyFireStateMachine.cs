@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class SkyFireStateMachine : BaseStateMachine
 {
-    public SkyFireStateMachine(Entity boss) : base(boss)
+    public SkyFireStateMachine(Entity entity) : base(entity)
     {}
 
     public override void Initialize()
     {
         Provider = new SkyFireStateProvider(this);
-        CurrentState = Provider.Chasing();
+        CurrentState = Provider.GetState(SkyFire_States.Alive);
     }
-
 }

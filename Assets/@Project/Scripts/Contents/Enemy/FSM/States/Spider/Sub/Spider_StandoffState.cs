@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider_StandoffState : MonoBehaviour
+public class Spider_StandoffState : BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public Spider_StandoffState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EnterState()
     {
-        
+    }
+
+    public override void UpdateState()
+    {
+        CheckSwitchStates();
+    }
+
+    public override void ExitState()
+    {
+    }
+
+    public override void CheckSwitchStates()
+    {
+        if (true == Context.Entity.Controller.IsMoving)
+            SwitchState(Provider.GetState(Spider_States.Standoff));
+    }
+
+    public override void InitializeSubState()
+    {
     }
 }

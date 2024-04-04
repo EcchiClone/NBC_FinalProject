@@ -53,12 +53,11 @@ public class UI_MainMenuPopup : UI_Popup
         {
             _achievement = Managers.UI.ShowPopupUI<UI_Achievement>(); // Set on scene about Achievement UI
             _achievement.SetPreviousPopup(this);    // Set prev value(this(MainMenu))
-            _achievement.BindCamAction(_camAction); // Cam Move setting
+           
         }
         else
             _achievement.gameObject.SetActive(true); // Show UI
 
-        _camAction.Invoke(); // Cam Move
         gameObject.SetActive(false); // Disable this(MainMenu)
     }
 

@@ -15,8 +15,8 @@ public class SkyFire_DeadState : BaseState
     {
         // Add rigidbody
         //Context.Boss.Controller.Stop();
-        Context.Boss.GetOrAddComponent<Rigidbody>().useGravity = true;
-        Context.Boss.GetOrAddComponent<Rigidbody>().isKinematic = false;
+        Context.Entity.GetOrAddComponent<Rigidbody>().useGravity = true;
+        Context.Entity.GetOrAddComponent<Rigidbody>().isKinematic = false;
 
 
         Debug.Log("SkyFire : Enter Dead State");

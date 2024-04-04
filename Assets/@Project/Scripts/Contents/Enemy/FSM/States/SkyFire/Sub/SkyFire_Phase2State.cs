@@ -10,7 +10,7 @@ public class SkyFire_Phase2State : BaseState
     public SkyFire_Phase2State(BaseStateMachine context, BaseStateProvider provider)
         : base(context, provider)
     {
-        IsRootState = true;
+        IsRootState = false;
     }
 
     public override void EnterState()
@@ -28,27 +28,27 @@ public class SkyFire_Phase2State : BaseState
             switch (random)
             {
                 case 0:
-                    Context.Boss.enemyPhaseStarter.StartPhase(0, 1, true);
-                    Context.Boss.enemyPhaseStarter.StartPhase(0, 2, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
 
-                    Context.Boss.enemyPhaseStarter.StartPhase(1, 3, true);
-                    Context.Boss.enemyPhaseStarter.StartPhase(1, 4, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(1, 3, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(1, 4, true);
                     Debug.Log("Pattern 2-1");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴1");
                     break;
                 case 1:
-                    Context.Boss.enemyPhaseStarter.StartPhase(1, 3, true);
-                    Context.Boss.enemyPhaseStarter.StartPhase(1, 4, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(1, 3, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(1, 4, true);
 
-                    Context.Boss.enemyPhaseStarter.StartPhase(2, 5, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(2, 5, true);
                     Debug.Log("Pattern 2-2");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴2");
                     break;
                 case 2:
-                    Context.Boss.enemyPhaseStarter.StartPhase(0, 1, true);
-                    Context.Boss.enemyPhaseStarter.StartPhase(0, 2, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
 
-                    Context.Boss.enemyPhaseStarter.StartPhase(2, 5, true);
+                    Context.Entity.enemyPhaseStarter.StartPhase(2, 5, true);
                     Debug.Log("Pattern 2-3");
                     //Context.Boss.Patterns[(Pattern)random].Invoke("패턴3");
                     break;
@@ -61,7 +61,7 @@ public class SkyFire_Phase2State : BaseState
 
             passedTime = 0f;
 
-            Context.Boss.Controller.SetDestination(Context.Boss.Target.position);
+            Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
         }
 
         CheckSwitchStates();
@@ -74,16 +74,16 @@ public class SkyFire_Phase2State : BaseState
     public override void CheckSwitchStates()
     {
         // 죽었는지?
-        if (!Context.Boss.IsAlive)
+        if (!Context.Entity.IsAlive)
         {
-            SwitchState(Provider.Dead());
+            SwitchState(Provider.GetState(SkyFire_States.Dead));
             return;
         }
 
         // 공격 대기 중이고 플레이어가 멀리 있는지?
-        if (passedTime < interval && Context.Boss.Controller.IsMoving)
+        if (passedTime < interval && Context.Entity.Controller.IsMoving)
         {
-            SwitchState(Provider.Chasing());
+            SwitchState(Provider.GetState(SkyFire_States.Chasing));
         }
     }
 

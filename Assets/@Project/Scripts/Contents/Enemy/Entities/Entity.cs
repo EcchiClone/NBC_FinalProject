@@ -19,7 +19,7 @@ public abstract class Entity : MonoBehaviour
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
     public float CurrentHelth { get; protected set; }
-    public bool IsAlive { get; private set; } = true; // 피격 처리 함수에서만 수정할 수 있도록
+    [field: SerializeField] public bool IsAlive { get; private set; } = true; // 피격 처리 함수에서만 수정할 수 있도록
     public Controller Controller { get; protected set; }
     public BaseStateMachine StateMachine { get; set; }
 
@@ -42,5 +42,12 @@ public abstract class Entity : MonoBehaviour
         Managers.ActionManager.CallBossAPChanged(percent);
         if(CurrentHelth <= 0)
             IsAlive = false;
+    }
+
+    protected virtual void Update()
+    {
+        Controller?.Update();
+
+        StateMachine?.Update();
     }
 }

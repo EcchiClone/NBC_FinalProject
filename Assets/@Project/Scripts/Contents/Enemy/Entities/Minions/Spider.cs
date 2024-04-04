@@ -6,19 +6,12 @@ public class Spider : Entity
 {
     protected override void Initialize()
     {
-        Target = FindObjectOfType<TargetCenter>().transform;
+        //Target = FindObjectOfType<TargetCenter>().transform;
         CurrentHelth = Data.maxHealth;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        Controller = new GroundUnitController(this);
+        Controller.Initialize();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Controller?.SetDestination(Target.position);
     }
 }

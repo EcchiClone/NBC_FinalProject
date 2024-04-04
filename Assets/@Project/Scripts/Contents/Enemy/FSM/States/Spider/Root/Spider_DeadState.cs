@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider_DeadState : BaseState
+public class Spider_DeadState : BaseState // TODO
 {
     public Spider_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
+        IsRootState = true;
     }
 
     public override void CheckSwitchStates()
@@ -31,17 +32,5 @@ public class Spider_DeadState : BaseState
     public override void UpdateState()
     {
         throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

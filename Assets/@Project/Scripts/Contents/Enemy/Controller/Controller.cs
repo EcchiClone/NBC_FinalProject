@@ -1,10 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Controller
+public  class Controller
 {
-    protected Entity boss;
+    public Controller(Entity entity)
+    {
+        this._entity = entity;
+    }
+
+    protected Entity _entity;
 
     public Vector3 Destination { get; protected set; }
     public Vector3 StopPoint { get; protected set; }
@@ -17,21 +23,21 @@ public abstract class Controller
 
     public void Initialize()
     {
-        Destination = boss.transform.position;
-        StopDistance = boss.Data.stopDistance;
-        Rigidbody = boss.GetComponent<Rigidbody>();
+        Destination = _entity.transform.position;
+        StopDistance = _entity.Data.stopDistance;
+        Rigidbody = _entity.GetComponent<Rigidbody>();
     }
 
-    public abstract void Update();
+    public virtual void Update() { }
 
-    protected abstract void Move();
+    protected virtual void Move() { }
 
-    protected abstract void Look();
+    protected virtual void Look() { }
 
-    public abstract void SetDestination(Vector3 target);
+    public virtual void SetDestination(Vector3 target) { }
 
-    public abstract void Stop();
+    public virtual void Stop() { }
 
-    protected abstract void CheckDistance();
+    protected virtual void CheckDistance() { }
     
 }

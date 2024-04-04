@@ -1,37 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GroundUnitController : Controller
 {
-    public override void SetDestination(Vector3 target)
-    {
-        throw new System.NotImplementedException();
-    }
+    private NavMeshAgent agent;
 
-    public override void Stop()
+    public GroundUnitController(Entity entity) : base(entity)
     {
-        throw new System.NotImplementedException();
+        agent = entity.GetComponent<NavMeshAgent>();
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        IsMoving = !agent.isStopped;
+        Look();
     }
 
-    protected override void CheckDistance()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    public override void SetDestination(Vector3 target) => agent.SetDestination(target);
+    
     protected override void Look()
     {
-        throw new System.NotImplementedException();
+        Vector3 direction = (_entity.Target.position - _entity.transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        _entity.transform.rotation = Quaternion.RotateTowards(_entity.transform.rotation, lookRotation, 180 * Time.deltaTime);
     }
 
-    protected override void Move()
-    {
-        throw new System.NotImplementedException();
-    }
+    public override void Stop() => agent.Stop();
 
 }

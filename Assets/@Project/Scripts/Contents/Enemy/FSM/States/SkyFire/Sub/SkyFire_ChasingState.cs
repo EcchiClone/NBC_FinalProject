@@ -10,15 +10,15 @@ public class SkyFire_ChasingState : BaseState
     public SkyFire_ChasingState(BaseStateMachine context, BaseStateProvider provider) 
         : base(context, provider) 
     {
-        IsRootState = true;
-        chasingInterval = Context.Boss.Data.chasingInterval;
+        IsRootState = false;
+        chasingInterval = Context.Entity.Data.chasingInterval;
     }
 
     public override void EnterState()
     {
         Debug.Log("SkyFire : Enter Chasing State");
         passedTime = 0f;
-        Context.Boss.Controller.SetDestination(Context.Boss.Target.position);
+        Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
     }
 
     public override void UpdateState()
@@ -26,7 +26,7 @@ public class SkyFire_ChasingState : BaseState
         passedTime += Time.deltaTime;
         if (passedTime >= chasingInterval)
         {
-            Context.Boss.Controller.SetDestination(Context.Boss.Target.position);
+            Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
             passedTime = 0f;
         }
 
@@ -46,15 +46,15 @@ public class SkyFire_ChasingState : BaseState
 
         // 죽었는지 판단
 
-        if (!Context.Boss.IsAlive)
+        if (!Context.Entity.IsAlive)
         {
-            SwitchState(Provider.Dead());
+            SwitchState(Provider.GetState(SkyFire_States.Alive));
             return;
         }
 
-        if(!Context.Boss.Controller.IsMoving) // 일단 컨트롤러의 IsMoving이 false면 바로 공격으로
+        if(!Context.Entity.Controller.IsMoving) // 일단 컨트롤러의 IsMoving이 false면 바로 공격으로
         {
-            SwitchState(Provider.Phase1());
+            SwitchState(Provider.GetState(SkyFire_States.Phase1));
         }
     }
 

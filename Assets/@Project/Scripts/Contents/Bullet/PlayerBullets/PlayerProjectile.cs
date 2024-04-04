@@ -34,7 +34,7 @@ public class PlayerProjectile : Bullet
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Boss boss) == true)
+        if(other.TryGetComponent(out Entity boss) == true)
         {
             boss.GetDamaged(_damage);
             StopAllCoroutines();

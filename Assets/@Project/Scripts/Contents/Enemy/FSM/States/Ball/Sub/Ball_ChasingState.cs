@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball_ChasingState : MonoBehaviour
+public class Ball_ChasingState : BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public Ball_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void CheckSwitchStates()
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public override void EnterState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ExitState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void InitializeSubState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void UpdateState()
+    {
+        throw new System.NotImplementedException();
     }
 }

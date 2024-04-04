@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class AirUnitController : Controller
 {
-    public AirUnitController(Entity boss)
+    public AirUnitController(Entity entity) : base(entity)
     {
-        this.boss = boss;
         TargetAltitude = 20f;
     }
 
@@ -14,7 +13,7 @@ public class AirUnitController : Controller
 
     public override void Update()
     {
-        if(!boss.IsAlive)
+        if(!_entity.IsAlive)
         {
             return;
         }
@@ -36,21 +35,21 @@ public class AirUnitController : Controller
         //boss.transform.position = Vector3.MoveTowards(boss.transform.position, StopPoint, boss.Data.moveSpeed * Time.deltaTime);
 
         // 이동 방향 벡터 계산
-        Vector3 moveDirection = (StopPoint - boss.transform.position).normalized;
+        Vector3 moveDirection = (StopPoint - _entity.transform.position).normalized;
 
-        float distanceToStopPoint = Vector3.Distance(boss.transform.position, StopPoint);
+        float distanceToStopPoint = Vector3.Distance(_entity.transform.position, StopPoint);
 
-        float forceMagnitude = distanceToStopPoint / boss.Data.moveSpeed;
+        float forceMagnitude = distanceToStopPoint / _entity.Data.moveSpeed;
 
         forceMagnitude = Mathf.Clamp(forceMagnitude, 4, 10);
 
         // Rigidbody에 힘을 가해 이동
-        boss.GetComponent<Rigidbody>().AddForce(moveDirection * forceMagnitude);
+        _entity.GetComponent<Rigidbody>().AddForce(moveDirection * forceMagnitude);
     }
     protected override void Look()
     {
         // 타겟 방향 계산
-        Vector3 targetDirection = (boss.Target.transform.position - boss.transform.position).normalized;
+        Vector3 targetDirection = (_entity.Target.transform.position - _entity.transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
 
         // 쿼터니언의 오일러 각도를 제한해준다.
@@ -59,14 +58,14 @@ public class AirUnitController : Controller
 
         // 나온 오일러 각도를 다시 방향으로
         lookRotation = Quaternion.Euler(euler);
-        boss.transform.rotation = Quaternion.RotateTowards(boss.transform.rotation, lookRotation, 30 * Time.deltaTime);
+        _entity.transform.rotation = Quaternion.RotateTowards(_entity.transform.rotation, lookRotation, 30 * Time.deltaTime);
     }
 
     private void AltitudeAdjustment()
     {
-        Vector3 nowPosition = boss.transform.position;
+        Vector3 nowPosition = _entity.transform.position;
 
-        boss.transform.position = Vector3.Lerp(nowPosition, new Vector3(nowPosition.x, TargetAltitude, nowPosition.z), Time.deltaTime);
+        _entity.transform.position = Vector3.Lerp(nowPosition, new Vector3(nowPosition.x, TargetAltitude, nowPosition.z), Time.deltaTime);
     }
 
     public override void SetDestination(Vector3 target)
@@ -78,7 +77,7 @@ public class AirUnitController : Controller
 
         //float distanceToTarget = Vector3.Distance(boss.transform.position, target);
 
-        Vector3 stopDirection = boss.transform.position - target;
+        Vector3 stopDirection = _entity.transform.position - target;
         stopDirection.y = 0f;
         stopDirection.Normalize();
         StopPoint = target + stopDirection * StopDistance;
@@ -86,7 +85,7 @@ public class AirUnitController : Controller
 
     protected override void CheckDistance()
     {
-        Vector3 currentPosition = boss.transform.position;
+        Vector3 currentPosition = _entity.transform.position;
 
         currentPosition.y = Destination.y;
 
@@ -98,7 +97,7 @@ public class AirUnitController : Controller
     public override void Stop()
     {
         StopDistance = 0f;
-        SetDestination(boss.transform.position);
+        SetDestination(_entity.transform.position);
     }
 
 }
