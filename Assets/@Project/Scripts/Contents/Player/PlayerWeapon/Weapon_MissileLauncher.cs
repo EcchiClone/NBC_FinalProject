@@ -7,7 +7,9 @@ public class Weapon_MissileLauncher : WeaponBase
     private Animator _anim;
 
     private int _usingHash;
+    private int _upHash;
     private readonly string USING_PARAMETER = "IsUsing";
+    private readonly string UP_NAME = "Launcher_Up";
 
     public override void Setup(int partID, Define.PartsType type, LayerMask layerMask)
     {
@@ -15,6 +17,7 @@ public class Weapon_MissileLauncher : WeaponBase
 
         _anim = GetComponentInChildren<Animator>();
         _usingHash = Animator.StringToHash(USING_PARAMETER);
+        _upHash = Animator.StringToHash(UP_NAME);
     }
 
     public override void UseWeapon(Transform[] muzzlePoints)
@@ -28,9 +31,9 @@ public class Weapon_MissileLauncher : WeaponBase
     public IEnumerator Co_UseWeapon(Transform[] muzzlePoints)
     {
         _isCoolDown = true;
+        _anim.Play(_upHash);
         _anim.SetBool(_usingHash, true);
-        float animLength = Util.GetCurrentAnimationClipLength(_anim);
-        Debug.Log(animLength);
+        float animLength = Util.GetCurrentAnimationClipLength(_anim);        
         yield return Util.GetWaitSeconds(animLength);
 
         foreach (Transform muzzle in muzzlePoints)
