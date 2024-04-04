@@ -22,18 +22,19 @@ public class CameraController : MonoBehaviour
         _mainCamera = GetComponentInChildren<Camera>();
         _speed = 50.0f;
         _zoomAmount = 45.0f;
-        _zoomSensitivity = 0.05f;
+        _zoomSensitivity = 10f;
+        _scrollY = 0f;
     }
 
     private void Update()
     {
-        CameraMovement();
-        CameraZoom();
+        OnZoomInput();
     }
 
     private void LateUpdate()
     {
-        
+        CameraMovement();
+        CameraZoom();
     }
 
     private void CameraMovement()
@@ -73,9 +74,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void OnZoomInput(InputAction.CallbackContext context)
+    private void OnZoomInput()
     {
-        _scrollY = context.ReadValue<float>();
+        _scrollY = Input.GetAxis("Mouse ScrollWheel");
         Debug.Log(_scrollY);
     }
 }
