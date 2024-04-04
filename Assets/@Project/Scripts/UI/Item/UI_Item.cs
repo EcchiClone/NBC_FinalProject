@@ -6,10 +6,7 @@ public class UI_Item : UI_Base
 {
     protected UI_Popup _parentUI;
 
-    protected override void Init()
-    {
-        
-    }
+    protected override void Init() { }
 
     public void SetParentUI(UI_Popup popup)
     {

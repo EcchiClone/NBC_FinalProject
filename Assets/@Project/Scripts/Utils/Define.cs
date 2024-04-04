@@ -42,7 +42,7 @@ public class Define
 
         public readonly List<int> UpperPartId = new()
         {
-            10002002,            
+            10002001,            
         };
 
         public readonly List<int> ArmWeaponPartId = new()

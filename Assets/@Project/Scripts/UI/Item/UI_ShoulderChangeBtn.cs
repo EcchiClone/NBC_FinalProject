@@ -5,43 +5,29 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_ShoulderChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitHandler
+public class UI_ShoulderChangeBtn : UI_ChangeButton
 {
-    [SerializeField] Image _partImage;
-    [SerializeField] GameObject _equip;
-
-    public int currentIndex;
-    public static int IndexOfArmPart = 0;
-
-    private PartData _currentShoulderData;
-
     protected override void Init()
     {
         base.Init();
 
-        currentIndex = IndexOfArmPart;
+        _currentIndex = IndexOfArmPart;
         ++IndexOfArmPart;
 
-        if (currentIndex == Managers.Module.CurrentLeftShoulderIndex)
+        if (_currentIndex == Managers.Module.CurrentLeftShoulderIndex)
             _equip.SetActive(true);
 
-        int partID = Managers.Module.GetPartOfIndex<ShouldersPart>(currentIndex).ID;
-        _currentShoulderData = Managers.Data.GetPartData(partID);
-
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ChangePart);
+        GetCurrentPartData<ShouldersPart>();
+        AddListenerToBtn(ChangePart);
+        LoadPartImage();
 
         Managers.ActionManager.OnShoulderModeChange += ChangeMode;
-        Managers.ActionManager.OnShoulderPartChange += ChangePart;
-
-        // 주석 풀어야 됨
-        //Sprite weaponSprite = Resources.Load<Sprite>(_currentShoulderData.Sprite_Path);
-        //_partImage.sprite = weaponSprite;
+        Managers.ActionManager.OnShoulderPartChange += ChangePart;        
     }
 
     private void ChangePart(int index)
     {
-        if (currentIndex != index)
+        if (_currentIndex != index)
             _equip.SetActive(false);
         else
             _equip.SetActive(true);
@@ -52,7 +38,7 @@ public class UI_ShoulderChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitH
         if (changeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Right);
-            if (Managers.Module.CurrentLeftShoulderIndex == currentIndex)
+            if (Managers.Module.CurrentLeftShoulderIndex == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -60,55 +46,40 @@ public class UI_ShoulderChangeBtn : UI_Item, IPointerEnterHandler, IPointerExitH
         else
         {
             Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Right);
-            if (Managers.Module.CurrentRightShoulderIndex == currentIndex)
+            if (Managers.Module.CurrentRightShoulderIndex == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
-        string name = _currentShoulderData.Display_Name;
-        string desc = _currentShoulderData.Display_Description;
+        base.OnPointerEnter(eventData);
 
-        if (_parentUI._sidePopup == null)
-        {
-            UI_PartsInfo info = Managers.UI.ShowPopupUI<UI_PartsInfo>();
-            _parentUI.SetSidePopup(info);
-            Managers.Module.CallInfoChange(name, desc);
-            return;
-        }
-
-        _parentUI._sidePopup.gameObject.SetActive(true);
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
-            selector.DisplayNextPartSpecText_L(_currentShoulderData);
+            selector.DisplayNextPartSpecText_L(_currentData);
         else
-            selector.DisplayNextPartSpecText_R(_currentShoulderData);
+            selector.DisplayNextPartSpecText_R(_currentData);
         
-        Managers.Module.CallInfoChange(name, desc);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _parentUI._sidePopup.gameObject.SetActive(false);
+        Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
 
     private void ChangePart()
     {
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
-        Managers.ActionManager.CallArmPartChange(currentIndex);
+        Managers.ActionManager.CallArmPartChange(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
-            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Shoulder_L);
-            Managers.Module.CallLeftShoulderPartChange(_currentShoulderData);
+            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Shoulder_L);
+            Managers.Module.CallLeftShoulderPartChange(_currentData);
         }
         else
         {
-            Managers.Module.ChangePart(currentIndex, Define.PartsType.Weapon_Shoulder_R);
-            Managers.Module.CallRightShoulderPartChange(_currentShoulderData);
+            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Shoulder_R);
+            Managers.Module.CallRightShoulderPartChange(_currentData);
         }
     }
 }
