@@ -7,7 +7,6 @@ public class EnemyStateFactory
         _context = currentContext;
     }
 
-    public EnemyBaseState Idle() => new EnemyIdleState(_context, this);
     public EnemyBaseState Grounded() => new EnemyGroundedState(_context, this);
     public EnemyBaseState Chasing() => new EnemyChasingState(_context, this);
     public EnemyBaseState Standoff() => new EnemyStandoffState(_context, this);
