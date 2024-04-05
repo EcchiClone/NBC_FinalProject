@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5950117952306972220
 MonoBehaviour:
@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c00d2a9e6f9254091ca9c8a8fbe4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievements:
-  - {fileID: 11400000, guid: 4fc688f710bb39848a80cb6ba3572c57, type: 2}
-  - {fileID: 11400000, guid: 35b7fbe7846bac74c8525ae32b52f2e9, type: 2}
-  - {fileID: 11400000, guid: 581b912771cca644a98191cbd4b98d31, type: 2}
-  - {fileID: 11400000, guid: 138d147ae58440a459d3c82e16211460, type: 2}
-  category: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
-  target: {fileID: 11400000, guid: cc4422af0688111499ec256dff5a7fe2, type: 2}
+  achievements: []
+  category: {fileID: 11400000, guid: a86f4284bc2fb5e44a54285661d9878c, type: 2}
+  target: {fileID: 11400000, guid: e79b8a6c5105c8246a029cefd6b20f59, type: 2}

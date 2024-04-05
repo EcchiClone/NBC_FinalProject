@@ -209,6 +209,8 @@ public class Achievement : ScriptableObject
 
         return clone;
     }
+
+    // 세이브 관련 파트
     public AchievementSaveData ToSaveData()
     {
         return new AchievementSaveData

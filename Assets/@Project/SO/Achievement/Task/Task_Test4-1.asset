@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef59b76c4b4e1604f88dca03e99f2847, type: 3}
   m_Name: Task_Test4-1
   m_EditorClassIdentifier: 
-  category: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
-  codeName: TOUCH_SPACE
-  description: Touch SpaceBar
+  category: {fileID: 11400000, guid: a86f4284bc2fb5e44a54285661d9878c, type: 2}
+  codeName: KEY_INPUT_SPACEBAR
+  description: Key Input SpaceBar
   action: {fileID: 11400000, guid: a4e9c23ce78fa4c43b98aa66e61c219c, type: 2}
   targets:
-  - {fileID: 11400000, guid: cc4422af0688111499ec256dff5a7fe2, type: 2}
+  - {fileID: 11400000, guid: e79b8a6c5105c8246a029cefd6b20f59, type: 2}
   initialSuccessValue: {fileID: 0}
   needSuccessToComplete: 20
   canReceiveReportsDuringCompletion: 0

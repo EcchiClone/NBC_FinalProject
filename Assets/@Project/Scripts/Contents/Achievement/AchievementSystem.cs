@@ -183,7 +183,7 @@ public class AchievementSystem : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("업적데이터 불러오기 쪽 문제임다 일단 무시해주세용");
+            Debug.LogError("업적데이터 로드 실패(SO파일 누락 예상)");
         }
     }
 
