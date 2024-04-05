@@ -155,8 +155,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owenr: 0
-  _hitEffectPrefab: {fileID: 0}
+  _hitEffectPrefab: {fileID: 4254385173534399097, guid: 93159591da4e1a54bb9d5007f1f1db74,
+    type: 3}
   _bulletType: 2
+  _damagableLayer:
+    serializedVersion: 2
+    m_Bits: 1536
 --- !u!54 &7387085742930997340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -471,8 +475,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.2
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:

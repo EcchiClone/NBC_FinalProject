@@ -22,7 +22,7 @@ public class Weapon_MissileLauncher : WeaponBase
 
     public override void UseWeapon(Transform[] muzzlePoints)
     {
-        if (_isCoolDown || Ammo <= 0)
+        if (IsCoolDown || Ammo <= 0)
             return;
         
         StartCoroutine(Co_UseWeapon(muzzlePoints));
@@ -30,7 +30,7 @@ public class Weapon_MissileLauncher : WeaponBase
 
     public IEnumerator Co_UseWeapon(Transform[] muzzlePoints)
     {
-        _isCoolDown = true;
+        IsCoolDown = true;
         _anim.Play(_upHash);
         _anim.SetBool(_usingHash, true);
         float animLength = Util.GetCurrentAnimationClipLength(_anim);        
@@ -40,20 +40,23 @@ public class Weapon_MissileLauncher : WeaponBase
         {
             for (int i = 0; i < _partData.ProjectilesPerShot; i++)
             {
+                if (Ammo == 0)
+                    continue;
                 Ammo--;
+
                 Vector3 freeFireTarget = GetFreeFireDest();
 
                 GameObject bullet = CreateBullet(muzzle);
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
-                missile.Setup(_partData.BulletSpeed, _partData.Damage, freeFireTarget, _target);
+                missile.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, freeFireTarget, _target);
 
                 yield return Util.GetWaitSeconds(_partData.FireRate);
             }
         }
-
+        
         _anim.SetBool(_usingHash, false);
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);
-        _isCoolDown = false;        
+        IsCoolDown = false;
     }
 }

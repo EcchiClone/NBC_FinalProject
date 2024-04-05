@@ -38,6 +38,7 @@ public class PartData : IEntity
     [SerializeField] private float shotErrorRange;
     [SerializeField] private int ammo;
     [SerializeField] private bool isReloadable;
+    [SerializeField] private bool isSplash;
 
     public int Dev_ID => dev_ID;
     public string Dev_Name => dev_Name;
@@ -65,4 +66,5 @@ public class PartData : IEntity
     public float ShotErrorRange => shotErrorRange;
     public int Ammo => ammo;
     public bool IsReloadable => isReloadable;
+    public bool IsSplash => isSplash;
 }

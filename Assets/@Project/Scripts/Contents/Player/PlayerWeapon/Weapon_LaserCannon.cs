@@ -13,10 +13,10 @@ public class Weapon_LaserCannon : WeaponBase
 
     public override void UseWeapon(Transform[] muzzlePoints)
     {        
-        if (_isCoolDown)
+        if (IsCoolDown)
             return;
 
-        _isCoolDown = true;        
+        IsCoolDown = true;        
         StartCoroutine(Co_ChargingLaser(muzzlePoints));
     }
 
@@ -67,7 +67,7 @@ public class Weapon_LaserCannon : WeaponBase
         LaserClear(startLaserWidth, muzzle);
 
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);
-        _isCoolDown = false;
+        IsCoolDown = false;
     }
 
     private void LaserClear(float startLaserWidth, Transform muzzle)
