@@ -68,10 +68,10 @@ public class UI_HUD : UI_Scene
         _returnBtn.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
 
-    private void AmmoTextChange(int ammo, bool isReloadable, Define.PartsType type)
+    private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.PartsType type)
     {
         if (_ammoTextDict.TryGetValue(type, out TextMeshProUGUI text) == true)
-            text.text = ammo > 0 ? $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
+            text.text = ammo > 0 ? isCoolDown ? $"<color=red>{ammo}</color>" : $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
     }
 
     private void GetTargetedEnemy(Transform target)

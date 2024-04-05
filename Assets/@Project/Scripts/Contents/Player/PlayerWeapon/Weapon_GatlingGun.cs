@@ -12,7 +12,7 @@ public class Weapon_GatlingGun : WeaponBase
 
     public override void UseWeapon(Transform[] muzzlePoints)
     {
-        if (_isCoolDown)
+        if (IsCoolDown)
             return;
 
         if (_delayTime >= _partData.FireRate && Ammo > 0)
@@ -41,7 +41,7 @@ public class Weapon_GatlingGun : WeaponBase
             bullet.transform.rotation *= rotation;
 
             PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
-            projectile.Setup(_partData.BulletSpeed, _partData.Damage, Vector3.zero, _target);
+            projectile.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, Vector3.zero, _target);
         }
     }
 }

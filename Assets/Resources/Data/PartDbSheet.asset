@@ -36,6 +36,7 @@ MonoBehaviour:
     shotErrorRange: 0
     ammo: 0
     isReloadable: 0
+    isSplash: 0
   - dev_ID: 10001002
     dev_Name: Lower_Temp
     prefab_Path: Prefabs/Parts/Lower/Lower_02Temp
@@ -58,6 +59,7 @@ MonoBehaviour:
     shotErrorRange: 0
     ammo: 0
     isReloadable: 0
+    isSplash: 0
   - dev_ID: 10002001
     dev_Name: Upper_01
     prefab_Path: Prefabs/Parts/Upper/Upper_01
@@ -81,6 +83,7 @@ MonoBehaviour:
     shotErrorRange: 0
     ammo: 0
     isReloadable: 0
+    isSplash: 0
   - dev_ID: 10002002
     dev_Name: Upper_Temp
     prefab_Path: Prefabs/Parts/Upper/Upper_02Temp
@@ -103,6 +106,7 @@ MonoBehaviour:
     shotErrorRange: 0
     ammo: 0
     isReloadable: 0
+    isSplash: 0
   - dev_ID: 10003001
     dev_Name: Arm_01
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_01
@@ -119,13 +123,14 @@ MonoBehaviour:
     smoothRotation: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Small
     damage: 5
-    bulletSpeed: 35
+    bulletSpeed: 25
     fireRate: 0.3
     coolDownTime: 2.5
     projectilesPerShot: 1
     shotErrorRange: 0.5
     ammo: 50
     isReloadable: 1
+    isSplash: 0
   - dev_ID: 10003002
     dev_Name: Arm_02
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_02
@@ -143,13 +148,14 @@ MonoBehaviour:
     smoothRotation: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
     damage: 2
-    bulletSpeed: 25
+    bulletSpeed: 35
     fireRate: 0.05
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 2
     ammo: 200
     isReloadable: 1
+    isSplash: 0
   - dev_ID: 10003003
     dev_Name: Arm_03
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_03
@@ -175,6 +181,7 @@ MonoBehaviour:
     shotErrorRange: 0
     ammo: 1
     isReloadable: 1
+    isSplash: 0
   - dev_ID: 10003004
     dev_Name: Arm_04
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_04
@@ -198,6 +205,7 @@ MonoBehaviour:
     shotErrorRange: 0.2
     ammo: 10
     isReloadable: 1
+    isSplash: 0
   - dev_ID: 10004001
     dev_Name: Shoulder_01
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_01
@@ -222,6 +230,7 @@ MonoBehaviour:
     shotErrorRange: 1
     ammo: 10
     isReloadable: 0
+    isSplash: 0
   - dev_ID: 10004002
     dev_Name: Shoulder_02
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_02
@@ -232,7 +241,7 @@ MonoBehaviour:
       \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD790
       \uC218 \uC788\uB2E4"
     armor: 200
-    weight: 5
+    weight: 8
     speed: 0
     jumpPower: 0
     boosterPower: 0
@@ -245,5 +254,32 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 0
-    ammo: 5
+    ammo: 10
     isReloadable: 0
+    isSplash: 1
+  - dev_ID: 10004003
+    dev_Name: Shoulder_03
+    prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_03
+    sprite_Path: Images/Weapon_S03
+    display_Name: HE-TA
+    display_Description: "1\uC5F0\uC7A5 \uACE0\uD3ED \uCE90\uB17C\n\uACF5\uACA9 \uC2DC
+      \uC2DC\uAC04\uCC28\uB85C \uD3ED\uBC1C\uD558\uB294 \uACE0\uD3ED\uD0C4\uC744
+      \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C
+      \uD53C\uD574\uB97C \uC785\uD790 \uC218 \uC788\uB2E4"
+    armor: 150
+    weight: 10
+    speed: 0
+    jumpPower: 0
+    boosterPower: 0
+    canJump: 0
+    smoothRotation: 0
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_01
+    damage: 125
+    bulletSpeed: 50
+    fireRate: 0
+    coolDownTime: 3
+    projectilesPerShot: 1
+    shotErrorRange: 0
+    ammo: 10
+    isReloadable: 0
+    isSplash: 1

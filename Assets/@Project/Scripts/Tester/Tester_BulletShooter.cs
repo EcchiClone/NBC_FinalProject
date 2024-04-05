@@ -9,11 +9,13 @@ public class Tester_BulletShooter : MonoBehaviour
 
     public float _standard;
     public float _delay;
+    public float _fireRate;
+    public float _bulletSpeed;
     public bool _isMultiple;
     public int _multiCount;
+    public bool _isSplash;
 
-    private float _time;
-    private WaitForSeconds _wait = new WaitForSeconds(0.05f);
+    private float _time;    
 
     private void Update()
     {
@@ -45,7 +47,7 @@ public class Tester_BulletShooter : MonoBehaviour
         {
             RandomDirectionShot();
 
-            yield return _wait;
+            yield return Util.GetWaitSeconds(_fireRate);
         }
     }
 
@@ -61,7 +63,7 @@ public class Tester_BulletShooter : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(yError, xError, 0f); // 각도 계산
         bullet.transform.rotation *= rotation; // 현재 방향에 추가 회전을 적용
 
-        bullet.GetComponent<PlayerProjectile>().Setup(25f, 1f, Vector3.zero, m_target);
+        bullet.GetComponent<PlayerProjectile>().Setup(_bulletSpeed, 1f, _isSplash, Vector3.zero, m_target);
     }
 
     private float SetShotErrorRange(float standard = 0.5f)

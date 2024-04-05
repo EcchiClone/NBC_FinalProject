@@ -69,7 +69,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     private void ChangePart()
     {
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
-        Managers.ActionManager.CallArmPartChange(_currentIndex);
+        Managers.ActionManager.CallShoulderPartChange(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
