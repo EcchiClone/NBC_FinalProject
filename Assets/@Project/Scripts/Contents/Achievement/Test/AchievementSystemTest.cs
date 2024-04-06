@@ -15,16 +15,19 @@ public class AchievementSystemTest : MonoBehaviour
     {
         var achievementSystem = AchievementSystem.Instance;
 
+        // 등록 알림 구독
         achievementSystem.onAchievementRegistered += (achievement) =>
         {
             print($"새 업적 [{achievement.CodeName}]을 등록했습니다");
         };
 
+        // 완료 알림 구독
         achievementSystem.onAchievementCompleted += (achievement) =>
         {
             print($"업적 [{achievement.CodeName}]를 완료");
         };
 
+        // 구독
         foreach (var achievement in achievements)
         {
             var newAchievement = achievementSystem.Register(achievement);
