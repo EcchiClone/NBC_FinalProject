@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
-  m_Name: Achievement_Test3
+  m_Name: Achievement_KillMinions5
   m_EditorClassIdentifier: 
-  codeName: Space15
-  icon: {fileID: 21300000, guid: e3123bceb272fdb4a88af6945c8aa195, type: 3}
-  displayName: "\uC2A4\uD398\uC774\uC2A4 \uC9C0\uBC30\uC790"
-  description: "SpaceBar\uB97C 15\uBC88 \uB204\uB974\uAE30"
+  codeName: KILL_MINIONS_5
+  icon: {fileID: 849480101, guid: 8862f85a07bf23741ac14ddd4b10dc7f, type: 3}
+  displayName: Kill Minions 5
+  description: "Minion 5\uAE30 \uD30C\uAD34"
   taskGroups:
   - tasks:
-    - {fileID: 11400000, guid: 8c8159be5454f2440833b6d224c08c43, type: 2}
+    - {fileID: 11400000, guid: 7d88d835fa7b34f4e9c3541b7ff9b5d4, type: 2}
   rewards:
-  - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
+  - {fileID: 11400000, guid: a80a81408cad3c64aa5d0930a802ae33, type: 2}
   useAutoComplete: 0
