@@ -60,7 +60,7 @@ public class PlayerCombatState : PlayerBaseState
 
     private void TimeToNonCombatMode()
     {
-        if (!Context.IsLeftArmWeaponInputPressed)
+        if (!Context.IsLeftArmWeaponInputPressed && !Context.IsRightArmWeaponInputPressed && !Context.IsLeftShoulderWeaponInputPressed && !Context.IsRightShoulderWeaponInputPressed)
             _timeToNonCombat += Time.deltaTime;
         else
             _timeToNonCombat = 0;

@@ -10,6 +10,7 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState()
     {
         InitailizeSubState();
+        Context.IsJumping = true;
         StartAnimation(Context.AnimationData.JumpParameterName);
     }
 
@@ -39,8 +40,7 @@ public class PlayerJumpState : PlayerBaseState
     }
 
     private void HandleJump()
-    {
-        Context.IsJumping = true;
+    {        
         Context._currentMovementDirection.y = Context.Module.ModuleStatus.JumpPower;
     }
 
