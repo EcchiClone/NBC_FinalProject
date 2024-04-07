@@ -31,7 +31,7 @@ public class AchievementSystem : MonoBehaviour
                 instance = FindObjectOfType<AchievementSystem>();
                 if (instance == null)
                 {
-                    instance = new GameObject("Achievement System").AddComponent<AchievementSystem>();
+                    instance = new GameObject("@AchievementSystem").AddComponent<AchievementSystem>();
                     DontDestroyOnLoad(instance.gameObject);
                 }
             }
@@ -39,7 +39,7 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
-    public GameObject CompleteAlarmUI;
+    private GameObject CompleteAlarmUI;
 
     private List<Achievement> activeAchievements = new List<Achievement>();
     private List<Achievement> completedAchievements = new List<Achievement>();

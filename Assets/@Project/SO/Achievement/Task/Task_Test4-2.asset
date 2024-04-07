@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Key Input SpaceBar
   action: {fileID: 11400000, guid: a4e9c23ce78fa4c43b98aa66e61c219c, type: 2}
   targets:
-  - {fileID: 11400000, guid: e79b8a6c5105c8246a029cefd6b20f59, type: 2}
+  - {fileID: 11400000, guid: 0a14827b0596a5842a5da8802d643337, type: 2}
   initialSuccessValue: {fileID: 0}
   needSuccessToComplete: 25
   canReceiveReportsDuringCompletion: 0
