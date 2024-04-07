@@ -96,6 +96,17 @@ public class ObjectPooler : MonoBehaviour
         if (!inst.poolDictionary.ContainsKey(obj.name))
             throw new Exception($"Pool with tag {obj.name} doesn't exist.");
 
+        // 오브젝트의 위치와 회전을 초기화
+        obj.transform.position = Vector3.zero;
+        obj.transform.rotation = Quaternion.identity;
+
+        // Rigidbody가 있다면 velocity와 angularVelocity 초기화
+        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
         inst.poolDictionary[obj.name].Enqueue(obj);
     }
 
