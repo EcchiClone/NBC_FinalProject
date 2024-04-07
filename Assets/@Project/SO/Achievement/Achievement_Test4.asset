@@ -15,7 +15,7 @@ MonoBehaviour:
   codeName: Space2025
   icon: {fileID: 21300000, guid: e3123bceb272fdb4a88af6945c8aa195, type: 3}
   displayName: "\uD0B9\uAC13\uC81C\uB108\uB7F4 \uC2A4\uD398\uC774\uC2A4 \uBAA8\uC2DC\uAEB5\uC774"
-  description: "SpaceBar\uB97C 15\uBC88, 20\uBC88 \uB204\uB974\uAE30"
+  description: "SpaceBar\uB97C 20\uBC88, 25\uBC88 \uB204\uB974\uAE30"
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 837647cfcf04f634987778fbbf32e941, type: 2}

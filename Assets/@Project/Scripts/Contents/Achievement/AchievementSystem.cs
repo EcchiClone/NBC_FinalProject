@@ -14,6 +14,7 @@ public class AchievementSystem : MonoBehaviour
 
     #region Events
     public delegate void AchievementRegisteredHandler(Achievement newAchievement);
+    public delegate void AchievementIsReadyToCompleteHandler(Achievement achievement);
     public delegate void AchievementCompletedHandler(Achievement achievement);
     public delegate void AchievementCanceledHandler(Achievement achievement);
     #endregion
@@ -30,7 +31,7 @@ public class AchievementSystem : MonoBehaviour
                 instance = FindObjectOfType<AchievementSystem>();
                 if (instance == null)
                 {
-                    instance = new GameObject("Achievement System").AddComponent<AchievementSystem>(); // 여기 빨간줄
+                    instance = new GameObject("Achievement System").AddComponent<AchievementSystem>();
                     DontDestroyOnLoad(instance.gameObject);
                 }
             }
@@ -38,12 +39,15 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
+    public GameObject CompleteAlarmUI;
+
     private List<Achievement> activeAchievements = new List<Achievement>();
     private List<Achievement> completedAchievements = new List<Achievement>();
 
     private AchievementDatabase achievementDatabase;
 
     public event AchievementRegisteredHandler onAchievementRegistered;
+    public event AchievementIsReadyToCompleteHandler onAchievementIsReadyToComplete;
     public event AchievementCompletedHandler onAchievementCompleted;
     public event AchievementCanceledHandler onAchievementCanceled;
 
@@ -53,6 +57,7 @@ public class AchievementSystem : MonoBehaviour
     private void Awake()
     {
         achievementDatabase = Resources.Load<AchievementDatabase>("AchievementDatabase");
+        CompleteAlarmUI = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarm");
 
         if (!Load())
         {
@@ -74,6 +79,7 @@ public class AchievementSystem : MonoBehaviour
         if (newAchievement is Achievement)
         {
             newAchievement.onCompleted += OnAchievementCompleted;
+            newAchievement.onWaitForComplete += OnAchievementIsReadyToComplete;
 
             activeAchievements.Add(newAchievement);
 
@@ -83,6 +89,7 @@ public class AchievementSystem : MonoBehaviour
         else
         {
             newAchievement.onCompleted += OnAchievementCompleted;
+            newAchievement.onWaitForComplete += OnAchievementIsReadyToComplete;
             newAchievement.onCanceled += OnAchievementCanceled;
 
             activeAchievements.Add(newAchievement);
@@ -183,7 +190,7 @@ public class AchievementSystem : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("업적데이터 로드 실패(SO파일 누락 예상)");
+            Debug.LogError("업적데이터 로드 실패(\"AchievementDatabase\" SO파일 내용의 누락 예상)");
         }
     }
 
@@ -212,6 +219,12 @@ public class AchievementSystem : MonoBehaviour
 
         onAchievementCompleted?.Invoke(achievement);
     }
+    private void OnAchievementIsReadyToComplete(Achievement achievement)
+    {
+        DisplayCompleteAlarm(achievement);
+
+        onAchievementIsReadyToComplete?.Invoke(achievement);
+    }
 
     private void OnAchievementCanceled(Achievement achievement)
     {
@@ -221,4 +234,11 @@ public class AchievementSystem : MonoBehaviour
         Destroy(achievement, Time.deltaTime);
     }
     #endregion
+    private void DisplayCompleteAlarm(Achievement achievement)
+    {
+        string desc = $"[{achievement.DisplayName}] {achievement.Description}";
+        GameObject go = Instantiate(CompleteAlarmUI);
+        go.transform.SetParent(GameObject.Find("@UI_Root").transform,false);
+        go.GetComponent<UI_AchievementAlarm>().DescriptionMsg = desc;
+    }
 }
