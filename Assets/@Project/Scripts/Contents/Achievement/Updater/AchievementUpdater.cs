@@ -9,6 +9,6 @@ public class AchievementUpdater : MonoBehaviour
     protected int value;
     protected void Report()
     {
-        Reporter.Report(taskCategory, taskTarget, value);
+        AchievementSystem.Instance.ReceiveReport(taskCategory, taskTarget, value);
     }
 }

@@ -9,5 +9,4 @@ public class SimpleCount : TaskAction
     {
         return currentSuccess + successCount;
     }
-
 }
