@@ -23,7 +23,7 @@ public class UI_AchievementItem : UI_Item
     {
         _icon.sprite = achievement.Icon;
         try { _rewardIcon.sprite = achievement.Rewards[0].Icon; } catch { }
-        try { _rewardNum.text = achievement.Rewards[0].Quantity.ToString(); } catch { }
+        try { _rewardNum.text = achievement.Rewards[0].QuantityOrValue.ToString(); } catch { }
         _desc.text = $"[{achievement.DisplayName}] {achievement.Description}{CurrentTaskProgressText(achievement)}";
         Dictionary<AchievementState,string> keyValuePairs = new Dictionary<AchievementState, string>(){
             {AchievementState.Running, "진행중" },
