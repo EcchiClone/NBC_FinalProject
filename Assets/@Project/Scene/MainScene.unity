@@ -1031,7 +1031,9 @@ MonoBehaviour:
   - {fileID: 2139248390}
   - {fileID: 613268919}
   - {fileID: 1183651452}
+  - {fileID: 378847800}
   - {fileID: 941257554}
+  - {fileID: 1019698108}
   - {fileID: 2086474953}
 --- !u!1 &941257554
 GameObject:

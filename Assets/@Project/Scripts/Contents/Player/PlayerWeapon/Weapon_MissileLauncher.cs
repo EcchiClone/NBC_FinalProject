@@ -34,7 +34,7 @@ public class Weapon_MissileLauncher : WeaponBase
         _anim.Play(_upHash);
         _anim.SetBool(_usingHash, true);
         float animLength = Util.GetCurrentAnimationClipLength(_anim);        
-        yield return Util.GetWaitSeconds(animLength);
+        yield return Util.GetWaitSeconds(animLength + 0.5f);
 
         foreach (Transform muzzle in muzzlePoints)
         {

@@ -37,6 +37,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     {
         if (changeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
+            Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Left);
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Right);
             if (Managers.Module.CurrentLeftShoulderIndex == _currentIndex)
                 _equip.SetActive(true);
@@ -45,6 +46,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         }
         else
         {
+            Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Right);
             if (Managers.Module.CurrentRightShoulderIndex == _currentIndex)
                 _equip.SetActive(true);

@@ -63,10 +63,13 @@ public class UI_ShoulderSelector : UI_Popup
 
     public void ResetText()
     {
-        int partID = Managers.Module.GetPartOfIndex<ShouldersPart>(0).ID;
-        PartData currentPartData = Managers.Data.GetPartData(partID);
+        int leftShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentLeftShoulderIndex).ID;
+        int rightShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentRightShoulderIndex).ID;
+        PartData LeftShoulderPartData = Managers.Data.GetPartData(leftShoulderID);
+        PartData RightShoulderPartData = Managers.Data.GetPartData(rightShoulderID);
 
-        UpdateSelectedPartSpecText_L(currentPartData);
+        UpdateSelectedPartSpecText_L(LeftShoulderPartData);
+        UpdateSelectedPartSpecText_R(RightShoulderPartData);
     }
 
     private void BackToSelector()

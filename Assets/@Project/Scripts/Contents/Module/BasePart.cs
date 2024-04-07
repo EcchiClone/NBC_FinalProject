@@ -24,4 +24,9 @@ public class BasePart : MonoBehaviour
         foreach (var effect in _boosterEffects)
             effect.SetActive(isActive);
     }
+
+    public virtual void BoostOnOff(bool isActive, bool isGround)
+    {
+        BoostOnOff(isActive);
+    }
 }
