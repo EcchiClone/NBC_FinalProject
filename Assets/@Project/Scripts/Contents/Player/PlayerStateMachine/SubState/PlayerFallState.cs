@@ -7,12 +7,13 @@ public class PlayerFallState : PlayerBaseState
     public PlayerFallState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
 
     public override void EnterState()
-    {        
+    {
         StartAnimation(Context.AnimationData.JumpParameterName);
+        Context.IsCanHovering = true;
     }
 
     public override void UpdateState()
-    {        
+    {
         HandleGravity();
         CheckSwitchStates();
     }
@@ -28,6 +29,8 @@ public class PlayerFallState : PlayerBaseState
             SwitchState(Factory.Grounded());
         else if (Context.IsDashInputPressed && Context.CanDash)
             SwitchState(Factory.Dash());
+        else if (Context.IsJumpInputPressed)
+            SwitchState(Factory.Hover());
     }
 
     private void HandleGravity()

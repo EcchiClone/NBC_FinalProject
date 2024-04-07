@@ -16,7 +16,7 @@ public class PlayerDashState : PlayerBaseState
 
     public override void UpdateState()
     {
-        HandleGravity();
+        HandleGravity();        
         CheckSwitchStates();
         if (!Context.IsDashInputPressed && Context.CanJudgeDashing)
             Context.IsDashing = false;

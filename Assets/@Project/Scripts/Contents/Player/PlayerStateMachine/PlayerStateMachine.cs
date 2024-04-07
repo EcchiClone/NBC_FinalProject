@@ -38,15 +38,18 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLockOn { get; private set; }
     public bool IsJumping { get; set; }
     public bool IsDashing { get; set; }
+    public bool IsHovering { get; set; }
+    public bool IsCanHovering { get; set; }
     public bool CanDash { get; set; }
     public bool CanJudgeDashing { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
-    public PlayerStateFactory StateFactory { get; private set; }    
+    public PlayerStateFactory StateFactory { get; private set; }
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
-    public readonly float MIN_GRAVITY_VALUE = -0.5f; // 접지 중일 때 최소 중력배율
+    public readonly float MIN_GRAVITY_VALUE = -1f; // 접지 중일 때 최소 중력배율
+    public readonly float MAX_HOVER_VALUE = 2f; // 최대 호버링 상승률
 
     private float _dashCoolDownTime = float.MaxValue;
     private float _movementModifier = 1;
@@ -109,6 +112,7 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.Move.canceled += OnMovementInput;
         P_Input.Actions.Jump.started += OnJump;
         P_Input.Actions.Jump.canceled += OnJump;
+        P_Input.Actions.Jump.canceled += OnHovering;
         P_Input.Actions.Dash.started += OnDash;
         P_Input.Actions.Dash.canceled += OnDash;
 
@@ -140,6 +144,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (점프관련)
     private void OnJump(InputAction.CallbackContext context) => IsJumpInputPressed = context.ReadValueAsButton();
+    private void OnHovering(InputAction.CallbackContext context) => IsCanHovering = IsJumping;
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
     private void OnDash(InputAction.CallbackContext context) => IsDashInputPressed = context.ReadValueAsButton();
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
@@ -319,7 +324,7 @@ public class PlayerStateMachine : MonoBehaviour
         CanJudgeDashing = false;
         IsDashing = true;
 
-        Module.CurrentLower.BoostOnOff(true);
+        Module.CurrentLower.BoostOnOff(true, Controller.isGrounded);
         Module.CurrentUpper.BoostOnOff(true);
         StartCoroutine(CoBoostOn());
     }
@@ -327,7 +332,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void StopDash()
     {
         _movementModifier = 1f;
-        Module.CurrentLower.BoostOnOff(false);
+        Module.CurrentLower.BoostOnOff(false, Controller.isGrounded);
         Module.CurrentUpper.BoostOnOff(false);
     }
 
@@ -354,4 +359,14 @@ public class PlayerStateMachine : MonoBehaviour
         CanJudgeDashing = true;
     }
     #endregion
+
+    public void StartHovering()
+    {
+        Module.CurrentUpper.BoostOnOff(true);
+    }
+
+    public void StopHovering()
+    {
+        Module.CurrentUpper.BoostOnOff(false);
+    }
 }

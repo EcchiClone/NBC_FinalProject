@@ -9,6 +9,7 @@ public class PlayerGroundedState : PlayerBaseState
     public override void EnterState()
     {
         HandleGravity();
+        Context.IsCanHovering = false;
         InitailizeSubState();
     }
 

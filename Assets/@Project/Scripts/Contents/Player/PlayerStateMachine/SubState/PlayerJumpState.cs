@@ -37,6 +37,8 @@ public class PlayerJumpState : PlayerBaseState
             SwitchState(Factory.Grounded());
         else if (Context.IsDashInputPressed && Context.CanDash)
             SwitchState(Factory.Dash());
+        else if (Context.IsJumpInputPressed && Context.IsCanHovering)
+            SwitchState(Factory.Hover());
     }
 
     private void HandleJump()
