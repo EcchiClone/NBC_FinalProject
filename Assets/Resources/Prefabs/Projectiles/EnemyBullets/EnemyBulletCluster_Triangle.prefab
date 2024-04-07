@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5201237864717169090}
   - component: {fileID: 5337497753886052865}
-  - component: {fileID: 6399831604581718683}
   m_Layer: 11
   m_Name: EnemyBullet01_Orange (1)
   m_TagString: Untagged
@@ -48,18 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owenr: 1
   _trailRenderers: []
---- !u!114 &6399831604581718683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73260927888993235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20bf85c532ce6740bc414c34a1f04e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &417151445506548962
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,8 +56,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590409939100266447}
-  - component: {fileID: 3974728011485853356}
   - component: {fileID: 3854832394889546468}
+  - component: {fileID: 3974728011485853356}
+  - component: {fileID: 3250850842665894511}
   m_Layer: 11
   m_Name: EnemyBulletCluster_Triangle
   m_TagString: Untagged
@@ -96,23 +84,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3974728011485853356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417151445506548962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feceaaa42d9744e459fa8be7a6ab9251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owenr: 1
-  _trailRenderers:
-  - {fileID: 3178844204259307961}
-  - {fileID: 4251964886175139092}
-  - {fileID: 8072560720923763118}
 --- !u!54 &3854832394889546468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,6 +111,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3974728011485853356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417151445506548962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feceaaa42d9744e459fa8be7a6ab9251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owenr: 1
+  _trailRenderers:
+  - {fileID: 3178844204259307961}
+  - {fileID: 4251964886175139092}
+  - {fileID: 8072560720923763118}
+--- !u!114 &3250850842665894511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417151445506548962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509514844314947979
 GameObject:
   m_ObjectHideFlags: 0
@@ -9985,7 +9985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6522818214734835864}
   - component: {fileID: 7242091263256884444}
-  - component: {fileID: 2744360794027932938}
   m_Layer: 11
   m_Name: EnemyBullet01_Orange (2)
   m_TagString: Untagged
@@ -10023,18 +10022,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owenr: 1
   _trailRenderers: []
---- !u!114 &2744360794027932938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826434220225469208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20bf85c532ce6740bc414c34a1f04e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2002902340400696743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10134,7 +10121,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10273,7 +10260,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10468,7 +10455,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7851151472520263321}
   - component: {fileID: 2578729116060627199}
-  - component: {fileID: 4534112543168108188}
   m_Layer: 11
   m_Name: EnemyBullet01_Orange
   m_TagString: Untagged
@@ -10506,18 +10492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owenr: 1
   _trailRenderers: []
---- !u!114 &4534112543168108188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4512768926109197746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20bf85c532ce6740bc414c34a1f04e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5245302503434234194
 GameObject:
   m_ObjectHideFlags: 0
@@ -15590,7 +15564,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
