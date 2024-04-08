@@ -9,6 +9,10 @@ public class AchievementGiver : MonoBehaviour
 
     private void Start()
     {
+        GiveAchievements();
+    }
+    public void GiveAchievements()
+    {
         foreach (var achievement in achievements)
         {
             if (!AchievementSystem.Instance.ContainsInCompletedAchievements(achievement) && !AchievementSystem.Instance.ContainsInActiveAchievements(achievement))

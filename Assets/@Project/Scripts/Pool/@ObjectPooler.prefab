@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 913754654573738321}
   - component: {fileID: 5360624033526740394}
   m_Layer: 0
-  m_Name: ObjectPooler
+  m_Name: '@ObjectPooler'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
