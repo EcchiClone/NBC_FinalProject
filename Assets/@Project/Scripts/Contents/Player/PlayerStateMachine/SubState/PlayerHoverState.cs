@@ -10,6 +10,7 @@ public class PlayerHoverState : PlayerBaseState
     {
         InitailizeSubState();
         Context.IsHovering = true;
+        Context.IsUsingBoost = true;
         if (!Context.IsRun)
             Context.Module.CurrentUpper.BoostOnOff(true);
         StartAnimation(Context.AnimationData.JumpParameterName);
@@ -17,13 +18,14 @@ public class PlayerHoverState : PlayerBaseState
 
     public override void UpdateState()
     {
-        HandleJumpPack();
+        HandleHovering();
         CheckSwitchStates();
     }
 
     public override void ExitState()
     {
         Context.IsHovering = false;
+        Context.IsUsingBoost = false;
         if (!Context.IsRun)
             Context.Module.CurrentUpper.BoostOnOff(false);
         StopAnimation(Context.AnimationData.JumpParameterName);
@@ -31,7 +33,9 @@ public class PlayerHoverState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (Context.IsMoveInputPressed)
+        if (!Context.IsMoveInputPressed)
+            SetSubState(Factory.Idle());
+        else if (Context.IsMoveInputPressed)
         {
             if (!Context.IsRun)
                 SetSubState(Factory.Walk());
@@ -42,13 +46,13 @@ public class PlayerHoverState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (!Context.IsJumpInputPressed)
+        if (!Context.IsJumpInputPressed || Context.Module.ModuleStatus.CurrentBooster <= 0)
             SwitchState(Factory.Fall());
     }
 
-    private void HandleJumpPack()
-    {
-        if (Context.IsJumpInputPressed)
-            Context._currentMovementDirection.y = Mathf.Min(Context._currentMovementDirection.y + Context.Module.ModuleStatus.Hovering, Context.MAX_HOVER_VALUE);
+    private void HandleHovering()
+    {        
+        Context.Module.ModuleStatus.Hovering(() =>
+        Context._currentMovementDirection.y = Mathf.Min(Context._currentMovementDirection.y + Context.Module.ModuleStatus.VTOL * Time.deltaTime, Context.MAX_HOVER_VALUE));        
     }
 }

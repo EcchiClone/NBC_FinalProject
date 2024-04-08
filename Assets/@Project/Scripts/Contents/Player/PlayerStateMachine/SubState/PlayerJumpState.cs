@@ -47,8 +47,7 @@ public class PlayerJumpState : PlayerBaseState
     }
 
     private void HandleJump()
-    {
-        Context._currentMovementDirection.y = 0;        
+    {        
         Context._currentMovementDirection.y = Context.Module.ModuleStatus.JumpPower;
     }
 }

@@ -40,7 +40,7 @@ public class PlayerFallState : PlayerBaseState
     {
         if (Context.Controller.isGrounded)
             SwitchState(Factory.Grounded());        
-        else if (Context.IsJumpInputPressed)
+        else if (Context.IsJumpInputPressed && Context.IsCanHovering)
             SwitchState(Factory.Hover());
     }
 }

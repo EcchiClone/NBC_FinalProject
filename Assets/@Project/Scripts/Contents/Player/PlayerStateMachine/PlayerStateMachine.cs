@@ -32,23 +32,24 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLeftShoulderWeaponInputPressed { get; private set; }
     public bool IsRightShoulderWeaponInputPressed { get; private set; }
     public bool IsLockOn { get; private set; }
-    public bool IsJumping { get; set; }    
+    public bool IsJumping { get; set; }
     public bool IsRun { get; set; }
     public bool IsHovering { get; set; }
     public bool IsCanHovering { get; set; }
     public bool CanDash { get; set; }
     public bool CanJudgeDashing { get; set; }
+    public bool IsUsingBoost { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
     public PlayerStateFactory StateFactory { get; private set; }
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
     public readonly float TIME_TO_DASH_TO_RUN_STATE = 0.5f;
+    public readonly float GRAVITY_VALUE = 4f; // 중력배율
     public readonly float MIN_GRAVITY_VALUE = -1f; // 접지 중일 때 최소 중력배율
-    public readonly float MAX_HOVER_VALUE = 2f; // 최대 호버링 상승률
-    
+    public readonly float MAX_HOVER_VALUE = 20f; // 최대 호버링 상승률
+
     private float _movementModifier = 1;
-    private float _jumpModifier = 1;
 
     private Coroutine _dashCoroutine = null;
 
@@ -99,7 +100,7 @@ public class PlayerStateMachine : MonoBehaviour
         HandleMove();
         HandleRotation();
         HandleUseWeapon();
-        HandleDash();
+        HandleBoostRecharge();
     }
 
     #region InputCallBacks
@@ -204,8 +205,13 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     private void HandleMove()
-    {
-        _cameraRelativeMovement = ConvertToCameraSpace(_currentMovementDirection * Module.ModuleStatus.MovementSpeed * _movementModifier);
+    {        
+        Vector3 nextDir = new Vector3(
+            _currentMovementDirection.x * _movementModifier * Module.ModuleStatus.MovementSpeed,
+            _currentMovementDirection.y * GRAVITY_VALUE,
+            _currentMovementDirection.z * _movementModifier * Module.ModuleStatus.MovementSpeed);
+
+        _cameraRelativeMovement = ConvertToCameraSpace(nextDir);
         Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
@@ -230,6 +236,12 @@ public class PlayerStateMachine : MonoBehaviour
             CombatRotation();
         else
             NonCombatRotation();
+    }
+
+    private void HandleBoostRecharge()
+    {
+        if (!IsUsingBoost)
+            Module.ModuleStatus.BoosterRecharge();
     }
 
     #region NonCombatMode
@@ -309,26 +321,23 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region Dash
-    private void HandleDash()
-    {     
-        
-    }
-
     public void StartRunAfterDash()
     {
         IsRun = true;
         CanDash = false;
-        CanJudgeDashing = false;        
+        CanJudgeDashing = false;
+        IsUsingBoost = true;
 
         Module.CurrentLower.BoostOnOff(true);
         Module.CurrentUpper.BoostOnOff(true);
+        Module.ModuleStatus.Boost();
         if (Controller.isGrounded)
             Module.CurrentLower.FootSparksOnOff(true);
         if (_dashCoroutine != null)
         {
             StopCoroutine(_dashCoroutine);
             _movementModifier = 1f;
-        }            
+        }
         _dashCoroutine = StartCoroutine(CoBoostOn());
     }
 
@@ -342,12 +351,12 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     private IEnumerator CoBoostOn()
-    {        
+    {
         float startSpeed = _movementModifier * Module.ModuleStatus.BoostPower;
         float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
 
         float current = 0f;
-        float percent = 0f;        
+        float percent = 0f;
 
         while (percent < 1f)
         {
@@ -360,6 +369,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
         _movementModifier = endSpeed;
         CanJudgeDashing = true;
+        IsUsingBoost = false;
     }
     #endregion
 }
