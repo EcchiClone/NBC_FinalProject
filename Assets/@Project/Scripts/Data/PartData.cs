@@ -23,6 +23,7 @@ public class PartData : IEntity
 
     [Header("Upper")]
     [SerializeField] private float smoothRotation;
+    [SerializeField] private float boosterGauge;
     [SerializeField] private float hovering;
 
     [Header("Weapon")]
@@ -54,6 +55,7 @@ public class PartData : IEntity
     public bool CanJump => canJump;
 
     public float SmoothRotation => smoothRotation;
+    public float BoosterGauge => boosterGauge;
     public float Hovering => hovering;
 
     public string BulletPrefab_Path => bulletPrefab_Path;
