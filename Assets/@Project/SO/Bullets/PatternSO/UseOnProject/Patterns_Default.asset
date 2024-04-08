@@ -285,4 +285,4 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 5
+      releaseTimer: 3

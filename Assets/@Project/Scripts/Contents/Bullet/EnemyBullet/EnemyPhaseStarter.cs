@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using static UnityEngine.UIElements.VisualElement;
+using static PhaseSO;
 
 public class EnemyPhaseStarter : MonoBehaviour
 {
@@ -53,14 +54,32 @@ public class EnemyPhaseStarter : MonoBehaviour
 
     private IEnumerator Co_StartPhase(int PhaseNum, int muzzleNum, bool isOneTime)
     {
-        yield return new WaitForSeconds(Phases[PhaseNum].startTime);
+        //yield return new WaitForSeconds(Phases[PhaseNum].startTime);
+        yield return Util.GetWaitSeconds(Phases[PhaseNum].startTime);
 
         if (PhaseNum < Phases.Length)
         {
             int _muzzleNum = (muzzle[muzzleNum] != null) ? muzzleNum : 0;
+
+            //foreach (var patternHierarchy in Phases[PhaseNum].hierarchicalPatterns)
+            //{
+            //    EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, Phases[PhaseNum].cycleTime, gameObject, gameObject, muzzle[_muzzleNum], isOneTime);
+            //}
+            // 각 패턴 계층을 위한 BulletGenerationSettings 인스턴스 생성
             foreach (var patternHierarchy in Phases[PhaseNum].hierarchicalPatterns)
             {
-                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, Phases[PhaseNum].cycleTime, gameObject, gameObject, muzzle[_muzzleNum], isOneTime);
+                var settings = new BulletGenerationSettings
+                {
+                    muzzleTransform = muzzle[_muzzleNum],
+                    rootObject = gameObject,
+                    masterObject = gameObject,
+                    cycleTime = Phases[PhaseNum].cycleTime,
+                    isOneTime = isOneTime,
+                    patternHierarchy = patternHierarchy
+                };
+
+                // 설정 인스턴스를 StartPatternHierarchy 메소드에 전달
+                EnemyBulletGenerator.instance.StartPatternHierarchy(settings);
             }
         }
     }
