@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tier1PerkBehaviour : MonoBehaviour
 {
+    // 지금 얘한테 있는 기능: 라인렌더러 만들어서 가까운 저티어대 퍼크 연결
+    // 그리고 서브 퍼크 자체적으로 만드는 거 (퍼크 매니저로 기능 통합해야 함)
     private System.Random _random = new System.Random();
     private BinaryCombineAlgorithm _algorithm;
 

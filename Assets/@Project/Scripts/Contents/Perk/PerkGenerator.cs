@@ -186,20 +186,20 @@ public class PerkGenerator : MonoBehaviour
             switch (q)
             {
                 case 0:
-                    x = 0f + (-900f * (tier - 1)) + 900f * m;
+                    x = -900f * (tier - 1) + 900f * m;
                     y = 900f * tier;
                     break;
                 case 1:
                     x = 900f * tier;
-                    y = 0f + (900f * (tier - 1)) - 900f * m;
+                    y = 900f * (tier - 1) - 900f * m;
                     break;
                 case 2:
-                    x = 0f + (900f * (tier - 1)) - 900f * m;
+                    x = 900f * (tier - 1) - 900f * m;
                     y = -900f * tier;
                     break;
                 case 3:
                     x = -900f * tier;
-                    y = 0f + (-900f * (tier - 1)) + 900f * m;
+                    y = -900f * (tier - 1) + 900f * m;
                     break;
             }
 

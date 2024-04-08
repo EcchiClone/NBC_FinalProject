@@ -48,15 +48,16 @@ public class PerkManager : MonoBehaviour
 
     private void Start()
     {
+        // 변수 초기화
+        _point = 100;
+        _currentSeed = _seed.RandomSeedGenerator();
+
         // 컨텐츠 json 파일 먼저 불러오기
         _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
         _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
         _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
 
-        Debug.Log(_tier1Contents.contentTier);
-        Debug.Log(_tier1Contents.data[0].name);
-        Debug.Log(_tier1Contents.data[0].description);
-
+        // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
     }
 
@@ -79,8 +80,6 @@ public class PerkManager : MonoBehaviour
     private void CreateNewPerkSequence()
     {
         // 퍼크를 새로 생성하는 시퀀스
-        _point = 100;
-        _currentSeed = _seed.RandomSeedGenerator();
         _gen.ParseSeed(_currentSeed);
         _gen.ConvertSeedToLoc();
         _gen.SendLocToPerkManager();
@@ -106,6 +105,10 @@ public class PerkManager : MonoBehaviour
         _json.LoadPerkData(ref _tier1Perks, "tier1PerkData");
         _json.LoadPerkData(ref _tier2Perks, "tier2PerkData");
         _json.LoadPerkData(ref _tier3Perks, "tier3PerkData");
+
+        // 기존 변수 할당
+        _point = _tier1Perks.point;
+        _currentSeed = _tier1Perks.currentSeed;
 
         // 퍼크 생성
         _gen.InstantiatePerks(_tier1Perks.data);
