@@ -13,14 +13,6 @@ public class SeedGenerator : MonoBehaviour
         _hexdec = GetComponent<HexDecConverter>();
     }
 
-    private void Start()
-    {
-        // 중복 없는 추첨 테스트
-        List<int> list = RandomWithRangeNoRep(8, 8);
-        foreach (int i in list)
-            Debug.Log(i);
-    }
-
     private int RandomWithRange(int range)
     {
         return _random.Next(range) + 1;
