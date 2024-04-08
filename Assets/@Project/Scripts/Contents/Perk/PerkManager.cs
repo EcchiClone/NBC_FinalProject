@@ -48,9 +48,14 @@ public class PerkManager : MonoBehaviour
 
     private void Start()
     {
-        // TODO:
-        // 1. 최초 실행 시 퍼크 데이터 존재 유무 확인
-        // 2. 없으면: 새로 생성해서 json 저장, 있으면: json 불러와서 퍼크 생성
+        // 컨텐츠 json 파일 먼저 불러오기
+        _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
+        _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
+        _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
+
+        Debug.Log(_tier1Contents.contentTier);
+        Debug.Log(_tier1Contents.data[0].name);
+        Debug.Log(_tier1Contents.data[0].description);
 
         CheckDataExists();
     }
@@ -97,15 +102,6 @@ public class PerkManager : MonoBehaviour
 
     private void LoadPerkSequence()
     {
-        // 컨텐츠 json 파일 먼저 불러오기
-        _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
-        _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
-        _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
-
-        Debug.Log(_tier1Contents.contentTier);
-        Debug.Log(_tier1Contents.data[0].name);
-        Debug.Log(_tier1Contents.data[0].description);
-
         // 기존 퍼크를 불러오는 시퀀스
         _json.LoadPerkData(ref _tier1Perks, "tier1PerkData");
         _json.LoadPerkData(ref _tier2Perks, "tier2PerkData");
@@ -148,15 +144,15 @@ public class PerkManager : MonoBehaviour
     {
         if (tier == PerkTier.TIER1)
         {
-            _seed.RandomWithRangeNoRep(_tier1Contents.data.Count, 8);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier1Contents.data.Count, 8);
         }
         else if (tier == PerkTier.TIER2)
         {
-            _seed.RandomWithRangeNoRep(_tier2Contents.data.Count, 16);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier2Contents.data.Count, 16);
         }
         else
         {
-            _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, 24);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, 24);
         }
     }
 
