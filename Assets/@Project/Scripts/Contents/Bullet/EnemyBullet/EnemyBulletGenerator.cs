@@ -65,7 +65,9 @@ public class EnemyBulletGenerator : MonoBehaviour
     {
         EnemyBulletSettings settings = genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName).enemyBulletSettings;
 
-        GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
+        //GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
+        //Transform playerTF = Managers.Module.CurrentModule.LowerPosition;
+        Vector3 playerPos = new Vector3(0, 0, 20);
 
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
@@ -86,7 +88,8 @@ public class EnemyBulletGenerator : MonoBehaviour
                 //List<GameObject> enemyBulletGoList = new List<GameObject>();
                 List<LightTransform> enemyBulletTransformList = new List<LightTransform>();
 
-                SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerGo, genSettings); // settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform
+                //SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerTF, genSettings); // settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform
+                SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerPos, genSettings); // settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform
                 // genSettings.rootObject, genSettings.masterObject, genSettings.muzzleTransform
 
                 EnqueueEnemyBulletSpawnInfo(settings, enemyBulletTransformList, genSettings); // settings, enemyBulletTransformList, subPatterns, nextCycleTime, rootGo, masterGo.transform
@@ -110,7 +113,8 @@ public class EnemyBulletGenerator : MonoBehaviour
     }
 
     // 탄막의 생성 및 위치 초기화
-    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, GameObject playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
+    //private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, Transform playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
+    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, Vector3 playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         var muzzleTransform = genSettings.muzzleTransform;
         var rootGo = genSettings.rootObject;
@@ -134,7 +138,7 @@ public class EnemyBulletGenerator : MonoBehaviour
             case PosDirection.ToPlayer:
                 if (playerGo != null)
                 {
-                    Vector3 directionToPlayer = (playerGo.transform.position - masterGo.transform.position).normalized;
+                    Vector3 directionToPlayer = (playerGo - masterGo.transform.position).normalized;
                     pivotDirection = directionToPlayer;
                 }
                 else pivotDirection = masterGo.transform.forward; // Player 없을 시, Forward를 사용
@@ -263,7 +267,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 {
                     if (playerGo != null)
                     {
-                        Vector3 directionMasterToPlayer = (playerGo.transform.position - masterGo.transform.position).normalized;
+                        Vector3 directionMasterToPlayer = (playerGo - masterGo.transform.position).normalized;
                         enemyBulletTransform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
                     }
                     else
@@ -294,7 +298,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 {
                     if (playerGo != null)
                     {
-                        Vector3 directionMuzzleToPlayer = (playerGo.transform.position - muzzleTransform.transform.position).normalized;
+                        Vector3 directionMuzzleToPlayer = (playerGo - muzzleTransform.transform.position).normalized;
                         enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToPlayer);
                     }
                     else
@@ -310,7 +314,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 {
                     if (playerGo != null)
                     {
-                        Vector3 directionToPlayer = (playerGo.transform.position - enemyBulletTransform.position).normalized;
+                        Vector3 directionToPlayer = (playerGo - enemyBulletTransform.position).normalized;
                         enemyBulletTransform.rotation = Quaternion.LookRotation(directionToPlayer);
                     }
                 }
