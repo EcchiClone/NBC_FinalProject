@@ -8,15 +8,14 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void EnterState()
     {
-        InitailizeSubState();
-        HandleJump();        
         Context.IsJumping = true;
+        HandleJump();
+        InitailizeSubState();
         StartAnimation(Context.AnimationData.JumpParameterName);
     }
 
     public override void UpdateState()
     {
-        HandleGravity();
         CheckSwitchStates();
     }
 
@@ -36,13 +35,13 @@ public class PlayerJumpState : PlayerBaseState
                 SetSubState(Factory.Walk());
             else
                 SetSubState(Factory.Run());
-        }        
+        }
     }
 
     public override void CheckSwitchStates()
     {
         if (Context.Controller.isGrounded)
-            SwitchState(Factory.Grounded());        
+            SwitchState(Factory.Grounded());
         else if (Context.IsJumpInputPressed && Context.IsCanHovering)
             SwitchState(Factory.Hover());
     }
@@ -50,10 +49,5 @@ public class PlayerJumpState : PlayerBaseState
     private void HandleJump()
     {        
         Context._currentMovementDirection.y = Context.Module.ModuleStatus.JumpPower;
-    }
-
-    private void HandleGravity()
-    {
-        Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
     }
 }
