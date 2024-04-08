@@ -41,7 +41,7 @@ public class PerkManager : MonoBehaviour
     {
         // TODO:
         // 1. 최초 실행 시 퍼크 데이터 존재 유무 확인
-        // 2. 없으면: 새로 생성되는 시퀀스, 있으면: 기존 퍼크를 불러오기
+        // 2. 없으면: 새로 생성해서 json 저장, 있으면: json 불러와서 퍼크 생성
 
         CheckDataExists();
     }
@@ -89,6 +89,10 @@ public class PerkManager : MonoBehaviour
         _json.LoadData(ref _tier2Perks, "tier2PerkData");
         _json.LoadData(ref _tier3Perks, "tier3PerkData");
 
+        // 퍼크 생성
+        _gen.InstantiatePerks(_tier1Perks.data);
+        _gen.InstantiatePerks(_tier2Perks.data);
+        _gen.InstantiatePerks(_tier3Perks.data);
     }
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
