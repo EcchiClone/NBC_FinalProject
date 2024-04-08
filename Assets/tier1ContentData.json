@@ -3,43 +3,43 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "TestPerk1Name",
-            "description": "TestPerk1Description"
+            "name": "EmptyPerk1Name",
+            "description": "EmptyPerk1Description"
         },
         {
             "contentIdx": 1,
-            "name": "TestPerk2Name",
-            "description": "TestPerk2Description"
+            "name": "EmptyPerk2Name",
+            "description": "EmptyPerk2Description"
         },
         {
             "contentIdx": 2,
-            "name": "TestPerk3Name",
-            "description": "TestPerk3Description"
+            "name": "EmptyPerk3Name",
+            "description": "EmptyPerk3Description"
         },
         {
             "contentIdx": 3,
-            "name": "TestPerk4Name",
-            "description": "TestPerk4Description"
+            "name": "EmptyPerk4Name",
+            "description": "EmptyPerk4Description"
         },
         {
             "contentIdx": 4,
-            "name": "TestPerk5Name",
-            "description": "TestPerk5Description"
+            "name": "EmptyPerk5Name",
+            "description": "EmptyPerk5Description"
         },
         {
             "contentIdx": 5,
-            "name": "TestPerk6Name",
-            "description": "TestPerk6Description"
+            "name": "EmptyPerk6Name",
+            "description": "EmptyPerk6Description"
         },
         {
             "contentIdx": 6,
-            "name": "TestPerk7Name",
-            "description": "TestPerk7Description"
+            "name": "EmptyPerk7Name",
+            "description": "EmptyPerk7Description"
         },
         {
             "contentIdx": 7,
-            "name": "TestPerk8Name",
-            "description": "TestPerk8Description"
+            "name": "EmptyPerk8Name",
+            "description": "EmptyPerk8Description"
         }
     ]
 }

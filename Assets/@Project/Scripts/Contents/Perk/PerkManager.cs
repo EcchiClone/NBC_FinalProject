@@ -99,8 +99,8 @@ public class PerkManager : MonoBehaviour
     {
         // 컨텐츠 json 파일 먼저 불러오기
         _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
-        // _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
-        // _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
+        _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
+        _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
 
         Debug.Log(_tier1Contents.contentTier);
         Debug.Log(_tier1Contents.data[0].name);
@@ -119,10 +119,12 @@ public class PerkManager : MonoBehaviour
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
     {
+        List<int> contentIdxs = new List<int>();
+        MakeContentIdxs(tier, ref contentIdxs);
 
         for (int i = 0; i < binaryData.Length; i++)
         {
-            PerkInfo perkInfo = new PerkInfo(tier, i, 0, false);
+            PerkInfo perkInfo = new PerkInfo(tier, i, contentIdxs[i], false);
 
             if (binaryData[i])
             {
@@ -139,6 +141,22 @@ public class PerkManager : MonoBehaviour
                     _tier3Perks.data.Add(perkInfo);
                 }
             }
+        }
+    }
+
+    private void MakeContentIdxs(PerkTier tier, ref List<int> contentIdxs)
+    {
+        if (tier == PerkTier.TIER1)
+        {
+            _seed.RandomWithRangeNoRep(_tier1Contents.data.Count, 8);
+        }
+        else if (tier == PerkTier.TIER2)
+        {
+            _seed.RandomWithRangeNoRep(_tier2Contents.data.Count, 16);
+        }
+        else
+        {
+            _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, 24);
         }
     }
 
