@@ -45,5 +45,17 @@ public enum Ball_States
     Alive,
     Dead,
 
+    NonCombat,
+    Combat,
+
+    Idle,
     Chasing,
+}
+
+public enum Turret_States
+{
+    Alive,
+    Dead,
+
+    Attack,
 }

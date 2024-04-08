@@ -10,6 +10,7 @@ public class EntityDataSO : ScriptableObject
 {
     [Header("Info")]
     public float stopDistance;
+    public float chasingDistance;
     public float chasingInterval;
     public float rotationSpeed;
 

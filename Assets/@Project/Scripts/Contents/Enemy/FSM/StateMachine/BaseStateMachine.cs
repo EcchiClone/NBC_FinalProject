@@ -9,9 +9,9 @@ public abstract class BaseStateMachine
     public BaseStateProvider Provider { get; protected set; }
     public BaseState CurrentState { get; set; }
 
-    public BaseStateMachine(Entity boss)
+    public BaseStateMachine(Entity entity)
     {
-        Entity = boss;
+        Entity = entity;
         Initialize();
     }
 
@@ -19,9 +19,7 @@ public abstract class BaseStateMachine
 
     public void Update()
     {
-        if (CurrentState != null)
-        {
-            CurrentState.UpdateStates();
-        }
+        
+            CurrentState?.UpdateStates();
     }
 }

@@ -3,33 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Pattern
-{
-    Phase1_Pattern1,
-    Phase1_Pattern2,
-    Phase1_Pattern3,
-    
-    Phase2_Pattern1,
-    Phase2_Pattern2,
-    Phase2_Pattern3,
-}
-
 public abstract class Entity : MonoBehaviour
 {
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
     public float CurrentHelth { get; protected set; }
     [field: SerializeField] public bool IsAlive { get; private set; } = true; // 피격 처리 함수에서만 수정할 수 있도록
+
     public Controller Controller { get; protected set; }
     public BaseStateMachine StateMachine { get; set; }
-
-    public Dictionary<Pattern, Action<string>> Patterns { get; protected set; } = new Dictionary<Pattern, Action<string>>();
 
     public EnemyPhaseStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
 
     private void Start()
     {
-        enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
+        //enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
         Initialize();        
     }
 
@@ -49,5 +37,10 @@ public abstract class Entity : MonoBehaviour
         Controller?.Update();
 
         StateMachine?.Update();
+    }
+
+    public void StartCoroutine(Action action)
+    {
+        
     }
 }

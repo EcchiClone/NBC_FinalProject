@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider : Entity
+public class Turret : Entity
 {
     protected override void Initialize()
     {
         //Target = FindObjectOfType<TargetCenter>().transform;
         CurrentHelth = Data.maxHealth;
 
-        Controller = new GroundUnitController(this);
+        Controller = new TurretUnitController(this);
         Controller.Initialize();
+        StateMachine = new SkyFireStateMachine(this);
 
-        StateMachine = new SpiderStateMachine(this);
 
-        Controller?.SetDestination(Target.position);
+        Controller.SetDestination(Target.position);
     }
 }

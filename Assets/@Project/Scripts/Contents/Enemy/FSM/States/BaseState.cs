@@ -16,6 +16,7 @@ public abstract class BaseState
     {
         Context = context;
         Provider = provider;
+        
     }
 
     public abstract void EnterState();
