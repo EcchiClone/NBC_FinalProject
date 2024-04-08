@@ -22,6 +22,9 @@ public class PerkManager : MonoBehaviour
     private ContentList _tier2Contents = new ContentList(); // Tier2 컨텐츠 집합
     private ContentList _tier3Contents = new ContentList(); // Tier3 컨텐츠 집합
 
+    public PerkTier PointerTier { get; set; } // 퍼크 생성 시 현재 생성하는 퍼크의 티어
+    public int PointerIdx { get; set; } // 퍼크 생성 시 현재 생성하는 퍼크의 인덱스
+
     private void Awake()
     {
         // 스크립트 가져오기
@@ -85,8 +88,8 @@ public class PerkManager : MonoBehaviour
         _gen.SendLocToPerkManager();
 
         // json 변수에 할당
-        _json.tier1PerkData.point = _point;
-        _json.tier1PerkData.currentSeed = _currentSeed;
+        _tier1Perks.point = _point;
+        _tier1Perks.currentSeed = _currentSeed;
 
         _json.tier1PerkData = _tier1Perks;
         _json.tier2PerkData = _tier2Perks;
@@ -159,13 +162,48 @@ public class PerkManager : MonoBehaviour
         }
     }
 
-    private void DebugList(List<PerkInfo> perks)
+    public PerkInfo GetPerkInfo(PerkTier tier, int idx)
     {
-        // 리스트 안에 뭔가 저장되어 있는지 디버깅하는 용도
-        foreach (PerkInfo perkInfo in perks)
+        PerkInfo perkInfo = null;
+        int realIdx = 0;
+
+        if (tier == PerkTier.TIER1)
         {
-            Debug.Log(perkInfo.PositionIdx);
+            realIdx = _tier1Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+            perkInfo = _tier1Perks.data[realIdx];
         }
+        else if (tier == PerkTier.TIER2)
+        {
+            realIdx = _tier2Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+            perkInfo = _tier2Perks.data[realIdx];
+        }
+        else
+        {
+            realIdx = _tier3Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+            perkInfo = _tier3Perks.data[realIdx];
+        }
+
+        return perkInfo;
+    }
+
+    public ContentInfo GetContentInfo(PerkTier tier, int idx)
+    {
+        ContentInfo contentInfo = null;
+        
+        if (tier == PerkTier.TIER1)
+        {
+            contentInfo = _tier1Contents.data[idx];
+        }
+        else if (tier == PerkTier.TIER2)
+        {
+            contentInfo = _tier2Contents.data[idx];
+        }
+        else
+        {
+            contentInfo = _tier3Contents.data[idx];
+        }
+
+        return contentInfo;
     }
 }
 

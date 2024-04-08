@@ -174,8 +174,12 @@ public class PerkGenerator : MonoBehaviour
     {
         foreach (PerkInfo perkInfo in perkList)
         {
-            int idx = perkInfo.PositionIdx;
             int tier = (int)perkInfo.Tier;
+            int idx = perkInfo.PositionIdx;
+
+            // PerkManager 내부 포인터 값 설정
+            PerkManager.Instance.PointerTier = perkInfo.Tier;
+            PerkManager.Instance.PointerIdx = idx;
 
             int q = idx / (2 * tier);
             int m = idx % (2 * tier);
