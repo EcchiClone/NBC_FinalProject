@@ -72,14 +72,27 @@ public class PlayerProjectile : Bullet
                     {
                         // To Do - 데미지 
                         Debug.Log("스플뎀");
+                        testEnemy.GetDamage(_damage);
                     }
                 }
             }
             else
-                Debug.Log("일반뎀");
-            // To Do - 단순 타겟 데미지
+            {
+                if (other.TryGetComponent(out Test_Enemy testEnemy))
+                {
+                    // To Do - 단순 타겟 데미지
+                    Debug.Log("일반뎀");
+                    testEnemy.GetDamage(_damage);
+                }                    
+            }
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }        
+    }
+
+    private void OnDisable()
+    {
+        ObjectPooler.ReturnToPool(gameObject); // 한 객체에 한번만
+        CancelInvoke();
     }
 }

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWalkState : PlayerBaseState
+public class PlayerRunState : PlayerBaseState
 {
-    public PlayerWalkState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
+    public PlayerRunState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
 
     public override void EnterState()
     {
-        StartAnimation(Context.AnimationData.WalkParameterHash);
+        StartAnimation(Context.AnimationData.RunParameterName);        
     }
 
     public override void UpdateState()
@@ -18,14 +18,15 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void ExitState()
     {
-        StopAnimation(Context.AnimationData.WalkParameterHash);
+        StopAnimation(Context.AnimationData.RunParameterName);
+        Context.StopRun();
     }
 
     public override void CheckSwitchStates()
     {
         if (!Context.IsMoveInputPressed)
             SwitchState(Factory.Idle());
-        if (Context.IsDashInputPressed)
+        if (Context.IsDashInputPressed && Context.CanDash)
             SwitchState(Factory.Dash());
     }
 }

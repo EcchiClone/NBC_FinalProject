@@ -7,41 +7,31 @@ public class PlayerDashState : PlayerBaseState
     public PlayerDashState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
 
     public override void EnterState()
-    {
-        Context.StartDash();
-        Context._currentMovementDirection.y = 0;
+    {        
         StartAnimation(Context.AnimationData.DashParameterName);
-        RemoveSubState();
+        Context.StartRunAfterDash();
     }
 
     public override void UpdateState()
     {
         HandleGravity();        
-        CheckSwitchStates();
-        if (!Context.IsDashInputPressed && Context.CanJudgeDashing)
-            Context.IsDashing = false;
+        CheckSwitchStates();        
     }
 
     public override void ExitState()
-    {
-        Context.StopDash();
+    {        
         StopAnimation(Context.AnimationData.DashParameterName);
     }
 
     public override void CheckSwitchStates()
     {
-        if (!Context.IsDashInputPressed && !Context.IsDashing)
+        if (Context.CanJudgeDashing)
         {
-            if (Context.Controller.isGrounded)
-                SwitchState(Factory.Grounded());
+            if(!Context.IsMoveInputPressed)
+                SwitchState(Factory.Idle());
             else
-                SwitchState(Factory.Fall());
+                SwitchState(Factory.Run());
         }
-    }
-
-    private void RemoveSubState()
-    {
-        _currentSubState = null;
     }
 
     private void HandleGravity()

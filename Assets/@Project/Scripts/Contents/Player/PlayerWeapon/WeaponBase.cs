@@ -57,8 +57,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected GameObject CreateBullet(Transform muzzle)
     {
         GameObject go = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
-        GameObject bullet = Instantiate(go);
-        bullet.transform.position = muzzle.position;
+        GameObject bullet = ObjectPooler.SpawnFromPool(go.name, muzzle.position);        
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;

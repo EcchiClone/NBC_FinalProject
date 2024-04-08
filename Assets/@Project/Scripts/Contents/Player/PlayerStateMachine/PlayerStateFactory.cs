@@ -13,6 +13,7 @@ public enum States
     Idle,
     Walk,
     Dash,
+    Run,
 }
 
 public class PlayerStateFactory
@@ -33,6 +34,7 @@ public class PlayerStateFactory
         _states[States.Jump]            = new PlayerJumpState(_context, this);
         _states[States.Fall]            = new PlayerFallState(_context, this);
         _states[States.Dash]            = new PlayerDashState(_context, this);
+        _states[States.Run]             = new PlayerRunState(_context, this);
     }
 
     public PlayerBaseState NonCombat() => _states[States.NonCombat];
@@ -46,4 +48,5 @@ public class PlayerStateFactory
     public PlayerBaseState Idle() => _states[States.Idle];
     public PlayerBaseState Walk() => _states[States.Walk];
     public PlayerBaseState Dash() => _states[States.Dash];
+    public PlayerBaseState Run() => _states[States.Run];
 }

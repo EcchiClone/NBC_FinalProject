@@ -13,12 +13,14 @@ public class LowerPart : BasePart
         base.Setup(type, module);
     }
 
-    public override void BoostOnOff(bool isActive, bool isGround)
+    public override void BoostOnOff(bool isActive)
     {
-        base.BoostOnOff(isActive, isGround);
+        base.BoostOnOff(isActive);
+    }    
 
-        if (isGround)
-            foreach (var spark in _footSparks)
-                spark.SetActive(isActive);
+    public void FootSparksOnOff(bool isActive)
+    {
+        foreach (var spark in _footSparks)
+            spark.SetActive(isActive);
     }
 }

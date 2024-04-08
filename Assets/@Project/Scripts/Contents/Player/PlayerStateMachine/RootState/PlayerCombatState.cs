@@ -32,19 +32,14 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (Context.IsDashing)
-            SetSubState(Factory.Dash());
+        if (Context.Controller.isGrounded)
+            SetSubState(Factory.Grounded());
         else
         {
-            if (Context.Controller.isGrounded)
-                SetSubState(Factory.Grounded());
+            if (Context.IsJumping)
+                SetSubState(Factory.Jump());
             else
-            {
-                if (Context.IsJumping)
-                    SetSubState(Factory.Jump());
-                else
-                    SetSubState(Factory.Fall());
-            }
+                SetSubState(Factory.Fall());
         }
     }
 

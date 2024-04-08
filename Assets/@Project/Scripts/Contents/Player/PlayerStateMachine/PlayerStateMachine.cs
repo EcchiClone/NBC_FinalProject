@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
-using UnityEditor.Experimental.GraphView;
-using System;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -36,8 +32,8 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLeftShoulderWeaponInputPressed { get; private set; }
     public bool IsRightShoulderWeaponInputPressed { get; private set; }
     public bool IsLockOn { get; private set; }
-    public bool IsJumping { get; set; }
-    public bool IsDashing { get; set; }
+    public bool IsJumping { get; set; }    
+    public bool IsRun { get; set; }
     public bool IsHovering { get; set; }
     public bool IsCanHovering { get; set; }
     public bool CanDash { get; set; }
@@ -47,13 +43,13 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerStateFactory StateFactory { get; private set; }
 
     public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
-    public readonly float TIME_TO_SWITCHABLE_DASH_MODE = 5f;
+    public readonly float TIME_TO_DASH_TO_RUN_STATE = 0.5f;
     public readonly float MIN_GRAVITY_VALUE = -1f; // 접지 중일 때 최소 중력배율
     public readonly float MAX_HOVER_VALUE = 2f; // 최대 호버링 상승률
-
-    private float _dashCoolDownTime = float.MaxValue;
+    
     private float _movementModifier = 1;
 
+    private Coroutine _dashCoroutine = null;
 
     private void Awake()
     {
@@ -69,6 +65,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         // Setup
         Managers.ActionManager.OnPlayerDead += PlayerDestroyed;
+        Managers.ActionManager.OnLockTargetDestroyed += CheckLockTargetIsNull;
     }
 
     private void Start()
@@ -101,7 +98,7 @@ public class PlayerStateMachine : MonoBehaviour
         HandleMove();
         HandleRotation();
         HandleUseWeapon();
-        HandleDashCoolDown();
+        HandleDash();
     }
 
     #region InputCallBacks
@@ -115,6 +112,7 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input.Actions.Jump.canceled += OnHovering;
         P_Input.Actions.Dash.started += OnDash;
         P_Input.Actions.Dash.canceled += OnDash;
+        P_Input.Actions.Dash.canceled += OnCanDash;
 
         P_Input.Actions.LeftArm.started += OnLeftArmWeapon;
         P_Input.Actions.LeftArm.canceled += OnLeftArmWeapon;
@@ -147,6 +145,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void OnHovering(InputAction.CallbackContext context) => IsCanHovering = IsJumping;
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
     private void OnDash(InputAction.CallbackContext context) => IsDashInputPressed = context.ReadValueAsButton();
+    private void OnCanDash(InputAction.CallbackContext context) => CanDash = !context.ReadValueAsButton();
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (전투관련)
     private void OnLeftArmWeapon(InputAction.CallbackContext context) => IsLeftArmWeaponInputPressed = context.ReadValueAsButton();
     private void OnRightArmWeapon(InputAction.CallbackContext context) => IsRightArmWeaponInputPressed = context.ReadValueAsButton();
@@ -192,6 +191,15 @@ public class PlayerStateMachine : MonoBehaviour
                 Module.LockOnSystem.LockOnTarget();
             }
         }
+    }
+
+    private void CheckLockTargetIsNull(Test_Enemy prevTarget)
+    {
+        Module.LockOnSystem.LockTargetChange(prevTarget, () =>
+        {
+            if (!prevTarget.gameObject.activeSelf && Module.LockOnSystem.TargetEnemy == null)
+                IsLockOn = false;
+        });
     }
 
     private void HandleMove()
@@ -300,56 +308,50 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region Dash
-    private void HandleDashCoolDown()
-    {
-        if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
-            return;
-
-        _dashCoolDownTime += Time.deltaTime;
-        float percent = _dashCoolDownTime / TIME_TO_SWITCHABLE_DASH_MODE;
-        Managers.ActionManager.CallUseBooster(percent);
-
-        if (_dashCoolDownTime >= TIME_TO_SWITCHABLE_DASH_MODE)
-        {
-            CanDash = true;
-            _dashCoolDownTime = TIME_TO_SWITCHABLE_DASH_MODE;
-            Debug.Log("대시 가능");
-        }
+    private void HandleDash()
+    {     
+        
     }
 
-    public void StartDash()
+    public void StartRunAfterDash()
     {
-        _dashCoolDownTime = 0;
+        IsRun = true;
         CanDash = false;
-        CanJudgeDashing = false;
-        IsDashing = true;
+        CanJudgeDashing = false;        
 
-        Module.CurrentLower.BoostOnOff(true, Controller.isGrounded);
+        Module.CurrentLower.BoostOnOff(true);
         Module.CurrentUpper.BoostOnOff(true);
-        StartCoroutine(CoBoostOn());
+        if (Controller.isGrounded)
+            Module.CurrentLower.FootSparksOnOff(true);
+        if (_dashCoroutine != null)
+        {
+            StopCoroutine(_dashCoroutine);
+            _movementModifier = 1f;
+        }            
+        _dashCoroutine = StartCoroutine(CoBoostOn());
     }
 
-    public void StopDash()
+    public void StopRun()
     {
+        IsRun = false;
         _movementModifier = 1f;
-        Module.CurrentLower.BoostOnOff(false, Controller.isGrounded);
+        Module.CurrentLower.BoostOnOff(false);
         Module.CurrentUpper.BoostOnOff(false);
+        Module.CurrentLower.FootSparksOnOff(false);
     }
 
     private IEnumerator CoBoostOn()
-    {
-        // Test 하드코딩        
+    {        
         float startSpeed = _movementModifier * Module.ModuleStatus.BoostPower;
         float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
 
         float current = 0f;
-        float percent = 0f;
-        float time = 2f;
+        float percent = 0f;        
 
         while (percent < 1f)
         {
             current += Time.deltaTime;
-            percent = current / time;
+            percent = current / TIME_TO_DASH_TO_RUN_STATE;
 
             _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));
 
@@ -359,14 +361,4 @@ public class PlayerStateMachine : MonoBehaviour
         CanJudgeDashing = true;
     }
     #endregion
-
-    public void StartHovering()
-    {
-        Module.CurrentUpper.BoostOnOff(true);
-    }
-
-    public void StopHovering()
-    {
-        Module.CurrentUpper.BoostOnOff(false);
-    }
 }

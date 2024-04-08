@@ -8,8 +8,9 @@ public class PlayerHoverState : PlayerBaseState
 
     public override void EnterState()
     {
-        Context.IsHovering = true;        
-        Context.StartHovering();
+        InitailizeSubState();
+        Context.IsHovering = true;                
+        Context.Module.CurrentUpper.BoostOnOff(true);
         StartAnimation(Context.AnimationData.JumpParameterName);
     }
 
@@ -22,8 +23,19 @@ public class PlayerHoverState : PlayerBaseState
     public override void ExitState()
     {
         Context.IsHovering = false;
-        Context.StopHovering();
+        Context.Module.CurrentUpper.BoostOnOff(false);
         StopAnimation(Context.AnimationData.JumpParameterName);
+    }
+
+    public override void InitailizeSubState()
+    {
+        if (Context.IsMoveInputPressed)
+        {
+            if (!Context.IsRun)
+                SetSubState(Factory.Walk());
+            else
+                SetSubState(Factory.Run());
+        }
     }
 
     public override void CheckSwitchStates()
