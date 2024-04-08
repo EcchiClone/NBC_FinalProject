@@ -11,7 +11,7 @@ public class BulletHitParticle : MonoBehaviour
 
     private IEnumerator Co_Inactive()
     {
-        yield return Util.GetWaitSeconds(2f);
+        yield return Util.GetWaitSeconds(1f);
 
         gameObject.SetActive(false);
     }
