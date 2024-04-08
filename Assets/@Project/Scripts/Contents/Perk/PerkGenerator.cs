@@ -11,11 +11,8 @@ public class PerkGenerator : MonoBehaviour
     [SerializeField] private Transform _tier2UI;
     [SerializeField] private Transform _tier3UI;
 
-    private SeedGenerator _seed;
     private BinaryCombineAlgorithm _algorithm;
     private HexDecConverter _hexdec;
-
-    private string _currentSeed;
 
     private GameObject _tier1Perk;
     private GameObject _tier2Perk;
@@ -32,7 +29,6 @@ public class PerkGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _seed = GetComponent<SeedGenerator>();
         _algorithm = GetComponent<BinaryCombineAlgorithm>();
         _hexdec = GetComponent<HexDecConverter>();
         _tier1Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier1Perk");
@@ -42,23 +38,26 @@ public class PerkGenerator : MonoBehaviour
 
     private void Start()
     {
-        _currentSeed = _seed.RandomSeedGenerator();
-        Debug.Log(_currentSeed);
-        ParseSeed();
+
+    }
+
+    public void PerkGenerateSequence()
+    {
+        // ParseSeed();
         ConvertSeedToLoc();
         InstantiateTier1Perks();
         InstantiateTier2Perks();
         InstantiateTier3Perks();
     }
 
-    private void ParseSeed()
+    public void ParseSeed(string seed)
     {
-        _tier1hex = _currentSeed.Substring(0, 2);
-        _tier2hex = _currentSeed.Substring(2, 4);
-        _tier3hex = _currentSeed.Substring(6, 6);
+        _tier1hex = seed.Substring(0, 2);
+        _tier2hex = seed.Substring(2, 4);
+        _tier3hex = seed.Substring(6, 6);
     }
 
-    private void ConvertSeedToLoc()
+    public void ConvertSeedToLoc()
     {
         int tier1idx = _hexdec.HexToDec(_tier1hex);
         int tier2idx = _hexdec.HexToDec(_tier2hex);
@@ -79,6 +78,13 @@ public class PerkGenerator : MonoBehaviour
         Debug.Log(tier1bin);
         Debug.Log(tier2bin);
         Debug.Log(tier3bin);
+    }
+
+    public void SendLocToPerkManager()
+    {
+        PerkManager.Instance.ConvertLocToList(_tier1arr, PerkTier.TIER1);
+        PerkManager.Instance.ConvertLocToList(_tier2arr, PerkTier.TIER2);
+        PerkManager.Instance.ConvertLocToList(_tier3arr, PerkTier.TIER3);
     }
 
     private void CheckTier1Range(out int num1, ref int idx1)
