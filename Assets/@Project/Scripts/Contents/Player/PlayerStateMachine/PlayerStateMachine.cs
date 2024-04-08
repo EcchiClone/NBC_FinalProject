@@ -48,6 +48,7 @@ public class PlayerStateMachine : MonoBehaviour
     public readonly float MAX_HOVER_VALUE = 2f; // 최대 호버링 상승률
     
     private float _movementModifier = 1;
+    private float _jumpModifier = 1;
 
     private Coroutine _dashCoroutine = null;
 

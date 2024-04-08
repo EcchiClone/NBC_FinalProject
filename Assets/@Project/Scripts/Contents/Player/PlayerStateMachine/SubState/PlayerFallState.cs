@@ -8,13 +8,13 @@ public class PlayerFallState : PlayerBaseState
 
     public override void EnterState()
     {
+        InitailizeSubState();
         StartAnimation(Context.AnimationData.JumpParameterName);
         Context.IsCanHovering = true;
     }
 
     public override void UpdateState()
-    {
-        HandleGravity();
+    {        
         CheckSwitchStates();
     }
 
@@ -23,16 +23,24 @@ public class PlayerFallState : PlayerBaseState
         StopAnimation(Context.AnimationData.JumpParameterName);
     }
 
+    public override void InitailizeSubState()
+    {
+        if (!Context.IsMoveInputPressed)
+            SetSubState(Factory.Idle());
+        else if (Context.IsMoveInputPressed)
+        {
+            if (!Context.IsRun)
+                SetSubState(Factory.Walk());
+            else
+                SetSubState(Factory.Run());
+        }
+    }
+
     public override void CheckSwitchStates()
     {
         if (Context.Controller.isGrounded)
             SwitchState(Factory.Grounded());        
         else if (Context.IsJumpInputPressed)
             SwitchState(Factory.Hover());
-    }
-
-    private void HandleGravity()
-    {
-        Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
     }
 }

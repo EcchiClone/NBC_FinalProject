@@ -10,7 +10,10 @@ public class PlayerGroundedState : PlayerBaseState
     {        
         Context.IsCanHovering = false;
         if (Context.IsRun)
+        {
+            StopAnimation(Context.AnimationData.DashParameterName);
             Context.Module.CurrentLower.FootSparksOnOff(true);
+        }            
         InitailizeSubState();
     }
 
