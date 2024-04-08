@@ -10,9 +10,8 @@ public class PerkManager : MonoBehaviour
 
     public static PerkManager Instance { get; private set; } // 싱글톤 인스턴스
 
-    [Header ("Player Info")]
-    [SerializeField] private int _point; // 현재 포인트
-    [SerializeField] private string _currentSeed; // 현재 시드
+    public int PlayerPoint { get; set; } // 현재 포인트
+    public string CurrentSeed { get; set; } // 현재 시드
 
     private PerkList _tier1Perks = new PerkList(); // Tier1 퍼크 집합
     private PerkList _tier2Perks = new PerkList(); // Tier2 퍼크 집합
@@ -52,8 +51,8 @@ public class PerkManager : MonoBehaviour
     private void Start()
     {
         // 변수 초기화
-        _point = 100;
-        _currentSeed = _seed.RandomSeedGenerator();
+        PlayerPoint = 100;
+        CurrentSeed = _seed.RandomSeedGenerator();
 
         // 컨텐츠 json 파일 먼저 불러오기
         _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
@@ -83,13 +82,13 @@ public class PerkManager : MonoBehaviour
     private void CreateNewPerkSequence()
     {
         // 퍼크를 새로 생성하는 시퀀스
-        _gen.ParseSeed(_currentSeed);
+        _gen.ParseSeed(CurrentSeed);
         _gen.ConvertSeedToLoc();
         _gen.SendLocToPerkManager();
 
         // json 변수에 할당
-        _tier1Perks.point = _point;
-        _tier1Perks.currentSeed = _currentSeed;
+        _tier1Perks.point = PlayerPoint;
+        _tier1Perks.currentSeed = CurrentSeed;
 
         _json.tier1PerkData = _tier1Perks;
         _json.tier2PerkData = _tier2Perks;
@@ -110,8 +109,8 @@ public class PerkManager : MonoBehaviour
         _json.LoadPerkData(ref _tier3Perks, "tier3PerkData");
 
         // 기존 변수 할당
-        _point = _tier1Perks.point;
-        _currentSeed = _tier1Perks.currentSeed;
+        PlayerPoint = _tier1Perks.point;
+        CurrentSeed = _tier1Perks.currentSeed;
 
         // 퍼크 생성
         _gen.InstantiatePerks(_tier1Perks.data);

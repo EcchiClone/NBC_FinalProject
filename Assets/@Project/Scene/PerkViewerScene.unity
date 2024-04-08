@@ -1109,9 +1109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3f8b68bc53a06438fa4656c4483e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointPanel: {fileID: 0}
-  _seedPanel: {fileID: 0}
-  _inspectorPanel: {fileID: 0}
+  _pointPanelTxt: {fileID: 2106639874}
+  _seedPanelTxt: {fileID: 1852930100}
+  _inspectorPanelTxt: {fileID: 1462618507}
 --- !u!1 &1307043668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,8 +1148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735, y: -435}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchoredPosition: {x: 0, y: -400}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307043670
 MonoBehaviour:
@@ -1675,8 +1675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -474}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: 0, y: -480}
+  m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622104699
 MonoBehaviour:
@@ -1850,9 +1850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Current Seed:
-
-    000000000000'
+  m_text: 'Current Seed: 000000000000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1996,8 +1994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1476acc71e6b1224c88a0163b8f14478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _point: 0
-  _currentSeed: 
 --- !u!4 &1880750061
 Transform:
   m_ObjectHideFlags: 0
@@ -2334,9 +2330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your Point:
-
-    100 Points'
+  m_text: 100 Points
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
