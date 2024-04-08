@@ -49,7 +49,7 @@ MonoBehaviour:
   - tag: EnemyBullet01_Orange
     prefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
       type: 3}
-    size: 3000
+    size: 9000
   - tag: EnemyBullet01_Purple
     prefab: {fileID: 8213430085926567989, guid: 0cf29143d33b1784c988944d8b81f09b,
       type: 3}

@@ -39,7 +39,21 @@ public class EnemyBulletController : EnemyBullet
         {
             foreach (var patternHierarchy in subPatterns)
             {
-                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
+                var settings = new BulletGenerationSettings
+                {
+                    muzzleTransform = null,
+                    rootObject = rootGo,
+                    masterObject = gameObject,
+                    cycleTime = cycleTime,
+                    isOneTime = false,
+                    patternHierarchy = patternHierarchy
+                };
+
+                // 설정 인스턴스를 StartPatternHierarchy 메소드에 전달
+                EnemyBulletGenerator.instance.StartPatternHierarchy(settings);
+
+                //EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
+                // PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false
             }
         }
     }
@@ -145,7 +159,8 @@ public class EnemyBulletController : EnemyBullet
     }
     IEnumerator Co_UpdateMoveParameter(EnemyBulletChangePropertys e) // Move 변동 설정 각각에 대해 코루틴
     {
-        yield return new WaitForSeconds(e._timer);
+        //yield return new WaitForSeconds(e._timer);
+        yield return Util.GetWaitSeconds(e._timer);
 
         if (gameObject.activeSelf == true)
         {

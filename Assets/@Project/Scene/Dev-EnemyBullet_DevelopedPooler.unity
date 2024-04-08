@@ -1316,6 +1316,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 2579727693239320804, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: m_RootOrder
