@@ -1,0 +1,45 @@
+{
+    "contentTier": 1,
+    "data": [
+        {
+            "contentIdx": 0,
+            "name": "TestPerk1Name",
+            "description": "TestPerk1Description"
+        },
+        {
+            "contentIdx": 1,
+            "name": "TestPerk2Name",
+            "description": "TestPerk2Description"
+        },
+        {
+            "contentIdx": 2,
+            "name": "TestPerk3Name",
+            "description": "TestPerk3Description"
+        },
+        {
+            "contentIdx": 3,
+            "name": "TestPerk4Name",
+            "description": "TestPerk4Description"
+        },
+        {
+            "contentIdx": 4,
+            "name": "TestPerk5Name",
+            "description": "TestPerk5Description"
+        },
+        {
+            "contentIdx": 5,
+            "name": "TestPerk6Name",
+            "description": "TestPerk6Description"
+        },
+        {
+            "contentIdx": 6,
+            "name": "TestPerk7Name",
+            "description": "TestPerk7Description"
+        },
+        {
+            "contentIdx": 7,
+            "name": "TestPerk8Name",
+            "description": "TestPerk8Description"
+        }
+    ]
+}
