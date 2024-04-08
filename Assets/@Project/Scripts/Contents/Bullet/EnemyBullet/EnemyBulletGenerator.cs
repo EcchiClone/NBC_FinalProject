@@ -67,7 +67,15 @@ public class EnemyBulletGenerator : MonoBehaviour
 
         //GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
         //Transform playerTF = Managers.Module.CurrentModule.LowerPosition;
-        Vector3 playerPos = new Vector3(0, 0, 20);
+        Vector3 playerPos;
+        try
+        {
+            playerPos = Managers.Module.CurrentModule.LowerPosition.position;
+        }
+        catch
+        {
+            playerPos = new Vector3(0, 0, 20); // 플레이어 찾을 수 없음
+        }
 
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
