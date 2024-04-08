@@ -11,6 +11,7 @@ public class ActionManager
 
     // # Player
     public event Action OnPlayerDead;
+    public event Action<Test_Enemy> OnLockTargetDestroyed;
 
     // # HUD
     public event Action<float> OnCoolDownRepair;
@@ -34,6 +35,7 @@ public class ActionManager
     public void CallUndoMenuCam(Define.CamType camType) => OnUndoMenuCam(camType);
 
     public void CallPlayerDead() => OnPlayerDead?.Invoke();
+    public void CallLockTargetDestroyed(Test_Enemy target) => OnLockTargetDestroyed?.Invoke(target);
 
     public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
     public void CallUseBooster(float percent) => OnCoolDownBooster?.Invoke(percent);

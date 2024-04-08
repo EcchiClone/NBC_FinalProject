@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    void UseWeapon(Transform[] muzzlePoints);    
+    void UseWeapon(Transform[] muzzlePoints);
 }

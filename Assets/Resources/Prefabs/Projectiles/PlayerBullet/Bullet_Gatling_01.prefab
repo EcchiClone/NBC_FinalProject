@@ -150,7 +150,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.05
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -271,6 +271,9 @@ MonoBehaviour:
   _hitEffectPrefab: {fileID: 8320043830716886676, guid: 4e1c5cfa019a8aa47b5a7439b25f4829,
     type: 3}
   _bulletType: 0
+  _damagableLayer:
+    serializedVersion: 2
+    m_Bits: 1536
 --- !u!54 &239931501613664848
 Rigidbody:
   m_ObjectHideFlags: 0

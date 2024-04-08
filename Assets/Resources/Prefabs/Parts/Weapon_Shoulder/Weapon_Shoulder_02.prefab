@@ -172,7 +172,7 @@ Transform:
   m_Children:
   - {fileID: 7323533015687663962}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4638106647836533694
 MeshFilter:
@@ -237,7 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boosterEffects: []
-  _muzzlePoints: []
+  _muzzlePoints:
+  - {fileID: 2451587736809098530}
+  - {fileID: 326744107314387002}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 512

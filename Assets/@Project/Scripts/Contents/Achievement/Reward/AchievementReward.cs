@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementReward : MonoBehaviour
+public abstract class AchievementReward : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Sprite icon; // 코인 아이콘, 파츠 아이콘
+    [SerializeField]
+    private string description;
+    public int quantityOrValue; 
+
+    public Sprite Icon => icon;
+    public string Description => description;
+    public int QuantityOrValue
     {
-        
+        get { return quantityOrValue; }
+        set { quantityOrValue = value; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void Give(Achievement achievement);
+    // Todo : 실제로 보상을 주는 CoinReward, PartReward 스크립트 작성
 }

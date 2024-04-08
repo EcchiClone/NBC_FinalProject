@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementCondition : MonoBehaviour
+public abstract class AchievementCondition : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private string description;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract bool IsPass(Achievement achievement);
 }

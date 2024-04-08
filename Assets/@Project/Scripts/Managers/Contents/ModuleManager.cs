@@ -55,7 +55,7 @@ public class ModuleManager
     public void Init() // 게임 시작 시 Resources 폴더 내 초기 파츠 담기.
     {
         InitData initData = new InitData();
-
+        
         List<BasePart> lowerParts = new List<BasePart>();
         List<BasePart> upperParts = new List<BasePart>();
         List<BasePart> armWeaponParts = new List<BasePart>();

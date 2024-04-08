@@ -8,9 +8,9 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void EnterState()
     {
-        StartAnimation(Context.AnimationData.WalkParameterHash);        
+        StartAnimation(Context.AnimationData.WalkParameterHash);
     }
-        
+
     public override void UpdateState()
     {
         CheckSwitchStates();
@@ -25,5 +25,7 @@ public class PlayerWalkState : PlayerBaseState
     {
         if (!Context.IsMoveInputPressed)
             SwitchState(Factory.Idle());
+        if (Context.IsDashInputPressed)
+            SwitchState(Factory.Dash());
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class PlayerJumpState : PlayerBaseState
 {
@@ -10,6 +9,8 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState()
     {
         InitailizeSubState();
+        HandleJump();        
+        Context.IsJumping = true;
         StartAnimation(Context.AnimationData.JumpParameterName);
     }
 
@@ -26,21 +27,28 @@ public class PlayerJumpState : PlayerBaseState
     }
 
     public override void InitailizeSubState()
-    {        
-        HandleJump();
+    {
+        if (!Context.IsMoveInputPressed)
+            SetSubState(Factory.Idle());
+        else if (Context.IsMoveInputPressed)
+        {
+            if (!Context.IsRun)
+                SetSubState(Factory.Walk());
+            else
+                SetSubState(Factory.Run());
+        }        
     }
 
     public override void CheckSwitchStates()
     {
         if (Context.Controller.isGrounded)
-            SwitchState(Factory.Grounded());
-        else if (Context.IsDashInputPressed && Context.CanDash)
-            SwitchState(Factory.Dash());
+            SwitchState(Factory.Grounded());        
+        else if (Context.IsJumpInputPressed && Context.IsCanHovering)
+            SwitchState(Factory.Hover());
     }
 
     private void HandleJump()
-    {
-        Context.IsJumping = true;
+    {        
         Context._currentMovementDirection.y = Context.Module.ModuleStatus.JumpPower;
     }
 

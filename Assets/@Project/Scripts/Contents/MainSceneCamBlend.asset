@@ -68,8 +68,8 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: RightArm
-    m_To: LeftArm
+  - m_From: LeftShoulder
+    m_To: RightShoulder
     m_Blend:
       m_Style: 1
       m_Time: 0.2
@@ -79,8 +79,8 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: RightArm
-    m_To: LeftArm
+  - m_From: RightShoulder
+    m_To: LeftShoulder
     m_Blend:
       m_Style: 1
       m_Time: 0.2

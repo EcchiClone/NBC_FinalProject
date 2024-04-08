@@ -389,7 +389,8 @@ public class EnemyBulletGenerator : MonoBehaviour
             EnemyBulletSpawnInfo spawnInfo = spawnQueue.Dequeue();
 
             //Debug.Log(spawnInfo.prefabName);
-            GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(spawnInfo.prefabName);
+            //GameObject enemyBulletGo = EnemyBulletPoolManager.instance.GetGo(spawnInfo.prefabName);
+            GameObject enemyBulletGo = ObjectPooler.SpawnFromPool(spawnInfo.prefabName, Vector3.zero);
             //Debug.Log(enemyBulletGo.gameObject.ToString());
 
             enemyBulletGo.transform.position = spawnInfo.position;

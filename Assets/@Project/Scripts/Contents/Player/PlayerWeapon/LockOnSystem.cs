@@ -1,6 +1,7 @@
 using Cinemachine;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class LockOnSystem
@@ -15,11 +16,11 @@ public class LockOnSystem
     [SerializeField] LayerMask _targetLayer;
     [SerializeField] private float _scanRange;
 
-    public CinemachineFreeLook FollowCam { get; private set; }    
+    public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
 
-    public Transform TargetEnemy { get; private set; }        
+    public Transform TargetEnemy { get; private set; }
 
     public void Setup(Module module)
     {
@@ -28,7 +29,7 @@ public class LockOnSystem
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
         LockOnCam = GameObject.Find("@LockOnCam").GetComponent<CinemachineVirtualCamera>();
-        TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();       
+        TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();
 
         FollowCam.Follow = _module.transform;
         FollowCam.LookAt = _module.transform;
@@ -38,7 +39,7 @@ public class LockOnSystem
         LockOnCam.gameObject.SetActive(false);
 
         TargetGroup.AddMember(_module.transform, 1, 0);
-        TargetGroup.AddMember(_followOnTargetMode, 1, 0);
+        TargetGroup.AddMember(_followOnTargetMode, 1, 0);        
     }
 
     public bool IsThereEnemyScanned()
@@ -48,10 +49,18 @@ public class LockOnSystem
         if (hits.Length == 0)
         {
             Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
+            if (TargetEnemy != null)
+                TargetEnemy = null;
             return false;
         }
 
         int closestIndex = GetClosestTargetIndex(hits);
+
+        if (hits[closestIndex].transform.TryGetComponent(out Test_Enemy target) == false)
+            return false;
+        if (target == TargetEnemy)
+            return false;
+
         TargetEnemy = hits[closestIndex].transform.GetComponent<Test_Enemy>().transform;
         return true;
     }
@@ -76,7 +85,7 @@ public class LockOnSystem
     {
         Managers.ActionManager.CallLockOn(TargetEnemy);
         LockOnCam.gameObject.SetActive(true);
-        TargetGroup.AddMember(TargetEnemy, 1, 0);        
+        TargetGroup.AddMember(TargetEnemy, 1, 0);
     }
 
     public void ReleaseTarget()
@@ -88,5 +97,21 @@ public class LockOnSystem
         LockOnCam.gameObject.SetActive(false);
         TargetGroup.RemoveMember(TargetEnemy);
         TargetEnemy = null;
+    }
+
+    public void LockTargetChange(Test_Enemy prevTarget, UnityAction action)
+    {
+        if (TargetEnemy == null)
+            return;
+
+        if (!IsThereEnemyScanned())
+        {
+            ReleaseTarget();
+            action.Invoke();
+            return;
+        }
+
+        TargetGroup.RemoveMember(prevTarget.transform);
+        LockOnTarget();
     }
 }

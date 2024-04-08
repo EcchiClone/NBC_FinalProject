@@ -19,6 +19,7 @@ public class ModuleStatus
 
     // # Upper Stats 
     public float SmoothRotateValue { get; private set; }
+    public float Hovering { get; private set; }
 
     public static event Action<float, float> OnChangeArmorPoint;
 
@@ -45,6 +46,7 @@ public class ModuleStatus
         BoostPower = lowerData.BoosterPower;
 
         SmoothRotateValue = upperData.SmoothRotation;
+        Hovering = upperData.Hovering;
 
         OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
     }
