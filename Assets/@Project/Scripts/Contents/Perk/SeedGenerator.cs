@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SeedGenerator : MonoBehaviour
 {
-    private HexDecConverter _hexdec;
+    public HexDecConverter _hexdec;
     private System.Random _random = new System.Random();
 
-    private void Start()
+    private void Awake()
     {
         _hexdec = GetComponent<HexDecConverter>();
     }
@@ -20,10 +20,48 @@ public class SeedGenerator : MonoBehaviour
 
     public string RandomSeedGenerator()
     {
+        
         string tier1 = _hexdec.DecToHex(RandomWithRange(181), 2);
         string tier2 = _hexdec.DecToHex(RandomWithRange(51766), 4);
         string tier3 = _hexdec.DecToHex(RandomWithRange(14233963), 6);
 
         return tier1 + tier2 + tier3;
+    }
+
+    public List<int> RandomWithRangeNoRep(int range, int num)
+    {
+        if (num > range)
+        {
+            // 추첨수가 range를 넘어가면 예외 처리
+            return new List<int>();
+        }
+
+        List<int> result = new List<int>(num);
+
+        int count = 0;
+        while (count < num)
+        {
+            int element = _random.Next(range);
+
+            if (!result.Contains(element))
+            {
+                result.Add(element);
+                count++;
+            }
+        }
+
+        return result;
+    }
+
+    public List<int> RandomWithRangeReturnsList(int range, int num)
+    {
+        List<int> result = new List<int>();
+
+        for (int i = 0; i < num; i++)
+        {
+            result.Add(_random.Next(range));
+        }
+
+        return result;
     }
 }

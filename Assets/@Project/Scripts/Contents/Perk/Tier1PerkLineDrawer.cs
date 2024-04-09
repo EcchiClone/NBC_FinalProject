@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubPerkBehaviour : MonoBehaviour
+public class Tier1PerkLineDrawer : MonoBehaviour
 {
     private LineRenderer _line;
-    private Transform _parent;
 
     private void Awake()
     {
         _line = GetComponent<LineRenderer>();
-        _parent = transform.parent;
     }
 
     private void Start()
     {
-        LineToMainPerk();
+        LineToOrigin();
     }
 
-    private void LineToMainPerk()
+    private void LineToOrigin()
     {
         _line.widthMultiplier = 10f;
-        _line.SetPosition(0, new Vector3(_parent.position.x, _parent.position.y, -1f));
+        _line.SetPosition(0, new Vector3(0f, 0f, -1f));
         _line.SetPosition(1, new Vector3(transform.position.x, transform.position.y, -1f));
     }
 
