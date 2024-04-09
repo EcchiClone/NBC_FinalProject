@@ -10,9 +10,7 @@ public class UpperPart : BasePart
         RightArm,
         LeftShoulder,
         RightShoulder,
-    }
-
-    [field: SerializeField] public Transform WeaponTilt { get; private set; }
+    }    
     [field: SerializeField] public Transform[] WeaponPositions { get; private set; }    
 
     public override void Setup(Define.PartsType type, Module module)

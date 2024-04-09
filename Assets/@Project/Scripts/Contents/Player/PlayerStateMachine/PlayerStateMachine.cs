@@ -47,7 +47,7 @@ public class PlayerStateMachine : MonoBehaviour
     public readonly float TIME_TO_DASH_TO_RUN_STATE = 0.5f;
     public readonly float GRAVITY_VALUE = 4f; // 중력배율
     public readonly float MIN_GRAVITY_VALUE = -1f; // 접지 중일 때 최소 중력배율
-    public readonly float MAX_HOVER_VALUE = 20f; // 최대 호버링 상승률
+    public readonly float MAX_HOVER_VALUE = 5f; // 최대 호버링 상승률
 
     private float _movementModifier = 1;
 
@@ -323,14 +323,16 @@ public class PlayerStateMachine : MonoBehaviour
     #region Dash
     public void StartRunAfterDash()
     {
+        if (!Module.ModuleStatus.Boost())
+            return;        
+
         IsRun = true;
         CanDash = false;
         CanJudgeDashing = false;
         IsUsingBoost = true;
 
         Module.CurrentLower.BoostOnOff(true);
-        Module.CurrentUpper.BoostOnOff(true);
-        Module.ModuleStatus.Boost();
+        Module.CurrentUpper.BoostOnOff(true);        
         if (Controller.isGrounded)
             Module.CurrentLower.FootSparksOnOff(true);
         if (_dashCoroutine != null)

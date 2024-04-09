@@ -156,10 +156,13 @@ public class ModuleManager
             case PartsType.Upper:
                 if (CurrentUpperIndex == index) return;
 
+                WeaponPartsStore();
                 UnityEngine.Object.DestroyImmediate(CurrentUpperPart.gameObject);
 
                 CurrentUpperPart = CreatePart<UpperPart>(partsType, CurrentLowerPart.UpperPositions, index);                
                 CurrentUpperIndex = index;
+
+                WeaponPartsRestore();
                 break;
             case PartsType.Weapon_Arm_L:
                 if (CurrentLeftArmIndex == index) return;
@@ -194,6 +197,27 @@ public class ModuleManager
                 CurrentRightShoulderIndex = index;
                 break;
         }
+    }
+
+    private void WeaponPartsStore()
+    {
+        CurrentLeftArmPart.transform.SetParent(CurrentModule.transform);
+        CurrentRightArmPart.transform.SetParent(CurrentModule.transform);
+        CurrentLeftShoulderPart.transform.SetParent(CurrentModule.transform);
+        CurrentRightShoulderPart.transform.SetParent(CurrentModule.transform);
+    }
+
+    private void WeaponPartsRestore()
+    {
+        CurrentLeftArmPart.transform.SetParent(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftArm]);
+        CurrentRightArmPart.transform.SetParent(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightArm]);
+        CurrentLeftShoulderPart.transform.SetParent(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.LeftShoulder]);
+        CurrentRightShoulderPart.transform.SetParent(CurrentUpperPart.WeaponPositions[(int)UpperPart.WeaponType.RightShoulder]);
+
+        CurrentLeftArmPart.transform.localPosition = Vector3.zero;
+        CurrentRightArmPart.transform.localPosition = Vector3.zero;
+        CurrentLeftShoulderPart.transform.localPosition = Vector3.zero;
+        CurrentRightShoulderPart.transform.localPosition = Vector3.zero;
     }
 
     public T GetPartOfIndex<T>(int index) where T : BasePart

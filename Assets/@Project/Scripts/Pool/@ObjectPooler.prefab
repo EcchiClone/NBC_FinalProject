@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &913754654573738321
 MonoBehaviour:
@@ -69,6 +69,26 @@ MonoBehaviour:
     prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
       type: 3}
     size: 1000
+  - tag: Bullet_Cannon_01
+    prefab: {fileID: 5670351475314814709, guid: 9108d33ffcca3ef4691a555a180e5100,
+      type: 3}
+    size: 100
+  - tag: Bullet_Cannon_Large
+    prefab: {fileID: 1038454832868584188, guid: 8d9681894de48eb4a92419c01ede7315,
+      type: 3}
+    size: 100
+  - tag: Bullet_Gatling_01
+    prefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_01
+    prefab: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_02
+    prefab: {fileID: 4635446873121853395, guid: 10b3932749028c44891af522f4d02377,
+      type: 3}
+    size: 100
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

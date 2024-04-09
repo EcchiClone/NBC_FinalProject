@@ -13,7 +13,7 @@ public class Define
         Arm_Holder,
         Shoulder_Holder,
         Arm_Left,
-        Arm_Right,        
+        Arm_Right,
         Shoulder_Left,
         Shoulder_Right,
     }
@@ -45,7 +45,8 @@ public class Define
 
         public readonly List<int> UpperPartId = new()
         {
-            10002001,            
+            10002001,
+            10002002,
         };
 
         public readonly List<int> ArmWeaponPartId = new()
