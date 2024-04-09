@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 벡터 계산 등 필요한 복잡한 연산을 모두 모아두는 역할
-public class GameMathUtils : MonoBehaviour
+public class BulletMathUtils : MonoBehaviour
 {
     #region 원점 기준 Vector3 전체 회전
     // 전체 회전(아직 테스트 안 해봄)
