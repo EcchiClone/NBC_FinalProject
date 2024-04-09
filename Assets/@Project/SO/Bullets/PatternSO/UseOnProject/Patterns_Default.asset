@@ -253,14 +253,14 @@ MonoBehaviour:
       enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
         type: 3}
       initDelay: 0
-      numOfSet: 20
-      setDelay: 0.3
+      numOfSet: 5
+      setDelay: 0.2
       shotPerSet: 1
       shotDelay: 0
-      posDirection: 3
+      posDirection: 2
       customPosDirection: {x: 0, y: 0, z: 1}
       spreadA: 0
-      maxSpreadAngleA: 90
+      maxSpreadAngleA: 30
       concentrationA: 0.8
       enemyBulletShape: 2
       customBulletPosList: []

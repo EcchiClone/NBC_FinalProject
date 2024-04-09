@@ -11,7 +11,7 @@ public class EnemyPhaseStarter : MonoBehaviour
 
     [SerializeField] private Transform[] muzzle = { }; // 총구 위치
 
-    public bool isShooting;         // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다. 코루틴이 종료됨.
+    public bool isShooting = true;         // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다. 코루틴이 종료됨.
     //public bool[] isTriggerOn;      // 탄막 일괄 이벤트를 위한 트리거를 위해 추후 준비.
 
     [SerializeField] private List<TestPhaseStarter> onStartPhase = new List<TestPhaseStarter>();
@@ -34,10 +34,12 @@ public class EnemyPhaseStarter : MonoBehaviour
         }
         muzzle = newMuzzle;
 
+        isShooting = true;
+        
         // TestPhaseStarter 만큼 사용
         foreach (TestPhaseStarter t in onStartPhase)
         {
-            isShooting = true; // 테스트 중일 경우, On한 후 사용. 실 사용시에는 testStartList 지우고, StartPhase 직접 사용하는 걸로.
+            //isShooting = true; // 테스트 중일 경우, On한 후 사용. 실 사용시에는 testStartList 지우고, StartPhase 직접 사용하는 걸로.
             StartPhase(t.phaseNum, t.muzzleNum, t.isOneTime);
         }
     }

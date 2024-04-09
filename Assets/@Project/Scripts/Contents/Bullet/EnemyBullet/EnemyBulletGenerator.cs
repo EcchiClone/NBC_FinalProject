@@ -74,7 +74,15 @@ public class EnemyBulletGenerator : MonoBehaviour
         }
         catch
         {
-            playerPos = new Vector3(0, 0, 20); // 플레이어 찾을 수 없음
+            GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+            if (playerGo != null)
+            {
+                playerPos = playerGo.transform.position;
+            }
+            else
+            {
+                playerPos = new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
+            }
         }
 
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
@@ -167,7 +175,7 @@ public class EnemyBulletGenerator : MonoBehaviour
 
         // 1. 기준 방향 벡터 오차 주기
         if (settings.spreadA == SpreadType.Spread)
-            pivotDirection = GameMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
+            pivotDirection = BulletMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
 
         Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.forward, pivotDirection.normalized);
 
@@ -188,7 +196,7 @@ public class EnemyBulletGenerator : MonoBehaviour
 
             case (EnemyBulletShape.Sphere):
 
-                foreach (Vector3 spherePoint in GameMathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
+                foreach (Vector3 spherePoint in BulletMathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
                     LightTransform enemyBulletTransform = new LightTransform();
 
@@ -343,7 +351,7 @@ public class EnemyBulletGenerator : MonoBehaviour
             foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
             {
                 Vector3 direction = enemyBulletTransform.rotation * Vector3.forward; // Q to V3
-                Vector3 newDirection = GameMathUtils.CalculateSpreadDirection(direction, settings.maxSpreadAngleB, settings.concentrationB);
+                Vector3 newDirection = BulletMathUtils.CalculateSpreadDirection(direction, settings.maxSpreadAngleB, settings.concentrationB);
                 enemyBulletTransform.rotation = Quaternion.LookRotation(newDirection); // V3 to Q
             }
         }

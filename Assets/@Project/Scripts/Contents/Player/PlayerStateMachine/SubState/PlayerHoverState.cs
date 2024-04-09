@@ -9,10 +9,7 @@ public class PlayerHoverState : PlayerBaseState
     public override void EnterState()
     {
         InitailizeSubState();
-        Context.IsHovering = true;
-        Context.IsUsingBoost = true;
-        if (!Context.IsRun)
-            Context.Module.CurrentUpper.BoostOnOff(true);
+        EnterHover();
         StartAnimation(Context.AnimationData.JumpParameterName);
     }
 
@@ -24,10 +21,7 @@ public class PlayerHoverState : PlayerBaseState
 
     public override void ExitState()
     {
-        Context.IsHovering = false;
-        Context.IsUsingBoost = false;
-        if (!Context.IsRun)
-            Context.Module.CurrentUpper.BoostOnOff(false);
+        ExitHover();
         StopAnimation(Context.AnimationData.JumpParameterName);
     }
 
@@ -54,5 +48,23 @@ public class PlayerHoverState : PlayerBaseState
     {        
         Context.Module.ModuleStatus.Hovering(() =>
         Context._currentMovementDirection.y = Mathf.Min(Context._currentMovementDirection.y + Context.Module.ModuleStatus.VTOL * Time.deltaTime, Context.MAX_HOVER_VALUE));        
+    }
+
+    private void EnterHover()
+    {
+        Context._currentMovementDirection.y = 0;
+        Context.IsHovering = true;
+        Context.IsCanHovering = false;
+        Context.IsUsingBoost = true;
+        if (!Context.IsRun)
+            Context.Module.CurrentUpper.BoostOnOff(true);
+    }
+
+    private void ExitHover()
+    {
+        Context.IsHovering = false;
+        Context.IsUsingBoost = false;
+        if (!Context.IsRun)
+            Context.Module.CurrentUpper.BoostOnOff(false);
     }
 }
