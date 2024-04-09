@@ -31,14 +31,16 @@ public class Weapon_HE_TACannon : WeaponBase
         StartCoroutine(Co_UseWeapon(muzzlePoints));
     }
 
-    public IEnumerator Co_UseWeapon(Transform[] muzzlePoints)
+    private IEnumerator Co_UseWeapon(Transform[] muzzlePoints)
     {
         IsCoolDown = true;
 
         _anim.Play(_upHash);
         _anim.SetBool(_usingHash, true);
         float animLength = Util.GetCurrentAnimationClipLength(_anim);        
-        yield return Util.GetWaitSeconds(animLength + 0.5f);        
+
+        yield return Util.GetWaitSeconds(animLength + 0.5f);
+        yield return StartCoroutine(Co_Targeting());
 
         foreach (Transform muzzle in muzzlePoints)
         {
@@ -60,5 +62,25 @@ public class Weapon_HE_TACannon : WeaponBase
         _anim.SetBool(_usingHash, false);
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);
         IsCoolDown = false;
-    }    
+    }
+
+    private IEnumerator Co_Targeting()
+    {
+        Vector3 leftArmToLookAt = _target.position - transform.position;
+
+        Quaternion currentHeadRot = transform.rotation;
+        Quaternion targetHeadRotation = Quaternion.LookRotation(leftArmToLookAt);
+
+        float current = 0;
+        float percent = 0;
+
+        while(percent < 1)
+        {
+            current += Time.deltaTime;
+            percent = current / 0.5f;
+
+            transform.rotation = Quaternion.Slerp(currentHeadRot, targetHeadRotation, percent);
+            yield return null;
+        }        
+    }
 }
