@@ -21,7 +21,7 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         SetSelectedPerkInfo();
-        PerkManager.Instance.UpdateRequirePoint();
+        PerkManager.Instance.CallOnPerkClicked();
         Debug.Log(PerkManager.Instance.RequirePoint);
     }
 

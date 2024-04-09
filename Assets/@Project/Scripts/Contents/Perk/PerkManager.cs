@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,9 @@ public class PerkManager : MonoBehaviour
     public float SelectedPerkDistance { get; set; } // 클릭한 퍼크와 전 퍼크의 거리 정보
 
     public int RequirePoint { get; set; } // 선택한 퍼크의 요구되는 포인트
+
+    public event EventHandler OnPerkClicked; // 퍼크를 클릭했을 때 호출되는 이벤트
+    public event EventHandler OnUnlockBtnClicked; // 'Unlock' 버튼을 클릭했을 때 호출되는 이벤트
 
     private void Awake()
     {
@@ -201,22 +205,19 @@ public class PerkManager : MonoBehaviour
 
     public PerkInfo GetPerkInfo(PerkTier tier, int idx)
     {
-        PerkInfo perkInfo = null;
-        int realIdx = 0;
+        PerkInfo perkInfo;
+        int realIdx = ReturnRealIndex(tier, idx);
 
         if (tier == PerkTier.TIER1)
         {
-            realIdx = _tier1Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier1Perks.data[realIdx];
         }
         else if (tier == PerkTier.TIER2)
         {
-            realIdx = _tier2Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier2Perks.data[realIdx];
         }
         else
         {
-            realIdx = _tier3Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier3Perks.data[realIdx];
         }
 
@@ -225,7 +226,7 @@ public class PerkManager : MonoBehaviour
 
     public ContentInfo GetContentInfo(PerkTier tier, int idx)
     {
-        ContentInfo contentInfo = null;
+        ContentInfo contentInfo;
         
         if (tier == PerkTier.TIER1)
         {
@@ -247,14 +248,102 @@ public class PerkManager : MonoBehaviour
         return contentInfo;
     }
 
-    public void UpdateRequirePoint()
+    public void SetPerkIsActive()
     {
-        _point.UpdateRequirePoint();
+        PerkTier tier = SelectedPerkInfo.Tier;
+        int idx = SelectedPerkInfo.PositionIdx;
+
+        int realIdx = ReturnRealIndex(tier, idx);
+
+        if (SelectedSubInfo == null)
+        {
+            if (tier == PerkTier.TIER1)
+            {
+                _tier1Perks.data[realIdx].IsActive = true;
+            }
+            else if (tier == PerkTier.TIER2)
+            {
+                _tier2Perks.data[realIdx].IsActive = true;
+            }
+            else
+            {
+                _tier3Perks.data[realIdx].IsActive = true;
+            }
+        }
+        else
+        {
+            int subIdx = SelectedSubInfo.PositionIdx;
+            int realSubIdx = ReturnRealSubIndex(tier, realIdx, subIdx);
+
+            if (tier == PerkTier.TIER1)
+            {
+                _tier1Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+            else if (tier == PerkTier.TIER2)
+            {
+                _tier2Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+            else
+            {
+                _tier3Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+        }
     }
 
-    public void UnlockSelectedPerk()
+    public int ReturnRealIndex(PerkTier tier, int idx)
     {
-        _point.PointSubtraction();
+        int realIdx;
+
+        switch (tier)
+        {
+            case PerkTier.TIER3:
+                realIdx = _tier3Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            case PerkTier.TIER2:
+                realIdx = _tier2Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            case PerkTier.TIER1:
+                realIdx = _tier1Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            default:
+                realIdx = 0;
+                break;
+        }
+
+        return realIdx;
+    }
+
+    public int ReturnRealSubIndex(PerkTier tier, int idx, int subIdx)
+    {
+        int realIdx;
+
+        switch (tier)
+        {
+            case PerkTier.TIER3:
+                realIdx = _tier3Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            case PerkTier.TIER2:
+                realIdx = _tier2Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            case PerkTier.TIER1:
+                realIdx = _tier1Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            default:
+                realIdx = 0;
+                break;
+        }
+
+        return realIdx;
+    }
+
+    public void CallOnPerkClicked()
+    {
+        OnPerkClicked?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void CallOnUnlockBtnClicked()
+    {
+        OnUnlockBtnClicked?.Invoke(this, EventArgs.Empty);
     }
 }
 

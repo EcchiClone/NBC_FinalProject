@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,18 @@ public class PointBehaviour : MonoBehaviour
         _distancePoint = 0;
     }
 
-    public void UpdateRequirePoint()
+    private void Start()
+    {
+        PerkManager.Instance.OnPerkClicked += OnPerkClicked;
+        PerkManager.Instance.OnUnlockBtnClicked += OnUnlockBtnClicked;
+    }
+
+    private void Update()
+    {
+
+    }
+
+    private void UpdateRequirePoint()
     {
         PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
         SubPerkInfo subInfo = PerkManager.Instance.SelectedSubInfo;
@@ -50,10 +62,20 @@ public class PointBehaviour : MonoBehaviour
         
     }
 
-    public void PointSubtraction()
+    private void PointSubtraction()
     {
         _unlockCount++;
         PerkManager.Instance.PlayerPoint -= _requirePoint;
+    }
+
+    private void OnPerkClicked(object sender, EventArgs eventArgs)
+    {
+        UpdateRequirePoint();
+    }
+
+    private void OnUnlockBtnClicked(object sender, EventArgs eventArgs)
+    {
+        PointSubtraction();
     }
 
 }
