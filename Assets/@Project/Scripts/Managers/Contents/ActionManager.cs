@@ -14,8 +14,7 @@ public class ActionManager
     public event Action<Test_Enemy> OnLockTargetDestroyed;
 
     // # HUD
-    public event Action<float> OnCoolDownRepair;
-    public event Action<float> OnCoolDownBooster;
+    public event Action<float> OnCoolDownRepair;    
 
     // # LockOn System
     public event Action<Transform> OnLockOnTarget;
@@ -37,8 +36,7 @@ public class ActionManager
     public void CallPlayerDead() => OnPlayerDead?.Invoke();
     public void CallLockTargetDestroyed(Test_Enemy target) => OnLockTargetDestroyed?.Invoke(target);
 
-    public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
-    public void CallUseBooster(float percent) => OnCoolDownBooster?.Invoke(percent);
+    public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);    
 
     public void CallLockOn(Transform target) => OnLockOnTarget?.Invoke(target);
     public void CallRelease() => OnReleaseTarget?.Invoke();

@@ -39,6 +39,9 @@ public class PlayerDashState : PlayerBaseState
         if (!Context.Controller.isGrounded)
             Context._currentMovementDirection.y += Context.MIN_GRAVITY_VALUE * Time.deltaTime;
         else
-            Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
+        {
+            if (Context.IsJumping == false)
+                Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
+        }
     }
 }

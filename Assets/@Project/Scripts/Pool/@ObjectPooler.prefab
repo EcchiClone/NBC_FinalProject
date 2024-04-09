@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &913754654573738321
 MonoBehaviour:
@@ -61,6 +61,14 @@ MonoBehaviour:
   - tag: EnemyBulletCluster_Triangle
     prefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
     size: 100
+  - tag: Bullet_Cannon_Small
+    prefab: {fileID: 1038454832868584188, guid: afabf364e0a92c44785d2f50a4f93df9,
+      type: 3}
+    size: 100
+  - tag: Test_Copied_Explosion01_Effect
+    prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
+      type: 3}
+    size: 1000
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

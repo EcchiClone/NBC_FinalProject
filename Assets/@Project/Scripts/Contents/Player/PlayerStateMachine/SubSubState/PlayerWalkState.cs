@@ -13,6 +13,7 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void UpdateState()
     {
+        HandleGravity();
         CheckSwitchStates();
     }
 
@@ -27,5 +28,19 @@ public class PlayerWalkState : PlayerBaseState
             SwitchState(Factory.Idle());
         if (Context.IsDashInputPressed)
             SwitchState(Factory.Dash());
+    }
+
+    private void HandleGravity()
+    {
+        if (!Context.Controller.isGrounded)
+        {
+            if (!Context.IsHovering)
+                Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
+        }
+        else
+        {
+            if (Context.IsJumping == false)
+                Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
+        }
     }
 }

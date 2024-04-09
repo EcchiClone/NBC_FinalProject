@@ -77,6 +77,5 @@ public class CameraController : MonoBehaviour
     private void OnZoomInput()
     {
         _scrollY = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(_scrollY);
     }
 }

@@ -33,6 +33,8 @@ public class Module : MonoBehaviour
         if (GetComponent<PlayerStateMachine>() == null)
             return;
 
+        transform.position = GameObject.Find("@PlayerSpawn").transform.position;
+
         IsPlayable = true;
         ModuleStatus = new ModuleStatus(lowerPart, upperPart, leftArm, rightArm, leftShoulder, rightShoulder);
         TiltController = new WeaponTiltController(this);

@@ -1,0 +1,125 @@
+{
+    "contentTier": 3,
+    "data": [
+        {
+            "contentIdx": 0,
+            "name": "EmptyPerk1Name",
+            "description": "EmptyPerk1Description"
+        },
+        {
+            "contentIdx": 1,
+            "name": "EmptyPerk2Name",
+            "description": "EmptyPerk2Description"
+        },
+        {
+            "contentIdx": 2,
+            "name": "EmptyPerk3Name",
+            "description": "EmptyPerk3Description"
+        },
+        {
+            "contentIdx": 3,
+            "name": "EmptyPerk4Name",
+            "description": "EmptyPerk4Description"
+        },
+        {
+            "contentIdx": 4,
+            "name": "EmptyPerk5Name",
+            "description": "EmptyPerk5Description"
+        },
+        {
+            "contentIdx": 5,
+            "name": "EmptyPerk6Name",
+            "description": "EmptyPerk6Description"
+        },
+        {
+            "contentIdx": 6,
+            "name": "EmptyPerk7Name",
+            "description": "EmptyPerk7Description"
+        },
+        {
+            "contentIdx": 7,
+            "name": "EmptyPerk8Name",
+            "description": "EmptyPerk8Description"
+        },
+        {
+            "contentIdx": 8,
+            "name": "EmptyPerk9Name",
+            "description": "EmptyPerk9Description"
+        },
+        {
+            "contentIdx": 9,
+            "name": "EmptyPerk10Name",
+            "description": "EmptyPerk10Description"
+        },
+        {
+            "contentIdx": 10,
+            "name": "EmptyPerk11Name",
+            "description": "EmptyPerk11Description"
+        },
+        {
+            "contentIdx": 11,
+            "name": "EmptyPerk12Name",
+            "description": "EmptyPerk12Description"
+        },
+        {
+            "contentIdx": 12,
+            "name": "EmptyPerk13Name",
+            "description": "EmptyPerk13Description"
+        },
+        {
+            "contentIdx": 13,
+            "name": "EmptyPerk14Name",
+            "description": "EmptyPerk14Description"
+        },
+        {
+            "contentIdx": 14,
+            "name": "EmptyPerk15Name",
+            "description": "EmptyPerk15Description"
+        },
+        {
+            "contentIdx": 15,
+            "name": "EmptyPerk16Name",
+            "description": "EmptyPerk16Description"
+        },
+        {
+            "contentIdx": 16,
+            "name": "EmptyPerk17Name",
+            "description": "EmptyPerk17Description"
+        },
+        {
+            "contentIdx": 17,
+            "name": "EmptyPerk18Name",
+            "description": "EmptyPerk18Description"
+        },
+        {
+            "contentIdx": 18,
+            "name": "EmptyPerk19Name",
+            "description": "EmptyPerk19Description"
+        },
+        {
+            "contentIdx": 19,
+            "name": "EmptyPerk20Name",
+            "description": "EmptyPerk20Description"
+        },
+        {
+            "contentIdx": 20,
+            "name": "EmptyPerk21Name",
+            "description": "EmptyPerk21Description"
+        },
+        {
+            "contentIdx": 21,
+            "name": "EmptyPerk22Name",
+            "description": "EmptyPerk22Description"
+        },
+        {
+            "contentIdx": 22,
+            "name": "EmptyPerk23Name",
+            "description": "EmptyPerk23Description"
+        },
+        {
+            "contentIdx": 23,
+            "name": "EmptyPerk24Name",
+            "description": "EmptyPerk24Description"
+        }
+    ]
+}

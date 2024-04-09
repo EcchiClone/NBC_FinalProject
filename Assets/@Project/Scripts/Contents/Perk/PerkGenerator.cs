@@ -11,15 +11,13 @@ public class PerkGenerator : MonoBehaviour
     [SerializeField] private Transform _tier2UI;
     [SerializeField] private Transform _tier3UI;
 
-    private SeedGenerator _seed;
     private BinaryCombineAlgorithm _algorithm;
     private HexDecConverter _hexdec;
-
-    private string _currentSeed;
 
     private GameObject _tier1Perk;
     private GameObject _tier2Perk;
     private GameObject _tier3Perk;
+    private GameObject _subPerk;
 
     private bool[] _tier1arr = new bool[8];
     private bool[] _tier2arr = new bool[16];
@@ -32,33 +30,22 @@ public class PerkGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _seed = GetComponent<SeedGenerator>();
         _algorithm = GetComponent<BinaryCombineAlgorithm>();
         _hexdec = GetComponent<HexDecConverter>();
         _tier1Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier1Perk");
         _tier2Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier2Perk");
         _tier3Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier3Perk");
+        _subPerk = Resources.Load<GameObject>("Prefabs/Perk/SubPerk");
     }
 
-    private void Start()
+    public void ParseSeed(string seed)
     {
-        _currentSeed = _seed.RandomSeedGenerator();
-        Debug.Log(_currentSeed);
-        ParseSeed();
-        ConvertSeedToLoc();
-        InstantiateTier1Perks();
-        InstantiateTier2Perks();
-        InstantiateTier3Perks();
+        _tier1hex = seed.Substring(0, 2);
+        _tier2hex = seed.Substring(2, 4);
+        _tier3hex = seed.Substring(6, 6);
     }
 
-    private void ParseSeed()
-    {
-        _tier1hex = _currentSeed.Substring(0, 2);
-        _tier2hex = _currentSeed.Substring(2, 4);
-        _tier3hex = _currentSeed.Substring(6, 6);
-    }
-
-    private void ConvertSeedToLoc()
+    public void ConvertSeedToLoc()
     {
         int tier1idx = _hexdec.HexToDec(_tier1hex);
         int tier2idx = _hexdec.HexToDec(_tier2hex);
@@ -79,6 +66,13 @@ public class PerkGenerator : MonoBehaviour
         Debug.Log(tier1bin);
         Debug.Log(tier2bin);
         Debug.Log(tier3bin);
+    }
+
+    public void SendLocToPerkManager()
+    {
+        PerkManager.Instance.ConvertLocToList(_tier1arr, PerkTier.TIER1);
+        PerkManager.Instance.ConvertLocToList(_tier2arr, PerkTier.TIER2);
+        PerkManager.Instance.ConvertLocToList(_tier3arr, PerkTier.TIER3);
     }
 
     private void CheckTier1Range(out int num1, ref int idx1)
@@ -178,108 +172,97 @@ public class PerkGenerator : MonoBehaviour
         }
     }
 
-    private void InstantiateTier1Perks()
+    public void InstantiatePerks(List<PerkInfo> perkList)
     {
-        for (int i = 0; i < 8; i++)
+        foreach (PerkInfo perkInfo in perkList)
         {
-            if (_tier1arr[i])
-            {
-                int q = i / 2;
-                int m = i % 2;
-                float x = _tier1UI.position.x;
-                float y = _tier1UI.position.y;
+            int tier = (int)perkInfo.Tier;
+            int idx = perkInfo.PositionIdx;
 
-                switch (q)
-                {
-                    case 0:
-                        x = 0f + 900f * m;
-                        y = 900f;
-                        break;
-                    case 1:
-                        x = 900f;
-                        y = 0f - 900f * m;
-                        break;
-                    case 2:
-                        x = 0f - 900f * m;
-                        y = -900f;
-                        break;
-                    case 3:
-                        x = -900f;
-                        y = 0f + 900f * m;
-                        break;
-                }
-                Instantiate(_tier1Perk, new Vector3(x, y, -2), Quaternion.identity, _tier1UI);
+            // PerkManager 내부 포인터 값 설정
+            PerkManager.Instance.PointerTier = perkInfo.Tier;
+            PerkManager.Instance.PointerIdx = idx;
+
+            int q = idx / (2 * tier);
+            int m = idx % (2 * tier);
+
+            float x = 0;
+            float y = 0;
+
+            switch (q)
+            {
+                case 0:
+                    x = -900f * (tier - 1) + 900f * m;
+                    y = 900f * tier;
+                    break;
+                case 1:
+                    x = 900f * tier;
+                    y = 900f * (tier - 1) - 900f * m;
+                    break;
+                case 2:
+                    x = 900f * (tier - 1) - 900f * m;
+                    y = -900f * tier;
+                    break;
+                case 3:
+                    x = -900f * tier;
+                    y = -900f * (tier - 1) + 900f * m;
+                    break;
             }
+
+            GameObject parent; // 서브 퍼크의 부모 오브젝트
+
+            if (tier == 1)
+            {
+                parent = Instantiate(_tier1Perk, new Vector3(x, y, -2), Quaternion.identity, _tier1UI);
+            }
+            else if (tier == 2)
+            {
+                parent = Instantiate(_tier2Perk, new Vector3(x, y, -2), Quaternion.identity, _tier2UI);
+            }
+            else
+            {
+                parent = Instantiate(_tier3Perk, new Vector3(x, y, -2), Quaternion.identity, _tier3UI);
+            }
+
+            InstantiateSubPerks(parent, perkInfo.subPerks); // 서브 퍼크 생성
         }
     }
 
-    private void InstantiateTier2Perks()
+    private void InstantiateSubPerks(GameObject parent, List<SubPerkInfo> subPerks)
     {
-        for (int i = 0; i < 16; i++)
+        foreach (SubPerkInfo sub in subPerks)
         {
-            if (_tier2arr[i])
+            int idx = sub.PositionIdx;
+
+            // PerkManager 내부 포인터 값 설정(서브)
+            PerkManager.Instance.PointerSubIdx = idx;
+
+            int q = idx / 2;
+            int m = idx % 2;
+
+            float x = parent.transform.position.x;
+            float y = parent.transform.position.y;
+
+            switch (q)
             {
-                int q = i / 4;
-                int m = i % 4;
-                float x = _tier2UI.position.x;
-                float y = _tier2UI.position.y;
-
-                switch (q)
-                {
-                    case 0:
-                        x = -900f + 900f * m;
-                        y = 1800f;
-                        break;
-                    case 1:
-                        x = 1800f;
-                        y = 900f - 900f * m;
-                        break;
-                    case 2:
-                        x = 900f - 900f * m;
-                        y = -1800f;
-                        break;
-                    case 3:
-                        x = -1800f;
-                        y = -900f + 900f * m;
-                        break;
-                }
-                Instantiate(_tier2Perk, new Vector3(x, y, -2), Quaternion.identity, _tier2UI);
+                case 0:
+                    x += 0f + 225f * m;
+                    y += 225f;
+                    break;
+                case 1:
+                    x += 225f;
+                    y += 0f - 225f * m;
+                    break;
+                case 2:
+                    x += 0f - 225f * m;
+                    y += -225f;
+                    break;
+                case 3:
+                    x += -225f;
+                    y += 0f + 225f * m;
+                    break;
             }
-        }
-    }
-
-    private void InstantiateTier3Perks()
-    {
-        for (int i = 0; i < 24; i++)
-        {
-            if (_tier3arr[i])
-            {
-                int q = i / 6;
-                int m = i % 6;
-                float x = _tier2UI.position.x;
-                float y = _tier2UI.position.y;
-
-                switch (q)
-                {
-                    case 0:
-                        x = -1800f + 900f * m;
-                        y = 2700f;
-                        break;
-                    case 1:
-                        x = 2700f;
-                        y = 1800f - 900f * m;
-                        break;
-                    case 2:
-                        x = 1800f - 900f * m;
-                        y = -2700f;
-                        break;
-                    case 3:
-                        x = -2700f;
-                        y = -1800f + 900f * m;
-                        break;
-                }
-                Instantiate(_tier3Perk, new Vector3(x, y, -2), Quaternion.identity, _tier3UI);
-            }
+            Instantiate(_subPerk, new Vector3(x, y, -2), Quaternion.identity, parent.transform);
         }
     }
 }

@@ -260,7 +260,7 @@ MonoBehaviour:
       posDirection: 2
       customPosDirection: {x: 0, y: 0, z: 1}
       spreadA: 0
-      maxSpreadAngleA: 90
+      maxSpreadAngleA: 30
       concentrationA: 0.8
       enemyBulletShape: 2
       customBulletPosList: []
@@ -285,4 +285,4 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty: []
       releaseMethod: 0
-      releaseTimer: 5
+      releaseTimer: 3

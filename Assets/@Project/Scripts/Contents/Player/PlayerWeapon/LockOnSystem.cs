@@ -22,6 +22,9 @@ public class LockOnSystem
 
     public Transform TargetEnemy { get; private set; }
 
+    private readonly float INIT_CAM_POS_Y = 0.5f;
+    private readonly float INIT_CAM_POS_X = -8f;
+
     public void Setup(Module module)
     {
         _module = module;
@@ -39,7 +42,10 @@ public class LockOnSystem
         LockOnCam.gameObject.SetActive(false);
 
         TargetGroup.AddMember(_module.transform, 1, 0);
-        TargetGroup.AddMember(_followOnTargetMode, 1, 0);        
+        TargetGroup.AddMember(_followOnTargetMode, 1, 0);
+
+        FollowCam.m_YAxis.Value = INIT_CAM_POS_Y;
+        FollowCam.m_XAxis.Value = INIT_CAM_POS_X;
     }
 
     public bool IsThereEnemyScanned()

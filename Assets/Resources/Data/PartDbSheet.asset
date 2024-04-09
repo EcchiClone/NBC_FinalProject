@@ -20,13 +20,14 @@ MonoBehaviour:
     display_Name: DG-001
     display_Description: "\uACBD\uB7C9\uD615 \uC5ED\uAD00\uC808 \uD558\uCCB4\n\uAC00\uBCCD\uACE0
       \uBE60\uB974\uC9C0\uB9CC \uBE48\uC57D\uD55C \uC7A5\uAC11"
-    armor: 2300
-    weight: 250
-    speed: 5
+    armor: 1700
+    weight: 180
+    speed: 6
     jumpPower: 5
     boosterPower: 5
     canJump: 1
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -39,18 +40,21 @@ MonoBehaviour:
     isReloadable: 0
     isSplash: 0
   - dev_ID: 10001002
-    dev_Name: Lower_Temp
-    prefab_Path: Prefabs/Parts/Lower/Lower_02Temp
+    dev_Name: Lower_02
+    prefab_Path: Prefabs/Parts/Lower/Lower_02
     sprite_Path: Images/Lower_02
-    display_Name: TEST LEG
-    display_Description: "\uAD50\uCCB4 \uC5EC\uBD80 \uD655\uC778\uC6A9 \uD30C\uCE20"
-    armor: 10000
-    weight: 1
-    speed: 1000
-    jumpPower: 1000
-    boosterPower: 1000
+    display_Name: LF_G-002
+    display_Description: "\uD558\uC774\uBE0C\uB9AC\uB4DC \uD558\uCCB4\n\uC7A5\uAC11\uC774
+      \uB450\uAEBC\uC6CC \uB0B4\uAD6C\uC131\uC740 \uC88B\uC73C\uB098\n\uAE30\uB3D9\uC131\uC5D0\uC11C
+      \uC544\uC26C\uC6B4 \uBAA8\uC2B5\uC744 \uBCF4\uC778\uB2E4"
+    armor: 2500
+    weight: 350
+    speed: 4
+    jumpPower: 3
+    boosterPower: 4
     canJump: 1
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -76,7 +80,8 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 3
-    hovering: 0.1
+    boosterGauge: 100
+    hovering: 5
     bulletPrefab_Path: None
     damage: 0
     bulletSpeed: 0
@@ -100,6 +105,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 1000
+    boosterGauge: 120
     hovering: 0.1
     bulletPrefab_Path: None
     damage: 0
@@ -125,6 +131,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Small
     damage: 5
@@ -151,6 +158,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
     damage: 2
@@ -178,6 +186,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 2
@@ -203,6 +212,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Large
     damage: 50
@@ -229,6 +239,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
     damage: 5
@@ -256,6 +267,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
     damage: 50
@@ -283,6 +295,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_01
     damage: 125
