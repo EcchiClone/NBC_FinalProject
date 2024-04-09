@@ -1,0 +1,98 @@
+{
+    "point": 100,
+    "currentSeed": "612C68BA38C6",
+    "data": [
+        {
+            "Tier": 1,
+            "PositionIdx": 1,
+            "ContentIdx": 7,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 19,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 18,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 23,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 3,
+            "ContentIdx": 2,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 23,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 9,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 17,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 5,
+            "ContentIdx": 5,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 15,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 10,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 17,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 6,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 3,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 16,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 20,
+                    "IsActive": false
+                }
+            ]
+        }
+    ]
+}

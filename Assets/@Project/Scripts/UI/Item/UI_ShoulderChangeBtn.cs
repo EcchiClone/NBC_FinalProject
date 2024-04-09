@@ -14,7 +14,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         _currentIndex = IndexOfShoulderPart;
         ++IndexOfShoulderPart;
 
-        if (_currentIndex == Managers.Module.CurrentLeftShoulderIndex)
+        if (_currentIndex == Managers.GameManager.PartIndex_LeftShoulder)
             _equip.SetActive(true);
 
         GetCurrentPartData<ShouldersPart>();
@@ -39,7 +39,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Left);
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Right);
-            if (Managers.Module.CurrentLeftShoulderIndex == _currentIndex)
+            if (Managers.GameManager.PartIndex_LeftShoulder == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -48,7 +48,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Right);
-            if (Managers.Module.CurrentRightShoulderIndex == _currentIndex)
+            if (Managers.GameManager.PartIndex_LeftShoulder == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -75,12 +75,12 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
 
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
-            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Shoulder_L);
+            Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Shoulder_L);
             Managers.Module.CallLeftShoulderPartChange(_currentData);
         }
         else
         {
-            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Shoulder_R);
+            Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Shoulder_R);
             Managers.Module.CallRightShoulderPartChange(_currentData);
         }
     }

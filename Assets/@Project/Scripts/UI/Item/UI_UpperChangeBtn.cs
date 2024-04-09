@@ -14,7 +14,7 @@ public class UI_UpperChangeBtn : UI_ChangeButton
         _currentIndex = IndexOfUpperPart;
         ++IndexOfUpperPart;
 
-        if (_currentIndex == Managers.Module.CurrentUpperIndex)
+        if (_currentIndex == Managers.GameManager.PartIndex_Upper)
             _equip.SetActive(true);
 
         GetCurrentPartData<UpperPart>();
@@ -34,7 +34,7 @@ public class UI_UpperChangeBtn : UI_ChangeButton
 
     private void ChangePart()
     {        
-        Managers.Module.ChangePart(_currentIndex, Define.PartsType.Upper);
+        Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Upper);
         Managers.Module.CallUpperPartChange(_currentData);
     }
 }

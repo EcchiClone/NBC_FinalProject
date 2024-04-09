@@ -4,22 +4,27 @@ using UnityEngine.Events;
 
 public class ModuleStatus
 {
-    // To Do - SO 받아서 기본 능력치 Setup 하기
-
-    // # Common Stats
+    #region Common
     public float Armor { get; private set; } // HP
     public float Weight { get; private set; }
+    #endregion
 
-    // # Lower Stats
+    #region Lower
     public float MovementSpeed { get; private set; }
     public float JumpPower { get; private set; }
     public float BoostPower { get; private set; }
     public bool CanJump { get; private set; }
+    #endregion
 
-    // # Upper Stats 
+    #region Upper
     public float SmoothRotateValue { get; private set; }
     public float BoosterGauge { get; private set; }
     public float VTOL { get; private set; }
+    #endregion
+
+    #region Weapon
+    
+    #endregion
 
     public static event Action<float, float> OnChangeArmorPoint;
     public static event Action<float, float> OnChangeBoosterGauge;

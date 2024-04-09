@@ -18,7 +18,15 @@ public class Define
         Shoulder_Right,
     }
 
-    public enum PartsType
+    public enum Parts_Type
+    {
+        Lower,
+        Upper,
+        Arm,
+        Shoulder,
+    }
+
+    public enum Parts_Location
     {
         Lower,
         Upper,
@@ -26,6 +34,14 @@ public class Define
         Weapon_Arm_R,
         Weapon_Shoulder_L,
         Weapon_Shoulder_R,
+    }
+
+    public enum Weapon_Location
+    {
+        LeftArm,
+        RightArm,
+        LeftShoulder,
+        RightShoulder,
     }
 
     public enum BulletType

@@ -15,7 +15,7 @@ public class Weapon_HE_TACannon : WeaponBase
     private readonly string USING_PARAMETER = "IsUsing";
     private readonly string UP_NAME = "Launcher_Up";
 
-    public override void Setup(int partID, Define.PartsType type, LayerMask layerMask)
+    public override void Setup(int partID, Define.Parts_Location type, LayerMask layerMask)
     {
         base.Setup(partID, type, layerMask);
 
