@@ -39,7 +39,8 @@ public class Define
     {
         public readonly List<int> LowerPartId = new()
         {
-            10001001,            
+            10001001,
+            10001002,
         };
 
         public readonly List<int> UpperPartId = new()

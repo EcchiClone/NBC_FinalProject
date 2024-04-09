@@ -144,7 +144,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (점프관련)
     private void OnJump(InputAction.CallbackContext context) => IsJumpInputPressed = context.ReadValueAsButton();
-    private void OnHovering(InputAction.CallbackContext context) => IsCanHovering = IsJumping;
+    private void OnHovering(InputAction.CallbackContext context) => IsCanHovering = !context.ReadValueAsButton();
     // InputAction에 콜백 함수로 등록하여 입력값 받아옴. (대쉬관련)
     private void OnDash(InputAction.CallbackContext context) => IsDashInputPressed = context.ReadValueAsButton();
     private void OnCanDash(InputAction.CallbackContext context) => CanDash = !context.ReadValueAsButton();

@@ -96,7 +96,7 @@ public class ModuleManager
     public void CreateEmptyModule(string path)
     {
         GameObject emptyModule = Resources.Load<GameObject>(path);
-        CurrentModule = UnityEngine.Object.Instantiate(emptyModule).GetComponent<Module>();
+        CurrentModule = UnityEngine.Object.Instantiate(emptyModule).GetComponent<Module>();        
 
         AssembleModule(CurrentModule.LowerPosition);
     }

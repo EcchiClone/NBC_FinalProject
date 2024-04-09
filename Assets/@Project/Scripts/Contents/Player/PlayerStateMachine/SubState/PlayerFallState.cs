@@ -9,8 +9,7 @@ public class PlayerFallState : PlayerBaseState
     public override void EnterState()
     {
         InitailizeSubState();
-        StartAnimation(Context.AnimationData.JumpParameterName);
-        Context.IsCanHovering = true;
+        StartAnimation(Context.AnimationData.JumpParameterName);        
     }
 
     public override void UpdateState()
