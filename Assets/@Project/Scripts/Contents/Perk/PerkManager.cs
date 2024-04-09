@@ -7,6 +7,7 @@ public class PerkManager : MonoBehaviour
     private JsonSaveNLoader _json; // Json 저장 및 불러오기
     private PerkGenerator _gen; // 퍼크 생성기
     private SeedGenerator _seed; // 랜덤 시드 생성기
+    private PointBehaviour _point; // 포인트 관리 스크립트
 
     public static PerkManager Instance { get; private set; } // 싱글톤 인스턴스
 
@@ -29,6 +30,9 @@ public class PerkManager : MonoBehaviour
     public PerkInfo SelectedPerkInfo { get; set; } // 클릭한 퍼크의 기본 정보
     public SubPerkInfo SelectedSubInfo { get; set; } // 클릭한 서브 퍼크의 기본 정보
     public ContentInfo SelectedContentInfo { get; set; } // 클릭한 퍼크의 내장 컨텐츠 정보
+    public float SelectedPerkDistance { get; set; } // 클릭한 퍼크와 전 퍼크의 거리 정보
+
+    public int RequirePoint { get; set; } // 선택한 퍼크의 요구되는 포인트
 
     private void Awake()
     {
@@ -36,6 +40,7 @@ public class PerkManager : MonoBehaviour
         _json = GetComponent<JsonSaveNLoader>();
         _gen = GetComponent<PerkGenerator>();
         _seed = GetComponent<SeedGenerator>();
+        _point = GetComponent<PointBehaviour>();
 
         // 싱글톤 선언
         if (Instance == null)
@@ -61,6 +66,8 @@ public class PerkManager : MonoBehaviour
         SelectedContentInfo.contentIdx = 0;
         SelectedContentInfo.name = "";
         SelectedContentInfo.description = "";
+
+        SelectedPerkDistance = 0;
 
     }
 
@@ -238,6 +245,16 @@ public class PerkManager : MonoBehaviour
         }
 
         return contentInfo;
+    }
+
+    public void UpdateRequirePoint()
+    {
+        _point.UpdateRequirePoint();
+    }
+
+    public void UnlockSelectedPerk()
+    {
+        _point.PointSubtraction();
     }
 }
 

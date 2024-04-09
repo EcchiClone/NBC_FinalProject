@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PointBehaviour : MonoBehaviour
+{
+    // TODO:
+    // 1. 퍼크 해금 동작 구현
+    // 2. 선형적 해금 비용 증가 구현
+    // 3. 거리 비례 요구 포인트 증가 구현
+
+    // 포인트의 구조 (1 + 2 + 3)
+    // 1. 티어 별 기본 포인트: SUB = 3, TIER1 = 5, TIER2 = 7, TIER3 = 10
+    // 2. 거리 비례값: SUB, TIER1 = 0, TIER2, TIER3 = 거리에 따라 상이
+    // 3. 선형적 해금 비용 증가치: 최초 = +0, 1회 = +1, 2회 = +2, ...
+
+    private int _requirePoint;
+    private int _unlockCount;
+    private int _distancePoint;
+
+    private void Awake()
+    {
+        _requirePoint = 0;
+        _unlockCount = 0;
+        _distancePoint = 0;
+    }
+
+    public void UpdateRequirePoint()
+    {
+        PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
+        SubPerkInfo subInfo = PerkManager.Instance.SelectedSubInfo;
+        
+        PerkTier tier = subInfo == null ? perkInfo.Tier : PerkTier.SUB;
+        int basePoint;
+
+        switch (tier)
+        {
+            case PerkTier.TIER3: basePoint = 10; break;
+            case PerkTier.TIER2: basePoint = 7; break;
+            case PerkTier.TIER1: basePoint = 5; break;
+            default: basePoint = 3; break;
+        }
+
+        float distance = PerkManager.Instance.SelectedPerkDistance;
+        _distancePoint = (int) (distance / 100);
+
+        _requirePoint = basePoint + _unlockCount + _distancePoint;
+
+        PerkManager.Instance.RequirePoint = _requirePoint;
+        
+    }
+
+    public void PointSubtraction()
+    {
+        _unlockCount++;
+        PerkManager.Instance.PlayerPoint -= _requirePoint;
+    }
+
+}

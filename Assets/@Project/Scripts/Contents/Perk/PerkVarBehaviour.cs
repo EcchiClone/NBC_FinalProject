@@ -15,6 +15,8 @@ public class PerkVarBehaviour : MonoBehaviour
     private string _name;
     private string _description;
 
+    public float distance;
+
     private void Awake()
     {
         GetVarsFromManager();

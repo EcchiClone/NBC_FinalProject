@@ -21,6 +21,8 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         SetSelectedPerkInfo();
+        PerkManager.Instance.UpdateRequirePoint();
+        Debug.Log(PerkManager.Instance.RequirePoint);
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
@@ -38,5 +40,6 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
         PerkManager.Instance.SelectedPerkInfo = _var.ReturnPerkInfo();
         PerkManager.Instance.SelectedContentInfo = _var.ReturnContentInfo();
         PerkManager.Instance.SelectedSubInfo = null;
+        PerkManager.Instance.SelectedPerkDistance = _var.distance;
     }
 }

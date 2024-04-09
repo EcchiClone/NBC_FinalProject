@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tier2PerkLineDrawer : MonoBehaviour
 {
     private LineRenderer _line;
+    private PerkVarBehaviour _var;
 
     private GameObject[] _tier1Perks;
     private Vector3 _minPerk;
@@ -13,6 +14,7 @@ public class Tier2PerkLineDrawer : MonoBehaviour
     private void Awake()
     {
         _line = GetComponent<LineRenderer>();
+        _var = GetComponent<PerkVarBehaviour>();
         _tier1Perks = GameObject.FindGameObjectsWithTag("Tier1");
     }
 
@@ -20,6 +22,7 @@ public class Tier2PerkLineDrawer : MonoBehaviour
     {
         FindMinDistanceOfTier1Perks();
         LineToTier1Perk();
+        SetDistance();
     }
 
     private void FindMinDistanceOfTier1Perks()
@@ -44,5 +47,10 @@ public class Tier2PerkLineDrawer : MonoBehaviour
         _line.widthMultiplier = 10f;
         _line.SetPosition(0, new Vector3(_minPerk.x, _minPerk.y, -1f));
         _line.SetPosition(1, new Vector3(transform.position.x, transform.position.y, -1f));
+    }
+
+    private void SetDistance()
+    {
+        _var.distance = Vector3.Distance(_minPerk, transform.position);
     }
 }
