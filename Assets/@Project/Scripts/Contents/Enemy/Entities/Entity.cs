@@ -17,7 +17,7 @@ public abstract class Entity : MonoBehaviour
 
     private void Start()
     {
-        //enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
+        enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
         Initialize();        
     }
 

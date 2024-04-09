@@ -3,36 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum MobType
-{
-
-}
-
-
 
 public class SpawnManager : MonoBehaviour
 {
-    private Queue<Vector3> TurretSpawnPoints = new Queue<Vector3>();
-    private Queue<Vector3> NormalSpawnPoints = new Queue<Vector3>();
+    private List<Vector3> spawnPoints = new List<Vector3>();
 
+    public int CurrentLevel { get; private set; }
+
+
+
+    // TEMP
+    [SerializeField] private GameObject spawnPrefab;
 
     void Start()
     {
-        TurretSpawnPoints.Enqueue(new Vector3(7.5f, 3.5f, -28.5f));
-        TurretSpawnPoints.Enqueue(new Vector3(16.0f, 3.5f, -28.5f));
-        TurretSpawnPoints.Enqueue(new Vector3(24.0f, 3.5f, -28.5f));
+        for(int i = -49; i < 49; )// x
+        {
+            for(int j = -49; j < 49; )// z
+            {
+                spawnPoints.Add(new Vector3(i, 2f, j));
+                j += 5;
+            }
+            i += 5;
+        }
+
+        Spawn();
     }
 
-    private Vector3 GetSpawnPoint()
+    private void Update()
     {
-        Vector3 spawnPoint = TurretSpawnPoints.Dequeue();
-        TurretSpawnPoints.Enqueue(spawnPoint);
+        
+    }
+
+    /*private Vector3 GetSpawnPoint()
+    {
+        Vector3 spawnPoint = NormalSpawnPoints.Dequeue();
+        NormalSpawnPoints.Enqueue(spawnPoint);
 
         return spawnPoint;
-    }
+    }*/
 
-    public void SpawnTurret()
+
+    public void LoadLevel()
     {
 
+    }
+
+
+    public void Spawn()
+    {
+        for(int i = 0; i < spawnPoints.Count; ++i)
+        {
+            Instantiate(spawnPrefab, spawnPoints[i], Quaternion.identity);
+        }
     }
 }

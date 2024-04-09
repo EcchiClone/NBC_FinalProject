@@ -35,9 +35,11 @@ public enum Spider_States
     Alive,
     Dead,
 
+    NonCombat,
+    Combat,
+
+    Idle,
     Chasing,
-    Standoff,
-    Run,
 }
 
 public enum Ball_States

@@ -23,6 +23,7 @@ public class Ball_ChasingState : BaseState
     {             
         passedTime = 0f;
         Context.Entity.Controller.SetDestination(_targetTransform.position);
+        
     }
 
     public override void UpdateState()
@@ -41,7 +42,7 @@ public class Ball_ChasingState : BaseState
     {
         // 거리 멀어지면 다시 Idle로
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
-        if (Context.Entity.Data.chasingDistance < distance)
+        if (Context.Entity.Data.cognizanceRange < distance)
         {
             SwitchState(Context.Provider.GetState(Ball_States.Idle));
         }

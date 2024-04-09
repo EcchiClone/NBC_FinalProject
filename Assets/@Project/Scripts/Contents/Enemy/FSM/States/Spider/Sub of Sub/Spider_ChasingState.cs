@@ -7,15 +7,23 @@ public class Spider_ChasingState : BaseState
     private float chasingInterval;
     private float passedTime;
 
+    private Transform _entityTransform;
+    private Transform _targetTransform;
+
     public Spider_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
+
         chasingInterval = Context.Entity.Data.chasingInterval;
+        _entityTransform = Context.Entity.transform;
+        _targetTransform = Context.Entity.Target.transform;
     }
     public override void EnterState()
     {
         passedTime = 0f;
         Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
+
+        Context.Anim.SetBool("Walk", true);
     }
     
     public override void UpdateState()
@@ -28,20 +36,21 @@ public class Spider_ChasingState : BaseState
         }
 
         CheckSwitchStates();
+    }    
+
+    public override void CheckSwitchStates()
+    {
+        float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
+        if (Context.Entity.Data.cognizanceRange < distance)
+        {
+            SwitchState(Context.Provider.GetState(Spider_States.Idle));
+        }
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        Context.Anim.SetBool("Walk", false);
     }
-
-    public override void CheckSwitchStates()
-    {
-        if (false == !Context.Entity.Controller.IsMoving)
-            SwitchState(Provider.GetState(Spider_States.Standoff));
-    }
-
-
 
     public override void InitializeSubState()
     {

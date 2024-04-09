@@ -59,7 +59,6 @@ public class Ball_DeadState : BaseState
             }
             
         }
-
         // TODO : 사라지자
 
     }

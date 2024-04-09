@@ -13,12 +13,15 @@ public class Ball_CombatState : BaseState
         Context.Entity.GetDamaged(99999);
     }
 
-    public override void CheckSwitchStates(){}
+    public override void UpdateState() 
+    {
+        Debug.Log("으아아 공격");
+        // 탄막 쪼라라라락
+    }
 
     public override void ExitState(){}
 
-    public override void InitializeSubState(){}
+    public override void CheckSwitchStates() { }
 
-    public override void UpdateState(){}
-
+    public override void InitializeSubState(){}  
 }

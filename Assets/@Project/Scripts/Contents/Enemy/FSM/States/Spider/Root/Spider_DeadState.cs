@@ -9,28 +9,23 @@ public class Spider_DeadState : BaseState // TODO
         IsRootState = true;
     }
 
-    public override void CheckSwitchStates()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        Context.Entity.Controller.SetDestination(Context.Entity.transform.position);
     }
-
+    public override void UpdateState()
+    {
+    }
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+    }
+
+    public override void CheckSwitchStates()
+    {
     }
 
     public override void InitializeSubState()
     {
-        throw new System.NotImplementedException();
     }
 
-    public override void UpdateState()
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -8,5 +8,6 @@ public class SpiderStateMachine : BaseStateMachine
     {
         Provider = new SpiderStateProvider(this);
         CurrentState = Provider.GetState(Spider_States.Alive);
+        CurrentState.EnterState();
     }
 }

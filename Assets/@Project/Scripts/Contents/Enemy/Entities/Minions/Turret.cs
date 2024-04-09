@@ -12,8 +12,5 @@ public class Turret : Entity
         Controller = new TurretUnitController(this);
         Controller.Initialize();
         StateMachine = new SkyFireStateMachine(this);
-
-
-        Controller.SetDestination(Target.position);
     }
 }
