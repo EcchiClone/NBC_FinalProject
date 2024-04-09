@@ -35,6 +35,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     {
         if (changeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {
+            Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Left);
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Right);
             if (Managers.Module.CurrentLeftArmIndex == _currentIndex)
                 _equip.SetActive(true);
@@ -43,6 +44,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         }
         else
         {
+            Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Right);
             if (Managers.Module.CurrentRightArmIndex == _currentIndex)
                 _equip.SetActive(true);

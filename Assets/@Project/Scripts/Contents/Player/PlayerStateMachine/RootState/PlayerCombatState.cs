@@ -22,8 +22,7 @@ public class PlayerCombatState : PlayerBaseState
     public override void UpdateState()
     {
         CheckSwitchStates();
-        TimeToNonCombatMode();
-        HandleGravity();        
+        TimeToNonCombatMode();              
     }
 
     public override void ExitState()
@@ -33,19 +32,14 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (Context.IsDashing)
-            SetSubState(Factory.Dash());
+        if (Context.Controller.isGrounded)
+            SetSubState(Factory.Grounded());
         else
         {
-            if (Context.Controller.isGrounded)
-                SetSubState(Factory.Grounded());
+            if (Context.IsJumping)
+                SetSubState(Factory.Jump());
             else
-            {
-                if (Context.IsJumping)
-                    SetSubState(Factory.Jump());
-                else
-                    SetSubState(Factory.Fall());
-            }
+                SetSubState(Factory.Fall());
         }
     }
 
@@ -60,15 +54,9 @@ public class PlayerCombatState : PlayerBaseState
 
     private void TimeToNonCombatMode()
     {
-        if (!Context.IsLeftArmWeaponInputPressed)
+        if (!Context.IsLeftArmWeaponInputPressed && !Context.IsRightArmWeaponInputPressed && !Context.IsLeftShoulderWeaponInputPressed && !Context.IsRightShoulderWeaponInputPressed)
             _timeToNonCombat += Time.deltaTime;
         else
             _timeToNonCombat = 0;
-    }
-
-    private void HandleGravity()
-    {
-        if (!Context.Controller.isGrounded && !Context.IsDashing)
-            Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
     }
 }

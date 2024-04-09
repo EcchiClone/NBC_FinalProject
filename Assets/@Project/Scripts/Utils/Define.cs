@@ -12,7 +12,9 @@ public class Define
         Upper,
         Arm_Holder,
         Shoulder_Holder,
+        Arm_Left,
         Arm_Right,        
+        Shoulder_Left,
         Shoulder_Right,
     }
 
@@ -57,6 +59,7 @@ public class Define
         {
             10004001,
             10004002,
+            10004003,
         };
     }
 }

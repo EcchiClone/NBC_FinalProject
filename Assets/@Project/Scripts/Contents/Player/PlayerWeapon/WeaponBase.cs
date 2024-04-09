@@ -5,25 +5,36 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
+    public event Action<int, bool, bool, Define.PartsType> OnWeaponFire;
+
     protected Transform _target;
     protected LayerMask _groundLayer;
-
+    
     protected PartData _partData;
-    protected bool _isCoolDown = false;
 
-    private Define.PartsType _type;
     private int _ammo;
+    private bool _isCoolDown = false;    
+    
     public int Ammo
     {
         get => _ammo;
         protected set
         {
             _ammo = value;
-            OnWeaponFire?.Invoke(_ammo, _partData.IsReloadable, _type);
+            OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
+        }
+    }
+    public bool IsCoolDown
+    {
+        get => _isCoolDown;
+        protected set
+        {
+            _isCoolDown = value;
+            OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
         }
     }
 
-    public event Action<int, bool, Define.PartsType> OnWeaponFire;
+    private Define.PartsType _type;    
 
     public virtual void Setup(int partID, Define.PartsType type, LayerMask layerMask)
     {
@@ -40,14 +51,13 @@ public abstract class WeaponBase : MonoBehaviour
 
     private void Start()
     {
-        OnWeaponFire?.Invoke(_ammo, _partData.IsReloadable, _type);
+        OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
     }
 
     protected GameObject CreateBullet(Transform muzzle)
     {
         GameObject go = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
-        GameObject bullet = Instantiate(go);
-        bullet.transform.position = muzzle.position;
+        GameObject bullet = ObjectPooler.SpawnFromPool(go.name, muzzle.position);        
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;
@@ -70,7 +80,7 @@ public abstract class WeaponBase : MonoBehaviour
     private void Targeting(Transform target) => _target = target;
     private void Release() => _target = null;
 
-    private void CheckReload(int ammo, bool isReloadable, Define.PartsType type)
+    private void CheckReload(int ammo, bool isCoolDown, bool isReloadable, Define.PartsType type)
     {
         if (Ammo <= 0 && isReloadable)
             StartCoroutine(Reload());

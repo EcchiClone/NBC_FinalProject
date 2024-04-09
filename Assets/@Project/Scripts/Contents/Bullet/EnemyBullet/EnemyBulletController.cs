@@ -39,7 +39,21 @@ public class EnemyBulletController : EnemyBullet
         {
             foreach (var patternHierarchy in subPatterns)
             {
-                EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
+                var settings = new BulletGenerationSettings
+                {
+                    muzzleTransform = null,
+                    rootObject = rootGo,
+                    masterObject = gameObject,
+                    cycleTime = cycleTime,
+                    isOneTime = false,
+                    patternHierarchy = patternHierarchy
+                };
+
+                // 설정 인스턴스를 StartPatternHierarchy 메소드에 전달
+                EnemyBulletGenerator.instance.StartPatternHierarchy(settings);
+
+                //EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
+                // PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false
             }
         }
     }
@@ -58,6 +72,8 @@ public class EnemyBulletController : EnemyBullet
         //    _currentParameters.enemyBulletMoveType = EnemyBulletMoveType.Forward;
 
         #region velocity 사용
+
+
         switch (_currentParameters.enemyBulletMoveType)
         {
             case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 velocity 설정
@@ -75,28 +91,32 @@ public class EnemyBulletController : EnemyBullet
                 }
                 break;
 
-            //default:
-            //    // moveDirection을 moveDirectionAim에 가까워지도록 점진적으로 회전
-            //    if (_currentParameters.moveDirection != _currentParameters.moveDirectionAim)
-            //    {
-            //        Quaternion currentRotation = Quaternion.LookRotation(_currentParameters.moveDirection);
-            //        Quaternion targetRotation = Quaternion.LookRotation(_currentParameters.moveDirectionAim);
-            //        Quaternion newRotation = Quaternion.Slerp(currentRotation, targetRotation, _currentParameters.rotationSpeed * Time.deltaTime);
-            //        _currentParameters.moveDirection = newRotation * Vector3.forward;
-            //    }
 
-            //    // 총알의 회전 설정 및 방향으로 이동
-            //    _rb.rotation = Quaternion.LookRotation(_currentParameters.moveDirection);
-            //    _rb.velocity = _currentParameters.moveDirection.normalized * _currentParameters.speed;
-            //    break;
+
+                //    //default:
+                //    //    // moveDirection을 moveDirectionAim에 가까워지도록 점진적으로 회전
+                //    //    if (_currentParameters.moveDirection != _currentParameters.moveDirectionAim)
+                //    //    {
+                //    //        Quaternion currentRotation = Quaternion.LookRotation(_currentParameters.moveDirection);
+                //    //        Quaternion targetRotation = Quaternion.LookRotation(_currentParameters.moveDirectionAim);
+                //    //        Quaternion newRotation = Quaternion.Slerp(currentRotation, targetRotation, _currentParameters.rotationSpeed * Time.deltaTime);
+                //    //        _currentParameters.moveDirection = newRotation * Vector3.forward;
+                //    //    }
+
+                //    //    // 총알의 회전 설정 및 방향으로 이동
+                //    //    _rb.rotation = Quaternion.LookRotation(_currentParameters.moveDirection);
+                //    //    _rb.velocity = _currentParameters.moveDirection.normalized * _currentParameters.speed;
+                //    //    break;
 
         }
         // LocalYRotation
         _rb.angularVelocity = Vector3.up * _currentParameters.localYRotationSpeed * Mathf.Deg2Rad * 360;
+
         #endregion
 
         #region Transform 사용
         // 탄막 이동 로직
+
         //switch (_currentParameters.enemyBulletMoveType)
         //{
         //    case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 이동
@@ -121,6 +141,7 @@ public class EnemyBulletController : EnemyBullet
         //}
         //// LocalYRotation
         //transform.Rotate(Vector3.forward, _currentParameters.localYRotationSpeed * 360 * Time.deltaTime, Space.Self);
+
         #endregion
     }
     void Accel()
@@ -145,7 +166,8 @@ public class EnemyBulletController : EnemyBullet
     }
     IEnumerator Co_UpdateMoveParameter(EnemyBulletChangePropertys e) // Move 변동 설정 각각에 대해 코루틴
     {
-        yield return new WaitForSeconds(e._timer);
+        //yield return new WaitForSeconds(e._timer);
+        yield return Util.GetWaitSeconds(e._timer);
 
         if (gameObject.activeSelf == true)
         {

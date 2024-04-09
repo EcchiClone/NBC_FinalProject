@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ModuleStatus
 {
@@ -19,10 +18,14 @@ public class ModuleStatus
 
     // # Upper Stats 
     public float SmoothRotateValue { get; private set; }
+    public float BoosterGauge { get; private set; }
+    public float VTOL { get; private set; }
 
     public static event Action<float, float> OnChangeArmorPoint;
+    public static event Action<float, float> OnChangeBoosterGauge;
 
-    private float _currentArmor;
+    public float CurrentArmor { get; private set; }
+    public float CurrentBooster { get; private set; }
 
     public bool IsDead { get; private set; } = false;
 
@@ -37,7 +40,6 @@ public class ModuleStatus
 
         Armor = lowerData.Armor + upperData.Armor;
         Weight = lowerData.Weight + upperData.Weight + leftArmData.Weight + rightArmData.Weight + leftShoulderData.Weight + rightShoulderData.Weight;
-        _currentArmor = Armor;
 
         MovementSpeed = lowerData.Speed;
         JumpPower = lowerData.JumpPower;
@@ -45,22 +47,53 @@ public class ModuleStatus
         BoostPower = lowerData.BoosterPower;
 
         SmoothRotateValue = upperData.SmoothRotation;
+        BoosterGauge = upperData.BoosterGauge;
+        VTOL = upperData.Hovering;
 
-        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
+        CurrentArmor = Armor;
+        CurrentBooster = BoosterGauge;
+
+        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
+        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
     }
 
     public void GetDamage(float damage)
     {
-        _currentArmor -= damage;
-        if (_currentArmor <= 0)
+        CurrentArmor -= damage;
+        if (CurrentArmor <= 0)
             Dead();
-        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
+        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
     }
 
     public void Repair()
     {
-        _currentArmor = Mathf.Min(_currentArmor + 250, Armor);
-        OnChangeArmorPoint?.Invoke(Armor, _currentArmor);
+        CurrentArmor = Mathf.Min(CurrentArmor + 250, Armor);
+        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
+    }
+
+    public void Boost()
+    {
+        if (CurrentBooster <= 0)
+            return;
+
+        CurrentBooster = Mathf.Max(0, CurrentBooster - 10);
+        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+    }
+
+    public void Hovering(UnityAction action)
+    {
+        if (CurrentBooster <= 0)
+            return;
+
+        CurrentBooster = Mathf.Max(0, CurrentBooster - 1f);
+        action.Invoke();
+        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+    }
+
+    public void BoosterRecharge()
+    {
+        CurrentBooster = Mathf.Min(BoosterGauge, CurrentBooster + 0.5f);
+        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
     }
 
     private void Dead()

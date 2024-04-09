@@ -16,7 +16,10 @@ public class LowerPart : BasePart
     public override void BoostOnOff(bool isActive)
     {
         base.BoostOnOff(isActive);
+    }    
 
+    public void FootSparksOnOff(bool isActive)
+    {
         foreach (var spark in _footSparks)
             spark.SetActive(isActive);
     }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Define;
 
 [System.Serializable]
 public class PartData : IEntity
@@ -26,6 +23,8 @@ public class PartData : IEntity
 
     [Header("Upper")]
     [SerializeField] private float smoothRotation;
+    [SerializeField] private float boosterGauge;
+    [SerializeField] private float hovering;
 
     [Header("Weapon")]
     [SerializeField] private string bulletPrefab_Path;
@@ -38,6 +37,7 @@ public class PartData : IEntity
     [SerializeField] private float shotErrorRange;
     [SerializeField] private int ammo;
     [SerializeField] private bool isReloadable;
+    [SerializeField] private bool isSplash;
 
     public int Dev_ID => dev_ID;
     public string Dev_Name => dev_Name;
@@ -55,6 +55,8 @@ public class PartData : IEntity
     public bool CanJump => canJump;
 
     public float SmoothRotation => smoothRotation;
+    public float BoosterGauge => boosterGauge;
+    public float Hovering => hovering;
 
     public string BulletPrefab_Path => bulletPrefab_Path;
     public float Damage => damage;
@@ -65,4 +67,5 @@ public class PartData : IEntity
     public float ShotErrorRange => shotErrorRange;
     public int Ammo => ammo;
     public bool IsReloadable => isReloadable;
+    public bool IsSplash => isSplash;
 }

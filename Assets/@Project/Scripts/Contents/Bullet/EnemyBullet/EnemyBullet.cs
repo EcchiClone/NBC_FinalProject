@@ -10,13 +10,17 @@ public class EnemyBullet : Bullet
         {
             module.ModuleStatus.GetDamage(5);
 
-            EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+            //EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            gameObject.SetActive(false);
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
             //Debug.Log(other.gameObject.layer);
-            EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+            //EnemyBulletPoolManager.instance.OnReturnedToPool(gameObject);
+            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            gameObject.SetActive(false);
         }        
     }
 }

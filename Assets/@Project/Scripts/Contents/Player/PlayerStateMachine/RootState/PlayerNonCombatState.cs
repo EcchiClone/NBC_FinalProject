@@ -30,25 +30,20 @@ public class PlayerNonCombatState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (Context.IsDashing)
-            SetSubState(Factory.Dash());
+        if (Context.Controller.isGrounded)
+            SetSubState(Factory.Grounded());
         else
         {
-            if (Context.Controller.isGrounded)
-                SetSubState(Factory.Grounded());
+            if (Context.IsJumping)
+                SetSubState(Factory.Jump());
             else
-            {
-                if (Context.IsJumping)
-                    SetSubState(Factory.Jump());
-                else
-                    SetSubState(Factory.Fall());
-            }
+                SetSubState(Factory.Fall());
         }
     }
 
     public override void CheckSwitchStates()
     {
-        if (Context.IsLeftArmWeaponInputPressed || Context.IsRightArmWeaponInputPressed)
+        if (Context.IsLeftArmWeaponInputPressed || Context.IsRightArmWeaponInputPressed || Context.IsLeftShoulderWeaponInputPressed || Context.IsRightShoulderWeaponInputPressed)
             SwitchState(Factory.Combat());
     }
 }

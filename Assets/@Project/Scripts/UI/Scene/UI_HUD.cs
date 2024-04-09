@@ -50,12 +50,12 @@ public class UI_HUD : UI_Scene
         _ammoTextDict.Add(Define.PartsType.Weapon_Shoulder_R, _ammoSR);
 
         ModuleStatus.OnChangeArmorPoint += ChangeAPValue;
+        ModuleStatus.OnChangeBoosterGauge += ChangeBoosterValue;
 
         // vvvvv 무기 사용 제외 모든 HUD 정보를 갱신하도록 Action 구독 - ActionManager 에 Action 몰아넣기
         Managers.ActionManager.OnLockOnTarget += GetTargetedEnemy;
         Managers.ActionManager.OnReleaseTarget += ReleaseTarget;        
-        Managers.ActionManager.OnCoolDownRepair += (percent) => _repairFill.fillAmount = percent;
-        Managers.ActionManager.OnCoolDownBooster += (percent) => _boosterFill.fillAmount = percent;
+        Managers.ActionManager.OnCoolDownRepair += (percent) => _repairFill.fillAmount = percent;        
         Managers.ActionManager.OnBossAPChanged += (percent) => _bossAPFill.fillAmount = percent;
 
         // vvvvv 무기 사용 시 잔탄 수 UI 표기 해주도록 Action 구독 - 무기사용이 이뤄지는 WeaponBase 에서 Action 작성
@@ -68,10 +68,10 @@ public class UI_HUD : UI_Scene
         _returnBtn.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
 
-    private void AmmoTextChange(int ammo, bool isReloadable, Define.PartsType type)
+    private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.PartsType type)
     {
         if (_ammoTextDict.TryGetValue(type, out TextMeshProUGUI text) == true)
-            text.text = ammo > 0 ? $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
+            text.text = ammo > 0 ? isCoolDown ? $"<color=red>{ammo}</color>" : $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
     }
 
     private void GetTargetedEnemy(Transform target)
@@ -94,6 +94,11 @@ public class UI_HUD : UI_Scene
     {
         _apFill.fillAmount = remainAP / totalAP;
         _apValueText.text = $"{(int)remainAP}";
+    }
+
+    private void ChangeBoosterValue(float totalBooster, float remainBooster)
+    {
+        _boosterFill.fillAmount = remainBooster / totalBooster;
     }
 
     private void Update()

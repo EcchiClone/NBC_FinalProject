@@ -7,8 +7,13 @@ public class PlayerGroundedState : PlayerBaseState
     public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory stateFactory) : base(currentContext, stateFactory) { }
 
     public override void EnterState()
-    {
-        HandleGravity();
+    {        
+        Context.IsCanHovering = false;
+        if (Context.IsRun)
+        {
+            StopAnimation(Context.AnimationData.DashParameterName);
+            Context.Module.CurrentLower.FootSparksOnOff(true);
+        }            
         InitailizeSubState();
     }
 
@@ -19,7 +24,8 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void ExitState()
     {
-        _currentSubState.ExitState();
+        if (Context.IsRun)
+            Context.Module.CurrentLower.FootSparksOnOff(false);        
     }
 
     public override void InitailizeSubState()
@@ -27,9 +33,12 @@ public class PlayerGroundedState : PlayerBaseState
         if (!Context.IsMoveInputPressed)
             SetSubState(Factory.Idle());
         else if (Context.IsMoveInputPressed)
-            SetSubState(Factory.Walk());
-
-        _currentSubState.EnterState();
+        {
+            if (!Context.IsRun)
+                SetSubState(Factory.Walk());
+            else
+                SetSubState(Factory.Run());
+        }        
     }
 
     public override void CheckSwitchStates()
@@ -37,13 +46,6 @@ public class PlayerGroundedState : PlayerBaseState
         if (Context.IsJumpInputPressed)
             SwitchState(Factory.Jump());
         else if (!Context.Controller.isGrounded)
-            SwitchState(Factory.Fall());
-        else if (Context.IsDashInputPressed && Context.CanDash)
-            SwitchState(Factory.Dash());
-    }
-
-    private void HandleGravity()
-    {
-        Context._currentMovementDirection.y = Context.MIN_GRAVITY_VALUE;
+            SwitchState(Factory.Fall());        
     }
 }
