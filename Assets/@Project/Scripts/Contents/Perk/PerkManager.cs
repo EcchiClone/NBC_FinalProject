@@ -9,6 +9,7 @@ public class PerkManager : MonoBehaviour
     private PerkGenerator _gen; // 퍼크 생성기
     private SeedGenerator _seed; // 랜덤 시드 생성기
     private PointBehaviour _point; // 포인트 관리 스크립트
+    private ActivedDataConverter _active; // 액티브 퍼크 데이터 스크립트
 
     public static PerkManager Instance { get; private set; } // 싱글톤 인스턴스
 
@@ -45,6 +46,7 @@ public class PerkManager : MonoBehaviour
         _gen = GetComponent<PerkGenerator>();
         _seed = GetComponent<SeedGenerator>();
         _point = GetComponent<PointBehaviour>();
+        _active = GetComponent<ActivedDataConverter>();
 
         // 싱글톤 선언
         if (Instance == null)
@@ -89,6 +91,14 @@ public class PerkManager : MonoBehaviour
 
         // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown (KeyCode.Space))
+        {
+            ExtractDataSequence();
+        }
     }
 
     private void CheckDataExists()
@@ -144,6 +154,21 @@ public class PerkManager : MonoBehaviour
         _gen.InstantiatePerks(_tier1Perks.data);
         _gen.InstantiatePerks(_tier2Perks.data);
         _gen.InstantiatePerks(_tier3Perks.data);
+    }
+
+    private void ExtractDataSequence()
+    {
+        _active.activeData = new List<ActivedData>();
+
+        ExtractActivedDatas(_tier1Perks);
+        ExtractActivedDatas(_tier2Perks);
+        ExtractActivedDatas(_tier3Perks);
+
+        Debug.Log(_active.activeData.Count);
+        foreach (ActivedData data in _active.activeData)
+        {
+            Debug.Log($"{data.SpeedModular} + {data.TestVar1} + {data.TestVar2}");
+        }
     }
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
@@ -344,6 +369,36 @@ public class PerkManager : MonoBehaviour
     public void CallOnUnlockBtnClicked()
     {
         OnUnlockBtnClicked?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void ExtractActivedDatas(PerkList tierPerks)
+    {
+        // IsActive = true 인 모든 퍼크 데이터 추출
+        foreach (PerkInfo perkInfo in tierPerks.data)
+        {
+            // 메인 퍼크
+            if (perkInfo.IsActive)
+            {
+                int contentIdx = perkInfo.ContentIdx;
+
+                ContentInfo contentInfo = GetContentInfo(perkInfo.Tier, contentIdx);
+
+                _active.activeData.Add(contentInfo.data);
+            }
+
+            foreach (SubPerkInfo subInfo in perkInfo.subPerks)
+            {
+                // 서브 퍼크
+                if (subInfo.IsActive)
+                {
+                    int contentIdx = subInfo.ContentIdx;
+
+                    ContentInfo contentInfo = GetContentInfo(PerkTier.SUB, contentIdx);
+
+                    _active.activeData.Add(contentInfo.data);
+                }
+            }
+        }
     }
 }
 

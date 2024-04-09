@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,11 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
         _var = GetComponent<PerkVarBehaviour>();
         _image = GetComponent<Image>();
         _originColor = _image.color;
+    }
+
+    private void Start()
+    {
+        PerkManager.Instance.OnUnlockBtnClicked += OnUnlockBtnClicked;
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
@@ -41,5 +47,21 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
         PerkManager.Instance.SelectedContentInfo = _var.ReturnContentInfo();
         PerkManager.Instance.SelectedSubInfo = null;
         PerkManager.Instance.SelectedPerkDistance = _var.distance;
+    }
+
+    private void CheckPerkActive()
+    {
+        PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
+
+        if (perkInfo.IsActive)
+        {
+            _image.color = Color.gray;
+            _originColor = Color.gray;
+        }
+    }
+
+    private void OnUnlockBtnClicked(object sender, EventArgs eventArgs)
+    {
+        // CheckPerkActive();
     }
 }

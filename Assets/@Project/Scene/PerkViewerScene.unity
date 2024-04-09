@@ -2876,6 +2876,7 @@ GameObject:
   - component: {fileID: 1880750064}
   - component: {fileID: 1880750063}
   - component: {fileID: 1880750067}
+  - component: {fileID: 1880750068}
   m_Layer: 0
   m_Name: PerkManager
   m_TagString: Untagged
@@ -3007,6 +3008,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b8e8dae8649724293606644ee414fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1880750068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880750058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c5b04737e76254cbc575062572be2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeData: []
 --- !u!1 &1897200836
 GameObject:
   m_ObjectHideFlags: 0

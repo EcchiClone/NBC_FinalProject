@@ -6,9 +6,7 @@ using UnityEngine;
 public class PointBehaviour : MonoBehaviour
 {
     // TODO:
-    // 1. 퍼크 해금 동작 구현
-    // 2. 선형적 해금 비용 증가 구현
-    // 3. 거리 비례 요구 포인트 증가 구현
+    // 1. 포인트 한도 초과 시 처리
 
     // 포인트의 구조 (1 + 2 + 3)
     // 1. 티어 별 기본 포인트: SUB = 3, TIER1 = 5, TIER2 = 7, TIER3 = 10
@@ -30,11 +28,6 @@ public class PointBehaviour : MonoBehaviour
     {
         PerkManager.Instance.OnPerkClicked += OnPerkClicked;
         PerkManager.Instance.OnUnlockBtnClicked += OnUnlockBtnClicked;
-    }
-
-    private void Update()
-    {
-
     }
 
     private void UpdateRequirePoint()
