@@ -52,4 +52,16 @@ public class SeedGenerator : MonoBehaviour
 
         return result;
     }
+
+    public List<int> RandomWithRangeReturnsList(int range, int num)
+    {
+        List<int> result = new List<int>();
+
+        for (int i = 0; i < num; i++)
+        {
+            result.Add(_random.Next(range));
+        }
+
+        return result;
+    }
 }

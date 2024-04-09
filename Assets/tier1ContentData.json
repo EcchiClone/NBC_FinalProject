@@ -3,8 +3,8 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "EmptyPerk1Name",
-            "description": "EmptyPerk1Description"
+            "name": "[Active] Double Jump",
+            "description": "Release the double jump skill. Players can jump once more in the air."
         },
         {
             "contentIdx": 1,

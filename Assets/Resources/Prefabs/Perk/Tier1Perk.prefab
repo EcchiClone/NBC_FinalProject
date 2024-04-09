@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 1650062719853625785}
   - component: {fileID: 8412722899300311605}
   - component: {fileID: -8309531215075418582}
-  - component: {fileID: -5565515108363453611}
-  - component: {fileID: 841131061656666293}
   - component: {fileID: 3698293740925997523}
   - component: {fileID: 3327122739718850415}
+  - component: {fileID: -1132253968898944267}
   m_Layer: 5
   m_Name: Tier1Perk
   m_TagString: Tier1
@@ -185,30 +184,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &-5565515108363453611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321998276632128008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed3169e8c1b2e7419631b52ff614eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &841131061656666293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321998276632128008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53daff21b1c0534096dfa7c5e9b8fd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3698293740925997523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,5 +206,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fc45c5329e224142ba2661a5db51a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1132253968898944267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321998276632128008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed3169e8c1b2e7419631b52ff614eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

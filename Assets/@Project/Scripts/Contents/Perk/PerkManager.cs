@@ -20,9 +20,15 @@ public class PerkManager : MonoBehaviour
     private ContentList _tier1Contents = new ContentList(); // Tier1 컨텐츠 집합
     private ContentList _tier2Contents = new ContentList(); // Tier2 컨텐츠 집합
     private ContentList _tier3Contents = new ContentList(); // Tier3 컨텐츠 집합
+    private ContentList _subPerkContents = new ContentList(); // Sub Perk 컨텐츠 집합
 
     public PerkTier PointerTier { get; set; } // 퍼크 생성 시 현재 생성하는 퍼크의 티어
     public int PointerIdx { get; set; } // 퍼크 생성 시 현재 생성하는 퍼크의 인덱스
+    public int PointerSubIdx { get; set; } // 서브 퍼크 생성 시 현재 생성하는 서브 퍼크의 인덱스
+
+    public PerkInfo SelectedPerkInfo { get; set; } // 클릭한 퍼크의 기본 정보
+    public SubPerkInfo SelectedSubInfo { get; set; } // 클릭한 서브 퍼크의 기본 정보
+    public ContentInfo SelectedContentInfo { get; set; } // 클릭한 퍼크의 내장 컨텐츠 정보
 
     private void Awake()
     {
@@ -45,6 +51,16 @@ public class PerkManager : MonoBehaviour
         _tier1Contents.data = new List<ContentInfo> ();
         _tier2Contents.data = new List<ContentInfo> ();
         _tier3Contents.data = new List<ContentInfo> ();
+        _subPerkContents.data = new List<ContentInfo> ();
+
+        // 변수 초기화
+        SelectedPerkInfo = new PerkInfo(PerkTier.TIER1, 0, 0, false);
+        SelectedSubInfo = null;
+
+        SelectedContentInfo = new ContentInfo();
+        SelectedContentInfo.contentIdx = 0;
+        SelectedContentInfo.name = "";
+        SelectedContentInfo.description = "";
 
     }
 
@@ -58,6 +74,7 @@ public class PerkManager : MonoBehaviour
         _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
         _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
         _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
+        _json.LoadContentData(ref _subPerkContents, "subPerkContentData");
 
         // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
@@ -126,6 +143,7 @@ public class PerkManager : MonoBehaviour
         for (int i = 0; i < binaryData.Length; i++)
         {
             PerkInfo perkInfo = new PerkInfo(tier, i, contentIdxs[i], false);
+            MakeRandomSubPerks(ref perkInfo);
 
             if (binaryData[i])
             {
@@ -158,6 +176,19 @@ public class PerkManager : MonoBehaviour
         else
         {
             contentIdxs = _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, 24);
+        }
+    }
+
+    private void MakeRandomSubPerks(ref PerkInfo perkInfo)
+    {
+        perkInfo.subPerks = new List<SubPerkInfo>();
+        List<int> positionIdxs = _seed.RandomWithRangeNoRep(8, 3);
+        List<int> contentIdxs = _seed.RandomWithRangeReturnsList(_subPerkContents.data.Count, 3);
+        positionIdxs.Sort();
+
+        for (int i = 0; i < positionIdxs.Count; i++)
+        {
+            perkInfo.subPerks.Add(new SubPerkInfo(positionIdxs[i], contentIdxs[i], false));
         }
     }
 
@@ -197,9 +228,13 @@ public class PerkManager : MonoBehaviour
         {
             contentInfo = _tier2Contents.data[idx];
         }
-        else
+        else if (tier == PerkTier.TIER3)
         {
             contentInfo = _tier3Contents.data[idx];
+        }
+        else
+        {
+            contentInfo = _subPerkContents.data[idx];
         }
 
         return contentInfo;

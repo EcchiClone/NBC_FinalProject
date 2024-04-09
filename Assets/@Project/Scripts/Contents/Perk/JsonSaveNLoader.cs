@@ -90,6 +90,7 @@ public class PerkInfo
     public int PositionIdx;
     public int ContentIdx;
     public bool IsActive;
+    public List<SubPerkInfo> subPerks;
 
     public PerkInfo(PerkTier tier, int positionIdx, int contentIdx, bool isActive)
     {
@@ -102,9 +103,24 @@ public class PerkInfo
 }
 
 [System.Serializable]
+public class SubPerkInfo
+{
+    public int PositionIdx;
+    public int ContentIdx;
+    public bool IsActive;
+
+    public SubPerkInfo(int positionIdx, int contentIdx, bool isActive)
+    {
+        PositionIdx = positionIdx;
+        ContentIdx = contentIdx;
+        IsActive = isActive;
+    }
+}
+
+[System.Serializable]
 public enum PerkTier
 {
-    ORIGIN,
+    SUB,
     TIER1,
     TIER2,
     TIER3

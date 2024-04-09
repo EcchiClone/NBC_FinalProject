@@ -17,6 +17,7 @@ public class PerkGenerator : MonoBehaviour
     private GameObject _tier1Perk;
     private GameObject _tier2Perk;
     private GameObject _tier3Perk;
+    private GameObject _subPerk;
 
     private bool[] _tier1arr = new bool[8];
     private bool[] _tier2arr = new bool[16];
@@ -34,6 +35,7 @@ public class PerkGenerator : MonoBehaviour
         _tier1Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier1Perk");
         _tier2Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier2Perk");
         _tier3Perk = Resources.Load<GameObject>("Prefabs/Perk/Tier3Perk");
+        _subPerk = Resources.Load<GameObject>("Prefabs/Perk/SubPerk");
     }
 
     public void ParseSeed(string seed)
@@ -207,18 +209,60 @@ public class PerkGenerator : MonoBehaviour
                     break;
             }
 
+            GameObject parent; // 서브 퍼크의 부모 오브젝트
+
             if (tier == 1)
             {
-                Instantiate(_tier1Perk, new Vector3(x, y, -2), Quaternion.identity, _tier1UI);
+                parent = Instantiate(_tier1Perk, new Vector3(x, y, -2), Quaternion.identity, _tier1UI);
             }
             else if (tier == 2)
             {
-                Instantiate(_tier2Perk, new Vector3(x, y, -2), Quaternion.identity, _tier2UI);
+                parent = Instantiate(_tier2Perk, new Vector3(x, y, -2), Quaternion.identity, _tier2UI);
             }
             else
             {
-                Instantiate(_tier3Perk, new Vector3(x, y, -2), Quaternion.identity, _tier3UI);
+                parent = Instantiate(_tier3Perk, new Vector3(x, y, -2), Quaternion.identity, _tier3UI);
             }
+
+            InstantiateSubPerks(parent, perkInfo.subPerks); // 서브 퍼크 생성
+        }
+    }
+
+    private void InstantiateSubPerks(GameObject parent, List<SubPerkInfo> subPerks)
+    {
+        foreach (SubPerkInfo sub in subPerks)
+        {
+            int idx = sub.PositionIdx;
+
+            // PerkManager 내부 포인터 값 설정(서브)
+            PerkManager.Instance.PointerSubIdx = idx;
+
+            int q = idx / 2;
+            int m = idx % 2;
+
+            float x = parent.transform.position.x;
+            float y = parent.transform.position.y;
+
+            switch (q)
+            {
+                case 0:
+                    x += 0f + 225f * m;
+                    y += 225f;
+                    break;
+                case 1:
+                    x += 225f;
+                    y += 0f - 225f * m;
+                    break;
+                case 2:
+                    x += 0f - 225f * m;
+                    y += -225f;
+                    break;
+                case 3:
+                    x += -225f;
+                    y += 0f + 225f * m;
+                    break;
+            }
+            Instantiate(_subPerk, new Vector3(x, y, -2), Quaternion.identity, parent.transform);
         }
     }
 }
