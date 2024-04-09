@@ -126,7 +126,8 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public float minSpeed;
     public float maxSpeed;
     public float initRotationSpeed;                         // 회전속도(트리거로 변화요소)
-    public float initLocalYRotationSpeed;                         // 회전속도(트리거로 변화요소)
+
+    public float initLocalYRotationSpeed;                         // 회전속도(트리거로 변화요소) -> 군집에 좋을 듯
 
     [Header("탄막 움직임 변화")]
     public EnemyBulletChangeMoveMethod enemyBulletChangeMoveMethod;         // 타이머로 할 것인지, 마스터의 트리거로 할 것인지
