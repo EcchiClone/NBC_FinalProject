@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 [Serializable]
 public class GameData
-{
-    // 저장할 데이터?    
+{    
     public int highestLevel;
 
     public int achievementCoin;

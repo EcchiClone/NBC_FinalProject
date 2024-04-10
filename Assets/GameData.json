@@ -2,10 +2,10 @@
     "highestLevel": 0,
     "achievementCoin": 0,
     "partIndex_Lower": 1,
-    "partIndex_Upper": 0,
-    "partIndex_LeftArm": 2,
-    "partIndex_RightArm": 2,
-    "partIndex_LeftShoulder": 2,
+    "partIndex_Upper": 1,
+    "partIndex_LeftArm": 1,
+    "partIndex_RightArm": 3,
+    "partIndex_LeftShoulder": 1,
     "partIndex_RightShoulder": 2,
     "unlockedPartsList": []
 }

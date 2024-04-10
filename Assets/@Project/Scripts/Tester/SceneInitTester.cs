@@ -8,5 +8,7 @@ public class SceneInitTester : MonoBehaviour
     {
         Managers.Module.CreatePlayerModule();
         Managers.UI.ShowSceneUI<UI_HUD>();
+
+
     }
 }
