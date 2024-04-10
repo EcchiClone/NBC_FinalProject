@@ -5,6 +5,7 @@ using UnityEngine;
 public class PerkVarBehaviour : MonoBehaviour
 {
     private PerkLineDrawer _drawer;
+    private Transform _transform;
 
     private PerkTier _tier;
     private int _idx;
@@ -16,17 +17,27 @@ public class PerkVarBehaviour : MonoBehaviour
 
     private float _distance;
     private Vector3 _prevPosition;
+    private PerkInfo _prevInfo;
+    private bool _isPrevActive;
 
     private void Awake()
     {
         _drawer = GetComponent<PerkLineDrawer>();
+        _transform = GetComponent<Transform>();
         GetVarsFromManager();
+        ChangeSignOfTransformZ();
+
+        _isPrevActive = false;
     }
 
     private void Start()
     {
-        FindPrevPerks(_perkInfo.Tier, ref _distance, ref _prevPosition);
-        DrawLineToPrevPerk();
+        FindPrevPerks(_perkInfo.Tier, ref _distance, ref _prevPosition, ref _prevInfo);
+    }
+
+    private void FixedUpdate()
+    {
+        CheckPrevPerkIsActive(_prevInfo);
     }
 
     private void GetVarsFromManager()
@@ -48,7 +59,7 @@ public class PerkVarBehaviour : MonoBehaviour
         _contentInfo = PerkManager.Instance.GetContentInfo(_tier, _contentIdx);
     }
 
-    private void FindPrevPerks(PerkTier tier, ref float distance, ref Vector3 prevPosition)
+    private void FindPrevPerks(PerkTier tier, ref float distance, ref Vector3 prevPosition, ref PerkInfo prevInfo)
     {
         GameObject[] prevPerks;
 
@@ -60,7 +71,7 @@ public class PerkVarBehaviour : MonoBehaviour
             case PerkTier.TIER2:
                 prevPerks = GameObject.FindGameObjectsWithTag("Tier1");
                 break;
-            default:
+            default: // PerkTier.TIER1 & PerkTier.SUB 일 때
                 prevPerks = null;
                 break;
         }
@@ -77,6 +88,7 @@ public class PerkVarBehaviour : MonoBehaviour
                 {
                     min = distance;
                     prevPosition = perk.transform.position;
+                    prevInfo = perk.GetComponent<PerkVarBehaviour>().ReturnPerkInfo();
                 }
             }
         }
@@ -84,13 +96,52 @@ public class PerkVarBehaviour : MonoBehaviour
         {
             distance = 0f;
             prevPosition = Vector3.zero;
+            prevInfo = null;
         }
 
+    }
+
+    private void CheckPrevPerkIsActive(PerkInfo prevInfo)
+    {
+        if (!_isPrevActive)
+        {
+            if (prevInfo != null)
+            {
+                PerkInfo updatedInfo = PerkManager.Instance.GetPerkInfo(prevInfo.Tier, prevInfo.PositionIdx);
+
+                if (updatedInfo.IsActive)
+                {
+                    SetCurrentPerkActive();
+                    _isPrevActive = true;
+                }
+                else
+                {
+                    _isPrevActive = false;
+                }
+            }
+            else
+            {
+                SetCurrentPerkActive();
+                _isPrevActive = true;
+            }
+        }
+    }
+
+    private void SetCurrentPerkActive()
+    {
+        ChangeSignOfTransformZ();
+        DrawLineToPrevPerk();
     }
 
     private void DrawLineToPrevPerk()
     {
         _drawer.LineToPrevPerk(_prevPosition);
+    }
+
+    private void ChangeSignOfTransformZ()
+    {
+        float newZ = _transform.position.z * -1f;
+        _transform.position = new Vector3(_transform.position.x, _transform.position.y, newZ);
     }
 
     public PerkInfo ReturnPerkInfo()
