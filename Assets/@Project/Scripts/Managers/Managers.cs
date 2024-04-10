@@ -19,15 +19,15 @@ public class Managers : MonoBehaviour
 
     #region # Contents
     ActionManager _actionManager = new ActionManager();
+    GameManager _gameManager = new GameManager();
     ModuleManager _module = new ModuleManager();
     StatusManager _statusManager = new StatusManager();
 
     public static ActionManager ActionManager => Instance?._actionManager;
+    public static GameManager GameManager => Instance?._gameManager;
     public static ModuleManager Module => Instance?._module;
     public static StatusManager StatusManager => Instance?._statusManager;
     #endregion
-
-
 
     private static void Init()
     {
@@ -43,6 +43,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
 
+            s_instance._gameManager.Init();
             s_instance._dataManager.Init();
             s_instance._module.Init();
         }

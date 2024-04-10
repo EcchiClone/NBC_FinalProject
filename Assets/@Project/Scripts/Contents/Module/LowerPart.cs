@@ -8,7 +8,7 @@ public class LowerPart : BasePart
 
     [SerializeField] GameObject[] _footSparks;
 
-    public override void Setup(Define.PartsType type, Module module)
+    public override void Setup(Define.Parts_Location type, Module module)
     {
         base.Setup(type, module);
     }

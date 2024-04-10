@@ -63,8 +63,8 @@ public class UI_ArmSelector : UI_Popup
 
     public void ResetText()
     {
-        int leftID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.Module.CurrentLeftArmIndex).ID;
-        int rightID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.Module.CurrentRightArmIndex).ID;
+        int leftID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.GameManager.PartIndex_LeftArm).ID;
+        int rightID = Managers.Module.GetPartOfIndex<ArmsPart>(Managers.GameManager.PartIndex_RightArm).ID;
         PartData leftArmPartData = Managers.Data.GetPartData(leftID);
         PartData rightArmPartData = Managers.Data.GetPartData(rightID);
 

@@ -14,7 +14,7 @@ public class UI_LowerChangeBtn : UI_ChangeButton
         _currentIndex = IndexOfLowerPart;
         ++IndexOfLowerPart;
 
-        if (_currentIndex == Managers.Module.CurrentLowerIndex)
+        if (_currentIndex == Managers.GameManager.PartIndex_Lower)
             _equip.SetActive(true);
 
         GetCurrentPartData<LowerPart>();
@@ -34,7 +34,7 @@ public class UI_LowerChangeBtn : UI_ChangeButton
 
     private void ChangePart()
     {
-        Managers.Module.ChangePart(_currentIndex, Define.PartsType.Lower);
+        Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Lower);
         Managers.Module.CallLowerPartChange(_currentData);
     }
 }

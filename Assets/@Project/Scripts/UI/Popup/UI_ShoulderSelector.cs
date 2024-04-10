@@ -63,8 +63,8 @@ public class UI_ShoulderSelector : UI_Popup
 
     public void ResetText()
     {
-        int leftShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentLeftShoulderIndex).ID;
-        int rightShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentRightShoulderIndex).ID;
+        int leftShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.GameManager.PartIndex_LeftShoulder).ID;
+        int rightShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.GameManager.PartIndex_RightShoulder).ID;
         PartData LeftShoulderPartData = Managers.Data.GetPartData(leftShoulderID);
         PartData RightShoulderPartData = Managers.Data.GetPartData(rightShoulderID);
 

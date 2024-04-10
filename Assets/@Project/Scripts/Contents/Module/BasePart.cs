@@ -9,11 +9,11 @@ public class BasePart : MonoBehaviour
     [SerializeField] GameObject[] _boosterEffects;
 
     protected Module Module { get; private set; }
-    protected Define.PartsType _type;
+    protected Define.Parts_Location _type;
 
     public void SetID(int id) => ID = id;
 
-    public virtual void Setup(Define.PartsType type, Module module)
+    public virtual void Setup(Define.Parts_Location type, Module module)
     {
         Module = module;
         _type = type;
