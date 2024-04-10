@@ -5,18 +5,32 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyBulletParameters
 {
+
     // 이동 관련 파라미터
-    public float speed;
-    public float minSpeed;
-    public float maxSpeed;
-    public float accelMultiple;
-    public float accelPlus;
-    public float rotationSpeed;
-    public float localYRotationSpeed;
-    public Vector3 moveDirection;
-    public Vector3 moveDirectionAim;
-    public EnemyBulletMoveType enemyBulletMoveType;
-    public List<EnemyBulletChangePropertys> enemyBulletChangeMoveProperty;
+    public float Speed { get; set; }
+    public float MinSpeed { get; set; }
+    public float MaxSpeed { get; set; }
+    public float AccelMultiple { get; set; }
+    public float AccelPlus { get; set; }
+    public float RotationSpeed { get; set; }
+    public float LocalYRotationSpeed { get; set; }
+    public Vector3 MoveDirection { get; set; }
+    public Vector3 MoveDirectionAim { get; set; }
+    public EnemyBulletMoveType _EnemyBulletMoveType { get; set; }
+    public List<EnemyBulletChangePropertys> _EnemyBulletChangeMoveProperty { get; set; }
+
+    // 이동 관련 파라미터
+    //public float Speed;
+    //public float MinSpeed;
+    //public float MaxSpeed;
+    //public float AccelMultiple;
+    //public float AccelPlus;
+    //public float RotationSpeed;
+    //public float LocalYRotationSpeed;
+    //public Vector3 MoveDirection;
+    //public Vector3 MoveDirectionAim;
+    //public EnemyBulletMoveType _EnemyBulletMoveType;
+    //public List<EnemyBulletChangePropertys> _EnemyBulletChangeMoveProperty;
 
     // 탄막 반환 관련 파라미터
     public ReleaseMethod releaseMethod;
@@ -39,17 +53,17 @@ public class EnemyBulletParameters
         float releaseTimer
         )
     {
-        this.speed = speed;
-        this.minSpeed = minSpeed;
-        this.maxSpeed = maxSpeed;
-        this.accelMultiple = accelMultiple;
-        this.accelPlus = accelPlus;
-        this.rotationSpeed = rotationSpeed;
-        this.localYRotationSpeed = localYRotationSpeed;
-        this.moveDirection = moveDirection;
-        this.moveDirectionAim = moveDirectionAim;
-        this.enemyBulletMoveType = enemyBulletMoveType;
-        this.enemyBulletChangeMoveProperty = enemyBulletChangeMoveProperty;
+        this.Speed = speed;
+        this.MinSpeed = minSpeed;
+        this.MaxSpeed = maxSpeed;
+        this.AccelMultiple = accelMultiple;
+        this.AccelPlus = accelPlus;
+        this.RotationSpeed = rotationSpeed;
+        this.LocalYRotationSpeed = localYRotationSpeed;
+        this.MoveDirection = moveDirection;
+        this.MoveDirectionAim = moveDirectionAim;
+        this._EnemyBulletMoveType = enemyBulletMoveType;
+        this._EnemyBulletChangeMoveProperty = enemyBulletChangeMoveProperty;
         this.releaseMethod = releaseMethod;
         this.releaseTimer = releaseTimer;
     }

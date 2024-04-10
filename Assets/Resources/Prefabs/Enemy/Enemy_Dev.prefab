@@ -136,7 +136,7 @@ Transform:
   m_Children:
   - {fileID: 4120305382067784534}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6630598493877107350
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phases:
-  - {fileID: 11400000, guid: 91e03ad64f8e5f847941f6dcd330a935, type: 2}
+  - {fileID: 11400000, guid: e46aeb535cc86e340969ce90696c0cc3, type: 2}
   muzzle: []
   isShooting: 1
   onStartPhase:
