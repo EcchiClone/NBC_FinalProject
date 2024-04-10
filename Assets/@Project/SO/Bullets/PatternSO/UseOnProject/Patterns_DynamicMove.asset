@@ -47,6 +47,7 @@ MonoBehaviour:
       minSpeed: -100
       maxSpeed: 100
       initRotationSpeed: 1
+      isCluster: 0
       initLocalYRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
@@ -125,6 +126,7 @@ MonoBehaviour:
       minSpeed: -100
       maxSpeed: 100
       initRotationSpeed: 1
+      isCluster: 0
       initLocalYRotationSpeed: 0.1
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
@@ -204,6 +206,7 @@ MonoBehaviour:
       minSpeed: -100
       maxSpeed: 999
       initRotationSpeed: 1
+      isCluster: 0
       initLocalYRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
@@ -284,6 +287,7 @@ MonoBehaviour:
       minSpeed: -100
       maxSpeed: 100
       initRotationSpeed: 1
+      isCluster: 0
       initLocalYRotationSpeed: 0
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
