@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
+  m_Name: Achievement_Kill_Minion_200
+  m_EditorClassIdentifier: 
+  codeName: KILL_MINION_200
+  icon: {fileID: 21300000, guid: d4c7405770225e648a6e8ddcc56f9896, type: 3}
+  displayName: "\uD559\uC0B4\uC911\uC785\uB2C8\uB2E4"
+  description: "Minion 200\uAE30 \uD30C\uAD34"
+  taskGroups:
+  - tasks:
+    - {fileID: 11400000, guid: b6aed6b5e56696b4c993944c8e57b009, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
+  useAutoComplete: 0

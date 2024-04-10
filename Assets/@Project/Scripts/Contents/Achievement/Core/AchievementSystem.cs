@@ -56,7 +56,7 @@ public class AchievementSystem : MonoBehaviour
 
     private void Awake()
     {
-        achievementDatabase = Resources.Load<AchievementDatabase>("AchievementDatabase");
+        achievementDatabase = Resources.Load<AchievementDatabase>("Data/AchievementDatabase");
         CompleteAlarmUI = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarm");
 
         if (!Load())
@@ -108,6 +108,10 @@ public class AchievementSystem : MonoBehaviour
 
     public void ReceiveReport(TaskCategory category, TaskTarget target, int successCount)
         => ReceiveReport(category.CodeName, target.Value, successCount);
+    public void ReceiveReport(TaskCategory category, string target, int successCount)
+        => ReceiveReport(category.CodeName, target, successCount);
+    public void ReceiveReport(string category, TaskTarget target, int successCount)
+        => ReceiveReport(category, target.Value, successCount);
 
     private void ReceiveReport(List<Achievement> achievements, string category, object target, int successCount)
     {
