@@ -110,7 +110,7 @@ MonoBehaviour:
       enemyBulletShape: 0
       customBulletPosList: []
       divisionPointsPerEdge: 0
-      initDistance: 0.1
+      initDistance: 1
       numPerShot: 5
       shotVerticalNum: 0
       spreadB: 1

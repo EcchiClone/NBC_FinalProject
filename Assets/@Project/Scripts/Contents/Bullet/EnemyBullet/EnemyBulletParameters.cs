@@ -18,6 +18,8 @@ public class EnemyBulletParameters
     public Vector3 MoveDirectionAim { get; set; }
     public EnemyBulletMoveType _EnemyBulletMoveType { get; set; }
     public List<EnemyBulletChangePropertys> _EnemyBulletChangeMoveProperty { get; set; }
+    public ReleaseMethod _ReleaseMethod { get; set; }
+    public float ReleaseTimer { get; set; } // 타이머 방식일 경우 사용할 시간
 
     // 이동 관련 파라미터
     //public float Speed;

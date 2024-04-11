@@ -51,7 +51,8 @@ public class EnemyBulletGenerator : MonoBehaviour
             ExecutePattern(genSettings); // hierarchy.patternSO, hierarchy.patternName, hierarchy.subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform
     }
 
-    private void ExecutePattern(BulletGenerationSettings genSettings) // PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null
+    // 어... 단일패턴은 아래 쓰면 되는 거 아닌가?
+    public void ExecutePattern(BulletGenerationSettings genSettings) // PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null
     {
         //var patternData = patternSO.GetSpawnInfoByPatternName(patternName);
         //if (patternData != null)
@@ -61,29 +62,31 @@ public class EnemyBulletGenerator : MonoBehaviour
         }
     }
 
+    private Vector3 GetPlayerPos()
+    {
+        try
+        {
+            return Managers.Module.CurrentModule.LowerPosition.position;
+        }
+        catch
+        {
+            //GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+            //if (playerGo != null)
+            //{
+            //    return playerGo.transform.position;
+            //}
+            //else
+            //{
+                return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
+            //}
+        }
+    }
+
     IEnumerator Co_ExecutePattern(BulletGenerationSettings genSettings) // EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         EnemyBulletSettings settings = genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName).enemyBulletSettings;
 
-        //GameObject playerGo = GameObject.FindGameObjectWithTag("Player"); // 플레이어 오브젝트 찾기
-        //Transform playerTF = Managers.Module.CurrentModule.LowerPosition;
-        Vector3 playerPos;
-        try
-        {
-            playerPos = Managers.Module.CurrentModule.LowerPosition.position;
-        }
-        catch
-        {
-            GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
-            if (playerGo != null)
-            {
-                playerPos = playerGo.transform.position;
-            }
-            else
-            {
-                playerPos = new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
-            }
-        }
+        Vector3 playerPos = GetPlayerPos();
 
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
@@ -102,7 +105,7 @@ public class EnemyBulletGenerator : MonoBehaviour
 
                 // 1. 초기화 및 위치, 방향 일괄적용
                 //List<GameObject> enemyBulletGoList = new List<GameObject>();
-                List<LightTransform> enemyBulletTransformList = new List<LightTransform>();
+                List<(Vector3 Position, Quaternion Rotation)> enemyBulletTransformList = new List<(Vector3 Position, Quaternion Rotation)>();
 
                 //SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerTF, genSettings); // settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform
                 SetupEnemyBulletGoList(settings, enemyBulletTransformList, playerPos, genSettings); // settings, enemyBulletTransformList, playerGo, rootGo, masterGo, muzzleTransform
@@ -123,14 +126,14 @@ public class EnemyBulletGenerator : MonoBehaviour
 
         yield return null;
     }
-    public class LightTransform {
-        public Vector3 position { get; set; }
-        public Quaternion rotation { get; set; }
-    }
+    //public struct LightTransform {
+    //    public Vector3 position { get; set; }
+    //    public Quaternion rotation { get; set; }
+    //}
 
     // 탄막의 생성 및 위치 초기화
     //private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, Transform playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
-    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, Vector3 playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
+    private void SetupEnemyBulletGoList(EnemyBulletSettings settings, List<(Vector3 Position, Quaternion Rotation)> enemyBulletTransformList, Vector3 playerGo, BulletGenerationSettings genSettings) //GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         var muzzleTransform = genSettings.muzzleTransform;
         var rootGo = genSettings.rootObject;
@@ -185,12 +188,16 @@ public class EnemyBulletGenerator : MonoBehaviour
             case(EnemyBulletShape.Linear): // 선형 발사
                 for(int i = 0; i < settings.numPerShot; i++)
                 {
-                    LightTransform enemyBulletTransform = new LightTransform(); // 위치와 방향을 담을 클래스
+                    //LightTransform enemyBulletTransform = new LightTransform(); // 위치와 방향을 담을 클래스
+
+                    //Vector3 initPosition = pivotPosition + pivotDirection * settings.initDistance;
+
+                    //enemyBulletTransform.position = initPosition;
+                    //enemyBulletTransformList.Add(enemyBulletTransform);
 
                     Vector3 initPosition = pivotPosition + pivotDirection * settings.initDistance;
+                    enemyBulletTransformList.Add((initPosition, Quaternion.identity));
 
-                    enemyBulletTransform.position = initPosition;
-                    enemyBulletTransformList.Add(enemyBulletTransform);
                 }
                 break;
 
@@ -198,15 +205,20 @@ public class EnemyBulletGenerator : MonoBehaviour
 
                 foreach (Vector3 spherePoint in BulletMathUtils.GenerateSpherePointsTypeA(settings.numPerShot, settings.shotVerticalNum, settings.initDistance))
                 {
-                    LightTransform enemyBulletTransform = new LightTransform();
+                    //LightTransform enemyBulletTransform = new LightTransform();
 
-                    // 스피어 포인트를 기준 방향으로 회전
-                    Vector3 rotatedSpherePoint = rotationToPivotDirection * spherePoint;
+                    //// 스피어 포인트를 기준 방향으로 회전
+                    //Vector3 rotatedSpherePoint = rotationToPivotDirection * spherePoint;
 
-                    enemyBulletTransform.position = pivotPosition + rotatedSpherePoint; // 회전된 포인트를 기준 위치에 추가
-                    enemyBulletTransformList.Add(enemyBulletTransform);
+                    //enemyBulletTransform.position = pivotPosition + rotatedSpherePoint; // 회전된 포인트를 기준 위치에 추가
+                    //enemyBulletTransformList.Add(enemyBulletTransform);
+
+                    Vector3 initPosition = pivotPosition + rotationToPivotDirection * spherePoint;
+                    enemyBulletTransformList.Add((initPosition, Quaternion.identity));
+
                 }
                 break;
+
             case (EnemyBulletShape.Custom):
                 List<Vector3> expandedPoints = new List<Vector3>();
                 int pointsCount = settings.customBulletPosList.Length;
@@ -242,10 +254,13 @@ public class EnemyBulletGenerator : MonoBehaviour
 
                 foreach (Vector3 point in expandedPoints)
                 {
-                    LightTransform enemyBulletTransform = new LightTransform();
-                    // 기준 위치와 회전된 점을 사용하여 위치 설정
-                    enemyBulletTransform.position = pivotPosition + point * settings.initDistance;
-                    enemyBulletTransformList.Add(enemyBulletTransform);
+                    //LightTransform enemyBulletTransform = new LightTransform();
+                    //// 기준 위치와 회전된 점을 사용하여 위치 설정
+                    //enemyBulletTransform.position = pivotPosition + point * settings.initDistance;
+                    //enemyBulletTransformList.Add(enemyBulletTransform);
+
+                    Vector3 initPosition = pivotPosition + point * settings.initDistance;
+                    enemyBulletTransformList.Add((initPosition, Quaternion.identity));
                 }
                 break;
 
@@ -263,98 +278,105 @@ public class EnemyBulletGenerator : MonoBehaviour
         switch (settings.initDirectionType)
         {
             case EnemyBulletToDirection.Local: // 직접 지정한 회전치 사용. 전 탄막 일괄 적용
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
-                    enemyBulletTransform.rotation = Quaternion.Euler(settings.initCustomDirection);
+                    enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Quaternion.Euler(settings.initCustomDirection));
                 }
                 break;
 
             case EnemyBulletToDirection.MasterOut: // 마스터(masterGo)와 반대되는 방향으로
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
-                    Vector3 directionMasterToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
-                    enemyBulletTransform.rotation = Quaternion.LookRotation(directionMasterToEnemyBullet);
+                    Vector3 directionMasterToEnemyBullet = (enemyBulletTransformList[i].Position - masterGo.transform.position).normalized;
+                    enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Quaternion.LookRotation(directionMasterToEnemyBullet));
                 }
                 break;
 
             case EnemyBulletToDirection.MasterToPlayer: // 마스터가 플레이어를 바라보는 방향으로 설정
-
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
+                    Quaternion newRotation;
                     if (playerGo != null)
                     {
                         Vector3 directionMasterToPlayer = (playerGo - masterGo.transform.position).normalized;
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMasterToPlayer);
+                        newRotation = Quaternion.LookRotation(directionMasterToPlayer);
                     }
                     else
                     {
-                        // playerGo가 없을 경우, EnemyBulletToDirection.MasterOut 와 같도록
-                        Vector3 directionToMaster = (enemyBulletTransform.position - masterGo.transform.position).normalized;
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(-directionToMaster);
+                        // playerGo가 없을 경우, EnemyBulletToDirection.MasterOut와 같도록
+                        Vector3 directionToMaster = (enemyBulletTransformList[i].Position - masterGo.transform.position).normalized;
+                        newRotation = Quaternion.LookRotation(-directionToMaster);
                     }
+                    enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, newRotation);
                 }
                 break;
 
             case EnemyBulletToDirection.MuzzleOut: // 생성위치와 반대되는 방향으로
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
                     Vector3 directionMuzzleToEnemyBullet;
                     if (muzzleTransform != null)
-                        directionMuzzleToEnemyBullet = (enemyBulletTransform.position - muzzleTransform.position).normalized;
+                        directionMuzzleToEnemyBullet = (enemyBulletTransformList[i].Position - muzzleTransform.position).normalized;
                     else
-                        directionMuzzleToEnemyBullet = (enemyBulletTransform.position - masterGo.transform.position).normalized;
+                        directionMuzzleToEnemyBullet = (enemyBulletTransformList[i].Position - masterGo.transform.position).normalized;
+
                     if (directionMuzzleToEnemyBullet != Vector3.zero)
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToEnemyBullet);
+                        enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Quaternion.LookRotation(directionMuzzleToEnemyBullet));
                 }
                 break;
+
 
             case EnemyBulletToDirection.MuzzleToPlayer: // 생성위치에서 플레이어 방향으로
-
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
+                    Quaternion newRotation;
                     if (playerGo != null)
                     {
-                        Vector3 directionMuzzleToPlayer = (playerGo - muzzleTransform.transform.position).normalized;
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionMuzzleToPlayer);
+                        Vector3 directionMuzzleToPlayer = (playerGo - muzzleTransform.position).normalized;
+                        newRotation = Quaternion.LookRotation(directionMuzzleToPlayer);
                     }
                     else
                     {
-                        // playerGo가 없을 경우, EnemyBulletToDirection.MuzzleOut 와 같도록
-                        Vector3 directionToMuzzle = (enemyBulletTransform.position - muzzleTransform.transform.position).normalized;
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(-directionToMuzzle);
+                        // playerGo가 없을 경우, EnemyBulletToDirection.MuzzleOut와 같도록
+                        Vector3 directionToMuzzle = (enemyBulletTransformList[i].Position - muzzleTransform.position).normalized;
+                        newRotation = Quaternion.LookRotation(-directionToMuzzle);
                     }
+                    enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, newRotation);
                 }
                 break;
+
             case EnemyBulletToDirection.ToPlayer: // 탄막이 플레이어를 바라보도록
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
                     if (playerGo != null)
                     {
-                        Vector3 directionToPlayer = (playerGo - enemyBulletTransform.position).normalized;
-                        enemyBulletTransform.rotation = Quaternion.LookRotation(directionToPlayer);
+                        Vector3 directionToPlayer = (playerGo - enemyBulletTransformList[i].Position).normalized;
+                        enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Quaternion.LookRotation(directionToPlayer));
                     }
                 }
                 break;
 
+
             case EnemyBulletToDirection.CompletelyRandom: // 모든 방향으로 랜덤
-                foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+                for (int i = 0; i < enemyBulletTransformList.Count; i++)
                 {
-                    enemyBulletTransform.rotation = Random.rotation;
+                    enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Random.rotation);
                 }
                 break;
+
         }
 
         // 2. 방향에 일괄 오차 주기
-
         if (settings.spreadB == SpreadType.Spread)
         {
-            foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+            for (int i = 0; i < enemyBulletTransformList.Count; i++)
             {
-                Vector3 direction = enemyBulletTransform.rotation * Vector3.forward; // Q to V3
+                Vector3 direction = enemyBulletTransformList[i].Rotation * Vector3.forward; // Quaternion에서 Vector3 방향으로 변환
                 Vector3 newDirection = BulletMathUtils.CalculateSpreadDirection(direction, settings.maxSpreadAngleB, settings.concentrationB);
-                enemyBulletTransform.rotation = Quaternion.LookRotation(newDirection); // V3 to Q
+                enemyBulletTransformList[i] = (enemyBulletTransformList[i].Position, Quaternion.LookRotation(newDirection)); // 새 방향으로 Quaternion 업데이트
             }
         }
+
         // 1>?. 에서 행했던 것 또 넣어도 될 듯 함
 
     }
@@ -366,18 +388,18 @@ public class EnemyBulletGenerator : MonoBehaviour
         public string prefabName;
         public Vector3 position;
         public Quaternion rotation;
-        public EnemyBulletParameters parameters;
+        public EnemyBulletSettings settings;
         public float nextCycleTime;
         public GameObject rootGo;
         public Transform masterTf;
         public List<PatternHierarchy> subPatterns;
 
-        public EnemyBulletSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, EnemyBulletParameters parameters, float nextCycleTime, GameObject rootGo, Transform masterTf, List<PatternHierarchy> subPatterns)
+        public EnemyBulletSpawnInfo(string prefabName, Vector3 position, Quaternion rotation, EnemyBulletSettings settings, float nextCycleTime, GameObject rootGo, Transform masterTf, List<PatternHierarchy> subPatterns)
         {
             this.prefabName = prefabName;
             this.position = position;
             this.rotation = rotation;
-            this.parameters = parameters;
+            this.settings = settings;
             this.nextCycleTime = nextCycleTime;
             this.rootGo = rootGo;
             this.masterTf = masterTf;
@@ -388,21 +410,23 @@ public class EnemyBulletGenerator : MonoBehaviour
     private Queue<EnemyBulletSpawnInfo> spawnQueue = new Queue<EnemyBulletSpawnInfo>();
     public int rentalBatchSize = 200;
 
-    private void EnqueueEnemyBulletSpawnInfo(EnemyBulletSettings settings, List<LightTransform> enemyBulletTransformList, BulletGenerationSettings genSettings) // List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, Transform masterTf
+    private void EnqueueEnemyBulletSpawnInfo(EnemyBulletSettings settings, List<(Vector3 Position, Quaternion Rotation)> enemyBulletTransformList, BulletGenerationSettings genSettings) // List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, Transform masterTf
     {
         var subPatterns = genSettings.patternHierarchy.subPatterns;
         var nextCycleTime = genSettings.patternHierarchy.cycleTime;
         var rootGo = genSettings.rootObject;
         var masterGo = genSettings.masterObject;
 
-        foreach (LightTransform enemyBulletTransform in enemyBulletTransformList)
+        for (int i = 0; i < enemyBulletTransformList.Count; i++)
         {
+            var (position, rotation) = enemyBulletTransformList[i];
+
             EnemyBulletParameters parameters = EnemyBulletParameters.FromSettings(settings);
             EnemyBulletSpawnInfo spawnInfo = new EnemyBulletSpawnInfo(
                 settings.enemyBulletPrefab.name,
-                enemyBulletTransform.position,
-                enemyBulletTransform.rotation,
-                parameters,
+                position,
+                rotation,
+                settings,
                 nextCycleTime,
                 rootGo,
                 masterGo.transform,
@@ -436,7 +460,7 @@ public class EnemyBulletGenerator : MonoBehaviour
             EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
             if (enemyBulletController != null)
             {
-                enemyBulletController.Initialize(spawnInfo.parameters, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf);
+                enemyBulletController.Initialize(spawnInfo.settings, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf);
             }
             else
             {

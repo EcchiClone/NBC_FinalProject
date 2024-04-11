@@ -19,14 +19,14 @@ public class EnemyBulletController : EnemyBullet
 
 
     // 탄막에 파라미터를 설정하는 메서드 추가
-    public void Initialize(EnemyBulletParameters parameters, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
+    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
     {
         foreach(TrailRenderer t in _trailRenderers)
         {
             t.Clear();
         }
 
-        _currentParameters = parameters;
+        _currentParameters = EnemyBulletParameters.FromSettings(settings);
 
         _rootGo = rootGo;
 
@@ -43,7 +43,7 @@ public class EnemyBulletController : EnemyBullet
         {
             foreach (var patternHierarchy in subPatterns)
             {
-                var settings = new BulletGenerationSettings
+                var _genSettings = new BulletGenerationSettings
                 {
                     muzzleTransform = null,
                     rootObject = rootGo,
@@ -54,7 +54,7 @@ public class EnemyBulletController : EnemyBullet
                 };
 
                 // 설정 인스턴스를 StartPatternHierarchy 메소드에 전달
-                EnemyBulletGenerator.instance.StartPatternHierarchy(settings);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(_genSettings);
 
                 //EnemyBulletGenerator.instance.StartPatternHierarchy(patternHierarchy, cycleTime, rootGo, gameObject);
                 // PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false
