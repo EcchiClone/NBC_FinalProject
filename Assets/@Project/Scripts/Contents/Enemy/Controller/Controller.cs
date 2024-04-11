@@ -21,11 +21,14 @@ public  class Controller
 
     public Rigidbody Rigidbody { get; protected set; }
 
+    protected Transform Target { get; set; }
+
     public void Initialize()
     {
         Destination = _entity.transform.position;
         StopDistance = _entity.Data.stopDistance;
         Rigidbody = _entity.GetComponent<Rigidbody>();
+        Target = _entity.Target.transform;
     }
 
     public virtual void Update() { }

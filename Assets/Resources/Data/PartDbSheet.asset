@@ -30,7 +30,6 @@ MonoBehaviour:
     boosterPower: 5
     canJump: 1
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -60,7 +59,6 @@ MonoBehaviour:
     boosterPower: 4
     canJump: 1
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -149,7 +147,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Small
     damage: 5
@@ -179,7 +176,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
     damage: 2
@@ -210,7 +206,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 2
@@ -239,7 +234,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Large
     damage: 50
@@ -269,7 +263,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
     damage: 5
@@ -300,7 +293,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
     damage: 50
@@ -331,7 +323,6 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
-    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_01
     damage: 125

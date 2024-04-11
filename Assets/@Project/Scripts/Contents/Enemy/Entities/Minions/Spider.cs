@@ -6,12 +6,13 @@ public class Spider : Entity
 {
     protected override void Initialize()
     {
-        //Target = FindObjectOfType<TargetCenter>().transform;
+        Target = GameObject.Find("Target").transform;
+        // Target = Managers.Module.CurrentModule.transform;
         CurrentHelth = Data.maxHealth;
 
         Controller = new GroundUnitController(this);
         Controller.Initialize();
 
-        Controller?.SetDestination(Target.position);
+        StateMachine = new SpiderStateMachine(this);
     }
 }

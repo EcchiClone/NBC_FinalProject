@@ -25,6 +25,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
     private void Update()
     {
         UpdateRequireText();
+        CheckPerkActive();
     }
 
     private void InitActive()
@@ -82,20 +83,13 @@ public class UnlockBtnBehaviour : MonoBehaviour
         _pointTxt.text = "Require " + PerkManager.Instance.RequirePoint.ToString() + " Points";
     }
 
-    private void SetPerkIsActive()
-    {
-        PerkManager.Instance.SetPerkIsActive();
-        ShowAfterBtn();
-    }
-
     private void OnPerkClicked(object sender, EventArgs eventArgs)
     {
-        CheckPerkActive();
+
     }
 
     public void OnButtonClicked()
     {
-        SetPerkIsActive();
         PerkManager.Instance.CallOnUnlockBtnClicked();
     }
 

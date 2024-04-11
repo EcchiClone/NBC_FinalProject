@@ -16,6 +16,7 @@ public abstract class BaseState
     {
         Context = context;
         Provider = provider;
+        
     }
 
     public abstract void EnterState();
@@ -34,6 +35,11 @@ public abstract class BaseState
     protected void SwitchState(BaseState newState)
     {
         ExitState();
+        if (IsRootState || null != _currentSubState)
+        {
+            _currentSubState?.ExitState();
+            _currentSubState?._currentSubState?.ExitState();
+        }
 
         newState.EnterState();
 

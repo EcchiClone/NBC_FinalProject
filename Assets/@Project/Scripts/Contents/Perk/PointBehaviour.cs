@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class PointBehaviour : MonoBehaviour
 {
-    // TODO:
-    // 1. 포인트 한도 초과 시 처리
-
     // 포인트의 구조 (1 + 2 + 3)
     // 1. 티어 별 기본 포인트: SUB = 3, TIER1 = 5, TIER2 = 7, TIER3 = 10
     // 2. 거리 비례값: SUB, TIER1 = 0, TIER2, TIER3 = 거리에 따라 상이
@@ -57,8 +54,18 @@ public class PointBehaviour : MonoBehaviour
 
     private void PointSubtraction()
     {
-        _unlockCount++;
-        PerkManager.Instance.PlayerPoint -= _requirePoint;
+        int playerPoint = PerkManager.Instance.PlayerPoint;
+
+        if (playerPoint > _requirePoint)
+        {
+            _unlockCount++;
+            PerkManager.Instance.PlayerPoint -= _requirePoint;
+            PerkManager.Instance.SetPerkIsActive();
+        }
+        else
+        {
+            Debug.Log("요구되는 포인트보다 가지고 있는 포인트가 적습니다.");
+        }
     }
 
     private void OnPerkClicked(object sender, EventArgs eventArgs)
