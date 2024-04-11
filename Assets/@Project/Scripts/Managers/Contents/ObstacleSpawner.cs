@@ -9,6 +9,7 @@ using UnityEngine.AI;
 public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용하도록?
 {
     NavMeshSurface navMeshSurface;
+    [SerializeField] LayerMask navMeshLayerMask;
 
     [SerializeField]private GameObject[] _obstaclePrefabs;
     private GameObject _currentObstacle;
@@ -18,6 +19,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
     private void Awake()
     {
         GetOrAddComponent(out navMeshSurface);
+        navMeshLayerMask = LayerMask.GetMask("Ground");
     }
 
     public void SpawnObstacle()
@@ -51,6 +53,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
             throw new ArgumentNullException("navMeshSurface is null");
 
         navMeshSurface.RemoveData();
+        navMeshSurface.layerMask = navMeshLayerMask;
         navMeshSurface.BuildNavMesh();
     }
 
