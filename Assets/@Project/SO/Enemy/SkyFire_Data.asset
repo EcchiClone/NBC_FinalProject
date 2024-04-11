@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938178ee2c4735e45b705c6169e74fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: SkyFire_Data
   m_EditorClassIdentifier: 
-  BossType: 1
-  stopDistance: 50
-  chasingInterval: 0.5
+  stopDistance: 0
+  cognizanceRange: 0
+  chasingInterval: 0
   rotationSpeed: 0
-  maxHealth: 5000
-  moveSpeed: 2
+  maxHealth: 0
+  moveSpeed: 0
+  attackInterval: 0
