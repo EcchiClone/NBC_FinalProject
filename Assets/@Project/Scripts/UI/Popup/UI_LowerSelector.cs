@@ -44,7 +44,7 @@ public class UI_LowerSelector : UI_Selector
 
     public void ResetText()
     {
-        int partID = Managers.Module.GetPartOfIndex<LowerPart>(0).ID;
+        int partID = Managers.Module.GetPartOfIndex<LowerPart>(Managers.GameManager.PartIndex_Lower).ID;
         PartData currentPartData = Managers.Data.GetPartData(partID);
 
         UpdateSelectedPartSpecText(currentPartData);

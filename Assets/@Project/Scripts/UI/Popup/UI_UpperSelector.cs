@@ -20,10 +20,9 @@ public class UI_UpperSelector : UI_Selector
     {
         AP,
         Weight,
-        AttackMain,
-        AttackSub,
-        ReloadSub,
         RotateSpeed,
+        BoostCapacity,
+        HoverPower,        
     }    
 
     protected override void Init()
@@ -54,9 +53,9 @@ public class UI_UpperSelector : UI_Selector
         gameObject.SetActive(false);
     }
     
-    public void ResetText()
-    {
-        int partID = Managers.Module.GetPartOfIndex<UpperPart>(0).ID;
+    private void ResetText()
+    {        
+        int partID = Managers.Module.GetPartOfIndex<UpperPart>(Managers.GameManager.PartIndex_Upper).ID;
         PartData currentPartData = Managers.Data.GetPartData(partID);
 
         UpdateSelectedPartSpecText(currentPartData);
@@ -68,10 +67,9 @@ public class UI_UpperSelector : UI_Selector
         _specTexts[(int)SpecType.AP].text = $"{upperData.Armor}";
         _specTexts[(int)SpecType.Weight].text = $"{upperData.Weight}";
 
-        //_specTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
-        //_specTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
-        //_specTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
         _specTexts[(int)SpecType.RotateSpeed].text = $"{upperData.SmoothRotation}";
+        _specTexts[(int)SpecType.BoostCapacity].text = $"{upperData.BoosterGauge}";
+        _specTexts[(int)SpecType.HoverPower].text = $"{upperData.Hovering}";
     }
 
     public void DisPlayNextPartSpecText(PartData nextUpperData)
@@ -80,9 +78,8 @@ public class UI_UpperSelector : UI_Selector
         _nextSpecTexts[(int)SpecType.AP].text = $"{nextUpperData.Armor}";
         _nextSpecTexts[(int)SpecType.Weight].text = $"{nextUpperData.Weight}";
 
-        //_nextSpecTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
-        //_nextSpecTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
-        //_nextSpecTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
         _nextSpecTexts[(int)SpecType.RotateSpeed].text = $"{nextUpperData.SmoothRotation}";
+        _nextSpecTexts[(int)SpecType.BoostCapacity].text = $"{nextUpperData.BoosterGauge}";
+        _nextSpecTexts[(int)SpecType.HoverPower].text = $"{nextUpperData.Hovering}";
     }
 }

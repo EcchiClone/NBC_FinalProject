@@ -15,6 +15,15 @@ public class UI_UpperChangeBtn : UI_ChangeButton
         GetCurrentPartData<UpperPart>();
         AddListenerToBtn(ChangePart);
         LoadPartImage();
+        Managers.ActionManager.OnUpperEquip += EquipPart;
+    }
+
+    private void EquipPart(int index)
+    {
+        if (_currentIndex != index)
+            _equip.SetActive(false);
+        else
+            _equip.SetActive(true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -36,5 +45,6 @@ public class UI_UpperChangeBtn : UI_ChangeButton
     {        
         Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Upper);
         Managers.Module.CallUpperPartChange(_currentData);
+        Managers.ActionManager.CallUpperEquip(_currentIndex);
     }
 }
