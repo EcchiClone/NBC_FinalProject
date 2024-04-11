@@ -22,8 +22,18 @@ public class UI_AchievementItem : UI_Item
     public void SetAchievementInfo(Achievement achievement)
     {
         _icon.sprite = achievement.Icon;
-        try { _rewardIcon.sprite = achievement.Rewards[0].Icon; } catch { }
-        try { _rewardNum.text = achievement.Rewards[0].QuantityOrValue.ToString(); } catch { }
+
+        if (achievement.Rewards[0] is RewardPart part)
+        {
+            try { _rewardIcon.sprite = Resources.Load<Sprite>(Managers.Data.GetPartData(achievement.Rewards[0].QuantityOrValue).Sprite_Path); } catch { }
+            try { _rewardNum.text = ""; } catch { }
+        }
+        else
+        {
+            try { _rewardIcon.sprite = achievement.Rewards[0].Icon; } catch { }
+            try { _rewardNum.text = achievement.Rewards[0].QuantityOrValue.ToString(); } catch { }
+        }
+
         _desc.text = $"[{achievement.DisplayName}] {achievement.Description}{CurrentTaskProgressText(achievement)}";
         Dictionary<AchievementState,string> keyValuePairs = new Dictionary<AchievementState, string>(){
             {AchievementState.Running, "진행중" },
@@ -35,7 +45,7 @@ public class UI_AchievementItem : UI_Item
         {
             _completeBtn.interactable = true;
             _completeBtn.onClick.AddListener(() => {
-                AchievementSystem.Instance.ReceiveRewardsAndCompleteAchievement(achievement.CodeName);
+                Managers.AchievementSystem.ReceiveRewardsAndCompleteAchievement(achievement.CodeName);
                 _completeResult.text = "완 료";
                 _completeBtn.interactable = false;
             });

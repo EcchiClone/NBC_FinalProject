@@ -13,7 +13,7 @@ public class AchievementCompleteButtonTest : MonoBehaviour
         receiveButton.onClick.AddListener(() =>
         {
             Debug.Log("버튼 클릭 이벤트 실행됨: " + achievementCodeName);
-            AchievementSystem.instance.ReceiveRewardsAndCompleteAchievement(achievementCodeName);
+            Managers.AchievementSystem.ReceiveRewardsAndCompleteAchievement(achievementCodeName);
         });
     }
 }

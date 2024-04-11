@@ -22,11 +22,13 @@ public class Managers : MonoBehaviour
     GameManager _gameManager = new GameManager();
     ModuleManager _module = new ModuleManager();
     StatusManager _statusManager = new StatusManager();
+    AchievementSystem _achievementSystem = new AchievementSystem();
 
     public static ActionManager ActionManager => Instance?._actionManager;
     public static GameManager GameManager => Instance?._gameManager;
     public static ModuleManager Module => Instance?._module;
     public static StatusManager StatusManager => Instance?._statusManager;
+    public static AchievementSystem AchievementSystem => Instance?._achievementSystem;
     #endregion
 
     private static void Init()
@@ -46,6 +48,7 @@ public class Managers : MonoBehaviour
             s_instance._gameManager.Init();
             s_instance._dataManager.Init();
             s_instance._module.Init();
+            s_instance._achievementSystem.Init();
         }
     }
 
