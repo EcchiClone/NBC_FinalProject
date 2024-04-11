@@ -40,13 +40,19 @@ public class SpawnManager
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / _cellDiameter);
     }
 
-    public void Initialize()
+    public void Initialize() // 진짜 너무 하드코딩 수정 필요    
     {
         spiderPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Spider_Normal");
         turretPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Turret");
+        ballPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Ball_Normal");
+
         for (int i = 0; i < 10; ++i)
         {
             GameObject gameObject = GameObject.Instantiate(spiderPrefab);
+            gameObject.SetActive(false);
+            _groundUnitList.Add(gameObject);
+
+            gameObject = GameObject.Instantiate(ballPrefab);
             gameObject.SetActive(false);
             _groundUnitList.Add(gameObject);
 
@@ -58,6 +64,7 @@ public class SpawnManager
 
     public void Spawn(int count, int mobTypes) // 코루틴 변경 필요
     {
+        
         CreateCell();
         DetectSpawnPoint();
         Shuffle(_groundSpawnPoints);

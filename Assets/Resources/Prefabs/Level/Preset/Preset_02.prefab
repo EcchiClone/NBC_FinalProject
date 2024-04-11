@@ -117,10 +117,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -275,10 +285,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -433,10 +453,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -986,10 +1016,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1302,10 +1342,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1381,10 +1431,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1539,10 +1599,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1618,10 +1688,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

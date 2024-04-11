@@ -30,6 +30,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
         _currentObstacle = Instantiate(_obstaclePrefabs[random]);
 
         RebuildNavMesh();
+        PathRequestManager.instance.CreateGrid(); // A* 노드 생성
 
         _isObstacleSpawnDone = true;
     }
@@ -56,7 +57,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
     public void GetOrAddComponent<T>(out T reference) where T : Component
     {
         reference = GetComponent<T>();
-        if(null == reference)
+        if (null == reference)
             reference = gameObject.AddComponent<T>();
     }
 

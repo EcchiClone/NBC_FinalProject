@@ -12,7 +12,7 @@ public enum StageType
 public class StageController : MonoBehaviour
 {
     private float _elapsedTime = 0f;
-    private float _limitTime = 5f;
+    private float _limitTime = 3f;
 
     private int _currentStage = 1;
 
