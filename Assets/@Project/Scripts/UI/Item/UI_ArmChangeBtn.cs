@@ -1,7 +1,4 @@
-using System.Collections;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_ArmChangeBtn : UI_ChangeButton
 {
@@ -12,7 +9,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         _currentIndex = IndexOfArmPart;
         ++IndexOfArmPart;
 
-        if (_currentIndex == Managers.Module.CurrentLeftArmIndex)
+        if (_currentIndex == Managers.GameManager.PartIndex_LeftArm)
             _equip.SetActive(true);
 
         GetCurrentPartData<ArmsPart>();
@@ -20,10 +17,10 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         LoadPartImage();
 
         Managers.ActionManager.OnArmModeChange += ChangeMode;
-        Managers.ActionManager.OnArmPartChange += ChangePart;
+        Managers.ActionManager.OnArmEquip += EquipPart;
     }
 
-    private void ChangePart(int index)
+    private void EquipPart(int index)
     {
         if (_currentIndex != index)
             _equip.SetActive(false);
@@ -37,7 +34,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Left);
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Right);
-            if (Managers.Module.CurrentLeftArmIndex == _currentIndex)
+            if (Managers.GameManager.PartIndex_LeftArm == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -46,7 +43,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Right);
-            if (Managers.Module.CurrentRightArmIndex == _currentIndex)
+            if (Managers.GameManager.PartIndex_RightArm == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -56,6 +53,11 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+        if (!_currentData.IsUnlocked)
+        {
+            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            return;
+        }
 
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
@@ -69,16 +71,16 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     private void ChangePart()
     {
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
-        Managers.ActionManager.CallArmPartChange(_currentIndex);
+        Managers.ActionManager.CallArmEquip(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {
-            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Arm_L);
+            Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Arm_L);
             Managers.Module.CallLeftArmPartChange(_currentData);
         }
         else
         {
-            Managers.Module.ChangePart(_currentIndex, Define.PartsType.Weapon_Arm_R);
+            Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Arm_R);
             Managers.Module.CallRightArmPartChange(_currentData);
         }
     }

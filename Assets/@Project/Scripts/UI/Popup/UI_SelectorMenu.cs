@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static Define;
@@ -23,30 +21,33 @@ public class UI_SelectorMenu : UI_Popup
     {
         AP,
         Weight,
-        AttackMain,
-        AttackSub,
-        ReloadSub,
         MoveSpeed,
-        RotateSpeed,
         JumpPower,
+        HoverPower,
+        Rotation,
+        BoosterGauge,        
         BoostPower,
     }
 
     private PartData _lowerData;
     private PartData _upperData;
-
-    private float lowerAP;
-    private float upperAP;
-    private float lowerWeight;
-    private float upperWeight;
+    private PartData _leftArmData;
+    private PartData _rightArmData;
+    private PartData _leftShoulderData;
+    private PartData _rightShoulderData;
 
     protected override void Init()
     {
         base.Init();
 
-        Managers.Module.OnLowerChange += ApplyLowerModuleSpec;
-        Managers.Module.OnUpperChange += ApplyUpperModuleSpec;
-        InitSpecTexts();
+        Managers.Module.OnLowerChange += ApplyChangedModuleSpecs;
+        Managers.Module.OnUpperChange += ApplyChangedModuleSpecs;
+        Managers.Module.OnLeftArmChange += ApplyChangedModuleSpecs;
+        Managers.Module.OnRightArmChange += ApplyChangedModuleSpecs;
+        Managers.Module.OnLeftShoulderChange += ApplyChangedModuleSpecs;
+        Managers.Module.OnRightSoulderChange += ApplyChangedModuleSpecs;
+
+        ApplyChangedModuleSpecs();
 
         BindButton(typeof(Buttons));
 
@@ -79,56 +80,22 @@ public class UI_SelectorMenu : UI_Popup
         gameObject.SetActive(false);
     }
 
-    private void InitSpecTexts()
+    private void ApplyChangedModuleSpecs(PartData data = null)
     {
-        InitData initData = new InitData();
+        _lowerData = Managers.Data.GetPartData(Managers.Module.CurrentLowerPart.ID);
+        _upperData = Managers.Data.GetPartData(Managers.Module.CurrentUpperPart.ID);
+        _leftArmData = Managers.Data.GetPartData(Managers.Module.CurrentLeftArmPart.ID);
+        _rightArmData = Managers.Data.GetPartData(Managers.Module.CurrentRightArmPart.ID);
+        _leftShoulderData = Managers.Data.GetPartData(Managers.Module.CurrentLeftShoulderPart.ID);
+        _rightShoulderData = Managers.Data.GetPartData(Managers.Module.CurrentRightShoulderPart.ID);
 
-        _lowerData = Managers.Data.GetPartData(initData.LowerPartId[0]);
-        _upperData = Managers.Data.GetPartData(initData.UpperPartId[0]);
-
-        //float attakMain = Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk;
-        //float attakSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk;
-        //float reloadSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime;
-        float rotSpeed = _upperData.SmoothRotation;
-
-        float moveSpeed = _lowerData.Speed;
-        float jumpPower = _lowerData.JumpPower;
-        float boostPower = _lowerData.BoosterPower;
-
-        _specTexts[(int)SpecType.AP].text = $"{_lowerData.Armor + _upperData.Armor}";
-        _specTexts[(int)SpecType.Weight].text = $"{_lowerData.Weight + _upperData.Weight}";
-        //_specTexts[(int)SpecType.AttackMain].text = $"{attakMain}";
-        //_specTexts[(int)SpecType.AttackSub].text = $"{attakSub}";
-        //_specTexts[(int)SpecType.ReloadSub].text = $"{reloadSub}";
-
-        _specTexts[(int)SpecType.MoveSpeed].text = $"{moveSpeed}";
-        _specTexts[(int)SpecType.RotateSpeed].text = $"{rotSpeed}";
-        _specTexts[(int)SpecType.JumpPower].text = $"{jumpPower}";
-        _specTexts[(int)SpecType.BoostPower].text = $"{boostPower}";
-    }
-
-    private void ApplyLowerModuleSpec(PartData lowerData)
-    {
-        _lowerData = lowerData;
-
-        _specTexts[(int)SpecType.AP].text = $"{upperAP + lowerData.Armor}";
-        _specTexts[(int)SpecType.Weight].text = $"{upperWeight + lowerData.Weight}";
-
-        _specTexts[(int)SpecType.MoveSpeed].text = $"{lowerData.Speed}";
-        _specTexts[(int)SpecType.JumpPower].text = $"{lowerData.JumpPower}";
-        _specTexts[(int)SpecType.BoostPower].text = $"{lowerData.BoosterPower}";
-    }
-
-    private void ApplyUpperModuleSpec(PartData upperData)
-    {
-        _upperData = upperData;
-
-        _specTexts[(int)SpecType.AP].text = $"{lowerAP + upperData.Armor}";
-        _specTexts[(int)SpecType.Weight].text = $"{lowerWeight + upperData.Weight}";
-
-        //_specTexts[(int)SpecType.AttackMain].text = $"{Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk}";
-        //_specTexts[(int)SpecType.AttackSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk}";
-        //_specTexts[(int)SpecType.ReloadSub].text = $"{Managers.Module.CurrentUpperPart.Secondary.WeaponSO.coolDownTime}";
-        _specTexts[(int)SpecType.RotateSpeed].text = $"{upperData.SmoothRotation}";
+        _specTexts[(int)SpecType.AP].text = $"{_lowerData.Armor + _upperData.Armor + _leftArmData.Armor + _rightArmData.Armor + _leftShoulderData.Armor + _rightShoulderData.Armor}";
+        _specTexts[(int)SpecType.Weight].text = $"{_lowerData.Weight + _upperData.Weight + _leftArmData.Weight + _rightArmData.Weight + _leftShoulderData.Weight + _rightShoulderData.Weight}";
+        _specTexts[(int)SpecType.MoveSpeed].text = $"{_lowerData.Speed}";
+        _specTexts[(int)SpecType.JumpPower].text = $"{_lowerData.JumpPower}";
+        _specTexts[(int)SpecType.HoverPower].text = $"{_upperData.Hovering}";
+        _specTexts[(int)SpecType.Rotation].text = $"{_upperData.SmoothRotation}";
+        _specTexts[(int)SpecType.BoosterGauge].text = $"{_upperData.BoosterGauge}";
+        _specTexts[(int)SpecType.BoostPower].text = $"{_lowerData.BoosterPower}";
     }
 }

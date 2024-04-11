@@ -4,122 +4,242 @@
         {
             "contentIdx": 0,
             "name": "EmptyPerk1Name",
-            "description": "EmptyPerk1Description"
+            "description": "EmptyPerk1Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 1,
             "name": "EmptyPerk2Name",
-            "description": "EmptyPerk2Description"
+            "description": "EmptyPerk2Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 2,
             "name": "EmptyPerk3Name",
-            "description": "EmptyPerk3Description"
+            "description": "EmptyPerk3Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 3,
             "name": "EmptyPerk4Name",
-            "description": "EmptyPerk4Description"
+            "description": "EmptyPerk4Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 4,
             "name": "EmptyPerk5Name",
-            "description": "EmptyPerk5Description"
+            "description": "EmptyPerk5Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 5,
             "name": "EmptyPerk6Name",
-            "description": "EmptyPerk6Description"
+            "description": "EmptyPerk6Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 6,
             "name": "EmptyPerk7Name",
-            "description": "EmptyPerk7Description"
+            "description": "EmptyPerk7Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 7,
             "name": "EmptyPerk8Name",
-            "description": "EmptyPerk8Description"
+            "description": "EmptyPerk8Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 8,
             "name": "EmptyPerk9Name",
-            "description": "EmptyPerk9Description"
+            "description": "EmptyPerk9Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 9,
             "name": "EmptyPerk10Name",
-            "description": "EmptyPerk10Description"
+            "description": "EmptyPerk10Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 10,
             "name": "EmptyPerk11Name",
-            "description": "EmptyPerk11Description"
+            "description": "EmptyPerk11Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 11,
             "name": "EmptyPerk12Name",
-            "description": "EmptyPerk12Description"
+            "description": "EmptyPerk12Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 12,
             "name": "EmptyPerk13Name",
-            "description": "EmptyPerk13Description"
+            "description": "EmptyPerk13Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 13,
             "name": "EmptyPerk14Name",
-            "description": "EmptyPerk14Description"
+            "description": "EmptyPerk14Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 14,
             "name": "EmptyPerk15Name",
-            "description": "EmptyPerk15Description"
+            "description": "EmptyPerk15Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 15,
             "name": "EmptyPerk16Name",
-            "description": "EmptyPerk16Description"
+            "description": "EmptyPerk16Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 16,
             "name": "EmptyPerk17Name",
-            "description": "EmptyPerk17Description"
+            "description": "EmptyPerk17Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 17,
             "name": "EmptyPerk18Name",
-            "description": "EmptyPerk18Description"
+            "description": "EmptyPerk18Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 18,
             "name": "EmptyPerk19Name",
-            "description": "EmptyPerk19Description"
+            "description": "EmptyPerk19Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 19,
             "name": "EmptyPerk20Name",
-            "description": "EmptyPerk20Description"
+            "description": "EmptyPerk20Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 20,
             "name": "EmptyPerk21Name",
-            "description": "EmptyPerk21Description"
+            "description": "EmptyPerk21Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 21,
             "name": "EmptyPerk22Name",
-            "description": "EmptyPerk22Description"
+            "description": "EmptyPerk22Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 22,
             "name": "EmptyPerk23Name",
-            "description": "EmptyPerk23Description"
+            "description": "EmptyPerk23Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         },
         {
             "contentIdx": 23,
             "name": "EmptyPerk24Name",
-            "description": "EmptyPerk24Description"
+            "description": "EmptyPerk24Description",
+            "data": {
+                "SpeedModular": 1.0,
+                "TestVar1": 0.0,
+                "TestVar2": 0.0
+            }
         }
     ]
 }

@@ -262,7 +262,7 @@ public class PerkGenerator : MonoBehaviour
                     y += 0f + 225f * m;
                     break;
             }
-            Instantiate(_subPerk, new Vector3(x, y, -2), Quaternion.identity, parent.transform);
+            Instantiate(_subPerk, new Vector3(x, y, -5), Quaternion.identity, parent.transform);
         }
     }
 }

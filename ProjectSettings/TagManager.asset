@@ -8,6 +8,7 @@ TagManager:
   - Tier1
   - Tier2
   - Tier3
+  - Sub
   layers:
   - Default
   - TransparentFX

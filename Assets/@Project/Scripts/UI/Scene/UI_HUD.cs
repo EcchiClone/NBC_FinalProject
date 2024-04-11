@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UI_HUD : UI_Scene
 {
-    private Dictionary<Define.PartsType, TextMeshProUGUI> _ammoTextDict = new Dictionary<Define.PartsType, TextMeshProUGUI>();
+    private Dictionary<Define.Parts_Location, TextMeshProUGUI> _ammoTextDict = new Dictionary<Define.Parts_Location, TextMeshProUGUI>();
 
     [Header("Aim")]
     [SerializeField] GameObject _crossHair;
@@ -44,10 +44,10 @@ public class UI_HUD : UI_Scene
     {
         base.Init();
 
-        _ammoTextDict.Add(Define.PartsType.Weapon_Arm_L, _ammoAL);
-        _ammoTextDict.Add(Define.PartsType.Weapon_Arm_R, _ammoAR);
-        _ammoTextDict.Add(Define.PartsType.Weapon_Shoulder_L, _ammoSL);
-        _ammoTextDict.Add(Define.PartsType.Weapon_Shoulder_R, _ammoSR);
+        _ammoTextDict.Add(Define.Parts_Location.Weapon_Arm_L, _ammoAL);
+        _ammoTextDict.Add(Define.Parts_Location.Weapon_Arm_R, _ammoAR);
+        _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_L, _ammoSL);
+        _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_R, _ammoSR);
 
         ModuleStatus.OnChangeArmorPoint += ChangeAPValue;
         ModuleStatus.OnChangeBoosterGauge += ChangeBoosterValue;
@@ -68,7 +68,7 @@ public class UI_HUD : UI_Scene
         _returnBtn.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
 
-    private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.PartsType type)
+    private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)
     {
         if (_ammoTextDict.TryGetValue(type, out TextMeshProUGUI text) == true)
             text.text = ammo > 0 ? isCoolDown ? $"<color=red>{ammo}</color>" : $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";

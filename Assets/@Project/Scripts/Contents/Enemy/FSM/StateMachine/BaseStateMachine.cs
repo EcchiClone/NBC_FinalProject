@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class BaseStateMachine
@@ -8,20 +9,22 @@ public abstract class BaseStateMachine
     public Entity Entity { get; private set; }
     public BaseStateProvider Provider { get; protected set; }
     public BaseState CurrentState { get; set; }
+    public Animator Anim { get; private set; }
 
-    public BaseStateMachine(Entity boss)
+    public BaseStateMachine(Entity entity)
     {
-        Entity = boss;
+        Entity = entity;
         Initialize();
+        Anim = Entity.GetComponent<Animator>();
     }
 
     public abstract void Initialize();
 
+    public abstract void Reset();
+
     public void Update()
     {
-        if (CurrentState != null)
-        {
-            CurrentState.UpdateStates();
-        }
+        
+            CurrentState?.UpdateStates();
     }
 }

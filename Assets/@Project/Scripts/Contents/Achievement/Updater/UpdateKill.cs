@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UpdateKill : AchievementUpdater
 {
-    // 대충 이거 Kill로 업적 업데이트 해줄 아이들에게 달아주기. Disable 될 경우 업데이트됨.
+    // OnDisable에서 Invoke하여, 몬스터가 파괴될 때 실행될 내용들을 구독
+    private event Action onEnemyDestroied; // 이벤트 선언
+
+    private void Awake()
+    {
+        // onEnemyDestroied += 에 GameManager에서 Kill Counter 등의 역할을 할 메서드 달기
+
+        onEnemyDestroied += Report;
+    }
+
     private void OnDisable()
     {
-        value = 1;
-        Debug.Log("Update OnDisable");
-        Report();
+        onEnemyDestroied?.Invoke();
     }
 }

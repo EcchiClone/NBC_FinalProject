@@ -1,33 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SubVarBehaviour : MonoBehaviour
 {
+    private SubPerkLineDrawer _drawer;
+    private Transform _parent;
+    private Transform _transform;
+
     private PerkTier _tier;
     private int _idx;
     private int _subIdx;
 
     private PerkInfo _perkInfo;
     private int _contentIdx;
-    private bool _isActive;
 
     private ContentInfo _contentInfo;
-    private string _name;
-    private string _description;
-
     private SubPerkInfo _subInfo;
+
+    private PerkInfo _parentInfo;
+    private bool _isParentActive;
 
     private void Awake()
     {
+        _drawer = GetComponent<SubPerkLineDrawer>();
+        _parent = transform.parent;
+        _transform = transform;
+        _parentInfo = transform.parent.GetComponent<PerkVarBehaviour>().ReturnPerkInfo();
+
         GetVarsFromManager();
+        ChangeSignOfTransformZ();
+
+        _isParentActive = false;
     }
 
-    private void Start()
+    private void FixedUpdate()
     {
-        GetInfosFromManager();
-        GetSubInfos();
-        GetContentsFromManager();
+        CheckParentIsActive();
     }
 
     private void GetVarsFromManager()
@@ -35,6 +45,9 @@ public class SubVarBehaviour : MonoBehaviour
         _tier = PerkManager.Instance.PointerTier;
         _idx = PerkManager.Instance.PointerIdx;
         _subIdx = PerkManager.Instance.PointerSubIdx;
+        GetInfosFromManager();
+        GetSubInfos();
+        GetContentsFromManager();
     }
 
     private void GetInfosFromManager()
@@ -49,16 +62,39 @@ public class SubVarBehaviour : MonoBehaviour
         realIdx = _perkInfo.subPerks.FindIndex(info => info.PositionIdx.Equals(_subIdx));
         _subInfo = _perkInfo.subPerks[realIdx];
         _contentIdx = _subInfo.ContentIdx;
-        _isActive = _subInfo.IsActive;
     }
 
     private void GetContentsFromManager()
     {
         _contentInfo = PerkManager.Instance.GetContentInfo(PerkTier.SUB, _contentIdx);
-        _name = _contentInfo.name;
-        _description = _contentInfo.description;
     }
 
+    private void CheckParentIsActive()
+    {
+        if (!_isParentActive)
+        {
+            if (_parentInfo.IsActive)
+            {
+                SetCurrentPerkActive();
+                _isParentActive = true;
+            }
+            else
+            {
+                _isParentActive = false;
+            }
+        }
+    }
+
+    private void SetCurrentPerkActive()
+    {
+        ChangeSignOfTransformZ();
+        _drawer.LineToMainPerk(_parent.position);
+    }
+    private void ChangeSignOfTransformZ()
+    {
+        float newZ = _transform.position.z * -1f;
+        _transform.position = new Vector3(_transform.position.x, _transform.position.y, newZ);
+    }
 
     public PerkInfo ReturnPerkInfo()
     {

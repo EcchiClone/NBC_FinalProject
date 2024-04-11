@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_LowerChangeBtn : UI_ChangeButton
 {
@@ -14,17 +9,31 @@ public class UI_LowerChangeBtn : UI_ChangeButton
         _currentIndex = IndexOfLowerPart;
         ++IndexOfLowerPart;
 
-        if (_currentIndex == Managers.Module.CurrentLowerIndex)
+        if (_currentIndex == Managers.GameManager.PartIndex_Lower)
             _equip.SetActive(true);
 
         GetCurrentPartData<LowerPart>();
         AddListenerToBtn(ChangePart);
-        LoadPartImage();        
+        LoadPartImage();
+        Managers.ActionManager.OnLowerEquip += EquipPart;
+    }
+
+    private void EquipPart(int index)
+    {
+        if (_currentIndex != index)
+            _equip.SetActive(false);
+        else
+            _equip.SetActive(true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+        if (!_currentData.IsUnlocked)
+        {
+            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            return;
+        }
 
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
         selector.DisPlayNextPartSpecText(_currentData);
@@ -34,7 +43,8 @@ public class UI_LowerChangeBtn : UI_ChangeButton
 
     private void ChangePart()
     {
-        Managers.Module.ChangePart(_currentIndex, Define.PartsType.Lower);
+        Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Lower);
         Managers.Module.CallLowerPartChange(_currentData);
+        Managers.ActionManager.CallLowerEquip(_currentIndex);
     }
 }

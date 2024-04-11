@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8309531215075418582}
   - component: {fileID: 3698293740925997523}
   - component: {fileID: 3327122739718850415}
-  - component: {fileID: -1132253968898944267}
+  - component: {fileID: 7247477227046486578}
   m_Layer: 5
   m_Name: Tier1Perk
   m_TagString: Tier1
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc45c5329e224142ba2661a5db51a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1132253968898944267
+--- !u!114 &7247477227046486578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,6 +217,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321998276632128008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed3169e8c1b2e7419631b52ff614eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 45dfd74a2fbabdb48884f25da213eeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

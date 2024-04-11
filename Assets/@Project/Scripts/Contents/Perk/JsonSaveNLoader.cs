@@ -139,4 +139,5 @@ public class ContentInfo
     public int contentIdx;
     public string name;
     public string description;
+    public ActivedData data = new ActivedData(); // 디폴트 값 생성
 }

@@ -21,13 +21,19 @@ public class ActionManager
     public event Action OnReleaseTarget;
     public event Action<float> OnBossAPChanged;
 
+    // # UI_LowerSelector    
+    public event Action<int> OnLowerEquip;
+
+    // # UI_UpperSelector    
+    public event Action<int> OnUpperEquip;
+
     // # UI_ArmSelector
     public event Action<UI_ArmSelector.ChangeArmMode> OnArmModeChange;
-    public event Action<int> OnArmPartChange;
+    public event Action<int> OnArmEquip;
 
     // # UI_ShoulderSelector
     public event Action<UI_ShoulderSelector.ChangeShoulderMode> OnShoulderModeChange;
-    public event Action<int> OnShoulderPartChange;
+    public event Action<int> OnShoulderEquip;
 
     #region CallActions
     public void CallSelectorCam(Define.CamType camType) => OnSelectorCam(camType);
@@ -42,10 +48,13 @@ public class ActionManager
     public void CallRelease() => OnReleaseTarget?.Invoke();
     public void CallBossAPChanged(float percent) => OnBossAPChanged?.Invoke(percent);
 
+    public void CallLowerEquip(int index) => OnLowerEquip?.Invoke(index);
+    public void CallUpperEquip(int index) => OnUpperEquip?.Invoke(index);
+
     public void CallArmModeChange(UI_ArmSelector.ChangeArmMode armMode) => OnArmModeChange?.Invoke(armMode);
-    public void CallArmPartChange(int index) => OnArmPartChange?.Invoke(index);
+    public void CallArmEquip(int index) => OnArmEquip?.Invoke(index);
 
     public void CallShoulderModeChange(UI_ShoulderSelector.ChangeShoulderMode shoulderMode) => OnShoulderModeChange?.Invoke(shoulderMode);
-    public void CallShoulderPartChange(int index) => OnShoulderPartChange?.Invoke(index);
+    public void CallShoulderEquip(int index) => OnShoulderEquip?.Invoke(index);
     #endregion
 }

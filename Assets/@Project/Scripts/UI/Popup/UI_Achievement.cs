@@ -62,8 +62,8 @@ public class UI_Achievement : UI_Popup
             Destroy(go);
         }
 
-        var achievementsActive = viewActive ? AchievementSystem.Instance.ActiveAchievements : Enumerable.Empty<Achievement>();
-        var achievementsCompleted = viewCompleted ? AchievementSystem.Instance.CompletedAchievements : Enumerable.Empty<Achievement>();
+        var achievementsActive = viewActive ? Managers.AchievementSystem.ActiveAchievements : Enumerable.Empty<Achievement>();
+        var achievementsCompleted = viewCompleted ? Managers.AchievementSystem.CompletedAchievements : Enumerable.Empty<Achievement>();
         var achievements = achievementsActive.Concat(achievementsCompleted);
 
 

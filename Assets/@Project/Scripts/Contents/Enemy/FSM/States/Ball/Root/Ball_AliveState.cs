@@ -5,43 +5,36 @@ using UnityEngine;
 public class Ball_AliveState : BaseState
 {
     public Ball_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
-    {   
-    }
-
-    public override void CheckSwitchStates()
     {
-        throw new System.NotImplementedException();
+        IsRootState = true;
     }
 
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void ExitState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void InitializeSubState()
-    {
-        throw new System.NotImplementedException();
+        InitializeSubState();
+       _currentSubState?.EnterState();
     }
 
     public override void UpdateState()
     {
-        throw new System.NotImplementedException();
+        CheckSwitchStates();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void CheckSwitchStates()
     {
-        
+        if (!Context.Entity.IsAlive)
+            SwitchState(Provider.GetState(Ball_States.Dead));
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ExitState()
     {
-        
+
+
     }
+
+    public override void InitializeSubState()
+    {
+        SetSubState(Provider.GetState(Ball_States.NonCombat));
+    }
+
 }

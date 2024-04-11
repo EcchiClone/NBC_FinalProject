@@ -11,5 +11,12 @@ public class SkyFireStateMachine : BaseStateMachine
     {
         Provider = new SkyFireStateProvider(this);
         CurrentState = Provider.GetState(SkyFire_States.Alive);
+        CurrentState.EnterState();
+    }
+
+    public override void Reset()
+    {
+        CurrentState = Provider.GetState(SkyFire_States.Alive);
+        CurrentState.EnterState();
     }
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
-public class AchievementSystem : MonoBehaviour
+public class AchievementSystem
 {
     #region Save Path
     private const string kSaveRootPath = "achievementSystem";
@@ -19,25 +20,25 @@ public class AchievementSystem : MonoBehaviour
     public delegate void AchievementCanceledHandler(Achievement achievement);
     #endregion
 
-    public static AchievementSystem instance;
+    //public static AchievementSystem instance;
     private static bool isApplicationQuitting;
 
-    public static AchievementSystem Instance
-    {
-        get
-        {
-            if (!isApplicationQuitting && instance == null)
-            {
-                instance = FindObjectOfType<AchievementSystem>();
-                if (instance == null)
-                {
-                    instance = new GameObject("@AchievementSystem").AddComponent<AchievementSystem>();
-                    DontDestroyOnLoad(instance.gameObject);
-                }
-            }
-            return instance;
-        }
-    }
+    //public static AchievementSystem Instance
+    //{
+    //    get
+    //    {
+    //        if (!isApplicationQuitting && instance == null)
+    //        {
+    //            instance = FindObjectOfType<AchievementSystem>();
+    //            if (instance == null)
+    //            {
+    //                instance = new GameObject("@AchievementSystem").AddComponent<AchievementSystem>();
+    //                DontDestroyOnLoad(instance.gameObject);
+    //            }
+    //        }
+    //        return instance;
+    //    }
+    //}
 
     private GameObject CompleteAlarmUI;
 
@@ -54,22 +55,41 @@ public class AchievementSystem : MonoBehaviour
     public IReadOnlyList<Achievement> ActiveAchievements => activeAchievements;
     public IReadOnlyList<Achievement> CompletedAchievements => completedAchievements;
 
-    private void Awake()
+    public void Init()
     {
-        achievementDatabase = Resources.Load<AchievementDatabase>("AchievementDatabase");
+        achievementDatabase = Resources.Load<AchievementDatabase>("Data/AchievementDatabase");
         CompleteAlarmUI = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarm");
+
+        GameObject achievementUpdater = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Common/@AchievementCommonUpdater"));
+        achievementUpdater.name = achievementUpdater.name.Replace("(Clone)", "");
 
         if (!Load())
         {
             foreach (var achievement in achievementDatabase.Achievements)
+            {
                 Register(achievement);
+            }
         }
+        foreach (var achievement in achievementDatabase.achievements)
+        {
+            Giver(achievement);
+        }
+
     }
 
-    private void OnApplicationQuit()
+    public void SaveOnQuit()
     {
         isApplicationQuitting = true;
         Save();
+    }
+
+    private void Giver(Achievement achievement)
+    {
+        if (!ContainsInCompletedAchievements(achievement) && !ContainsInActiveAchievements(achievement))
+        {
+            Debug.Log($"퀘스트 [{achievement.name}]를 새로 등록하였습니다");
+            Register(achievement);
+        }
     }
 
     public Achievement Register(Achievement achievement)
@@ -97,7 +117,6 @@ public class AchievementSystem : MonoBehaviour
             newAchievement.OnRegister();
             onAchievementRegistered?.Invoke(newAchievement);
         }
-
         return newAchievement;
     }
 
@@ -108,6 +127,10 @@ public class AchievementSystem : MonoBehaviour
 
     public void ReceiveReport(TaskCategory category, TaskTarget target, int successCount)
         => ReceiveReport(category.CodeName, target.Value, successCount);
+    public void ReceiveReport(TaskCategory category, string target, int successCount)
+        => ReceiveReport(category.CodeName, target, successCount);
+    public void ReceiveReport(string category, TaskTarget target, int successCount)
+        => ReceiveReport(category, target.Value, successCount);
 
     private void ReceiveReport(List<Achievement> achievements, string category, object target, int successCount)
     {
@@ -128,7 +151,7 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
-    public void CompleteWaitingAchievements() // 완료대기 일괄수령 버튼
+    public void CompleteWaitingAchievements()
     {
         foreach (var achievement in activeAchievements.ToList())
         {
@@ -231,13 +254,13 @@ public class AchievementSystem : MonoBehaviour
         activeAchievements.Remove(achievement);
         onAchievementCanceled?.Invoke(achievement);
 
-        Destroy(achievement, Time.deltaTime);
+        MonoBehaviour.Destroy(achievement, Time.deltaTime);
     }
     #endregion
     private void DisplayCompleteAlarm(Achievement achievement)
     {
         string desc = $"[{achievement.DisplayName}] {achievement.Description}";
-        GameObject go = Instantiate(CompleteAlarmUI);
+        GameObject go = MonoBehaviour.Instantiate(CompleteAlarmUI);
         go.transform.SetParent(GameObject.Find("@UI_Root").transform,false);
         go.GetComponent<UI_AchievementAlarm>().DescriptionMsg = desc;
     }
