@@ -41,7 +41,7 @@ MonoBehaviour:
       - {x: -5, y: 1.38, z: 1}
       - {x: -1.54, y: 1.89, z: 1}
       - {x: 0, y: 5, z: 1}
-      divisionPointsPerEdge: 0
+      divisionPointsPerEdge: 5
       initDistance: 1
       numPerShot: 1
       shotVerticalNum: 0

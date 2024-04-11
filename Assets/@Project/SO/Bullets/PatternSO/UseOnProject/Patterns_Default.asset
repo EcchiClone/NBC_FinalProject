@@ -257,6 +257,45 @@ MonoBehaviour:
       setDelay: 0.2
       shotPerSet: 1
       shotDelay: 0
+      posDirection: 3
+      customPosDirection: {x: 0, y: 0, z: 1}
+      spreadA: 0
+      maxSpreadAngleA: 30
+      concentrationA: 0.8
+      enemyBulletShape: 2
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.05
+      numPerShot: 200
+      shotVerticalNum: 1
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 1
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 1
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 15
+      initAccelPlus: 0
+      minSpeed: 0
+      maxSpeed: 500
+      initRotationSpeed: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 3
+  - patternName: CircleRepeatRandom
+    Desc: "\uC6D0\uD615 \uBC18\uBCF5"
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 5
+      setDelay: 0.2
+      shotPerSet: 1
+      shotDelay: 0
       posDirection: 2
       customPosDirection: {x: 0, y: 0, z: 1}
       spreadA: 0
