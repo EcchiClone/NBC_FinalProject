@@ -6,7 +6,7 @@ public class PlayerProjectile : Bullet
 {
     // Temp
     [SerializeField] GameObject _hitEffectPrefab;
-
+    [SerializeField] TrailRenderer _trailRenderers;
     [SerializeField] protected Define.BulletType _bulletType;
     [SerializeField] protected LayerMask _damagableLayer;
 
@@ -21,19 +21,13 @@ public class PlayerProjectile : Bullet
         _rigid = GetComponent<Rigidbody>();
     }
 
-    private IEnumerator Co_ReleaseBullet()
-    {
-        yield return Util.GetWaitSeconds(5f);
-
-        Destroy(gameObject);
-    }
-
     public virtual void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, Transform target = null)
     {
         _speed = speed;
         _damage = damage;
         _isSplash = splash;
-        StartCoroutine(Co_ReleaseBullet());
+        if (_bulletType != Define.BulletType.Missile)
+            _trailRenderers.Clear();        
     }
 
     private void OnTriggerEnter(Collider other)

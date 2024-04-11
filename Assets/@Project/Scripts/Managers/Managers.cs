@@ -10,10 +10,12 @@ public class Managers : MonoBehaviour
     #region # Core
     DataManager _dataManager = new DataManager();
     ResourceManager _resouceManager = new ResourceManager();
+    SceneManagerEx _sceneManager = new SceneManagerEx();
     UIManager _uiManager = new UIManager();
 
     public static DataManager Data => Instance?._dataManager;
     public static ResourceManager RM => Instance?._resouceManager;
+    public static SceneManagerEx Scene => Instance?._sceneManager;
     public static UIManager UI => Instance?._uiManager;
     #endregion
 

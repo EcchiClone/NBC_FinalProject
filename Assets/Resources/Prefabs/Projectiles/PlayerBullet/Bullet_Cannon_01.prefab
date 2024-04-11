@@ -76,6 +76,7 @@ MonoBehaviour:
   owenr: 0
   _hitEffectPrefab: {fileID: 4254385173534399097, guid: f976d076d303c9e4184b71e57682da00,
     type: 3}
+  _trailRenderers: {fileID: 964359998039389580}
   _bulletType: 1
   _damagableLayer:
     serializedVersion: 2

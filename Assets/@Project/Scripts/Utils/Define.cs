@@ -7,9 +7,9 @@ public class Define
     public enum Scenes
     {
         Unknown,
-        Main,
-        Stage,
-        Perk,
+        MainScene,
+        DevScene,
+        PerkViewerScene,
     }
 
     public enum CamType

@@ -30,6 +30,7 @@ MonoBehaviour:
     boosterPower: 5
     canJump: 1
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -59,6 +60,7 @@ MonoBehaviour:
     boosterPower: 4
     canJump: 1
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 0
@@ -147,6 +149,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Small
     damage: 5
@@ -176,6 +179,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
     damage: 2
@@ -196,7 +200,7 @@ MonoBehaviour:
       \uD0C0\uAC9F\uC5D0 \uB300\uD55C \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uAC00\uD55C\uB2E4\n\uCDA9\uC804\uC2DC\uAC04\uACFC
       \uC7AC\uC7A5\uC804 \uC2DC\uAC04\uC774 \uAE38\uC9C0\uB9CC \uD654\uB825\uC740
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
-    initialPart: 1
+    initialPart: 0
     pointUnlock: 1
     point: 1000
     armor: 275
@@ -206,6 +210,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
     damage: 2
@@ -224,7 +229,7 @@ MonoBehaviour:
     display_Name: CA-AP
     display_Description: "1\uC5F0\uC7A5 AP \uCE90\uB17C\n\uAC15\uB825\uD55C \uD55C
       \uBC29\uC744 \uC790\uB791\uD558\uC9C0\uB9CC \uC5F0\uC0AC\uB825\uC774 \uC88B\uC9C0\uC54A\uB2E4"
-    initialPart: 1
+    initialPart: 0
     pointUnlock: 0
     point: 0
     armor: 275
@@ -234,6 +239,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Large
     damage: 50
@@ -263,6 +269,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
     damage: 5
@@ -293,6 +300,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
     damage: 50
@@ -313,7 +321,7 @@ MonoBehaviour:
       \uC2DC\uAC04\uCC28\uB85C \uD3ED\uBC1C\uD558\uB294 \uACE0\uD3ED\uD0C4\uC744
       \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC785\uD790 \uC218 \uC788\uB2E4"
-    initialPart: 1
+    initialPart: 0
     pointUnlock: 0
     point: 0
     armor: 150
@@ -323,6 +331,7 @@ MonoBehaviour:
     boosterPower: 0
     canJump: 0
     smoothRotation: 0
+    boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_01
     damage: 125

@@ -270,6 +270,7 @@ MonoBehaviour:
   owenr: 0
   _hitEffectPrefab: {fileID: 8320043830716886676, guid: 4e1c5cfa019a8aa47b5a7439b25f4829,
     type: 3}
+  _trailRenderers: {fileID: 1818161219309240232}
   _bulletType: 0
   _damagableLayer:
     serializedVersion: 2
