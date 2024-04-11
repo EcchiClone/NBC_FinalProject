@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class PerkManager : MonoBehaviour
     private JsonSaveNLoader _json; // Json 저장 및 불러오기
     private PerkGenerator _gen; // 퍼크 생성기
     private SeedGenerator _seed; // 랜덤 시드 생성기
+    private PointBehaviour _point; // 포인트 관리 스크립트
+    private ActivedDataConverter _active; // 액티브 퍼크 데이터 스크립트
 
     public static PerkManager Instance { get; private set; } // 싱글톤 인스턴스
 
@@ -29,6 +32,12 @@ public class PerkManager : MonoBehaviour
     public PerkInfo SelectedPerkInfo { get; set; } // 클릭한 퍼크의 기본 정보
     public SubPerkInfo SelectedSubInfo { get; set; } // 클릭한 서브 퍼크의 기본 정보
     public ContentInfo SelectedContentInfo { get; set; } // 클릭한 퍼크의 내장 컨텐츠 정보
+    public float SelectedPerkDistance { get; set; } // 클릭한 퍼크와 전 퍼크의 거리 정보
+
+    public int RequirePoint { get; set; } // 선택한 퍼크의 요구되는 포인트
+
+    public event EventHandler OnPerkClicked; // 퍼크를 클릭했을 때 호출되는 이벤트
+    public event EventHandler OnUnlockBtnClicked; // 'Unlock' 버튼을 클릭했을 때 호출되는 이벤트
 
     private void Awake()
     {
@@ -36,6 +45,8 @@ public class PerkManager : MonoBehaviour
         _json = GetComponent<JsonSaveNLoader>();
         _gen = GetComponent<PerkGenerator>();
         _seed = GetComponent<SeedGenerator>();
+        _point = GetComponent<PointBehaviour>();
+        _active = GetComponent<ActivedDataConverter>();
 
         // 싱글톤 선언
         if (Instance == null)
@@ -62,6 +73,8 @@ public class PerkManager : MonoBehaviour
         SelectedContentInfo.name = "";
         SelectedContentInfo.description = "";
 
+        SelectedPerkDistance = 0;
+
     }
 
     private void Start()
@@ -78,6 +91,19 @@ public class PerkManager : MonoBehaviour
 
         // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown (KeyCode.Space))
+        {
+            ExtractDataSequence();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SavePerkSequence();
     }
 
     private void CheckDataExists()
@@ -133,6 +159,37 @@ public class PerkManager : MonoBehaviour
         _gen.InstantiatePerks(_tier1Perks.data);
         _gen.InstantiatePerks(_tier2Perks.data);
         _gen.InstantiatePerks(_tier3Perks.data);
+    }
+
+    private void SavePerkSequence()
+    {
+        // 현재 포인트 저장
+        _tier1Perks.point = PlayerPoint;
+
+        // PerkManager -> JsonSaveNLoader
+        _json.tier1PerkData = _tier1Perks;
+        _json.tier2PerkData = _tier2Perks;
+        _json.tier3PerkData = _tier3Perks;
+
+        // json으로 현재 정보 저장
+        _json.SavePerkData(_json.tier1PerkData, "tier1PerkData");
+        _json.SavePerkData(_json.tier2PerkData, "tier2PerkData");
+        _json.SavePerkData(_json.tier3PerkData, "tier3PerkData");
+    }
+
+    private void ExtractDataSequence()
+    {
+        _active.activeData = new List<ActivedData>();
+
+        ExtractActivedDatas(_tier1Perks);
+        ExtractActivedDatas(_tier2Perks);
+        ExtractActivedDatas(_tier3Perks);
+
+        Debug.Log(_active.activeData.Count);
+        foreach (ActivedData data in _active.activeData)
+        {
+            Debug.Log($"{data.SpeedModular} + {data.TestVar1} + {data.TestVar2}");
+        }
     }
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
@@ -194,22 +251,19 @@ public class PerkManager : MonoBehaviour
 
     public PerkInfo GetPerkInfo(PerkTier tier, int idx)
     {
-        PerkInfo perkInfo = null;
-        int realIdx = 0;
+        PerkInfo perkInfo;
+        int realIdx = ReturnRealIndex(tier, idx);
 
         if (tier == PerkTier.TIER1)
         {
-            realIdx = _tier1Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier1Perks.data[realIdx];
         }
         else if (tier == PerkTier.TIER2)
         {
-            realIdx = _tier2Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier2Perks.data[realIdx];
         }
         else
         {
-            realIdx = _tier3Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
             perkInfo = _tier3Perks.data[realIdx];
         }
 
@@ -218,7 +272,7 @@ public class PerkManager : MonoBehaviour
 
     public ContentInfo GetContentInfo(PerkTier tier, int idx)
     {
-        ContentInfo contentInfo = null;
+        ContentInfo contentInfo;
         
         if (tier == PerkTier.TIER1)
         {
@@ -238,6 +292,134 @@ public class PerkManager : MonoBehaviour
         }
 
         return contentInfo;
+    }
+
+    public void SetPerkIsActive()
+    {
+        PerkTier tier = SelectedPerkInfo.Tier;
+        int idx = SelectedPerkInfo.PositionIdx;
+
+        int realIdx = ReturnRealIndex(tier, idx);
+
+        if (SelectedSubInfo == null)
+        {
+            if (tier == PerkTier.TIER1)
+            {
+                _tier1Perks.data[realIdx].IsActive = true;
+            }
+            else if (tier == PerkTier.TIER2)
+            {
+                _tier2Perks.data[realIdx].IsActive = true;
+            }
+            else
+            {
+                _tier3Perks.data[realIdx].IsActive = true;
+            }
+        }
+        else
+        {
+            int subIdx = SelectedSubInfo.PositionIdx;
+            int realSubIdx = ReturnRealSubIndex(tier, realIdx, subIdx);
+
+            if (tier == PerkTier.TIER1)
+            {
+                _tier1Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+            else if (tier == PerkTier.TIER2)
+            {
+                _tier2Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+            else
+            {
+                _tier3Perks.data[realIdx].subPerks[realSubIdx].IsActive = true;
+            }
+        }
+    }
+
+    public int ReturnRealIndex(PerkTier tier, int idx)
+    {
+        int realIdx;
+
+        switch (tier)
+        {
+            case PerkTier.TIER3:
+                realIdx = _tier3Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            case PerkTier.TIER2:
+                realIdx = _tier2Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            case PerkTier.TIER1:
+                realIdx = _tier1Perks.data.FindIndex(info => info.PositionIdx.Equals(idx));
+                break;
+            default:
+                realIdx = 0;
+                break;
+        }
+
+        return realIdx;
+    }
+
+    public int ReturnRealSubIndex(PerkTier tier, int idx, int subIdx)
+    {
+        int realIdx;
+
+        switch (tier)
+        {
+            case PerkTier.TIER3:
+                realIdx = _tier3Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            case PerkTier.TIER2:
+                realIdx = _tier2Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            case PerkTier.TIER1:
+                realIdx = _tier1Perks.data[idx].subPerks.FindIndex(info => info.PositionIdx.Equals(subIdx));
+                break;
+            default:
+                realIdx = 0;
+                break;
+        }
+
+        return realIdx;
+    }
+
+    public void CallOnPerkClicked()
+    {
+        OnPerkClicked?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void CallOnUnlockBtnClicked()
+    {
+        OnUnlockBtnClicked?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void ExtractActivedDatas(PerkList tierPerks)
+    {
+        // IsActive = true 인 모든 퍼크 데이터 추출
+        foreach (PerkInfo perkInfo in tierPerks.data)
+        {
+            // 메인 퍼크
+            if (perkInfo.IsActive)
+            {
+                int contentIdx = perkInfo.ContentIdx;
+
+                ContentInfo contentInfo = GetContentInfo(perkInfo.Tier, contentIdx);
+
+                _active.activeData.Add(contentInfo.data);
+            }
+
+            foreach (SubPerkInfo subInfo in perkInfo.subPerks)
+            {
+                // 서브 퍼크
+                if (subInfo.IsActive)
+                {
+                    int contentIdx = subInfo.ContentIdx;
+
+                    ContentInfo contentInfo = GetContentInfo(PerkTier.SUB, contentIdx);
+
+                    _active.activeData.Add(contentInfo.data);
+                }
+            }
+        }
     }
 }
 

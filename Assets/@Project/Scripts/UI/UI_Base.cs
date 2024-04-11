@@ -2,16 +2,21 @@ using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class UI_Base : MonoBehaviour
 {
-    private Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();    
+    private Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+
+    protected bool _isInit = false;
 
     private void Awake()
     {
         Init();
+
+        _isInit = true;
     }
 
     protected abstract void Init();
@@ -39,6 +44,7 @@ public abstract class UI_Base : MonoBehaviour
     protected void BindGameObject(Type type) => Bind<GameObject>(type);
     protected void BindButton(Type type) => Bind<Button>(type);
     protected void BindText(Type type) => Bind<Text>(type);
+    protected void BindTMP(Type type) => Bind<TextMeshProUGUI>(type);
     protected void BindImage(Type type) => Bind<Image>(type);
 
     protected T Get<T>(int index) where T : UnityEngine.Object
@@ -57,5 +63,6 @@ public abstract class UI_Base : MonoBehaviour
     protected GameObject GetGameObject(int index) => Get<GameObject>(index); //UI의 컴포넌트를 가져올 때 사용되기도 함
     protected Button GetButton(int index) => Get<Button>(index);
     protected Text GetText(int index) => Get<Text>(index);
+    protected TextMeshProUGUI GetTMP(int index) => Get<TextMeshProUGUI>(index);
     protected Image GetImage(int index) => Get<Image>(index);    
 }

@@ -11,7 +11,12 @@ public class PartData : IEntity
     [SerializeField] private string display_Name;
     [TextArea]
     [SerializeField] private string display_Description;
-    
+
+    [SerializeField] private bool initialPart;
+    [SerializeField] private bool pointUnlock;
+    [SerializeField] private int point;
+
+    [Header("Common")]
     [SerializeField] private float armor;
     [SerializeField] private float weight;
 
@@ -46,6 +51,10 @@ public class PartData : IEntity
     public string Display_Name => display_Name;
     public string Display_Description=> display_Description;    
 
+    public bool InitialPart => initialPart;
+    public bool PointUnlock => pointUnlock;
+    public int Point => point;
+
     public float Armor => armor;
     public float Weight => weight;
 
@@ -68,4 +77,7 @@ public class PartData : IEntity
     public int Ammo => ammo;
     public bool IsReloadable => isReloadable;
     public bool IsSplash => isSplash;
+
+    public bool IsUnlocked { get; private set; } = false;
+    public void Unlock() => IsUnlocked = true;    
 }

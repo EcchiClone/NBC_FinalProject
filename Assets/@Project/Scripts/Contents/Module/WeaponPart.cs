@@ -10,7 +10,7 @@ public class WeaponPart : BasePart
 
     public WeaponBase Weapon { get; private set; }
 
-    public override void Setup(Define.PartsType type, Module module)
+    public override void Setup(Define.Parts_Location type, Module module)
     {
         base.Setup(type, module);
         Weapon = GetComponent<WeaponBase>();

@@ -9,7 +9,7 @@ public class UpdateKeyDown : AchievementUpdater
     {
         if (Input.GetKeyDown(keyCode))
         {
-            AchievementSystem.instance.ReceiveReport("KEY_INPUT", keyCode, 1);
+            Managers.AchievementSystem.ReceiveReport("KEY_INPUT", keyCode, 1);
         }
     }
 }

@@ -5,12 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_UpperSelector : UI_Popup
+public class UI_UpperSelector : UI_Selector
 {
     [SerializeField] GameObject _nextGroup;
     [SerializeField] TextMeshProUGUI[] _specTexts;
-    [SerializeField] TextMeshProUGUI[] _nextSpecTexts;
-    [SerializeField] private Transform _contents;
+    [SerializeField] TextMeshProUGUI[] _nextSpecTexts;    
 
     enum Buttons
     {
@@ -31,10 +30,13 @@ public class UI_UpperSelector : UI_Popup
     {
         base.Init();
 
-        int createUI = Managers.Module.UpperPartsCount;        
-
+        int createUI = Managers.Module.UpperCount;
+        _changeBtns = new UI_ChangeButton[createUI];
         for (int i = 0; i < createUI; i++)
-            Managers.UI.ShowItemUI<UI_UpperChangeBtn>(_contents).SetParentUI(this);
+        {
+            _changeBtns[i] = Managers.UI.ShowItemUI<UI_UpperChangeBtn>(_contents);
+            _changeBtns[i].SetParentUI(this);
+        }
 
         Managers.Module.OnUpperChange += UpdateSelectedPartSpecText;
         ResetText();

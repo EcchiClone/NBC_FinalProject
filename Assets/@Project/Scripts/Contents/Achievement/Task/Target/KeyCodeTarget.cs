@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Achievement/Task/Target/KeyCode", fileName = "Target_")]
+[CreateAssetMenu(menuName = "Achievement/Task/Target/KeyCode", fileName = "Target_KeyCode_")]
 public class KeyCodeTarget : TaskTarget
 {
     [SerializeField]

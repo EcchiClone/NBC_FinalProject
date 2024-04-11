@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -8,6 +7,8 @@ using UnityEngine.UI;
 public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] protected Image _partImage;
+    [SerializeField] protected TextMeshProUGUI _lockText;
+    [SerializeField] protected GameObject _unlock;
     [SerializeField] protected GameObject _equip;
 
     protected PartData _currentData;
@@ -21,14 +22,14 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     protected string _displayName;
     protected string _displayDesc;
 
+    private bool _isUnlockChecked = false;
+
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
         if (_parentUI._sidePopup == null)
         {
             UI_PartsInfo info = Managers.UI.ShowPopupUI<UI_PartsInfo>();
-            _parentUI.SetSidePopup(info);
-            Managers.Module.CallInfoChange(_displayName, _displayDesc);
-            return;
+            _parentUI.SetSidePopup(info);                        
         }
         _parentUI._sidePopup.gameObject.SetActive(true);
     }
@@ -44,11 +45,41 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
         _currentData = Managers.Data.GetPartData(partID);
         _displayName = _currentData.Display_Name;
         _displayDesc = _currentData.Display_Description;
+
+        CheckUnlockedPart();
+    }
+
+    public void CheckUnlockedPart()
+    {
+        if (_isUnlockChecked)
+            return;
+        Debug.Log(_currentData.IsUnlocked);
+
+        if (!_currentData.IsUnlocked)
+        {
+            if (_currentData.PointUnlock)
+                _lockText.text = "업적 포인트로 잠금 해제";
+            else
+                _lockText.text = "업적 보상으로 잠금 해제";
+        }
+        else
+        {
+            _unlock.SetActive(false);
+            _partImage.color = Color.white;
+            _isUnlockChecked = true;
+        }
     }
 
     protected void AddListenerToBtn(UnityAction action)
     {
         Button button = GetComponent<Button>();
+
+        if (!_currentData.IsUnlocked)
+        {
+            if (_currentData.PointUnlock)
+                button.onClick.AddListener(() => Managers.UI.ShowPopupUI<UI_UnlockPartPopup>().AlertTextUpdate(_currentData.Point));
+            return;
+        }
         button.onClick.AddListener(action);
     }
 

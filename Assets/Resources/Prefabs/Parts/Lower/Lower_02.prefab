@@ -15050,6 +15050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75807926d6dd3f0498e64f75a5d432df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ID>k__BackingField: 10001002
   _boosterEffects:
   - {fileID: 6301034188033697957}
   - {fileID: 3222439523535436691}
