@@ -7,7 +7,7 @@ public class WeaponTiltController
     private Module _module;
 
     private UpperPart _upper;
-    private ArmsPart[] _arms;
+    private WeaponPart[] _arms;
     private float _smoothValue;
 
     public WeaponTiltController(Module moudle)

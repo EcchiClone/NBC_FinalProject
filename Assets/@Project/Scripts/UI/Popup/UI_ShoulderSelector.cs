@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_ShoulderSelector : UI_Popup
+public class UI_ShoulderSelector : UI_Selector
 {
     [SerializeField] GameObject _nextGroup_L;
     [SerializeField] GameObject _nextGroup_R;
     [SerializeField] TextMeshProUGUI[] _specTexts_L;
     [SerializeField] TextMeshProUGUI[] _nextSpecTexts_L;
     [SerializeField] TextMeshProUGUI[] _specTexts_R;
-    [SerializeField] TextMeshProUGUI[] _nextSpecTexts_R;
-    [SerializeField] private Transform _contents;
+    [SerializeField] TextMeshProUGUI[] _nextSpecTexts_R;    
 
     enum Buttons
     {
@@ -46,10 +45,13 @@ public class UI_ShoulderSelector : UI_Popup
 
         CurrentChangeMode = ChangeShoulderMode.LeftShoulder;
 
-        int createUI = Managers.Module.ShoulderWeaponPartsCount;
-
+        int createUI = Managers.Module.ShoulderCount;
+        _changeBtns = new UI_ChangeButton[createUI];
         for (int i = 0; i < createUI; i++)
-            Managers.UI.ShowItemUI<UI_ShoulderChangeBtn>(_contents).SetParentUI(this);
+        {
+            _changeBtns[i] = Managers.UI.ShowItemUI<UI_ShoulderChangeBtn>(_contents);
+            _changeBtns[i].SetParentUI(this);
+        }
 
         Managers.Module.OnLeftShoulderChange += UpdateSelectedPartSpecText_L;
         Managers.Module.OnRightSoulderChange += UpdateSelectedPartSpecText_R;
@@ -63,8 +65,8 @@ public class UI_ShoulderSelector : UI_Popup
 
     public void ResetText()
     {
-        int leftShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentLeftShoulderIndex).ID;
-        int rightShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.Module.CurrentRightShoulderIndex).ID;
+        int leftShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.GameManager.PartIndex_LeftShoulder).ID;
+        int rightShoulderID = Managers.Module.GetPartOfIndex<ShouldersPart>(Managers.GameManager.PartIndex_RightShoulder).ID;
         PartData LeftShoulderPartData = Managers.Data.GetPartData(leftShoulderID);
         PartData RightShoulderPartData = Managers.Data.GetPartData(rightShoulderID);
 

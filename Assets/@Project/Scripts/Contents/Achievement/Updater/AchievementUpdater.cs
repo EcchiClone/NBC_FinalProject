@@ -15,4 +15,12 @@ public class AchievementUpdater : MonoBehaviour
     {
         AchievementSystem.Instance.ReceiveReport(taskCategory, taskTarget, value);
     }
+    protected void Report(string taskTarget, int value)
+    {
+        AchievementSystem.Instance.ReceiveReport(taskCategory, taskTarget, value);
+    }
+    protected void Report(string taskCategory, string taskTarget, int value)
+    {
+        AchievementSystem.Instance.ReceiveReport(taskCategory, taskTarget, value);
+    }
 }

@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class UpperPart : BasePart
 {
-    public enum WeaponType
-    {
-        LeftArm,
-        RightArm,
-        LeftShoulder,
-        RightShoulder,
-    }    
     [field: SerializeField] public Transform[] WeaponPositions { get; private set; }    
 
-    public override void Setup(Define.PartsType type, Module module)
+    public override void Setup(Define.Parts_Location type, Module module)
     {
         base.Setup(type, module);
     }

@@ -5,11 +5,10 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    public event Action<int, bool, bool, Define.PartsType> OnWeaponFire;
+    public event Action<int, bool, bool, Define.Parts_Location> OnWeaponFire;
 
     protected Transform _target;
-    protected LayerMask _groundLayer;
-    
+    protected LayerMask _groundLayer;    
     protected PartData _partData;
 
     private int _ammo;
@@ -34,9 +33,9 @@ public abstract class WeaponBase : MonoBehaviour
         }
     }
 
-    private Define.PartsType _type;    
+    private Define.Parts_Location _type;    
 
-    public virtual void Setup(int partID, Define.PartsType type, LayerMask layerMask)
+    public virtual void Setup(int partID, Define.Parts_Location type, LayerMask layerMask)
     {
         Managers.ActionManager.OnLockOnTarget += Targeting;
         Managers.ActionManager.OnReleaseTarget += Release;
@@ -80,7 +79,7 @@ public abstract class WeaponBase : MonoBehaviour
     private void Targeting(Transform target) => _target = target;
     private void Release() => _target = null;
 
-    private void CheckReload(int ammo, bool isCoolDown, bool isReloadable, Define.PartsType type)
+    private void CheckReload(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)
     {
         if (Ammo <= 0 && isReloadable)
             StartCoroutine(Reload());
