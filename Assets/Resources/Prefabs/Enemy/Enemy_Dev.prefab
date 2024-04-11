@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2426079046754461775}
   - component: {fileID: 6630598493877107350}
+  - component: {fileID: -6371081220353368045}
   m_Layer: 10
   m_Name: Enemy_Dev
   m_TagString: Untagged
@@ -151,10 +152,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phases:
+  - {fileID: 11400000, guid: 435c05be691e28d45b77caec1e96f3eb, type: 2}
+  - {fileID: 11400000, guid: 91e03ad64f8e5f847941f6dcd330a935, type: 2}
+  - {fileID: 11400000, guid: 5eddbfcaa0522714ea3f5585619c58c2, type: 2}
   - {fileID: 11400000, guid: e46aeb535cc86e340969ce90696c0cc3, type: 2}
+  - {fileID: 11400000, guid: d989051c39a1cea4e92a725da793520f, type: 2}
+  - {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f, type: 2}
+  - {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39, type: 2}
   muzzle: []
   isShooting: 1
-  onStartPhase:
-  - phaseNum: 0
-    muzzleNum: 0
-    isOneTime: 0
+  onStartPhase: []
+--- !u!114 &-6371081220353368045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829238767352938797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae97090c278a2e34b815b387388506ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

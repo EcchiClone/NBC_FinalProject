@@ -1307,53 +1307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Dev
       objectReference: {fileID: 0}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 435c05be691e28d45b77caec1e96f3eb,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 91e03ad64f8e5f847941f6dcd330a935,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5eddbfcaa0522714ea3f5585619c58c2,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: e46aeb535cc86e340969ce90696c0cc3,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: d989051c39a1cea4e92a725da793520f,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f,
-        type: 2}
-    - target: {fileID: 6630598493877107350, guid: 5e477fe31e3cf624d95aeba538464d43,
-        type: 3}
-      propertyPath: Phases.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1836,7 +1789,7 @@ PrefabInstance:
     - target: {fileID: 6880601041426012601, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
