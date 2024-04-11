@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496c6432506ca814da04ebae39742b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ID>k__BackingField: 10003004
   _boosterEffects: []
   _muzzlePoints:
   - {fileID: 360452378310525105}

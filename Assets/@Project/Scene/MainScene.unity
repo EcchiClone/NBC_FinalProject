@@ -1706,6 +1706,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2202214607154419637, guid: 1d7882261826c8243b08a82b754edc59,
+        type: 3}
+      propertyPath: achievements.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2202214607154419637, guid: 1d7882261826c8243b08a82b754edc59,
+        type: 3}
+      propertyPath: achievements.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: debd1cef2373326468bbd93353b3e074,
+        type: 2}
     - target: {fileID: 5587729035010329013, guid: 1d7882261826c8243b08a82b754edc59,
         type: 3}
       propertyPath: m_RootOrder

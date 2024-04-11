@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_ShoulderChangeBtn : UI_ChangeButton
 {
@@ -58,6 +53,11 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+        if (!_currentData.IsUnlocked)
+        {
+            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            return;
+        }
 
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)

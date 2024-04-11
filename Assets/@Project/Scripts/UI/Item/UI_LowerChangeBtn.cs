@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_LowerChangeBtn : UI_ChangeButton
 {
@@ -19,12 +14,17 @@ public class UI_LowerChangeBtn : UI_ChangeButton
 
         GetCurrentPartData<LowerPart>();
         AddListenerToBtn(ChangePart);
-        LoadPartImage();        
+        LoadPartImage();
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+        if (!_currentData.IsUnlocked)
+        {
+            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            return;
+        }
 
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
         selector.DisPlayNextPartSpecText(_currentData);

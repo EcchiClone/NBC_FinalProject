@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_LowerSelector : UI_Popup
+public class UI_LowerSelector : UI_Selector
 {
     [SerializeField] GameObject _nextGroup;
     [SerializeField] TextMeshProUGUI[] _specTexts;
-    [SerializeField] TextMeshProUGUI[] _nextSpecTexts;
-    [SerializeField] private Transform _contents;
+    [SerializeField] TextMeshProUGUI[] _nextSpecTexts;    
 
     enum Buttons
     {
@@ -22,23 +21,26 @@ public class UI_LowerSelector : UI_Popup
         MoveSpeed,
         JumpPower,
         BoostPower,
-    }    
+    }
 
     protected override void Init()
     {
         base.Init();
 
-        int createUI = Managers.Module.LowerPartsCount;
-
+        int createUI = Managers.Module.LowerCount;
+        _changeBtns = new UI_ChangeButton[createUI];
         for (int i = 0; i < createUI; i++)
-            Managers.UI.ShowItemUI<UI_LowerChangeBtn>(_contents).SetParentUI(this);
+        {
+            _changeBtns[i] = Managers.UI.ShowItemUI<UI_LowerChangeBtn>(_contents);
+            _changeBtns[i].SetParentUI(this);
+        }
 
         Managers.Module.OnLowerChange += UpdateSelectedPartSpecText;
         ResetText();
 
         BindButton(typeof(Buttons));
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);
-    }    
+    }
 
     public void ResetText()
     {
@@ -52,7 +54,7 @@ public class UI_LowerSelector : UI_Popup
     {
         Managers.ActionManager.CallUndoMenuCam(Define.CamType.Lower);
 
-        ResetText();        
+        ResetText();
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -65,7 +67,7 @@ public class UI_LowerSelector : UI_Popup
 
         _specTexts[(int)SpecType.MoveSpeed].text = $"{lowerData.Speed}";
         _specTexts[(int)SpecType.JumpPower].text = $"{lowerData.JumpPower}";
-        _specTexts[(int)SpecType.BoostPower].text = $"{lowerData.BoosterPower}";        
+        _specTexts[(int)SpecType.BoostPower].text = $"{lowerData.BoosterPower}";
     }
 
     public void DisPlayNextPartSpecText(PartData nextLowerData)

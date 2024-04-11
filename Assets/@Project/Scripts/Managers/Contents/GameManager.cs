@@ -4,6 +4,14 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
+public class StageData // 한 판에 대한 내용
+{
+    public int level;
+    public int score;
+
+}
+
+[Serializable]
 public class GameData
 {    
     public int highestLevel;
@@ -25,6 +33,10 @@ public class GameManager
     public GameData gameData = new GameData();
 
     private string _filePath;
+
+    #region Events
+    public event Action<int> OnReceivePartID;
+    #endregion
 
     public void Init()
     {
@@ -89,15 +101,24 @@ public class GameManager
         }
     }
     #endregion
-    #region Coin
+    #region Rewards
     public int AchievementCoin
     {
         get => gameData.achievementCoin;
         set
         {
             gameData.achievementCoin = value;
+            // To Do - UI든 어디든 일단 구독된 친구들에게 이벤트 Invoke
             SaveGame();
         }
+    }
+
+    public List<int> UnlockedPartsIDList => gameData.unlockedPartsList;
+    public void ReceivePartID(int id)
+    {
+        gameData.unlockedPartsList.Add(id);
+        OnReceivePartID?.Invoke(id);
+        SaveGame();
     }
     #endregion
 

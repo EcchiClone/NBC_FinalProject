@@ -9,8 +9,13 @@ public class ModuleManager
     // ToDo - 게임 시작 시 Resources(또는 다른 위치)폴더 내 모든 파츠 부위에 맞게 자료구조에 담기.
     // ToDo - 마지막으로 저장된 파츠 정보를 토대로 현재 Module 정보 생성에 사용.
     // ToDo - MainScene의 Module 창에서 파츠 변경 시 갱신된 정보를 저장.
-    
-    private Dictionary<Type, List<BasePart>> _modules = new Dictionary<Type, List<BasePart>>();
+
+    public Dictionary<Type, BasePart[]> Modules { get; private set; } = new Dictionary<Type, BasePart[]>();
+
+    public int LowerCount => Modules[typeof(LowerPart)].Length;
+    public int UpperCount => Modules[typeof(UpperPart)].Length;
+    public int ArmCount => Modules[typeof(ArmsPart)].Length;
+    public int ShoulderCount => Modules[typeof(ShouldersPart)].Length;
 
     #region Events
     public event Action<PartData> OnUpperChange;
@@ -38,43 +43,46 @@ public class ModuleManager
     public ShouldersPart CurrentLeftShoulderPart { get; private set; }
     public ShouldersPart CurrentRightShoulderPart { get; private set; }
 
-    public int LowerPartsCount { get; private set; }
-    public int UpperPartsCount { get; private set; }
-    public int ArmWeaponPartsCount { get; private set; }
-    public int ShoulderWeaponPartsCount { get; private set; }
-
     private GameManager _gameManager;
 
     public void Init() // 게임 시작 시 Resources 폴더 내 초기 파츠 담기.
     {
         _gameManager = Managers.GameManager;
-        InitData initData = new InitData();
-        
-        List<BasePart> lowerParts = new List<BasePart>();
-        List<BasePart> upperParts = new List<BasePart>();
-        List<BasePart> armWeaponParts = new List<BasePart>();
-        List<BasePart> shoulderWeaponParts = new List<BasePart>();
+        _gameManager.OnReceivePartID += UnlockParts;
 
-        LowerPartsCount = InitAddDict<LowerPart>(initData.LowerPartId, lowerParts);
-        UpperPartsCount = InitAddDict<UpperPart>(initData.UpperPartId, upperParts);
-        ArmWeaponPartsCount = InitAddDict<ArmsPart>(initData.ArmWeaponPartId, armWeaponParts);
-        ShoulderWeaponPartsCount = InitAddDict<ShouldersPart>(initData.ShoulderWeaponPartId, shoulderWeaponParts);
+        BasePart[] lowerParts = Resources.LoadAll<BasePart>("Prefabs/Parts/Lower");
+        BasePart[] upperParts = Resources.LoadAll<BasePart>("Prefabs/Parts/Upper");
+        BasePart[] armWeaponParts = Resources.LoadAll<BasePart>("Prefabs/Parts/Weapon_Arm");
+        BasePart[] shoulderWeaponParts = Resources.LoadAll<BasePart>("Prefabs/Parts/Weapon_Shoulder");
+
+        Modules.Add(typeof(LowerPart), lowerParts);
+        Modules.Add(typeof(UpperPart), upperParts);
+        Modules.Add(typeof(ArmsPart), armWeaponParts);
+        Modules.Add(typeof(ShouldersPart), shoulderWeaponParts);
+
+        InitUnlock();        
     }
 
-    private int InitAddDict<T>(List<int> idList, List<BasePart> partList) where T : BasePart
-    {
-        foreach (var id in idList)
+    private void InitUnlock()
+    {        
+        IEnumerator allPartDatas = Managers.Data.GetPartDataEnumerator();
+
+        while (allPartDatas.MoveNext())
         {
-            PartData data = Managers.Data.GetPartData(id);
-            T part = Resources.Load<T>(data.Prefab_Path);
-            part.SetID(id);
+            KeyValuePair<int, PartData> currentPartData = (KeyValuePair<int,PartData>)allPartDatas.Current;
 
-            partList.Add(part);
+            int id = currentPartData.Key;
+            bool initPart = currentPartData.Value.InitialPart;
+
+            if (initPart)
+                UnlockParts(id);
         }
-        _modules.Add(typeof(T), partList);
 
-        return partList.Count;
+        foreach (int id in _gameManager.UnlockedPartsIDList)
+            UnlockParts(id);
     }
+
+    public void UnlockParts(int id) => Managers.Data.GetPartData(id).Unlock();
 
     // Player 또는 Selector 빈 모듈 생성 : Scene Script에서 처리하는게 맞다고 봄.
     public void CreatePlayerModule() => CreateEmptyModule("Prefabs/Parts/Player_Module");
@@ -83,7 +91,7 @@ public class ModuleManager
     public void CreateEmptyModule(string path)
     {
         GameObject emptyModule = Resources.Load<GameObject>(path);
-        CurrentModule = UnityEngine.Object.Instantiate(emptyModule).GetComponent<Module>();        
+        CurrentModule = UnityEngine.Object.Instantiate(emptyModule).GetComponent<Module>();
 
         AssembleModule(CurrentModule.LowerPosition);
     }
@@ -107,19 +115,11 @@ public class ModuleManager
 
     private T CreatePart<T>(Parts_Location type, Transform createPosition, int index = 0) where T : BasePart
     {
-        List<BasePart> parts;
-        if (_modules.TryGetValue(typeof(T), out parts) == false)
-        {
-            Debug.Log($"파츠 정보가 없습니다. {typeof(T).Name}");
-            return null;
-        }
-
-        int id = parts[index].ID;
+        BasePart[] parts = GetParts<T>();
 
         GameObject go = UnityEngine.Object.Instantiate(parts[index].gameObject, createPosition);
         T part = go.GetComponent<T>();
-        part.SetID(id);
-        part.Setup(type,CurrentModule);
+        part.Setup(type, CurrentModule);
 
         return part;
     }
@@ -209,19 +209,25 @@ public class ModuleManager
 
     public T GetPartOfIndex<T>(int index) where T : BasePart
     {
-        if (!_modules.TryGetValue(typeof(T), out List<BasePart> parts))
-        {
-            Debug.Log($"type 잘못 입력{typeof(T)}");
-            return null;
-        }
+        BasePart[] parts = GetParts<T>();        
 
-        if (index >= parts.Count || parts[index] == null)
+        if (index >= parts.Length || parts[index] == null)
         {
             Debug.Log($"해당 번호의 파츠는 없어용{index}");
             return null;
         }
 
         return parts[index] as T;
+    }
+
+    private BasePart[] GetParts<T>() where T : BasePart
+    {
+        if (!Modules.TryGetValue(typeof(T), out BasePart[] parts))
+        {
+            Debug.Log($"파츠 정보가 없습니다. {typeof(T)}");
+            return null;
+        }
+        return parts;
     }
 
     public void Clear()

@@ -49,7 +49,7 @@ public class UI_MainMenuPopup : UI_Popup
     }
     private void OpenAchievement()
     {
-        if (_selector == null)
+        if (_achievement == null)
         {
             _achievement = Managers.UI.ShowPopupUI<UI_Achievement>(); // Set on scene about Achievement UI
             _achievement.SetPreviousPopup(this);    // Set prev value(this(MainMenu))            

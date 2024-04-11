@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class BasePart : MonoBehaviour
 {
-    public int ID { get; private set; }
+    [field:SerializeField] public int ID { get; private set; }
 
     [SerializeField] GameObject[] _boosterEffects;
 
     protected Module Module { get; private set; }
-    protected Define.Parts_Location _type;
-
-    public void SetID(int id) => ID = id;
+    protected Define.Parts_Location _type;    
 
     public virtual void Setup(Define.Parts_Location type, Module module)
     {

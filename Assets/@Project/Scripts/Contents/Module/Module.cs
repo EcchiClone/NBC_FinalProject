@@ -8,10 +8,10 @@ public class Module : MonoBehaviour
 
     public LowerPart CurrentLower { get; private set; }
     public UpperPart CurrentUpper { get; private set; }
-    public ArmsPart CurrentLeftArm { get; private set; }
-    public ArmsPart CurrentRightArm { get; private set; }
-    public ShouldersPart CurrentLeftShoulder { get; private set; }
-    public ShouldersPart CurrentRightShoulder {  get; private set; }
+    public WeaponPart CurrentLeftArm { get; private set; }
+    public WeaponPart CurrentRightArm { get; private set; }
+    public WeaponPart CurrentLeftShoulder { get; private set; }
+    public WeaponPart CurrentRightShoulder {  get; private set; }
 
     public ModuleStatus ModuleStatus { get; private set; }
     public WeaponTiltController TiltController { get; private set; }
@@ -21,7 +21,7 @@ public class Module : MonoBehaviour
 
     public bool IsPlayable { get; private set; }
 
-    public void Setup(LowerPart lowerPart, UpperPart upperPart, ArmsPart leftArm, ArmsPart rightArm, ShouldersPart leftShoulder, ShouldersPart rightShoulder)
+    public void Setup(LowerPart lowerPart, UpperPart upperPart, WeaponPart leftArm, WeaponPart rightArm, WeaponPart leftShoulder, WeaponPart rightShoulder)
     {
         CurrentLower = lowerPart;
         CurrentUpper = upperPart;

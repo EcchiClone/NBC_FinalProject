@@ -81,10 +81,8 @@ public class UI_SelectorMenu : UI_Popup
 
     private void InitSpecTexts()
     {
-        InitData initData = new InitData();
-
-        _lowerData = Managers.Data.GetPartData(initData.LowerPartId[0]);
-        _upperData = Managers.Data.GetPartData(initData.UpperPartId[0]);
+        _lowerData = Managers.Data.GetPartData(Managers.Module.CurrentLowerPart.ID);
+        _upperData = Managers.Data.GetPartData(Managers.Module.CurrentUpperPart.ID);
 
         //float attakMain = Managers.Module.CurrentUpperPart.Primary.WeaponSO.atk;
         //float attakSub = Managers.Module.CurrentUpperPart.Secondary.WeaponSO.atk;

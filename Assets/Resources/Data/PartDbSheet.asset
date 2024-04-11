@@ -20,6 +20,9 @@ MonoBehaviour:
     display_Name: DG-001
     display_Description: "\uACBD\uB7C9\uD615 \uC5ED\uAD00\uC808 \uB85C\uC5B4\uD30C\uCE20\n\uAC00\uBCCD\uACE0
       \uBE60\uB974\uC9C0\uB9CC \uBE48\uC57D\uD55C \uC7A5\uAC11"
+    initialPart: 1
+    pointUnlock: 0
+    point: 0
     armor: 1700
     weight: 180
     speed: 6
@@ -47,6 +50,9 @@ MonoBehaviour:
     display_Description: "\uD558\uC774\uBE0C\uB9AC\uB4DC \uB85C\uC5B4\uD30C\uCE20\n\uC7A5\uAC11\uC774
       \uB450\uAEBC\uC6CC \uB0B4\uAD6C\uC131\uC740 \uC88B\uC73C\uB098\n\uAE30\uB3D9\uC131\uC5D0\uC11C
       \uC544\uC26C\uC6B4 \uBAA8\uC2B5\uC744 \uBCF4\uC778\uB2E4"
+    initialPart: 0
+    pointUnlock: 0
+    point: 0
     armor: 2500
     weight: 350
     speed: 4
@@ -71,8 +77,12 @@ MonoBehaviour:
     prefab_Path: Prefabs/Parts/Upper/Upper_01
     sprite_Path: Images/Upper_01
     display_Name: UH-001
-    display_Description: "\uC900\uC218\uD55C \uC131\uB2A5\uC744 \uAC00\uC9C4 \uD5E4\uB4DC\uD30C\uCE20\n1\uC5F0\uC7A5
-      \uAC1C\uD2C0\uB9C1\uAC74x2\n\uB2E4\uC5F0\uC7A5 \uD0C0\uAC9F \uCD94\uC801 \uBBF8\uC0AC\uC77Cx2"
+    display_Description: "\uACBD\uB7C9\uD615 \uD5E4\uB4DC\uD30C\uCE20\n\uD68C\uC804\uC18D\uB3C4\uAC00
+      \uBE60\uB974\uC9C0\uB9CC\n\uBD80\uC2A4\uD130 \uCDA9\uC804\uB7C9\uACFC \uD638\uBC84\uB9C1
+      \uCD9C\uB825\uC774 \uB5A8\uC5B4\uC9C4\uB2E4"
+    initialPart: 1
+    pointUnlock: 0
+    point: 0
     armor: 1500
     weight: 150
     speed: 0
@@ -100,6 +110,9 @@ MonoBehaviour:
     display_Description: "\uC911\uB7C9\uD615 \uD5E4\uB4DC\uD30C\uCE20\n\uBD80\uC2A4\uD130
       \uCDA9\uC804\uB7C9\uACFC \uD638\uBC84\uB9C1 \uCD9C\uB825\uC740 \uC88B\uC73C\uB098\n\uD68C\uC804\uC18D\uB3C4\uAC00
       \uB5A8\uC5B4\uC9C4\uB2E4"
+    initialPart: 0
+    pointUnlock: 0
+    point: 0
     armor: 2300
     weight: 300
     speed: 0
@@ -126,6 +139,9 @@ MonoBehaviour:
     display_Name: CA-STD
     display_Description: "\uBC38\uB7F0\uC2A4\uD615 1\uC5F0\uC7A5 \uCE90\uB17C\n\uC801\uB2F9\uD55C
       \uC5F0\uC0AC\uB825\uACFC \uC9D1\uD0C4\uB825\uC744 \uAC00\uC9C0\uACE0\uC788\uB2E4"
+    initialPart: 1
+    pointUnlock: 0
+    point: 0
     armor: 350
     weight: 5
     speed: 0
@@ -153,6 +169,9 @@ MonoBehaviour:
     display_Description: "\uC18C\uD615 \uAC1C\uD2C0\uB9C1\uAC74\n\uC9D1\uC911\uD3EC\uD654\uAC00
       \uAC00\uB2A5\uD558\uC9C0\uB9CC\n\uBA40\uB9AC\uC788\uB294 \uD0C0\uAC9F\uC5D0\uC11C
       \uADF8\uB2E4\uC9C0 \uC88B\uC740 \uD6A8\uACFC\uB97C \uB0B4\uC9C4 \uBABB\uD55C\uB2E4"
+    initialPart: 0
+    pointUnlock: 1
+    point: 1000
     armor: 275
     weight: 10
     speed: 0
@@ -181,6 +200,9 @@ MonoBehaviour:
       \uD0C0\uAC9F\uC5D0 \uB300\uD55C \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uAC00\uD55C\uB2E4\n\uCDA9\uC804\uC2DC\uAC04\uACFC
       \uC7AC\uC7A5\uC804 \uC2DC\uAC04\uC774 \uAE38\uC9C0\uB9CC \uD654\uB825\uC740
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
+    initialPart: 0
+    pointUnlock: 1
+    point: 1000
     armor: 275
     weight: 10
     speed: 0
@@ -207,6 +229,9 @@ MonoBehaviour:
     display_Name: CA-AP
     display_Description: "1\uC5F0\uC7A5 AP \uCE90\uB17C\n\uAC15\uB825\uD55C \uD55C
       \uBC29\uC744 \uC790\uB791\uD558\uC9C0\uB9CC \uC5F0\uC0AC\uB825\uC774 \uC88B\uC9C0\uC54A\uB2E4"
+    initialPart: 0
+    pointUnlock: 0
+    point: 0
     armor: 275
     weight: 10
     speed: 0
@@ -234,6 +259,9 @@ MonoBehaviour:
     display_Description: "\uACE0\uC815\uD615 \uB85C\uCF13\uB7F0\uCC98\n5\uBC1C\uC744
       \uCC28\uB840\uB85C \uACF5\uC911\uC73C\uB85C \uBC1C\uC0AC \uD6C4 \uD0C0\uAC9F\uC744
       \uD5A5\uD574 \uC720\uB3C4\uD55C\uB2E4"
+    initialPart: 1
+    pointUnlock: 0
+    point: 0
     armor: 120
     weight: 5
     speed: 0
@@ -262,6 +290,9 @@ MonoBehaviour:
       \uC801\uC7AC\uD55C \uC911\uD615 \uBBF8\uC0AC\uC77C\uC744 \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C
       \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD790
       \uC218 \uC788\uB2E4"
+    initialPart: 0
+    pointUnlock: 1
+    point: 1000
     armor: 200
     weight: 8
     speed: 0
@@ -290,6 +321,9 @@ MonoBehaviour:
       \uC2DC\uAC04\uCC28\uB85C \uD3ED\uBC1C\uD558\uB294 \uACE0\uD3ED\uD0C4\uC744
       \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC785\uD790 \uC218 \uC788\uB2E4"
+    initialPart: 0
+    pointUnlock: 0
+    point: 0
     armor: 150
     weight: 10
     speed: 0

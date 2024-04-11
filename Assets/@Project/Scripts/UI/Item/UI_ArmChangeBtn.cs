@@ -1,7 +1,4 @@
-using System.Collections;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_ArmChangeBtn : UI_ChangeButton
 {
@@ -56,6 +53,11 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+        if (!_currentData.IsUnlocked)
+        {
+            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            return;
+        }
 
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
