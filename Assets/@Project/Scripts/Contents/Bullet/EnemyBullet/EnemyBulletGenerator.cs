@@ -61,24 +61,28 @@ public class EnemyBulletGenerator : MonoBehaviour
             StartCoroutine(Co_ExecutePattern(genSettings)); // patternData.enemyBulletSettings, subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform
         }
     }
-
-    //private Vector3 GetPlayerPos()
+    //public void ExecutePattern(PatternSO patternSO, string patternName, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false)
     //{
-    //    try
+    //    var genSettings = new BulletGenerationSettings
     //    {
-    //        return Managers.Module.CurrentModule.LowerPosition.position;
-    //    }
-    //    catch
+    //        muzzleTransform = muzzleTransform,
+    //        rootObject = rootObject,
+    //        masterObject = masterObject,
+    //        cycleTime = cycleTime,
+    //        isOneTime = isOneTime,
+    //        patternHierarchy = new PatternHierarchy
+    //        {
+    //            patternSO = patternSO,
+    //            patternName = patternName,
+    //            genCondition = GenCondition.Timer,
+    //            startTime = 0f,
+    //            cycleTime = cycleTime,
+    //            subPatterns = new List<PatternHierarchy>()
+    //        }
+    //    };
+    //    if (genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName) != null)
     //    {
-    //        //GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
-    //        //if (playerGo != null)
-    //        //{
-    //        //    return playerGo.transform.position;
-    //        //}
-    //        //else
-    //        //{
-    //            return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
-    //        //}
+    //        StartCoroutine(Co_ExecutePattern(genSettings)); // patternData.enemyBulletSettings, subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform
     //    }
     //}
 

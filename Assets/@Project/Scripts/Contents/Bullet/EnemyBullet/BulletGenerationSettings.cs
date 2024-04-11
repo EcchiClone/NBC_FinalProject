@@ -4,7 +4,7 @@ using UnityEngine;
 using static PhaseSO;
 
 [System.Serializable]
-public struct BulletGenerationSettings
+public class BulletGenerationSettings
 {
     public Transform muzzleTransform;   // 총구 위치
     public GameObject rootObject;       // 탄막의 루트 객체
