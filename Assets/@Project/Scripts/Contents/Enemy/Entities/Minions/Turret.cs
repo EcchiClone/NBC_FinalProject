@@ -6,11 +6,13 @@ public class Turret : Entity
 {
     protected override void Initialize()
     {
-        //Target = FindObjectOfType<TargetCenter>().transform;
-        CurrentHelth = Data.maxHealth;
+        Target = GameObject.Find("Target").transform;
+        // Target = Managers.Module.CurrentModule.transform;
+        
 
         Controller = new TurretUnitController(this);
         Controller.Initialize();
         StateMachine = new SkyFireStateMachine(this);
     }
+
 }

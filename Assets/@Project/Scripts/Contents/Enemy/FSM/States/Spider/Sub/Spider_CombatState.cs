@@ -7,6 +7,8 @@ public class Spider_CombatState : BaseState
     private Transform _entityTransform;
     private Transform _targetTransform;
 
+    private float passedTime;
+
     public Spider_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
@@ -16,7 +18,9 @@ public class Spider_CombatState : BaseState
 
     public override void EnterState()
     {
-        InitializeSubState();
+        InitializeSubState();        
+
+        passedTime = 0;
     }
 
     public override void UpdateState()
@@ -24,8 +28,13 @@ public class Spider_CombatState : BaseState
         // 총 쏘는 중이라면 
         Debug.Log("공격");
 
-        Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
-        Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+        passedTime += Time.deltaTime;
+        if (passedTime > Context.Entity.Data.attackInterval)
+        {
+            Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
+            Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+            passedTime = 0;
+        }
 
         CheckSwitchStates();
     }

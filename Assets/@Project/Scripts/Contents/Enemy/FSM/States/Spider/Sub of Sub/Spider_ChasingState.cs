@@ -23,7 +23,7 @@ public class Spider_ChasingState : BaseState
         passedTime = 0f;
         Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
 
-        Context.Anim.SetBool("Walk", true);
+        
     }
     
     public override void UpdateState()
@@ -34,6 +34,7 @@ public class Spider_ChasingState : BaseState
             Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
             passedTime = 0f;
         }
+
 
         CheckSwitchStates();
     }    
@@ -49,7 +50,6 @@ public class Spider_ChasingState : BaseState
 
     public override void ExitState()
     {
-        Context.Anim.SetBool("Walk", false);
     }
 
     public override void InitializeSubState()

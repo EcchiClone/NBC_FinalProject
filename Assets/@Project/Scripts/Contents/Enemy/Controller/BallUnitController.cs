@@ -38,7 +38,13 @@ public class BallUnitController : Controller
             path = newPath;
             targetIndex = 0;
         }
+        else
+        {
+
+        }
     }
+
+
 
     public override void Update()
     {

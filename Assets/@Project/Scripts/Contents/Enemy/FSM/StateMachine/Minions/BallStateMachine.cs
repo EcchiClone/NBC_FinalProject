@@ -9,5 +9,12 @@ public class BallStateMachine : BaseStateMachine
         Provider = new BallStateProvider(this);
         CurrentState = Provider.GetState(Ball_States.Alive);
         CurrentState.EnterState();
+
+    }
+
+    public override void Reset()
+    {
+        CurrentState = Provider.GetState(Ball_States.Alive);
+        CurrentState.EnterState();
     }
 }

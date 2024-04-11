@@ -15,6 +15,7 @@ public class Spider_DeadState : BaseState // TODO
     }
     public override void UpdateState()
     {
+
     }
     public override void ExitState()
     {

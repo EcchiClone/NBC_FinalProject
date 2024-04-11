@@ -20,6 +20,8 @@ public abstract class BaseStateMachine
 
     public abstract void Initialize();
 
+    public abstract void Reset();
+
     public void Update()
     {
         

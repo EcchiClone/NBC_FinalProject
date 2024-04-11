@@ -15,13 +15,21 @@ public abstract class Entity : MonoBehaviour
 
     public EnemyPhaseStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
 
+
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
         Initialize();        
     }
 
+    private void OnEnable()
+    {
+        CurrentHelth = Data.maxHealth;
+        StateMachine?.Reset();
+    }
+
     protected abstract void Initialize();
+
 
     public void GetDamaged(float damage)
     {

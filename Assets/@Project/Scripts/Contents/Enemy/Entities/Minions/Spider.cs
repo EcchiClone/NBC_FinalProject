@@ -7,6 +7,7 @@ public class Spider : Entity
     protected override void Initialize()
     {
         Target = GameObject.Find("Target").transform;
+        // Target = Managers.Module.CurrentModule.transform;
         CurrentHelth = Data.maxHealth;
 
         Controller = new GroundUnitController(this);

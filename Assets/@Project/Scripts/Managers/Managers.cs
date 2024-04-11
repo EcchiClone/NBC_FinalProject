@@ -21,10 +21,14 @@ public class Managers : MonoBehaviour
     ActionManager _actionManager = new ActionManager();
     ModuleManager _module = new ModuleManager();
     StatusManager _statusManager = new StatusManager();
+    SpawnManager _spawnManager = new SpawnManager();
+    StageManager _stageManager = new StageManager();
 
     public static ActionManager ActionManager => Instance?._actionManager;
     public static ModuleManager Module => Instance?._module;
     public static StatusManager StatusManager => Instance?._statusManager;
+    public static SpawnManager SpawnManager => Instance?._spawnManager;
+    public static StageManager StageManager => Instance?._stageManager;
     #endregion
 
 

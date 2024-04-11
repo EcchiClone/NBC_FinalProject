@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301267941140755718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.194, y: 0.004, z: 0}
+  m_LocalPosition: {x: -0.194, y: 0.004, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2707482046103613064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.004, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.004, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phases:
-  - {fileID: 11400000, guid: 6aabff0fd06a2ab4b811185642a42212, type: 2}
+  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
   muzzle:
   - {fileID: 8440490075170009458}
   - {fileID: 7911522603296387778}
