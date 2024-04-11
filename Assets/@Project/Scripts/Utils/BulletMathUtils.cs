@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 벡터 계산 등 필요한 복잡한 연산을 모두 모아두는 역할
-public class BulletMathUtils : MonoBehaviour
+public class BulletMathUtils
 {
     #region 원점 기준 Vector3 전체 회전
     // 전체 회전(아직 테스트 안 해봄)
@@ -77,5 +77,49 @@ public class BulletMathUtils : MonoBehaviour
     }
     #endregion
 
+    #region 플레이어 위치 찾기
+    public static Vector3 GetPlayerPos(bool reposit = false)
+    {
+        try
+        {
+            if (reposit)
+                return PlayerPivotReposition(Managers.Module.CurrentModule.LowerPosition.position);
+            return Managers.Module.CurrentModule.LowerPosition.position;
+
+
+        }
+        catch
+        {
+            GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+            if (playerGo != null)
+            {
+                if (reposit)
+                    return PlayerPivotReposition(playerGo.transform.position);
+                return playerGo.transform.position;
+            }
+            else
+            {
+                if (reposit)
+                    return PlayerPivotReposition(new Vector3(0, 0, 0)); // 플레이어 찾을 수 없음
+                return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
+            }
+        }
+    }
+    #endregion
+
+    #region 플레이어 피봇 조정
+    public static Vector3 PlayerPivotReposition(GameObject playerGo)
+    {
+        return PlayerPivotReposition(playerGo.transform.position);
+    }
+    public static Vector3 PlayerPivotReposition(Transform playerTf)
+    {
+        return PlayerPivotReposition(playerTf.position);
+    }
+    public static Vector3 PlayerPivotReposition(Vector3 playerPos)
+    {
+        return playerPos + Vector3.up;
+    }
+    #endregion
 
 }

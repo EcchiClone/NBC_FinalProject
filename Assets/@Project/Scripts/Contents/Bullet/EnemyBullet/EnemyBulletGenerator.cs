@@ -62,31 +62,31 @@ public class EnemyBulletGenerator : MonoBehaviour
         }
     }
 
-    private Vector3 GetPlayerPos()
-    {
-        try
-        {
-            return Managers.Module.CurrentModule.LowerPosition.position;
-        }
-        catch
-        {
-            //GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
-            //if (playerGo != null)
-            //{
-            //    return playerGo.transform.position;
-            //}
-            //else
-            //{
-                return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
-            //}
-        }
-    }
+    //private Vector3 GetPlayerPos()
+    //{
+    //    try
+    //    {
+    //        return Managers.Module.CurrentModule.LowerPosition.position;
+    //    }
+    //    catch
+    //    {
+    //        //GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+    //        //if (playerGo != null)
+    //        //{
+    //        //    return playerGo.transform.position;
+    //        //}
+    //        //else
+    //        //{
+    //            return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
+    //        //}
+    //    }
+    //}
 
     IEnumerator Co_ExecutePattern(BulletGenerationSettings genSettings) // EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         EnemyBulletSettings settings = genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName).enemyBulletSettings;
 
-        Vector3 playerPos = GetPlayerPos();
+        Vector3 playerPos = BulletMathUtils.GetPlayerPos(true);
 
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
