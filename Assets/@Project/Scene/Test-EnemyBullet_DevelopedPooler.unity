@@ -1510,14 +1510,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
         type: 3}
+      propertyPath: Phases.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
       propertyPath: Phases.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39,
         type: 2}
     - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
         type: 3}
+      propertyPath: Patterns.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+        type: 2}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
       propertyPath: onStartPhase.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: onStartPattern.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[0].patternSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+        type: 2}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[1].patternSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+        type: 2}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[2].patternSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+        type: 2}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[3].patternSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ed462e3f876819408e73557a7496ed7,
+        type: 2}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[0].patternName
+      value: Tararaa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[1].patternName
+      value: Tarara
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[2].patternName
+      value: Tarara
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: Patterns.Array.data[3].patternName
+      value: Tarara
       objectReference: {fileID: 0}
     - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
         type: 3}
@@ -1537,6 +1602,26 @@ PrefabInstance:
     - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
         type: 3}
       propertyPath: onStartPhase.Array.data[1].muzzleNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: onStartPattern.Array.data[0].cycleTime
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: onStartPattern.Array.data[0].muzzleNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: onStartPattern.Array.data[1].cycleTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771760284111785932, guid: 9ef0b906c9dab9c4db97f74a28b56377,
+        type: 3}
+      propertyPath: onStartPattern.Array.data[1].muzzleNum
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4173815912946932560, guid: 9ef0b906c9dab9c4db97f74a28b56377,

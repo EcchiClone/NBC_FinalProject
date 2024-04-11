@@ -56,7 +56,7 @@ MonoBehaviour:
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
-        _resetMoveType: 2
+        _resetMoveType: 1
         spreadA: 0
         maxSpreadAngleA: 0
         concentrationA: 0

@@ -3,20 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using static UnityEngine.UIElements.VisualElement;
 using static PhaseSO;
+using System;
 
 public class EnemyPhaseStarter : MonoBehaviour
 {
-    // 여러 페이즈 넣어 관리 할 수 있도록 하기
-    public PhaseSO[] Phases;    // PhaseSO 넣기
-    public PatternSO[] Patterns;    // 단일 패턴 사용만을 위한 Patterns 넣기
-
-    [SerializeField] private Transform[] muzzle = { }; // 총구 위치
-
-    public bool isShooting = true;         // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다. 코루틴이 종료됨.
-    //public bool[] isTriggerOn;      // 탄막 일괄 이벤트를 위한 트리거를 위해 추후 준비.
-
-    [SerializeField] private List<TestPhaseStarter> onStartPhase = new List<TestPhaseStarter>();
-
     [System.Serializable]
     private struct TestPhaseStarter
     {
@@ -24,6 +14,32 @@ public class EnemyPhaseStarter : MonoBehaviour
         public int muzzleNum;
         public bool isOneTime;
     }
+    [System.Serializable]
+    private struct TestPatternStarter
+    {
+        public int patternNum;
+        public int muzzleNum;
+        public int cycleTime;
+        public bool isOneTime;
+    }
+    [System.Serializable]
+    public struct PatternEntry
+    {
+        public PatternSO patternSO;
+        public string patternName;
+    }
+    // 여러 페이즈 넣어 관리 할 수 있도록 하기
+    public PhaseSO[] Phases;    // PhaseSO 넣기
+    public PatternEntry[] Patterns;    // 단일 패턴 사용만을 위한 Patterns 넣기
+
+    [SerializeField] private Transform[] muzzle = { }; // 총구 위치
+
+    public bool isShooting = true;         // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다. 코루틴이 종료됨.
+                                           //public bool[] isTriggerOn;      // 탄막 일괄 이벤트를 위한 트리거를 위해 추후 준비.
+
+    [SerializeField] private List<TestPhaseStarter> onStartPhase = new List<TestPhaseStarter>();
+    [SerializeField] private List<TestPatternStarter> onStartPattern = new List<TestPatternStarter>();
+
     private void OnEnable()
     {
         // muzzle 0 번 인덱스에 gameobject.transform 끼워넣기
@@ -36,10 +52,14 @@ public class EnemyPhaseStarter : MonoBehaviour
         muzzle = newMuzzle;
 
         isShooting = true;
-        
-        foreach (TestPhaseStarter t in onStartPhase) // TestPhaseStarter 만큼 사용
+
+        foreach (TestPhaseStarter t in onStartPhase)
         {
             StartPhase(t.phaseNum, t.muzzleNum, t.isOneTime);
+        }
+        foreach (TestPatternStarter t in onStartPattern)
+        {
+            StartPattern(t.patternNum, t.cycleTime, t.muzzleNum, t.isOneTime);
         }
     }
 
@@ -93,8 +113,8 @@ public class EnemyPhaseStarter : MonoBehaviour
                 isOneTime = isOneTime,
                 patternHierarchy = new PatternHierarchy
                 {
-                    patternSO = Patterns[PatternNum],
-                    patternName = Patterns[PatternNum].name,
+                    patternSO = Patterns[PatternNum].patternSO,
+                    patternName = Patterns[PatternNum].patternName,
                     genCondition = GenCondition.Timer,
                     startTime = 0f,
                     cycleTime = cycleTime,
