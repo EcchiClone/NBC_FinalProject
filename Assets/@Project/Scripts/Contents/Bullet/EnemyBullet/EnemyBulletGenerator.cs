@@ -152,7 +152,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         switch (settings.posDirection)
         {
             case PosDirection.Forward:
-                pivotDirection = masterGo.transform.forward;
+                pivotDirection = muzzleTransform.forward;
                 break;
             case PosDirection.ToPlayer:
                 if (playerGo != null)
