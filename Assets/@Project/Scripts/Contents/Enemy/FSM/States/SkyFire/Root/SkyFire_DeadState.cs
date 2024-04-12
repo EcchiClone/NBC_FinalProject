@@ -20,6 +20,8 @@ public class SkyFire_DeadState : BaseState
 
 
         Debug.Log("SkyFire : Enter Dead State");
+
+        Context.Entity.Invoke("Disappear", 3);
     }
     public override void UpdateState()
     {
@@ -34,5 +36,11 @@ public class SkyFire_DeadState : BaseState
 
     public override void InitializeSubState()
     {
+    }
+
+    private void Disappear()
+    {
+
+        Context.Entity.gameObject.SetActive(false);
     }
 }

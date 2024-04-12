@@ -6,6 +6,8 @@ public class Ball_DeadState : BaseState
 {
     private Transform entity;
 
+    bool _isExplodeFinish = false;
+
     public Ball_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
@@ -17,11 +19,16 @@ public class Ball_DeadState : BaseState
         // 얘는 터지는게 맞을듯..
         Context.Entity.Controller.Stop();
         Context.Entity.StartCoroutine(Explosion());
+
+        
     }
 
     public override void UpdateState()
     {
-        
+        if(_isExplodeFinish)
+        {
+            Context.Entity.gameObject.SetActive(false);
+        }
     }
 
     public override void CheckSwitchStates()
@@ -60,6 +67,6 @@ public class Ball_DeadState : BaseState
             
         }
         // TODO : 사라지자
-
+        _isExplodeFinish = true;
     }
 }

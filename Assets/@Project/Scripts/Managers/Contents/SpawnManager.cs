@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Minions
+{
+    Spider,
+    Ball,
+    Turret,
+}
+
+public enum Bosses
+{
+    SkyFire,
+}
+
 public class SpawnManager
 {
     private List<Vector3> _groundCell = new List<Vector3>(); // 탐지 전의 모든 지상 셀 (어떤 요소와도 겹치지 않음)
@@ -23,15 +36,14 @@ public class SpawnManager
     float _rooftopDetectDistance = 140f;
 
     // TEMP
-    private GameObject spiderPrefab;
-    private GameObject ballPrefab;
-    private GameObject turretPrefab;
-    private List<GameObject> _groundUnitList = new List<GameObject>();
-    private List<GameObject> _rooftopUnitList = new List<GameObject>();
+
+    private List<GameObject> _activatedUnits = new List<GameObject>();
+
+
 
     public SpawnManager()
     {
-        gridWorldSize = new Vector3(100, 100, 100);
+        gridWorldSize = new Vector3(200, 200, 200);
         cellRadius = 5;
 
         _cellDiameter = cellRadius * 2;
@@ -42,29 +54,10 @@ public class SpawnManager
 
     public void Initialize() // 진짜 너무 하드코딩 수정 필요    
     {
-        spiderPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Spider_Normal");
-        turretPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Turret");
-        ballPrefab = Resources.Load<GameObject>("Prefabs/Enemy/Ball_Normal");
-
-        for (int i = 0; i < 10; ++i)
-        {
-            GameObject gameObject = GameObject.Instantiate(spiderPrefab);
-            gameObject.SetActive(false);
-            _groundUnitList.Add(gameObject);
-
-            gameObject = GameObject.Instantiate(ballPrefab);
-            gameObject.SetActive(false);
-            _groundUnitList.Add(gameObject);
-
-            gameObject = GameObject.Instantiate(turretPrefab);
-            gameObject.SetActive(false);
-            _rooftopUnitList.Add(gameObject);
-        }
     }
 
-    public void Spawn(int count, int mobTypes) // 코루틴 변경 필요
-    {
-        
+    public void SpawnUnits(int count, int mobTypes) // 코루틴 변경 필요
+    {        
         CreateCell();
         DetectSpawnPoint();
         Shuffle(_groundSpawnPoints);
@@ -72,42 +65,51 @@ public class SpawnManager
 
         if (count > _groundSpawnPoints.Count)
             count = _groundSpawnPoints.Count;
-        
+        /*
         if (count > _rooftopSpawnPoints.Count)
-            count = _rooftopSpawnPoints.Count;
+            count = _rooftopSpawnPoints.Count;*/
 
-        //DestroyAllUnit();
+        if (_activatedUnits.Count != 0)
+            _activatedUnits.Clear();
 
         for (int i = 0; i < count; ++i)
         {
-            // 이 부분은 나중에 풀링 사용해야 함. => 
-            _groundUnitList[i].transform.position = _groundSpawnPoints[i];
-            _groundUnitList[i].SetActive(true);
-
-            _rooftopUnitList[i].transform.position = _rooftopSpawnPoints[i];
-            _rooftopUnitList[i].SetActive(true);
+            _activatedUnits.Add(ObjectPooler.SpawnFromPool("Spider_Normal", _groundSpawnPoints[i]));
         }
+
+        int j = 0;
+    }
+
+    public void SpawnBoss()
+    {
+        
     }
 
     public void DestroyAllUnit() // TODO : 수정 필요 임시임
     {
-        if (null == _groundUnitList)
-            return;
-
-        foreach (GameObject unit in _groundUnitList)
+        if(_activatedUnits.Count > 0)
         {
-            unit.SetActive(false);
-        }
-
-        if (null == _rooftopUnitList)
-            return;
-
-        foreach (GameObject unit in _rooftopUnitList)
-        {
-            unit.SetActive(false);
+            foreach(GameObject obj in _activatedUnits)
+            {
+                obj.SetActive(false);
+            }
+            _activatedUnits.Clear();
         }
     }
 
+    public bool AllUnitDisabled()
+    {
+        if (_activatedUnits.Count == 0) return true; // 임시
+
+        foreach(GameObject unit in _activatedUnits)
+        {
+            if (unit.activeSelf) return false;
+        }
+
+        return true;
+    }
+
+    #region 스폰 포인트 연산
     public void CreateCell() // 그리드의 셀만 만듦
     {
         _groundCell.Clear();
@@ -163,6 +165,7 @@ public class SpawnManager
         }
         _rooftopSpawnPoints = new List<Vector3>(_rooftopTempPoint);
     }
+    #endregion
 
     private void Shuffle<T>(List<T> list) // 유틸에 넣기
     {

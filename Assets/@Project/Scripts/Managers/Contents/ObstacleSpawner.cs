@@ -45,6 +45,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
         navMeshSurface.RemoveData();
         Destroy(_currentObstacle);
         _currentObstacle = null;
+        RebuildNavMesh();
     }
     
     private void RebuildNavMesh()

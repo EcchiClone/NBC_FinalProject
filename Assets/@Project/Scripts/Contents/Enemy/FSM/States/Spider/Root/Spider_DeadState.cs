@@ -12,6 +12,9 @@ public class Spider_DeadState : BaseState // TODO
     public override void EnterState()
     {
         Context.Entity.Controller.SetDestination(Context.Entity.transform.position);
+
+
+        Context.Entity.gameObject.SetActive(false);
     }
     public override void UpdateState()
     {

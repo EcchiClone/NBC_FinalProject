@@ -238,9 +238,62 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
+      propertyPath: pools.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
       propertyPath: pools.Array.data[0].size
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[11].tag
+      value: Spider_Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[12].tag
+      value: Ball_Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[13].tag
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[11].size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[12].size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[13].size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[11].prefab
+      value: 
+      objectReference: {fileID: 6296827418220432883, guid: 625920ff42a9df940ad13ce88a40d424,
+        type: 3}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[12].prefab
+      value: 
+      objectReference: {fileID: 3421490545972492356, guid: 6c604f1719b197e40b7ed26c74487093,
+        type: 3}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[13].prefab
+      value: 
+      objectReference: {fileID: 5862130606958241670, guid: 9f9b6d8c57315c24382c9169fc0912b9,
+        type: 3}
     - target: {fileID: 2579727693239320804, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: m_RootOrder
@@ -357,6 +410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fff982de0cc14a40a23a1c7d73f277c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   _obstaclePrefabs:
   - {fileID: 734754808659080353, guid: a0d738f70227b7740a8e8f0105b4c04a, type: 3}
   - {fileID: 4681555832471762224, guid: 5323612711db6e34e94a6e52c8544b0b, type: 3}
@@ -1664,7 +1720,7 @@ Transform:
   m_GameObject: {fileID: 4775883526377009739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8002146542053213762}
@@ -1682,7 +1738,7 @@ GameObject:
   - component: {fileID: 8444442807114235686}
   - component: {fileID: 6129408922601002464}
   - component: {fileID: 1332838655003012252}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

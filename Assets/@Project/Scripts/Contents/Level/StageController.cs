@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum StageType
+public enum Stage
 {
-
+    Stage1, 
+    Stage2, 
+    BossStage
 }
 
 
 public class StageController : MonoBehaviour
 {
-    private float _elapsedTime = 0f;
-    private float _limitTime = 3f;
+    private float _stageTimer = 0f;
+    private float _limitTime = 30f;
 
-    private int _currentStage = 1;
+    private Stage _currentStage = Stage.Stage1;
+    private int _currentStageNumber = 0;
 
-    // 스테이지 매니저를 담을 참조 변수
     SpawnManager _spawnManager;
     ObstacleSpawner _obstacleManager;
 
@@ -27,59 +29,74 @@ public class StageController : MonoBehaviour
 
         _obstacleManager = GetComponent<ObstacleSpawner>();
 
-        SetStage(_currentStage);
+        StartStage();
     }
 
     void Update()
     {
-        _elapsedTime += Time.deltaTime;
-        if(_elapsedTime >= _limitTime)
+        _stageTimer -= Time.deltaTime;
+        switch (_currentStage)
         {
-            GameOver();
-            ++_currentStage;
-            _elapsedTime = 0;
-            Debug.Log("current stage : "+_currentStage);
-            SetStage(_currentStage);
+            case Stage.Stage1:
+            case Stage.Stage2:
+                if (_stageTimer > 0 && _spawnManager.AllUnitDisabled())
+                    StageClear();                    
+                else if(_stageTimer <= 0 && !_spawnManager.AllUnitDisabled())
+                    GameOver();
+                break;
+
+            case Stage.BossStage:
+                if (_stageTimer > 0 && _spawnManager.AllUnitDisabled())
+                    StageClear();
+                else if (_stageTimer <= 0 && !_spawnManager.AllUnitDisabled())
+                    GameOver();
+                break;
         }
     }
 
-    public void SetStage(int stage)
+    public void StartStage()
     {
-        int num = stage % 3;
-        if (num == 0) num = 3;
-
-        switch (num)
+        Debug.Log("현재 스테이지 : " + _currentStageNumber);
+        switch (_currentStage)
         {
-            case 1:
-                // 1. 기존 유닛 삭제
-                _spawnManager.DestroyAllUnit();
-                // 2. 지형 생성
-                _obstacleManager.SpawnObstacle();
-                // 3. 적 스폰
-                _spawnManager.Spawn(10, 0);
+            case Stage.Stage1:
+                _stageTimer = 10f;                
+                _spawnManager.DestroyAllUnit();     // 1. 기존 유닛 삭제                
+                _obstacleManager.SpawnObstacle();   // 2. 지형 생성                
+                _spawnManager.SpawnUnits(10, 0);    // 3. 적 스폰
                 break;
-            case 2:
+
+            case Stage.Stage2:
+                _stageTimer = 10f;
                 _spawnManager.DestroyAllUnit();
-                _spawnManager.Spawn(10, 0);
+                _spawnManager.SpawnUnits(10, 0);
                 break;
-            case 3:
+
+            case Stage.BossStage:
+                _stageTimer = 10f;
                 _spawnManager.DestroyAllUnit();
                 _obstacleManager.RemoveObstacle();
-                break;
-            default:
-                _currentStage = 1;
+                _spawnManager.SpawnBoss();
+                _spawnManager.SpawnUnits(1, 0); // 임시
                 break;
         }        
     }
 
-    public void Clear()
+    public void StageClear()
     {
-        ++_currentStage;
+        ++_currentStageNumber;
+        _currentStage = (Stage)(_currentStageNumber % 3);
+        StartStage();
     }
 
     private void GameOver()
     {
-        // 게임 오버 씬으로
-        //Debug.Log();
+        // 게임 오버 씬으로        
+        Debug.Log("게임 오버");
+
+        // 임시로 무한으로 돌도록 함
+        _currentStageNumber = 0;
+        _currentStage = Stage.Stage1;
+        StartStage();
     }
 }

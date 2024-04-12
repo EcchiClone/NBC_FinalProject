@@ -13,8 +13,8 @@ public class SkyFire : Entity
 
     protected override void Initialize()
     {
-        //Target = GameObject.Find("Target").transform;
-        Target = Managers.Module.CurrentModule.transform;
+        Target = GameObject.Find("Target").transform;
+        //Target = Managers.Module.CurrentModule.transform;
         CurrentHelth = Data.maxHealth;
 
         Controller = new AirUnitController(this);

@@ -11,6 +11,8 @@ public class Turret_DeadState : BaseState
 
     public override void EnterState()
     {
+
+        Context.Entity.gameObject.SetActive(false);
     }
 
     public override void UpdateState()
