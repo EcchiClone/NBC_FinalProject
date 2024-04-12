@@ -5,8 +5,8 @@ using UnityEngine;
 
 public enum Stage
 {
-    Stage1, 
-    Stage2, 
+    Stage1,
+    Stage2,
     BossStage
 }
 
@@ -17,7 +17,7 @@ public class StageController : MonoBehaviour
     private float _limitTime = 30f;
 
     private Stage _currentStage = Stage.Stage1;
-    private int _currentStageNumber = 0;
+    private int _currentStageNumber = 1;
 
     SpawnManager _spawnManager;
     ObstacleSpawner _obstacleManager;
@@ -39,8 +39,8 @@ public class StageController : MonoBehaviour
             case Stage.Stage1:
             case Stage.Stage2:
                 if (_stageTimer > 0 && _spawnManager.AllUnitDisabled())
-                    StageClear();                    
-                else if(_stageTimer <= 0 && !_spawnManager.AllUnitDisabled())
+                    StageClear();
+                else if (_stageTimer <= 0 && !_spawnManager.AllUnitDisabled())
                     GameOver();
                 break;
 
@@ -59,10 +59,10 @@ public class StageController : MonoBehaviour
         switch (_currentStage)
         {
             case Stage.Stage1:
-                _stageTimer = 10f;                          
+                _stageTimer = 10f;
                 _obstacleManager.SpawnObstacle();   // 2. 지형 생성                
                 _spawnManager.SpawnUnits(
-                    new List<UnitSpawnInfo> 
+                    new List<UnitSpawnInfo>
                     {
                         new UnitSpawnInfo(UnitType.Minion_Spider, 20),
                         new UnitSpawnInfo(UnitType.Minion_Ball, 20),
@@ -87,7 +87,7 @@ public class StageController : MonoBehaviour
                 _spawnManager.SpawnBoss();
                 //_spawnManager.SpawnUnits(1, 0); // 임시
                 break;
-        }        
+        }
     }
 
     public void StageClear()
@@ -109,4 +109,45 @@ public class StageController : MonoBehaviour
     }
 
     // 스테이지 넘버에 따라서 
+
+
+    //#region 국 작업        
+    //private float _timer;
+
+    //private Coroutine co_TimerRoutine;
+
+    //public void Init()
+    //{
+    //    _spawnManager = Managers.SpawnManager;
+    //    _spawnManager.OnStageClear += () => _timer = 0;
+    //    Managers.ActionManager.OnPlayerDead += StopTimer;
+
+    //    _obstacleManager = GetComponent<ObstacleSpawner>();
+    //    _obstacleManager.SpawnObstacle();        
+
+    //    _spawnManager.StageStart();
+    //    co_TimerRoutine = StartCoroutine(Co_StartTimer());
+    //}
+
+    //private IEnumerator Co_StartTimer()
+    //{
+    //    while (true)
+    //    {
+    //        _timer += Time.deltaTime;
+    //        if (_timer > _spawnManager.LevelData.SpawnTime)
+    //            break;            
+
+    //        yield return null;
+    //    }
+    //    _spawnManager.TimeOut();
+    //}
+
+    //private void StopTimer()
+    //{
+    //    if (co_TimerRoutine != null)
+    //        StopCoroutine(co_TimerRoutine);
+
+    //    co_TimerRoutine = null;
+    //}
+    //#endregion
 }

@@ -57,5 +57,13 @@ public class Define
         Gun,
         Cannon,
         Missile
-    }    
+    }
+
+    public enum PerkAdjustType
+    {
+        raisePercentage,
+        RedusePercentage,
+        plusValue,
+        minusValue,
+    }
 }

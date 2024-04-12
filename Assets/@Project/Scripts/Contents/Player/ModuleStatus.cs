@@ -7,6 +7,8 @@ public class ModuleStatus
     #region Common
     public float Armor { get; private set; } // HP
     public float Weight { get; private set; }
+
+    public float DEF { get; private set; } // PerkOnly
     #endregion
 
     #region Lower
@@ -35,7 +37,7 @@ public class ModuleStatus
     public bool IsDead { get; private set; } = false;
 
     private readonly float DASH_BOOSTER_CONSUME = 20f;
-    private readonly float HOVER_BOOSTER_CONSUME = 1f;
+    private readonly float HOVER_BOOSTER_CONSUME = 100f;
 
     public ModuleStatus(LowerPart lower, UpperPart upper, WeaponPart leftArm, WeaponPart rightArm, WeaponPart leftShoulder, WeaponPart rightShoulder)
     {
@@ -67,7 +69,7 @@ public class ModuleStatus
 
     public void GetDamage(float damage)
     {
-        CurrentArmor -= damage;
+        CurrentArmor -= damage - DEF;
         if (CurrentArmor <= 0)
             Dead();
         OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
@@ -94,7 +96,7 @@ public class ModuleStatus
         if (CurrentBooster <= 0)
             return;
 
-        CurrentBooster = Mathf.Max(0, CurrentBooster - HOVER_BOOSTER_CONSUME);
+        CurrentBooster = Mathf.Max(0, CurrentBooster - HOVER_BOOSTER_CONSUME * Time.deltaTime);
         action.Invoke();
         OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
     }
