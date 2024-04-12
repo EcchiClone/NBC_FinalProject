@@ -12,6 +12,8 @@ public class Turret_AliveState : BaseState
 
     public override void EnterState()
     {
+        InitializeSubState();
+        _currentSubState?.EnterState();
     }
 
     public override void UpdateState()

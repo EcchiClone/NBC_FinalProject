@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6977006344742843419}
   - component: {fileID: 8045905104740754571}
   - component: {fileID: 1291262948723047527}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 9074371550342994483}
   - component: {fileID: 4733969134129305096}
   - component: {fileID: 8795392848562640954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5001905234286291093}
   - component: {fileID: 5562706183859189870}
   - component: {fileID: 8771480359384231389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5833027199015897931}
   - component: {fileID: 2034298466899775027}
   - component: {fileID: -6180294823563492839}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Minion_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 5862130606958241670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.98, y: 2.21, z: -29.45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6306307428354500526}
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3042368262205468175}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 495517500398991078}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8393130157888230274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
