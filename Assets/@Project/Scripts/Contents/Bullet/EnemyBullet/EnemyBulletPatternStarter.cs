@@ -39,8 +39,7 @@ public class EnemyBulletPatternStarter : MonoBehaviour
 
     [SerializeField] private List<TestPhaseStarter> onStartPhase = new List<TestPhaseStarter>();
     [SerializeField] private List<TestPatternStarter> onStartPattern = new List<TestPatternStarter>();
-
-    private void OnEnable()
+    private void Awake()
     {
         // muzzle 0 번 인덱스에 gameobject.transform 끼워넣기
         Transform[] newMuzzle = new Transform[muzzle.Length + 1];
@@ -50,7 +49,9 @@ public class EnemyBulletPatternStarter : MonoBehaviour
             newMuzzle[i + 1] = muzzle[i];
         }
         muzzle = newMuzzle;
-
+    }
+    private void OnEnable()
+    {
         isShooting = true;
 
         foreach (TestPhaseStarter t in onStartPhase)
