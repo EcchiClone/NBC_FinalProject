@@ -249,17 +249,17 @@ PrefabInstance:
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[11].tag
-      value: Spider_Normal
+      value: Minion_Spider
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[12].tag
-      value: Ball_Normal
+      value: Minion_Ball
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[13].tag
-      value: Turret
+      value: Minion_Turret
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
@@ -426,9 +426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fff982de0cc14a40a23a1c7d73f277c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshLayerMask:
-    serializedVersion: 2
-    m_Bits: 512
   _obstaclePrefabs:
   - {fileID: 734754808659080353, guid: a0d738f70227b7740a8e8f0105b4c04a, type: 3}
   - {fileID: 4681555832471762224, guid: 5323612711db6e34e94a6e52c8544b0b, type: 3}
@@ -1233,16 +1230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39, type: 2}
-  muzzle:
-  - {fileID: 2017065547}
-  - {fileID: 121513744}
-  - {fileID: 1642150167}
-  isShooting: 0
-  onStartPhase: []
 --- !u!1 &1879048347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1653,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8002146542053213762}
-  - component: {fileID: 1485891530232956717}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -1696,37 +1682,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1485891530232956717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473389784624954120}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4164b0cbee07d724690a3761b20d9ace, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!4 &3376758894558042141
 Transform:
   m_ObjectHideFlags: 0

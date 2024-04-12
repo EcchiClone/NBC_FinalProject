@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4398895397077187070}
   - component: {fileID: 2305463440183455664}
   m_Layer: 0
-  m_Name: Ball_Normal
+  m_Name: Minion_Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

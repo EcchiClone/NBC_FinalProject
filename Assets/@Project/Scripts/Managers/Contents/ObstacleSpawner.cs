@@ -9,22 +9,24 @@ using UnityEngine.AI;
 public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용하도록?
 {
     NavMeshSurface navMeshSurface;
-    [SerializeField] LayerMask navMeshLayerMask;
+    private int _groundLayer;
+    private int _unwalkableLayer;
+    private int combinedLayerMask;
 
     [SerializeField]private GameObject[] _obstaclePrefabs;
     private GameObject _currentObstacle;
 
-    private bool _isObstacleSpawnDone = false;// 코루틴 끝났는지 확인 변수
 
     private void Awake()
     {
         GetOrAddComponent(out navMeshSurface);
-        navMeshLayerMask = LayerMask.GetMask("Ground");
+        _groundLayer = LayerMask.NameToLayer("Ground");
+        _unwalkableLayer = LayerMask.NameToLayer("Unwalkable");
+        combinedLayerMask = (1 << _groundLayer) | (1 << _unwalkableLayer);
     }
 
     public void SpawnObstacle()
     {
-        _isObstacleSpawnDone = false;
         if (_currentObstacle != null)
             RemoveObstacle();
 
@@ -33,8 +35,6 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
 
         RebuildNavMesh();
         PathRequestManager.instance.CreateGrid(); // A* 노드 생성
-
-        _isObstacleSpawnDone = true;
     }
 
     public void RemoveObstacle()
@@ -54,7 +54,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
             throw new ArgumentNullException("navMeshSurface is null");
 
         navMeshSurface.RemoveData();
-        navMeshSurface.layerMask = navMeshLayerMask;
+        navMeshSurface.layerMask = combinedLayerMask;
         navMeshSurface.BuildNavMesh();
     }
 

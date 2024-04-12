@@ -773,10 +773,10 @@ GameObject:
   - component: {fileID: 1785088472369743479}
   - component: {fileID: 8605225287757612026}
   - component: {fileID: 3592014728632222735}
-  - component: {fileID: 6664927974319398572}
   - component: {fileID: -4904786964048673212}
+  - component: {fileID: 7058569769794827475}
   m_Layer: 0
-  m_Name: Spider_Normal
+  m_Name: Minion_Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -859,25 +859,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6664927974319398572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6296827418220432883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
-  muzzle:
-  - {fileID: 8440490075170009458}
-  - {fileID: 7911522603296387778}
-  isShooting: 0
-  onStartPhase: []
 --- !u!114 &-4904786964048673212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +871,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7058569769794827475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296827418220432883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases:
+  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
+  Patterns: []
+  muzzle:
+  - {fileID: 8440490075170009458}
+  - {fileID: 7911522603296387778}
+  isShooting: 1
+  onStartPhase: []
+  onStartPattern: []
 --- !u!1 &7369946773782727429
 GameObject:
   m_ObjectHideFlags: 0

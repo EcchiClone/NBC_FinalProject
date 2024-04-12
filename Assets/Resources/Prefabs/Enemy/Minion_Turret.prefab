@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 2034298466899775027}
   - component: {fileID: -6180294823563492839}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Minion_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

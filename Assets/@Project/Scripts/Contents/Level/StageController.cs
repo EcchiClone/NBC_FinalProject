@@ -25,7 +25,6 @@ public class StageController : MonoBehaviour
     void Start()
     {
         _spawnManager = Managers.SpawnManager;
-        _spawnManager.Initialize();
 
         _obstacleManager = GetComponent<ObstacleSpawner>();
 
@@ -60,24 +59,33 @@ public class StageController : MonoBehaviour
         switch (_currentStage)
         {
             case Stage.Stage1:
-                _stageTimer = 10f;                
-                _spawnManager.DestroyAllUnit();     // 1. 기존 유닛 삭제                
+                _stageTimer = 10f;                          
                 _obstacleManager.SpawnObstacle();   // 2. 지형 생성                
-                _spawnManager.SpawnUnits(10, 0);    // 3. 적 스폰
+                _spawnManager.SpawnUnits(
+                    new List<UnitSpawnInfo> 
+                    {
+                        new UnitSpawnInfo(UnitType.Minion_Spider, 20),
+                        new UnitSpawnInfo(UnitType.Minion_Ball, 20),
+                    }
+                    );    // 3. 적 스폰
                 break;
 
             case Stage.Stage2:
                 _stageTimer = 10f;
-                _spawnManager.DestroyAllUnit();
-                _spawnManager.SpawnUnits(10, 0);
+                _spawnManager.SpawnUnits(
+                    new List<UnitSpawnInfo>
+                    {
+                        new UnitSpawnInfo(UnitType.Minion_Spider, 30),
+                        new UnitSpawnInfo(UnitType.Minion_Ball, 30),
+                    }
+                    );
                 break;
 
             case Stage.BossStage:
                 _stageTimer = 10f;
-                _spawnManager.DestroyAllUnit();
                 _obstacleManager.RemoveObstacle();
                 _spawnManager.SpawnBoss();
-                _spawnManager.SpawnUnits(1, 0); // 임시
+                //_spawnManager.SpawnUnits(1, 0); // 임시
                 break;
         }        
     }
@@ -99,4 +107,6 @@ public class StageController : MonoBehaviour
         _currentStage = Stage.Stage1;
         StartStage();
     }
+
+    // 스테이지 넘버에 따라서 
 }

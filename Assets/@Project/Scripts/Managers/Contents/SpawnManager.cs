@@ -3,17 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Minions
-{
-    Spider,
-    Ball,
-    Turret,
-}
 
-public enum Bosses
-{
-    SkyFire,
-}
 
 public class SpawnManager
 {
@@ -52,32 +42,30 @@ public class SpawnManager
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / _cellDiameter);
     }
 
-    public void Initialize() // 진짜 너무 하드코딩 수정 필요    
-    {
-    }
 
-    public void SpawnUnits(int count, int mobTypes) // 코루틴 변경 필요
-    {        
+    public void SpawnUnits(List<UnitSpawnInfo> unitSpawnInfos) // 코루틴 변경 필요
+    {
+        DestroyAllUnit();
+
         CreateCell();
         DetectSpawnPoint();
         Shuffle(_groundSpawnPoints);
         Shuffle(_rooftopSpawnPoints);
 
-        if (count > _groundSpawnPoints.Count)
-            count = _groundSpawnPoints.Count;
-        /*
-        if (count > _rooftopSpawnPoints.Count)
-            count = _rooftopSpawnPoints.Count;*/
 
         if (_activatedUnits.Count != 0)
             _activatedUnits.Clear();
 
-        for (int i = 0; i < count; ++i)
-        {
-            _activatedUnits.Add(ObjectPooler.SpawnFromPool("Spider_Normal", _groundSpawnPoints[i]));
-        }
+        int spawnIndex = 0;
 
-        int j = 0;
+        foreach(UnitSpawnInfo spawninfo in unitSpawnInfos) // 터렛도 생각해야함
+        {
+            string unitType = spawninfo.unitType.ToString();
+            for (int i = 0; i < spawninfo.count; ++i)
+            {
+                _activatedUnits.Add(ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[spawnIndex++]));
+            }
+        }
     }
 
     public void SpawnBoss()
@@ -85,7 +73,7 @@ public class SpawnManager
         
     }
 
-    public void DestroyAllUnit() // TODO : 수정 필요 임시임
+    private void DestroyAllUnit()
     {
         if(_activatedUnits.Count > 0)
         {
