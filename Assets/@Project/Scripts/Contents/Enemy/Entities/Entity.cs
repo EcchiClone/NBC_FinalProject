@@ -13,12 +13,12 @@ public abstract class Entity : MonoBehaviour
     public Controller Controller { get; protected set; }
     public BaseStateMachine StateMachine { get; set; }
 
-    public EnemyPhaseStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
+    public EnemyBulletPatternStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
 
 
     private void Start()
     {
-        enemyPhaseStarter = GetComponent<EnemyPhaseStarter>();
+        enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         Initialize();        
     }
 
