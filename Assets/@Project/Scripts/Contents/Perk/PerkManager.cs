@@ -105,6 +105,11 @@ public class PerkManager : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        SavePerkSequence();
+    }
+
     private void CheckDataExists()
     {
         // 저장된 퍼크 파일이 전부 존재하는지 확인
@@ -158,6 +163,22 @@ public class PerkManager : MonoBehaviour
         _gen.InstantiatePerks(_tier1Perks.data);
         _gen.InstantiatePerks(_tier2Perks.data);
         _gen.InstantiatePerks(_tier3Perks.data);
+    }
+
+    private void SavePerkSequence()
+    {
+        // 현재 포인트 저장
+        _tier1Perks.point = PlayerPoint;
+
+        // PerkManager -> JsonSaveNLoader
+        _json.tier1PerkData = _tier1Perks;
+        _json.tier2PerkData = _tier2Perks;
+        _json.tier3PerkData = _tier3Perks;
+
+        // json으로 현재 정보 저장
+        _json.SavePerkData(_json.tier1PerkData, "tier1PerkData");
+        _json.SavePerkData(_json.tier2PerkData, "tier2PerkData");
+        _json.SavePerkData(_json.tier3PerkData, "tier3PerkData");
     }
 
     private void ExtractDataSequence()

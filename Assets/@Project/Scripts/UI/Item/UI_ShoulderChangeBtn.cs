@@ -17,7 +17,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         LoadPartImage();
 
         Managers.ActionManager.OnShoulderModeChange += ChangeMode;
-        Managers.ActionManager.OnShoulderPartChange += ChangePart;        
+        Managers.ActionManager.OnShoulderEquip += ChangePart;        
     }
 
     private void ChangePart(int index)
@@ -43,7 +43,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Shoulder_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Shoulder_Right);
-            if (Managers.GameManager.PartIndex_LeftShoulder == _currentIndex)
+            if (Managers.GameManager.PartIndex_RightShoulder == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -71,7 +71,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     private void ChangePart()
     {
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
-        Managers.ActionManager.CallShoulderPartChange(_currentIndex);
+        Managers.ActionManager.CallShoulderEquip(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {

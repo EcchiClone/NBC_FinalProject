@@ -161,8 +161,12 @@ public class PatternSOEditor : Editor
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
             if (property.name == "concentrationB")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+
             if (property.name == "initMoveDirection")
-                 continue; // 현재 미사용, 임시 비활성화
+                continue; // 현재 미사용, 임시 비활성화
+
+            if (property.name == "initLocalYRotationSpeed")
+                if (!(baseProperty.FindPropertyRelative("isCluster").boolValue == true)) continue;
 
             if (property.name == "enemyBulletPrefab") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 오브젝트")); continue; }
             if (property.name == "initDelay") { EditorGUILayout.PropertyField(property, new GUIContent("시작지연")); continue; }
@@ -192,9 +196,15 @@ public class PatternSOEditor : Editor
             if (property.name == "enemyBulletMoveType") { EditorGUILayout.PropertyField(property, new GUIContent("움직임 유형")); continue; }
             if (property.name == "initSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("생성 시 속도")); continue; }
             if (property.name == "initMoveDirection") { EditorGUILayout.PropertyField(property, new GUIContent("이동 방향(게 처럼 옆으로 움직이는 게 아니라면 미사용)")); continue; }
-            if (property.name == "initAccelMultiple") { EditorGUILayout.PropertyField(property, new GUIContent("가속도(곱)")); continue; }
-            if (property.name == "initAccelPlus") { EditorGUILayout.PropertyField(property, new GUIContent("가속도(합)")); continue; }
+            if (property.name == "initAccelMultiple") { EditorGUILayout.PropertyField(property, new GUIContent("곱 가속도(일정:1)")); continue; }
+            if (property.name == "initAccelPlus") { EditorGUILayout.PropertyField(property, new GUIContent("합 가속도(일정:0)")); continue; }
+            if (property.name == "minSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("최소 속도")); continue; }
+            if (property.name == "maxSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("최대 속도")); continue; }
             if (property.name == "initRotationSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("회전 속도")); continue; }
+
+
+            if (property.name == "isCluster") { EditorGUILayout.PropertyField(property, new GUIContent("군집 탄막의 여부")); continue; }
+            if (property.name == "initLocalYRotationSpeed") { EditorGUILayout.PropertyField(property, new GUIContent("군집의 Y 회전속도")); continue; }
             if (property.name == "enemyBulletChangeMoveMethod") { EditorGUILayout.PropertyField(property, new GUIContent("작동 방식")); continue; }
             if (property.name == "enemyBulletChangeMoveProperty") { EditorGUILayout.PropertyField(property, new GUIContent("변화 목록")); continue; }
 

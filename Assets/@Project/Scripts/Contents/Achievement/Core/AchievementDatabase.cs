@@ -11,7 +11,7 @@ using UnityEditor;
 public class AchievementDatabase : ScriptableObject
 {
     [SerializeField]
-    private List<Achievement> achievements;
+    public List<Achievement> achievements;
 
     public IReadOnlyList<Achievement> Achievements => achievements;
 

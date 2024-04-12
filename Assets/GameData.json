@@ -3,8 +3,8 @@
     "achievementCoin": 100,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
-    "partIndex_LeftArm": 3,
-    "partIndex_RightArm": 3,
+    "partIndex_LeftArm": 0,
+    "partIndex_RightArm": 1,
     "partIndex_LeftShoulder": 0,
     "partIndex_RightShoulder": 0,
     "unlockedPartsList": [

@@ -17,10 +17,10 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         LoadPartImage();
 
         Managers.ActionManager.OnArmModeChange += ChangeMode;
-        Managers.ActionManager.OnArmPartChange += ChangePart;
+        Managers.ActionManager.OnArmEquip += EquipPart;
     }
 
-    private void ChangePart(int index)
+    private void EquipPart(int index)
     {
         if (_currentIndex != index)
             _equip.SetActive(false);
@@ -43,7 +43,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
         {
             Managers.ActionManager.CallUndoMenuCam(Define.CamType.Arm_Left);
             Managers.ActionManager.CallSelectorCam(Define.CamType.Arm_Right);
-            if (Managers.GameManager.PartIndex_LeftArm == _currentIndex)
+            if (Managers.GameManager.PartIndex_RightArm == _currentIndex)
                 _equip.SetActive(true);
             else
                 _equip.SetActive(false);
@@ -71,7 +71,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     private void ChangePart()
     {
         UI_ArmSelector selector = _parentUI as UI_ArmSelector;
-        Managers.ActionManager.CallArmPartChange(_currentIndex);
+        Managers.ActionManager.CallArmEquip(_currentIndex);
 
         if (selector.CurrentChangeMode == UI_ArmSelector.ChangeArmMode.LeftArm)
         {

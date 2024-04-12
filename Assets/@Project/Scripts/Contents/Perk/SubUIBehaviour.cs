@@ -22,7 +22,6 @@ public class SubUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         SetSelectedPerkInfo();
         PerkManager.Instance.CallOnPerkClicked();
-        Debug.Log(PerkManager.Instance.RequirePoint);
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)

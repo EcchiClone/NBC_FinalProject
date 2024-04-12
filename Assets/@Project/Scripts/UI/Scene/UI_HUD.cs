@@ -65,7 +65,7 @@ public class UI_HUD : UI_Scene
         Managers.Module.CurrentRightShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;
 
         Managers.ActionManager.OnPlayerDead += () => _gameOverPanel.SetActive(true);
-        _returnBtn.onClick.AddListener(() => SceneManager.LoadScene(0));
+        _returnBtn.onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.MainScene));
     }
 
     private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)

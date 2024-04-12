@@ -14,6 +14,7 @@ public class ActivedData
     public float SpeedModular;
     public float TestVar1;
     public float TestVar2;
+    // ... 이하 지윤님 스크립트에 맞춰 계속 추가할 것
 
     public ActivedData
         // 디폴트 값

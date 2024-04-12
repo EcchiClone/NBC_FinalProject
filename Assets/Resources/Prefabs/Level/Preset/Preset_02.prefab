@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4405814565246852428}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Preset_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,28 +31,28 @@ Transform:
   - {fileID: 4366335027711811083}
   - {fileID: 1056542764337681891}
   - {fileID: 1238741593566972333}
-  - {fileID: 4958034983913240448}
+  - {fileID: 3580018605114516765}
   - {fileID: 9116919191755895188}
   - {fileID: 2759847944498313955}
   - {fileID: 5817489607321785491}
-  - {fileID: 7083943944521757583}
+  - {fileID: 4339642025299596583}
   - {fileID: 1494418934846335869}
   - {fileID: 2914221202643307673}
   - {fileID: 7065381083925693859}
   - {fileID: 1216301992819347547}
   - {fileID: 7833550506822156016}
   - {fileID: 3484257266784579098}
-  - {fileID: 6033082684368233980}
+  - {fileID: 6945829668437887260}
   - {fileID: 6158777383853394383}
   - {fileID: 8560792339557923549}
-  - {fileID: 7957850590868702731}
+  - {fileID: 6751649040642124525}
   - {fileID: 3308608365594233960}
   - {fileID: 7364655450276381173}
   - {fileID: 2602016220377955821}
   - {fileID: 7066423124779001156}
-  - {fileID: 3566163766183268133}
+  - {fileID: 2729177626987204455}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &254394498754052861
 PrefabInstance:
@@ -117,10 +117,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -145,6 +160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595382057365943723, guid: 05284f35ebb8c4f4382bdf99236e20dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7757897901603895136, guid: 05284f35ebb8c4f4382bdf99236e20dd,
         type: 3}
@@ -275,10 +295,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -359,6 +394,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building10
       objectReference: {fileID: 0}
+    - target: {fileID: 7745744294335008575, guid: 75d22fb4b0076854b8f8031faab22b92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -433,10 +473,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -461,6 +516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922350073494956360, guid: 7af1c23eb8ec27548bb21219cae41549,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8114541640335273619, guid: 7af1c23eb8ec27548bb21219cae41549,
         type: 3}
@@ -540,6 +600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building6
+      objectReference: {fileID: 0}
+    - target: {fileID: 983372080574526800, guid: 7fa21a4bcecfb354495a62d00976b0d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3574248449661374243, guid: 7fa21a4bcecfb354495a62d00976b0d5,
         type: 3}
@@ -675,12 +740,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building8 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3319465893533019633, guid: 24bbcb5dfbcd9824aa6348a3dc52c697,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24bbcb5dfbcd9824aa6348a3dc52c697, type: 3}
---- !u!4 &3566163766183268133 stripped
+--- !u!4 &2729177626987204455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1486877934525153347, guid: 24bbcb5dfbcd9824aa6348a3dc52c697,
     type: 3}
@@ -753,6 +823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918558985526139573, guid: d069f7f6da639da4e8b5453a1e0571b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -833,6 +908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building14
       objectReference: {fileID: 0}
+    - target: {fileID: 8928940599447635946, guid: 2a5e4b8efe0e9904b9dd7a9225741fe5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -856,6 +936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314717354529727852, guid: c940300ee3ba931448c28db319fb227c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8457968425698349666, guid: c940300ee3ba931448c28db319fb227c,
         type: 3}
@@ -917,7 +1002,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c940300ee3ba931448c28db319fb227c, type: 3}
---- !u!4 &4958034983913240448 stripped
+--- !u!4 &3580018605114516765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8457968425698349666, guid: c940300ee3ba931448c28db319fb227c,
     type: 3}
@@ -986,10 +1071,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1070,6 +1170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building10 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7745744294335008575, guid: 75d22fb4b0076854b8f8031faab22b92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1093,6 +1198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314717354529727852, guid: c940300ee3ba931448c28db319fb227c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8457968425698349666, guid: c940300ee3ba931448c28db319fb227c,
         type: 3}
@@ -1172,6 +1282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365263135625229772, guid: e65118084899dfe47954b913b2f5086a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3497231290907510254, guid: e65118084899dfe47954b913b2f5086a,
         type: 3}
@@ -1302,17 +1417,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 249efa9caaccb334290b9df2c537fae6, type: 3}
---- !u!4 &6033082684368233980 stripped
+--- !u!4 &6945829668437887260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3737244373474618599, guid: 249efa9caaccb334290b9df2c537fae6,
     type: 3}
@@ -1381,10 +1511,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1409,6 +1554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314717354529727852, guid: c940300ee3ba931448c28db319fb227c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8457968425698349666, guid: c940300ee3ba931448c28db319fb227c,
         type: 3}
@@ -1539,10 +1689,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1618,17 +1783,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311593766619797168, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
         type: 3}
       propertyPath: m_Name
       value: Building1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169381790618034376, guid: 249efa9caaccb334290b9df2c537fae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 249efa9caaccb334290b9df2c537fae6, type: 3}
---- !u!4 &7957850590868702731 stripped
+--- !u!4 &6751649040642124525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3737244373474618599, guid: 249efa9caaccb334290b9df2c537fae6,
     type: 3}
@@ -1702,6 +1882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building8
       objectReference: {fileID: 0}
+    - target: {fileID: 3319465893533019633, guid: 24bbcb5dfbcd9824aa6348a3dc52c697,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1725,6 +1910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314717354529727852, guid: c940300ee3ba931448c28db319fb227c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8457968425698349666, guid: c940300ee3ba931448c28db319fb227c,
         type: 3}
@@ -1860,12 +2050,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building11
       objectReference: {fileID: 0}
+    - target: {fileID: 8948833343199784150, guid: c1c353c45db3e6947913c95b73ddaaa9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c353c45db3e6947913c95b73ddaaa9, type: 3}
---- !u!4 &7083943944521757583 stripped
+--- !u!4 &4339642025299596583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4785147329122535823, guid: c1c353c45db3e6947913c95b73ddaaa9,
     type: 3}

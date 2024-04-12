@@ -6,19 +6,12 @@ public class Ball : Entity
 {
     protected override void Initialize()
     {
-        Target = FindObjectOfType<TargetCenter>().transform;
+        Target = GameObject.Find("Target").transform;
+        //Target = Managers.Module.CurrentModule.transform;
         CurrentHelth = Data.maxHealth;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Controller = new BallUnitController(this);
+        Controller.Initialize();
+        StateMachine = new BallStateMachine(this);
     }
 }

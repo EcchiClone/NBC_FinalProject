@@ -52,8 +52,7 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     public void CheckUnlockedPart()
     {
         if (_isUnlockChecked)
-            return;
-        Debug.Log(_currentData.IsUnlocked);
+            return;        
 
         if (!_currentData.IsUnlocked)
         {
