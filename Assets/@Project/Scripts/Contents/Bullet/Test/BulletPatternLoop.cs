@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class BulletPatternLoop : MonoBehaviour
 {
-    // 동일 오브젝트의 EnemyPhaseStarter 컴포넌트에 적용되어 있는 Pattern목록 또는 Phase목록의 전체를 반복재생합니다.
+    // 동일 오브젝트의 EnemyBulletPatternStarter 컴포넌트에 적용되어 있는 Pattern목록 또는 Phase목록의 전체를 반복재생합니다.
 
-    EnemyPhaseStarter ep;
+    EnemyBulletPatternStarter ep;
     [SerializeField] bool isLoopPhase;
     [SerializeField] bool isLoopPattern;
     int phaseMax;
@@ -17,7 +17,7 @@ public class BulletPatternLoop : MonoBehaviour
 
     void Start()
     {
-        ep = GetComponent<EnemyPhaseStarter>();
+        ep = GetComponent<EnemyBulletPatternStarter>();
         phaseMax = ep.Phases.Count();
         patternMax = ep.Patterns.Count();
         cycleTime = 3f;

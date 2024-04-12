@@ -76,10 +76,10 @@ public class EnemyBulletGenerator : MonoBehaviour
                 {
                     yield break; // masterObject가 비활성화되거나 파괴되면 코루틴 중단
                 }
-                var enemyPhaseStarter = genSettings.masterObject.GetComponent<EnemyPhaseStarter>();
+                var enemyPhaseStarter = genSettings.masterObject.GetComponent<EnemyBulletPatternStarter>();
                 if (enemyPhaseStarter != null && enemyPhaseStarter.isShooting == false)
                 {
-                    yield break; // EnemyPhaseStarter 컴포넌트가 있으면서, isShooting이 false 면 코루틴 중단
+                    yield break; // EnemyBulletPatternStarter 컴포넌트가 있으면서, isShooting이 false 면 코루틴 중단
                 }
 
                 // 1. 초기화 및 위치, 방향 일괄적용

@@ -5,7 +5,7 @@ using static UnityEngine.UIElements.VisualElement;
 using static PhaseSO;
 using System;
 
-public class EnemyPhaseStarter : MonoBehaviour
+public class EnemyBulletPatternStarter : MonoBehaviour
 {
     [System.Serializable]
     private struct TestPhaseStarter
