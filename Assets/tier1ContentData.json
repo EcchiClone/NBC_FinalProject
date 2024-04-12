@@ -5,81 +5,57 @@
             "contentIdx": 0,
             "name": "EmptyPerk1Name",
             "description": "EmptyPerk1Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 1,
             "name": "EmptyPerk2Name",
             "description": "EmptyPerk2Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 2,
             "name": "EmptyPerk3Name",
             "description": "EmptyPerk3Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 3,
             "name": "EmptyPerk4Name",
             "description": "EmptyPerk4Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 4,
             "name": "EmptyPerk5Name",
             "description": "EmptyPerk5Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 5,
             "name": "EmptyPerk6Name",
             "description": "EmptyPerk6Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 6,
-            "name": "SpeedUp x1.5",
+            "name": "EmptyPerk7Name",
             "description": "EmptyPerk7Description",
-            "data": {
-                "SpeedModular": 1.5,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 7,
             "name": "EmptyPerk8Name",
             "description": "EmptyPerk8Description",
-            "data": {
-                "SpeedModular": 1.0,
-                "TestVar1": 0.0,
-                "TestVar2": 0.0
-            }
+            "type": 0,
+            "value": 0.0
         }
     ]
 }

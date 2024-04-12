@@ -43,6 +43,8 @@ public class PointBehaviour : MonoBehaviour
             default: basePoint = 3; break;
         }
 
+        _unlockCount = PerkManager.Instance.UnlockCount;
+
         float distance = PerkManager.Instance.SelectedPerkDistance;
         _distancePoint = (int) (distance / 100);
 
@@ -58,9 +60,15 @@ public class PointBehaviour : MonoBehaviour
 
         if (playerPoint > _requirePoint)
         {
-            _unlockCount++;
+            PerkManager.Instance.UnlockCount++;
             PerkManager.Instance.PlayerPoint -= _requirePoint;
             PerkManager.Instance.SetPerkIsActive();
+
+            ContentInfo contentInfo = PerkManager.Instance.SelectedContentInfo;
+            PerkType type = contentInfo.type;
+            float value = contentInfo.value;
+
+            PerkManager.Instance.perkData.SetActivedPerk(type, value);
         }
         else
         {

@@ -1703,14 +1703,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tier1PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier2PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier3PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier1ContentData:
@@ -2968,14 +2971,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tier1PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier2PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier3PerkData:
     point: 0
+    unlockCount: 0
     currentSeed: 
     data: []
   tier1ContentData:

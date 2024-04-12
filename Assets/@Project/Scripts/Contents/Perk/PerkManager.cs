@@ -9,11 +9,11 @@ public class PerkManager : MonoBehaviour
     private PerkGenerator _gen; // 퍼크 생성기
     private SeedGenerator _seed; // 랜덤 시드 생성기
     private PointBehaviour _point; // 포인트 관리 스크립트
-    private ActivedDataConverter _active; // 액티브 퍼크 데이터 스크립트
 
     public static PerkManager Instance { get; private set; } // 싱글톤 인스턴스
 
     public int PlayerPoint { get; set; } // 현재 포인트
+    public int UnlockCount { get; set; } // 기본 요구 포인트
     public string CurrentSeed { get; set; } // 현재 시드
 
     private PerkList _tier1Perks = new PerkList(); // Tier1 퍼크 집합
@@ -50,7 +50,6 @@ public class PerkManager : MonoBehaviour
         _gen = GetComponent<PerkGenerator>();
         _seed = GetComponent<SeedGenerator>();
         _point = GetComponent<PointBehaviour>();
-        _active = GetComponent<ActivedDataConverter>();
 
         // 싱글톤 선언
         if (Instance == null)
@@ -85,6 +84,7 @@ public class PerkManager : MonoBehaviour
     {
         // 변수 초기화
         PlayerPoint = 100;
+        UnlockCount = 0;
         CurrentSeed = _seed.RandomSeedGenerator();
 
         // 컨텐츠 json 파일 먼저 불러오기
@@ -95,14 +95,6 @@ public class PerkManager : MonoBehaviour
 
         // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown (KeyCode.Space))
-        {
-            ExtractDataSequence();
-        }
     }
 
     private void OnApplicationQuit()
@@ -135,6 +127,7 @@ public class PerkManager : MonoBehaviour
 
         // json 변수에 할당
         _tier1Perks.point = PlayerPoint;
+        _tier1Perks.unlockCount = UnlockCount;
         _tier1Perks.currentSeed = CurrentSeed;
 
         _json.tier1PerkData = _tier1Perks;
@@ -157,6 +150,7 @@ public class PerkManager : MonoBehaviour
 
         // 기존 변수 할당
         PlayerPoint = _tier1Perks.point;
+        UnlockCount = _tier1Perks.unlockCount;
         CurrentSeed = _tier1Perks.currentSeed;
 
         // 퍼크 생성
@@ -169,6 +163,7 @@ public class PerkManager : MonoBehaviour
     {
         // 현재 포인트 저장
         _tier1Perks.point = PlayerPoint;
+        _tier1Perks.unlockCount = UnlockCount;
 
         // PerkManager -> JsonSaveNLoader
         _json.tier1PerkData = _tier1Perks;
@@ -179,21 +174,6 @@ public class PerkManager : MonoBehaviour
         _json.SavePerkData(_json.tier1PerkData, "tier1PerkData");
         _json.SavePerkData(_json.tier2PerkData, "tier2PerkData");
         _json.SavePerkData(_json.tier3PerkData, "tier3PerkData");
-    }
-
-    private void ExtractDataSequence()
-    {
-        _active.activeData = new List<ActivedData>();
-
-        ExtractActivedDatas(_tier1Perks);
-        ExtractActivedDatas(_tier2Perks);
-        ExtractActivedDatas(_tier3Perks);
-
-        Debug.Log(_active.activeData.Count);
-        foreach (ActivedData data in _active.activeData)
-        {
-            Debug.Log($"{data.SpeedModular} + {data.TestVar1} + {data.TestVar2}");
-        }
     }
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
@@ -394,36 +374,6 @@ public class PerkManager : MonoBehaviour
     public void CallOnUnlockBtnClicked()
     {
         OnUnlockBtnClicked?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void ExtractActivedDatas(PerkList tierPerks)
-    {
-        // IsActive = true 인 모든 퍼크 데이터 추출
-        foreach (PerkInfo perkInfo in tierPerks.data)
-        {
-            // 메인 퍼크
-            if (perkInfo.IsActive)
-            {
-                int contentIdx = perkInfo.ContentIdx;
-
-                ContentInfo contentInfo = GetContentInfo(perkInfo.Tier, contentIdx);
-
-                _active.activeData.Add(contentInfo.data);
-            }
-
-            foreach (SubPerkInfo subInfo in perkInfo.subPerks)
-            {
-                // 서브 퍼크
-                if (subInfo.IsActive)
-                {
-                    int contentIdx = subInfo.ContentIdx;
-
-                    ContentInfo contentInfo = GetContentInfo(PerkTier.SUB, contentIdx);
-
-                    _active.activeData.Add(contentInfo.data);
-                }
-            }
-        }
     }
 }
 
