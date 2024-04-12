@@ -333,3 +333,109 @@ MonoBehaviour:
         _rotationSpeed: 0
       releaseMethod: 0
       releaseTimer: 10
+  - patternName: Sphere01
+    Desc: "\uBB34\uBC29\uD5A5 \uAD6C\uD615"
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.8
+      enemyBulletShape: 2
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.05
+      numPerShot: 4
+      shotVerticalNum: 4
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 1
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 6
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty:
+      - _desc: 
+        _timer: 0
+        _changeSpeedType: 1
+        _changeRotationType: 0
+        _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 0
+        maxSpreadAngleA: 0
+        concentrationA: 0
+        _speed: 0
+        _accelPlus: 0
+        _accelMultiple: 0
+        _rotationSpeed: 0
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: Sphere_ToRandom
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.8
+      enemyBulletShape: 2
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.05
+      numPerShot: 6
+      shotVerticalNum: 6
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 1
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 6
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 0.5
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty:
+      - _desc: 
+        _timer: 1
+        _changeSpeedType: 1
+        _changeRotationType: 9
+        _moveDirection: {x: 0, y: 0, z: 0}
+        _resetMoveType: 0
+        spreadA: 1
+        maxSpreadAngleA: 0
+        concentrationA: 0
+        _speed: 0
+        _accelPlus: 100
+        _accelMultiple: 1
+        _rotationSpeed: 0
+      releaseMethod: 0
+      releaseTimer: 5

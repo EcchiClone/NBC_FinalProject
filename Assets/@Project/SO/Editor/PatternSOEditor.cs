@@ -149,12 +149,19 @@ public class PatternSOEditor : Editor
             if (property.name == "concentrationA")
                 if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
 
-            if (property.name == "shotVerticalNum")
-                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
+            if (property.name == "useVelocityScalerFromMuzzleDist")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom) && !EnumMatchCheck("enemyBulletShape", EnemyBulletShape.RandomVertex)) continue;
             if (property.name == "customBulletPosList")
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom)) continue;
+            if (property.name == "numOfVertex")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.RandomVertex)) continue;
+            if (property.name == "isLoopingShape")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.RandomVertex)) continue;
             if (property.name == "divisionPointsPerEdge")
-                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom)) continue;
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Custom) && !EnumMatchCheck("enemyBulletShape", EnemyBulletShape.RandomVertex)) continue;
+
+            if (property.name == "shotVerticalNum")
+                if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
             if (property.name == "initCustomDirection")
                 if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.Local)) continue;
             if (property.name == "maxSpreadAngleB")
@@ -182,8 +189,11 @@ public class PatternSOEditor : Editor
             if (property.name == "concentrationA") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
 
             if (property.name == "enemyBulletShape") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 형태")); continue; }
+            if (property.name == "useVelocityScalerFromMuzzleDist") { EditorGUILayout.PropertyField(property, new GUIContent("초기 거리 비례 모양 유지")); continue; }
+            if (property.name == "numOfVertex") { EditorGUILayout.PropertyField(property, new GUIContent("꼭짓점 갯수")); continue; }
+            if (property.name == "isLoopingShape") { EditorGUILayout.PropertyField(property, new GUIContent("끝점을 처음과 이을지")); continue; }
             if (property.name == "customBulletPosList") { EditorGUILayout.PropertyField(property, new GUIContent("커스텀 위치")); continue; }
-            if (property.name == "customBulletPosList") { EditorGUILayout.PropertyField(property, new GUIContent("추가 보간점 갯수")); continue; }
+            if (property.name == "divisionPointsPerEdge") { EditorGUILayout.PropertyField(property, new GUIContent("점 간 보간점 갯수")); continue; }
             if (property.name == "initDistance") { EditorGUILayout.PropertyField(property, new GUIContent("생성 거리")); continue; }
             if (property.name == "numPerShot") { EditorGUILayout.PropertyField(property, new GUIContent("1회 당 탄수")); continue; }
             if (property.name == "shotVerticalNum") { EditorGUILayout.PropertyField(property, new GUIContent("층 수")); continue; }

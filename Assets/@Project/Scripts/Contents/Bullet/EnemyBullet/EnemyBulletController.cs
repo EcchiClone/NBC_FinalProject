@@ -14,10 +14,11 @@ public class EnemyBulletController : EnemyBullet
     private Rigidbody _rb;
     private Vector3 fixedPlayerPos;
     private Vector3 playerPos;
+    private float _normalizedValue;
 
     // private float levelCoefficient; // 레벨에 따른 속도 계수. 1.0 이상.
 
-    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
+    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf, float normalizedValue)
     {
         // Trail 궤적 초기화
         foreach(TrailRenderer t in _trailRenderers)
@@ -29,6 +30,7 @@ public class EnemyBulletController : EnemyBullet
         _rootGo = rootGo;
         _masterTf = masterTf;
         _rb = GetComponent<Rigidbody>();
+        _normalizedValue = ((settings.enemyBulletShape == EnemyBulletShape.Custom || settings.enemyBulletShape == EnemyBulletShape.RandomVertex) && settings.useVelocityScalerFromMuzzleDist) ? normalizedValue : 1f;
         UpdateMoveParameter();
         ReleaseObject(_currentParameters.releaseTimer);
 
@@ -72,6 +74,7 @@ public class EnemyBulletController : EnemyBullet
                 _rb.velocity = transform.forward * _currentParameters.Speed;
                 break;
         }
+        _rb.velocity *= _normalizedValue;
         // LocalYRotation
         float speedInRadiansPerSecond = _currentParameters.LocalYRotationSpeed * 2 * Mathf.PI; // 바퀴 수를 라디안/초로 변환
         float rotationThisFrame = speedInRadiansPerSecond * Time.deltaTime; // 현재 프레임에서의 회전량 계산
@@ -161,6 +164,9 @@ public class EnemyBulletController : EnemyBullet
                     break;
                 case EnemyBulletChangeRotationType.Local: // 회전 방식에 따라 경우가 갈림. 보류.
                     transform.rotation = Quaternion.LookRotation(e._moveDirection);
+                    break;
+                case EnemyBulletChangeRotationType.CompletelyRandom:
+                    transform.rotation = Random.rotation;
                     break;
             }
 

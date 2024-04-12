@@ -6,11 +6,6 @@ public class PatternSO : ScriptableObject
 {
     public List<EnemyBulletPatternData> patternDatas;
 
-    // 패턴 이름을 통해 패턴 정보를 찾기 -> 추후 최적화를 위한 수정 필요. 어떻게 쓰일지도 살짝 애매모호한 상태.
-    // ▲ 현재 상태 : PhaseSO에서 patternName을 입력하여 저장, Enemy에서 'GetSpawnInfoByPatternName' 이용하여 탄막패턴 사용. 일단 OK
-    // TODO.
-    // But, 커스텀 고려해서 수정 필요.
-    // 그리고 GetSpawnInfoByPatternName 자체에 대해서도 연산 더 낮은 방식으로 바꾸어야 함.
     public EnemyBulletPatternData GetSpawnInfoByPatternName(string patternName)
     {
         foreach (var patternData in patternDatas)
@@ -35,9 +30,6 @@ public class EnemyBulletPatternData
 [System.Serializable]
 public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이미지로 {1.생성-2.이동-3.하층생성-4.반환} 명심하여 작성
 {
-    // 아래의 내용은 전-부 PhaseSO 작성 시 커스텀이 가능하도록(현재 불가능).
-    // 다만 선택적 커스텀을 어떻게 해야할지 떠오르지가 않음. 커스텀 값을 기본적으로 모두 null로 둘 수 있을까?
-
     // 1. 생성 ---------------------------------//------------------------------------------------------------------
 
     // 1-1. 탄막의 모양
@@ -60,7 +52,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     [Header("총구 기준 생성 방향 벡터")]
     public PosDirection posDirection;           // 마스터 기준으로 생성될 방향
     public Vector3 customPosDirection;          // > CustomWorld: 직접지정
-    // a-plug. 기준 방향 지정 시 탄퍼짐
+    // a-Add. 기준 방향 지정 시 탄퍼짐
     //[Header("오차")]
     public SpreadType spreadA;                  // 기준방향벡터 오차의 유무
     public float maxSpreadAngleA;               // > 최대 퍼짐 각도
@@ -77,8 +69,10 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     [Header("탄막 형태")]
     public EnemyBulletShape enemyBulletShape;           // 탄막 모양의 타입
                                                         // Todo 커스텀입력과 주기성 가지는 탄막
-
+    public bool useVelocityScalerFromMuzzleDist;        // 거리계수를 곱해 모양을 유지할지
     public Vector3[] customBulletPosList;       // 유저 커스텀 입력
+    public int numOfVertex;
+    public bool isLoopingShape;
     public int divisionPointsPerEdge;           // 보간점을 입력값 사이사이에 추가. 0일경우 추가 없음
 
 
@@ -165,6 +159,7 @@ public enum EnemyBulletShape
     Sphere,             // 구형
     Cube,               // 큐브형태. (참고: 레퍼런스 있음)
     Custom,             // 유저 입력을 받아 모양을 커스텀. Vector3리스트의 깡 입력으로 여러가지 모양을 만들 수도 있도록.
+    RandomVertex,       // 랜덤 생성. 점 갯수와 보간점 사용하여 만드는 도형
 }
 public enum EnemyBulletCycleShape
 {
@@ -264,6 +259,7 @@ public enum EnemyBulletChangeRotationType
     LookToRoot,
     World,
     Local,
+    CompletelyRandom,
 }
 
 public enum NextPatternMethod // PhaseSO에서 담당
