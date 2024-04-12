@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Spider_IdleState : BaseState
 {
-    private Transform _entityTransform;
-    private Transform _targetTransform;
-
     public Spider_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
-        _entityTransform = Context.Entity.transform;
-        _targetTransform = Context.Entity.Target.transform;
     }
 
     public override void EnterState()

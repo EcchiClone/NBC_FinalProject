@@ -15,7 +15,7 @@ public  class Controller
     public Vector3 Destination { get; protected set; }
     public Vector3 StopPoint { get; protected set; }
 
-    public bool IsMoving { get; protected set; } = true;
+    public bool IsMoving { get; set; } = true;
 
     public float StopDistance { get; protected set; }
 

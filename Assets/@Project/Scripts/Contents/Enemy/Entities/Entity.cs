@@ -19,6 +19,8 @@ public abstract class Entity : MonoBehaviour
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
+        Target = GameObject.Find("Target").transform;
+        //Target = Managers.Module.CurrentModule.transform;
         Initialize();        
     }
 

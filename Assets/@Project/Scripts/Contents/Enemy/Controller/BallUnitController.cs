@@ -11,7 +11,7 @@ public class BallUnitController : Controller
     Collider collider;
 
     float speed = 3;
-    float _maxSpeed = 10;
+    float _maxSpeed;
     float radius;
     float nodeRadius;
 
@@ -20,6 +20,7 @@ public class BallUnitController : Controller
     {
         rigidbody = _entity.GetComponent<Rigidbody>();
         collider = _entity.GetComponent<Collider>();
+        _maxSpeed = _entity.Data.moveSpeed;
 
         nodeRadius = PathRequestManager.instance.grid.nodeRadius;
         radius = collider.bounds.extents.magnitude;
@@ -37,10 +38,6 @@ public class BallUnitController : Controller
         {
             path = newPath;
             targetIndex = 0;
-        }
-        else
-        {
-
         }
     }
 
@@ -65,8 +62,7 @@ public class BallUnitController : Controller
 
 
         Vector3 direction = (currentWaypoint - _entity.transform.position).normalized; // 다음 노드로 속도 방향 조정      
-
-        
+                
 
         if (Mathf.Abs(_entity.transform.position.x - currentWaypoint.x) <= nodeRadius && Mathf.Abs(_entity.transform.position.z - currentWaypoint.z) <= nodeRadius)
         {
@@ -96,7 +92,6 @@ public class BallUnitController : Controller
 
     public override void Stop() 
     {
-        rigidbody.velocity = Vector3.zero;
         IsMoving = false;
     }
 
@@ -107,7 +102,7 @@ public class BallUnitController : Controller
         {
             for (int i = targetIndex; i < path.Length; i++)
             {
-                Gizmos.color = Color.black;
+                Gizmos.color = Color.blue;
                 Gizmos.DrawCube(path[i], Vector3.one);
 
                 if (i == targetIndex)

@@ -66,6 +66,7 @@ public class StageController : MonoBehaviour
                     {
                         new UnitSpawnInfo(UnitType.Minion_Spider, 20),
                         new UnitSpawnInfo(UnitType.Minion_Ball, 20),
+                        new UnitSpawnInfo(UnitType.Minion_Turret, 20),
                     }
                     );    // 3. 적 스폰
                 break;
@@ -77,6 +78,7 @@ public class StageController : MonoBehaviour
                     {
                         new UnitSpawnInfo(UnitType.Minion_Spider, 30),
                         new UnitSpawnInfo(UnitType.Minion_Ball, 30),
+                        new UnitSpawnInfo(UnitType.Minion_Turret, 30),
                     }
                     );
                 break;

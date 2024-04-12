@@ -59,5 +59,8 @@ public enum Turret_States
     Alive,
     Dead,
 
-    Attack,
+    NonCombat,
+    Combat,
+
+    Idle,
 }

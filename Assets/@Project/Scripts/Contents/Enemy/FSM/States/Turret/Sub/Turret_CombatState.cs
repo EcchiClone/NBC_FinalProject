@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider_CombatState : BaseState
+public class Turret_CombatState : BaseState
 {
     private float _passedTime;
     private float _attackInterval;
-
-    public Spider_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Turret_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
         _attackInterval = Context.Entity.Data.attackInterval;
-    }    
+    }
 
     public override void EnterState()
     {
-        InitializeSubState();        
+        InitializeSubState();
 
         _passedTime = 0;
     }
@@ -35,7 +34,7 @@ public class Spider_CombatState : BaseState
 
     public override void ExitState()
     {
-        
+
     }
 
     public override void CheckSwitchStates()
@@ -43,11 +42,11 @@ public class Spider_CombatState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if (Context.Entity.Data.stopDistance <= distance)
         {
-            SwitchState(Context.Provider.GetState(Spider_States.NonCombat));
+            SwitchState(Context.Provider.GetState(Turret_States.NonCombat));
         }
     }
 
     public override void InitializeSubState()
     {
-    }    
+    }
 }

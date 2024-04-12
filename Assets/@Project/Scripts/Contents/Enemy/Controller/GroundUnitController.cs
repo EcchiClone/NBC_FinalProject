@@ -52,7 +52,7 @@ public class GroundUnitController : Controller
         head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-5 * Time.deltaTime)
+            1 - Mathf.Exp(-_entity.Data.rotationSpeed * Time.deltaTime)
             );
     }
 

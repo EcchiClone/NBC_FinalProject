@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider_NonCombatState : BaseState
+public class Turret_NonCombatState : BaseState
 {
-
-    public Spider_NonCombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Turret_NonCombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
     }
@@ -30,12 +29,12 @@ public class Spider_NonCombatState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if (Context.Entity.Data.stopDistance > distance)
         {
-            SwitchState(Context.Provider.GetState(Spider_States.Combat));
+            SwitchState(Context.Provider.GetState(Turret_States.Combat));
         }
     }
 
     public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(Spider_States.Idle));
-    }    
+        SetSubState(Provider.GetState(Turret_States.Idle));
+    }
 }

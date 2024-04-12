@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: Minion_Turret
   m_EditorClassIdentifier: 
-  stopDistance: 0
-  cognizanceRange: 0
+  stopDistance: 20
+  cognizanceRange: 40
   chasingInterval: 0
-  rotationSpeed: 0
-  maxHealth: 0
+  rotationSpeed: 20
+  maxHealth: 100
   moveSpeed: 0
-  attackInterval: 0
+  attackInterval: 0.2

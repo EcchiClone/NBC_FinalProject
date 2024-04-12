@@ -16,11 +16,8 @@ public class Ball_DeadState : BaseState
 
     public override void EnterState()
     {
-        // 얘는 터지는게 맞을듯..
         Context.Entity.Controller.Stop();
-        Context.Entity.StartCoroutine(Explosion());
-
-        
+        Context.Entity.StartCoroutine(Explosion());        
     }
 
     public override void UpdateState()
@@ -33,7 +30,6 @@ public class Ball_DeadState : BaseState
 
     public override void CheckSwitchStates()
     {
-        // 얘는 되돌릴 필요 없음
     }
 
     public override void ExitState()
@@ -62,7 +58,7 @@ public class Ball_DeadState : BaseState
                 Vector3 other = hit.transform.position;
                 Vector3 pushDirection = (other - entity.position).normalized;
 
-                rigidbody.AddForce(pushDirection * 15, ForceMode.Impulse);
+                rigidbody.AddForce(pushDirection * 10, ForceMode.Impulse);
             }
             
         }
