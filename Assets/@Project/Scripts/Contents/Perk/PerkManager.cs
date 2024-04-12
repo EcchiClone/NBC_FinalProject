@@ -159,7 +159,7 @@ public class PerkManager : MonoBehaviour
         _gen.InstantiatePerks(_tier3Perks.data);
     }
 
-    private void SavePerkSequence()
+    public void SavePerkSequence()
     {
         // 현재 포인트 저장
         _tier1Perks.point = PlayerPoint;
