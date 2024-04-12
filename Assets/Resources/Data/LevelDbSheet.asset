@@ -14,14 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_SO:
   - dev_ID: 1
-    stageTime: 30
     spawnCount: 10
-    unitType: 0
+    spawnDelayTime: 1
+    countDownTime: 30
+    spawnType1: 1
+    spawnType2: 0
+    spawnType3: 0
   - dev_ID: 2
-    stageTime: 30
-    spawnCount: 10
-    unitType: 1
+    spawnCount: 20
+    spawnDelayTime: 1
+    countDownTime: 30
+    spawnType1: 2
+    spawnType2: 0
+    spawnType3: 0
   - dev_ID: 3
-    stageTime: 30
-    spawnCount: 10
-    unitType: 2
+    spawnCount: 30
+    spawnDelayTime: 2
+    countDownTime: 30
+    spawnType1: 1
+    spawnType2: 2
+    spawnType3: 0
