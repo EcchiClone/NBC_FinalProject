@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public enum PerkType
-{
-    SpeedModifier,
-    Lightweight,
-    BoosterOverload,
-    AfterBurner,
-    Reload,
-}
-
 [Serializable]
 public class StageData // 한 판에 대한 내용
 {
@@ -28,12 +19,12 @@ public class PerkData
     public PerkData()
     {
         _perkDict = new Dictionary<PerkType, float>()
-        {
-            {PerkType.SpeedModifier,    0f},
-            {PerkType.Lightweight,      0f},
+        {            
+            {PerkType.SuperAllow,    0f},
+            {PerkType.SpeedModifier,      0f},
             {PerkType.BoosterOverload,  0f},
             {PerkType.AfterBurner,      0f},
-            {PerkType.Reload,           0f},
+            {PerkType.RapidFire,           0f},
         };
     }
 

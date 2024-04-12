@@ -57,5 +57,5 @@ public class Define
         Gun,
         Cannon,
         Missile
-    }
+    }    
 }
