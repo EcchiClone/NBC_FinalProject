@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
-  m_Name: Patterns_DynamicMove
+  m_Name: Patterns_Preset_DynamicMove
   m_EditorClassIdentifier: 
   patternDatas:
   - patternName: Missiles

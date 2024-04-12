@@ -15,6 +15,8 @@ public class EnemyBulletController : EnemyBullet
     private Vector3 fixedPlayerPos;
     private Vector3 playerPos;
 
+    // private float levelCoefficient; // 레벨에 따른 속도 계수. 1.0 이상.
+
     public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
     {
         // Trail 궤적 초기화
@@ -177,5 +179,18 @@ public class EnemyBulletController : EnemyBullet
             //this._currentParameters._ReleaseMethod;
             //this._currentParameters.ReleaseTimer;
         }
+    }
+
+    private void ReleaseObject(float releaseTimer)
+    {
+        if (gameObject.activeInHierarchy)
+            StartCoroutine("Co_DisableWithTimer", releaseTimer);
+        else
+            Debug.LogWarning("해당 오브젝트는 이미 inactive 상태: " + gameObject.name);
+    }
+    private IEnumerator Co_DisableWithTimer(float releaseTimer)
+    {
+        yield return Util.GetWaitSeconds(releaseTimer);
+        gameObject.SetActive(false);
     }
 }

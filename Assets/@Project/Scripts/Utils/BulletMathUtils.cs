@@ -2,27 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 벡터 계산 등 필요한 복잡한 연산을 모두 모아두는 역할
 public class BulletMathUtils
 {
-    #region 원점 기준 Vector3 전체 회전
-    // 전체 회전(아직 테스트 안 해봄)
-    public static List<Vector3> RotateVectors(List<Vector3> originalVectors, Quaternion rotation, float distanceMultiplier)
-    {
-        // 벡터 집단에 대해 회전 및 거리계수를 곱함
 
-        List<Vector3> rotatedVectors = new List<Vector3>();
-
-        foreach (Vector3 originalVector in originalVectors)
-        {
-            // 회전 적용 및 거리 계수 적용
-            Vector3 rotatedVector = rotation * originalVector * distanceMultiplier;
-            rotatedVectors.Add(rotatedVector);
-        }
-        return rotatedVectors;
-    }
-    #endregion
-
+    #region 커스텀 모양
     #region Shape: 구형 타입A
     // 구형 타입A(최상/최하단 채우기. 가장 일반적인 이미지.)
     public static List<Vector3> GenerateSpherePointsTypeA(int pointsPerLayer, int numberOfLayers, float distanceMultiplier)
@@ -57,6 +40,26 @@ public class BulletMathUtils
         return spherePoints;
     }
     #endregion
+    #endregion
+
+    #region 탄 조절
+    #region 원점 기준 Vector3 전체 회전
+    // 전체 회전(아직 테스트 안 해봄)
+    public static List<Vector3> RotateVectors(List<Vector3> originalVectors, Quaternion rotation, float distanceMultiplier)
+    {
+        // 벡터 집단에 대해 회전 및 거리계수를 곱함
+
+        List<Vector3> rotatedVectors = new List<Vector3>();
+
+        foreach (Vector3 originalVector in originalVectors)
+        {
+            // 회전 적용 및 거리 계수 적용
+            Vector3 rotatedVector = rotation * originalVector * distanceMultiplier;
+            rotatedVectors.Add(rotatedVector);
+        }
+        return rotatedVectors;
+    }
+    #endregion
 
     #region 탄퍼짐(각,집중도)
     public static Vector3 CalculateSpreadDirection(Vector3 originalDirection, float maxSpreadAngle, float concentration)
@@ -76,7 +79,9 @@ public class BulletMathUtils
         return spreadDirection.normalized; // 노멀라이즈된 조정된 방향 반환
     }
     #endregion
+    #endregion
 
+    #region 그 외
     #region 플레이어 위치 찾기
     public static Vector3 GetPlayerPos(bool reposit = false)
     {
@@ -121,5 +126,5 @@ public class BulletMathUtils
         return playerPos + Vector3.up;
     }
     #endregion
-
+    #endregion
 }

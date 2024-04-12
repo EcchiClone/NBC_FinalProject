@@ -165,7 +165,6 @@ public enum EnemyBulletShape
     Sphere,             // 구형
     Cube,               // 큐브형태. (참고: 레퍼런스 있음)
     Custom,             // 유저 입력을 받아 모양을 커스텀. Vector3리스트의 깡 입력으로 여러가지 모양을 만들 수도 있도록.
-    Cluster,
 }
 public enum EnemyBulletCycleShape
 {
@@ -220,7 +219,7 @@ public enum EnemyBulletMoveType
 public enum EnemyBulletChangeMoveMethod
 {
     Timer,
-    RootTrigger,      // Root에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
+    //RootTrigger,      // Root에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
 }
 [System.Serializable]
 public struct EnemyBulletChangePropertys
@@ -270,12 +269,12 @@ public enum EnemyBulletChangeRotationType
 public enum NextPatternMethod // PhaseSO에서 담당
 {
     Timer,              // 특정 시간 뒤 터뜨리기
-    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
+    //WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+    //MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
 }
 public enum ReleaseMethod
 {
     Timer,              // 특정 시간 뒤 터뜨리기
-    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
+    //WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+    //UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
 }
