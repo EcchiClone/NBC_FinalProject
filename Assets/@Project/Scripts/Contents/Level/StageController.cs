@@ -85,7 +85,12 @@ public class StageController : MonoBehaviour
                 _stageTimer = 10f;
                 _obstacleManager.RemoveObstacle();
                 _spawnManager.SpawnBoss();
-                //_spawnManager.SpawnUnits(1, 0); // 임시
+                _spawnManager.SpawnUnits(
+                    new List<UnitSpawnInfo>
+                    {
+                        new UnitSpawnInfo(UnitType.Boss_SkyFire, 1)
+                    }
+                    );
                 break;
         }        
     }
@@ -108,5 +113,4 @@ public class StageController : MonoBehaviour
         StartStage();
     }
 
-    // 스테이지 넘버에 따라서 
 }

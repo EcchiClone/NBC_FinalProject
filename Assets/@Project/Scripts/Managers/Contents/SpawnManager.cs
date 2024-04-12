@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class SpawnManager
 {
-    private List<Vector3> _groundCell = new List<Vector3>(); // 탐지 전의 모든 지상 셀 (어떤 요소와도 겹치지 않음)
-    private List<Vector3> _rooftopCell = new List<Vector3>(); // 탐지 전의 모든 옥상 셀 (어떤 요소와도 겹치지 않음)
+    public List<Vector3> _groundCell = new List<Vector3>(); // 탐지 전의 모든 지상 셀 (어떤 요소와도 겹치지 않음)
+    public List<Vector3> _rooftopCell = new List<Vector3>(); // 탐지 전의 모든 옥상 셀 (어떤 요소와도 겹치지 않음)
 
     private HashSet<Vector3> _groundTempPoint = new HashSet<Vector3>(); // 탐지 후 중복 요소 제거용
     private HashSet<Vector3> _rooftopTempPoint = new HashSet<Vector3>();
@@ -58,8 +58,9 @@ public class SpawnManager
 
         int spawnIndex = 0;
 
-        foreach(UnitSpawnInfo spawninfo in unitSpawnInfos) // 터렛도 생각해야함
+        foreach(UnitSpawnInfo spawninfo in unitSpawnInfos) 
         {
+            // if 터렛인 경우~
             string unitType = spawninfo.unitType.ToString();
             for (int i = 0; i < spawninfo.count; ++i)
             {
