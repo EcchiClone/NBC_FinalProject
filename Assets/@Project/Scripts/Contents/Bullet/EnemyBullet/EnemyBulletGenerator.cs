@@ -196,6 +196,8 @@ public class EnemyBulletGenerator : MonoBehaviour
                 // 기준 방향으로 모든 점 회전 적용
                 for (int i = 0; i < expandedPoints.Count; i++)
                     expandedPoints[i] = rotationToPivotDirection * expandedPoints[i];
+                // 중복점 삭제
+                expandedPoints = BulletMathUtils.RemoveDuplicateVertices(expandedPoints);
 
                 // 정규화 작업
                 expandedPoints = BulletMathUtils.NormalizeVector3List(expandedPoints);

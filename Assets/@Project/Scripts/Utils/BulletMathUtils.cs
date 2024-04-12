@@ -78,7 +78,7 @@ public class BulletMathUtils
     #endregion
     #endregion
 
-    #region 탄 조절
+    #region 탄 조절 유틸
     #region 원점 기준 Vector3 전체 회전
     // 전체 회전(아직 테스트 안 해봄)
     public static List<Vector3> RotateVectors(List<Vector3> originalVectors, Quaternion rotation, float distanceMultiplier)
@@ -131,7 +131,26 @@ public class BulletMathUtils
         return normalizedPoints;
     }
     #endregion
+    #region 정점 리스트를 넣으면, 중복된 점을 지워서 반환
+    public static List<Vector3> RemoveDuplicateVertices(List<Vector3> points) 
+    {
+        return points.Distinct(new Vector3EqualityComparer()).ToList();
+    }
 
+    private class Vector3EqualityComparer : IEqualityComparer<Vector3>
+    {
+        public bool Equals(Vector3 x, Vector3 y)
+        {
+            return Vector3.Distance(x, y) < Mathf.Epsilon; //  'Epsilon'은 아주 작은 수로, 두 벡터가 충분히 가깝다면 같다고 간주
+        }
+
+        public int GetHashCode(Vector3 obj)
+        {
+            // 고유한 해시 코드를 생성하기 위해 단순화된 해싱 함수를 사용. (정밀도에 따라 조정이 필요할 수 있음) > GPT 아이디어인데 일단 뭔지 모르고 쓰고있음
+            return obj.x.GetHashCode() ^ obj.y.GetHashCode() ^ obj.z.GetHashCode();
+        }
+    }
+    #endregion
     #endregion
 
     #region 그 외
@@ -164,7 +183,6 @@ public class BulletMathUtils
         }
     }
     #endregion
-
     #region 플레이어 피봇 조정
     public static Vector3 PlayerPivotReposition(GameObject playerGo)
     {
