@@ -39,8 +39,12 @@ public class PerkManager : MonoBehaviour
     public event EventHandler OnPerkClicked; // 퍼크를 클릭했을 때 호출되는 이벤트
     public event EventHandler OnUnlockBtnClicked; // 'Unlock' 버튼을 클릭했을 때 호출되는 이벤트
 
+    public PerkData perkData { get; private set; }
+
     private void Awake()
     {
+        perkData = Managers.GameManager.PerkData;
+
         // 스크립트 가져오기
         _json = GetComponent<JsonSaveNLoader>();
         _gen = GetComponent<PerkGenerator>();
