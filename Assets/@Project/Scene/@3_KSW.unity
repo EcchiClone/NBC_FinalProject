@@ -263,6 +263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
+      propertyPath: pools.Array.data[14].tag
+      value: Boss_GunShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
       propertyPath: pools.Array.data[11].size
       value: 100
       objectReference: {fileID: 0}
@@ -275,6 +280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pools.Array.data[13].size
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[14].size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
@@ -293,6 +303,12 @@ PrefabInstance:
       propertyPath: pools.Array.data[13].prefab
       value: 
       objectReference: {fileID: 5862130606958241670, guid: 9f9b6d8c57315c24382c9169fc0912b9,
+        type: 3}
+    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
+        type: 3}
+      propertyPath: pools.Array.data[14].prefab
+      value: 
+      objectReference: {fileID: 5532213489777232370, guid: b677483011e75de468ece296ebbcc9de,
         type: 3}
     - target: {fileID: 2579727693239320804, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
