@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: fbb79f15bcc044b4ca97eb7a51e9310e,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1423,16 +1424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 11400000, guid: 0034a3e674640b14897d36e357250637, type: 2}
-  - {fileID: 11400000, guid: 234095aa933569644a972b8d666de16a, type: 2}
-  - {fileID: 11400000, guid: be6b6e5262d06a8409b01f13e3af3e39, type: 2}
-  muzzle:
-  - {fileID: 1420684666}
-  - {fileID: 1420684666}
-  - {fileID: 1420684666}
-  isShooting: 0
-  onStartPhase: []
 --- !u!1 &1059571441
 GameObject:
   m_ObjectHideFlags: 0
