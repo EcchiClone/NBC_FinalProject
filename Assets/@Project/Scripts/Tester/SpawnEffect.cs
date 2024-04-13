@@ -6,8 +6,7 @@ using UnityEngine;
 public class SpawnEffect : MonoBehaviour
 {
     [SerializeField] Renderer[] _renderer;
-
-    [SerializeField] Material _origin;
+    
     [SerializeField] Material _dissolve;
 
     [SerializeField] float _splitValue;
