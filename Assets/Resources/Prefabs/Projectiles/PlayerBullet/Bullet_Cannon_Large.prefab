@@ -268,7 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owenr: 0
-  _hitEffectPrefab: {fileID: 0}
+  _hitEffectPrefab: {fileID: 4254385173534399097, guid: 93159591da4e1a54bb9d5007f1f1db74,
+    type: 3}
+  _trailRenderers: {fileID: 1818161219309240232}
   _bulletType: 1
   _damagableLayer:
     serializedVersion: 2

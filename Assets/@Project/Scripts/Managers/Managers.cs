@@ -10,10 +10,12 @@ public class Managers : MonoBehaviour
     #region # Core
     DataManager _dataManager = new DataManager();
     ResourceManager _resouceManager = new ResourceManager();
+    SceneManagerEx _sceneManager = new SceneManagerEx();
     UIManager _uiManager = new UIManager();
 
     public static DataManager Data => Instance?._dataManager;
     public static ResourceManager RM => Instance?._resouceManager;
+    public static SceneManagerEx Scene => Instance?._sceneManager;
     public static UIManager UI => Instance?._uiManager;
     #endregion
 
@@ -22,12 +24,16 @@ public class Managers : MonoBehaviour
     GameManager _gameManager = new GameManager();
     ModuleManager _module = new ModuleManager();
     StatusManager _statusManager = new StatusManager();
+    SpawnManager _spawnManager = new SpawnManager();
+    StageManager _stageManager = new StageManager();
     AchievementSystem _achievementSystem = new AchievementSystem();
 
     public static ActionManager ActionManager => Instance?._actionManager;
     public static GameManager GameManager => Instance?._gameManager;
     public static ModuleManager Module => Instance?._module;
     public static StatusManager StatusManager => Instance?._statusManager;
+    public static SpawnManager SpawnManager => Instance?._spawnManager;
+    public static StageManager StageManager => Instance?._stageManager;
     public static AchievementSystem AchievementSystem => Instance?._achievementSystem;
     #endregion
 

@@ -6,16 +6,16 @@ using System;
 
 public class Pathfinding : MonoBehaviour
 {
-
     PathRequestManager requestManager;
 
     Grid grid;
 
     private void Awake()
     {
-        requestManager = GetComponent<PathRequestManager>();
-        grid = GetComponent<Grid>();
+        GetOrAddComponent(out requestManager);
+        GetOrAddComponent(out grid);
     }
+
 
     public void StartFindPath(Vector3 startPos, Vector3 targetPos)
     {
@@ -118,5 +118,12 @@ public class Pathfinding : MonoBehaviour
         if (distX > distY)
             return 14 * distY + 10 * (distX - distY);
         return 14 * distX + 10 * (distY - distX);
+    }
+
+    public void GetOrAddComponent<T>(out T reference) where T : Component
+    {
+        reference = GetComponent<T>();
+        if (null == reference)
+            reference = gameObject.AddComponent<T>();
     }
 }

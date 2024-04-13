@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public Transform player;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -13,19 +12,24 @@ public class Grid : MonoBehaviour
     float nodeDiameter;
     int gridSizeX, gridSizeY;
 
-    public bool displayGridGizmos;
+    public bool displayGridGizmos = false;
 
     public int MaxSize { get { return gridSizeX * gridSizeY; } }
 
     private void Awake()
     {
+        unwalkableMask = LayerMask.GetMask("Unwalkable");
+        gridWorldSize = new Vector2(200, 200);
+        nodeRadius = 0.5f;
+
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter); // 전체 영역과 
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
         CreateGrid();
     }
 
-    private void CreateGrid()
+
+    public void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
 
@@ -93,4 +97,5 @@ public class Grid : MonoBehaviour
             }
         }        
     }
+
 }

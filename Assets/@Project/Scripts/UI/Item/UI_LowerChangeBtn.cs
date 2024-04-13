@@ -15,6 +15,15 @@ public class UI_LowerChangeBtn : UI_ChangeButton
         GetCurrentPartData<LowerPart>();
         AddListenerToBtn(ChangePart);
         LoadPartImage();
+        Managers.ActionManager.OnLowerEquip += EquipPart;
+    }
+
+    private void EquipPart(int index)
+    {
+        if (_currentIndex != index)
+            _equip.SetActive(false);
+        else
+            _equip.SetActive(true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -36,5 +45,6 @@ public class UI_LowerChangeBtn : UI_ChangeButton
     {
         Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Lower);
         Managers.Module.CallLowerPartChange(_currentData);
+        Managers.ActionManager.CallLowerEquip(_currentIndex);
     }
 }

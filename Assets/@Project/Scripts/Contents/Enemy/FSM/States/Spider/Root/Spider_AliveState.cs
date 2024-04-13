@@ -8,9 +8,11 @@ public class Spider_AliveState : BaseState
     {
         IsRootState = true;
     }
+
     public override void EnterState()
     {
-        
+        InitializeSubState();
+        _currentSubState?.EnterState();
     }
 
     public override void UpdateState()
@@ -20,7 +22,7 @@ public class Spider_AliveState : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= 0f)
+        if (!Context.Entity.IsAlive)
             SwitchState(Provider.GetState(Spider_States.Dead));
     }
 
@@ -31,7 +33,7 @@ public class Spider_AliveState : BaseState
 
     public override void InitializeSubState() // 처음 적용할 상태
     {
-        SetSubState(Provider.GetState(Spider_States.Chasing));
+        SetSubState(Provider.GetState(Spider_States.NonCombat));
     }
 
 }

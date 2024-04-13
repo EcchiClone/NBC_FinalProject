@@ -26,9 +26,10 @@ public class UI_MainMenuPopup : UI_Popup
 
         BindButton(typeof(Buttons));        
 
-        GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(() => SceneManager.LoadScene(1));
-        GetButton((int)Buttons.Module_Select_Btn).onClick.AddListener(OpenModuleSelector);
-        //GetButton((int)Buttons.Perk_Btn).onClick.AddListener();
+        GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.DevScene));
+        GetButton((int)Buttons.Perk_Btn).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.PerkViewerScene));
+
+        GetButton((int)Buttons.Module_Select_Btn).onClick.AddListener(OpenModuleSelector);        
         GetButton((int)Buttons.Achievement_Btn).onClick.AddListener(OpenAchievement);
         //GetButton((int)Buttons.Settings_Btn).onClick.AddListener();
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);

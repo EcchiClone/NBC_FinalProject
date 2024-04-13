@@ -1,49 +1,49 @@
 {
     "point": 100,
-    "currentSeed": "612C68BA38C6",
+    "currentSeed": "5C34EC9D9DC8",
     "data": [
         {
             "Tier": 1,
-            "PositionIdx": 1,
-            "ContentIdx": 7,
+            "PositionIdx": 3,
+            "ContentIdx": 1,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 0,
-                    "ContentIdx": 19,
-                    "IsActive": false
-                },
-                {
                     "PositionIdx": 1,
-                    "ContentIdx": 18,
+                    "ContentIdx": 5,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 23,
+                    "PositionIdx": 3,
+                    "ContentIdx": 14,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 5,
                     "IsActive": false
                 }
             ]
         },
         {
             "Tier": 1,
-            "PositionIdx": 3,
-            "ContentIdx": 2,
+            "PositionIdx": 4,
+            "ContentIdx": 0,
             "IsActive": false,
             "subPerks": [
                 {
                     "PositionIdx": 0,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 1,
                     "ContentIdx": 23,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 3,
                     "ContentIdx": 9,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 4,
-                    "ContentIdx": 17,
                     "IsActive": false
                 }
             ]
@@ -55,18 +55,18 @@
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 2,
-                    "ContentIdx": 15,
+                    "PositionIdx": 0,
+                    "ContentIdx": 12,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 10,
+                    "PositionIdx": 1,
+                    "ContentIdx": 12,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 7,
-                    "ContentIdx": 17,
+                    "ContentIdx": 15,
                     "IsActive": false
                 }
             ]
@@ -74,22 +74,22 @@
         {
             "Tier": 1,
             "PositionIdx": 6,
-            "ContentIdx": 0,
+            "ContentIdx": 2,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 3,
-                    "ContentIdx": 3,
+                    "PositionIdx": 1,
+                    "ContentIdx": 21,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 18,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 5,
-                    "ContentIdx": 16,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 20,
+                    "ContentIdx": 14,
                     "IsActive": false
                 }
             ]

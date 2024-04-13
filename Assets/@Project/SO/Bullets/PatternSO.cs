@@ -55,7 +55,6 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public float shotDelay;                     // 탄막 생성 사이의 지연
 
     // 1-3. 생성 모양에 관한 정보
-    // Memo. 여기서 할게 꽤 많음. 차차 작성.
 
     // a. 어느 방향을 기준으로 생성을 시작할 것인지
     [Header("총구 기준 생성 방향 벡터")]
@@ -127,7 +126,8 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public float maxSpeed;
     public float initRotationSpeed;                         // 회전속도(트리거로 변화요소)
 
-    public float initLocalYRotationSpeed;                         // 회전속도(트리거로 변화요소) -> 군집에 좋을 듯
+    public bool isCluster;
+    public float initLocalYRotationSpeed;                         // 회전속도(트리거로 변화요소) -> Cluster일 경우만 사용
 
     [Header("탄막 움직임 변화")]
     public EnemyBulletChangeMoveMethod enemyBulletChangeMoveMethod;         // 타이머로 할 것인지, 마스터의 트리거로 할 것인지
@@ -219,7 +219,7 @@ public enum EnemyBulletMoveType
 public enum EnemyBulletChangeMoveMethod
 {
     Timer,
-    RootTrigger,      // Root에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
+    //RootTrigger,      // Root에 구독하여 관리. 트리거 작동 시, 다음 Move패턴 시작
 }
 [System.Serializable]
 public struct EnemyBulletChangePropertys
@@ -269,12 +269,12 @@ public enum EnemyBulletChangeRotationType
 public enum NextPatternMethod // PhaseSO에서 담당
 {
     Timer,              // 특정 시간 뒤 터뜨리기
-    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
+    //WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+    //MasterTrigger,      // Master에 구독하여 관리. 트리거 작동 시, 구독한 탄막들 일괄 생성
 }
 public enum ReleaseMethod
 {
     Timer,              // 특정 시간 뒤 터뜨리기
-    WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
-    UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
+    //WithRelease,        // 반환과 함께 터뜨리기(삭제예정)
+    //UserTrigger,        // Manager 또는 Enemy에서 관리. 트리거 작동 시, 구독한 탄막들 일괄 터뜨리기.
 }

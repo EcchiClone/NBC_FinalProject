@@ -79,6 +79,7 @@ public class JsonSaveNLoader : MonoBehaviour
 public class PerkList
 {
     public int point;
+    public int unlockCount;
     public string currentSeed;
     public List<PerkInfo> data;
 }
@@ -139,5 +140,6 @@ public class ContentInfo
     public int contentIdx;
     public string name;
     public string description;
-    public ActivedData data = new ActivedData(); // 디폴트 값 생성
+    public PerkType type;
+    public float value;
 }

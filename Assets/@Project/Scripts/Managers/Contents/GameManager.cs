@@ -12,8 +12,37 @@ public class StageData // 한 판에 대한 내용
 }
 
 [Serializable]
+public class PerkData
+{
+    private Dictionary<PerkType, float> _perkDict;
+
+    public PerkData()
+    {
+        _perkDict = new Dictionary<PerkType, float>()
+        {            
+            {PerkType.SuperAllow,    0f},
+            {PerkType.SpeedModifier,      0f},
+            {PerkType.BoosterOverload,  0f},
+            {PerkType.AfterBurner,      0f},
+            {PerkType.RapidFire,           0f},
+        };
+    }
+
+    public void SetActivedPerk(PerkType type, float value)
+    {
+        _perkDict[type] += value;
+        Managers.GameManager.PerkData = this;
+    }
+
+    public float GetAbilityValue(PerkType type)
+    {
+        return _perkDict[type];
+    }
+}
+
+[Serializable]
 public class GameData
-{    
+{
     public int highestLevel;
 
     public int achievementCoin;
@@ -26,6 +55,7 @@ public class GameData
     public int partIndex_RightShoulder;
 
     public List<int> unlockedPartsList = new List<int>();
+    public PerkData perkData = new PerkData();
 }
 
 public class GameManager
@@ -47,8 +77,9 @@ public class GameManager
     }
 
     #region Parts Index
-    public int PartIndex_Lower { 
-        get => gameData.partIndex_Lower; 
+    public int PartIndex_Lower
+    {
+        get => gameData.partIndex_Lower;
         set
         {
             gameData.partIndex_Lower = value;
@@ -97,6 +128,17 @@ public class GameManager
         set
         {
             gameData.partIndex_RightShoulder = value;
+            SaveGame();
+        }
+    }
+    #endregion
+    #region Perk
+    public PerkData PerkData
+    {
+        get => gameData.perkData;
+        set
+        {
+            gameData.perkData = value;
             SaveGame();
         }
     }

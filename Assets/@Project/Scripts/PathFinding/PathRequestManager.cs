@@ -18,8 +18,13 @@ public class PathRequestManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        pathfinding = GetComponent<Pathfinding>();
-        grid = GetComponent<Grid>();
+        GetOrAddComponent(out pathfinding);
+        GetOrAddComponent(out grid);
+    }
+
+    public void CreateGrid()
+    {
+        grid.CreateGrid();
     }
 
     public static void RequestPath(Vector3 pathStart, Vector3 pathEnd, Action<Vector3[], bool> callback)
@@ -59,5 +64,12 @@ public class PathRequestManager : MonoBehaviour
             callback = _callback;
         }
 
+    }
+
+    public void GetOrAddComponent<T>(out T reference) where T : Component
+    {
+        reference = GetComponent<T>();
+        if (null == reference)
+            reference = gameObject.AddComponent<T>();
     }
 }

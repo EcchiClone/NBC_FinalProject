@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Define
 {
+    public enum Scenes
+    {
+        Unknown,
+        MainScene,
+        DevScene,
+        PerkViewerScene,
+    }
+
     public enum CamType
     {
         Main,
@@ -51,32 +59,11 @@ public class Define
         Missile
     }
 
-    //public class InitData
-    //{
-    //    public readonly List<int> LowerPartId = new()
-    //    {
-    //        10001001,            
-    //    };
-
-    //    public readonly List<int> UpperPartId = new()
-    //    {
-    //        10002001,
-    //        10002002,
-    //    };
-
-    //    public readonly List<int> ArmWeaponPartId = new()
-    //    {
-    //        10003001,
-    //        10003002,
-    //        10003003,
-    //        10003004,
-    //    };
-
-    //    public readonly List<int> ShoulderWeaponPartId = new()
-    //    {
-    //        10004001,
-    //        10004002,
-    //        10004003,
-    //    };
-    //}
+    public enum PerkAdjustType
+    {
+        raisePercentage,
+        RedusePercentage,
+        plusValue,
+        minusValue,
+    }
 }

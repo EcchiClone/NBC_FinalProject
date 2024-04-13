@@ -8,7 +8,7 @@ public enum BulletOwner
     Enemy,
 }
 
-public class Bullet : PoolAble, IDamagable
+public class Bullet : MonoBehaviour, IDamagable
 {
     [SerializeField] BulletOwner owenr;
 
