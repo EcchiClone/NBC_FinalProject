@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UI_AchievementItem : UI_Item
 {
@@ -14,11 +16,21 @@ public class UI_AchievementItem : UI_Item
     [SerializeField] private TextMeshProUGUI _desc;
     [SerializeField] private TextMeshProUGUI _completeResult;
     [SerializeField] private Button _completeBtn;
+
+    public CanvasGroup canvasGroup;
+    public float fadeInDuration = 1.0f;
+
     protected override void Init()
     {
         base.Init();
     }
-    
+    private void OnEnable()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
+        canvasGroup.DOFade(1f, fadeInDuration);
+    }
+
     public void SetAchievementInfo(Achievement achievement)
     {
         _icon.sprite = achievement.Icon;
