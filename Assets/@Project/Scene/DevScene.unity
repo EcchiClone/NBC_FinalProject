@@ -462,59 +462,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1346687905}
     m_Modifications:
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[11].tag
-      value: Minion_Spider
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[12].tag
-      value: Minion_Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[13].tag
-      value: Minion_Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[11].size
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[12].size
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[13].size
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[11].prefab
-      value: 
-      objectReference: {fileID: 6296827418220432883, guid: 625920ff42a9df940ad13ce88a40d424,
-        type: 3}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[12].prefab
-      value: 
-      objectReference: {fileID: 3421490545972492356, guid: 6c604f1719b197e40b7ed26c74487093,
-        type: 3}
-    - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
-        type: 3}
-      propertyPath: pools.Array.data[13].prefab
-      value: 
-      objectReference: {fileID: 5862130606958241670, guid: 9f9b6d8c57315c24382c9169fc0912b9,
-        type: 3}
     - target: {fileID: 2579727693239320804, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: m_RootOrder
@@ -1172,25 +1119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2094296570156681158, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.011683
-      objectReference: {fileID: 0}
-    - target: {fileID: 2094296570156681158, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -15.058254
-      objectReference: {fileID: 0}
     - target: {fileID: 2187237651049858706, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_Name
       value: '# Cams'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491678343067125734, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_CollideAgainst.m_Bits
-      value: 4608
       objectReference: {fileID: 0}
     - target: {fileID: 6630113010670400370, guid: 96c40fec97f450a4491915124c290982,
         type: 3}

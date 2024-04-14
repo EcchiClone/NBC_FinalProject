@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &913754654573738321
 MonoBehaviour:
@@ -49,7 +49,7 @@ MonoBehaviour:
   - tag: EnemyBullet01_Orange
     prefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
       type: 3}
-    size: 1500
+    size: 500
   - tag: EnemyBullet01_Purple
     prefab: {fileID: 8213430085926567989, guid: 0cf29143d33b1784c988944d8b81f09b,
       type: 3}
@@ -68,7 +68,7 @@ MonoBehaviour:
   - tag: Test_Copied_Explosion01_Effect
     prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
       type: 3}
-    size: 1000
+    size: 500
   - tag: Bullet_Cannon_01
     prefab: {fileID: 5670351475314814709, guid: 9108d33ffcca3ef4691a555a180e5100,
       type: 3}
@@ -89,6 +89,26 @@ MonoBehaviour:
     prefab: {fileID: 4635446873121853395, guid: 10b3932749028c44891af522f4d02377,
       type: 3}
     size: 100
+  - tag: Minion_Spider
+    prefab: {fileID: 6296827418220432883, guid: 625920ff42a9df940ad13ce88a40d424,
+      type: 3}
+    size: 100
+  - tag: Minion_Ball
+    prefab: {fileID: 3421490545972492356, guid: 6c604f1719b197e40b7ed26c74487093,
+      type: 3}
+    size: 100
+  - tag: Minion_Turret
+    prefab: {fileID: 5862130606958241670, guid: 9f9b6d8c57315c24382c9169fc0912b9,
+      type: 3}
+    size: 100
+  - tag: Minion_Drone
+    prefab: {fileID: 6204124545279719401, guid: 7c22c9308d3027f43a0410e30cc9789c,
+      type: 3}
+    size: 100
+  - tag: Boss_SkyFire_Fixed
+    prefab: {fileID: 6175972580230584608, guid: 9ea452715658ead49ac6a04c934ba8c1,
+      type: 3}
+    size: 1
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4b32ea33946b84ab42a144abc80110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGo: {fileID: 0}
   rentalBatchSize: 300

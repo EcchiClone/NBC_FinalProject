@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
-    private SpawnManager _spawnManager;
     private ObstacleSpawner _obstacleManager;
 
     private LevelData _levelData;
@@ -82,7 +81,12 @@ public class StageController : MonoBehaviour
 
             yield return null;
         }
-        _spawnManager.TimeOut();
+
+        CurrentSpawnCount = 0;
+        StageClear();        
+
+        // 버그 해결되면 다시 풀기
+        //Managers.SpawnManager.TimeOut();
     }
 
     private void StopTimer()
