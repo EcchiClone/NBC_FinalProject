@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8019810773204844218}
   - component: {fileID: 4163400147833689423}
   - component: {fileID: 4292194237323586144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RocketPod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3510995995781911285}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CannonLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 353192081509451575}
   - component: {fileID: 8990490274207802223}
   - component: {fileID: 4369842386489354491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UnderCannonBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7561748307494491455}
   - component: {fileID: 6345863843993773412}
   - component: {fileID: 3576525090176242722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UnderCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562027466170120470}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CannonRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429623594560075336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RocketLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 5944691604480535542}
   - component: {fileID: 2256610195693976652}
   - component: {fileID: 3913084169315897490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UnderCannonPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,10 +476,10 @@ GameObject:
   - component: {fileID: 4923005432650458335}
   - component: {fileID: 861003896636425347}
   - component: {fileID: 6584606202987825351}
-  - component: {fileID: 2436861439967985903}
   - component: {fileID: 7835752049176966449}
+  - component: {fileID: 3968112961628828127}
   m_Layer: 10
-  m_Name: Boss_GunShip
+  m_Name: Boss_SkyFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,7 +501,7 @@ Transform:
   - {fileID: 5944691604480535542}
   - {fileID: 7305248301343634579}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 132.991, z: 0}
 --- !u!33 &4471465555324069883
 MeshFilter:
@@ -616,34 +616,11 @@ MonoBehaviour:
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
+  <IsAlive>k__BackingField: 1
   enemyPhaseStarter: {fileID: 0}
   launcher1: {fileID: 0}
   launcher2: {fileID: 0}
   launcher3: {fileID: 0}
---- !u!114 &2436861439967985903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532213489777232370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 11400000, guid: d989051c39a1cea4e92a725da793520f, type: 2}
-  - {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f, type: 2}
-  - {fileID: 11400000, guid: 1432319905ecae54e9417547d737245f, type: 2}
-  muzzle:
-  - {fileID: 3510995995781911285}
-  - {fileID: 2562027466170120470}
-  - {fileID: 2429623594560075336}
-  - {fileID: 3002215963772021640}
-  - {fileID: 7305248301343634579}
-  isShooting: 1
-  onStartPhase: []
 --- !u!114 &7835752049176966449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +633,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee50bc0e7ce35a4d9e63f1007ca1125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ap: 0
+--- !u!114 &3968112961628828127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532213489777232370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6201018762201408786
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3002215963772021640}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RocketRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

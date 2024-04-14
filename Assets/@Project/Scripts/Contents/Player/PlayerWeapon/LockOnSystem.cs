@@ -62,12 +62,12 @@ public class LockOnSystem
 
         int closestIndex = GetClosestTargetIndex(hits);
 
-        if (hits[closestIndex].transform.TryGetComponent(out Test_Enemy target) == false)
+        if (hits[closestIndex].transform.TryGetComponent(out Entity target) == false)
             return false;
         if (target == TargetEnemy)
             return false;
 
-        TargetEnemy = hits[closestIndex].transform.GetComponent<Test_Enemy>().transform;
+        TargetEnemy = hits[closestIndex].transform.GetComponent<Entity>().transform;
         return true;
     }
 

@@ -22,7 +22,6 @@ public class Spider_AliveState : BaseState
 
     public override void CheckSwitchStates()
     {
-        // 코루틴 쓰고 있으면 모든 코루틴 멈추는 코드 넣어야함.
         if (!Context.Entity.IsAlive)
             SwitchState(Provider.GetState(Spider_States.Dead));
     }

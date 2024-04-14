@@ -58,4 +58,12 @@ public class Define
         Cannon,
         Missile
     }
+
+    public enum PerkAdjustType
+    {
+        raisePercentage,
+        RedusePercentage,
+        plusValue,
+        minusValue,
+    }
 }

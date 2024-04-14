@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8440490075170009458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868513799251439948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3854029091831559668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660948298137943858}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3013511311798450793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1635111205749330940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegIK.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6127795906523293621}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg0.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7911522603296387778}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735511281574047791}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8068765790135378124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg1.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3391314473274782773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg0.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590586821454604674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 2447487677817587911}
   - component: {fileID: 3527283340349260992}
   - component: {fileID: 4576979147810671158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4894113275292415235}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2713362893502704062}
   - component: {fileID: 935163546351444726}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3838039499586374014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 95786613578609988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3942372362800123360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegIK.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1277780341265210447}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6231392667297933148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegIK.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,10 +773,10 @@ GameObject:
   - component: {fileID: 1785088472369743479}
   - component: {fileID: 8605225287757612026}
   - component: {fileID: 3592014728632222735}
-  - component: {fileID: 6664927974319398572}
   - component: {fileID: -4904786964048673212}
-  m_Layer: 0
-  m_Name: Spider_Normal
+  - component: {fileID: 7058569769794827475}
+  m_Layer: 10
+  m_Name: Minion_Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,8 +790,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296827418220432883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.461859, y: 0.0011000633, z: -33.762478}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0011000633, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3854029091831559668}
@@ -859,25 +859,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6664927974319398572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6296827418220432883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
-  muzzle:
-  - {fileID: 8440490075170009458}
-  - {fileID: 7911522603296387778}
-  isShooting: 0
-  onStartPhase: []
 --- !u!114 &-4904786964048673212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +871,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7058569769794827475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296827418220432883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases:
+  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
+  Patterns: []
+  muzzle:
+  - {fileID: 8440490075170009458}
+  - {fileID: 7911522603296387778}
+  isShooting: 1
+  onStartPhase: []
+  onStartPattern: []
 --- !u!1 &7369946773782727429
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +903,7 @@ GameObject:
   - component: {fileID: 6474279005424547601}
   - component: {fileID: 6174704980986029319}
   - component: {fileID: 5353909145743928490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5297723551301782919}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg2.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7001383240214808372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg0.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
