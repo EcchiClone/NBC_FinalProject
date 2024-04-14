@@ -1,17 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
-    public Define.Scenes CurrentScene { get; private set; }
+    public BaseScene CurrentScene => GameObject.FindObjectOfType<BaseScene>();
 
     public void LoadScene(Define.Scenes sceneType)
     {
-        SceneManager.LoadScene(GetSceneName(sceneType));        
+        SceneManager.LoadScene(GetSceneName(sceneType));
+
+        CurrentScene.Clear();
     }
 
     private string GetSceneName(Define.Scenes sceneType) => Enum.GetName(typeof(Define.Scenes), sceneType);
+
+    public void Clear()
+    {
+        CurrentScene.Clear();
+    }
 }
