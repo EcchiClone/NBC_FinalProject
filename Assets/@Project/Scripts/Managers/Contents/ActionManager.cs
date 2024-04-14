@@ -14,7 +14,7 @@ public class ActionManager
     public event Action<Test_Enemy> OnLockTargetDestroyed;
 
     // # HUD
-    public event Action<float> OnCoolDownRepair;    
+    public event Action<float> OnCoolDownRepair;
 
     // # LockOn System
     public event Action<Transform> OnLockOnTarget;
@@ -42,7 +42,7 @@ public class ActionManager
     public void CallPlayerDead() => OnPlayerDead?.Invoke();
     public void CallLockTargetDestroyed(Test_Enemy target) => OnLockTargetDestroyed?.Invoke(target);
 
-    public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);    
+    public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
 
     public void CallLockOn(Transform target) => OnLockOnTarget?.Invoke(target);
     public void CallRelease() => OnReleaseTarget?.Invoke();
@@ -57,4 +57,28 @@ public class ActionManager
     public void CallShoulderModeChange(UI_ShoulderSelector.ChangeShoulderMode shoulderMode) => OnShoulderModeChange?.Invoke(shoulderMode);
     public void CallShoulderEquip(int index) => OnShoulderEquip?.Invoke(index);
     #endregion
+
+    public void Clear()
+    {
+        OnSelectorCam = null;
+        OnUndoMenuCam = null;
+
+        OnPlayerDead = null;
+        OnLockTargetDestroyed = null;
+
+        OnCoolDownRepair = null;
+
+        OnLockOnTarget = null;
+        OnReleaseTarget = null;
+        OnBossAPChanged = null;
+
+        OnLowerEquip = null;
+        OnUpperEquip = null;
+
+        OnArmModeChange = null;
+        OnArmEquip = null;
+
+        OnShoulderModeChange = null;
+        OnShoulderEquip = null;
+    }
 }

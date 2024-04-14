@@ -4,9 +4,11 @@ using UnityEngine;
 
 public enum UnitType
 {
+    None,
+
     Minion_Spider,
     Minion_Ball,
-    Minion_Turret,
+    Minion_Drone,
 
     Boss_SkyFire,
 }
