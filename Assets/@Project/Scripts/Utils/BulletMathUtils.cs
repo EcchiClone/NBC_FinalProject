@@ -100,7 +100,7 @@ public class BulletMathUtils
     public static Vector3 CalculateSpreadDirection(Vector3 originalDirection, float maxSpreadAngle, float concentration)
     {
         // 랜덤 각도를 계산
-        float spreadAngle = Random.Range(0, maxSpreadAngle/2.0f);
+        float spreadAngle = Random.Range(0, maxSpreadAngle / 2.0f);
         spreadAngle *= Mathf.Lerp(1.0f, 0.0f, concentration); // 집중 정도에 따라 스케일 조정
 
         // 랜덤 회전 축을 계산 (originalDirection에 수직인 벡터)
@@ -111,6 +111,44 @@ public class BulletMathUtils
         Vector3 spreadDirection = spreadRotation * originalDirection;
 
 
+        return spreadDirection.normalized; // 노멀라이즈된 조정된 방향 반환
+    }
+    #endregion
+    #region 탄퍼짐(X일정):Main
+    public static Vector3 CalculateSpreadDirectionFixX(Vector3 originalDirection, float maxSpreadAngle, float concentration)
+    {
+        // 랜덤 각도를 계산
+        float spreadAngle = Random.Range(0, maxSpreadAngle / 2.0f);
+        spreadAngle *= Mathf.Lerp(1.0f, 0.0f, concentration); // 집중 정도에 따라 스케일 조정
+
+        // X축을 회전 축으로 사용
+        Vector3 xAxis = Vector3.right;
+
+        // originalDirection을 X축을 중심으로 spreadAngle만큼 회전
+        Quaternion spreadRotation = Quaternion.AngleAxis(spreadAngle, xAxis);
+        Vector3 spreadDirection = spreadRotation * originalDirection;
+
+        // X축을 유지하면서 결과 벡터를 정규화
+        spreadDirection.x = originalDirection.x;
+        return spreadDirection.normalized; // 노멀라이즈된 조정된 방향 반환
+    }
+    #endregion
+    #region 탄퍼짐(Y일정)
+    public static Vector3 CalculateSpreadDirectionFixY(Vector3 originalDirection, float maxSpreadAngle, float concentration)
+    {
+        // 랜덤 각도를 계산
+        float spreadAngle = Random.Range(0, maxSpreadAngle / 2.0f);
+        spreadAngle *= Mathf.Lerp(1.0f, 0.0f, concentration); // 집중 정도에 따라 스케일 조정
+
+        // Y축을 회전 축으로 사용
+        Vector3 yAxis = Vector3.up;
+
+        // originalDirection을 Y축을 중심으로 spreadAngle만큼 회전
+        Quaternion spreadRotation = Quaternion.AngleAxis(spreadAngle, yAxis);
+        Vector3 spreadDirection = spreadRotation * originalDirection;
+
+        // Y축을 유지하면서 결과 벡터를 정규화
+        spreadDirection.y = originalDirection.y;
         return spreadDirection.normalized; // 노멀라이즈된 조정된 방향 반환
     }
     #endregion
@@ -154,6 +192,27 @@ public class BulletMathUtils
     #endregion
 
     #region 그 외
+    #region 플레이어 오브젝트 찾기
+    public static GameObject GetPlayerGo()
+    {
+        try
+        {
+            return Managers.Module.CurrentModule.LowerPosition.gameObject;
+        }
+        catch
+        {
+            GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+            if (playerGo != null)
+            {
+                return playerGo;
+            }
+            else
+            {
+                return null; // 플레이어 찾을 수 없음
+            }
+        }
+    }
+    #endregion
     #region 플레이어 위치 찾기
     public static Vector3 GetPlayerPos(bool reposit = false)
     {

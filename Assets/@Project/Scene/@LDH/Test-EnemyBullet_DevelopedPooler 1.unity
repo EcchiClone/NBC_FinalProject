@@ -1086,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[0].size
-      value: 600
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}

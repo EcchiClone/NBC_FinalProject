@@ -92,8 +92,12 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
                                                 // 전체 모양의 회전을 틀어버릴 값의 랜덤 여부. true라면 위 값을 범위로 사용. // 이 두 랜덤변수는 a-plug에서 커버 가능한 부분으로 보임. 삭제 예정
 
     public SpreadType spreadB;                  // 전체 탄에 대한 탄퍼짐 유무
-    public float maxSpreadAngleB;               // > 최대 퍼짐 각도
-    public float concentrationB;                // > 집중 정도 (0.0 ~ 1.0)
+    public float spreadB_Default_Angle;               // > 최대 퍼짐 각도
+    public float spreadB_Default_Concentration;                // > 집중 정도 (0.0 ~ 1.0)
+    public float spreadB_FixY_Angle;
+    public float spreadB_FixY_Concentration;
+    public float spreadB_FixX_Angle;
+    public float spreadB_FixX_Concentration;
 
 
 
@@ -208,7 +212,7 @@ public enum EnemyBulletMoveType
     //MasterToPlayer,
 
     LerpToPlayer,
-
+    MasterCenter,
     //CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 public enum EnemyBulletChangeMoveMethod

@@ -164,9 +164,17 @@ public class PatternSOEditor : Editor
                 if (!EnumMatchCheck("enemyBulletShape", EnemyBulletShape.Sphere)) continue;
             if (property.name == "initCustomDirection")
                 if (!EnumMatchCheck("initDirectionType", EnemyBulletToDirection.Local)) continue;
-            if (property.name == "maxSpreadAngleB")
+            if (property.name == "spreadB_Default_Angle")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
-            if (property.name == "concentrationB")
+            if (property.name == "spreadB_Default_Concentration")
+                if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+            if (property.name == "spreadB_FixY_Angle")
+                if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+            if (property.name == "spreadB_FixY_Concentration")
+                if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+            if (property.name == "spreadB_FixX_Angle")
+                if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
+            if (property.name == "spreadB_FixX_Concentration")
                 if (!EnumMatchCheck("spreadB", SpreadType.Spread)) continue;
 
             if (property.name == "initMoveDirection")
@@ -198,8 +206,12 @@ public class PatternSOEditor : Editor
             if (property.name == "numPerShot") { EditorGUILayout.PropertyField(property, new GUIContent("1회 당 탄수")); continue; }
             if (property.name == "shotVerticalNum") { EditorGUILayout.PropertyField(property, new GUIContent("층 수")); continue; }
             if (property.name == "spreadB") { EditorGUILayout.PropertyField(property, new GUIContent("각 탄막의 오차 적용")); continue; }
-            if (property.name == "maxSpreadAngleB") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(0~360)")); continue; }
-            if (property.name == "concentrationB") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
+            if (property.name == "spreadB_Default_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(기본)(0~360)")); continue; }
+            if (property.name == "spreadB_Default_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
+            if (property.name == "spreadB_FixY_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(Y고정) - Main")); continue; }
+            if (property.name == "spreadB_FixY_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도")); continue; }
+            if (property.name == "spreadB_FixX_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(X고정)")); continue; }
+            if (property.name == "spreadB_FixX_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도")); continue; }
 
             if (property.name == "initDirectionType") { EditorGUILayout.PropertyField(property, new GUIContent("생성 시 방향")); continue; }
             if (property.name == "initCustomDirection") { EditorGUILayout.PropertyField(property, new GUIContent("직접 지정")); continue; }
