@@ -9,7 +9,8 @@ public class UI_MainMenuPopup : UI_Popup
 {
     private UI_SelectorMenu _selector;
     private UI_Achievement _achievement;
-    
+    private UI_Settings _settings;
+
     enum Buttons
     {
         GameStart_Btn,
@@ -31,7 +32,7 @@ public class UI_MainMenuPopup : UI_Popup
 
         GetButton((int)Buttons.Module_Select_Btn).onClick.AddListener(OpenModuleSelector);        
         GetButton((int)Buttons.Achievement_Btn).onClick.AddListener(OpenAchievement);
-        //GetButton((int)Buttons.Settings_Btn).onClick.AddListener();
+        GetButton((int)Buttons.Settings_Btn).onClick.AddListener(OpenSettings);
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);
     }
 
@@ -57,8 +58,20 @@ public class UI_MainMenuPopup : UI_Popup
         }
         else
             _achievement.gameObject.SetActive(true); // Show UI
-        
+
         gameObject.SetActive(false); // Disable this(MainMenu)
+    }
+    private void OpenSettings()
+    {
+        if (_achievement == null)
+        {
+            _settings = Managers.UI.ShowPopupUI<UI_Settings>();
+            _settings.SetPreviousPopup(this);
+        }
+        else
+            _settings.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 
     #region ExitGame Method
