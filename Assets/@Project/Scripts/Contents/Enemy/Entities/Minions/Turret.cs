@@ -6,8 +6,8 @@ public class Turret : Entity
 {
     protected override void Initialize()
     {
-        Target = GameObject.Find("Target").transform;
-        //Target = Managers.Module.CurrentModule.transform;
+        //Target = GameObject.Find("Target").transform;
+        Target = Managers.Module.CurrentModule.transform;
         
 
         Controller = new TurretUnitController(this);

@@ -20,6 +20,7 @@ public class Managers : MonoBehaviour
     #endregion
 
     #region # Contents
+    StageActionManager _stageActionManager = new StageActionManager();
     ActionManager _actionManager = new ActionManager();
     GameManager _gameManager = new GameManager();
     ModuleManager _module = new ModuleManager();
@@ -28,6 +29,7 @@ public class Managers : MonoBehaviour
     StageManager _stageManager = new StageManager();
     AchievementSystem _achievementSystem = new AchievementSystem();
 
+    public static StageActionManager StageActionManager => Instance?._stageActionManager;
     public static ActionManager ActionManager => Instance?._actionManager;
     public static GameManager GameManager => Instance?._gameManager;
     public static ModuleManager Module => Instance?._module;

@@ -128,6 +128,8 @@ public class SpawnManager
                 _rooftopCell.Add(rooftopSpawnPoint);
             }
         }
+
+        DetectSpawnPoint();
     }
 
     public void DetectSpawnPoint() // 중복 없는 스폰 포인트 탐지
@@ -173,54 +175,57 @@ public class SpawnManager
 
 
 
-    //#region 국 작업
-    //public LevelData LevelData { get; private set; }
-    //public int CurrentLevel { get; private set; }
-    //public int KilledEnemiesCount { get; private set; }
-    //public bool IsStarted { get; private set; }
+    #region 국 작업    
+    public int CurrentLevel { get; private set; }
+    public int KilledEnemiesCount { get; private set; }
+    public bool IsStarted { get; private set; }
 
-    //public event Action OnStageClear;
+    public event Action OnStageClear;
 
-    //public void Init()
-    //{
-    //    // To Do - 맵 스폰
-    //    // 맵이 스폰되면 게임시작
-    //}
+    public void Init()
+    {
+        // To Do - 맵 스폰
+        // 맵이 스폰되면 게임시작
+    }
 
-    //public void StageStart()
-    //{
-    //    if (!IsStarted)
-    //    {
-    //        IsStarted = true;
-    //        CurrentLevel = 1;
-    //    }
-    //    LevelData = Managers.Data.GetLevelData(CurrentLevel);        
-    //    // To Do - 적 스폰
+    public void StageStart()
+    {
+        if (!IsStarted)
+        {
+            IsStarted = true;
+            CurrentLevel = 1;
+        }        
+        // To Do - 적 스폰
 
 
 
-    //    // 실제 스테이지 로직
-    //}
+        // 실제 스테이지 로직
+    }
 
-    //public void StageClear()
-    //{
-    //    CurrentLevel++;
-    //    OnStageClear?.Invoke();
-    //}
+    public void SpawnEnemy(string unitType, int spawnIndex)
+    {        
+        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[spawnIndex]);
+    }
 
-    //public void CheckStageClear()
-    //{
-    //    KilledEnemiesCount++;
-    //    if (KilledEnemiesCount >= LevelData.SpawnCount)
-    //        StageClear();
-    //}
+    public void StageClear()
+    {
+        CurrentLevel++;
+        OnStageClear?.Invoke();
+    }
 
-    //public void TimeOut()
-    //{
-    //    IsStarted = false;
-    //    Managers.ActionManager.CallPlayerDead();
-    //}
-    //#endregion
+    public void CheckStageClear(int SpawnCount)
+    {
+        KilledEnemiesCount++;
+        if (KilledEnemiesCount >= SpawnCount)
+            StageClear();
+    }
+
+    public void TimeOut()
+    {
+        IsStarted = false;
+        Managers.ActionManager.CallPlayerDead();
+    }
+    #endregion
 }
 
 // 게임오버 조건 2가지
