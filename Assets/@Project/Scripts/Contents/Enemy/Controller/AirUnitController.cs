@@ -83,6 +83,14 @@ public class AirUnitController : Controller
         StopPoint = target + stopDirection * StopDistance;
     }
 
+    public override void SetStopDistance(float stopDistance)
+    {
+        if (0 > stopDistance)
+            StopDistance = _entity.Data.stopDistance;
+        else
+            StopDistance = stopDistance;
+    }
+
     protected override void CheckDistance()
     {
         Vector3 currentPosition = _entity.transform.position;

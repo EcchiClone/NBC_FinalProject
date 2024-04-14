@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Spider_IdleState : BaseState
 {
+    private Transform _entityTransform;
+    private Transform _targetTransform;
+
+    private Vector3 _originPoint;
+
     public Spider_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
@@ -11,7 +16,8 @@ public class Spider_IdleState : BaseState
 
     public override void EnterState()
     {
-        Context.Entity.Controller.SetDestination(_entityTransform.position);
+        _originPoint = _entityTransform.position;
+        Context.Entity.Controller.SetStopDistance(0f);
     }
 
     public override void UpdateState()
@@ -21,6 +27,7 @@ public class Spider_IdleState : BaseState
 
     public override void ExitState()
     {
+        Context.Entity.Controller.SetStopDistance();
     }
 
     public override void CheckSwitchStates()

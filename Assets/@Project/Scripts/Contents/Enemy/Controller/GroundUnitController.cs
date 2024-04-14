@@ -31,7 +31,15 @@ public class GroundUnitController : Controller
     {
         agent.SetDestination(target);
     }
-    
+
+    public override void SetStopDistance(float stopDistance)
+    {
+        if(0 > stopDistance)
+            agent.stoppingDistance = StopDistance = _entity.Data.stopDistance;
+        else
+            agent.stoppingDistance = StopDistance = stopDistance;
+    }
+
     protected override void Look()
     {
         Quaternion currentLocalRotation = head.localRotation;

@@ -60,7 +60,6 @@ public class Ball_DeadState : BaseState
 
                 rigidbody.AddForce(pushDirection * 10, ForceMode.Impulse);
             }
-            
         }
         // TODO : 사라지자
         _isExplodeFinish = true;

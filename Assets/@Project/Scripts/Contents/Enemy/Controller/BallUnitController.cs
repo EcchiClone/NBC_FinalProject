@@ -32,6 +32,14 @@ public class BallUnitController : Controller
         PathRequestManager.RequestPath(_entity.transform.position, target, OnPathFound);
     }
 
+    public override void SetStopDistance(float stopDistance)
+    {
+        if (0 > stopDistance)
+            StopDistance = _entity.Data.stopDistance;
+        else
+            StopDistance = stopDistance;
+    }
+
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)

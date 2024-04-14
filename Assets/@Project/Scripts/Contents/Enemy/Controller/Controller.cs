@@ -39,6 +39,9 @@ public  class Controller
 
     public virtual void SetDestination(Vector3 target) { }
 
+    /// <param name="stopDistance">0 미만일 경우 원래의 StopDistance 적용</param>
+    public virtual void SetStopDistance(float stopDistance = -1f) { }
+
     public virtual void Stop() { }
 
     protected virtual void CheckDistance() { }
