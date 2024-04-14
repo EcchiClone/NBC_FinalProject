@@ -12,4 +12,11 @@ public class StageActionManager
     public void CallEnemyKilled(int value) => OnEnemyKilled?.Invoke(value);
     public void CallEnemySpawned(int value) => OnEnemySpawned?.Invoke(value);
     public void CallCountDown(float time) => OnCountDownActive?.Invoke(time);
+
+    public void Clear()
+    {
+        OnEnemyKilled = null;
+        OnEnemySpawned = null;
+        OnCountDownActive = null;
+    }
 }

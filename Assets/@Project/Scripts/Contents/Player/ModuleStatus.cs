@@ -28,8 +28,7 @@ public class ModuleStatus
     
     #endregion
 
-    public static event Action<float, float> OnChangeArmorPoint;
-    public static event Action<float, float> OnChangeBoosterGauge;
+    
 
     public float CurrentArmor { get; private set; }
     public float CurrentBooster { get; private set; }
@@ -63,8 +62,8 @@ public class ModuleStatus
         CurrentArmor = Armor;
         CurrentBooster = BoosterGauge;
 
-        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
-        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+        Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
+        Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
     }
 
     public void GetDamage(float damage)
@@ -72,13 +71,13 @@ public class ModuleStatus
         CurrentArmor -= damage - DEF;
         if (CurrentArmor <= 0)
             Dead();
-        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
+        Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
     }
 
     public void Repair()
     {
         CurrentArmor = Mathf.Min(CurrentArmor + 250, Armor);
-        OnChangeArmorPoint?.Invoke(Armor, CurrentArmor);
+        Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
     }
 
     public bool Boost()
@@ -87,7 +86,7 @@ public class ModuleStatus
             return false;
 
         CurrentBooster = Mathf.Max(0, CurrentBooster - DASH_BOOSTER_CONSUME);
-        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+        Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
         return true;
     }
 
@@ -98,13 +97,13 @@ public class ModuleStatus
 
         CurrentBooster = Mathf.Max(0, CurrentBooster - HOVER_BOOSTER_CONSUME * Time.deltaTime);
         action.Invoke();
-        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+        Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
     }
 
     public void BoosterRecharge()
     {
         CurrentBooster = Mathf.Min(BoosterGauge, CurrentBooster + 0.5f);
-        OnChangeBoosterGauge?.Invoke(BoosterGauge, CurrentBooster);
+        Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
     }
 
     private void Dead()

@@ -3925,7 +3925,7 @@ MonoBehaviour:
   _returnBtn: {fileID: 272504432972412363}
   _countDownTime: {fileID: 3821122693713209406}
   _spawnedCount: {fileID: 2962184784359295427}
-  _remainCount: {fileID: 6690909906229687874}
+  _killCount: {fileID: 0}
 --- !u!1 &7732474367147394054
 GameObject:
   m_ObjectHideFlags: 0

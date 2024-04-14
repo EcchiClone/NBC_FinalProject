@@ -21,21 +21,27 @@ public class Managers : MonoBehaviour
 
     #region # Contents
     StageActionManager _stageActionManager = new StageActionManager();
+    ModuleActionManager _moduleActionManager = new ModuleActionManager();
     ActionManager _actionManager = new ActionManager();
+
     GameManager _gameManager = new GameManager();
     ModuleManager _module = new ModuleManager();
     StatusManager _statusManager = new StatusManager();
     SpawnManager _spawnManager = new SpawnManager();
     StageManager _stageManager = new StageManager();
+    TutorialManager _tutorialManager = new TutorialManager();
     AchievementSystem _achievementSystem = new AchievementSystem();
 
     public static StageActionManager StageActionManager => Instance?._stageActionManager;
+    public static ModuleActionManager ModuleActionManager => Instance?._moduleActionManager;
     public static ActionManager ActionManager => Instance?._actionManager;
+
     public static GameManager GameManager => Instance?._gameManager;
     public static ModuleManager Module => Instance?._module;
     public static StatusManager StatusManager => Instance?._statusManager;
     public static SpawnManager SpawnManager => Instance?._spawnManager;
     public static StageManager StageManager => Instance?._stageManager;
+    public static TutorialManager Tutorial => Instance?._tutorialManager;
     public static AchievementSystem AchievementSystem => Instance?._achievementSystem;
     #endregion
 
@@ -63,8 +69,12 @@ public class Managers : MonoBehaviour
     /// <summary>
     /// 씬이 넘어갈 때 각 매니저의 초기화를 실행
     /// </summary>
-    public void Clear()
+    public static void Clear()
     {
-        // To-Do 초기화가 필요한 매니저들의 각 클래스에 Clear 함수를 이곳에서 호출.
+        // To-Do 초기화가 필요한 매니저들의 각 클래스에 Clear 함수를 이곳에서 호출.        
+        ActionManager.Clear();
+        ModuleActionManager.Clear();
+        StageActionManager.Clear();
+        Tutorial.Clear();
     }
 }
