@@ -65,16 +65,16 @@ public class UI_SettingsOnStagePopup : UI_Popup
         // SOUND
         slider = Get<Slider>((int)Sliders.Slider_Sound1);
         slider.onValueChanged.AddListener(SliderEvent_Sound1);
-        slider.value = AudioManager.instance.masterVolume;
+        //slider.value = AudioManager.instance.masterVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound2);
         slider.onValueChanged.AddListener(SliderEvent_Sound2);
-        slider.value = AudioManager.instance.musicVolume;
+        //slider.value = AudioManager.instance.musicVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound3);
         slider.onValueChanged.AddListener(SliderEvent_Sound3);
-        slider.value = AudioManager.instance.ambienceVolume;
+        //slider.value = AudioManager.instance.ambienceVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound4);
         slider.onValueChanged.AddListener(SliderEvent_Sound4);
-        slider.value = AudioManager.instance.SFXVolume;
+        //slider.value = AudioManager.instance.SFXVolume;
 
         // GRAPHICS
         slider = Get<Slider>((int)Sliders.Slider_Quality);
@@ -88,23 +88,23 @@ public class UI_SettingsOnStagePopup : UI_Popup
     public void SliderEvent_Sound1(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)value).ToString();
-        AudioManager.instance.masterVolume = value;
+        //AudioManager.instance.masterVolume = value;
 
     }
     public void SliderEvent_Sound2(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)value).ToString();
-        AudioManager.instance.musicVolume = value;
+        //AudioManager.instance.musicVolume = value;
     }
     public void SliderEvent_Sound3(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)value).ToString();
-        AudioManager.instance.ambienceVolume = value;
+        //AudioManager.instance.ambienceVolume = value;
     }
     public void SliderEvent_Sound4(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)value).ToString();
-        AudioManager.instance.SFXVolume = value;
+        //AudioManager.instance.SFXVolume = value;
     }
     public void SliderEvent_Quality(float value)
     {
