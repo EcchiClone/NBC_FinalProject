@@ -39,19 +39,19 @@ public class CameraController : MonoBehaviour
 
     private void CameraMovement()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && _cameraHolder.position.y < 3200f)
         {
             _cameraHolder.position += new Vector3(0f, _speed, 0f);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && _cameraHolder.position.y > -3200f)
         {
             _cameraHolder.position += new Vector3(0f, -_speed, 0f);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && _cameraHolder.position.x > -3200f)
         {
             _cameraHolder.position += new Vector3(-_speed, 0f, 0f);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && _cameraHolder.position.x < 3200f)
         {
             _cameraHolder.position += new Vector3(_speed, 0f, 0f);
         }
@@ -63,14 +63,14 @@ public class CameraController : MonoBehaviour
         {
             _mainCamera.fieldOfView = 30;
         }
-        else if (_scrollY < 0 && _mainCamera.fieldOfView >= 100)
+        else if (_scrollY < 0 && _mainCamera.fieldOfView >= 120)
         {
-            _mainCamera.fieldOfView = 100;
+            _mainCamera.fieldOfView = 120;
         }
         else
         {
             _zoomAmount += -_scrollY * _zoomSensitivity;
-            _mainCamera.fieldOfView = Mathf.Clamp(_zoomAmount, 30, 100);
+            _mainCamera.fieldOfView = Mathf.Clamp(_zoomAmount, 30, 120);
         }
     }
 
