@@ -69,16 +69,16 @@ public class UI_SettingsPopup : UI_Popup
         // SOUND
         slider = Get<Slider>((int)Sliders.Slider_Sound1);
         slider.onValueChanged.AddListener(SliderEvent_Sound1);
-        //slider.value =  // 기존 값 가져오는 로직
+        slider.value = AudioManager.instance.masterVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound2);
         slider.onValueChanged.AddListener(SliderEvent_Sound2);
-        //slider.value =  // 기존 값 가져오는 로직
+        slider.value = AudioManager.instance.musicVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound3);
         slider.onValueChanged.AddListener(SliderEvent_Sound3);
-        //slider.value =  // 기존 값 가져오는 로직
+        slider.value = AudioManager.instance.ambienceVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound4);
         slider.onValueChanged.AddListener(SliderEvent_Sound4);
-        //slider.value =  // 기존 값 가져오는 로직
+        slider.value = AudioManager.instance.SFXVolume;
 
         // GRAPHICS
         slider = Get<Slider>((int)Sliders.Slider_Quality);
@@ -92,25 +92,27 @@ public class UI_SettingsPopup : UI_Popup
         GetButton((int)Buttons.Button_Reset1).onClick.AddListener(Reset1Btn);
         GetButton((int)Buttons.Button_Reset2).onClick.AddListener(Reset2Btn);
     }
+
     public void SliderEvent_Sound1(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)value).ToString();
-        // 사운드1 조절 로직
+        AudioManager.instance.masterVolume = value;
+
     }
     public void SliderEvent_Sound2(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)value).ToString();
-        // 사운드2 조절 로직
+        AudioManager.instance.musicVolume = value;
     }
     public void SliderEvent_Sound3(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)value).ToString();
-        // 사운드3 조절 로직
+        AudioManager.instance.ambienceVolume = value;
     }
     public void SliderEvent_Sound4(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)value).ToString();
-        // 사운드4 조절 로직
+        AudioManager.instance.SFXVolume = value;
     }
     public void SliderEvent_Quality(float value)
     {
