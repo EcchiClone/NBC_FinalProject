@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: YES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
-  m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
+  m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
+  m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC2A4\uD0B5\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
-  m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
+  m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
+  m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -230,8 +230,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -463,8 +463,8 @@ MonoBehaviour:
   m_text: "\uBA54\uC778\uBA54\uB274\uC5D0\uC11C \uC5B8\uC81C\uB4E0\uC9C0 \uB2E4\uC2DC
     \uC9C4\uD589 \uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da5e707387ff8a441b3ce1f267992332, type: 2}
-  m_sharedMaterial: {fileID: 1998036413265977320, guid: da5e707387ff8a441b3ce1f267992332,
+  m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
+  m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -489,8 +489,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -839,8 +839,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
-  m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
+  m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
+  m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

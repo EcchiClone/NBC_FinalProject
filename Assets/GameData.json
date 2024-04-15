@@ -7,6 +7,7 @@
     "partIndex_RightArm": 1,
     "partIndex_LeftShoulder": 0,
     "partIndex_RightShoulder": 0,
+    "tutorialClear": true,
     "unlockedPartsList": [
         10003004
     ],

@@ -54,6 +54,8 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
+    public bool tutorialClear;
+
     public List<int> unlockedPartsList = new List<int>();
     public PerkData perkData = new PerkData();
 }
@@ -161,6 +163,17 @@ public class GameManager
         gameData.unlockedPartsList.Add(id);
         OnReceivePartID?.Invoke(id);
         SaveGame();
+    }
+    #endregion
+    #region Tutorial
+    public bool TutorialClear
+    {
+        get => gameData.tutorialClear;
+        set
+        {
+            gameData.tutorialClear = value;
+            SaveGame();
+        }
     }
     #endregion
 
