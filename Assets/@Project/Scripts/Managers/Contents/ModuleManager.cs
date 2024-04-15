@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using static Define;
 
@@ -60,16 +61,16 @@ public class ModuleManager
         Modules.Add(typeof(ArmsPart), armWeaponParts);
         Modules.Add(typeof(ShouldersPart), shoulderWeaponParts);
 
-        InitUnlock();        
+        InitUnlock();
     }
 
     private void InitUnlock()
-    {        
+    {
         IEnumerator allPartDatas = Managers.Data.GetPartDataEnumerator();
 
         while (allPartDatas.MoveNext())
         {
-            KeyValuePair<int, PartData> currentPartData = (KeyValuePair<int,PartData>)allPartDatas.Current;
+            KeyValuePair<int, PartData> currentPartData = (KeyValuePair<int, PartData>)allPartDatas.Current;
 
             int id = currentPartData.Key;
             bool initPart = currentPartData.Value.InitialPart;
@@ -209,7 +210,7 @@ public class ModuleManager
 
     public T GetPartOfIndex<T>(int index) where T : BasePart
     {
-        BasePart[] parts = GetParts<T>();        
+        BasePart[] parts = GetParts<T>();
 
         if (index >= parts.Length || parts[index] == null)
         {
@@ -233,5 +234,12 @@ public class ModuleManager
     public void Clear()
     {
         CurrentModule = null;
+        OnUpperChange = null;
+        OnLowerChange = null;
+        OnLeftArmChange = null;
+        OnRightArmChange = null;
+        OnLeftShoulderChange = null;
+        OnRightSoulderChange = null;
+        OnInfoChange = null;
     }
 }

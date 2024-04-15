@@ -208,7 +208,7 @@ Transform:
   - {fileID: 5393047920570609666}
   - {fileID: 4683340883457521373}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2269826299519800800
 GameObject:
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4608
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
@@ -1173,7 +1173,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 10
   m_Depth: -1

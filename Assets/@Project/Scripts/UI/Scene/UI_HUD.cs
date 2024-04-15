@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_HUD : UI_Scene
@@ -49,8 +46,8 @@ public class UI_HUD : UI_Scene
         _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_L, _ammoSL);
         _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_R, _ammoSR);
 
-        ModuleStatus.OnChangeArmorPoint += ChangeAPValue;
-        ModuleStatus.OnChangeBoosterGauge += ChangeBoosterValue;
+        Managers.ModuleActionManager.OnChangeArmorPoint += ChangeAPValue;
+        Managers.ModuleActionManager.OnChangeBoosterGauge += ChangeBoosterValue;
 
         // vvvvv 무기 사용 제외 모든 HUD 정보를 갱신하도록 Action 구독 - ActionManager 에 Action 몰아넣기
         Managers.ActionManager.OnLockOnTarget += GetTargetedEnemy;
@@ -66,6 +63,8 @@ public class UI_HUD : UI_Scene
 
         Managers.ActionManager.OnPlayerDead += () => _gameOverPanel.SetActive(true);
         _returnBtn.onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.MainScene));
+
+        Managers.UI.ShowPopupUI<UI_StageInfoPopup>();
     }
 
     private void AmmoTextChange(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)

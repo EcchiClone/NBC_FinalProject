@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 
@@ -29,8 +31,6 @@ public class SpawnManager
 
     private List<GameObject> _activatedUnits = new List<GameObject>();
 
-
-
     public SpawnManager()
     {
         gridWorldSize = new Vector3(200, 200, 200);
@@ -58,7 +58,7 @@ public class SpawnManager
 
         int spawnIndex = 0;
 
-        foreach(UnitSpawnInfo spawninfo in unitSpawnInfos) 
+        foreach (UnitSpawnInfo spawninfo in unitSpawnInfos) // 터렛도 생각해야함
         {
             // if 터렛인 경우~
             string unitType = spawninfo.unitType.ToString();
@@ -71,14 +71,14 @@ public class SpawnManager
 
     public void SpawnBoss()
     {
-        
+
     }
 
     private void DestroyAllUnit()
     {
-        if(_activatedUnits.Count > 0)
+        if (_activatedUnits.Count > 0)
         {
-            foreach(GameObject obj in _activatedUnits)
+            foreach (GameObject obj in _activatedUnits)
             {
                 obj.SetActive(false);
             }
@@ -90,7 +90,7 @@ public class SpawnManager
     {
         if (_activatedUnits.Count == 0) return true; // 임시
 
-        foreach(GameObject unit in _activatedUnits)
+        foreach (GameObject unit in _activatedUnits)
         {
             if (unit.activeSelf) return false;
         }
@@ -128,6 +128,8 @@ public class SpawnManager
                 _rooftopCell.Add(rooftopSpawnPoint);
             }
         }
+
+        DetectSpawnPoint();
     }
 
     public void DetectSpawnPoint() // 중복 없는 스폰 포인트 탐지
@@ -169,4 +171,67 @@ public class SpawnManager
             list[n] = value;
         }
     }
+
+
+
+
+    #region 국 작업    
+    public int CurrentLevel { get; private set; }
+    public int KilledEnemiesCount { get; private set; }
+    public bool IsStarted { get; private set; }
+
+    public event Action OnStageClear;
+
+    public void Init()
+    {
+        // To Do - 맵 스폰
+        // 맵이 스폰되면 게임시작
+    }
+
+    public void StageStart()
+    {
+        if (!IsStarted)
+        {
+            IsStarted = true;
+            CurrentLevel = 1;
+        }        
+        // To Do - 적 스폰
+
+
+
+        // 실제 스테이지 로직
+    }
+
+    public void SpawnEnemy(string unitType, int spawnIndex)
+    {        
+        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[spawnIndex]);
+    }
+
+    public void StageClear()
+    {
+        CurrentLevel++;
+        OnStageClear?.Invoke();
+    }
+
+    public void CheckStageClear(int SpawnCount)
+    {
+        KilledEnemiesCount++;
+        if (KilledEnemiesCount >= SpawnCount)
+            StageClear();
+    }
+
+    public void TimeOut()
+    {
+        IsStarted = false;
+        Managers.ActionManager.CallPlayerDead();
+    }
+    #endregion
 }
+
+// 게임오버 조건 2가지
+// 1. 타임오버 - 플레이어는 생존
+// 2. 게임오버 - 타임이 계속 흘러가는 경우
+
+// 스테이지 매니저 목표
+// 시트에서 2가지 이상 몬스터 종류를 불러오게 할 수 있다면
+// 성원님 or 국 방법 아무거나에 적용하기

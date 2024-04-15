@@ -5,12 +5,12 @@ using UnityEngine;
 public class DataManager
 {
     private Dictionary<int, PartData> _partsDict = new Dictionary<int, PartData>();
-    //private Dictionary<int, WeaponData> _weaponDict = new Dictionary<int, WeaponData>();
+    private Dictionary<int, LevelData> _levelDict = new Dictionary<int, LevelData>();
 
     public void Init()
     {
         LoadAllPartDatas(_partsDict);
-        //LoadAllWeaponDatas(_weaponDict);
+        LoadAllLevelDatas(_levelDict);
     }
 
     private void LoadAllDatas<T1, T2>(Dictionary<int, T2> dict, string fileName = null) where T1 : BaseDbSheet<T2> where T2 : IEntity
@@ -43,7 +43,7 @@ public class DataManager
     }
 
     private void LoadAllPartDatas(Dictionary<int, PartData> dict) => LoadAllDatas<PartDbSheet, PartData>(dict);
-    //private void LoadAllWeaponDatas(Dictionary<int, PartData> dict) => LoadAllDatas<WeaponDbSheet, WeaponData>(dict);
+    private void LoadAllLevelDatas(Dictionary<int, LevelData> dict) => LoadAllDatas<LevelDbSheet, LevelData>(dict);
 
     private T GetData<T>(int id, Dictionary<int, T> dict) where T : IEntity
     {
@@ -54,6 +54,7 @@ public class DataManager
     }
 
     public PartData GetPartData(int id) => GetData(id, _partsDict);
+    public LevelData GetLevelData(int id) => GetData(id, _levelDict);
 
     public IEnumerator GetEnumerator<T>(Dictionary<int, T> dict) where T : IEntity => dict.GetEnumerator();
 

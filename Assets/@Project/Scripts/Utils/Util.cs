@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class Util
 {
@@ -82,5 +83,52 @@ public static class Util
         float length = clipInfo.length;
 
         return length;
+    }
+
+    public static float CalcPerkValueToStatus(PerkType type, float origin, float adjust)
+    {
+        float resultValue = 0;
+
+        switch (type)
+        {
+            case PerkType.SuperAllow:
+                resultValue = 0;
+                break;
+            case PerkType.SpeedModifier:
+                break;
+            case PerkType.BoosterOverload:
+                break;
+            case PerkType.AfterBurner:
+                break;
+            case PerkType.ImprovedReload:
+                break;
+            case PerkType.RapidFire:
+                break;
+            case PerkType.Spring:
+                break;
+            case PerkType.Lubrication:
+                break;
+            case PerkType.Jetpack:
+                break;
+            case PerkType.Pierce:
+                break;
+            case PerkType.ImprovedBullet:
+                break;
+            case PerkType.Rador:
+                break;
+            case PerkType.OverHeat:
+                break;
+            case PerkType.ImprovedBarrel:
+                break;
+            case PerkType.SpareAmmunition:
+                break;
+            case PerkType.Resupply:
+                break;
+            case PerkType.ImprovedArmor:
+                break;
+            case PerkType.Stealth:
+                break;
+        }
+        return resultValue;
     }
 }

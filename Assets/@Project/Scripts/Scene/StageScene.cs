@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageScene : MonoBehaviour
+public class StageScene : BaseScene
 {
-    private void Awake()
+    public override void Init()
     {
+        Scenes = Define.Scenes.DevScene;
+
         Managers.Module.CreatePlayerModule();
         Managers.UI.ShowSceneUI<UI_HUD>();
+    }
+
+    public override void Clear()
+    {
+        Managers.Clear();
     }
 }

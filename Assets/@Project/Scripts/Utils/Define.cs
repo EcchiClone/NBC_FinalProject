@@ -7,6 +7,7 @@ public class Define
     public enum Scenes
     {
         Unknown,
+        Tutorial,
         MainScene,
         DevScene,
         PerkViewerScene,
@@ -57,5 +58,13 @@ public class Define
         Gun,
         Cannon,
         Missile
-    }    
+    }
+
+    public enum PerkAdjustType
+    {
+        raisePercentage,
+        RedusePercentage,
+        plusValue,
+        minusValue,
+    }
 }

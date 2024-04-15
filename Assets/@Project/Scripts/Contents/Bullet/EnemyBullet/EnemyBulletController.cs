@@ -14,10 +14,11 @@ public class EnemyBulletController : EnemyBullet
     private Rigidbody _rb;
     private Vector3 fixedPlayerPos;
     private Vector3 playerPos;
+    private float _normalizedValue;
 
     // private float levelCoefficient; // 레벨에 따른 속도 계수. 1.0 이상.
 
-    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf)
+    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf, float normalizedValue)
     {
         // Trail 궤적 초기화
         foreach(TrailRenderer t in _trailRenderers)
@@ -29,6 +30,7 @@ public class EnemyBulletController : EnemyBullet
         _rootGo = rootGo;
         _masterTf = masterTf;
         _rb = GetComponent<Rigidbody>();
+        _normalizedValue = ((settings.enemyBulletShape == EnemyBulletShape.Custom || settings.enemyBulletShape == EnemyBulletShape.RandomVertex) && settings.useVelocityScalerFromMuzzleDist) ? normalizedValue : 1f;
         UpdateMoveParameter();
         ReleaseObject(_currentParameters.releaseTimer);
 
@@ -59,6 +61,8 @@ public class EnemyBulletController : EnemyBullet
 
     void Move()
     {
+        Quaternion targetRotation;
+
         switch (_currentParameters._EnemyBulletMoveType)
         {
             case EnemyBulletMoveType.Forward: // 오브젝트가 향하는 방향으로 velocity 설정
@@ -67,11 +71,41 @@ public class EnemyBulletController : EnemyBullet
 
             case EnemyBulletMoveType.LerpToPlayer:
                 playerPos = BulletMathUtils.GetPlayerPos(true); // 플레이어 찾기
-                Quaternion targetRotation = Quaternion.LookRotation((playerPos - transform.position).normalized);
+                targetRotation = Quaternion.LookRotation((playerPos - transform.position).normalized);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
                 _rb.velocity = transform.forward * _currentParameters.Speed;
                 break;
+
+            case EnemyBulletMoveType.MasterCenter:
+                Vector3 centerPosition = _rootGo.transform.position; // Enemy의 현재 위치
+                Vector3 directionFromCenter = (transform.position - centerPosition).normalized; // 중심에서 탄환으로의 방향 벡터
+
+                // 수평 방향 벡터 계산 (Y축 변화 포함하지 않음)
+                Vector3 horizontalDirection = new Vector3(directionFromCenter.x, 0, directionFromCenter.z).normalized;
+
+                // 바깥쪽으로 나아가는 방향을 수평 평면에서 계산, 각도를 조정하여 바깥으로 확장
+                Vector3 outwardDirection = Quaternion.Euler(0, 45, 0) * horizontalDirection;
+
+                // Y축 변화를 포함하는 벡터 추가
+                float heightFactor = 1.0f; // Y축 변화량을 조절하는 계수, 필요에 따라 조정
+                Vector3 verticalDirection = new Vector3(0, directionFromCenter.y * heightFactor, 0);
+
+                // 원의 접선 방향을 수평 평면에서 계산
+                Vector3 tangentDirection = Vector3.Cross(Vector3.up, horizontalDirection).normalized;
+
+                // 최종 벡터는 탄점 방향과 바깥쪽으로 나아가는 벡터 및 수직 방향 벡터의 합
+                Vector3 finalVelocity = (tangentDirection + outwardDirection + verticalDirection).normalized * _currentParameters.Speed;
+
+                targetRotation = Quaternion.LookRotation(finalVelocity); // 탄환의 회전을 최종 벡터 방향으로 설정
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
+
+                _rb.velocity = finalVelocity; // 탄환의 속도를 최종 계산된 벡터로 설정
+                break;
+
+
+
         }
+        _rb.velocity *= _normalizedValue;
         // LocalYRotation
         float speedInRadiansPerSecond = _currentParameters.LocalYRotationSpeed * 2 * Mathf.PI; // 바퀴 수를 라디안/초로 변환
         float rotationThisFrame = speedInRadiansPerSecond * Time.deltaTime; // 현재 프레임에서의 회전량 계산
@@ -161,6 +195,9 @@ public class EnemyBulletController : EnemyBullet
                     break;
                 case EnemyBulletChangeRotationType.Local: // 회전 방식에 따라 경우가 갈림. 보류.
                     transform.rotation = Quaternion.LookRotation(e._moveDirection);
+                    break;
+                case EnemyBulletChangeRotationType.CompletelyRandom:
+                    transform.rotation = Random.rotation;
                     break;
             }
 
