@@ -9,7 +9,7 @@ public class UI_MainMenuPopup : UI_Popup
 {
     private UI_SelectorMenu _selector;
     private UI_Achievement _achievement;
-    private UI_Settings _settings;
+    private UI_SettingsPopup _settings;
 
     enum Buttons
     {
@@ -63,9 +63,9 @@ public class UI_MainMenuPopup : UI_Popup
     }
     private void OpenSettings()
     {
-        if (_achievement == null)
+        if (_settings == null)
         {
-            _settings = Managers.UI.ShowPopupUI<UI_Settings>();
+            _settings = Managers.UI.ShowPopupUI<UI_SettingsPopup>();
             _settings.SetPreviousPopup(this);
         }
         else

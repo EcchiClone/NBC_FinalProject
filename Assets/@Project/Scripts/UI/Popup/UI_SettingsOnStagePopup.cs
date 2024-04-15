@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Define;
 
-public class UI_Settings : UI_Popup
+public class UI_SettingsOnStagePopup : UI_Popup
 {
     enum Buttons
     {
@@ -15,9 +15,7 @@ public class UI_Settings : UI_Popup
         Btn_BackToMain4,
         Btn_BackToMain5,
         Btn_BackToMain6,
-
-        Button_Reset1,
-        Button_Reset2,
+        Background,
     }
     enum Sliders
     {
@@ -45,21 +43,19 @@ public class UI_Settings : UI_Popup
         Bind<Slider>(typeof(Sliders));
         Bind<TextMeshProUGUI>(typeof(TextMeshProUGUIs));
 
-
         SetElementEvents();
 
         try
         {
-            GetButton((int)Buttons.Btn_BackToMain1).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(BackToMain);
+            GetButton((int)Buttons.Btn_BackToMain1).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(ClosePanel);
         }
         catch { }
-
-
+        GetButton((int)Buttons.Background).onClick.AddListener(ClosePanel);
 
     }
     private void SetElementEvents()
@@ -87,10 +83,6 @@ public class UI_Settings : UI_Popup
         slider = Get<Slider>((int)Sliders.Slider_DPI);
         slider.onValueChanged.AddListener(SliderEvent_DPI);
         //slider.value =  // 기존 값 가져오는 로직
-
-        // DATA
-        GetButton((int)Buttons.Button_Reset1).onClick.AddListener(Reset1Btn);
-        GetButton((int)Buttons.Button_Reset2).onClick.AddListener(Reset2Btn);
     }
     public void SliderEvent_Sound1(float value)
     {
@@ -129,20 +121,8 @@ public class UI_Settings : UI_Popup
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_DPI).text = ((int)value).ToString();
         Debug.Log("DPI 조정: " + dpiScale);
     }
-    private void Reset1Btn()
+    private void ClosePanel()
     {
-        // 팝업(()=>Data1 삭제 로직{});
-    }
-
-    private void Reset2Btn()
-    {
-        // 팝업(()=>Data2 삭제 로직{});
-    }
-    private void BackToMain()
-    {
-        Managers.ActionManager.CallUndoMenuCam(CamType.Module);
-
-        _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }
