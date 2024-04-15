@@ -35,11 +35,12 @@ public class StageController : MonoBehaviour
     public void Start()
     {
         Managers.StageActionManager.OnEnemyKilled += KillCount;
-        Managers.ActionManager.OnPlayerDead += StopTimer;
-        Managers.SpawnManager.CreateCell();
+        Managers.ActionManager.OnPlayerDead += StopTimer;        
 
         _obstacleManager = GetComponent<ObstacleSpawner>();
         _obstacleManager.SpawnObstacle();
+
+        Managers.SpawnManager.CreateCell();
 
         SetupLevelInfo();
     }
@@ -109,5 +110,19 @@ public class StageController : MonoBehaviour
         CurrentKilledCount++;
         if (CurrentKilledCount >= _levelData.SpawnCount)
             StageClear();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red; // 기즈모의 색상을 빨간색으로 설정
+
+        if (Managers.SpawnManager._groundSpawnPoints.Count <= 0)
+            return;
+
+        foreach (Vector3 point in Managers.SpawnManager._groundSpawnPoints)
+        {
+            Gizmos.DrawSphere(point, 1f);
+        }
+        
     }
 }
