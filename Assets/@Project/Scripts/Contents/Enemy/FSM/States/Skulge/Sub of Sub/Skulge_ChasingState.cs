@@ -28,8 +28,12 @@ public class Skulge_ChasingState : BaseState
         if (passedTime >= chasingInterval)
         {
             if (!CheckObstacle())
+            {
+                Context.Entity.Controller.IsMoving = true;
                 Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
-       
+            }
+            else
+                Context.Entity.Controller.IsMoving = false;
             passedTime = 0f;
         }
 

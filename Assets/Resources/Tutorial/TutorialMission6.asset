@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
+  m_Name: TutorialMission6
+  m_EditorClassIdentifier: 
+  codeName: 
+  icon: {fileID: 0}
+  displayName: 
+  description: 
+  taskGroups:
+  - tasks:
+    - {fileID: 11400000, guid: aa3c6a941ecaef84383416b9fa9d6824, type: 2}
+    - {fileID: 11400000, guid: 07ad5f7dca3120942aab22dfcd3958ce, type: 2}
+    - {fileID: 11400000, guid: 06803efa2f9be2f44a516d60d2c625aa, type: 2}
+    - {fileID: 11400000, guid: d6f1437df230058469c05ea517b89f07, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: 2509822a6b3bb604a8826566dfdd451c, type: 2}
+  useAutoComplete: 1

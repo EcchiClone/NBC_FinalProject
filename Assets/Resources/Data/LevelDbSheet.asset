@@ -14,65 +14,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_SO:
   - dev_ID: 1
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 10
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 0
     spawnType3: 0
   - dev_ID: 2
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 10
+    countDownTime: 2
     spawnType1: 1
     spawnType2: 0
     spawnType3: 0
   - dev_ID: 3
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 10
+    countDownTime: 2
     spawnType1: 3
     spawnType2: 0
     spawnType3: 0
   - dev_ID: 4
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 1
     spawnType3: 0
   - dev_ID: 5
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 1
     spawnType3: 0
   - dev_ID: 6
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 3
     spawnType3: 0
   - dev_ID: 7
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 3
     spawnType3: 0
   - dev_ID: 8
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 1
     spawnType3: 3
   - dev_ID: 9
-    spawnCount: 5
+    spawnCount: 2
     spawnDelayTime: 1
-    countDownTime: 15
+    countDownTime: 2
     spawnType1: 2
     spawnType2: 1
     spawnType3: 3

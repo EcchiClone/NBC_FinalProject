@@ -71,7 +71,7 @@ public abstract class BaseState
 
     protected bool CheckObstacle()
     {
-        Vector3 direction = (_targetTransform.position - _entityTransform.position).normalized;
+        Vector3 direction = (_targetTransform.position - _entityTransform.position).normalized * 0.5f;
         Vector3 rayStart = _entityTransform.position + direction; // 레이 시작 지점
 
         float rayLength = Vector3.Distance(_entityTransform.position, _targetTransform.position) - 1;
