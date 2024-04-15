@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 7002775928587034028}
   - component: {fileID: 3829242142075837923}
   - component: {fileID: 1994682323677172124}
+  - component: {fileID: 2737990073875541479}
   m_Layer: 5
   m_Name: CompletedAchievements_Btn
   m_TagString: Untagged
@@ -258,6 +259,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2737990073875541479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756237953566491907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c269e1f28c4815499474a9befbab9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: dd326ac010a49a94a9936d378cea166a, type: 3}
+  highlightedSprite: {fileID: 21300000, guid: 9daef977c3f2e0840b0fbfbc3c3cbda7, type: 3}
+  pressedSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  buttonImage: {fileID: 3829242142075837923}
+  fadeDuration: 0.2
 --- !u!1 &2251412117476343062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1561,7 @@ GameObject:
   - component: {fileID: 5256592490898170435}
   - component: {fileID: 8983767453269672070}
   - component: {fileID: 6186924486432642781}
+  - component: {fileID: 5488619806012941290}
   m_Layer: 5
   m_Name: ProgressAchievements_Btn
   m_TagString: Untagged
@@ -1653,6 +1672,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5488619806012941290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677699824424989055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c269e1f28c4815499474a9befbab9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: dd326ac010a49a94a9936d378cea166a, type: 3}
+  highlightedSprite: {fileID: 21300000, guid: 9daef977c3f2e0840b0fbfbc3c3cbda7, type: 3}
+  pressedSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  buttonImage: {fileID: 8983767453269672070}
+  fadeDuration: 0.2
 --- !u!1 &5711204085323718044
 GameObject:
   m_ObjectHideFlags: 0
