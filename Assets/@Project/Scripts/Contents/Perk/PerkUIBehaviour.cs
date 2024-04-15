@@ -28,12 +28,14 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         SetSelectedPerkInfo();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.UI_Clicked, transform.position);
         PerkManager.Instance.CallOnPerkClicked();
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         _image.color = Color.red;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.UI_Entered, transform.position);
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

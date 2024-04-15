@@ -13,14 +13,21 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference testEvent { get; private set; }
 
 
-    public static FMODEvents instance { get; private set; }
+    [field: Header("Perk/UI SFX")]
+    [field: SerializeField] public EventReference UI_Clicked { get; private set; }
+    [field: SerializeField] public EventReference UI_Entered { get; private set; }
+    [field: SerializeField] public EventReference Perk_Denied { get; private set; }
+    [field: SerializeField] public EventReference Perk_Released { get; private set; }
+
+
+    public static FMODEvents Instance { get; private set; }
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.LogError("Scene에 적어도 하나의 FMODEvents가 존재하는 지 확인하세요.");
         }
-        instance = this;
+        Instance = this;
     }
 }
