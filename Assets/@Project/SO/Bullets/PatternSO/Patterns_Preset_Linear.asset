@@ -1,0 +1,495 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
+  m_Name: Patterns_Preset_Linear
+  m_EditorClassIdentifier: 
+  patternDatas:
+  - patternName: ToPlayer
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Accel
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 20
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Spread
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 1
+      maxSpreadAngleA: 15
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Lerp
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 1
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0.5
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Accel_Lerp
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 1
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 20
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 5
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Spread15_20x1
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 15
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 20
+      shotVerticalNum: 0
+      spreadB: 1
+      maxSpreadAngleB: 15
+      concentrationB: 0.5
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToPlayer_Spread15_1x20
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 20
+      shotDelay: 0.05
+      posDirection: 1
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 1
+      maxSpreadAngleA: 15
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToForward
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToRandom
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 2
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 1
+      shotVerticalNum: 0
+      spreadB: 0
+      maxSpreadAngleB: 0
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToRandom_50x1
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 50
+      shotVerticalNum: 0
+      spreadB: 1
+      maxSpreadAngleB: 360
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToRandom_10x5
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 5
+      shotDelay: 0.4
+      posDirection: 0
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 10
+      shotVerticalNum: 0
+      spreadB: 1
+      maxSpreadAngleB: 360
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5
+  - patternName: ToRandom_Spread30_10x5
+    Desc: 
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 8213430085926567989, guid: 44c0b06e7f6bb6b4ea7fcf559eaa4aab,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 5
+      shotDelay: 0.4
+      posDirection: 2
+      customPosDirection: {x: 0, y: 0, z: 0}
+      spreadA: 0
+      maxSpreadAngleA: 90
+      concentrationA: 0.5
+      enemyBulletShape: 0
+      customBulletPosList: []
+      divisionPointsPerEdge: 0
+      initDistance: 0.1
+      numPerShot: 10
+      shotVerticalNum: 0
+      spreadB: 1
+      maxSpreadAngleB: 30
+      concentrationB: 0
+      initDirectionType: 3
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 10
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: -100
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 5

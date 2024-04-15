@@ -9,6 +9,9 @@ public class TurretStateProvider : BaseStateProvider
         SetState(Turret_States.Alive, new Turret_AliveState(context, this));
         SetState(Turret_States.Dead, new Turret_DeadState(context, this));
 
-        SetState(Turret_States.Attack, new Turret_AttackState(context, this));
+        SetState(Turret_States.NonCombat, new Turret_NonCombatState(context, this));
+        SetState(Turret_States.Combat, new Turret_CombatState(context, this));
+
+        SetState(Turret_States.Idle, new Turret_IdleState(context, this));
     }
 }

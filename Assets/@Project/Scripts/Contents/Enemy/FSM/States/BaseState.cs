@@ -12,11 +12,16 @@ public abstract class BaseState
     protected BaseState _currentSuperState;
     protected BaseState _currentSubState;
 
+    protected Transform _entityTransform;
+    protected Transform _targetTransform;
+
     public BaseState(BaseStateMachine context, BaseStateProvider provider)
     {
         Context = context;
         Provider = provider;
-        
+
+        _entityTransform = Context.Entity.transform;
+        _targetTransform = Context.Entity.Target.transform;
     }
 
     public abstract void EnterState();
@@ -62,5 +67,15 @@ public abstract class BaseState
     {
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
+    }
+
+    protected bool CheckObstacle()
+    {
+        Vector3 direction = (_targetTransform.position - _entityTransform.position).normalized;
+        Vector3 rayStart = _entityTransform.position + direction; // 레이 시작 지점
+
+        float rayLength = Vector3.Distance(_entityTransform.position, _targetTransform.position) - 1;
+
+        return Physics.Raycast(rayStart, direction, rayLength, LayerMask.GetMask("Unwalkable"));
     }
 }

@@ -213,7 +213,7 @@ public class AchievementSystem
         }
         catch
         {
-            Debug.LogError("업적데이터 로드 실패(\"AchievementDatabase\" SO파일 내용의 누락 예상)");
+            Debug.LogError("업적데이터 로드 실패(\"AchievementDatabase\" SO파일 내용의 누락 또는, 인스턴스 업적 등록이 원인. 후자일경우 무시 바람)");
         }
     }
 

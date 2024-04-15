@@ -13,8 +13,9 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
     private int _unwalkableLayer;
     private int combinedLayerMask;
 
-    [SerializeField]private GameObject[] _obstaclePrefabs;
+    [SerializeField] private GameObject[] _obstaclePrefabs;    
     private GameObject _currentObstacle;
+
 
 
     private void Awake()
@@ -31,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
             RemoveObstacle();
 
         int random = UnityEngine.Random.Range(0, _obstaclePrefabs.Length);
-        _currentObstacle = Instantiate(_obstaclePrefabs[random]);
+        _currentObstacle = Instantiate(_obstaclePrefabs[random]);        
 
         RebuildNavMesh();
         PathRequestManager.instance.CreateGrid(); // A* 노드 생성
@@ -53,7 +54,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
         if (null == navMeshSurface) 
             throw new ArgumentNullException("navMeshSurface is null");
 
-        navMeshSurface.RemoveData();
+        //navMeshSurface.RemoveData();
         navMeshSurface.layerMask = combinedLayerMask;
         navMeshSurface.BuildNavMesh();
     }

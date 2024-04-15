@@ -42,13 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126665192063527157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4207005633220ae4286c6947e033425c, type: 3}
+  m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Phases: []
+  Patterns: []
   muzzle: []
-  isShooting: 0
+  isShooting: 1
   onStartPhase: []
+  onStartPattern: []
 --- !u!1 &6783847995057961567
 GameObject:
   m_ObjectHideFlags: 0

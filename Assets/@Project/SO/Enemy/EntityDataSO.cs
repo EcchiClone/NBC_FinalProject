@@ -13,6 +13,8 @@ public class EntityDataSO : ScriptableObject
     public float cognizanceRange;
     public float chasingInterval;
     public float rotationSpeed;
+    public float patrolDistance;
+    public float fixedAltitude;
 
     [Header("Status")]
     public float maxHealth;

@@ -7,9 +7,6 @@ public class Spider_ChasingState : BaseState
     private float chasingInterval;
     private float passedTime;
 
-    private Transform _entityTransform;
-    private Transform _targetTransform;
-
     public Spider_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
@@ -54,7 +51,6 @@ public class Spider_ChasingState : BaseState
 
     public override void InitializeSubState()
     {
-        throw new System.NotImplementedException();
     }
 
 }

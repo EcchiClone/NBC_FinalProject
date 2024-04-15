@@ -1,15 +1,44 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class LevelData : IEntity
 {
-    [SerializeField] private int dev_ID;
-    [SerializeField] private int stageTime;
+    [SerializeField] private int dev_ID;    
     [SerializeField] private int spawnCount;
-    [SerializeField] UnitType unitType;
+    [SerializeField] private float spawnDelayTime;
+    [SerializeField] private float countDownTime;
+    [SerializeField] UnitType spawnType1;
+    [SerializeField] UnitType spawnType2;
+    [SerializeField] UnitType spawnType3;
 
-    public int Dev_ID => dev_ID;
-    public int SpawnTime => stageTime;
+    public int Dev_ID => dev_ID; // lv
     public int SpawnCount => spawnCount;
-    public UnitType UnitType => unitType;
+    public float SpawnDelayTime => spawnDelayTime;
+    public float CountDownTime => countDownTime;
+
+    private List<UnitType> spawnTypes;
+
+    public List<UnitType> SpawnTypes
+    {
+        get
+        {
+            if(spawnTypes == null)
+            {
+                spawnTypes = new List<UnitType>();
+
+                CheckSpawnType(spawnType1);
+                CheckSpawnType(spawnType2);
+                CheckSpawnType(spawnType3);
+            }
+
+            return spawnTypes;
+        }
+    }
+
+    private void CheckSpawnType(UnitType type)
+    {
+        if (type != UnitType.None)
+            SpawnTypes.Add(type);
+    }
 }

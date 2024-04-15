@@ -13,14 +13,13 @@ public class BulletPatternLoop : MonoBehaviour
     [SerializeField] bool isLoopPattern;
     int phaseMax;
     int patternMax;
-    float cycleTime;
+    public float cycleTime = 3f;
 
     void Start()
     {
         ep = GetComponent<EnemyBulletPatternStarter>();
         phaseMax = ep.Phases.Count();
         patternMax = ep.Patterns.Count();
-        cycleTime = 3f;
 
         StartCoroutine(Co_PhaseLoop());
         StartCoroutine(Co_PatternLoop());

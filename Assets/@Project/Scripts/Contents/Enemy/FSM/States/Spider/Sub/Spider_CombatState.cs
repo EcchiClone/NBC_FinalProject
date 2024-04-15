@@ -4,36 +4,30 @@ using UnityEngine;
 
 public class Spider_CombatState : BaseState
 {
-    private Transform _entityTransform;
-    private Transform _targetTransform;
-
-    private float passedTime;
+    private float _passedTime;
+    private float _attackInterval;
 
     public Spider_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
-        _entityTransform = Context.Entity.transform;
-        _targetTransform = Context.Entity.Target.transform;
+        _attackInterval = Context.Entity.Data.attackInterval;
     }    
 
     public override void EnterState()
     {
         InitializeSubState();        
 
-        passedTime = 0;
+        _passedTime = 0;
     }
 
     public override void UpdateState()
     {
-        // 총 쏘는 중이라면 
-        Debug.Log("공격");
-
-        passedTime += Time.deltaTime;
-        if (passedTime > Context.Entity.Data.attackInterval)
+        _passedTime += Time.deltaTime;
+        if (_passedTime > _attackInterval)
         {
             Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
             Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
-            passedTime = 0;
+            _passedTime = 0;
         }
 
         CheckSwitchStates();

@@ -33,7 +33,7 @@ public class Turret_AliveState : BaseState
 
     public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(Turret_States.Attack));
+        SetSubState(Provider.GetState(Turret_States.NonCombat));
     }
 
 }
