@@ -7,7 +7,6 @@ using static Define;
 
 public class UI_Settings : UI_Popup
 {
-    public Slider qualitySlider; 
     enum Buttons
     {
         Btn_BackToMain1,
