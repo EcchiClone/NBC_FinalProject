@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
 using static PhaseSO;
@@ -12,6 +14,8 @@ public class EnemyBulletController : EnemyBullet
     private GameObject _rootGo;
     private Transform _masterTf;
     private Rigidbody _rb;
+    private Vector3 noiseAll;
+    private Vector3 noiseSide;
     private Vector3 fixedPlayerPos;
     private Vector3 playerPos;
     private float _normalizedValue;
@@ -25,7 +29,10 @@ public class EnemyBulletController : EnemyBullet
         {
             t.Clear();
         }
+        this.noiseAll = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)) * 1f;
+        this.noiseSide = Vector3.Cross((BulletMathUtils.GetPlayerPos(true) - transform.position).normalized, Vector3.up).normalized * UnityEngine.Random.Range(-1f, 1f) * 10f;
 
+        fixedPlayerPos = BulletMathUtils.GetPlayerPos();
         _currentParameters = EnemyBulletParameters.FromSettings(settings);
         _rootGo = rootGo;
         _masterTf = masterTf;
@@ -71,6 +78,13 @@ public class EnemyBulletController : EnemyBullet
 
             case EnemyBulletMoveType.LerpToPlayer:
                 playerPos = BulletMathUtils.GetPlayerPos(true); // 플레이어 찾기
+                targetRotation = Quaternion.LookRotation((playerPos - transform.position).normalized);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
+                _rb.velocity = transform.forward * _currentParameters.Speed;
+                break;
+
+            case EnemyBulletMoveType.LerpToPlayerNoise:
+                playerPos = BulletMathUtils.GetPlayerPos(true) + this.noiseAll + this.noiseSide; // 플레이어 찾기
                 targetRotation = Quaternion.LookRotation((playerPos - transform.position).normalized);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
                 _rb.velocity = transform.forward * _currentParameters.Speed;
@@ -197,7 +211,7 @@ public class EnemyBulletController : EnemyBullet
                     transform.rotation = Quaternion.LookRotation(e._moveDirection);
                     break;
                 case EnemyBulletChangeRotationType.CompletelyRandom:
-                    transform.rotation = Random.rotation;
+                    transform.rotation = UnityEngine.Random.rotation; 
                     break;
             }
 
