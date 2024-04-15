@@ -29,14 +29,21 @@ MonoBehaviour:
       maxSpreadAngleA: 0
       concentrationA: 0
       enemyBulletShape: 0
+      useVelocityScalerFromMuzzleDist: 0
       customBulletPosList: []
+      numOfVertex: 0
+      isLoopingShape: 0
       divisionPointsPerEdge: 0
       initDistance: 0.1
       numPerShot: 1
       shotVerticalNum: 0
       spreadB: 0
-      maxSpreadAngleB: 0
-      concentrationB: 0
+      spreadB_Default_Angle: 0
+      spreadB_Default_Concentration: 0
+      spreadB_FixY_Angle: 0
+      spreadB_FixY_Concentration: 0
+      spreadB_FixX_Angle: 0
+      spreadB_FixX_Concentration: 0
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0

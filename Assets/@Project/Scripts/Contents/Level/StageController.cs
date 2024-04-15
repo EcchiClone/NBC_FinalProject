@@ -35,11 +35,12 @@ public class StageController : MonoBehaviour
     public void Start()
     {
         Managers.StageActionManager.OnEnemyKilled += KillCount;
-        Managers.ActionManager.OnPlayerDead += StopTimer;
-        Managers.SpawnManager.CreateCell();
+        Managers.ActionManager.OnPlayerDead += StopTimer;        
 
         _obstacleManager = GetComponent<ObstacleSpawner>();
         _obstacleManager.SpawnObstacle();
+
+        Managers.SpawnManager.CreateCell();
 
         SetupLevelInfo();
     }

@@ -213,6 +213,7 @@ public enum EnemyBulletMoveType
 
     LerpToPlayer,
     MasterCenter,
+    LerpToPlayerNoise,
     //CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 public enum EnemyBulletChangeMoveMethod
