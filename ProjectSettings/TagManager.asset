@@ -23,6 +23,7 @@ TagManager:
   - Target
   - Bullet
   - Unwalkable
+  - Wall
   - Entity
   - 
   - 

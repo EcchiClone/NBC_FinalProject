@@ -3,29 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PerkType // 수치는 저 범위중 아무거나 하면 될 것 같아요. 괜찮다 싶은게 생각나면 그 방향으로
-{
-    SuperAllow,         // AP 뻥튀기                      500 ~ 1500
-    SpeedModifier,      // 이속증가                       10 ~ 20%    
-    BoosterOverload,    // 부스터게이지 최대 충전량 증가    10 ~ 20
-    AfterBurner,        // 대시 출력 증가                  10 ~ 20%
-    ImprovedReload,     // 재장전 속도 증가                10 ~ 20%
-    RapidFire,          // 발사속도 증가                   5 ~ 10%
-    Spring,             // 점프력 증가                     10 ~ 20%
-    Lubrication,        // 회전속도 증가                   5 ~ 10%
-    Jetpack,            // 호버링 출력 증가                10 ~ 20%
-    Pierce,             // 총알이 적 하나를 관통 0 off / 1 on
-    ImprovedBullet,     // 모든 무기 데미지 증가            10 ~ 20 %
-    Rador,              // 락온 거리 증가                  10 ~ 30%
-    OverHeat,           // 팔무장 공격속도 증가             10 ~ 20%
-    ImprovedBarrel,     // 팔무장 발사 오차율 감소          10 ~ 20%
-    SpareAmmunition,    // 팔무장 탄약 증가                 20 ~ 40%
-    Resupply,           // 어깨무장 장전이 가능해짐 0 off / 1 on
-    ImprovedArmor,      // 방어력 증가                      5 ~ 10%
-    Stealth,            // 피격시 확률적으로 데미지 무시     5 ~ 10%
-
-}
-
 public class PerkManager : MonoBehaviour
 {
     private JsonSaveNLoader _json; // Json 저장 및 불러오기
@@ -201,12 +178,22 @@ public class PerkManager : MonoBehaviour
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
     {
-        List<int> contentIdxs = new List<int>();
-        MakeContentIdxs(tier, ref contentIdxs);
+        int count = 1;
+        foreach (bool b in  binaryData)
+        {
+            if (b)
+            {
+                count++;
+            }
+        }
 
+        List<int> contentIdxs = new List<int>();
+        MakeContentIdxs(tier, ref contentIdxs, count);
+
+        int idx = 0;
         for (int i = 0; i < binaryData.Length; i++)
         {
-            PerkInfo perkInfo = new PerkInfo(tier, i, contentIdxs[i], false);
+            PerkInfo perkInfo = new PerkInfo(tier, i, contentIdxs[idx], false);
             MakeRandomSubPerks(ref perkInfo);
 
             if (binaryData[i])
@@ -223,23 +210,24 @@ public class PerkManager : MonoBehaviour
                 {
                     _tier3Perks.data.Add(perkInfo);
                 }
+                idx++;
             }
         }
     }
 
-    private void MakeContentIdxs(PerkTier tier, ref List<int> contentIdxs)
+    private void MakeContentIdxs(PerkTier tier, ref List<int> contentIdxs, int count)
     {
         if (tier == PerkTier.TIER1)
         {
-            contentIdxs = _seed.RandomWithRangeNoRep(_tier1Contents.data.Count, 8);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier1Contents.data.Count, count);
         }
         else if (tier == PerkTier.TIER2)
         {
-            contentIdxs = _seed.RandomWithRangeNoRep(_tier2Contents.data.Count, 16);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier2Contents.data.Count, count);
         }
         else
         {
-            contentIdxs = _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, 24);
+            contentIdxs = _seed.RandomWithRangeNoRep(_tier3Contents.data.Count, count);
         }
     }
 

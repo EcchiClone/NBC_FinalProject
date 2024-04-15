@@ -46,7 +46,7 @@ public class PointBehaviour : MonoBehaviour
         _unlockCount = PerkManager.Instance.UnlockCount;
 
         float distance = PerkManager.Instance.SelectedPerkDistance;
-        _distancePoint = (int) (distance / 100);
+        _distancePoint = (int) (distance / 100 * 2 / 3);
 
         _requirePoint = basePoint + _unlockCount + _distancePoint;
 

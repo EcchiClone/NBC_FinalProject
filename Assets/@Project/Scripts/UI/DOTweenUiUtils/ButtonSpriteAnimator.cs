@@ -19,7 +19,7 @@ public class ButtonSpriteAnimator : MonoBehaviour, IPointerEnterHandler, IPointe
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        buttonImage.DOFade(0, fadeDuration / 2).OnComplete(() =>
+        buttonImage.DOFade(0.5f, fadeDuration / 2).OnComplete(() =>
         {
             buttonImage.sprite = highlightedSprite;
             buttonImage.DOFade(1, fadeDuration / 2);
@@ -27,7 +27,7 @@ public class ButtonSpriteAnimator : MonoBehaviour, IPointerEnterHandler, IPointe
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        buttonImage.DOFade(fadeDuration, fadeDuration / 2).OnComplete(() =>
+        buttonImage.DOFade(0.5f, fadeDuration / 2).OnComplete(() =>
         {
             buttonImage.sprite = normalSprite;
             buttonImage.DOFade(1, fadeDuration / 2);
@@ -35,20 +35,12 @@ public class ButtonSpriteAnimator : MonoBehaviour, IPointerEnterHandler, IPointe
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        buttonImage.DOFade(0, fadeDuration / 2).OnComplete(() =>
-        {
-            buttonImage.sprite = pressedSprite;
-            buttonImage.DOFade(1, fadeDuration / 2);
-        });
+        buttonImage.DOFade(0.5f, fadeDuration / 2);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        buttonImage.DOFade(0, fadeDuration / 2).OnComplete(() =>
-        {
-            buttonImage.sprite = normalSprite;
-            buttonImage.DOFade(1, fadeDuration / 2);
-        });
+        buttonImage.DOFade(1, fadeDuration / 2);
     }
 
 }

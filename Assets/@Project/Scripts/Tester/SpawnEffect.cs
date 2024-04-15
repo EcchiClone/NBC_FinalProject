@@ -17,7 +17,7 @@ public class SpawnEffect : MonoBehaviour
     {
         foreach (var renderer in _renderer)
         {
-            renderer.material.DOFloat(_splitValue, "_Split", _dissolveTime).SetEase(Ease.InQuad).SetDelay(_delay);            
+            renderer.material.DOFloat(_splitValue, "_Split", _dissolveTime).SetEase(Ease.OutQuad).SetDelay(_delay);            
         }            
     }
 }

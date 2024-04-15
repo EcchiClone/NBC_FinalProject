@@ -13,7 +13,7 @@ public class UI_TutorialSkipPopup : UI_Popup
         base.Init();
 
         Cursor.lockState = CursorLockMode.Confined;
-        _yesBtn.onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.MainScene));
+        _yesBtn.onClick.AddListener(() => Managers.Tutorial.TutorialClear());
         _noBtn.onClick.AddListener(() => { ClosePopupUI(); Cursor.lockState = CursorLockMode.Locked; });
     }
 }

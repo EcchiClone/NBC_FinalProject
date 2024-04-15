@@ -3,115 +3,115 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "EmptyPerk1Name",
-            "description": "EmptyPerk1Description",
+            "name": "Core Power Enhancement II",
+            "description": "Increase the maximum AP by 1000 by strengthening core power.",
             "type": 0,
-            "value": 0.0
+            "value": 1000.0
         },
         {
             "contentIdx": 1,
-            "name": "EmptyPerk2Name",
-            "description": "EmptyPerk2Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Electrical Output II",
+            "description": "Increase the electricity output to increase the speed of movement by 20%.",
+            "type": 1,
+            "value": 20.0
         },
         {
             "contentIdx": 2,
-            "name": "EmptyPerk3Name",
-            "description": "EmptyPerk3Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Condenser Reinforcement I",
+            "description": "Strengthen the condenser to increase the total amount of power that can be stored. Booster maximum charge increases by 10%.",
+            "type": 2,
+            "value": 10.0
         },
         {
             "contentIdx": 3,
-            "name": "EmptyPerk4Name",
-            "description": "EmptyPerk4Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Reactor Efficiency I",
+            "description": "Increase the efficiency of the reactor; increase the dash output by 10%.",
+            "type": 3,
+            "value": 10.0
         },
         {
             "contentIdx": 4,
-            "name": "EmptyPerk5Name",
-            "description": "EmptyPerk5Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Redesigned Automation System II",
+            "description": "Redesign the weapon automation system. Increases reload speed by 20%.",
+            "type": 4,
+            "value": 20.0
         },
         {
             "contentIdx": 5,
-            "name": "EmptyPerk6Name",
-            "description": "EmptyPerk6Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Barrel Rotation II",
+            "description": "Increase the rotation speed by strengthening the motor of the gun row. Bullet firing speed increases by 10%.",
+            "type": 5,
+            "value": 10.0
         },
         {
             "contentIdx": 6,
-            "name": "EmptyPerk7Name",
-            "description": "EmptyPerk7Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Accelerated Elasticity II",
+            "description": "It accelerates the elasticity of the lower body material and improves the jumping power. It improves the jumping power by 20%.",
+            "type": 6,
+            "value": 20.0
         },
         {
             "contentIdx": 7,
-            "name": "EmptyPerk8Name",
-            "description": "EmptyPerk8Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Quick Rotation I",
+            "description": "Increase the rotational speed by 5%.",
+            "type": 7,
+            "value": 5.0
         },
         {
             "contentIdx": 8,
-            "name": "EmptyPerk9Name",
-            "description": "EmptyPerk9Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Gas Output II",
+            "description": "It significantly increases the power of hovering gas. Hovering power increases by 20%.",
+            "type": 8,
+            "value": 20.0
         },
         {
             "contentIdx": 9,
-            "name": "EmptyPerk10Name",
-            "description": "EmptyPerk10Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Firepower Reconstruction II",
+            "description": "Reconfigures the firepower of the weapon you use. Increases damage to all weapons by 15%.",
+            "type": 10,
+            "value": 15.0
         },
         {
             "contentIdx": 10,
-            "name": "EmptyPerk11Name",
-            "description": "EmptyPerk11Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Radar II",
+            "description": "Strengthen radar. Rock-on distance increases by 20%.",
+            "type": 11,
+            "value": 20.0
         },
         {
             "contentIdx": 11,
-            "name": "EmptyPerk12Name",
-            "description": "EmptyPerk12Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Reserve Barrel Rotation I",
+            "description": "Increase the attack speed of the reserve armament by 10%.",
+            "type": 12,
+            "value": 10.0
         },
         {
             "contentIdx": 12,
-            "name": "EmptyPerk13Name",
-            "description": "EmptyPerk13Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Reserve Aim Accuracy I",
+            "description": "Increase aiming accuracy by learning the aiming system. The firing error rate of the reserve armament is reduced by 10%.",
+            "type": 13,
+            "value": 10.0
         },
         {
             "contentIdx": 13,
-            "name": "EmptyPerk14Name",
-            "description": "EmptyPerk14Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Reserve Ammunition Capacity I",
+            "description": "The ammunition of the reserve armament increases by 20%.",
+            "type": 14,
+            "value": 20.0
         },
         {
             "contentIdx": 14,
-            "name": "EmptyPerk15Name",
-            "description": "EmptyPerk15Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Light Armored Plate I",
+            "description": "Equipped with light protective plate, it improves defense by 5%.",
+            "type": 16,
+            "value": 5.0
         },
         {
             "contentIdx": 15,
-            "name": "EmptyPerk16Name",
-            "description": "EmptyPerk16Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Protective Magnetic Field I",
+            "description": "Enable the protective magnetic field to ignore damage with a 5% chance of shooting.",
+            "type": 17,
+            "value": 5.0
         }
     ]
 }
