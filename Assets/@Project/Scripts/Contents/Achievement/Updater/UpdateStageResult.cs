@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
-public class UpdateResultAchievement : AchievementUpdater
+public class UpdateStageResult : AchievementUpdater
 {
     // 해당 컴포넌트는 CommonUpdater에 부착
 
