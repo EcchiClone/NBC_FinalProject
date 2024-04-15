@@ -11,8 +11,8 @@ public class TurretUnitController : Controller
     public TurretUnitController(Entity entity) : base(entity)
     {
         // Must Fix This.
-        head = entity.transform.Find("Head");
-        armPivot = entity.transform.Find("Head/ArmPivot");
+        head = entity.transform.Find("Turret_Upper");
+        armPivot = entity.transform.Find("Turret_Upper/Turret_Weapon");
     }
 
     public override void Update() 
@@ -42,7 +42,7 @@ public class TurretUnitController : Controller
         head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-5 * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
             );
 
 
@@ -65,8 +65,13 @@ public class TurretUnitController : Controller
         armPivot.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-5 * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
             );
+    }
+
+    private void Standby()
+    {
+
     }
 
     public override void SetDestination(Vector3 target) { }

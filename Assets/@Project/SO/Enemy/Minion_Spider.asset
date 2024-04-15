@@ -15,7 +15,8 @@ MonoBehaviour:
   stopDistance: 15
   cognizanceRange: 40
   chasingInterval: 0.5
-  rotationSpeed: 0
+  rotationSpeed: 10
+  patrolDistance: 10
   maxHealth: 100
   moveSpeed: 8
   attackInterval: 0.7

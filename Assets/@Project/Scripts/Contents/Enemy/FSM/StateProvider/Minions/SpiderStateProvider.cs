@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public class SpiderStateProvider : BaseStateProvider
 {
     public SpiderStateProvider(BaseStateMachine context) 
