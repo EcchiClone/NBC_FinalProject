@@ -111,18 +111,4 @@ public class StageController : MonoBehaviour
         if (CurrentKilledCount >= _levelData.SpawnCount)
             StageClear();
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red; // 기즈모의 색상을 빨간색으로 설정
-
-        if (Managers.SpawnManager._groundSpawnPoints.Count <= 0)
-            return;
-
-        foreach (Vector3 point in Managers.SpawnManager._groundSpawnPoints)
-        {
-            Gizmos.DrawSphere(point, 1f);
-        }
-        
-    }
 }
