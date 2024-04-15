@@ -33,7 +33,13 @@ public class SeedGenerator : MonoBehaviour
         if (num > range)
         {
             // 추첨수가 range를 넘어가면 예외 처리
-            return new List<int>();
+            List<int> alter = RandomWithRangeNoRep(range, range);
+            List<int> outRange = RandomWithRangeNoRep(range, num - range);
+            foreach (int i in outRange)
+            {
+                alter.Add(i);
+            }
+            return alter;
         }
 
         List<int> result = new List<int>(num);

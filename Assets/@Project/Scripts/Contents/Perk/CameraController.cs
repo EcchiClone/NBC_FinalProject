@@ -63,14 +63,14 @@ public class CameraController : MonoBehaviour
         {
             _mainCamera.fieldOfView = 30;
         }
-        else if (_scrollY < 0 && _mainCamera.fieldOfView >= 60)
+        else if (_scrollY < 0 && _mainCamera.fieldOfView >= 100)
         {
-            _mainCamera.fieldOfView = 60;
+            _mainCamera.fieldOfView = 100;
         }
         else
         {
             _zoomAmount += -_scrollY * _zoomSensitivity;
-            _mainCamera.fieldOfView = Mathf.Clamp(_zoomAmount, 30, 60);
+            _mainCamera.fieldOfView = Mathf.Clamp(_zoomAmount, 30, 100);
         }
     }
 
