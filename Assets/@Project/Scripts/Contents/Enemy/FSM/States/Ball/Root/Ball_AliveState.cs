@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Ball_AliveState : BaseState
 {
     public Ball_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)

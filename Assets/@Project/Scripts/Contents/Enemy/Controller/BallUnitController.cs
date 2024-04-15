@@ -18,9 +18,9 @@ public class BallUnitController : Controller
 
     public BallUnitController(Entity entity) : base(entity)
     {
-        rigidbody = _entity.GetComponent<Rigidbody>();
-        collider = _entity.GetComponent<Collider>();
-        _maxSpeed = _entity.Data.moveSpeed;
+        rigidbody = Entity.GetComponent<Rigidbody>();
+        collider = Entity.GetComponent<Collider>();
+        _maxSpeed = Entity.Data.moveSpeed;
 
         nodeRadius = PathRequestManager.instance.grid.nodeRadius;
         radius = collider.bounds.extents.magnitude;
@@ -29,13 +29,13 @@ public class BallUnitController : Controller
     public override void SetDestination(Vector3 target)
     {
         if(!IsMoving) IsMoving = true;
-        PathRequestManager.RequestPath(_entity.transform.position, target, OnPathFound);
+        PathRequestManager.RequestPath(Entity.transform.position, target, OnPathFound);
     }
 
     public override void SetStopDistance(float stopDistance)
     {
         if (0 > stopDistance)
-            StopDistance = _entity.Data.stopDistance;
+            StopDistance = Entity.Data.stopDistance;
         else
             StopDistance = stopDistance;
     }
@@ -69,10 +69,10 @@ public class BallUnitController : Controller
         currentWaypoint.y = radius;
 
 
-        Vector3 direction = (currentWaypoint - _entity.transform.position).normalized; // 다음 노드로 속도 방향 조정      
+        Vector3 direction = (currentWaypoint - Entity.transform.position).normalized; // 다음 노드로 속도 방향 조정      
                 
 
-        if (Mathf.Abs(_entity.transform.position.x - currentWaypoint.x) <= nodeRadius && Mathf.Abs(_entity.transform.position.z - currentWaypoint.z) <= nodeRadius)
+        if (Mathf.Abs(Entity.transform.position.x - currentWaypoint.x) <= nodeRadius && Mathf.Abs(Entity.transform.position.z - currentWaypoint.z) <= nodeRadius)
         {
             ++targetIndex;
             if (targetIndex >= path.Length)
@@ -82,7 +82,7 @@ public class BallUnitController : Controller
             currentWaypoint = path[targetIndex];
             currentWaypoint.y = radius;
 
-            direction = (currentWaypoint - _entity.transform.position).normalized; // 노드 변경시 속도 방향 조정
+            direction = (currentWaypoint - Entity.transform.position).normalized; // 노드 변경시 속도 방향 조정
 
             rigidbody.velocity = direction * rigidbody.velocity.magnitude;
         }
@@ -115,7 +115,7 @@ public class BallUnitController : Controller
 
                 if (i == targetIndex)
                 {
-                    Gizmos.DrawLine(_entity.transform.position, path[i]);
+                    Gizmos.DrawLine(Entity.transform.position, path[i]);
                 }
                 else
                 {

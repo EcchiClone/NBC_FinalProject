@@ -44,8 +44,8 @@ public class Ball_DeadState : BaseState
 
     IEnumerator Explosion()
     {
-        Context.Entity.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(2f);
+        //Context.Entity.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(1f);
 
         RaycastHit[] hits = Physics.SphereCastAll(Context.Entity.transform.position, 10, Vector3.up, 0f);
 
@@ -59,6 +59,11 @@ public class Ball_DeadState : BaseState
                 Vector3 pushDirection = (other - entity.position).normalized;
 
                 rigidbody.AddForce(pushDirection * 10, ForceMode.Impulse);
+            }
+
+            if(hit.transform.gameObject.TryGetComponent(out Module module))
+            {
+                module.ModuleStatus.GetDamage(20); // TODO 데미지 조절 필요
             }
         }
         // TODO : 사라지자

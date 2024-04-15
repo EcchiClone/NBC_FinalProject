@@ -1,6 +1,6 @@
-public class Spider_AliveState : BaseState
+public class Skulge_AliveState : BaseState
 {
-    public Spider_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Skulge_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
     }
@@ -19,16 +19,17 @@ public class Spider_AliveState : BaseState
     public override void CheckSwitchStates()
     {
         if (!Context.Entity.IsAlive)
-            SwitchState(Provider.GetState(Spider_States.Dead));
+            SwitchState(Provider.GetState(Minion_States.Dead));
     }
 
     public override void ExitState()
     {
+
+
     }
 
-    public override void InitializeSubState() // 처음 적용할 상태
+    public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(Spider_States.NonCombat));
+        SetSubState(Provider.GetState(Minion_States.NonCombat));
     }
-
 }

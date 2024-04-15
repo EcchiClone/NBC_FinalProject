@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spider_ChasingState : BaseState
+public class Skulge_ChasingState : BaseState
 {
     private float chasingInterval;
     private float passedTime;
 
-    public Spider_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Skulge_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
 
@@ -18,39 +18,45 @@ public class Spider_ChasingState : BaseState
     public override void EnterState()
     {
         passedTime = 0f;
-        Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
 
-        
+        Context.Entity.Controller.IsChasing = true;
     }
-    
+
     public override void UpdateState()
     {
         passedTime += Time.deltaTime;
         if (passedTime >= chasingInterval)
         {
-            Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
+            if (!CheckObstacle())
+                Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
+       
             passedTime = 0f;
         }
 
 
         CheckSwitchStates();
-    }    
+    }
 
     public override void CheckSwitchStates()
     {
-        float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
+        Vector3 entity = new Vector3(_entityTransform.position.x, 0, _entityTransform.position.z);
+        Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
+
+        float distance = Vector3.Distance(entity, target);
         if (Context.Entity.Data.cognizanceRange < distance)
         {
-            SwitchState(Context.Provider.GetState(Spider_States.Idle));
+            SwitchState(Context.Provider.GetState(Minion_States.Idle));
         }
     }
 
     public override void ExitState()
     {
+        Context.Entity.Controller.IsChasing = false;
     }
 
     public override void InitializeSubState()
     {
     }
 
+    
 }

@@ -15,13 +15,16 @@ public abstract class Entity : MonoBehaviour
 
     public EnemyBulletPatternStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
 
+    public Animator Anim { get; private set; }
 
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         Target = GameObject.Find("Target").transform;
         //Target = Managers.Module.CurrentModule.transform;
-        Initialize();        
+        Initialize();
+
+        Anim = GetComponent<Animator>();
     }
 
     private void OnEnable()

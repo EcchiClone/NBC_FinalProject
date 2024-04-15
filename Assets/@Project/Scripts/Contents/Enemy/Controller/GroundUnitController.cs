@@ -9,7 +9,7 @@ public class GroundUnitController : Controller
 
     // Must Fix This.
     Transform head;
-
+    
 
     public GroundUnitController(Entity entity) : base(entity)
     {
@@ -19,12 +19,23 @@ public class GroundUnitController : Controller
 
         // Must Fix This.
         head = entity.transform.Find("Armature/Body/Head");
+
+        
     }
 
     public override void Update()
     {
-        IsMoving = !(agent.velocity.magnitude < 0.1f);
+        IsMoving = (agent.velocity.magnitude > 0.1f);
         Look();
+
+        if(agent.velocity.sqrMagnitude > 0.01f && !Entity.Anim.GetBool("Walk")) // 속도 0.1 이상 && Walk false
+        {
+            Entity.Anim.SetBool("Walk", true);
+        }
+        else if(agent.velocity.sqrMagnitude < 0.01f && Entity.Anim.GetBool("Walk"))
+        {
+            Entity.Anim.SetBool("Walk", false);
+        }
     }
 
     public override void SetDestination(Vector3 target)
@@ -35,7 +46,7 @@ public class GroundUnitController : Controller
     public override void SetStopDistance(float stopDistance)
     {
         if(0 > stopDistance)
-            agent.stoppingDistance = StopDistance = _entity.Data.stopDistance;
+            agent.stoppingDistance = StopDistance = Entity.Data.stopDistance;
         else
             agent.stoppingDistance = StopDistance = stopDistance;
     }
@@ -60,7 +71,7 @@ public class GroundUnitController : Controller
         head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-_entity.Data.rotationSpeed * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
             );
     }
 

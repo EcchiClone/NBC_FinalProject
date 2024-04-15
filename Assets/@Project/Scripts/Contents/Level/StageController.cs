@@ -59,7 +59,7 @@ public class StageController : MonoBehaviour
         switch (_currentStage)
         {
             case Stage.Stage1:
-                _stageTimer = 10f;                          
+                _stageTimer = 30f;                          
                 _obstacleManager.SpawnObstacle();   // 2. 지형 생성                
                 _spawnManager.SpawnUnits(
                     new List<UnitSpawnInfo> 
@@ -72,7 +72,7 @@ public class StageController : MonoBehaviour
                 break;
 
             case Stage.Stage2:
-                _stageTimer = 10f;
+                _stageTimer = 30f;
                 _spawnManager.SpawnUnits(
                     new List<UnitSpawnInfo>
                     {

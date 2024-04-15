@@ -68,4 +68,14 @@ public abstract class BaseState
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
     }
+
+    protected bool CheckObstacle()
+    {
+        Vector3 direction = (_targetTransform.position - _entityTransform.position).normalized;
+        Vector3 rayStart = _entityTransform.position + direction; // 레이 시작 지점
+
+        float rayLength = Vector3.Distance(_entityTransform.position, _targetTransform.position) - 1;
+
+        return Physics.Raycast(rayStart, direction, rayLength, LayerMask.GetMask("Unwalkable"));
+    }
 }

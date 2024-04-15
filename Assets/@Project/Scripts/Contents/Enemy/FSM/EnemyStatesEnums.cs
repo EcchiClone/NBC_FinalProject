@@ -25,9 +25,11 @@ public enum Minion_States
     Alive,
     Dead,
 
+    NonCombat,
+    Combat,
+
+    Idle,
     Chasing,
-    Standoff,
-    Run,
 }
 
 public enum Spider_States
