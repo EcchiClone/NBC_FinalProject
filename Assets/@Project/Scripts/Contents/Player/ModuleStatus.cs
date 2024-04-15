@@ -47,7 +47,7 @@ public class ModuleStatus
         PartData leftShoulderData = Managers.Data.GetPartData(leftShoulder.ID);
         PartData rightShoulderData = Managers.Data.GetPartData(rightShoulder.ID);
 
-        Armor = lowerData.Armor + upperData.Armor;
+        Armor = lowerData.Armor + upperData.Armor + leftArmData.Armor + rightArmData.Armor + leftShoulderData.Armor + rightShoulderData.Armor;
         Weight = lowerData.Weight + upperData.Weight + leftArmData.Weight + rightArmData.Weight + leftShoulderData.Weight + rightShoulderData.Weight;
 
         MovementSpeed = lowerData.Speed;
@@ -61,9 +61,6 @@ public class ModuleStatus
 
         CurrentArmor = Armor;
         CurrentBooster = BoosterGauge;
-
-        Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
-        Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
     }
 
     public void GetDamage(float damage)

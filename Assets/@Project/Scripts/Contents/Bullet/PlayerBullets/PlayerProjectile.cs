@@ -29,16 +29,16 @@ public class PlayerProjectile : Bullet
             _trailRenderers.Clear();        
     }
 
-    private void OnTriggerEnter(Collider other)
-    {        
-        if ((_damagableLayer & (1 << other.gameObject.layer)) != 0)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((_damagableLayer & (1 << collision.gameObject.layer)) != 0)
         {
             StopAllCoroutines();
 
             GameObject hitEffect = Instantiate(_hitEffectPrefab);
             hitEffect.transform.position = transform.position;
             hitEffect.transform.rotation = transform.rotation;
-            
+
             if (_isSplash)
             {
                 RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5/*범위지정*/, Vector3.up, 0, _damagableLayer);
@@ -51,12 +51,12 @@ public class PlayerProjectile : Bullet
             }
             else
             {
-                if (other.TryGetComponent(out Entity entity))
+                if (collision.gameObject.TryGetComponent(out Entity entity))
                     entity.GetDamaged(_damage);
             }
 
             gameObject.SetActive(false);
-        }        
+        }
     }
 
     private void OnDisable()

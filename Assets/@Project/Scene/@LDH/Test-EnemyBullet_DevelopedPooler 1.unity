@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopPhase: 0
   isLoopPattern: 1
+  cycleTime: 3
 --- !u!1001 &342827007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopPhase: 0
   isLoopPattern: 1
+  cycleTime: 3
 --- !u!1 &391452665
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopPhase: 0
   isLoopPattern: 1
+  cycleTime: 3
 --- !u!1001 &1300312072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1086,12 +1089,12 @@ PrefabInstance:
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[0].size
-      value: 1200
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
       propertyPath: pools.Array.data[2].size
-      value: 50
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 913754654573738321, guid: 25ca6867d1c2a15459fed5c25b7d3387,
         type: 3}
@@ -1495,6 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopPhase: 0
   isLoopPattern: 1
+  cycleTime: 3
 --- !u!1 &2058039656
 GameObject:
   m_ObjectHideFlags: 0

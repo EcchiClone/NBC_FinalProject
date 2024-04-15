@@ -15,6 +15,7 @@ public class Module : MonoBehaviour
 
     public ModuleStatus ModuleStatus { get; private set; }
     public WeaponTiltController TiltController { get; private set; }
+    public PlayerStateMachine PlayerStateMachine { get; private set; }
     [field: SerializeField] public LockOnSystem LockOnSystem { get; private set; }
 
     public ISkill Skill { get; private set; }
@@ -33,6 +34,7 @@ public class Module : MonoBehaviour
         if (GetComponent<PlayerStateMachine>() == null)
             return;
 
+        PlayerStateMachine = GetComponent<PlayerStateMachine>();
         transform.position = GameObject.Find("@PlayerSpawn").transform.position;
 
         IsPlayable = true;

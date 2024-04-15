@@ -1,33 +1,100 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UI_TutorialDialoguePopup : UI_Popup
 {
     [Header("Dialogue Scripts")]
-    [SerializeField][TextArea] string[] _scripts;
     [SerializeField] TextMeshProUGUI _dialogueText;
 
     private int _scriptIndex;
-    private bool _isTexting;
+    private int _scriptPhase;
+
+    private int _currentScriptLength;
+    private string _currentScript;
+    private bool _isScripting;
+
+    private TutorialData _currentTutoData;
+    private Coroutine _coroutine;
+
+    private readonly float SCRIPTING_INTERVAL_TIME = 0.1f;
 
     protected override void Init()
     {
         base.Init();
 
+        Managers.Input.OnInputKeyDown += SkipTutorialPanel;
+        Managers.Input.OnInputKeyDown += SkipDialogue;
+        Managers.Tutorial.OnScriptPhaseUpdate += NextScriptPhase;
 
+        NextScriptPhase();
+    }
+
+    private void NextScriptPhase()
+    {
+        _dialogueText.text = string.Empty;
+        _scriptIndex = 0;
+        
+        _currentTutoData = Managers.Data.GetTutorialData(_scriptPhase);        
+        _currentScript = _currentTutoData.Scripts[_scriptIndex];
+        _currentScriptLength = _currentTutoData.Scripts.Count;
+
+        Debug.Log(_currentTutoData.Dev_ID);
+        Debug.Log(_currentScript);
+        Debug.Log(_currentScriptLength);
+
+        _coroutine = StartCoroutine(Co_Scripting());
     }
 
     private void NextScript()
     {
-        _dialogueText.text = string.Empty;
-        _dialogueText.text = _scripts[_scriptIndex];
-        _scriptIndex++;
+        _dialogueText.text = string.Empty;        
+        _currentScript = _currentTutoData.Scripts[++_scriptIndex];
+        _coroutine = StartCoroutine(Co_Scripting());
     }
 
-    private void HideScript()
+    private void SkipTutorialPanel()
     {
-        _dialogueText.text = string.Empty;
+        if (Input.GetKeyDown(KeyCode.Escape) && !Managers.GameManager.TutorialClear)
+            Managers.Tutorial.OnTutorialSkipPopup();
+    }
+
+    private void SkipDialogue()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && !Managers.Tutorial.IsMissioning)
+        {
+            if (_isScripting)
+            {
+                _isScripting = false;
+                StopCoroutine(_coroutine);
+                _dialogueText.text = _currentScript;
+                CheckGiveMission();
+            }
+            else
+                NextScript();
+        }
+    }
+
+    private IEnumerator Co_Scripting()
+    {
+        _isScripting = true;
+
+        foreach (char c in _currentScript)
+        {
+            _dialogueText.text += c;
+            yield return Util.GetWaitSeconds(SCRIPTING_INTERVAL_TIME);
+        }
+
+        CheckGiveMission();
+        _isScripting = false;
+    }
+
+    private void CheckGiveMission()
+    {
+        if (_scriptIndex >= _currentScriptLength - 1)
+        {
+            Managers.Tutorial.GiveCurrentMission(_scriptPhase++);
+            Debug.Log("불러잇");
+        }            
     }
 }
