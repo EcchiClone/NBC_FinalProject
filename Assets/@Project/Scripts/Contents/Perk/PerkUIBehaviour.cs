@@ -21,6 +21,7 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     private void Start()
     {
+        ImageInit();
         PerkManager.Instance.OnUnlockBtnClicked += OnUnlockBtnClicked;
     }
 
@@ -57,6 +58,16 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _image.color = Color.gray;
             _originColor = Color.gray;
         }
+    }
+
+    private void ImageInit()
+    {
+        PerkInfo perkInfo = _var.ReturnPerkInfo();
+        ContentInfo contentInfo = _var.ReturnContentInfo();
+        PerkTier tier = perkInfo.Tier;
+        PerkType type = contentInfo.type;
+
+        _image.sprite = Resources.Load<Sprite>($"Images/Perk/T{(int)tier}_{(int)type}");
     }
 
     private void OnUnlockBtnClicked(object sender, EventArgs eventArgs)

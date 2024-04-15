@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Ball_IdleState : BaseState
 {
-    private Transform _entityTransform;
-    private Transform _targetTransform;
-
     public Ball_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;

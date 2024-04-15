@@ -16,11 +16,8 @@ public class Ball_DeadState : BaseState
 
     public override void EnterState()
     {
-        // 얘는 터지는게 맞을듯..
         Context.Entity.Controller.Stop();
-        Context.Entity.StartCoroutine(Explosion());
-
-        
+        Context.Entity.StartCoroutine(Explosion());        
     }
 
     public override void UpdateState()
@@ -33,7 +30,6 @@ public class Ball_DeadState : BaseState
 
     public override void CheckSwitchStates()
     {
-        // 얘는 되돌릴 필요 없음
     }
 
     public override void ExitState()
@@ -48,8 +44,8 @@ public class Ball_DeadState : BaseState
 
     IEnumerator Explosion()
     {
-        Context.Entity.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(2f);
+        //Context.Entity.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(1f);
 
         RaycastHit[] hits = Physics.SphereCastAll(Context.Entity.transform.position, 10, Vector3.up, 0f);
 
@@ -62,9 +58,13 @@ public class Ball_DeadState : BaseState
                 Vector3 other = hit.transform.position;
                 Vector3 pushDirection = (other - entity.position).normalized;
 
-                rigidbody.AddForce(pushDirection * 15, ForceMode.Impulse);
+                rigidbody.AddForce(pushDirection * 10, ForceMode.Impulse);
             }
-            
+
+            if(hit.transform.gameObject.TryGetComponent(out Module module))
+            {
+                module.ModuleStatus.GetDamage(20); // TODO 데미지 조절 필요
+            }
         }
         // TODO : 사라지자
         _isExplodeFinish = true;

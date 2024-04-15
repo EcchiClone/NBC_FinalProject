@@ -75,6 +75,7 @@ public class StageController : MonoBehaviour
 
         while (true)
         {
+
             Timer -= Time.deltaTime;
             if (Timer <= 0)
                 break;

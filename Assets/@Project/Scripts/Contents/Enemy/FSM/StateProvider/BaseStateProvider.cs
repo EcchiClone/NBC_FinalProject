@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
 
 public abstract class BaseStateProvider
 {
@@ -16,6 +18,7 @@ public abstract class BaseStateProvider
     {
         if (_states.ContainsKey(stateEnum))
         {
+            UnityEngine.Debug.Log(stateEnum);
             return _states[stateEnum];
         }
         else

@@ -7,9 +7,6 @@ public class Ball_ChasingState : BaseState
     private float chasingInterval;
     private float passedTime;
 
-    private Transform _entityTransform;
-    private Transform _targetTransform;
-
     public Ball_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;

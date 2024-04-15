@@ -3,59 +3,59 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "EmptyPerk1Name",
-            "description": "EmptyPerk1Description",
+            "name": "Core Power Enhancement I",
+            "description": "Increase the maximum AP by 500 by strengthening core power.",
             "type": 0,
-            "value": 0.0
+            "value": 500.0
         },
         {
             "contentIdx": 1,
-            "name": "EmptyPerk2Name",
-            "description": "EmptyPerk2Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Electrical Output I",
+            "description": "Increase the electricity output to increase the speed of movement by 10%.",
+            "type": 1,
+            "value": 10.0
         },
         {
             "contentIdx": 2,
-            "name": "EmptyPerk3Name",
-            "description": "EmptyPerk3Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Redesigned Automation System I",
+            "description": "Redesign the weapon automation system. Increases reload speed by 10%.",
+            "type": 4,
+            "value": 10.0
         },
         {
             "contentIdx": 3,
-            "name": "EmptyPerk4Name",
-            "description": "EmptyPerk4Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Barrel Rotation I",
+            "description": "Increase the rotation speed by strengthening the motor of the gun row. Bullet firing speed increases by 5%.",
+            "type": 5,
+            "value": 5.0
         },
         {
             "contentIdx": 4,
-            "name": "EmptyPerk5Name",
-            "description": "EmptyPerk5Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Accelerated Elasticity I",
+            "description": "It accelerates the elasticity of the lower body material and improves the jumping power. It improves the jumping power by 10%.",
+            "type": 6,
+            "value": 10.0
         },
         {
             "contentIdx": 5,
-            "name": "EmptyPerk6Name",
-            "description": "EmptyPerk6Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Gas Output I",
+            "description": "It significantly increases the power of hovering gas. Hovering power increases by 10%.",
+            "type": 8,
+            "value": 10.0
         },
         {
             "contentIdx": 6,
-            "name": "EmptyPerk7Name",
-            "description": "EmptyPerk7Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Firepower Reconstruction I",
+            "description": "Reconfigures the firepower of the weapon you use. Increases damage to all weapons by 10%.",
+            "type": 10,
+            "value": 10.0
         },
         {
             "contentIdx": 7,
-            "name": "EmptyPerk8Name",
-            "description": "EmptyPerk8Description",
-            "type": 0,
-            "value": 0.0
+            "name": "Enhanced Radar I",
+            "description": "Strengthen radar. Rock-on distance increases by 10%.",
+            "type": 11,
+            "value": 10.0
         }
     ]
 }

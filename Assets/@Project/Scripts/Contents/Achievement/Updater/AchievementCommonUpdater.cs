@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
+using UnityEngine.SceneManagement;
 
 public class AchievementCommonUpdater : MonoBehaviour
 {
@@ -27,5 +28,20 @@ public class AchievementCommonUpdater : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject); // GameManager 오브젝트를 씬 전환 시 파괴되지 않도록 설정
         var _ = AchievementCommonUpdater.Instance; // AchievementCommonUpdater 인스턴스를 생성 및 초기화
+    }
+    private UI_PausePopup _pause; // PauseUI 테스트용 임시 작성
+    private void Update() // PauseUI 테스트용 임시 작성
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && SceneManager.GetActiveScene().name == "DevScene")
+        {
+            if (_pause == null)
+            {
+                _pause = Managers.UI.ShowPopupUI<UI_PausePopup>();
+            }
+            else if (!_pause.gameObject.activeSelf)
+            {
+                _pause.gameObject.SetActive(true);
+            }
+        }
     }
 }
