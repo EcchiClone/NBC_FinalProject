@@ -3,123 +3,171 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "SubPerk1Name",
-            "description": "SubPerk1Description"
+            "name": "EmptyPerk1Name",
+            "description": "EmptyPerk1Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 1,
-            "name": "SubPerk2Name",
-            "description": "SubPerk2Description"
+            "name": "EmptyPerk2Name",
+            "description": "EmptyPerk2Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 2,
-            "name": "SubPerk3Name",
-            "description": "SubPerk3Description"
+            "name": "EmptyPerk3Name",
+            "description": "EmptyPerk3Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 3,
-            "name": "SubPerk4Name",
-            "description": "SubPerk4Description"
+            "name": "EmptyPerk4Name",
+            "description": "EmptyPerk4Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 4,
-            "name": "SubPerk5Name",
-            "description": "SubPerk5Description"
+            "name": "EmptyPerk5Name",
+            "description": "EmptyPerk5Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 5,
-            "name": "SubPerk6Name",
-            "description": "SubPerk6Description"
+            "name": "EmptyPerk6Name",
+            "description": "EmptyPerk6Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 6,
-            "name": "SubPerk7Name",
-            "description": "SubPerk7Description"
+            "name": "EmptyPerk7Name",
+            "description": "EmptyPerk7Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 7,
-            "name": "SubPerk8Name",
-            "description": "SubPerk8Description"
+            "name": "EmptyPerk8Name",
+            "description": "EmptyPerk8Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 8,
-            "name": "SubPerk9Name",
-            "description": "SubPerk9Description"
+            "name": "EmptyPerk9Name",
+            "description": "EmptyPerk9Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 9,
-            "name": "SubPerk10Name",
-            "description": "SubPerk10Description"
+            "name": "EmptyPerk10Name",
+            "description": "EmptyPerk10Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 10,
-            "name": "SubPerk11Name",
-            "description": "SubPerk11Description"
+            "name": "EmptyPerk11Name",
+            "description": "EmptyPerk11Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 11,
-            "name": "SubPerk12Name",
-            "description": "SubPerk12Description"
+            "name": "EmptyPerk12Name",
+            "description": "EmptyPerk12Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 12,
-            "name": "SubPerk13Name",
-            "description": "SubPerk13Description"
+            "name": "EmptyPerk13Name",
+            "description": "EmptyPerk13Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 13,
-            "name": "SubPerk14Name",
-            "description": "SubPerk14Description"
+            "name": "EmptyPerk14Name",
+            "description": "EmptyPerk14Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 14,
-            "name": "SubPerk15Name",
-            "description": "SubPerk15Description"
+            "name": "EmptyPerk15Name",
+            "description": "EmptyPerk15Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 15,
-            "name": "SubPerk16Name",
-            "description": "SubPerk16Description"
+            "name": "EmptyPerk16Name",
+            "description": "EmptyPerk16Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 16,
-            "name": "SubPerk17Name",
-            "description": "SubPerk17Description"
+            "name": "EmptyPerk17Name",
+            "description": "EmptyPerk17Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 17,
-            "name": "SubPerk18Name",
-            "description": "SubPerk18Description"
+            "name": "EmptyPerk18Name",
+            "description": "EmptyPerk18Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 18,
-            "name": "SubPerk19Name",
-            "description": "SubPerk19Description"
+            "name": "EmptyPerk19Name",
+            "description": "EmptyPerk19Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 19,
-            "name": "SubPerk20Name",
-            "description": "SubPerk20Description"
+            "name": "EmptyPerk20Name",
+            "description": "EmptyPerk20Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 20,
-            "name": "SubPerk21Name",
-            "description": "SubPerk21Description"
+            "name": "EmptyPerk21Name",
+            "description": "EmptyPerk21Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 21,
-            "name": "SubPerk22Name",
-            "description": "SubPerk22Description"
+            "name": "EmptyPerk22Name",
+            "description": "EmptyPerk22Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 22,
-            "name": "SubPerk23Name",
-            "description": "SubPerk23Description"
+            "name": "EmptyPerk23Name",
+            "description": "EmptyPerk23Description",
+            "type": 0,
+            "value": 0.0
         },
         {
             "contentIdx": 23,
-            "name": "SubPerk24Name",
-            "description": "SubPerk24Description"
+            "name": "EmptyPerk24Name",
+            "description": "EmptyPerk24Description",
+            "type": 0,
+            "value": 0.0
         }
     ]
 }
