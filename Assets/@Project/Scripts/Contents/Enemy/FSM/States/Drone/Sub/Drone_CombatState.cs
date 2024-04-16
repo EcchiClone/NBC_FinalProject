@@ -58,9 +58,5 @@ public class Drone_CombatState : BaseState
 
     public override void InitializeSubState()
     {
-        if (Context.Entity.CurrentHelth <= Context.Entity.Data.maxHealth / 2f)
-        {
-            SwitchState(Provider.GetState(SkyFire_States.Phase2));
-        }
     }
 }

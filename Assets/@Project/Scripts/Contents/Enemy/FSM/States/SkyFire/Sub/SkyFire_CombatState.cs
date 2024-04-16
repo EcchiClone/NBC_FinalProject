@@ -37,9 +37,7 @@ public class SkyFire_CombatState : BaseState
     }
 
     public override void InitializeSubState()
-    {
-        
-
+    {       
         SetSubState(Provider.GetState(SkyFire_States.Phase1));
     }
 }
