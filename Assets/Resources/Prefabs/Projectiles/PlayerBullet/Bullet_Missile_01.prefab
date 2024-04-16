@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7244575391186946804}
   - component: {fileID: 4282708261292946353}
   - component: {fileID: 4385003798335477161}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 510633814439450952}
   - component: {fileID: 7387085742930997340}
   - component: {fileID: 6658991434377334143}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Bullet_Missile_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1585428853897194937}
   - component: {fileID: 6133345013464403650}
   - component: {fileID: 3350295336894024712}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

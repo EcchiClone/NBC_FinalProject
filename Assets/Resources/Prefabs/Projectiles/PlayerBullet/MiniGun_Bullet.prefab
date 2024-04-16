@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1438298290649440831}
   - component: {fileID: 8233596639615045445}
   - component: {fileID: 8678720803442815168}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4840,7 +4840,7 @@ GameObject:
   - component: {fileID: 3580421073470643517}
   - component: {fileID: 3416012104256382289}
   - component: {fileID: 8124365117090489617}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: MiniGun_Bullet
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -9753,7 +9753,7 @@ GameObject:
   - component: {fileID: 454838759015859125}
   - component: {fileID: 6387168830814479839}
   - component: {fileID: 3867747192250075395}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14633,7 +14633,7 @@ GameObject:
   - component: {fileID: 1189626827547191497}
   - component: {fileID: 8783195429338948559}
   - component: {fileID: 2613410453633604898}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: flarespikes_thin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
