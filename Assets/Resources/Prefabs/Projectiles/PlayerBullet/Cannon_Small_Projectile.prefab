@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4907921129076142284}
   - component: {fileID: 5705245408185736703}
   - component: {fileID: 1168404638957661273}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: glow
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 1752861258861834394}
   - component: {fileID: 1676101270601985865}
   - component: {fileID: 5169115801313448916}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: laserInner
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -4946,7 +4946,7 @@ GameObject:
   - component: {fileID: 6141859933184385891}
   - component: {fileID: 8960893565165558380}
   - component: {fileID: -2631183992784168901}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Cannon_Small_Projectile
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -9836,7 +9836,7 @@ GameObject:
   - component: {fileID: 7237964139847026461}
   - component: {fileID: 3136200952936862991}
   - component: {fileID: 5750435595505982581}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: laserOuter
   m_TagString: FX
   m_Icon: {fileID: 0}
