@@ -20,4 +20,5 @@ public class EntityDataSO : ScriptableObject
     public float maxHealth;
     public float moveSpeed;
     public float attackInterval;
+    public float damage;
 }

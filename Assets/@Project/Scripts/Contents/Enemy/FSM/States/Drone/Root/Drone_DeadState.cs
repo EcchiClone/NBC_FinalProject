@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skulge_DeadState : BaseState
+public class Drone_DeadState : BaseState
 {
-    public Skulge_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Drone_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
     }
