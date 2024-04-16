@@ -64,7 +64,8 @@ public class UI_HUD : UI_Scene
         Managers.ActionManager.OnPlayerDead += () => _gameOverPanel.SetActive(true);
         _returnBtn.onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.MainScene));
 
-        Managers.UI.ShowPopupUI<UI_StageInfoPopup>();
+        if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.Tutorial)
+            Managers.UI.ShowPopupUI<UI_StageInfoPopup>();
 
         float ap = Managers.Module.CurrentModule.ModuleStatus.Armor;
         ChangeAPValue(ap, ap);

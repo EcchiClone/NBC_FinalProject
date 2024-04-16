@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tab \uD0A4\uB85C \uC2A4\uD0B5..."
+  m_text: "Tab \uD0A4\uB85C \uC2A4\uD0B5_"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
   m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
@@ -443,8 +443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -12.285004}
+  m_SizeDelta: {x: -60, y: -24.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2086529175768500220
 CanvasRenderer:
@@ -474,9 +474,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5EC\uAE30\uB294 \uB2E4\uC774\uC5BC\uB85C\uADF8 \uB4E4\uC5B4\uAC00\uB294
-    \uC790\uB9AC\n\uC5EC\uAE30\uB294 \uB2E4\uC774\uC5BC\uB85C\uADF8 \uB4E4\uC5B4\uAC00\uB294
-    \uC790\uB9AC"
+  m_text: "\uC5EC\uAE30\uB294 \uB2E4\uC774\uC5BC\uB85C\uADF8 \uC5EC\uAE30\uB294 \uB2E4\uC774\uC5BC\uB85C\uADF8\n\uC5EC\uAE30\uB294
+    \uB2E4\uC774\uC5BC\uB85C\uADF8 \uC5EC\uAE30\uB294 \uB2E4\uC774\uC5BC\uB85C\uADF8\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
   m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
@@ -504,15 +503,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

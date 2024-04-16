@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class TutorialManager
 {
-    public event Action OnTutorialStart;
     public event Action OnTutorialClear;
     public event Action OnScriptPhaseUpdate;
+    public event Action OnDisableLinkedWall;
+    public event Action OnEnableDontGoBackWall;
+    public event Action OnEnableDummy;
+    public event Action OnShootDummy;
 
     public Achievement CurrentMission { get; private set; }
     public bool IsMissioning { get; private set; }
@@ -21,9 +23,6 @@ public class TutorialManager
 
         UI_BlinderPopup blinder = Managers.UI.ShowPopupUI<UI_BlinderPopup>();
         blinder.DoOpenBlind(BLIND_TIME, () => Managers.UI.ShowPopupUI<UI_TutorialDialoguePopup>());
-
-        // 락을 걸어야 됨
-        OnTutorialStart?.Invoke();
     }
 
     public void TutorialClear()
@@ -43,9 +42,19 @@ public class TutorialManager
     }
 
     public void GiveCurrentMission(int id)
-    {
+    {        
         Achievement mission = Resources.Load<Achievement>(Managers.Data.GetTutorialData(id).MissionPath);
         CurrentMission = UnityEngine.Object.Instantiate(mission);
+
+        // 극한의 하드코딩...
+        if (id == 4)
+            OnDisableLinkedWall?.Invoke();
+        if (id == 5)
+            OnEnableDontGoBackWall?.Invoke();
+        if (id == 7)
+            OnEnableDummy?.Invoke();
+        if (id == 8)
+            OnShootDummy?.Invoke();
 
         Managers.AchievementSystem.Register(CurrentMission);
         IsMissioning = true;
@@ -73,11 +82,23 @@ public class TutorialManager
             Managers.AchievementSystem.ReceiveReport("TUTO3", KeyCode.LeftShift, 1);
         if (Managers.Module.CurrentModule.PlayerStateMachine.IsHovering == true && Input.GetKeyDown(KeyCode.Space))
             Managers.AchievementSystem.ReceiveReport("TUTO4", KeyCode.Space, 1);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            Managers.AchievementSystem.ReceiveReport("TUTO6", KeyCode.K, 1);
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            Managers.AchievementSystem.ReceiveReport("TUTO6", KeyCode.L, 1);
+        if (Input.GetKeyDown(KeyCode.Q))
+            Managers.AchievementSystem.ReceiveReport("TUTO7", KeyCode.Q, 1);
+        if (Input.GetKeyDown(KeyCode.E))
+            Managers.AchievementSystem.ReceiveReport("TUTO7", KeyCode.E, 1);
     }
 
     public void Clear()
     {
-        OnTutorialStart = null;
         OnTutorialClear = null;
+        OnScriptPhaseUpdate = null;
+        OnDisableLinkedWall = null;
+        OnEnableDontGoBackWall = null;
+        OnEnableDummy = null;
+        OnShootDummy = null;
     }
 }

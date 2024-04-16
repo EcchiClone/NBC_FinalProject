@@ -19,9 +19,6 @@ MonoBehaviour:
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: aa3c6a941ecaef84383416b9fa9d6824, type: 2}
-    - {fileID: 11400000, guid: 07ad5f7dca3120942aab22dfcd3958ce, type: 2}
-    - {fileID: 11400000, guid: 06803efa2f9be2f44a516d60d2c625aa, type: 2}
-    - {fileID: 11400000, guid: d6f1437df230058469c05ea517b89f07, type: 2}
   rewards:
   - {fileID: 11400000, guid: 2509822a6b3bb604a8826566dfdd451c, type: 2}
   useAutoComplete: 1

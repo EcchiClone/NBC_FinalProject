@@ -7,7 +7,6 @@ public class RewardAction : AchievementReward
 {
     public override void Give(Achievement achievement)
     {
-        Managers.Tutorial.NextPhase();
-        Debug.Log("보상 줬음");
+        Managers.Tutorial.NextPhase();        
     }
 }
