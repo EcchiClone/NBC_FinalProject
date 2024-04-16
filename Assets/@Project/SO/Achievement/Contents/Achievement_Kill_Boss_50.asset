@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Achievement_Kill_Boss_50
   m_EditorClassIdentifier: 
   codeName: KILL_BOSS_50
-  icon: {fileID: 21300000, guid: 76e0c6a5a743f154184338cee014a292, type: 3}
+  icon: {fileID: 21300000, guid: a16c5d0b09656e748bf728b77212e58c, type: 3}
   displayName: "\uC774\uAC8C \uB05D\uC778\uAC00\uC694?"
   description: "Boss\uB97C 50\uAE30 \uD30C\uAD34"
   taskGroups:

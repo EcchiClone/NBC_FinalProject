@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Achievement_ResultScore_1000
   m_EditorClassIdentifier: 
   codeName: RESULT_SCORE_1000
-  icon: {fileID: 21300000, guid: e00de6daeda88e34ca84e93546fc32da, type: 3}
+  icon: {fileID: 21300000, guid: 4fa378b3ece048549937e894399290e0, type: 3}
   displayName: "\uCC9C\uC810, \uCC9C\uC810\uC774\uC624!!"
   description: "1000\uC810 \uC774\uC0C1\uC758 \uC810\uC218\uB85C \uD074\uB9AC\uC5B4"
   taskGroups:
