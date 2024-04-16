@@ -73,7 +73,7 @@ public class PointBehaviour : MonoBehaviour
             // 퍼크 개방 수 업적 진행도 업데이트
             try
             {
-                AchievementCommonUpdater.instance.gameObject.GetComponent<UpdateUnlockPerk>().UnlockPerk();
+                AchievementCommonUpdater.instance.GetComponent<UpdateUnlockPerk>().UnlockPerk();
             }
             catch
             {
