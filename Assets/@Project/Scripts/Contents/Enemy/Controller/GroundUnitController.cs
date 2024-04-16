@@ -9,6 +9,7 @@ public class GroundUnitController : Controller
 
     // Must Fix This.
     Transform head;
+    Transform weapon;
     
 
     public GroundUnitController(Entity entity) : base(entity)
@@ -19,8 +20,9 @@ public class GroundUnitController : Controller
 
         // Must Fix This.
         head = entity.transform.Find("Armature/Body/Head");
+        weapon = entity.transform.Find("Armature/Body/Head/Weapon");
 
-        
+
     }
 
     public override void Update()
@@ -60,15 +62,34 @@ public class GroundUnitController : Controller
 
         Quaternion targetLocalRotation = Quaternion.LookRotation(targetLocalLookDir, Vector3.up);
 
-        // 쿼터니언 -> 오일러 각도로 변경
+        // Quaternion -> Euler
         Vector3 euler = targetLocalRotation.eulerAngles;
         euler.x = 0;
         euler.z = 0;
 
-        // 오일러 -> 쿼터니언으로 변경
+        // Euler -> Quaternion
         targetLocalRotation = Quaternion.Euler(euler);
 
         head.localRotation = Quaternion.Slerp(
+            currentLocalRotation,
+            targetLocalRotation,
+            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
+            );
+
+
+        currentLocalRotation = weapon.localRotation;
+        weapon.localRotation = Quaternion.identity;
+        targetWorldLookDir = Target.position - weapon.position;
+        targetLocalLookDir = weapon.InverseTransformDirection(targetWorldLookDir);
+        targetLocalRotation = Quaternion.LookRotation(targetLocalLookDir, Vector3.up);
+
+        euler = targetLocalRotation.eulerAngles;
+        euler.y = 0;
+        euler.z = 0;
+
+        targetLocalRotation = Quaternion.Euler(euler);
+
+        weapon.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
             1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)

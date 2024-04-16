@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Achievement_Done_Tutorials
   m_EditorClassIdentifier: 
   codeName: DONE_TUTORIALS
-  icon: {fileID: 21300000, guid: 16190c505d5cd40468038c0261c8a510, type: 3}
+  icon: {fileID: 21300000, guid: 235947f690dff674a829fa957be7f141, type: 3}
   displayName: "\uC751\uC560"
   description: "\uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC644\uB8CC\uD588\uB2E4"
   taskGroups:

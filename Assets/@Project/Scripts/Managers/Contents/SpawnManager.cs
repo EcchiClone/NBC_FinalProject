@@ -111,7 +111,7 @@ public class SpawnManager
         }
 
         DetectSpawnPoint();
-        //ShuffleSpawnPoint();
+        ShuffleSpawnPoint();
     }
 
     public void DetectSpawnPoint() // 중복 없는 스폰 포인트 탐지
@@ -125,7 +125,7 @@ public class SpawnManager
         foreach (Vector3 cell in _groundCell)
         {
             if (Physics.Raycast(cell, Vector3.down, out hit, 41f))
-                _groundTempPoint.Add(hit.point);
+                _groundTempPoint.Add(hit.point + Vector3.up*3);
         }
         _groundSpawnPoints = new List<Vector3>(_groundTempPoint);
 

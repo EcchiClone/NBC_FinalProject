@@ -13,15 +13,7 @@ public class SkyFire_DeadState : BaseState
 
     public override void EnterState()
     {
-        // Add rigidbody
-        //Context.Boss.Controller.Stop();
-        Context.Entity.GetOrAddComponent<Rigidbody>().useGravity = true;
-        Context.Entity.GetOrAddComponent<Rigidbody>().isKinematic = false;
-
-
-        Debug.Log("SkyFire : Enter Dead State");
-
-        Context.Entity.Invoke("Disappear", 3);
+        Context.Entity.gameObject.SetActive(false);
     }
     public override void UpdateState()
     {
@@ -38,9 +30,4 @@ public class SkyFire_DeadState : BaseState
     {
     }
 
-    private void Disappear()
-    {
-
-        Context.Entity.gameObject.SetActive(false);
-    }
 }

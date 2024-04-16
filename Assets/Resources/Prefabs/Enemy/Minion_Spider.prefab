@@ -884,9 +884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Phases:
-  - {fileID: 11400000, guid: e20db2618680ec0478d327d5b3463ba0, type: 2}
-  Patterns: []
+  Phases: []
+  Patterns:
+  - patternSO: {fileID: 11400000, guid: ceb46488945ae844387142f521a51434, type: 2}
+    patternName: Spider
   muzzle:
   - {fileID: 8440490075170009458}
   - {fileID: 7911522603296387778}

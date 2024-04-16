@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Achievement_Kill_Minion_100
   m_EditorClassIdentifier: 
   codeName: KILL_MINION_100
-  icon: {fileID: 21300000, guid: d4c7405770225e648a6e8ddcc56f9896, type: 3}
+  icon: {fileID: 21300000, guid: 2dd70bf096f0ee245a7d55a3b3eaf737, type: 3}
   displayName: "\uB204\uAC00 \uC774\uAC83\uB4E4 \uC880 \uCE58\uC6CC\uBD10"
   description: "Minion 100\uAE30 \uD30C\uAD34"
   taskGroups:
