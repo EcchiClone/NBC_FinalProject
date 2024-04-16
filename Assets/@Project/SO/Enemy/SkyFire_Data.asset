@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: SkyFire_Data
   m_EditorClassIdentifier: 
-  stopDistance: 30
+  stopDistance: 70
   cognizanceRange: 200
-  chasingInterval: 0.3
-  rotationSpeed: 1
+  chasingInterval: 0.1
+  rotationSpeed: 10
+  patrolDistance: 0
+  fixedAltitude: 40
   maxHealth: 1000
-  moveSpeed: 10
-  attackInterval: 10
+  moveSpeed: 30
+  attackInterval: 1
+  damage: 100

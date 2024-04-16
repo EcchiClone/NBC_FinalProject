@@ -33,6 +33,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
+    muzzleEffect_Path: 
     damage: 0
     bulletSpeed: 0
     fireRate: 0
@@ -63,6 +64,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
+    muzzleEffect_Path: 
     damage: 0
     bulletSpeed: 0
     fireRate: 0
@@ -93,6 +95,7 @@ MonoBehaviour:
     boosterGauge: 100
     hovering: 5
     bulletPrefab_Path: None
+    muzzleEffect_Path: 
     damage: 0
     bulletSpeed: 0
     fireRate: 0
@@ -123,6 +126,7 @@ MonoBehaviour:
     boosterGauge: 150
     hovering: 7
     bulletPrefab_Path: None
+    muzzleEffect_Path: 
     damage: 0
     bulletSpeed: 0
     fireRate: 0
@@ -151,7 +155,8 @@ MonoBehaviour:
     smoothRotation: 0
     boosterGauge: 0
     hovering: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Small
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Cannon_Small_Projectile
+    muzzleEffect_Path: 
     damage: 5
     bulletSpeed: 25
     fireRate: 0.3
@@ -181,7 +186,8 @@ MonoBehaviour:
     smoothRotation: 0
     boosterGauge: 0
     hovering: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Gatling_01
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/MiniGun_Bullet
+    muzzleEffect_Path: 
     damage: 2
     bulletSpeed: 35
     fireRate: 0.05
@@ -200,7 +206,7 @@ MonoBehaviour:
       \uD0C0\uAC9F\uC5D0 \uB300\uD55C \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uAC00\uD55C\uB2E4\n\uCDA9\uC804\uC2DC\uAC04\uACFC
       \uC7AC\uC7A5\uC804 \uC2DC\uAC04\uC774 \uAE38\uC9C0\uB9CC \uD654\uB825\uC740
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
-    initialPart: 0
+    initialPart: 1
     pointUnlock: 1
     point: 1000
     armor: 275
@@ -213,6 +219,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: None
+    muzzleEffect_Path: 
     damage: 2
     bulletSpeed: 0
     fireRate: 2
@@ -229,7 +236,7 @@ MonoBehaviour:
     display_Name: CA-AP
     display_Description: "1\uC5F0\uC7A5 AP \uCE90\uB17C\n\uAC15\uB825\uD55C \uD55C
       \uBC29\uC744 \uC790\uB791\uD558\uC9C0\uB9CC \uC5F0\uC0AC\uB825\uC774 \uC88B\uC9C0\uC54A\uB2E4"
-    initialPart: 0
+    initialPart: 1
     pointUnlock: 0
     point: 0
     armor: 275
@@ -241,7 +248,8 @@ MonoBehaviour:
     smoothRotation: 0
     boosterGauge: 0
     hovering: 0
-    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_Large
+    bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Cannon_Large_Projectile
+    muzzleEffect_Path: 
     damage: 50
     bulletSpeed: 25
     fireRate: 2
@@ -272,6 +280,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
+    muzzleEffect_Path: 
     damage: 5
     bulletSpeed: 15
     fireRate: 0.05
@@ -303,6 +312,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_02
+    muzzleEffect_Path: 
     damage: 50
     bulletSpeed: 20
     fireRate: 0.5
@@ -321,7 +331,7 @@ MonoBehaviour:
       \uC2DC\uAC04\uCC28\uB85C \uD3ED\uBC1C\uD558\uB294 \uACE0\uD3ED\uD0C4\uC744
       \uBC1C\uC0AC\uD55C\uB2E4\n\uD3ED\uBC1C \uC9C0\uC810 \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC785\uD790 \uC218 \uC788\uB2E4"
-    initialPart: 0
+    initialPart: 1
     pointUnlock: 0
     point: 0
     armor: 150
@@ -334,6 +344,7 @@ MonoBehaviour:
     boosterGauge: 0
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Cannon_01
+    muzzleEffect_Path: 
     damage: 125
     bulletSpeed: 50
     fireRate: 0

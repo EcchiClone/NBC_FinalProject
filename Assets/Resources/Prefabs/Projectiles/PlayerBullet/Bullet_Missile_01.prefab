@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7244575391186946804}
   - component: {fileID: 4282708261292946353}
   - component: {fileID: 4385003798335477161}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,9 +116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510633814439450952}
-  - component: {fileID: 6658991434377334143}
   - component: {fileID: 7387085742930997340}
-  m_Layer: 0
+  - component: {fileID: 6658991434377334143}
+  m_Layer: 11
   m_Name: Bullet_Missile_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,26 +142,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6658991434377334143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635446873121853395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd0076ac4362f34c924fe7fde9cb6a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owenr: 0
-  _hitEffectPrefab: {fileID: 4254385173534399097, guid: 93159591da4e1a54bb9d5007f1f1db74,
-    type: 3}
-  _trailRenderers: {fileID: 0}
-  _bulletType: 2
-  _damagableLayer:
-    serializedVersion: 2
-    m_Bits: 13824
 --- !u!54 &7387085742930997340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -189,6 +169,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &6658991434377334143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635446873121853395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd0076ac4362f34c924fe7fde9cb6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owenr: 0
+  _hitEffectPrefab: {fileID: 7438962341294935901, guid: 015c190f5a85a0b4e91fd05024ca5dba,
+    type: 3}
+  _trailRenderers: {fileID: 0}
+  _bulletType: 2
+  _damagableLayer:
+    serializedVersion: 2
+    m_Bits: 30208
 --- !u!1 &4905138874408751800
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1585428853897194937}
   - component: {fileID: 6133345013464403650}
   - component: {fileID: 3350295336894024712}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -25,7 +25,7 @@ public class PlayerProjectile : Bullet
         _speed = speed;
         _damage = damage;
         _isSplash = splash;
-        if (_bulletType != Define.BulletType.Missile)
+        if (_trailRenderers != null)
             _trailRenderers.Clear();        
     }
 
@@ -33,10 +33,11 @@ public class PlayerProjectile : Bullet
     {
         if ((_damagableLayer & (1 << collision.gameObject.layer)) != 0)
         {
-            StopAllCoroutines();
+            StopAllCoroutines();            
 
-            GameObject hitEffect = Instantiate(_hitEffectPrefab);
-            hitEffect.transform.position = transform.position;
+            GameObject go = ObjectPooler.SpawnFromPool(_hitEffectPrefab.name, transform.position);            
+            EffectLifeTime hitEffect = go.GetComponent<EffectLifeTime>();
+            hitEffect.Setup();
             hitEffect.transform.rotation = transform.rotation;
 
             if (_isSplash)
@@ -53,15 +54,15 @@ public class PlayerProjectile : Bullet
             {
                 if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
-            }
-
+            }            
+            
             gameObject.SetActive(false);
         }
     }
 
     private void OnDisable()
     {
-        ObjectPooler.ReturnToPool(gameObject); // 한 객체에 한번만
+        ObjectPooler.ReturnToPool(gameObject); // 한 객체에 한번만        
         CancelInvoke();
     }
 }

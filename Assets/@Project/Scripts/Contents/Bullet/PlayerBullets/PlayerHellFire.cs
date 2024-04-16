@@ -13,6 +13,7 @@ public class PlayerHellFire : PlayerProjectile
     public override void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, Transform target = null)
     {
         base.Setup(speed, damage, splash, groundTargetPos);
+        _isTracking = false;
         _target = target;
         _groundTargetPos = groundTargetPos;
         StartCoroutine(CoTracking());

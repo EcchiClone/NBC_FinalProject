@@ -35,22 +35,11 @@ public class SkyFire_ChasingState : BaseState
 
     public override void ExitState()
     {
-        //Context.Boss.Controller.Stop();
         Debug.Log("SkyFire : Exit Chasing State");
     }
 
     public override void CheckSwitchStates()
     {
-        // 공격할 조건 됐는지 판단
-        // 추격 중에 시간 지나면 
-
-        // 죽었는지 판단
-
-        if (!Context.Entity.IsAlive)
-        {
-            SwitchState(Provider.GetState(SkyFire_States.Alive));
-            return;
-        }
 
         if(!Context.Entity.Controller.IsMoving) // 일단 컨트롤러의 IsMoving이 false면 바로 공격으로
         {

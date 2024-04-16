@@ -6,15 +6,16 @@ using UnityEngine;
 public class PlayerMissile : PlayerProjectile
 {
     private Transform _target;
-    private Vector3 _groundTargetPos;
-    private WaitForSeconds _trackingDealy = new WaitForSeconds(1f);
+    private Vector3 _groundTargetPos;    
 
     private bool _isTracking = false;
     private readonly float TRAKING_RATIO = 5f;
+    private readonly float TRAKING_DELAY = 1f;
 
     public override void Setup(float speed, float damage, bool splash,Vector3 groundTargetPos, Transform target = null)
     {
         base.Setup(speed, damage, splash, groundTargetPos);
+        _isTracking = false;
         _target = target;
         _groundTargetPos = groundTargetPos;
         StartCoroutine(CoTracking());
@@ -42,7 +43,7 @@ public class PlayerMissile : PlayerProjectile
 
     private IEnumerator CoTracking()
     {
-        yield return _trackingDealy;
+        yield return Util.GetWaitSeconds(TRAKING_DELAY);
 
         _isTracking = true;
     }
