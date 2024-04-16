@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{a24ebaca-effe-4cbf-9480-c191bfcb27f3}">
+		<property name="name">
+			<value>isGunLoop</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a25fb09a-8fd2-4686-9fa6-c992002c9f5d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4f4e0e38-664e-4095-8a67-049e3af041eb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4f4e0e38-664e-4095-8a67-049e3af041eb}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
