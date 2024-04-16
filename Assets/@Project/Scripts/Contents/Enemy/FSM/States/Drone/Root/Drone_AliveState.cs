@@ -1,6 +1,6 @@
-public class Skulge_AliveState : BaseState
+public class Drone_AliveState : BaseState
 {
-    public Skulge_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Drone_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
     }

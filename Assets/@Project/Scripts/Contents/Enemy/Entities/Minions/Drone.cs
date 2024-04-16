@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skulge : Entity
+public class Drone : Entity
 {
     protected override void Initialize()
     {
@@ -11,6 +11,6 @@ public class Skulge : Entity
         Controller = new AirUnitController(this);
         Controller.Initialize();
 
-        StateMachine = new SkulgeStateMachine(this);
+        StateMachine = new DroneStateMachine(this);
     }
 }

@@ -1,12 +1,12 @@
-public class SkulgeStateMachine : BaseStateMachine
+public class DroneStateMachine : BaseStateMachine
 {
-    public SkulgeStateMachine(Entity entity) : base(entity)
+    public DroneStateMachine(Entity entity) : base(entity)
     {
     }
 
     public override void Initialize()
     {
-        Provider = new SkulgeStateProivder(this);
+        Provider = new DroneStateProivder(this);
         CurrentState = Provider.GetState(Minion_States.Alive);
         CurrentState.EnterState();
     }

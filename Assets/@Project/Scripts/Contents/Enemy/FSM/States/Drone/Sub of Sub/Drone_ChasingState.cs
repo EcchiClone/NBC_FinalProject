@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skulge_ChasingState : BaseState
+public class Drone_ChasingState : BaseState
 {
     private float chasingInterval;
     private float passedTime;
 
-    public Skulge_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Drone_ChasingState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
 
@@ -28,16 +28,12 @@ public class Skulge_ChasingState : BaseState
         if (passedTime >= chasingInterval)
         {
             if (!CheckObstacle())
-            {
-                Context.Entity.Controller.IsMoving = true;
-                Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
-            }
+                Context.Entity.Controller.SetDestination(_targetTransform.position);
             else
-                Context.Entity.Controller.IsMoving = false;
+                Context.Entity.Controller.SetDestination(_entityTransform.position);
+
             passedTime = 0f;
         }
-
-
         CheckSwitchStates();
     }
 

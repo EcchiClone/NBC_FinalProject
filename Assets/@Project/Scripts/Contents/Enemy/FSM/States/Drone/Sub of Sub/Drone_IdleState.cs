@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skulge_IdleState : BaseState
+public class Drone_IdleState : BaseState
 {
     private float patrolInterval;
     private float passedTime;
 
-    public Skulge_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Drone_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
     }
@@ -22,7 +22,7 @@ public class Skulge_IdleState : BaseState
 
     public override void UpdateState()
     {
-        passedTime += Time.deltaTime;
+       /* passedTime += Time.deltaTime;
         if (passedTime >= patrolInterval)
         {
             float x = Random.Range(-1f, 1f);
@@ -35,7 +35,7 @@ public class Skulge_IdleState : BaseState
 
             Context.Entity.Controller.SetDestination(destination);
             passedTime = 0f;
-        }
+        }*/
 
         CheckSwitchStates();
     }

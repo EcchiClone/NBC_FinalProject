@@ -25,8 +25,11 @@ public class Spider_CombatState : BaseState
         _passedTime += Time.deltaTime;
         if (_passedTime > _attackInterval)
         {
-            Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
-            Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+            if (!CheckObstacle())
+            {
+                Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
+                Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+            }
             _passedTime = 0;
         }
 

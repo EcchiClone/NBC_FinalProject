@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skulge_CombatState : BaseState
+public class Drone_CombatState : BaseState
 {
     private float _passedTime;
     private float _attackInterval;
 
-    public Skulge_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public Drone_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
         _attackInterval = Context.Entity.Data.attackInterval;
@@ -24,6 +24,18 @@ public class Skulge_CombatState : BaseState
 
     public override void UpdateState()
     {
+        _passedTime += Time.deltaTime;
+        if (_passedTime > _attackInterval)
+        {
+            if (!CheckObstacle())
+            {
+                Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
+                Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+            }
+                
+            _passedTime = 0;
+        }
+
         CheckSwitchStates();
     }
 
