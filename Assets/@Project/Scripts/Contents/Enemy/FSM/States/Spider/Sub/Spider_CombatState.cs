@@ -27,8 +27,8 @@ public class Spider_CombatState : BaseState
         {
             if (!CheckObstacle())
             {
-                Context.Entity.enemyPhaseStarter.StartPhase(0, 1, true);
-                Context.Entity.enemyPhaseStarter.StartPhase(0, 2, true);
+                Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 1, true);
+                Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 2, true);
             }
             _passedTime = 0;
         }

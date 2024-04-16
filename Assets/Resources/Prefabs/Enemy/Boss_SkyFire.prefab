@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8015452052536065450}
   - component: {fileID: 9664777324250960}
   - component: {fileID: 271065058870316089}
-  - component: {fileID: 7038555841111676336}
   - component: {fileID: 6493912144862035330}
   - component: {fileID: 912533175694282690}
+  - component: {fileID: 2230303562356184318}
   m_Layer: 10
   m_Name: Boss_SkyFire
   m_TagString: Untagged
@@ -128,28 +128,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7038555841111676336
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6175972580230584608}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8246533223760195538, guid: 5d98eec2139a0a24dafc310a1451754f, type: 3}
 --- !u!114 &6493912144862035330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,13 +152,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc53836e0f0e7488231422675aa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
+    type: 2}
   <Target>k__BackingField: {fileID: 0}
   <IsAlive>k__BackingField: 1
   enemyPhaseStarter: {fileID: 0}
   launcher1: {fileID: 0}
   launcher2: {fileID: 0}
   launcher3: {fileID: 0}
+--- !u!65 &2230303562356184318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175972580230584608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 32.92061, y: 9.827778, z: 48.785233}
+  m_Center: {x: -0.013079643, y: -0.046497107, z: 1.4646673}
 --- !u!1 &7623687148806770064
 GameObject:
   m_ObjectHideFlags: 0
