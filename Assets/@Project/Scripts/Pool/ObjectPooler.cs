@@ -246,7 +246,7 @@ public class ObjectPooler : MonoBehaviour
     {
         // 오브젝트를 풀에 추가
         obj.transform.SetParent(transform);
-        poolDictionary[obj.name].Enqueue(obj);
+        //poolDictionary[obj.name].Enqueue(obj);
     }
     IEnumerator TrackAllPoolsCompletion()
     {
