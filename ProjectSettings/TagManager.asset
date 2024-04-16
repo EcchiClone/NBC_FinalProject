@@ -9,6 +9,7 @@ TagManager:
   - Tier2
   - Tier3
   - Sub
+  - FX
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,6 @@ TagManager:
   - Unwalkable
   - Wall
   - Entity
-  - 
   - 
   - 
   - 

@@ -8,6 +8,7 @@ public class SelectorScene : BaseScene
     public override void Init()
     {
         Scenes = Scenes.MainScene;
+        Cursor.lockState = CursorLockMode.Confined;
 
         Managers.Module.CreateSelectorModule();
         UI_MainMenuPopup mainUI = Managers.UI.ShowPopupUI<UI_MainMenuPopup>();

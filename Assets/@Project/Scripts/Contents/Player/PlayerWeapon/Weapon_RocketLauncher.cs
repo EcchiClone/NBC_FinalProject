@@ -25,15 +25,14 @@ public class Weapon_RocketLauncher : WeaponBase
                 Ammo--;
 
                 Vector3 freeFireTarget = GetFreeFireDest();
-
-                GameObject bullet = CreateBullet(muzzle);
+                GameObject bullet = CreateBullet(muzzle);                
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
                 missile.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, freeFireTarget, _target);
-
+                
                 yield return Util.GetWaitSeconds(_partData.FireRate);
             }
-        }        
+        }
 
         yield return Util.GetWaitSeconds(_partData.CoolDownTime);
         IsCoolDown = false;

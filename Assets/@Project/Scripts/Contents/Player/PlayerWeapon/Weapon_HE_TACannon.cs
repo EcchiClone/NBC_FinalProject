@@ -69,6 +69,9 @@ public class Weapon_HE_TACannon : WeaponBase
 
     private IEnumerator Co_Targeting()
     {
+        if (_target == null)
+            yield break;
+
         Vector3 leftArmToLookAt = _target.position - transform.position;
         
         Quaternion currentHeadRot = transform.rotation;

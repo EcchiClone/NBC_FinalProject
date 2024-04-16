@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe8f415a2146f4dac6a6143c5279c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _muzzleEffect: {fileID: 6175814416407555268, guid: f9032833f2076224495eada916f7f032,
+    type: 3}
 --- !u!1 &8125420459948655158
 GameObject:
   m_ObjectHideFlags: 0
