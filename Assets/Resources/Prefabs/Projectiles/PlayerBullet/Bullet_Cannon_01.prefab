@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5564551075417023909}
   - component: {fileID: 3114188736933016}
   - component: {fileID: 8789713467705627469}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Bullet_Cannon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5291567907947161072}
   - component: {fileID: 964359998039389580}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7542962208212702828}
   - component: {fileID: 5259763268766056478}
   - component: {fileID: 6988944253026449867}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: HEShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

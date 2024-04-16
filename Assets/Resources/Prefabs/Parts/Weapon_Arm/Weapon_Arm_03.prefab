@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102eb509fabf22e44b7f326ae0334fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _muzzleEffect: {fileID: 0}
   _chargingEffect: {fileID: 8472076251589126904}
   _laser: {fileID: 727243506265910801}
   _laserCurve:
@@ -323,6 +324,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 776503807274367283}
     m_Modifications:
+    - target: {fileID: 6729874985427589363, guid: a2af5032fe6b047438b668a0d68068e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571840144714965295, guid: a2af5032fe6b047438b668a0d68068e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7780630770638314177, guid: a2af5032fe6b047438b668a0d68068e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -382,6 +393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChargingLaser_Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487701957666766735, guid: a2af5032fe6b047438b668a0d68068e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8487701957666766735, guid: a2af5032fe6b047438b668a0d68068e6,
         type: 3}

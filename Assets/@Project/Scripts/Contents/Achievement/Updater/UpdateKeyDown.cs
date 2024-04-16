@@ -28,13 +28,16 @@ public class UpdateKeyDown : AchievementUpdater
         //}
         // 사용자가 이 프레임에서 입력한 문자열을 가져옵니다.
 
-        if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
-            return;
+        /////////////////////////
+        //if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
+        //    return;
         
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Managers.AchievementSystem.ReceiveReport("KEY_INPUT", KeyCode.Space, 1);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Managers.AchievementSystem.ReceiveReport("KEY_INPUT", KeyCode.Space, 1);
+        //}
+        /////////////////////////
+
         // 사용자가 이 프레임에서 입력한 문자열을 가져옵니다.
         //string inputString = Input.inputString;
         //if (!string.IsNullOrEmpty(inputString))

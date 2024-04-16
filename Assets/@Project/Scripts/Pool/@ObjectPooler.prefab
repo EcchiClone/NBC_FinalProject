@@ -93,6 +93,66 @@ MonoBehaviour:
     prefab: {fileID: 6531017631556436741, guid: 130a1e71f76159d4383e1b7c5c261357,
       type: 3}
     size: 100
+  - tag: Cannon_Small_Projectile
+    prefab: {fileID: 4457461763584704974, guid: dcdec3ea93dbd4041be8d2b1dc3e9f69,
+      type: 3}
+    size: 100
+  - tag: Cannon_Small_Muzzle
+    prefab: {fileID: 6175814416407555268, guid: f9032833f2076224495eada916f7f032,
+      type: 3}
+    size: 100
+  - tag: Cannon_Small_Impact
+    prefab: {fileID: 8845630534898010086, guid: 25dedcd211df6ee4d9a3bdce00a98f34,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Bullet
+    prefab: {fileID: 2028705253460334307, guid: 6fb359871e74dbe4c8695eb86963f96b,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Muzzle
+    prefab: {fileID: 2574017920228339239, guid: eb6ba978ac648754087850fc1ea5f675,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Impact
+    prefab: {fileID: 8209809209523261988, guid: 709b2738645e2f6498496a6005dcca63,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Projectile
+    prefab: {fileID: 3214879976273332808, guid: 881ef76709fa8fd4cb74a86b78ae5709,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Muzzle
+    prefab: {fileID: 6446331635556650798, guid: f34de1dbbbf44ee43bb4b6599d9d08c5,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Impact
+    prefab: {fileID: 5863621467545847983, guid: 939a581876ccc1b4cb99d5ffb74c2585,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_01
+    prefab: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
+      type: 3}
+    size: 100
+  - tag: Explosion_Small_S1
+    prefab: {fileID: 7438962341294935901, guid: 015c190f5a85a0b4e91fd05024ca5dba,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_02
+    prefab: {fileID: 4635446873121853395, guid: 10b3932749028c44891af522f4d02377,
+      type: 3}
+    size: 100
+  - tag: Explosion_Large
+    prefab: {fileID: 2171583056334360154, guid: 85ac5e2b39a38d8469ed89ee7cd298a7,
+      type: 3}
+    size: 100
+  - tag: Bullet_Cannon_01
+    prefab: {fileID: 5670351475314814709, guid: 9108d33ffcca3ef4691a555a180e5100,
+      type: 3}
+    size: 100
+  - tag: Explosion_Midium_S3
+    prefab: {fileID: 5447842844788669448, guid: eff43fbd7e2d51b4ab2dbb47268d9d91,
+      type: 3}
+    size: 100
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

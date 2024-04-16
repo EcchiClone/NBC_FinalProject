@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330272713035144040}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FollowTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7491137368802061240}
   - component: {fileID: 2197579354297049829}
   - component: {fileID: 3096526488903541557}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Player_Module
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -169,6 +169,7 @@ MonoBehaviour:
     walkLeftNRightParameterName: LeftAndRight
     jumpParameterName: Jump
     dashParameterName: Dash
+    runParameterName: Run
     nonCombatParameterName: '@NonCombat'
     combatParameterName: '@Combat'
   _boostDragCurve:
@@ -243,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3364555159474087345}
   - component: {fileID: 7243159546622734198}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3780814506189941856}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
