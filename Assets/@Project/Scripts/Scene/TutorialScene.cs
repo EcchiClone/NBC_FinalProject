@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class TutorialScene : BaseScene
 {
-    private bool _isTutorialClear = false;
+    [SerializeField] TutorialDissolveController _linkedWall;
+    [SerializeField] GameObject _dontGoBackWall;
+    [SerializeField] GameObject _dummy;
 
     public override void Init()
     {
@@ -10,16 +12,12 @@ public class TutorialScene : BaseScene
 
         Managers.Module.CreatePlayerModule();
         Managers.UI.ShowSceneUI<UI_HUD>();
-
         Managers.Tutorial.TutorialStart();
-        Managers.Tutorial.OnTutorialClear += () => _isTutorialClear = true;
-    }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape) && !_isTutorialClear)
-            Managers.Tutorial.OnTutorialSkipPopup();
-    }
+        Managers.Tutorial.OnDisableLinkedWall += _linkedWall.Dissolve;
+        Managers.Tutorial.OnEnableDontGoBackWall += () => _dontGoBackWall.SetActive(true);
+        Managers.Tutorial.OnEnableDummy += () => _dummy.SetActive(true);
+    }    
 
     public override void Clear()
     {

@@ -99,7 +99,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -157,10 +157,11 @@ MonoBehaviour:
   owenr: 0
   _hitEffectPrefab: {fileID: 4254385173534399097, guid: 93159591da4e1a54bb9d5007f1f1db74,
     type: 3}
+  _trailRenderers: {fileID: 0}
   _bulletType: 2
   _damagableLayer:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 13824
 --- !u!54 &7387085742930997340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &4905138874408751800
 GameObject:
   m_ObjectHideFlags: 0

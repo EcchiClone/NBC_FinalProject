@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{d68d0bfa-446d-4c6c-980b-f365215c16c6}">
+		<property name="assetPath">
+			<value>One-Shots/Perk_UI/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c1e15d9c-1198-49a5-97bc-f65ab7a17f78}</destination>
+		</relationship>
+	</object>
+</objects>

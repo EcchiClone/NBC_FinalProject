@@ -1,14 +1,13 @@
 {
     "highestLevel": 0,
-    "achievementCoin": 100,
-    "partIndex_Lower": 1,
-    "partIndex_Upper": 1,
+    "achievementCoin": 0,
+    "partIndex_Lower": 0,
+    "partIndex_Upper": 0,
     "partIndex_LeftArm": 0,
-    "partIndex_RightArm": 3,
-    "partIndex_LeftShoulder": 1,
+    "partIndex_RightArm": 0,
+    "partIndex_LeftShoulder": 0,
     "partIndex_RightShoulder": 0,
-    "unlockedPartsList": [
-        10003004
-    ],
+    "tutorialClear": true,
+    "unlockedPartsList": [],
     "perkData": {}
 }

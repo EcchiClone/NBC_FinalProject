@@ -58,7 +58,7 @@ public class PointBehaviour : MonoBehaviour
     {
         int playerPoint = PerkManager.Instance.PlayerPoint;
 
-        if (playerPoint > _requirePoint)
+        if (playerPoint >= _requirePoint)
         {
             PerkManager.Instance.UnlockCount++;
             PerkManager.Instance.PlayerPoint -= _requirePoint;
@@ -68,10 +68,12 @@ public class PointBehaviour : MonoBehaviour
             PerkType type = contentInfo.type;
             float value = contentInfo.value;
 
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
             PerkManager.Instance.perkData.SetActivedPerk(type, value);
         }
         else
         {
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Denied, transform.position);
             Debug.Log("요구되는 포인트보다 가지고 있는 포인트가 적습니다.");
         }
     }

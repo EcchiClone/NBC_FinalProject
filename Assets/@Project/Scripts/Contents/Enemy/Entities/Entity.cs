@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, ITarget
 {
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
@@ -17,11 +17,13 @@ public abstract class Entity : MonoBehaviour
 
     public Animator Anim { get; private set; }
 
+    public Transform Transform => transform;
+
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
-        Target = GameObject.Find("Target").transform;
-        //Target = Managers.Module.CurrentModule.transform;
+        //Target = GameObject.Find("Target").transform;
+        Target = Managers.Module.CurrentModule.transform;
         Initialize();
 
         Anim = GetComponent<Animator>();
