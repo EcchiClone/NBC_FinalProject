@@ -9,7 +9,7 @@ public class InputManager
 
     public void CallInputKeyDown()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown || Input.GetMouseButton(0) || Input.GetMouseButton(1))
             OnInputKeyDown?.Invoke();
     }
 

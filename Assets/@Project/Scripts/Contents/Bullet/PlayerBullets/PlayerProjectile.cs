@@ -45,13 +45,13 @@ public class PlayerProjectile : Bullet
 
                 foreach (var hit in hits) // 범위에 들어간 적은 데미지 부여
                 {
-                    if (hit.transform.TryGetComponent(out Entity entity))
+                    if (hit.transform.TryGetComponent(out ITarget entity))
                         entity.GetDamaged(_damage);
                 }
             }
             else
             {
-                if (collision.gameObject.TryGetComponent(out Entity entity))
+                if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
             }
 

@@ -214,13 +214,13 @@ public class BulletMathUtils
     }
     #endregion
     #region 플레이어 위치 찾기
-    public static Vector3 GetPlayerPos(bool reposit = false)
+    public static Vector3 GetPlayerPos(bool reposit = false, float noise = 0.0f)
     {
         try
         {
             if (reposit)
-                return PlayerPivotReposition(Managers.Module.CurrentModule.LowerPosition.position);
-            return Managers.Module.CurrentModule.LowerPosition.position;
+                return PlayerPivotReposition(Managers.Module.CurrentModule.LowerPosition.position) + Vector3.one * noise * Random.Range(-1f,1f);
+            return Managers.Module.CurrentModule.LowerPosition.position + Vector3.one * noise * Random.Range(-1f, 1f);
 
 
         }
@@ -230,14 +230,14 @@ public class BulletMathUtils
             if (playerGo != null)
             {
                 if (reposit)
-                    return PlayerPivotReposition(playerGo.transform.position);
-                return playerGo.transform.position;
+                    return PlayerPivotReposition(playerGo.transform.position) + Vector3.one * noise * Random.Range(-1f, 1f);
+                return playerGo.transform.position + Vector3.one * noise * Random.Range(-1f, 1f);
             }
             else
             {
                 if (reposit)
-                    return PlayerPivotReposition(new Vector3(0, 0, 0)); // 플레이어 찾을 수 없음
-                return new Vector3(0, 0, 0); // 플레이어 찾을 수 없음
+                    return PlayerPivotReposition(new Vector3(0, 0, 0)) + Vector3.one * noise * Random.Range(-1f, 1f); // 플레이어 찾을 수 없음
+                return new Vector3(0, 0, 0) + Vector3.one * noise * Random.Range(-1f, 1f); // 플레이어 찾을 수 없음
             }
         }
     }

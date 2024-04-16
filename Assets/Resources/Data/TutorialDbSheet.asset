@@ -16,12 +16,12 @@ MonoBehaviour:
   - dev_ID: 0
     script1: "\uC2DD\uBCC4\uBC88\uD638 NRE-IV-072 \uBA54\uC778 \uC2DC\uC2A4\uD15C
       \uC811\uC18D."
-    script2: "\uBAA8\uB4C8 \uC0C1\uD0DC... \uC591\uD638. \uBB34\uAE30 \uC2DC\uC2A4\uD15C...
-      \uC591\uD638.\n\uCD08\uAE30 \uD14C\uC2A4\uD2B8 \uC2DC\uC791."
+    script2: "\uCF54\uC5B4 \uC815\uC0C1 \uC791\uB3D9. HUD \uC815\uC0C1 \uC791\uB3D9.
+      \uC624\uB958 \uC5C6\uC74C.\n\uCD08\uAE30\uD654 \uD14C\uC2A4\uD2B8 \uC2DC\uC791."
     script3: "\uC9C0\uAE08\uBD80\uD130 \uC804\uD22C \uD6C8\uB828 \uCF54\uC2A4 \uC2E4\uD589
-      \uC804\n\uAC04\uB2E8\uD55C \uD14C\uC2A4\uD2B8 \uC808\uCC28\uB97C \uC9C4\uD589\uD569\uB2C8\uB2E4."
-    script4: "\uBAA8\uB4C8\uAD00\uC808 \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n<color=red>'W'
-      'A' 'S' 'D'</color>\uB97C \uC785\uB825\uD574 \uBAA8\uB4C8\uC744 \uC6C0\uC9C1\uC774\uC2ED\uC2DC\uC624."
+      \uC804\n\uAE30\uCD08 \uD14C\uC2A4\uD2B8 \uC808\uCC28\uB97C \uC9C4\uD589\uD569\uB2C8\uB2E4."
+    script4: "\uBAA8\uB4C8\uAD00\uC808 \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n<color=red>[W]
+      [A] [S] [D]</color> \uD0A4\uB97C \uC785\uB825\uD574 \uBAA8\uB4C8\uC744 \uC6C0\uC9C1\uC774\uC2ED\uC2DC\uC624."
     script5: 
     script6: 
     script7: 
@@ -31,9 +31,9 @@ MonoBehaviour:
     missionPath: Tutorial/TutorialMission1
   - dev_ID: 1
     script1: "\uBAA8\uB4C8 \uAD00\uC808 \uC815\uC0C1 \uD655\uC778."
-    script2: "\uC644\uCDA9\uC7A5\uCE58 \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n<color=red>'SpaceBar'</color>\uB97C
+    script2: "\uC644\uCDA9\uC7A5\uCE58 \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n<color=red>[SpaceBar]</color>\uD0A4\uB97C
       \uC785\uB825\uD574 \uC810\uD504\uD558\uC2ED\uC2DC\uC624."
-    script3: "[\uC5EC\uAE30\uC11C\uBD80\uD130 \uB300\uCDA9\uD568 - Dev]"
+    script3: 
     script4: 
     script5: 
     script6: 
@@ -43,8 +43,9 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission2
   - dev_ID: 2
-    script1: "\uC810\uD504\uD588\uC74C"
-    script2: "\uC774\uB3D9\uD558\uBA74\uC11C \uC26C\uD504\uD2B8"
+    script1: "\uC644\uCDA9\uC7A5\uCE58 \uC815\uC0C1 \uD655\uC778."
+    script2: "\uBD80\uC2A4\uD130 \uC2DC\uC2A4\uD15C \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n\uC774\uB3D9
+      \uC911 <color=red>[LShift]</color> \uD0A4\uB97C \uC785\uB825\uD574 Dash \uD558\uC2ED\uC2DC\uC624."
     script3: 
     script4: 
     script5: 
@@ -55,8 +56,10 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission3
   - dev_ID: 3
-    script1: "\uC26C\uD504\uD2B8 \uD588\uC74C"
-    script2: "\uC810\uD504\uD329"
+    script1: "\uBD80\uC2A4\uD130 \uC2DC\uC2A4\uD15C \uC815\uC0C1 \uD655\uC778."
+    script2: "\uBC84\uD2F0\uCEEC \uCD9C\uB825 \uD14C\uC2A4\uD2B8 \uC9C4\uD589.\n\uC810\uD504
+      \uC911 <color=red>[SpaceBar]</color> \uD0A4\uB97C \uC785\uB825\uD574 \uD638\uBC84\uB9C1
+      \uD558\uC2ED\uC2DC\uC624."
     script3: 
     script4: 
     script5: 
@@ -67,9 +70,11 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission4
   - dev_ID: 4
-    script1: "\uC810\uD504\uD329 \uD588\uC74C"
-    script2: "\uC774\uC81C\uBD80\uD130 \uBB34\uAE30\uC0AC\uC6A9"
-    script3: "\uC88C\uC6B0\uD074\uB85C \uD314 \uBB34\uAE30\uC0AC\uC6A9"
+    script1: "\uBC84\uD2F0\uCEEC \uCD9C\uB825 \uC815\uC0C1 \uD655\uC778."
+    script2: "\uC9C0\uAE08\uBD80\uD130 \uBB34\uC7A5 \uC2DC\uC2A4\uD15C \uD14C\uC2A4\uD2B8\uB97C
+      \uC9C4\uD589\uD569\uB2C8\uB2E4."
+    script3: "\uD14C\uC2A4\uD2B8\uB97C \uC704\uD574 \uB2E4\uC74C \uC7A5\uC18C\uB85C
+      \uC774\uB3D9\uD558\uC2ED\uC2DC\uC624."
     script4: 
     script5: 
     script6: 
@@ -79,8 +84,10 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission5
   - dev_ID: 5
-    script1: "\uD314\uBB34\uAE30 \uC0AC\uC6A9 \uD588\uC74C"
-    script2: "E Q \uB20C\uB7EC\uC11C \uC5B4\uAE68\uBB34\uAE30 \uC0AC\uC6A9"
+    script1: "\uBB34\uC7A5 \uD14C\uC2A4\uD2B8 \uC9C0\uC5ED \uC9C4\uC785."
+    script2: "\uC88C, \uC6B0 \uD314 \uBB34\uC7A5 \uC2DC\uC2A4\uD15C \uD14C\uC2A4\uD2B8
+      \uC9C4\uD589.\n\uB9C8\uC6B0\uC2A4 <color=red>[\uC88C] [\uC6B0]</color> \uD074\uB9AD\uC73C\uB85C
+      \uBB34\uAE30\uB97C \uC0AC\uC6A9\uD558\uC2ED\uC2DC\uC624."
     script3: 
     script4: 
     script5: 
@@ -91,8 +98,10 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission6
   - dev_ID: 6
-    script1: "\uC5B4\uAE68\uBB34\uAE30 \uC0AC\uC6A9\uD588\uC74C"
-    script2: "\uB2E4\uC74C \uD14C\uC2A4\uD2B8 \uC9C0\uC5ED\uC73C\uB85C \uC774\uB3D9"
+    script1: "\uD314 \uBB34\uC7A5 \uC2DC\uC2A4\uD15C \uC815\uC0C1 \uD655\uC778."
+    script2: "\uC88C, \uC6B0 \uC5B4\uAE68 \uBB34\uC7A5 \uC2DC\uC2A4\uD15C \uD14C\uC2A4\uD2B8
+      \uC9C4\uD589.\n<color=red>[Q] [E]</color> \uD0A4\uB97C \uC785\uB825\uD574 \uBB34\uAE30\uB97C
+      \uC0AC\uC6A9\uD558\uC2ED\uC2DC\uC624."
     script3: 
     script4: 
     script5: 
@@ -103,10 +112,11 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission7
   - dev_ID: 7
-    script1: "\uD14C\uC2A4\uD2B8 \uC9C0\uC5ED\uC5D0 \uC654\uC74C"
-    script2: "\uC801\uC774 \uB098\uC624\uACE0 \uB9C8\uC6B0\uC2A4 \uC911\uAC04 \uD074\uB9AD\uC73C\uB85C
-      \uB77D\uC628"
-    script3: 
+    script1: "\uC5B4\uAE68 \uBB34\uC7A5 \uC2DC\uC2A4\uD15C \uC815\uC0C1 \uD655\uC778."
+    script2: "\uB2E4\uC74C\uC740 \uC815\uBC00 \uC0AC\uACA9\uC744 \uC704\uD55C\nLock-On
+      \uC2DC\uC2A4\uD15C \uD14C\uC2A4\uD2B8\uB97C \uC9C4\uD589\uD569\uB2C8\uB2E4."
+    script3: "\uB9C8\uC6B0\uC2A4 <color=red>[\uD720]</color> \uD074\uB9AD\uC73C\uB85C
+      \uB354\uBBF8\uB97C \uC870\uC900\uD558\uC2ED\uC2DC\uC624."
     script4: 
     script5: 
     script6: 
@@ -116,8 +126,9 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission8
   - dev_ID: 8
-    script1: "\uB77D\uC628\uD588\uC74C"
-    script2: "\uC801\uC744 \uCC98\uCE58\uD574\uC57C\uB428"
+    script1: "Lock-On \uC2DC\uC2A4\uD15C \uC815\uC0C1 \uD655\uC778."
+    script2: "\uC801\uC744 \uC870\uC900 \uC2DC \uC790\uB3D9\uC73C\uB85C \uCD94\uC801\uD569\uB2C8\uB2E4.\n\uBB34\uC7A5
+      \uC2DC\uC2A4\uD15C\uC744 \uC0AC\uC6A9\uD558\uC5EC \uB354\uBBF8\uB97C \uD30C\uAD34\uD558\uC2ED\uC2DC\uC624."
     script3: 
     script4: 
     script5: 
@@ -128,10 +139,10 @@ MonoBehaviour:
     script10: 
     missionPath: Tutorial/TutorialMission9
   - dev_ID: 9
-    script1: "\uC801 \uCC98\uC9C0 \uB05D"
-    script2: "\uD14C\uC2A4\uD2B8 \uC885\uB8CC"
-    script3: "\uBA54\uC778\uBA54\uB274\uB85C \uC774\uB3D9\uC2DC\uD0A8\uB2E4\uACE0
-      \uD558\uACE0 \uB05D"
+    script1: "\uB354\uBBF8 \uC81C\uAC70 \uD655\uC778."
+    script2: "\uBAA8\uB4E0 \uC2DC\uC2A4\uD15C \uC815\uC0C1 \uD655\uC778."
+    script3: "\uAE30\uCD08 \uD14C\uC2A4\uD2B8\uB97C \uC644\uB8CC\uD588\uC2B5\uB2C8\uB2E4.\n\uD14C\uC2A4\uD2B8\uB97C
+      \uC885\uB8CC\uD569\uB2C8\uB2E4."
     script4: 
     script5: 
     script6: 

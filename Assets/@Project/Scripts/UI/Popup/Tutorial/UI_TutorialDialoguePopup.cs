@@ -17,7 +17,7 @@ public class UI_TutorialDialoguePopup : UI_Popup
     private TutorialData _currentTutoData;
     private Coroutine _coroutine;
 
-    private readonly float SCRIPTING_INTERVAL_TIME = 0.1f;
+    private readonly float SCRIPTING_INTERVAL_TIME = 0.07f;
 
     protected override void Init()
     {
@@ -38,10 +38,6 @@ public class UI_TutorialDialoguePopup : UI_Popup
         _currentTutoData = Managers.Data.GetTutorialData(_scriptPhase);        
         _currentScript = _currentTutoData.Scripts[_scriptIndex];
         _currentScriptLength = _currentTutoData.Scripts.Count;
-
-        Debug.Log(_currentTutoData.Dev_ID);
-        Debug.Log(_currentScript);
-        Debug.Log(_currentScriptLength);
 
         _coroutine = StartCoroutine(Co_Scripting());
     }
@@ -93,8 +89,10 @@ public class UI_TutorialDialoguePopup : UI_Popup
     {
         if (_scriptIndex >= _currentScriptLength - 1)
         {
+            if (_scriptPhase == Managers.Data.GetTutorialDataDictCount() - 1)
+                Managers.Tutorial.TutorialClear();
             Managers.Tutorial.GiveCurrentMission(_scriptPhase++);
-            Debug.Log("불러잇");
-        }            
+        }
+            
     }
 }

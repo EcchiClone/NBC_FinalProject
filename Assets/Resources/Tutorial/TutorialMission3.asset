@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
   m_Name: TutorialMission3
   m_EditorClassIdentifier: 
-  codeName: 
+  codeName: Dash
   icon: {fileID: 0}
   displayName: 
   description: 
