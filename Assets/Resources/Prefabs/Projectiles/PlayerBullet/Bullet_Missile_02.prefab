@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 510633814439450952}
   - component: {fileID: 7387085742930997340}
   - component: {fileID: -3459439969666099873}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet_Missile_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,13 +75,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owenr: 0
-  _hitEffectPrefab: {fileID: 4254385173534399097, guid: f976d076d303c9e4184b71e57682da00,
+  _hitEffectPrefab: {fileID: 2171583056334360154, guid: 85ac5e2b39a38d8469ed89ee7cd298a7,
     type: 3}
   _trailRenderers: {fileID: 0}
   _bulletType: 2
   _damagableLayer:
     serializedVersion: 2
-    m_Bits: 13824
+    m_Bits: 30208
 --- !u!1 &4905138874408751800
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1585428853897194937}
   - component: {fileID: 6133345013464403650}
   - component: {fileID: 3350295336894024712}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4922,7 @@ GameObject:
   - component: {fileID: 7147808727627163567}
   - component: {fileID: 4960408651789996901}
   - component: {fileID: 8841363333489889586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HellFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

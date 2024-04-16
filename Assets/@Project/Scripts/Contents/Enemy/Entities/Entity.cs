@@ -19,6 +19,18 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public Transform Transform => transform;
 
+    public float MaxAP => Data.maxHealth;
+    public float AP
+    {
+        get => CurrentHelth;
+        set
+        {            
+            CurrentHelth = value;
+            float percent = CurrentHelth / Data.maxHealth;
+            Managers.ActionManager.CallTargetAPChanged(percent);
+        }
+    }    
+
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();

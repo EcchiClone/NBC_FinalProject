@@ -90,9 +90,11 @@ public class UI_TutorialDialoguePopup : UI_Popup
         if (_scriptIndex >= _currentScriptLength - 1)
         {
             if (_scriptPhase == Managers.Data.GetTutorialDataDictCount() - 1)
+            {
                 Managers.Tutorial.TutorialClear();
+                return;
+            }                
             Managers.Tutorial.GiveCurrentMission(_scriptPhase++);
-        }
-            
+        }            
     }
 }

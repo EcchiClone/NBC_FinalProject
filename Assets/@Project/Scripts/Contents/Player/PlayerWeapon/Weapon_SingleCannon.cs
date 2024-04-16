@@ -29,6 +29,7 @@ public class Weapon_SingleCannon : WeaponBase
     {
         foreach (Transform muzzle in muzzlePoints)
         {
+            CreateMuzzleEffect(muzzle).Setup();
             GameObject bullet = CreateBullet(muzzle);
 
             Quaternion rotation = Util.RandomDirectionFromMuzzle(_partData.ShotErrorRange);

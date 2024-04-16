@@ -20,7 +20,7 @@ public class LockOnSystem
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
 
-    public Transform TargetEnemy { get; private set; }
+    public ITarget TargetEnemy { get; private set; }
 
     private readonly float INIT_CAM_POS_Y = 0.5f;
     private readonly float INIT_CAM_POS_X = -8f;
@@ -55,8 +55,8 @@ public class LockOnSystem
         if (hits.Length == 0)
         {
             Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
-            if (TargetEnemy != null)
-                TargetEnemy = null;
+            //if (TargetEnemy != null)
+            //    TargetEnemy = null;
             return false;
         }
 
@@ -68,10 +68,10 @@ public class LockOnSystem
             return false;
         }
             
-        if (target.Transform == TargetEnemy)
+        if (target == TargetEnemy)
             return false;
 
-        TargetEnemy = hits[closestIndex].transform.GetComponent<ITarget>().Transform;
+        TargetEnemy = hits[closestIndex].transform.GetComponent<ITarget>();
         return true;
     }
 
@@ -93,19 +93,19 @@ public class LockOnSystem
 
     public void LockOnTarget()
     {
-        Managers.ActionManager.CallLockOn(TargetEnemy);
+        float percent = TargetEnemy.AP / TargetEnemy.MaxAP;
+        Managers.ActionManager.CallLockOn(TargetEnemy.Transform, percent);
         LockOnCam.gameObject.SetActive(true);
-        TargetGroup.AddMember(TargetEnemy, 1, 0);
+        TargetGroup.AddMember(TargetEnemy.Transform, 1, 0);
     }
 
     public void ReleaseTarget()
     {
-        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
-        Debug.Log(LockOnCam.transform.rotation.eulerAngles.y);
+        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;        
 
         Managers.ActionManager.CallRelease();
         LockOnCam.gameObject.SetActive(false);
-        TargetGroup.RemoveMember(TargetEnemy);
+        TargetGroup.RemoveMember(TargetEnemy.Transform);
         TargetEnemy = null;
     }
 

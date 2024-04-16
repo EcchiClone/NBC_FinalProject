@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
   m_Name: Achievement_Unlock_Perk_20
   m_EditorClassIdentifier: 
-  codeName: UNLOCK_PERK_1
+  codeName: UNLOCK_PERK_20
   icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
   displayName: P.20
   description: "\uD37C\uD06C\uB97C 20\uAC1C \uD574\uAE08"

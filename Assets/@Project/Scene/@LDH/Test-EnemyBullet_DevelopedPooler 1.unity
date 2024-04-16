@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -188,7 +188,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Patterns.Array.data[1].patternSO
       value: 
-      objectReference: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47,
+      objectReference: {fileID: 11400000, guid: ceb46488945ae844387142f521a51434,
         type: 2}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -253,12 +253,12 @@ PrefabInstance:
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[0].patternName
-      value: Drone
+      value: Spider
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[1].patternName
-      value: RandomSketch
+      value: Drone
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -328,7 +328,7 @@ PrefabInstance:
     - target: {fileID: 3126665192063527157, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8296861634081347087, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -888,7 +888,7 @@ PrefabInstance:
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -921,25 +921,25 @@ PrefabInstance:
         type: 3}
       propertyPath: Patterns.Array.data[1].patternSO
       value: 
-      objectReference: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47,
+      objectReference: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788,
         type: 2}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[2].patternSO
       value: 
-      objectReference: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47,
+      objectReference: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788,
         type: 2}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[3].patternSO
       value: 
-      objectReference: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47,
+      objectReference: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788,
         type: 2}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[4].patternSO
       value: 
-      objectReference: {fileID: 11400000, guid: 42b595cc86744154abc3d6b541dc5c47,
+      objectReference: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788,
         type: 2}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -986,27 +986,27 @@ PrefabInstance:
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[0].patternName
-      value: Circles
+      value: RocketLerp
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[1].patternName
-      value: RandomSketch
+      value: Plazma
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[2].patternName
-      value: Star_ToPlayer
+      value: ClusterLerp
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[3].patternName
-      value: SquareY_40
+      value: SphereRotate
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: Patterns.Array.data[4].patternName
-      value: SquareZ_40
+      value: Circles
       objectReference: {fileID: 0}
     - target: {fileID: -1267083373645125802, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
@@ -1061,7 +1061,7 @@ PrefabInstance:
     - target: {fileID: 3126665192063527157, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8296861634081347087, guid: 799bbda3f0b4c9543b26d21e1e759105,
         type: 3}
