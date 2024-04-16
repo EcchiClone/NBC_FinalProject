@@ -10,7 +10,7 @@ using static UnityEngine.UIElements.VisualElement;
 public class EnemyBulletGenerator : MonoBehaviour
 {
     public static EnemyBulletGenerator instance;
-    public GameObject playerGo;
+    public GameObject playerGo { get; set; }
 
     private void Awake()
     {

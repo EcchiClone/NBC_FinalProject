@@ -58,37 +58,10 @@ MonoBehaviour:
     prefab: {fileID: 8213430085926567989, guid: f0d76639162b1c74ea3aa40cefcdf1f7,
       type: 3}
     size: 100
-  - tag: EnemyBulletCluster_Triangle
-    prefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
-    size: 100
-  - tag: Bullet_Cannon_Small
-    prefab: {fileID: 1038454832868584188, guid: afabf364e0a92c44785d2f50a4f93df9,
-      type: 3}
-    size: 100
   - tag: Test_Copied_Explosion01_Effect
     prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
       type: 3}
     size: 500
-  - tag: Bullet_Cannon_01
-    prefab: {fileID: 5670351475314814709, guid: 9108d33ffcca3ef4691a555a180e5100,
-      type: 3}
-    size: 100
-  - tag: Bullet_Cannon_Large
-    prefab: {fileID: 1038454832868584188, guid: 8d9681894de48eb4a92419c01ede7315,
-      type: 3}
-    size: 100
-  - tag: Bullet_Gatling_01
-    prefab: {fileID: 1038454832868584188, guid: b62a52d29a13bd84197ff81fdf73ac53,
-      type: 3}
-    size: 100
-  - tag: Bullet_Missile_01
-    prefab: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
-      type: 3}
-    size: 100
-  - tag: Bullet_Missile_02
-    prefab: {fileID: 4635446873121853395, guid: 10b3932749028c44891af522f4d02377,
-      type: 3}
-    size: 100
   - tag: Minion_Spider
     prefab: {fileID: 6296827418220432883, guid: 625920ff42a9df940ad13ce88a40d424,
       type: 3}
@@ -97,18 +70,89 @@ MonoBehaviour:
     prefab: {fileID: 3421490545972492356, guid: 6c604f1719b197e40b7ed26c74487093,
       type: 3}
     size: 100
-  - tag: Minion_Turret
-    prefab: {fileID: 5862130606958241670, guid: 9f9b6d8c57315c24382c9169fc0912b9,
-      type: 3}
-    size: 100
   - tag: Minion_Drone
     prefab: {fileID: 6204124545279719401, guid: 7c22c9308d3027f43a0410e30cc9789c,
       type: 3}
     size: 100
-  - tag: Boss_SkyFire_Fixed
+  - tag: Boss_SkyFire
     prefab: {fileID: 6175972580230584608, guid: 9ea452715658ead49ac6a04c934ba8c1,
       type: 3}
     size: 1
+  - tag: EnemyProjectile01
+    prefab: {fileID: 8136854467646802062, guid: 9cf3aea5cd73d9744999943a0eb6f366,
+      type: 3}
+    size: 100
+  - tag: EnemyProjectile02
+    prefab: {fileID: 245006665270501150, guid: 72c56fac616920b4c842ff10df271cd2, type: 3}
+    size: 100
+  - tag: EnemyProjectile05
+    prefab: {fileID: 7302279346263578025, guid: 218ed4df05778764fb1aa37c52945842,
+      type: 3}
+    size: 100
+  - tag: EnemyProjectile04
+    prefab: {fileID: 6531017631556436741, guid: 130a1e71f76159d4383e1b7c5c261357,
+      type: 3}
+    size: 100
+  - tag: Cannon_Small_Projectile
+    prefab: {fileID: 4457461763584704974, guid: dcdec3ea93dbd4041be8d2b1dc3e9f69,
+      type: 3}
+    size: 100
+  - tag: Cannon_Small_Muzzle
+    prefab: {fileID: 6175814416407555268, guid: f9032833f2076224495eada916f7f032,
+      type: 3}
+    size: 100
+  - tag: Cannon_Small_Impact
+    prefab: {fileID: 8845630534898010086, guid: 25dedcd211df6ee4d9a3bdce00a98f34,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Bullet
+    prefab: {fileID: 2028705253460334307, guid: 6fb359871e74dbe4c8695eb86963f96b,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Muzzle
+    prefab: {fileID: 2574017920228339239, guid: eb6ba978ac648754087850fc1ea5f675,
+      type: 3}
+    size: 100
+  - tag: MiniGun_Impact
+    prefab: {fileID: 8209809209523261988, guid: 709b2738645e2f6498496a6005dcca63,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Projectile
+    prefab: {fileID: 3214879976273332808, guid: 881ef76709fa8fd4cb74a86b78ae5709,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Muzzle
+    prefab: {fileID: 6446331635556650798, guid: f34de1dbbbf44ee43bb4b6599d9d08c5,
+      type: 3}
+    size: 100
+  - tag: Cannon_Large_Impact
+    prefab: {fileID: 5863621467545847983, guid: 939a581876ccc1b4cb99d5ffb74c2585,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_01
+    prefab: {fileID: 4635446873121853395, guid: d5cf70c934f39ab4baff222448cb7258,
+      type: 3}
+    size: 100
+  - tag: Explosion_Small_S1
+    prefab: {fileID: 7438962341294935901, guid: 015c190f5a85a0b4e91fd05024ca5dba,
+      type: 3}
+    size: 100
+  - tag: Bullet_Missile_02
+    prefab: {fileID: 4635446873121853395, guid: 10b3932749028c44891af522f4d02377,
+      type: 3}
+    size: 100
+  - tag: Explosion_Large
+    prefab: {fileID: 2171583056334360154, guid: 85ac5e2b39a38d8469ed89ee7cd298a7,
+      type: 3}
+    size: 100
+  - tag: Bullet_Cannon_01
+    prefab: {fileID: 5670351475314814709, guid: 9108d33ffcca3ef4691a555a180e5100,
+      type: 3}
+    size: 100
+  - tag: Explosion_Midium_S3
+    prefab: {fileID: 5447842844788669448, guid: eff43fbd7e2d51b4ab2dbb47268d9d91,
+      type: 3}
+    size: 100
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class EnemyBullet : Bullet
             ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle") || other.gameObject.layer == LayerMask.NameToLayer("Unwalkable"))
         {
             ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
