@@ -10,9 +10,10 @@ public class UpdateUnlockPerk : AchievementUpdater
         {
             Report();
         }
-        catch
+        catch(System.Exception e)
         {
-            Debug.Log("Unlock Perk 업적 갱신에 실패하였습니다.");
+            Debug.LogError("Unlock Perk 업적 갱신에 실패하였습니다.");
+            Debug.Log(e);
         }
     }
     public void ResetPerk()

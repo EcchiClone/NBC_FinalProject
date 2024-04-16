@@ -261,7 +261,11 @@ public class AchievementSystem
     {
         string desc = $"[{achievement.DisplayName}] {achievement.Description}";
         GameObject go = MonoBehaviour.Instantiate(CompleteAlarmUI);
-        go.transform.SetParent(GameObject.Find("@UI_Root").transform,false);
+        try
+        {
+            go.transform.SetParent(GameObject.Find("@UI_Root").transform, false);
+        }
+        catch { }
         go.GetComponent<UI_AchievementAlarm>().DescriptionMsg = desc;
     }
 }
