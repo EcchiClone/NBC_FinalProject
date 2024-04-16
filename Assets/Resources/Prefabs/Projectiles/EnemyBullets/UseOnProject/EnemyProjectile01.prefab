@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 269317576767860237}
   - component: {fileID: 2374484417608336698}
   - component: {fileID: 2948304862572454537}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: laserInner
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4341067052704040148}
   - component: {fileID: 1514736421130210802}
   - component: {fileID: 1328738564456620189}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: glow
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -4952,7 +4952,7 @@ GameObject:
   - component: {fileID: 968496269669248641}
   - component: {fileID: 8414883951872365324}
   - component: {fileID: 1244460117615391408}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Laser_Blue_Medium_Projectile
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -9795,7 +9795,7 @@ GameObject:
   - component: {fileID: 8425112827606643173}
   - component: {fileID: 1040245381000838629}
   - component: {fileID: 3012998854306172108}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: laserOuter
   m_TagString: FX
   m_Icon: {fileID: 0}
