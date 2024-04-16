@@ -10,6 +10,7 @@ public class UI_MainMenuPopup : UI_Popup
     private UI_SelectorMenu _selector;
     private UI_Achievement _achievement;
     private UI_SettingsPopup _settings;
+    private UI_StageSelectPopup _stageSelect;
 
     enum Buttons
     {
@@ -27,7 +28,7 @@ public class UI_MainMenuPopup : UI_Popup
 
         BindButton(typeof(Buttons));        
 
-        GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.DevScene));
+        GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(OpenStageSelect);
         GetButton((int)Buttons.Perk_Btn).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.PerkViewerScene));
 
         GetButton((int)Buttons.Module_Select_Btn).onClick.AddListener(OpenModuleSelector);        
@@ -36,6 +37,18 @@ public class UI_MainMenuPopup : UI_Popup
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);
     }
 
+    private void OpenStageSelect()
+    {
+        if (_stageSelect == null)
+        {
+            _stageSelect = Managers.UI.ShowPopupUI<UI_StageSelectPopup>();
+            _stageSelect.SetPreviousPopup(this);
+        }
+        else
+            _stageSelect.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
     private void OpenModuleSelector()
     {
         if (_selector == null)

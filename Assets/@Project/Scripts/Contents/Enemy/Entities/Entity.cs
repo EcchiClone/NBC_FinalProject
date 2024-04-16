@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, ITarget
 {
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
@@ -16,6 +16,8 @@ public abstract class Entity : MonoBehaviour
     public EnemyBulletPatternStarter enemyPhaseStarter; // TODO : 어디로 가야할지 
 
     public Animator Anim { get; private set; }
+
+    public Transform Transform => transform;
 
     private void Start()
     {

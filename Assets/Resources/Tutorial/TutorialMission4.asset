@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
   m_Name: TutorialMission4
   m_EditorClassIdentifier: 
-  codeName: 
+  codeName: JumpPack
   icon: {fileID: 0}
   displayName: 
   description: 

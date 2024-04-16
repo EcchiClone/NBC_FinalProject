@@ -35,7 +35,7 @@ RectTransform:
   - {fileID: 9102499219360174637}
   - {fileID: 2505998253197814220}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm
+  m_text: "\uC2B9 \uC778"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cancel
+  m_text: "\uCDE8 \uC18C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -807,8 +807,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
