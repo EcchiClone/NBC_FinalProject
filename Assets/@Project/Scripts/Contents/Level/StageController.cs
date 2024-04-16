@@ -40,8 +40,6 @@ public class StageController : MonoBehaviour
         _obstacleManager = GetComponent<ObstacleSpawner>();
         _obstacleManager.SpawnObstacle();
 
-        Managers.SpawnManager.CreateCell();
-
         SetupLevelInfo();
     }
 
@@ -66,6 +64,8 @@ public class StageController : MonoBehaviour
     {
         _currentLevel++;
         _levelData = Managers.Data.GetLevelData(_currentLevel);
+
+        Managers.SpawnManager.CreateCell();
 
         co_CurrentCoroutine = StartCoroutine(Co_SpawnEnemies());
     }
