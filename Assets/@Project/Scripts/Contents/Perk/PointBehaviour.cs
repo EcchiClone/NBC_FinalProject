@@ -58,7 +58,7 @@ public class PointBehaviour : MonoBehaviour
     {
         int playerPoint = PerkManager.Instance.PlayerPoint;
 
-        if (playerPoint > _requirePoint)
+        if (playerPoint >= _requirePoint)
         {
             PerkManager.Instance.UnlockCount++;
             PerkManager.Instance.PlayerPoint -= _requirePoint;

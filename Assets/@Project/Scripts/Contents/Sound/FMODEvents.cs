@@ -20,6 +20,13 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Perk_Released { get; private set; }
 
 
+    [field: Header("Player SFX")]
+    [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
+    [field: SerializeField] public EventReference Player_GunShot { get; private set; }
+    [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
+    [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
+    [field: SerializeField] public EventReference Player_BoosterLoop { get; private set; }
+
     public static FMODEvents Instance { get; private set; }
 
     private void Awake()

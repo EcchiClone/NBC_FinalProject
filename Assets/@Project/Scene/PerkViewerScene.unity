@@ -926,6 +926,41 @@ MonoBehaviour:
       Data3: 1015562665
       Data4: -1346294400
     Path: event:/SFX/Perk_UI/Perk_Released
+  <Player_Footsteps>k__BackingField:
+    Guid:
+      Data1: 1705639363
+      Data2: 1174081851
+      Data3: 1516024728
+      Data4: -1454028208
+    Path: event:/SFX/Player/Player_Footsteps
+  <Player_GunShot>k__BackingField:
+    Guid:
+      Data1: -587654656
+      Data2: 1250306129
+      Data3: -2031592018
+      Data4: 893451833
+    Path: event:/SFX/Player/Player_GunShotShort
+  <Player_CannonShot>k__BackingField:
+    Guid:
+      Data1: -1150501072
+      Data2: 1159631594
+      Data3: -1010511956
+      Data4: -1727272662
+    Path: event:/SFX/Player/Player_CannonShot
+  <Player_LaunchMissile>k__BackingField:
+    Guid:
+      Data1: 388197540
+      Data2: 1285859612
+      Data3: -831284555
+      Data4: 1981935649
+    Path: event:/SFX/Player/Player_LaunchMissile
+  <Player_BoosterLoop>k__BackingField:
+    Guid:
+      Data1: 492220547
+      Data2: 1175195071
+      Data3: 1309183386
+      Data4: 186078880
+    Path: event:/SFX/Player/Player_Booster
 --- !u!1 &674618452
 GameObject:
   m_ObjectHideFlags: 0
