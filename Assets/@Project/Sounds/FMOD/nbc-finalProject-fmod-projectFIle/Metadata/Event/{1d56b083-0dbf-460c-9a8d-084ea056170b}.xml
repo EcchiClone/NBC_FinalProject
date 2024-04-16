@@ -152,10 +152,10 @@
 	</object>
 	<object class="TransitionRegion" id="{e6dbb1d7-ae2a-44ef-a6ea-7f6ad08e4c70}">
 		<property name="position">
-			<value>0</value>
+			<value>0.25</value>
 		</property>
 		<property name="length">
-			<value>2.5</value>
+			<value>2.2500000000000009</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{70e06aa1-e9a6-45a0-9bce-cb71a9a76db7}</destination>
