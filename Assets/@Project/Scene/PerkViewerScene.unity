@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 674618455}
   - component: {fileID: 674618454}
   - component: {fileID: 674618457}
+  - component: {fileID: 674618458}
   m_Layer: 5
   m_Name: MainSceneBtn
   m_TagString: Untagged
@@ -1107,6 +1108,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a10ca374a55a542977f7aa87984b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &674618458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674618452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ecc95b08336e44fb2dc927bda2ab5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisType: 0
 --- !u!1 &692829802
 GameObject:
   m_ObjectHideFlags: 0

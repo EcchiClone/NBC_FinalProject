@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1952003823801851707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6852587962440331802}
+  m_Layer: 10
+  m_Name: RightPlazma
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6852587962440331802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952003823801851707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.3, y: -1.54, z: 9.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761257933406763034}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1965015503486363107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6344135578830141157}
+  m_Layer: 10
+  m_Name: RightRocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6344135578830141157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965015503486363107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9, y: -3.29, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761257933406763034}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5758745990379025768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914009330045182397}
+  m_Layer: 10
+  m_Name: LeftPlazma
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914009330045182397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758745990379025768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.3, y: -1.54, z: 9.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761257933406763034}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6175972580230584608
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +109,7 @@ GameObject:
   - component: {fileID: 6493912144862035330}
   - component: {fileID: 912533175694282690}
   - component: {fileID: 2230303562356184318}
+  - component: {fileID: 8668359342342015464}
   m_Layer: 10
   m_Name: Boss_SkyFire
   m_TagString: Untagged
@@ -35,6 +129,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4131979109430668379}
+  - {fileID: 6344135578830141157}
+  - {fileID: 914009330045182397}
+  - {fileID: 6852587962440331802}
   - {fileID: 339223587707635729}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -157,9 +255,6 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   <IsAlive>k__BackingField: 1
   enemyPhaseStarter: {fileID: 0}
-  launcher1: {fileID: 0}
-  launcher2: {fileID: 0}
-  launcher3: {fileID: 0}
 --- !u!65 &2230303562356184318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -181,6 +276,70 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 32.92061, y: 9.827778, z: 48.785233}
   m_Center: {x: -0.013079643, y: -0.046497107, z: 1.4646673}
+--- !u!114 &8668359342342015464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175972580230584608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases: []
+  Patterns:
+  - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
+    patternName: RocketLerp
+  - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
+    patternName: Plazma
+  - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
+    patternName: ClusterLerp
+  - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
+    patternName: SphereRotate
+  - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
+    patternName: Circles
+  muzzle:
+  - {fileID: 4131979109430668379}
+  - {fileID: 6344135578830141157}
+  - {fileID: 914009330045182397}
+  - {fileID: 6852587962440331802}
+  - {fileID: 339223587707635729}
+  isShooting: 1
+  onStartPhase: []
+  onStartPattern: []
+--- !u!1 &7236218023459904964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4131979109430668379}
+  m_Layer: 10
+  m_Name: LeftRocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4131979109430668379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236218023459904964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9, y: -3.29, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 761257933406763034}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7623687148806770064
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339223587707635729}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: FrontMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
