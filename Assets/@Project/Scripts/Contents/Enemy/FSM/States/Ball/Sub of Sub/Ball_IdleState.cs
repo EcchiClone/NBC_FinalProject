@@ -7,8 +7,6 @@ public class Ball_IdleState : BaseState
     public Ball_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
-        _entityTransform = Context.Entity.transform;
-        _targetTransform = Context.Entity.Target.transform;
     }
     public override void EnterState()
     {
@@ -26,13 +24,11 @@ public class Ball_IdleState : BaseState
     }    
 
     public override void ExitState()
-    {
-       
+    {       
     }
 
     public override void InitializeSubState()
-    {
-       
+    {       
     }
 
     public override void UpdateState()
