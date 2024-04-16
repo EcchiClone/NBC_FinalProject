@@ -29,7 +29,8 @@ public class Weapon_APCannon : WeaponBase
     {
         foreach (Transform muzzle in muzzlePoints)
         {
-            GameObject bullet = CreateBullet(muzzle);
+            CreateMuzzleEffect(muzzle);
+            GameObject bullet = CreateBullet(muzzle);            
 
             Quaternion rotation = Util.RandomDirectionFromMuzzle(_partData.ShotErrorRange);
             bullet.transform.rotation *= rotation;

@@ -33,6 +33,7 @@ public class PartData : IEntity
 
     [Header("Weapon")]
     [SerializeField] private string bulletPrefab_Path;
+    [SerializeField] private string muzzleEffect_Path;
 
     [SerializeField] private float damage;
     [SerializeField] private float bulletSpeed;
@@ -68,6 +69,7 @@ public class PartData : IEntity
     public float Hovering => hovering;
 
     public string BulletPrefab_Path => bulletPrefab_Path;
+    public string MuzzleEffect_Path => muzzleEffect_Path;
     public float Damage => damage;
     public float BulletSpeed => bulletSpeed;
     public float FireRate => fireRate;

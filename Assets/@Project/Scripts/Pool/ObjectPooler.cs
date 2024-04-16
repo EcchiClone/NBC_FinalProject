@@ -143,127 +143,128 @@ public class ObjectPooler : MonoBehaviour
         return objectToSpawn;
     }
 
-    //void Start()
-    //{
-    //    spawnObjects = new List<GameObject>();
-    //    poolDictionary = new Dictionary<string, Queue<GameObject>>();
-
-    //    // 미리 생성
-    //    foreach (Pool pool in pools)
-    //    {
-    //        poolDictionary.Add(pool.tag, new Queue<GameObject>());
-    //        for (int i = 0; i < pool.size; i++)
-    //        {
-    //            var obj = CreateNewObject(pool.tag, pool.prefab);
-    //            ArrangePool(obj);
-    //        }
-
-    //        // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
-    //        if (poolDictionary[pool.tag].Count <= 0)
-    //            Debug.LogError($"{pool.tag}{INFO}");
-    //        else if (poolDictionary[pool.tag].Count != pool.size)
-    //            Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
-    //    }
-    //}
-
-    //GameObject CreateNewObject(string tag, GameObject prefab)
-    //{
-    //    var obj = Instantiate(prefab, transform);
-    //    obj.name = tag;
-    //    obj.SetActive(false); // 비활성화시 ReturnToPool을 하므로 Enqueue가 됨
-    //    return obj;
-    //}
-
-    //void ArrangePool(GameObject obj)
-    //{
-    //    // 추가된 오브젝트 묶어서 정렬
-    //    bool isFind = false;
-    //    for (int i = 0; i < transform.childCount; i++)
-    //    {
-    //        if (i == transform.childCount - 1)
-    //        {
-    //            obj.transform.SetSiblingIndex(i);
-    //            spawnObjects.Insert(i, obj);
-    //            break;
-    //        }
-    //        else if (transform.GetChild(i).name == obj.name)
-    //            isFind = true;
-    //        else if (isFind)
-    //        {
-    //            obj.transform.SetSiblingIndex(i);
-    //            spawnObjects.Insert(i, obj);
-    //            break;
-    //        }
-    //    }
-    //}
     void Start()
     {
         spawnObjects = new List<GameObject>();
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
-        StartCoroutine(TrackAllPoolsCompletion());
 
+        // 미리 생성
         foreach (Pool pool in pools)
         {
-            StartCoroutine(InitializePoolAsync(pool, 10, 1000)); // 한 번에 10개씩 오브젝트 생성
-        }
-    }
-    IEnumerator InitializePoolAsync(Pool pool, int chunkSize, int logInterval)
-    {
-        int count = 0;
-        poolDictionary.Add(pool.tag, new Queue<GameObject>());
-
-        for (int i = 0; i < pool.size; i++)
-        {
-            var obj = CreateNewObject(pool.tag, pool.prefab);
-            ArrangePool(obj);
-            count++;
-
-            if (count % logInterval == 0)
+            poolDictionary.Add(pool.tag, new Queue<GameObject>());
+            for (int i = 0; i < pool.size; i++)
             {
-                Debug.Log($"{pool.tag} 의 풀 생성중 : {count} 개의 오브젝트.");
+                var obj = CreateNewObject(pool.tag, pool.prefab);
+                ArrangePool(obj);
             }
 
-            if ((i + 1) % chunkSize == 0)
-                yield return null;
+            // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
+            if (poolDictionary[pool.tag].Count <= 0)
+                Debug.LogError($"{pool.tag}{INFO}");
+            else if (poolDictionary[pool.tag].Count != pool.size)
+                Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
         }
-
-        Debug.Log($"{pool.tag} 의 풀 생성 완료 : {count} 개의 오브젝트.");
-
-        // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
-        //if (poolDictionary[pool.tag].Count <= 0)
-        //    Debug.LogError($"{pool.tag}{INFO}");
-        //else if (poolDictionary[pool.tag].Count != pool.size)
-        //    Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
     }
+
     GameObject CreateNewObject(string tag, GameObject prefab)
     {
         var obj = Instantiate(prefab, transform);
         obj.name = tag;
-        obj.SetActive(false);
+        obj.SetActive(false); // 비활성화시 ReturnToPool을 하므로 Enqueue가 됨
         return obj;
     }
+
     void ArrangePool(GameObject obj)
     {
-        // 오브젝트를 풀에 추가
-        obj.transform.SetParent(transform);
-        poolDictionary[obj.name].Enqueue(obj);
-    }
-    IEnumerator TrackAllPoolsCompletion()
-    {
-        bool allDone = false;
-        while (!allDone)
+        // 추가된 오브젝트 묶어서 정렬
+        bool isFind = false;
+        for (int i = 0; i < transform.childCount; i++)
         {
-            yield return new WaitForSeconds(1); // 에브리 세컨드 체크
-            allDone = true;
-            foreach (Pool pool in pools)
+            if (i == transform.childCount - 1)
             {
-                if (poolDictionary[pool.tag].Count < pool.size)
-                {
-                    allDone = false;
-                    break;
-                }
+                obj.transform.SetSiblingIndex(i);
+                spawnObjects.Insert(i, obj);
+                break;
+            }
+            else if (transform.GetChild(i).name == obj.name)
+                isFind = true;
+            else if (isFind)
+            {
+                obj.transform.SetSiblingIndex(i);
+                spawnObjects.Insert(i, obj);
+                break;
             }
         }
-        Debug.Log("모든 풀 생성 종료.");
     }
+
+    //void Start()
+    //{
+    //    spawnObjects = new List<GameObject>();
+    //    poolDictionary = new Dictionary<string, Queue<GameObject>>();
+    //    StartCoroutine(TrackAllPoolsCompletion());
+
+    //    foreach (Pool pool in pools)
+    //    {
+    //        StartCoroutine(InitializePoolAsync(pool, 10, 1000)); // 한 번에 10개씩 오브젝트 생성
+    //    }
+    //}
+    //IEnumerator InitializePoolAsync(Pool pool, int chunkSize, int logInterval)
+    //{
+    //    int count = 0;
+    //    poolDictionary.Add(pool.tag, new Queue<GameObject>());
+
+    //    for (int i = 0; i < pool.size; i++)
+    //    {
+    //        var obj = CreateNewObject(pool.tag, pool.prefab);
+    //        ArrangePool(obj);
+    //        count++;
+
+    //        if (count % logInterval == 0)
+    //        {
+    //            Debug.Log($"{pool.tag} 의 풀 생성중 : {count} 개의 오브젝트.");
+    //        }
+
+    //        if ((i + 1) % chunkSize == 0)
+    //            yield return null;
+    //    }
+
+    //    Debug.Log($"{pool.tag} 의 풀 생성 완료 : {count} 개의 오브젝트.");
+
+    //    //OnDisable에 ReturnToPool 구현여부와 중복구현 검사
+    //    if (poolDictionary[pool.tag].Count <= 0)
+    //        Debug.LogError($"{pool.tag}{INFO}");
+    //    else if (poolDictionary[pool.tag].Count != pool.size)
+    //        Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
+    //}
+    //GameObject CreateNewObject(string tag, GameObject prefab)
+    //{
+    //    var obj = Instantiate(prefab, transform);
+    //    obj.name = tag;
+    //    obj.SetActive(false);
+    //    return obj;
+    //}
+    //void ArrangePool(GameObject obj)
+    //{
+    //    //오브젝트를 풀에 추가
+    //    obj.transform.SetParent(transform);
+    //    poolDictionary[obj.name].Enqueue(obj);
+    //}
+    //IEnumerator TrackAllPoolsCompletion()
+    //{
+    //    bool allDone = false;
+    //    while (!allDone)
+    //    {
+    //        yield return new WaitForSeconds(1); // 에브리 세컨드 체크
+    //        allDone = true;
+    //        foreach (Pool pool in pools)
+    //        {
+    //            if (poolDictionary[pool.tag].Count < pool.size)
+    //            {
+    //                allDone = false;
+    //                break;
+    //            }
+    //        }
+    //    }
+    //    Debug.Log("모든 풀 생성 종료.");
+    //}
 }

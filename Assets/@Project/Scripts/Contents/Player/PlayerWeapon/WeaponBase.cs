@@ -7,9 +7,12 @@ public abstract class WeaponBase : MonoBehaviour
 {
     public event Action<int, bool, bool, Define.Parts_Location> OnWeaponFire;
 
+    [SerializeField] protected GameObject _muzzleEffect;
     protected Transform _target;
     protected LayerMask _groundLayer;    
     protected PartData _partData;
+
+    private GameObject _bulletObject;
 
     private int _ammo;
     private bool _isCoolDown = false;    
@@ -43,6 +46,7 @@ public abstract class WeaponBase : MonoBehaviour
         _groundLayer = layerMask;
         _type = type;
         _partData = Managers.Data.GetPartData(partID);
+        _bulletObject = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
         Ammo = _partData.Ammo;
 
         OnWeaponFire += CheckReload;
@@ -54,12 +58,19 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     protected GameObject CreateBullet(Transform muzzle)
-    {
-        GameObject go = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
-        GameObject bullet = ObjectPooler.SpawnFromPool(go.name, muzzle.position);        
+    {        
+        GameObject bullet = ObjectPooler.SpawnFromPool(_bulletObject.name, muzzle.position);        
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;
+    }
+
+    protected EffectLifeTime CreateMuzzleEffect(Transform muzzle)
+    {        
+        EffectLifeTime effect = ObjectPooler.SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
+        effect.transform.rotation = muzzle.rotation;        
+
+        return effect;
     }
 
     protected Vector3 GetFreeFireDest()
@@ -76,7 +87,7 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     public abstract void UseWeapon(Transform[] muzzlePoints);
-    private void Targeting(Transform target) => _target = target;
+    private void Targeting(Transform target, float percent) => _target = target;
     private void Release() => _target = null;
 
     private void CheckReload(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)

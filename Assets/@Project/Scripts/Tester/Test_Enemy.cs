@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Test_Enemy : MonoBehaviour, ITarget
 {
-    public float ap;
+    public float maxAP;
+    public float currentAP;
 
     private void Awake()
     {
@@ -13,14 +14,29 @@ public class Test_Enemy : MonoBehaviour, ITarget
 
     public Transform Transform => transform;
 
+    public float MaxAP => maxAP;
+    public float AP
+    {
+        get => currentAP;
+        set
+        {
+            currentAP = value;
+            float percent = currentAP / maxAP;
+            Managers.ActionManager.CallTargetAPChanged(percent);
+        }
+    }    
+
     public void GetDamaged(float damage)
     {
-        ap -= damage;
-        if (ap <= 0)
+        if (!Managers.Tutorial.IsMissioning)
+            return;
+
+        AP -= damage;
+        if (AP <= 0)
             Dead();
     }
 
-    private void LockOn(Transform transform)
+    private void LockOn(Transform transform, float t)
     {
         if (transform == this.transform)
             Managers.AchievementSystem.ReceiveReport("TUTO8", "Locked", 1);

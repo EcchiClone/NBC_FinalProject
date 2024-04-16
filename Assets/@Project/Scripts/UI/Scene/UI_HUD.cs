@@ -10,7 +10,7 @@ public class UI_HUD : UI_Scene
     [Header("Aim")]
     [SerializeField] GameObject _crossHair;
     [SerializeField] GameObject _lockOnIndicator;
-    [SerializeField] GameObject _bossAPBar;
+    [SerializeField] GameObject _targetAPBar;
 
     [Header("AP")]
     [SerializeField] Image _apFill;
@@ -29,7 +29,7 @@ public class UI_HUD : UI_Scene
     [SerializeField] Image _boosterFill;
 
     [Header("Booster")]
-    [SerializeField] Image _bossAPFill;
+    [SerializeField] Image _targetAPFill;
 
     [Header("GameOver")]
     [SerializeField] GameObject _gameOverPanel;
@@ -53,7 +53,7 @@ public class UI_HUD : UI_Scene
         Managers.ActionManager.OnLockOnTarget += GetTargetedEnemy;
         Managers.ActionManager.OnReleaseTarget += ReleaseTarget;        
         Managers.ActionManager.OnCoolDownRepair += (percent) => _repairFill.fillAmount = percent;        
-        Managers.ActionManager.OnBossAPChanged += (percent) => _bossAPFill.fillAmount = percent;
+        Managers.ActionManager.OnTargetAPChanged += (percent) => _targetAPFill.fillAmount = percent;
 
         // vvvvv 무기 사용 시 잔탄 수 UI 표기 해주도록 Action 구독 - 무기사용이 이뤄지는 WeaponBase 에서 Action 작성
         Managers.Module.CurrentLeftArmPart.Weapon.OnWeaponFire += AmmoTextChange;
@@ -77,12 +77,13 @@ public class UI_HUD : UI_Scene
             text.text = ammo > 0 ? isCoolDown ? $"<color=red>{ammo}</color>" : $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
     }
 
-    private void GetTargetedEnemy(Transform target)
+    private void GetTargetedEnemy(Transform target, float percent)
     {
         _target = target;
         _crossHair.SetActive(false);
         _lockOnIndicator.SetActive(true);
-        _bossAPBar.SetActive(true);
+        _targetAPBar.SetActive(true);
+        _targetAPFill.fillAmount = percent;
     }
 
     private void ReleaseTarget()
@@ -90,7 +91,7 @@ public class UI_HUD : UI_Scene
         _target = null;
         _crossHair.SetActive(true);
         _lockOnIndicator.SetActive(false);
-        _bossAPBar.SetActive(false);
+        _targetAPBar.SetActive(false);
     }
 
     private void ChangeAPValue(float totalAP, float remainAP)

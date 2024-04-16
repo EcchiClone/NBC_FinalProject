@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 1366517286831016729}
   - component: {fileID: 3097965554942215545}
   m_Layer: 5
-  m_Name: BossHP_Outline
+  m_Name: TargetHP_Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1495,7 +1495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7620073454161465895}
   m_Layer: 5
-  m_Name: BossHP_Bar
+  m_Name: TargetHP_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2499,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8387022754463306651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,7 @@ GameObject:
   - component: {fileID: 2677739721737125651}
   - component: {fileID: 4029823842709311343}
   m_Layer: 5
-  m_Name: Boss_Fill
+  m_Name: Taret_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3494,7 +3494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _crossHair: {fileID: 673224227009471779}
   _lockOnIndicator: {fileID: 7329408208613020235}
-  _bossAPBar: {fileID: 4200845115881674247}
+  _targetAPBar: {fileID: 4200845115881674247}
   _apFill: {fileID: 2588907438727414418}
   _apValueText: {fileID: 5585415302455755470}
   _ammoAL: {fileID: 5670913540181285869}
@@ -3503,7 +3503,7 @@ MonoBehaviour:
   _ammoSR: {fileID: 4017344291593505852}
   _repairFill: {fileID: 5803347369281578184}
   _boosterFill: {fileID: 1759766362166526380}
-  _bossAPFill: {fileID: 4029823842709311343}
+  _targetAPFill: {fileID: 4029823842709311343}
   _gameOverPanel: {fileID: 7393714151288881973}
   _returnBtn: {fileID: 272504432972412363}
 --- !u!1 &7732474367147394054

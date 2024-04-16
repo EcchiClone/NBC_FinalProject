@@ -305,7 +305,7 @@ public class PlayerStateMachine : MonoBehaviour
         if (IsLockOn)
         {
             Module.TiltController.CombatLockOnControl();
-            positionToLookAt = Module.LockOnSystem.TargetEnemy.transform.position - transform.position;
+            positionToLookAt = Module.LockOnSystem.TargetEnemy.Transform.position - transform.position;
         }
         else
         {

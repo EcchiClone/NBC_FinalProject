@@ -1,6 +1,19 @@
 using System;
 using UnityEngine;
 
+public enum PhaseType
+{
+    Move,
+    Jump,
+    Dash,
+    Hover,
+    NextArea,
+    ArmWeapon,
+    Shoulder,
+    Lockon,
+    KillDummy,
+}
+
 public class TutorialManager
 {
     public event Action OnTutorialClear;
@@ -14,6 +27,8 @@ public class TutorialManager
     public bool IsMissioning { get; private set; }
 
     private UI_Popup _skipPopup;
+
+    private PhaseType _currentPhase;    
 
     private readonly float BLIND_TIME = 2f;
 
@@ -30,7 +45,8 @@ public class TutorialManager
         Managers.GameManager.TutorialClear = true;
         OnTutorialClear?.Invoke();
 
-        Managers.Scene.LoadScene(Define.Scenes.MainScene);
+        UI_BlinderPopup blinder = Managers.UI.ShowPopupUI<UI_BlinderPopup>();
+        blinder.DoCloseBlind(BLIND_TIME, () => Managers.Scene.LoadScene(Define.Scenes.MainScene));        
     }
 
     public void OnTutorialSkipPopup()
@@ -42,26 +58,29 @@ public class TutorialManager
     }
 
     public void GiveCurrentMission(int id)
-    {        
+    {
         Achievement mission = Resources.Load<Achievement>(Managers.Data.GetTutorialData(id).MissionPath);
         CurrentMission = UnityEngine.Object.Instantiate(mission);
 
         // 극한의 하드코딩...
-        if (id == 4)
-            OnDisableLinkedWall?.Invoke();
-        if (id == 5)
-            OnEnableDontGoBackWall?.Invoke();
-        if (id == 7)
+        if (_currentPhase == PhaseType.NextArea)
+            OnDisableLinkedWall?.Invoke();        
+        if (_currentPhase == PhaseType.Lockon)
             OnEnableDummy?.Invoke();
-        if (id == 8)
+        if (_currentPhase == PhaseType.KillDummy)
             OnShootDummy?.Invoke();
 
         Managers.AchievementSystem.Register(CurrentMission);
         IsMissioning = true;
+
+        _currentPhase++;
     }
 
     public void NextPhase()
     {
+        if (_currentPhase == PhaseType.ArmWeapon)
+            OnEnableDontGoBackWall?.Invoke();
+
         OnScriptPhaseUpdate?.Invoke();
         IsMissioning = false;
     }

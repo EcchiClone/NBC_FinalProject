@@ -17,9 +17,9 @@ public class ActionManager
     public event Action<float> OnCoolDownRepair;
 
     // # LockOn System
-    public event Action<Transform> OnLockOnTarget;
+    public event Action<Transform, float> OnLockOnTarget;
     public event Action OnReleaseTarget;
-    public event Action<float> OnBossAPChanged;
+    public event Action<float> OnTargetAPChanged;
 
     // # UI_LowerSelector    
     public event Action<int> OnLowerEquip;
@@ -44,9 +44,9 @@ public class ActionManager
 
     public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
 
-    public void CallLockOn(Transform target) => OnLockOnTarget?.Invoke(target);
+    public void CallLockOn(Transform target, float percent) => OnLockOnTarget?.Invoke(target, percent);
     public void CallRelease() => OnReleaseTarget?.Invoke();
-    public void CallBossAPChanged(float percent) => OnBossAPChanged?.Invoke(percent);
+    public void CallTargetAPChanged(float percent) => OnTargetAPChanged?.Invoke(percent);
 
     public void CallLowerEquip(int index) => OnLowerEquip?.Invoke(index);
     public void CallUpperEquip(int index) => OnUpperEquip?.Invoke(index);
@@ -70,7 +70,7 @@ public class ActionManager
 
         OnLockOnTarget = null;
         OnReleaseTarget = null;
-        OnBossAPChanged = null;
+        OnTargetAPChanged = null;
 
         OnLowerEquip = null;
         OnUpperEquip = null;
