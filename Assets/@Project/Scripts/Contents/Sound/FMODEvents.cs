@@ -13,19 +13,38 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference testEvent { get; private set; }
 
 
-    [field: Header("Perk/UI SFX")]
+    [field: Header("Perk/UI SFX(2D)")]
     [field: SerializeField] public EventReference UI_Clicked { get; private set; }
     [field: SerializeField] public EventReference UI_Entered { get; private set; }
     [field: SerializeField] public EventReference Perk_Denied { get; private set; }
     [field: SerializeField] public EventReference Perk_Released { get; private set; }
+    [field: SerializeField] public EventReference Weapon_Changed { get; private set; }
 
 
-    [field: Header("Player SFX")]
+    [field: Header("Player SFX(2D)")]
     [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
     [field: SerializeField] public EventReference Player_GunShot { get; private set; }
     [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
     [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
     [field: SerializeField] public EventReference Player_BoosterLoop { get; private set; }
+    [field: SerializeField] public EventReference Player_Reload { get; private set; }
+    [field: SerializeField] public EventReference Player_Repair { get; private set; }
+    [field: SerializeField] public EventReference Player_LockOn { get; private set; }
+
+
+    [field: Header("Others SFX(3D)")]
+    [field: SerializeField] public EventReference Others_Appear { get; private set; }
+    [field: SerializeField] public EventReference Others_Disappear { get; private set; }
+
+
+    [field: Header("Enemies SFX(3D)")]
+    [field: SerializeField] public EventReference Ball_Drag { get; private set; }
+    [field: SerializeField] public EventReference Ball_Explode { get; private set; }
+    [field: SerializeField] public EventReference Drone_Idle { get; private set; }
+    [field: SerializeField] public EventReference Drone_Shot { get; private set; }
+    [field: SerializeField] public EventReference Spider_Shot { get; private set; }
+    [field: SerializeField] public EventReference Spider_Footsteps { get; private set; }
+
 
     public static FMODEvents Instance { get; private set; }
 
