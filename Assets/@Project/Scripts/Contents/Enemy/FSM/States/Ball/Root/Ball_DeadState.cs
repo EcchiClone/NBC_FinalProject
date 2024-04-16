@@ -17,6 +17,7 @@ public class Ball_DeadState : BaseState
     public override void EnterState()
     {
         Context.Entity.Controller.Stop();
+        
         Context.Entity.StartCoroutine(Explosion());        
     }
 
@@ -67,6 +68,7 @@ public class Ball_DeadState : BaseState
             }
         }
         // TODO : 사라지자
+        ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         _isExplodeFinish = true;
     }
 }
