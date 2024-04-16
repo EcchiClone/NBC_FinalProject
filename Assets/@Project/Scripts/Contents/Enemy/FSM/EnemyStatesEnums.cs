@@ -14,8 +14,10 @@ public enum SkyFire_States
     Alive,
     Dead,
 
-    Chasing,
+    NonCombat,
+    Combat,
 
+    Chasing,
     Phase1,
     Phase2,
 }
