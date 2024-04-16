@@ -26,15 +26,15 @@ public class AudioManager : MonoBehaviour
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
 
-    public static AudioManager instance { get; private set; }
+    public static AudioManager Instance { get; private set; }
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.LogError("Scene에 적어도 하나의 AudioManager가 존재하는 지 확인하세요.");
         }
-        instance = this;
+        Instance = this;
 
         eventInstances = new List<EventInstance>();
         eventEmitters = new List<StudioEventEmitter>();

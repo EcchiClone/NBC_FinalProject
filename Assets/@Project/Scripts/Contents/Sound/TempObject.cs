@@ -7,7 +7,7 @@ public class TempObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.testEvent, transform.position);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.testEvent, transform.position);
     }
 
     // Update is called once per frame

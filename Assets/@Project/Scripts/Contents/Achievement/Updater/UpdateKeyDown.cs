@@ -30,16 +30,21 @@ public class UpdateKeyDown : AchievementUpdater
 
         if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
             return;
-
-        string inputString = Input.inputString;
-        if (!string.IsNullOrEmpty(inputString))
+        
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (char c in inputString)
-            {
-                KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), c.ToString().ToUpper());
-                Managers.AchievementSystem.ReceiveReport("KEY_INPUT", key, 1);
-            }
+            Managers.AchievementSystem.ReceiveReport("KEY_INPUT", KeyCode.Space, 1);
         }
+        // 사용자가 이 프레임에서 입력한 문자열을 가져옵니다.
+        //string inputString = Input.inputString;
+        //if (!string.IsNullOrEmpty(inputString))
+        //{
+        //    foreach (char c in inputString)
+        //    {
+        //        KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), c.ToString().ToUpper());
+        //        Managers.AchievementSystem.ReceiveReport("KEY_INPUT", key, 1);
+        //    }
+        //}
     }
 
 }

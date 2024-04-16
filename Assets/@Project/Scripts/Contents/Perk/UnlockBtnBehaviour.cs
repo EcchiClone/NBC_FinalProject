@@ -90,6 +90,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
 
     public void OnButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.UI_Clicked, transform.position);
         PerkManager.Instance.CallOnUnlockBtnClicked();
     }
 

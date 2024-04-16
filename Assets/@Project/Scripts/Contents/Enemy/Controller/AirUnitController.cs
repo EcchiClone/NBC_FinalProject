@@ -58,7 +58,7 @@ public class AirUnitController : Controller
 
         // 나온 오일러 각도를 다시 방향으로
         lookRotation = Quaternion.Euler(euler);
-        Entity.transform.rotation = Quaternion.RotateTowards(Entity.transform.rotation, lookRotation, 30 * Time.deltaTime);
+        Entity.transform.rotation = Quaternion.RotateTowards(Entity.transform.rotation, lookRotation, 100 * Time.deltaTime);
     }
 
     private void AltitudeAdjustment()

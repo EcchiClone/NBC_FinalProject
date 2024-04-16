@@ -28,16 +28,16 @@ public class VolumeSlider : MonoBehaviour
         switch (volumeType)
         {
             case VolumeType.Master:
-                volumeSlider.value = AudioManager.instance.masterVolume;
+                volumeSlider.value = AudioManager.Instance.masterVolume;
                 break;
             case VolumeType.Music:
-                volumeSlider.value = AudioManager.instance.musicVolume;
+                volumeSlider.value = AudioManager.Instance.musicVolume;
                 break;
             case VolumeType.Ambience:
-                volumeSlider.value = AudioManager.instance.ambienceVolume;
+                volumeSlider.value = AudioManager.Instance.ambienceVolume;
                 break;
             case VolumeType.SFX:
-                volumeSlider.value = AudioManager.instance.SFXVolume;
+                volumeSlider.value = AudioManager.Instance.SFXVolume;
                 break;
             default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
@@ -50,16 +50,16 @@ public class VolumeSlider : MonoBehaviour
         switch (volumeType)
         {
             case VolumeType.Master:
-                AudioManager.instance.masterVolume = volumeSlider.value;
+                AudioManager.Instance.masterVolume = volumeSlider.value;
                 break;
             case VolumeType.Music:
-                AudioManager.instance.musicVolume = volumeSlider.value;
+                AudioManager.Instance.musicVolume = volumeSlider.value;
                 break;
             case VolumeType.Ambience:
-                AudioManager.instance.ambienceVolume = volumeSlider.value;
+                AudioManager.Instance.ambienceVolume = volumeSlider.value;
                 break;
             case VolumeType.SFX:
-                AudioManager.instance.SFXVolume = volumeSlider.value;
+                AudioManager.Instance.SFXVolume = volumeSlider.value;
                 break;
             default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
