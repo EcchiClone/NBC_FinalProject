@@ -26,7 +26,7 @@ public class OriginPerkBehaviour : MonoBehaviour, IPointerClickHandler, IPointer
         _perkInfo = new PerkInfo(PerkTier.ORIGIN, 0, 0, false);
         _contentInfo = new ContentInfo();
         _contentInfo.name = "[CORE X7-9900K]";
-        _contentInfo.description = "기체의 핵심 프로세서입니다. 현재 진행상황을 초기화 할 수 있습니다. 사용한 포인트는 돌려받을 수 없습니다.";
+        _contentInfo.description = "기체의 핵심 프로세서입니다. 현재 진행상황을 초기화 할 수 있습니다. 증가된 기본 요구 포인트는 유지되며, 사용한 포인트는 돌려받을 수 없습니다.";
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
