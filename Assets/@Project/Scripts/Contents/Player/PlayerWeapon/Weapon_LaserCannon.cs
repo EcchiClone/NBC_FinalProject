@@ -10,6 +10,7 @@ public class Weapon_LaserCannon : WeaponBase
     [SerializeField] LayerMask _enemyLayer;
 
     private readonly float LASER_CUT_TIME = 1f;
+    private readonly float LASER_DAMAGING_TIME = 0.02f;
 
     public override void UseWeapon(Transform[] muzzlePoints)
     {        
@@ -40,7 +41,7 @@ public class Weapon_LaserCannon : WeaponBase
 
         while(percent < 1)
         {
-            current += Time.deltaTime;
+            current += LASER_DAMAGING_TIME;
             percent = current / LASER_CUT_TIME;
 
             float maxLength = 100f;
@@ -58,15 +59,15 @@ public class Weapon_LaserCannon : WeaponBase
 
             if (isHit)
                 if (hit.transform.TryGetComponent(out ITarget target) == true)
-                    target.GetDamaged(_partData.Damage);
+                    target.GetDamaged(Damage);
 
-            yield return null;
+            yield return Util.GetWaitSeconds(LASER_DAMAGING_TIME);
         }
 
         Ammo--;
         LaserClear(startLaserWidth, muzzle);
 
-        yield return Util.GetWaitSeconds(_partData.CoolDownTime);
+        yield return Util.GetWaitSeconds(CoolDownTime);
         IsCoolDown = false;
     }
 

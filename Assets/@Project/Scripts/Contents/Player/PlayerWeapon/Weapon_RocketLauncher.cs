@@ -28,13 +28,13 @@ public class Weapon_RocketLauncher : WeaponBase
                 GameObject bullet = CreateBullet(muzzle);                
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
-                missile.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, freeFireTarget, _target);
+                missile.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target);
                 
-                yield return Util.GetWaitSeconds(_partData.FireRate);
+                yield return Util.GetWaitSeconds(FireRate);
             }
         }
 
-        yield return Util.GetWaitSeconds(_partData.CoolDownTime);
+        yield return Util.GetWaitSeconds(CoolDownTime);
         IsCoolDown = false;
     }
 }

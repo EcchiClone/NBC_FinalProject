@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon_SingleCannon : WeaponBase
@@ -11,7 +9,7 @@ public class Weapon_SingleCannon : WeaponBase
         if (IsCoolDown)
             return;
 
-        if (_delayTime >= _partData.FireRate && Ammo > 0)
+        if (_delayTime >= FireRate && Ammo > 0)
         {
             _delayTime = 0;
             Ammo--;
@@ -21,7 +19,7 @@ public class Weapon_SingleCannon : WeaponBase
 
     private void Update()
     {
-        if (_delayTime < _partData.FireRate)
+        if (_delayTime < FireRate)
             _delayTime += Time.deltaTime;
     }
 
@@ -36,7 +34,7 @@ public class Weapon_SingleCannon : WeaponBase
             bullet.transform.rotation *= rotation;
 
             PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
-            projectile.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, Vector3.zero, _target);
+            projectile.Setup(BulletSpeed, Damage, _partData.IsSplash, Vector3.zero, _target);
         }
     }
 }

@@ -14,6 +14,11 @@ public class SelectorScene : BaseScene
         UI_MainMenuPopup mainUI = Managers.UI.ShowPopupUI<UI_MainMenuPopup>();
         Managers.ActionManager.OnSelectorCam += CamChange;
         Managers.ActionManager.OnUndoMenuCam += CamInActive;
+
+        UI_ChangeButton.IndexOfLowerPart = 0;
+        UI_ChangeButton.IndexOfUpperPart = 0;
+        UI_ChangeButton.IndexOfArmPart = 0;
+        UI_ChangeButton.IndexOfShoulderPart = 0;
     }
 
     public void CamChange(CamType camType) => _cineCams[(int)camType].SetActive(true);

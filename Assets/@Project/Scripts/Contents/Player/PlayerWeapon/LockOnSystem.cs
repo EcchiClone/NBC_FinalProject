@@ -19,7 +19,7 @@ public class LockOnSystem
     public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
-
+    
     public bool IsLockon { get; private set; }
     public ITarget TargetEnemy { get; private set; }
 
@@ -29,6 +29,7 @@ public class LockOnSystem
     public void Setup(Module module)
     {
         _module = module;
+        _scanRange *= module.ModuleStatus.ScanRangeAdjust;
 
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();

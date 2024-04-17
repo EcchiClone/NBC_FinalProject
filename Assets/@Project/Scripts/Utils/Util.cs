@@ -85,5 +85,6 @@ public static class Util
         return length;
     }
 
-    public static float GetPercentagePerkValue(PerkData data, PerkType type) => 1f + data.GetAbilityValue(type) / 100f;
+    public static float GetIncreasePercentagePerkValue(PerkData data, PerkType type) => 1f + data.GetAbilityValue(type) / 100f;
+    public static float GetReducePercentagePerkValue(PerkData data, PerkType type) => 1f - data.GetAbilityValue(type) / 100f;
 }
