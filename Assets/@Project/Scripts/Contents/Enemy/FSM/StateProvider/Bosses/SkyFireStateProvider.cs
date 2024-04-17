@@ -18,6 +18,7 @@ public class SkyFireStateProvider : BaseStateProvider
         SetState(SkyFire_States.Chasing, new SkyFire_ChasingState(context, this));
         SetState(SkyFire_States.Phase1, new SkyFire_Phase1State(context, this));
         SetState(SkyFire_States.Phase2, new SkyFire_Phase2State(context, this));
+        SetState(SkyFire_States.Phase3, new SkyFire_Phase3State(context, this));
     }
     
 }

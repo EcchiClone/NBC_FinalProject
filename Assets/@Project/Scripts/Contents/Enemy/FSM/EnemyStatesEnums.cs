@@ -20,6 +20,7 @@ public enum SkyFire_States
     Chasing,
     Phase1,
     Phase2,
+    Phase3,
 }
 
 public enum Minion_States
