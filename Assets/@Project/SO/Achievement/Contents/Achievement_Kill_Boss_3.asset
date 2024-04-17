@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
   m_Name: Achievement_Kill_Boss_3
   m_EditorClassIdentifier: 
-  codeName: KILL_BOSS_1
+  codeName: KILL_BOSS_3
   icon: {fileID: 21300000, guid: a16c5d0b09656e748bf728b77212e58c, type: 3}
   displayName: "\uBD80\uC234\uB3C4 \uAD1C\uCC2E\uC740 \uAC74\uAC00\uC694?"
   description: "Boss\uB97C 3\uAE30 \uD30C\uAD34"
