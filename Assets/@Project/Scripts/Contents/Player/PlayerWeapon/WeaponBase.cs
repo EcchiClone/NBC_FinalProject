@@ -9,12 +9,14 @@ public abstract class WeaponBase : MonoBehaviour
 
     [SerializeField] protected GameObject _muzzleEffect;
 
-    public float BulletDamage { get; private set; }
-    public float ReloadSpeed { get; private set; }
+    public float Damage { get; private set; }
+    public float CoolDownTime { get; private set; }
+    public float BulletSpeed { get; private set; }
     public float FireRate { get; private set; }
     public float ShotError { get; private set; }
-    public bool CanPierce { get; private set; }
-    public bool CanReloadShoulder { get; private set; }
+    public int PierceCount { get; private set; }
+    public int MaxAmmo { get; private set; }
+    public bool CanReload { get; private set; }
 
     protected Transform _target;
     protected LayerMask _groundLayer;
@@ -31,7 +33,7 @@ public abstract class WeaponBase : MonoBehaviour
         protected set
         {
             _ammo = value;
-            OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
+            OnWeaponFire?.Invoke(_ammo, _isCoolDown, CanReload, _type);
         }
     }
     public bool IsCoolDown
@@ -40,7 +42,7 @@ public abstract class WeaponBase : MonoBehaviour
         protected set
         {
             _isCoolDown = value;
-            OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
+            OnWeaponFire?.Invoke(_ammo, _isCoolDown, CanReload, _type);
         }
     }
 
@@ -57,14 +59,18 @@ public abstract class WeaponBase : MonoBehaviour
         _bulletObject = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
 
         PerkData perkData = Managers.GameManager.PerkData;
-        Ammo = (int)(_partData.Ammo * Util.GetPercentagePerkValue(perkData, PerkType.SpareAmmunition));
-        BulletDamage = _partData.Damage * Util.GetPercentagePerkValue(perkData, PerkType.ImprovedBullet);
+        MaxAmmo = (int)(_partData.Ammo * Util.GetIncreasePercentagePerkValue(perkData, PerkType.SpareAmmunition));
+        Damage = _partData.Damage * Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedBullet);
+        CoolDownTime = _partData.CoolDownTime * Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedReload);
+        BulletSpeed = _partData.BulletSpeed * Util.GetIncreasePercentagePerkValue(perkData, PerkType.RapidFire);
+        FireRate = _partData.FireRate * Util.GetReducePercentagePerkValue(perkData, PerkType.OverHeat);
+        ShotError = _partData.ShotErrorRange * Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedBarrel);
+        PierceCount = (int)perkData.GetAbilityValue(PerkType.Pierce);
+        CanReload = _partData.IsReloadable;
+        if (_type == Define.Parts_Location.Weapon_Shoulder_L || _type == Define.Parts_Location.Weapon_Shoulder_R)
+            CanReload = perkData.GetAbilityValue(PerkType.Resupply) == 1f ? true : false;
 
-
-
-
-
-
+        Ammo = MaxAmmo;
         if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
             Ammo = 9999;
 
@@ -73,7 +79,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     private void Start()
     {
-        OnWeaponFire?.Invoke(_ammo, _isCoolDown, _partData.IsReloadable, _type);
+        OnWeaponFire?.Invoke(_ammo, _isCoolDown, CanReload, _type);
     }
 
     protected GameObject CreateBullet(Transform muzzle)
@@ -117,8 +123,8 @@ public abstract class WeaponBase : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        yield return Util.GetWaitSeconds(_partData.CoolDownTime);
+        yield return Util.GetWaitSeconds(CoolDownTime);
 
-        Ammo = _partData.Ammo;
+        Ammo = MaxAmmo;
     }
 }

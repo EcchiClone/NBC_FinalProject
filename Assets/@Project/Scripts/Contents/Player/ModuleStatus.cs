@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class ModuleStatus
 {
     #region Common
     public float Armor { get; private set; } // HP
-    public float Weight { get; private set; }
-
-    public float DEF { get; private set; } // PerkOnly
+    public float Weight { get; private set; }    
     #endregion
 
     #region Lower
@@ -26,6 +25,9 @@ public class ModuleStatus
 
     public float CurrentArmor { get; private set; }
     public float CurrentBooster { get; private set; }
+    public float ScanRangeAdjust { get; private set; }
+    public float Defence { get; private set; }
+    public float Stealth { get; private set; }
 
     public bool IsDead { get; private set; } = false;
 
@@ -47,14 +49,18 @@ public class ModuleStatus
         Armor += perkData.GetAbilityValue(PerkType.SuperAlloy);
         Weight = lowerData.Weight + upperData.Weight + leftArmData.Weight + rightArmData.Weight + leftShoulderData.Weight + rightShoulderData.Weight;
         
-        MovementSpeed = lowerData.Speed * Util.GetPercentagePerkValue(perkData, PerkType.SpeedModifier);
-        JumpPower = lowerData.JumpPower * Util.GetPercentagePerkValue(perkData, PerkType.Spring);
+        MovementSpeed = lowerData.Speed * Util.GetIncreasePercentagePerkValue(perkData, PerkType.SpeedModifier);
+        JumpPower = lowerData.JumpPower * Util.GetIncreasePercentagePerkValue(perkData, PerkType.Spring);
         CanJump = lowerData.CanJump;
-        BoostPower = lowerData.BoosterPower * Util.GetPercentagePerkValue(perkData, PerkType.AfterBurner);
+        BoostPower = lowerData.BoosterPower * Util.GetIncreasePercentagePerkValue(perkData, PerkType.AfterBurner);
 
-        SmoothRotateValue = upperData.SmoothRotation * Util.GetPercentagePerkValue(perkData, PerkType.Lubrication);
-        BoosterGauge = upperData.BoosterGauge * Util.GetPercentagePerkValue(perkData, PerkType.BoosterOverload); 
-        VTOL = upperData.Hovering * Util.GetPercentagePerkValue(perkData, PerkType.Jetpack);
+        SmoothRotateValue = upperData.SmoothRotation * Util.GetIncreasePercentagePerkValue(perkData, PerkType.Lubrication);
+        BoosterGauge = upperData.BoosterGauge * Util.GetIncreasePercentagePerkValue(perkData, PerkType.BoosterOverload); 
+        VTOL = upperData.Hovering * Util.GetIncreasePercentagePerkValue(perkData, PerkType.Jetpack);
+
+        ScanRangeAdjust = Util.GetIncreasePercentagePerkValue(perkData, PerkType.Rador);
+        Defence = Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedArmor);
+        Stealth = perkData.GetAbilityValue(PerkType.Stealth);
 
         CurrentArmor = Armor;
         CurrentBooster = BoosterGauge;        
@@ -62,7 +68,11 @@ public class ModuleStatus
 
     public void GetDamage(float damage)
     {
-        CurrentArmor -= damage - DEF;
+        float random = Random.Range(0f, 100f);
+        if (random <= Stealth)
+            return;
+
+        CurrentArmor -= damage * Defence;
         if (CurrentArmor <= 0)
             Dead();
         Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
