@@ -14,11 +14,14 @@ public class JsonSaveNLoader : MonoBehaviour
     public ContentList tier2ContentData; // " Tier2 "
     public ContentList tier3ContentData; // " Tier3 "
 
+    private string _perkDataPath = "Resources/Data/Perk/Saved";
+    private string _contentDataPath = "Resources/Data/Perk/Content";
+
     [ContextMenu("To Json Data(Save/Perk)")]
     public void SavePerkData(PerkList perkList, string name)
     {
         string jsonData = JsonUtility.ToJson(perkList, true);
-        string path = Path.Combine(Application.dataPath, $"{name}.json");
+        string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
         File.WriteAllText(path, jsonData);
         Debug.Log($"{name}.json 파일로 저장했음");
     }
@@ -26,7 +29,7 @@ public class JsonSaveNLoader : MonoBehaviour
     [ContextMenu("From Json Data(Load/Perk)")]
     public void LoadPerkData(ref PerkList perkList, string name)
     {
-        string path = Path.Combine(Application.dataPath, $"{name}.json");
+        string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
         if (!File.Exists(path))
         {
             Debug.Log("파일 없음 다시 확인해보셈");
@@ -43,7 +46,7 @@ public class JsonSaveNLoader : MonoBehaviour
     public void SaveContentData(ContentList contentList, string name)
     {
         string jsonData = JsonUtility.ToJson(contentList, true);
-        string path = Path.Combine(Application.dataPath, $"{name}.json");
+        string path = Path.Combine(Application.dataPath, $"{_contentDataPath}/{name}.json");
         File.WriteAllText(path, jsonData);
         Debug.Log($"{name}.json 파일로 저장했음");
     }
@@ -51,7 +54,7 @@ public class JsonSaveNLoader : MonoBehaviour
     [ContextMenu("From Json Data(Load/Content)")]
     public void LoadContentData(ref ContentList contentList, string name)
     {
-        string path = Path.Combine(Application.dataPath, $"{name}.json");
+        string path = Path.Combine(Application.dataPath, $"{_contentDataPath}/{name}.json");
         if (!File.Exists(path))
         {
             Debug.Log("파일 없음 다시 확인해보셈");
@@ -64,9 +67,9 @@ public class JsonSaveNLoader : MonoBehaviour
         Debug.Log($"{name}.json 파일 불러왔음");
     }
 
-    public bool IsExist(string name)
+    public bool IsPerkDataExist(string name)
     {
-        string path = Path.Combine(Application.dataPath, $"{name}.json");
+        string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
 
         if (File.Exists(path))
             return true;
