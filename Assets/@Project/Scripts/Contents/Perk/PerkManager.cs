@@ -95,11 +95,11 @@ public class PerkManager : MonoBehaviour
     private void InitVars()
     {
         // 변수 초기화
-        PointerTier = PerkTier.TIER1;
+        PointerTier = PerkTier.ORIGIN;
         PointerIdx = 0;
         PointerSubIdx = 0;
 
-        SelectedPerkInfo = new PerkInfo(PerkTier.TIER1, 0, 0, false);
+        SelectedPerkInfo = new PerkInfo(PerkTier.ORIGIN, 0, 0, false);
         SelectedSubInfo = null;
 
         SelectedContentInfo = new ContentInfo();
@@ -108,6 +108,8 @@ public class PerkManager : MonoBehaviour
         SelectedContentInfo.description = "";
 
         SelectedPerkDistance = 0;
+        RequirePoint = 100;
+        UnlockCount = 0;
     }
 
     private void CheckDataExists()

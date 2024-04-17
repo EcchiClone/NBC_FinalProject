@@ -11,13 +11,13 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] protected GameObject _unlock;
     [SerializeField] protected GameObject _equip;
 
+    public static int IndexOfLowerPart = 0;
+    public static int IndexOfUpperPart = 0;
+    public static int IndexOfArmPart = 0;
+    public static int IndexOfShoulderPart = 0;
+
     protected PartData _currentData;
     protected int _currentIndex;
-
-    protected static int IndexOfLowerPart = 0;
-    protected static int IndexOfUpperPart = 0;
-    protected static int IndexOfArmPart = 0;
-    protected static int IndexOfShoulderPart = 0;
 
     protected string _displayName;
     protected string _displayDesc;

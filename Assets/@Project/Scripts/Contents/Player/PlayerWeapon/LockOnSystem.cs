@@ -15,11 +15,12 @@ public class LockOnSystem
     [SerializeField] Transform _followOnTargetMode;
     [SerializeField] LayerMask _targetLayer;
     [SerializeField] private float _scanRange;
+    [SerializeField] private float _scanRadius;
 
     public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
-
+    
     public bool IsLockon { get; private set; }
     public ITarget TargetEnemy { get; private set; }
 
@@ -29,6 +30,7 @@ public class LockOnSystem
     public void Setup(Module module)
     {
         _module = module;
+        _scanRange *= module.ModuleStatus.ScanRangeAdjust;
 
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
@@ -51,8 +53,8 @@ public class LockOnSystem
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = Camera.main.transform.position;
-        RaycastHit[] hits = Physics.SphereCastAll(origin, _scanRange, Camera.main.transform.forward, 50f, _targetLayer);
+        Vector3 origin = _module.transform.position + Camera.main.transform.forward * _scanRadius;
+        RaycastHit[] hits = Physics.SphereCastAll(origin, _scanRadius, Camera.main.transform.forward, _scanRange, _targetLayer);
         if (hits.Length == 0)
         {
             Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");

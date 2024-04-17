@@ -54,16 +54,16 @@ public class Weapon_HE_TACannon : WeaponBase
                 GameObject bullet = CreateBullet(muzzle);
 
                 PlayerProjectile cannon = bullet.GetComponent<PlayerProjectile>();
-                cannon.Setup(_partData.BulletSpeed, _partData.Damage, _partData.IsSplash, freeFireTarget, _target);
+                cannon.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target);
 
-                yield return Util.GetWaitSeconds(_partData.FireRate);
+                yield return Util.GetWaitSeconds(FireRate);
             }
         }
 
         yield return StartCoroutine(Co_Release());
 
         _anim.SetBool(_usingHash, false);
-        yield return Util.GetWaitSeconds(_partData.CoolDownTime);
+        yield return Util.GetWaitSeconds(CoolDownTime);
         IsCoolDown = false;
     }
 
