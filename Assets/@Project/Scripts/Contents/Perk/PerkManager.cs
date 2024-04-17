@@ -108,7 +108,8 @@ public class PerkManager : MonoBehaviour
         SelectedContentInfo.description = "";
 
         SelectedPerkDistance = 0;
-        RequirePoint = 50;
+        RequirePoint = 100;
+        UnlockCount = 0;
     }
 
     private void CheckDataExists()

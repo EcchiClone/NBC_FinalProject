@@ -16,7 +16,7 @@ public class PointBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        _requirePoint = 50;
+        _requirePoint = 100;
         _unlockCount = 0;
         _distancePoint = 0;
     }
@@ -54,7 +54,7 @@ public class PointBehaviour : MonoBehaviour
         }
         else
         {
-            _requirePoint = 50;
+            _requirePoint = 100;
         }
 
         PerkManager.Instance.RequirePoint = _requirePoint;
