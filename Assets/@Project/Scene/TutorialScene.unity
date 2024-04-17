@@ -199,32 +199,32 @@ PrefabInstance:
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 0.4006912
       objectReference: {fileID: 0}
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -3.16768
       objectReference: {fileID: 0}
     - target: {fileID: 7856613313034232340, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 0.4006912
       objectReference: {fileID: 0}
     - target: {fileID: 7856613313034232340, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -3.16768
       objectReference: {fileID: 0}
     - target: {fileID: 8711542511449123582, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 0.4006912
       objectReference: {fileID: 0}
     - target: {fileID: 8711542511449123582, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -3.16768
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -623,6 +623,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &675011116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -748,6 +749,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &948464787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -873,6 +875,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &969321555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1484,6 +1487,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &1620207067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1715,6 +1719,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &1843770782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2078,6 +2083,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &1973406679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2373,6 +2379,7 @@ MonoBehaviour:
   _dissolveTime: 2
   _delay: 1
   _inActive: 0
+  _isEnemy: 0
 --- !u!65 &2056966206
 BoxCollider:
   m_ObjectHideFlags: 0
