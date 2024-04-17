@@ -197,7 +197,7 @@ public class BulletMathUtils
     {
         try
         {
-            return Managers.Module.CurrentModule.LowerPosition.gameObject;
+            return Managers.Module.CurrentModule.CurrentUpper.gameObject;
         }
         catch
         {
@@ -219,7 +219,7 @@ public class BulletMathUtils
         try
         {
             if (reposit)
-                return PlayerPivotReposition(Managers.Module.CurrentModule.LowerPosition.position) + Vector3.one * noise * Random.Range(-1f,1f);
+                return PlayerPivotReposition(Managers.Module.CurrentModule.CurrentUpper.transform.position) + Vector3.one * noise * Random.Range(-1f,1f);
             return Managers.Module.CurrentModule.LowerPosition.position + Vector3.one * noise * Random.Range(-1f, 1f);
 
 
@@ -253,7 +253,7 @@ public class BulletMathUtils
     }
     public static Vector3 PlayerPivotReposition(Vector3 playerPos)
     {
-        return playerPos + Vector3.up;
+        return playerPos + Vector3.up*0f; // Lower에서 Upper로 바꾸고 0f으로 일단 조정
     }
     #endregion
     #endregion

@@ -44,7 +44,10 @@ public class AirUnitController : Controller
         forceMagnitude = Mathf.Clamp(forceMagnitude, 4, 10);
 
         // Rigidbody에 힘을 가해 이동
-        Entity.GetComponent<Rigidbody>().AddForce(moveDirection * forceMagnitude);
+        Rigidbody.AddForce(moveDirection * forceMagnitude);
+
+        if (Rigidbody.velocity.magnitude > Speed)
+            Rigidbody.velocity = Rigidbody.velocity.normalized * Speed;
     }
     protected override void Look()
     {
@@ -84,12 +87,8 @@ public class AirUnitController : Controller
 
     public override void SetDestination(Vector3 target)
     {
-        //float altitude = boss.transform.position.y;
-
         target.y = TargetAltitude;
         Destination = target;
-
-        //float distanceToTarget = Vector3.Distance(boss.transform.position, target);
 
         Vector3 stopDirection = Entity.transform.position - target;
         stopDirection.y = 0f;
@@ -121,5 +120,4 @@ public class AirUnitController : Controller
         StopDistance = 0f;
         SetDestination(Entity.transform.position);
     }
-
 }
