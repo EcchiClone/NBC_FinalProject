@@ -18,11 +18,12 @@ public class EnemyBulletController : EnemyBullet
     private Vector3 noiseSide;
     private Vector3 fixedPlayerPos;
     private Vector3 playerPos;
+    private Vector3 fixedMuzzlePos;
     private float _normalizedValue;
 
     // private float levelCoefficient; // 레벨에 따른 속도 계수. 1.0 이상.
 
-    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf, float normalizedValue)
+    public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf, Vector3 muzzlePos, float normalizedValue)
     {
         // Trail 궤적 초기화
         foreach(TrailRenderer t in _trailRenderers)
@@ -33,6 +34,7 @@ public class EnemyBulletController : EnemyBullet
         this.noiseSide = Vector3.Cross((BulletMathUtils.GetPlayerPos(true) - transform.position).normalized, Vector3.up).normalized * UnityEngine.Random.Range(-1f, 1f) * 10f;
 
         fixedPlayerPos = BulletMathUtils.GetPlayerPos();
+        fixedMuzzlePos = muzzlePos;
         _currentParameters = EnemyBulletParameters.FromSettings(settings);
         _rootGo = rootGo;
         _masterTf = masterTf;
@@ -69,6 +71,14 @@ public class EnemyBulletController : EnemyBullet
     void Move()
     {
         Quaternion targetRotation;
+        Vector3 centerPosition;
+        Vector3 directionFromCenter;
+        Vector3 horizontalDirection;
+            Vector3 outwardDirection;
+        float heightFactor;
+        Vector3 verticalDirection;
+        Vector3 tangentDirection;
+        Vector3 finalVelocity;
 
         switch (_currentParameters._EnemyBulletMoveType)
         {
@@ -91,24 +101,50 @@ public class EnemyBulletController : EnemyBullet
                 break;
 
             case EnemyBulletMoveType.MasterCenter:
-                Vector3 centerPosition = _rootGo.transform.position; // Enemy의 현재 위치
-                Vector3 directionFromCenter = (transform.position - centerPosition).normalized; // 중심에서 탄환으로의 방향 벡터
+                centerPosition = _rootGo.transform.position; // Enemy의 현재 위치
+                directionFromCenter = (transform.position - centerPosition).normalized; // 중심에서 탄환으로의 방향 벡터
 
                 // 수평 방향 벡터 계산 (Y축 변화 포함하지 않음)
-                Vector3 horizontalDirection = new Vector3(directionFromCenter.x, 0, directionFromCenter.z).normalized;
+                horizontalDirection = new Vector3(directionFromCenter.x, 0, directionFromCenter.z).normalized;
 
                 // 바깥쪽으로 나아가는 방향을 수평 평면에서 계산, 각도를 조정하여 바깥으로 확장
-                Vector3 outwardDirection = Quaternion.Euler(0, 45, 0) * horizontalDirection;
+                outwardDirection = Quaternion.Euler(0, 45, 0) * horizontalDirection;
 
                 // Y축 변화를 포함하는 벡터 추가
-                float heightFactor = 1.0f; // Y축 변화량을 조절하는 계수, 필요에 따라 조정
-                Vector3 verticalDirection = new Vector3(0, directionFromCenter.y * heightFactor, 0);
+                heightFactor = 1.0f; // Y축 변화량을 조절하는 계수, 필요에 따라 조정
+                verticalDirection = new Vector3(0, directionFromCenter.y * heightFactor, 0);
 
                 // 원의 접선 방향을 수평 평면에서 계산
-                Vector3 tangentDirection = Vector3.Cross(Vector3.up, horizontalDirection).normalized;
+                tangentDirection = Vector3.Cross(Vector3.up, horizontalDirection).normalized;
 
                 // 최종 벡터는 탄점 방향과 바깥쪽으로 나아가는 벡터 및 수직 방향 벡터의 합
-                Vector3 finalVelocity = (tangentDirection + outwardDirection + verticalDirection).normalized * _currentParameters.Speed;
+                finalVelocity = (tangentDirection + outwardDirection + verticalDirection).normalized * _currentParameters.Speed;
+
+                targetRotation = Quaternion.LookRotation(finalVelocity); // 탄환의 회전을 최종 벡터 방향으로 설정
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
+
+                _rb.velocity = finalVelocity; // 탄환의 속도를 최종 계산된 벡터로 설정
+                break;
+
+            case EnemyBulletMoveType.MuzzleCenter:
+                centerPosition = fixedMuzzlePos; // Enemy의 현재 위치
+                directionFromCenter = (transform.position - centerPosition).normalized; // 중심에서 탄환으로의 방향 벡터
+
+                // 수평 방향 벡터 계산 (Y축 변화 포함하지 않음)
+                horizontalDirection = new Vector3(directionFromCenter.x, 0, directionFromCenter.z).normalized;
+
+                // 바깥쪽으로 나아가는 방향을 수평 평면에서 계산, 각도를 조정하여 바깥으로 확장
+                outwardDirection = Quaternion.Euler(0, 45, 0) * horizontalDirection;
+
+                // Y축 변화를 포함하는 벡터 추가
+                heightFactor = 1.0f; // Y축 변화량을 조절하는 계수, 필요에 따라 조정
+                verticalDirection = new Vector3(0, directionFromCenter.y * heightFactor, 0);
+
+                // 원의 접선 방향을 수평 평면에서 계산
+                tangentDirection = Vector3.Cross(Vector3.up, horizontalDirection).normalized;
+
+                // 최종 벡터는 탄점 방향과 바깥쪽으로 나아가는 벡터 및 수직 방향 벡터의 합
+                finalVelocity = (tangentDirection + outwardDirection + verticalDirection).normalized * _currentParameters.Speed;
 
                 targetRotation = Quaternion.LookRotation(finalVelocity); // 탄환의 회전을 최종 벡터 방향으로 설정
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _currentParameters.RotationSpeed * Time.deltaTime);
