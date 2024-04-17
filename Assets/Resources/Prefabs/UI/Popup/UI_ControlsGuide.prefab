@@ -1995,7 +1995,6 @@ GameObject:
   - component: {fileID: 1738649904923778263}
   - component: {fileID: 3477975682815617077}
   - component: {fileID: 7252559852396420068}
-  - component: {fileID: 5791162213683246024}
   m_Layer: 5
   m_Name: UI_ControlsGuide
   m_TagString: Untagged
@@ -2090,22 +2089,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5791162213683246024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8543870185866740155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6ee918ef31eaf48804a4ece1e2cab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievementPrefab: {fileID: 8365235192767605837, guid: e56820e7d3506b74684960eb5488818e,
-    type: 3}
-  contentPanel: {fileID: 0}
-  activeAchievementList: []
 --- !u!1 &8736746670404583384
 GameObject:
   m_ObjectHideFlags: 0
