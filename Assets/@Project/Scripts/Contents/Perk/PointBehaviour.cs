@@ -16,7 +16,7 @@ public class PointBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        _requirePoint = 0;
+        _requirePoint = 50;
         _unlockCount = 0;
         _distancePoint = 0;
     }
