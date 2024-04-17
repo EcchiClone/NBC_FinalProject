@@ -81,7 +81,7 @@ public class SpawnManager
                     Vector3.up * 40 +
                     Vector3.forward * (z * _cellDiameter + cellRadius);
 
-                if (!Physics.CheckSphere(groundSpawnPoint, cellRadius / 2))
+                if (!Physics.CheckSphere(groundSpawnPoint, cellRadius))
                 {
                     _groundCell.Add(groundSpawnPoint);
                 }
