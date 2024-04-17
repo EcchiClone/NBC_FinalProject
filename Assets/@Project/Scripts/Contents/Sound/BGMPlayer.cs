@@ -11,12 +11,13 @@ public enum BGMState
     MAINSCENE,
     PERKSCENE,
     TUTORIAL,
-    FIELD,
-    BOSS,
+    FIELD
 }
 
 public class BGMPlayer : MonoBehaviour
 {
+    public static BGMPlayer Instance { get; private set; }
+
     private Scene _scene;
     private BGMState _state;
 
@@ -26,11 +27,19 @@ public class BGMPlayer : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+
         _scene = SceneManager.GetActiveScene();
     }
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnLoadScene;
         GetEventInstances();
     }
 
@@ -64,7 +73,7 @@ public class BGMPlayer : MonoBehaviour
         {
             _state = BGMState.PERKSCENE;
         }
-        else if (_scene.name == "TutorialScene")
+        else if (_scene.name == "Tutorial")
         {
             _state = BGMState.TUTORIAL;
         }
@@ -91,8 +100,6 @@ public class BGMPlayer : MonoBehaviour
                 break;
             case BGMState.FIELD:
                 PlayInstance(_fieldBGM); break;
-            case BGMState.BOSS:
-                break;
             default:
                 StopInstances(); break;
         }
@@ -114,5 +121,10 @@ public class BGMPlayer : MonoBehaviour
         {
             eventInstance.start();
         }
+    }
+
+    private void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        StopInstances();
     }
 }
