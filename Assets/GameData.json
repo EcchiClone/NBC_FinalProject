@@ -7,7 +7,7 @@
     "partIndex_Lower": 1,
     "partIndex_Upper": 1,
     "partIndex_LeftArm": 0,
-    "partIndex_RightArm": 0,
+    "partIndex_RightArm": 1,
     "partIndex_LeftShoulder": 1,
     "partIndex_RightShoulder": 2,
     "achievementPoint": 0,
@@ -36,9 +36,9 @@
         ]
     },
     "stageData": {
-        "bestTime": 0.0,
-        "bestStage": 0,
-        "highestMinionKill": 0,
+        "bestTime": 112.12921905517578,
+        "bestStage": 4,
+        "highestMinionKill": 22,
         "highestBossKill": 0,
         "researchPoint": 0
     }

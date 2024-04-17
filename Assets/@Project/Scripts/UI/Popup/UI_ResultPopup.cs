@@ -54,10 +54,13 @@ public class UI_ResultPopup : UI_Popup
         stageData.bestTime = Mathf.Max(savedData.bestTime, stageData.bestTime);
         stageData.bestStage = Mathf.Max(savedData.bestStage, stageData.bestStage);
 
-        savedData = stageData;
+        Managers.GameManager.StageData = stageData;
         Managers.StageActionManager.CallResult(savedData);
 
-        GetTMP((int)Texts.Time_Value).text = $"{data.Timer}";
+        int minutes = (int)data.Timer / 60;
+        int seconds = (int)data.Timer % 60;
+
+        GetTMP((int)Texts.Time_Value).text = $"{minutes} : {seconds}";
         GetTMP((int)Texts.Stage_Value).text = $"{data.CurrentStage}";
         GetTMP((int)Texts.BestStage_Value).text = $"{savedData.bestStage}";
         GetTMP((int)Texts.MinionKill_Value).text = $"{data.MinionKillCount}";
