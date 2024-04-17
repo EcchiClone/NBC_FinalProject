@@ -8,6 +8,7 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string randomChars = "x_"; // 인스펙터에서 설정한 변수
+    public bool brokenStart = false;
     private string originalText; // 원본 텍스트
     private string currentText; // 현재 텍스트 상태
     [SerializeField] private int changePerOnetime=3; // 한 차례에 바꿀 글자 수
@@ -21,8 +22,13 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
     private void OnEnable()
     {
         // 초기 텍스트 설정
-        currentText = new string('_', originalText.Length);
-        textComponent.text = currentText;
+        if (brokenStart)
+        {
+            currentText = new string('_', originalText.Length);
+            textComponent.text = currentText;
+        }
+        else
+            currentText = textComponent.text;
         StartCoroutine(RandomizeText()); // 텍스트 랜덤화 시작
     }
 
@@ -35,7 +41,11 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
             for (int i = 0; i < changesCount; i++)
             {
                 int charIndex = Random.Range(0, originalText.Length); // 변화시킬 문자의 위치
-
+                if (originalText[charIndex] == '\n')
+                {
+                    i--;
+                    continue;
+                }
                 // 현재 상태에서 문자를 하나 선택하여 랜덤하게 바꾼다
                 currentText = currentText.Remove(charIndex, 1).Insert(charIndex, GetRandomChar(charIndex).ToString());
             }
