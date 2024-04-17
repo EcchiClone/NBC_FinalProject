@@ -24,12 +24,6 @@ public class ModuleStatus
     public float VTOL { get; private set; }
     #endregion
 
-    #region Weapon
-    
-    #endregion
-
-    
-
     public float CurrentArmor { get; private set; }
     public float CurrentBooster { get; private set; }
 
@@ -47,21 +41,24 @@ public class ModuleStatus
         PartData leftShoulderData = Managers.Data.GetPartData(leftShoulder.ID);
         PartData rightShoulderData = Managers.Data.GetPartData(rightShoulder.ID);
 
+        PerkData perkData = Managers.GameManager.PerkData;
+
         Armor = lowerData.Armor + upperData.Armor + leftArmData.Armor + rightArmData.Armor + leftShoulderData.Armor + rightShoulderData.Armor;
+        Armor += perkData.GetAbilityValue(PerkType.SuperAlloy);
         Weight = lowerData.Weight + upperData.Weight + leftArmData.Weight + rightArmData.Weight + leftShoulderData.Weight + rightShoulderData.Weight;
-
-        MovementSpeed = lowerData.Speed;
-        JumpPower = lowerData.JumpPower;
+        
+        MovementSpeed = lowerData.Speed * Util.GetPercentagePerkValue(perkData, PerkType.SpeedModifier);
+        JumpPower = lowerData.JumpPower * Util.GetPercentagePerkValue(perkData, PerkType.Spring);
         CanJump = lowerData.CanJump;
-        BoostPower = lowerData.BoosterPower;
+        BoostPower = lowerData.BoosterPower * Util.GetPercentagePerkValue(perkData, PerkType.AfterBurner);
 
-        SmoothRotateValue = upperData.SmoothRotation;
-        BoosterGauge = upperData.BoosterGauge;
-        VTOL = upperData.Hovering;
+        SmoothRotateValue = upperData.SmoothRotation * Util.GetPercentagePerkValue(perkData, PerkType.Lubrication);
+        BoosterGauge = upperData.BoosterGauge * Util.GetPercentagePerkValue(perkData, PerkType.BoosterOverload); 
+        VTOL = upperData.Hovering * Util.GetPercentagePerkValue(perkData, PerkType.Jetpack);
 
         CurrentArmor = Armor;
-        CurrentBooster = BoosterGauge;
-    }
+        CurrentBooster = BoosterGauge;        
+    }    
 
     public void GetDamage(float damage)
     {
