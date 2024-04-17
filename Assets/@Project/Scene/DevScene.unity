@@ -301,6 +301,239 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &532630635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532630636}
+  - component: {fileID: 532630637}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &532630636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532630635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1785081291}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532630637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532630635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e65e414b69b9d7409bb20f4eb5cf59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <testEvent>k__BackingField:
+    Guid:
+      Data1: -512318822
+      Data2: 1254500550
+      Data3: -1491509879
+      Data4: -557487598
+    Path: event:/testEvent
+  <Field_BGM>k__BackingField:
+    Guid:
+      Data1: -196934883
+      Data2: 1324289386
+      Data3: -2068040010
+      Data4: -861864876
+    Path: event:/Music/BGM/FieldBGM
+  <Main_Ambience>k__BackingField:
+    Guid:
+      Data1: 1410672175
+      Data2: 1315475349
+      Data3: -465758830
+      Data4: 796471616
+    Path: event:/Ambience/Perk/Main_Ambience
+  <Perk_Ambience>k__BackingField:
+    Guid:
+      Data1: -1890350218
+      Data2: 1290310623
+      Data3: -654804600
+      Data4: 349326532
+    Path: event:/Ambience/Perk/Perk_Ambience
+  <UI_Clicked>k__BackingField:
+    Guid:
+      Data1: 1852721027
+      Data2: 1098632806
+      Data3: 1574043579
+      Data4: 1867261768
+    Path: event:/SFX/Perk_UI/UI_Clicked
+  <UI_Entered>k__BackingField:
+    Guid:
+      Data1: 686487543
+      Data2: 1325113721
+      Data3: 1139044748
+      Data4: 1839424457
+    Path: event:/SFX/Perk_UI/UI_Entered
+  <Perk_Denied>k__BackingField:
+    Guid:
+      Data1: -282723835
+      Data2: 1281240388
+      Data3: 1271366025
+      Data4: 201092522
+    Path: event:/SFX/Perk_UI/Perk_Denied
+  <Perk_Released>k__BackingField:
+    Guid:
+      Data1: -1819170327
+      Data2: 1161667727
+      Data3: 1015562665
+      Data4: -1346294400
+    Path: event:/SFX/Perk_UI/Perk_Released
+  <Perk_Reroll>k__BackingField:
+    Guid:
+      Data1: -1524090119
+      Data2: 1239253373
+      Data3: -1701845325
+      Data4: -430410107
+    Path: event:/SFX/Perk_UI/Perk_Reroll
+  <Weapon_Changed>k__BackingField:
+    Guid:
+      Data1: 1622405449
+      Data2: 1225480833
+      Data3: -387404877
+      Data4: -1706013236
+    Path: event:/SFX/Perk_UI/Weapon_Change
+  <Achivement_Success>k__BackingField:
+    Guid:
+      Data1: -289095415
+      Data2: 1178046357
+      Data3: -1462939515
+      Data4: 1083324880
+    Path: event:/SFX/Perk_UI/Achievement_Success
+  <Player_Footsteps>k__BackingField:
+    Guid:
+      Data1: 1705639363
+      Data2: 1174081851
+      Data3: 1516024728
+      Data4: -1454028208
+    Path: event:/SFX/Player/Player_Footsteps
+  <Player_GunShot>k__BackingField:
+    Guid:
+      Data1: -587654656
+      Data2: 1250306129
+      Data3: -2031592018
+      Data4: 893451833
+    Path: event:/SFX/Player/Player_GunShotShort
+  <Player_CannonShot>k__BackingField:
+    Guid:
+      Data1: -1150501072
+      Data2: 1159631594
+      Data3: -1010511956
+      Data4: -1727272662
+    Path: event:/SFX/Player/Player_CannonShot
+  <Player_LaunchMissile>k__BackingField:
+    Guid:
+      Data1: 388197540
+      Data2: 1285859612
+      Data3: -831284555
+      Data4: 1981935649
+    Path: event:/SFX/Player/Player_LaunchMissile
+  <Player_BoosterLoop>k__BackingField:
+    Guid:
+      Data1: 492220547
+      Data2: 1175195071
+      Data3: 1309183386
+      Data4: 186078880
+    Path: event:/SFX/Player/Player_Booster
+  <Player_Reload>k__BackingField:
+    Guid:
+      Data1: -1894156397
+      Data2: 1118094475
+      Data3: -1981119054
+      Data4: -1218923327
+    Path: event:/SFX/Player/Player_Reload
+  <Player_Repair>k__BackingField:
+    Guid:
+      Data1: -547179332
+      Data2: 1269770930
+      Data3: 1069860518
+      Data4: 1323914372
+    Path: event:/SFX/Player/Player_Repair
+  <Player_LockOn>k__BackingField:
+    Guid:
+      Data1: -414014822
+      Data2: 1076222404
+      Data3: 904630972
+      Data4: 1833570920
+    Path: event:/SFX/Player/Player_LockOn
+  <Others_Appear>k__BackingField:
+    Guid:
+      Data1: -1782893327
+      Data2: 1079402604
+      Data3: -1335452795
+      Data4: 2091768918
+    Path: event:/SFX/Others/Others_Appeared
+  <Others_Disappear>k__BackingField:
+    Guid:
+      Data1: -1222891287
+      Data2: 1097870205
+      Data3: -2044975965
+      Data4: 1845576716
+    Path: event:/SFX/Others/Others_Disappeared
+  <Ball_Drag>k__BackingField:
+    Guid:
+      Data1: 1726701905
+      Data2: 1206068230
+      Data3: -775780677
+      Data4: -1280016429
+    Path: event:/SFX/Enemy/Ball_Drag
+  <Ball_Explode>k__BackingField:
+    Guid:
+      Data1: -1341179624
+      Data2: 1259665108
+      Data3: 510314628
+      Data4: 735606004
+    Path: event:/SFX/Enemy/Ball_Explode
+  <Drone_Idle>k__BackingField:
+    Guid:
+      Data1: -634554719
+      Data2: 1200641711
+      Data3: -510150515
+      Data4: -1031475019
+    Path: event:/SFX/Enemy/Drone_Idle
+  <Drone_Shot>k__BackingField:
+    Guid:
+      Data1: 1581074989
+      Data2: 1308775297
+      Data3: 1601413055
+      Data4: -495280804
+    Path: event:/SFX/Enemy/Drone_Shot
+  <Spider_Shot>k__BackingField:
+    Guid:
+      Data1: 2012998256
+      Data2: 1220345003
+      Data3: -656614986
+      Data4: 1252799605
+    Path: event:/SFX/Enemy/Spider_Shot
+  <Spider_Footsteps>k__BackingField:
+    Guid:
+      Data1: 1047484608
+      Data2: 1228474273
+      Data3: 167681430
+      Data4: 38947895
+    Path: event:/SFX/Enemy/Spider_Footsteps
 --- !u!1 &578127381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1371,100 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 825f882063b25e64091b9c7b5fbcbfb1, type: 2}
+--- !u!1 &1785081289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785081291}
+  - component: {fileID: 1785081290}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1785081290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785081289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776880a24c2bf6a468e84e9f359daafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  SFXVolume: 1
+--- !u!4 &1785081291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785081289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.267418, y: -2.7487721, z: -875.8943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 532630636}
+  - {fileID: 1800634679}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1800634678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800634679}
+  - component: {fileID: 1800634680}
+  m_Layer: 0
+  m_Name: BGMPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800634679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800634678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1785081291}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1800634680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800634678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800f65b25ae585048a0cecd8ce01668c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1953271574
 GameObject:
   m_ObjectHideFlags: 0

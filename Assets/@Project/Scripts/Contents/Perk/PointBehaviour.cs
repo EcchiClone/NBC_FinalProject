@@ -32,23 +32,30 @@ public class PointBehaviour : MonoBehaviour
         PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
         SubPerkInfo subInfo = PerkManager.Instance.SelectedSubInfo;
         
-        PerkTier tier = subInfo == null ? perkInfo.Tier : PerkTier.SUB;
-        int basePoint;
-
-        switch (tier)
+        if (perkInfo.Tier != PerkTier.ORIGIN)
         {
-            case PerkTier.TIER3: basePoint = 10; break;
-            case PerkTier.TIER2: basePoint = 7; break;
-            case PerkTier.TIER1: basePoint = 5; break;
-            default: basePoint = 3; break;
+            PerkTier tier = subInfo == null ? perkInfo.Tier : PerkTier.SUB;
+            int basePoint;
+
+            switch (tier)
+            {
+                case PerkTier.TIER3: basePoint = 10; break;
+                case PerkTier.TIER2: basePoint = 7; break;
+                case PerkTier.TIER1: basePoint = 5; break;
+                default: basePoint = 3; break;
+            }
+
+            _unlockCount = PerkManager.Instance.UnlockCount;
+
+            float distance = PerkManager.Instance.SelectedPerkDistance;
+            _distancePoint = (int) (distance / 100 * 2 / 3);
+
+            _requirePoint = basePoint + _unlockCount + _distancePoint;
         }
-
-        _unlockCount = PerkManager.Instance.UnlockCount;
-
-        float distance = PerkManager.Instance.SelectedPerkDistance;
-        _distancePoint = (int) (distance / 100 * 2 / 3);
-
-        _requirePoint = basePoint + _unlockCount + _distancePoint;
+        else
+        {
+            _requirePoint = 50;
+        }
 
         PerkManager.Instance.RequirePoint = _requirePoint;
         
@@ -62,13 +69,8 @@ public class PointBehaviour : MonoBehaviour
         {
             PerkManager.Instance.UnlockCount++;
             PerkManager.Instance.PlayerPoint -= _requirePoint;
-            PerkManager.Instance.SetPerkIsActive();
 
-            ContentInfo contentInfo = PerkManager.Instance.SelectedContentInfo;
-            PerkType type = contentInfo.type;
-            float value = contentInfo.value;            
-
-            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
+            SetPerkActive();
 
             // 퍼크 개방 수 업적 진행도 업데이트
             try
@@ -80,12 +82,34 @@ public class PointBehaviour : MonoBehaviour
                 Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
             }
 
-            PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
         }
         else
         {
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Denied, transform.position);
             Debug.Log("요구되는 포인트보다 가지고 있는 포인트가 적습니다.");
+        }
+    }
+
+    private void SetPerkActive()
+    {
+        PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
+
+        if (perkInfo.Tier == PerkTier.ORIGIN)
+        {
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Reroll, transform.position);
+            PerkManager.Instance.ResetPerkSequence();
+        }
+        else
+        {
+            PerkManager.Instance.SetPerkIsActive();
+
+            ContentInfo contentInfo = PerkManager.Instance.SelectedContentInfo;
+            PerkType type = contentInfo.type;
+            float value = contentInfo.value;
+
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
+            PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
         }
     }
 
