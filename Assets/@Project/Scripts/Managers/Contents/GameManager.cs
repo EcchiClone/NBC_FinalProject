@@ -6,29 +6,17 @@ using UnityEngine;
 [Serializable]
 public class PerkData
 {
-    private Dictionary<PerkType, float> _perkDict;
+    public float[] perkValueArray = new float[18];
 
-    public PerkData()
+    public void SetActivedPerk(PerkType type, float value, PerkData data)
     {
-        _perkDict = new Dictionary<PerkType, float>()
-        {
-            {PerkType.SuperAllow,    0f},
-            {PerkType.SpeedModifier,      0f},
-            {PerkType.BoosterOverload,  0f},
-            {PerkType.AfterBurner,      0f},
-            {PerkType.RapidFire,           0f},
-        };
-    }
-
-    public void SetActivedPerk(PerkType type, float value)
-    {
-        _perkDict[type] += value;
-        Managers.GameManager.PerkData = this;
+        perkValueArray[(int)type] += value;
+        Managers.GameManager.PerkData = data;
     }
 
     public float GetAbilityValue(PerkType type)
     {
-        return _perkDict[type];
+        return perkValueArray[(int)type];
     }
 }
 
@@ -64,9 +52,9 @@ public class GameData
 
     public bool tutorialClear;
 
-    public List<int> unlockedPartsList = new List<int>();
-    public PerkData perkData = new PerkData();
-    public StageData stageData = new StageData();
+    public List<int> unlockedPartsList;
+    public PerkData perkData;
+    public StageData stageData;
 }
 
 public class GameManager
@@ -157,7 +145,12 @@ public class GameManager
     #region Perk
     public PerkData PerkData
     {
-        get => gameData.perkData;
+        get
+        {
+            if (gameData.perkData == null)
+                gameData.perkData = new PerkData();
+            return gameData.perkData;
+        }
         set
         {
             gameData.perkData = value;
@@ -176,7 +169,16 @@ public class GameManager
         }
     }
 
-    public List<int> UnlockedPartsIDList => gameData.unlockedPartsList;
+    public List<int> UnlockedPartsIDList
+    {
+        get
+        {
+            if (gameData.unlockedPartsList == null)
+                gameData.unlockedPartsList = new List<int>();
+            return gameData.unlockedPartsList;
+        }
+    }
+
     public void ReceivePartID(int id)
     {
         gameData.unlockedPartsList.Add(id);

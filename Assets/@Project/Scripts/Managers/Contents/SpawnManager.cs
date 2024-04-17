@@ -205,9 +205,7 @@ public class SpawnManager
 
         while (CurrentStage <= levelCount)
         {
-            LevelData = Managers.Data.GetLevelData(CurrentStage);
-
-            Debug.Log($"{LevelData.SpawnCount} 마리 스폰 해야됨");
+            LevelData = Managers.Data.GetLevelData(CurrentStage);            
 
             yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
             yield return CoroutineManager.StartCoroutine(Co_StartCountDown());
@@ -255,7 +253,7 @@ public class SpawnManager
         CurrentSpawnCount++;
 
         int index = _groundSpawnPoints.Count % CurrentSpawnCount;
-        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[index]).GetComponent<Entity>();
+        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[index]);
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
     }
 

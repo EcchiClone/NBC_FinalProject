@@ -17,7 +17,7 @@ public class UI_TutorialDialoguePopup : UI_Popup
     private TutorialData _currentTutoData;
     private Coroutine _coroutine;
 
-    private readonly float SCRIPTING_INTERVAL_TIME = 0.07f;
+    private readonly float SCRIPTING_INTERVAL_TIME = 0.05f;
 
     protected override void Init()
     {
@@ -74,9 +74,31 @@ public class UI_TutorialDialoguePopup : UI_Popup
     private IEnumerator Co_Scripting()
     {
         _isScripting = true;
-
+        string colorText = string.Empty;
+        bool coloring = false;
+        int colorStack = 0;
         foreach (char c in _currentScript)
         {
+            if (c == '<')
+                coloring = true;
+            if (c == '>')
+            {
+                colorStack++;
+                if (colorStack == 2)
+                    coloring = false;
+            }
+            
+            if (coloring)
+            {
+                colorText += c;                
+                continue;
+            }                
+            else if(coloring == false && string.IsNullOrEmpty(colorText) == false)
+            {
+                _dialogueText.text += colorText;
+                colorText = string.Empty;                
+            }
+                
             _dialogueText.text += c;
             yield return Util.GetWaitSeconds(SCRIPTING_INTERVAL_TIME);
         }
