@@ -73,7 +73,7 @@ public class PerkManager : MonoBehaviour
     private void Start()
     {
         // 변수 초기화
-        PlayerPoint = 100;
+        PlayerPoint = 9999;
         UnlockCount = 0;
         CurrentSeed = _seed.RandomSeedGenerator();
 
