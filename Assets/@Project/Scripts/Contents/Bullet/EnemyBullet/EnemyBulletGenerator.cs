@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Pool;
 using static PhaseSO;
-using static UnityEngine.UIElements.VisualElement;
 
 public class EnemyBulletGenerator : MonoBehaviour
 {

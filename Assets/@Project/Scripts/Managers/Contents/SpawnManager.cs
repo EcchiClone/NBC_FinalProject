@@ -187,7 +187,7 @@ public class SpawnManager
 
         while (CurrentStage <= levelCount)
         {
-            LevelData = Managers.Data.GetLevelData(CurrentStage);            
+            LevelData = Managers.Data.GetLevelData(CurrentStage);
 
             yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
             yield return CoroutineManager.StartCoroutine(Co_StartCountDown());
@@ -195,12 +195,13 @@ public class SpawnManager
             if (LevelData.EnemyType == EnemyType.Minion || (LevelData.EnemyType == EnemyType.Boss && CheckStageClear()))
             {
                 _currentWaveSpawnCount = 0;
-                CurrentStage++;                
+                CurrentStage++;
                 OnStageClear?.Invoke();
                 continue;
             }
             yield break;
         }
+        TimeOut();
     }
 
     public IEnumerator Co_SpawnEnemies()
@@ -234,7 +235,10 @@ public class SpawnManager
         _currentWaveSpawnCount++;
         CurrentSpawnCount++;
 
-        ObjectPooler.SpawnFromPool(unitType, GetSpawnPoint()).GetComponent<Entity>();
+        if (LevelData.EnemyType == EnemyType.Minion)
+            ObjectPooler.SpawnFromPool(unitType, GetSpawnPoint());
+        else if (LevelData.EnemyType == EnemyType.Boss)
+            ObjectPooler.SpawnFromPool(unitType, new Vector3(50, 50, 50));
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
     }
 

@@ -98,6 +98,7 @@ public class PointBehaviour : MonoBehaviour
         {
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Reroll, transform.position);
+            PerkManager.Instance.SelectedPerkInfo.IsActive = true;
             PerkManager.Instance.ResetPerkSequence();
         }
         else
