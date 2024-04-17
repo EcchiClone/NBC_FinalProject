@@ -114,8 +114,9 @@ MonoBehaviour:
     _followOnTargetMode: {fileID: 330272713035144040}
     _targetLayer:
       serializedVersion: 2
-      m_Bits: 1024
-    _scanRange: 20
+      m_Bits: 17408
+    _scanRange: 50
+    _scanRadius: 10
 --- !u!114 &5245987810503798519
 MonoBehaviour:
   m_ObjectHideFlags: 0

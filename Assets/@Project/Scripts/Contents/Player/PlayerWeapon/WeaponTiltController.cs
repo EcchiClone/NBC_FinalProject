@@ -33,12 +33,6 @@ public class WeaponTiltController
 
     public void CombatLockOnControl()
     {
-        //if (_module.LockOnSystem.TargetEnemy == null)
-        //{
-        //    CombatFreeFireControl();
-        //    return;
-        //}
-
         Vector3 headToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _module.transform.position;        
         Vector3 leftArmToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _arms[0].transform.position;
         Vector3 rightArmToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _arms[1].transform.position;
