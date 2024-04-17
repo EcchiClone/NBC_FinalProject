@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempObject : MonoBehaviour
+public class HowtoUseLoop : MonoBehaviour
 {
     // 필드에 선언
     private EventInstance _spiderFootsteps;
