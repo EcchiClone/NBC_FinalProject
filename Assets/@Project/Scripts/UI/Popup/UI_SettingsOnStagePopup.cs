@@ -9,12 +9,7 @@ public class UI_SettingsOnStagePopup : UI_Popup
 {
     enum Buttons
     {
-        Btn_BackToMain1,
-        Btn_BackToMain2,
-        Btn_BackToMain3,
-        Btn_BackToMain4,
-        Btn_BackToMain5,
-        Btn_BackToMain6,
+        Button_BackToMain,
         Background,
     }
     enum Sliders
@@ -47,12 +42,7 @@ public class UI_SettingsOnStagePopup : UI_Popup
 
         try
         {
-            GetButton((int)Buttons.Btn_BackToMain1).onClick.AddListener(ClosePanel);
-            GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(ClosePanel);
-            GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(ClosePanel);
-            GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(ClosePanel);
-            GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(ClosePanel);
-            GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(ClosePanel);
+            GetButton((int)Buttons.Button_BackToMain).onClick.AddListener(ClosePanel);
         }
         catch { }
         GetButton((int)Buttons.Background).onClick.AddListener(ClosePanel);
@@ -65,16 +55,16 @@ public class UI_SettingsOnStagePopup : UI_Popup
         // SOUND
         slider = Get<Slider>((int)Sliders.Slider_Sound1);
         slider.onValueChanged.AddListener(SliderEvent_Sound1);
-        //slider.value = AudioManager.instance.masterVolume;
+        slider.value = AudioManager.Instance.masterVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound2);
         slider.onValueChanged.AddListener(SliderEvent_Sound2);
-        //slider.value = AudioManager.instance.musicVolume;
+        slider.value = AudioManager.Instance.musicVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound3);
         slider.onValueChanged.AddListener(SliderEvent_Sound3);
-        //slider.value = AudioManager.instance.ambienceVolume;
+        slider.value = AudioManager.Instance.ambienceVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound4);
         slider.onValueChanged.AddListener(SliderEvent_Sound4);
-        //slider.value = AudioManager.instance.SFXVolume;
+        slider.value = AudioManager.Instance.SFXVolume;
 
         // GRAPHICS
         slider = Get<Slider>((int)Sliders.Slider_Quality);
@@ -88,23 +78,23 @@ public class UI_SettingsOnStagePopup : UI_Popup
     public void SliderEvent_Sound1(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)value).ToString();
-        //AudioManager.instance.masterVolume = value;
+        AudioManager.Instance.masterVolume = value;
 
     }
     public void SliderEvent_Sound2(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)value).ToString();
-        //AudioManager.instance.musicVolume = value;
+        AudioManager.Instance.musicVolume = value;
     }
     public void SliderEvent_Sound3(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)value).ToString();
-        //AudioManager.instance.ambienceVolume = value;
+        AudioManager.Instance.ambienceVolume = value;
     }
     public void SliderEvent_Sound4(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)value).ToString();
-        //AudioManager.instance.SFXVolume = value;
+        AudioManager.Instance.SFXVolume = value;
     }
     public void SliderEvent_Quality(float value)
     {
