@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4076228523878410003}
   - component: {fileID: 5772368460857743336}
   - component: {fileID: 4508579759079578991}
+  - component: {fileID: -8973967264921474843}
   m_Layer: 0
   m_Name: '@AchievementCommonUpdater'
   m_TagString: Untagged
@@ -104,3 +105,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskCategory: {fileID: 11400000, guid: 031f986a7d1b0bf44afa8c70c5a4a3d9, type: 2}
   taskTarget: {fileID: 11400000, guid: 20249daf8df8e7a40af5939af6be29ba, type: 2}
+--- !u!114 &-8973967264921474843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125289637639721893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3db63e0170f91a4898f1e01a597abc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskCategory: {fileID: 11400000, guid: 9866768e36bff5e418972a342f5427f4, type: 2}
+  taskTarget: {fileID: 11400000, guid: 3065e4f268625a44bab32a4d8ce45a96, type: 2}

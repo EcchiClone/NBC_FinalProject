@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpdateDone : AchievementUpdater
+public class UpdateTutorialDone : AchievementUpdater
 {
     public void UpdateReport()
     {
