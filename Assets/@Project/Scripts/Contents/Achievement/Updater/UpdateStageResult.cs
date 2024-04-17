@@ -8,20 +8,18 @@ public class UpdateStageResult : AchievementUpdater
 {
     // 해당 컴포넌트는 CommonUpdater에 부착
 
-    private void Awake()
+    private void Start()
     {
-        // GameManager.결과이벤트에 구독
-        // Managers.GameManager.onResult += ReportResultData;
+        //Managers.StageActionManager.OnResult += ReportResultData;
     }
-    private void ReportResultData()
+    private void ReportResultData(StageData sd)
     {
         // GameManager 생긴 후 활성화
         // 토탈 스코어, 총 킬수, 총 보스 킬수, 총 미니언 킬수 업적에 업데이트
 
-        //AchievementSystem.Instance.ReceiveReport("RESULT", "SCORE", Managers.GameManager.Score);
-        //AchievementSystem.Instance.ReceiveReport("RESULT", "KILL_ENEMY", Managers.GameManager.KilledBoss + Managers.GameManager.KilledMinion);
-        //AchievementSystem.Instance.ReceiveReport("RESULT", "KILL_BOSS", Managers.GameManager.KilledBoss);
-        //AchievementSystem.Instance.ReceiveReport("RESULT", "KILL_MINION", Managers.GameManager.KilledMinion);
+        Managers.AchievementSystem.ReceiveReport("RESULT", "SCORE", sd.bestStage);
+        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_ENEMY", sd.KilledBoss + sd.KilledMinion);
+        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_BOSS", sd.KilledBoss);
+        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_MINION", sd.KilledMinion);
     }
-
 }

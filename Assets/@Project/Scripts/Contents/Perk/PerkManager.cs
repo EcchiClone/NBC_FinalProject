@@ -113,7 +113,7 @@ public class PerkManager : MonoBehaviour
     private void CheckDataExists()
     {
         // 저장된 퍼크 파일이 전부 존재하는지 확인
-        if (_json.IsExist("tier1PerkData") && _json.IsExist("tier2PerkData") && _json.IsExist("tier3PerkData"))
+        if (_json.IsPerkDataExist("tier1PerkData") && _json.IsPerkDataExist("tier2PerkData") && _json.IsPerkDataExist("tier3PerkData"))
         {
             Debug.Log("데이터 있음");
         }

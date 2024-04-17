@@ -43,7 +43,7 @@ public abstract class Entity : MonoBehaviour, ITarget
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         
-        Target = Managers.Module.CurrentModule.transform;
+        Target = Managers.Module.CurrentUpperPart.transform;
         Initialize();
 
         Anim = GetComponent<Animator>();
@@ -73,9 +73,15 @@ public abstract class Entity : MonoBehaviour, ITarget
             IsAlive = false;
             Managers.ActionManager.CallLockTargetDestroyed(this);
             if (EnemyType == EnemyType.Minion)
+            {
                 Managers.StageActionManager.CallMinionKilled();
+                AchievementCommonUpdater.instance.GetComponent<UpdateKillMinion>().UpdateReport();
+            }
             else if (EnemyType == EnemyType.Boss)
+            {
                 Managers.StageActionManager.CallBossKilled();
+                AchievementCommonUpdater.instance.GetComponent<UpdateKillBoss>().UpdateReport();
+            }
         }
     }
 

@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee50bc0e7ce35a4d9e63f1007ca1125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: 0
+  maxAP: 0
+  currentAP: 0
 --- !u!1 &1518851194430920354
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f2ec580a4c2ce4d914600b8a67974e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 0
   <Data>k__BackingField: {fileID: 11400000, guid: 6fcb662a87ed26a4597bcc498ae534db,
     type: 2}
   <Target>k__BackingField: {fileID: 0}

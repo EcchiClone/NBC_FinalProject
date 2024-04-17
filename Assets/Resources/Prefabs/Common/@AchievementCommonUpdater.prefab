@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5772368460857743336}
   - component: {fileID: 4508579759079578991}
   - component: {fileID: -8973967264921474843}
+  - component: {fileID: 8050508983009490109}
+  - component: {fileID: 8592811092228073716}
   m_Layer: 0
   m_Name: '@AchievementCommonUpdater'
   m_TagString: Untagged
@@ -119,3 +121,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskCategory: {fileID: 11400000, guid: 9866768e36bff5e418972a342f5427f4, type: 2}
   taskTarget: {fileID: 11400000, guid: 3065e4f268625a44bab32a4d8ce45a96, type: 2}
+--- !u!114 &8050508983009490109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125289637639721893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6147f6b1374c74db87f665cb163544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskCategory: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
+  taskTarget: {fileID: 11400000, guid: cc4422af0688111499ec256dff5a7fe2, type: 2}
+--- !u!114 &8592811092228073716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125289637639721893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa6a06fd2c04ee43a574826408bcf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskCategory: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
+  taskTarget: {fileID: 11400000, guid: 8f99d4173325b7c4c9e30e08a9fe24e7, type: 2}
