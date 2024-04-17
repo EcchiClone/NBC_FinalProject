@@ -7,14 +7,12 @@ using System;
 
 public class OriginPerkBehaviour : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
-    private Image _image;
 
     private PerkInfo _perkInfo;
     private ContentInfo _contentInfo;
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
         InitInfos();
     }
 
@@ -48,6 +46,11 @@ public class OriginPerkBehaviour : MonoBehaviour, IPointerClickHandler, IPointer
         PerkManager.Instance.SelectedPerkInfo = _perkInfo;
         PerkManager.Instance.SelectedContentInfo = _contentInfo;
         PerkManager.Instance.SelectedSubInfo = null;
+    }
+
+    public void SetOriginIsActiveFalse()
+    {
+        _perkInfo.IsActive = false;
     }
 
     private void OnUnlockBtnClicked(object sender, EventArgs eventArgs)

@@ -218,6 +218,7 @@ public class PerkManager : MonoBehaviour
         InitVars();
         CreateNewPerkSequence();
         GeneratePerks();
+        GameObject.FindWithTag("Origin").GetComponent<OriginPerkBehaviour>().SetOriginIsActiveFalse();
     }
 
     private void GeneratePerks()

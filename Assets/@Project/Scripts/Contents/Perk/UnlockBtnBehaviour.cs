@@ -73,7 +73,10 @@ public class UnlockBtnBehaviour : MonoBehaviour
         }
         else
         {
-            ShowRerollBtn();
+            if (!perkInfo.IsActive)
+                ShowRerollBtn();
+            else
+                ShowAfterBtn();
         }
     }
 
@@ -81,12 +84,14 @@ public class UnlockBtnBehaviour : MonoBehaviour
     {
         _beforeBtn.SetActive(true);
         _afterBtn.SetActive(false);
+        HideRerollBtn();
     }
 
     private void ShowAfterBtn()
     {
         _beforeBtn.SetActive(false);
         _afterBtn.SetActive(true);
+        HideRerollBtn();
     }
 
     private void ShowRerollBtn() => _rerollBtn.SetActive(true);
