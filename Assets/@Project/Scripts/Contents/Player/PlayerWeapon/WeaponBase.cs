@@ -8,15 +8,23 @@ public abstract class WeaponBase : MonoBehaviour
     public event Action<int, bool, bool, Define.Parts_Location> OnWeaponFire;
 
     [SerializeField] protected GameObject _muzzleEffect;
+
+    public float BulletDamage { get; private set; }
+    public float ReloadSpeed { get; private set; }
+    public float FireRate { get; private set; }
+    public float ShotError { get; private set; }
+    public bool CanPierce { get; private set; }
+    public bool CanReloadShoulder { get; private set; }
+
     protected Transform _target;
-    protected LayerMask _groundLayer;    
+    protected LayerMask _groundLayer;
     protected PartData _partData;
 
     private GameObject _bulletObject;
 
     private int _ammo;
-    private bool _isCoolDown = false;    
-    
+    private bool _isCoolDown = false;
+
     public int Ammo
     {
         get => _ammo;
@@ -36,7 +44,7 @@ public abstract class WeaponBase : MonoBehaviour
         }
     }
 
-    private Define.Parts_Location _type;    
+    private Define.Parts_Location _type;
 
     public virtual void Setup(int partID, Define.Parts_Location type, LayerMask layerMask)
     {
@@ -48,9 +56,17 @@ public abstract class WeaponBase : MonoBehaviour
         _partData = Managers.Data.GetPartData(partID);
         _bulletObject = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
 
-        Ammo = _partData.Ammo;
+        PerkData perkData = Managers.GameManager.PerkData;
+        Ammo = (int)(_partData.Ammo * Util.GetPercentagePerkValue(perkData, PerkType.SpareAmmunition));
+        BulletDamage = _partData.Damage * Util.GetPercentagePerkValue(perkData, PerkType.ImprovedBullet);
+
+
+
+
+
+
         if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
-            Ammo = 9999;        
+            Ammo = 9999;
 
         OnWeaponFire += CheckReload;
     }
@@ -61,17 +77,17 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     protected GameObject CreateBullet(Transform muzzle)
-    {        
-        GameObject bullet = ObjectPooler.SpawnFromPool(_bulletObject.name, muzzle.position);        
+    {
+        GameObject bullet = ObjectPooler.SpawnFromPool(_bulletObject.name, muzzle.position);
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;
     }
 
     protected EffectLifeTime CreateMuzzleEffect(Transform muzzle)
-    {        
+    {
         EffectLifeTime effect = ObjectPooler.SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
-        effect.transform.rotation = muzzle.rotation;        
+        effect.transform.rotation = muzzle.rotation;
 
         return effect;
     }

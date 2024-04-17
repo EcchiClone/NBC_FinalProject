@@ -10,11 +10,6 @@ public class UI_SettingsPopup : UI_Popup
     enum Buttons
     {
         Button_BackToMain,
-        //Btn_BackToMain2, // 더미 뒤로가기 버튼
-        //Btn_BackToMain3,
-        //Btn_BackToMain4,
-        //Btn_BackToMain5,
-        //Btn_BackToMain6,
         Background,
 
         //Button_Reset1,  // -> 데이터 초기화를 위한 버튼
@@ -53,11 +48,6 @@ public class UI_SettingsPopup : UI_Popup
         {
             GetButton((int)Buttons.Button_BackToMain).onClick.AddListener(BackToMain);
             GetButton((int)Buttons.Background).onClick.AddListener(BackToMain);
-            //GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(BackToMain); // 더미 버튼, 정립 시 삭제
-            //GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(BackToMain);
-            //GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(BackToMain);
-            //GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(BackToMain);
-            //GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(BackToMain);
         }
         catch { }
 
@@ -132,15 +122,6 @@ public class UI_SettingsPopup : UI_Popup
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_DPI).text = ((int)value).ToString();
         Debug.Log("DPI 조정: " + dpiScale);
     }
-    //private void Reset1Btn() // 게임 초기화, 미구현
-    //{
-    //    // 팝업(()=>Data1 삭제 로직{});
-    //}
-
-    //private void Reset2Btn() // 퍼크 초기화, 미구현
-    //{
-    //    // 팝업(()=>Data2 삭제 로직{});
-    //}
     private void BackToMain()
     {
         _previousPopup.gameObject.SetActive(true);
