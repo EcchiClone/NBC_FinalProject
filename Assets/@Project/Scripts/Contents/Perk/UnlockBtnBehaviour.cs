@@ -80,7 +80,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
 
     private void UpdateRequireText()
     {
-        _pointTxt.text = "Require " + PerkManager.Instance.RequirePoint.ToString() + " Points";
+        _pointTxt.text = "해금에 " + PerkManager.Instance.RequirePoint.ToString() + " 포인트 필요";
     }
 
     private void OnPerkClicked(object sender, EventArgs eventArgs)
