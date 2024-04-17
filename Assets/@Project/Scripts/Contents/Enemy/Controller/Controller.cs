@@ -7,7 +7,7 @@ public  class Controller
 {
     public Controller(Entity entity)
     {
-        this.Entity = entity;
+        Entity = entity;
     }
 
     protected Entity Entity { get; private set; }
