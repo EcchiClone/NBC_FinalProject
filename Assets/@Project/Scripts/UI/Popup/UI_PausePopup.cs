@@ -49,9 +49,8 @@ public class UI_PausePopup : UI_Popup
     private void Restart()
     {
         Time.timeScale = 1;
-        // 씬 다시 로드
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        // 씬 다시 로드        
+        Managers.Scene.LoadScene(Scenes.DevScene);
     }
     private void Settings()
     {
@@ -68,6 +67,6 @@ public class UI_PausePopup : UI_Popup
     {
         Time.timeScale = 1;
         // 메인메뉴로
-        SceneManager.LoadScene("MainScene");
+        Managers.Scene.LoadScene(Scenes.MainScene);
     }
 }

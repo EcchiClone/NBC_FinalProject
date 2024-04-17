@@ -152,6 +152,9 @@ MonoBehaviour:
     prefab: {fileID: 5447842844788669448, guid: eff43fbd7e2d51b4ab2dbb47268d9d91,
       type: 3}
     size: 100
+  - tag: EnemyBulletCluster_Triangle
+    prefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
+    size: 100
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,8 +45,8 @@ public class UI_HUD : UI_Scene
         _ammoTextDict.Add(Define.Parts_Location.Weapon_Arm_R, _ammoAR);
         _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_L, _ammoSL);
         _ammoTextDict.Add(Define.Parts_Location.Weapon_Shoulder_R, _ammoSR);
-
-        Managers.ModuleActionManager.OnChangeArmorPoint += ChangeAPValue;
+                
+        Managers.ModuleActionManager.OnChangeArmorPoint += ChangeAPValue;        
         Managers.ModuleActionManager.OnChangeBoosterGauge += ChangeBoosterValue;
 
         // vvvvv 무기 사용 제외 모든 HUD 정보를 갱신하도록 Action 구독 - ActionManager 에 Action 몰아넣기

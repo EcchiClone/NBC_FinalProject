@@ -3,57 +3,57 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "Core Power Enhancement I",
-            "description": "Increase the maximum AP by 500 by strengthening core power.",
+            "name": "코어 동력 강화 I",
+            "description": "코어 동력을 강화해서 최대 AP를 500 증가시킵니다.",
             "type": 0,
             "value": 500.0
         },
         {
             "contentIdx": 1,
-            "name": "Enhanced Electrical Output I",
-            "description": "Increase the electricity output to increase the speed of movement by 10%.",
+            "name": "향상된 전기 출력 I",
+            "description": "본체의 전기 출력을 강화해 이동 속도를 10% 증가시킵니다.",
             "type": 1,
             "value": 10.0
         },
         {
-            "contentIdx": 2,
-            "name": "Redesigned Automation System I",
-            "description": "Redesign the weapon automation system. Increases reload speed by 10%.",
+            "contentIdx": 2,             
+            "name": "자동화 시스템 재설계 I",
+            "description": "무기 재장전 시스템을 재설계합니다. 장전 속도가 10% 증가합니다.",
             "type": 4,
             "value": 10.0
         },
         {
             "contentIdx": 3,
-            "name": "Barrel Rotation I",
-            "description": "Increase the rotation speed by strengthening the motor of the gun row. Bullet firing speed increases by 5%.",
+            "name": "총열 회전 I",
+            "description": "총열 모터의 출력을 늘려 회전 속도를 향상시킵니다. 발사 속도가 5% 증가합니다.",
             "type": 5,
             "value": 5.0
         },
         {
             "contentIdx": 4,
-            "name": "Accelerated Elasticity I",
-            "description": "It accelerates the elasticity of the lower body material and improves the jumping power. It improves the jumping power by 10%.",
+            "name": "하체 탄력 가속 I",
+            "description": "하체 소재가 본래 상태로 되돌아갈 때의 속도를 가속시켜 점프력을 10% 강화합니다.",
             "type": 6,
             "value": 10.0
         },
         {
             "contentIdx": 5,
-            "name": "Enhanced Gas Output I",
-            "description": "It significantly increases the power of hovering gas. Hovering power increases by 10%.",
+            "name": "향상된 가스 출력 I",
+            "description": "호버링 가스 출력을 10% 높입니다.",
             "type": 8,
             "value": 10.0
         },
         {
             "contentIdx": 6,
-            "name": "Firepower Reconstruction I",
-            "description": "Reconfigures the firepower of the weapon you use. Increases damage to all weapons by 10%.",
+            "name": "화력 재구성 I",
+            "description": "사용하는 무기의 화력을 재구성합니다. 모든 무기의 공격력이 10% 증가합니다.",
             "type": 10,
             "value": 10.0
         },
         {
             "contentIdx": 7,
-            "name": "Enhanced Radar I",
-            "description": "Strengthen radar. Rock-on distance increases by 10%.",
+            "name": "레이더 탐지 I",
+            "description": "레이더를 강화합니다. 락온 최대 거리가 10% 증가합니다.",
             "type": 11,
             "value": 10.0
         }

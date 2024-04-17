@@ -125,7 +125,7 @@ public class SpawnManager
         foreach (Vector3 cell in _groundCell)
         {
             if (Physics.Raycast(cell, Vector3.down, out hit, 41f))
-                _groundTempPoint.Add(hit.point + Vector3.up*3);
+                _groundTempPoint.Add(hit.point + Vector3.up * 3);
         }
         _groundSpawnPoints = new List<Vector3>(_groundTempPoint);
 
@@ -149,55 +149,121 @@ public class SpawnManager
             _groundSpawnPoints[k] = _groundSpawnPoints[n];
             _groundSpawnPoints[n] = value;
         }
-        
     }
 
 
+    #region 국 작업
+    public event Action OnStageClear;
 
+    public StageData StageData { get; private set; }
+    public LevelData LevelData { get; private set; }
 
-    #region 국 작업    
-    public int CurrentLevel { get; private set; }
-    public int KilledEnemiesCount { get; private set; }
+    public int CurrentSpawnCount { get; private set; }
     public bool IsStarted { get; private set; }
 
-    public event Action OnStageClear;
+    private float _totaltime;
+    private int _currentStage;
+    private int _minionKillCount;
+    private int _bossKillCount;
+    private int _researchPoint;
+
+    public float Timer { get => _totaltime; private set { _totaltime = value; StageData.bestTime = _totaltime; } }
+    public int CurrentStage { get => _currentStage; private set { _currentStage = value; StageData.bestStage = _currentStage; } }
+    public int MinionKillCount { get => _minionKillCount; private set { _minionKillCount = value; StageData.highestMinionKill = _minionKillCount; } }
+    public int BossKillCount { get => _bossKillCount; private set { _bossKillCount = value; StageData.highestBossKill = _bossKillCount; } }
+    public int ResearchPoint { get => _researchPoint; private set { _researchPoint = value; StageData.researchPoint = _researchPoint; } }
+
+    private int _currentWaveSpawnCount;
+    private float _timer;
 
     public void Init()
     {
-        // To Do - 맵 스폰
-        // 맵이 스폰되면 게임시작
+        StageData = new StageData();
+
+        Managers.StageActionManager.OnMinionKilled += () => MinionKillCount++;
+        Managers.StageActionManager.OnBossKilled += () => BossKillCount++;
     }
 
-    public void StageStart()
+    public IEnumerator Co_TimerOn()
+    {
+        while (true)
+        {
+            Timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public IEnumerator GameStart()
     {
         if (!IsStarted)
         {
             IsStarted = true;
-            CurrentLevel = 1;
-        }        
-        // To Do - 적 스폰
+            CurrentStage = 1;
+        }
+        int levelCount = Managers.Data.GetLevelDataDictCount();
+        CreateCell();
 
+        while (CurrentStage <= levelCount)
+        {
+            LevelData = Managers.Data.GetLevelData(CurrentStage);
 
+            Debug.Log($"{LevelData.SpawnCount} 마리 스폰 해야됨");
 
-        // 실제 스테이지 로직
+            yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
+            yield return CoroutineManager.StartCoroutine(Co_StartCountDown());
+
+            if (LevelData.EnemyType == EnemyType.Minion || (LevelData.EnemyType == EnemyType.Boss && CheckStageClear()))
+            {
+                _currentWaveSpawnCount = 0;
+                CurrentStage++;                
+                OnStageClear?.Invoke();
+                continue;
+            }
+            yield break;
+        }
     }
 
-    public void SpawnEnemy(string unitType, int spawnIndex)
-    {        
-        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[spawnIndex]);
-    }
-
-    public void StageClear()
+    public IEnumerator Co_SpawnEnemies()
     {
-        CurrentLevel++;
-        OnStageClear?.Invoke();
+        while (true)
+        {
+            yield return Util.GetWaitSeconds(LevelData.SpawnDelayTime);
+
+            string unitType = LevelData.SpawnTypes[UnityEngine.Random.Range(0, LevelData.SpawnTypes.Count)].ToString();
+            SpawnEnemy(unitType);
+
+            if (_currentWaveSpawnCount >= LevelData.SpawnCount)
+                break;
+        }
     }
 
-    public void CheckStageClear(int SpawnCount)
+    public IEnumerator Co_StartCountDown()
     {
-        KilledEnemiesCount++;
-        if (KilledEnemiesCount >= SpawnCount)
-            StageClear();
+        _timer = LevelData.CountDownTime;
+
+        while (_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+            Managers.StageActionManager.CallCountDown(_timer);
+            yield return null;
+        }
+    }
+
+    public void SpawnEnemy(string unitType)
+    {
+        _currentWaveSpawnCount++;
+        CurrentSpawnCount++;
+
+        int index = _groundSpawnPoints.Count % CurrentSpawnCount;
+        ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[index]).GetComponent<Entity>();
+        Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
+    }
+
+    public bool CheckStageClear()
+    {
+        if (CurrentSpawnCount == MinionKillCount + BossKillCount)
+            return true;
+        return false;
     }
 
     public void TimeOut()
@@ -206,12 +272,9 @@ public class SpawnManager
         Managers.ActionManager.CallPlayerDead();
     }
     #endregion
+
+    public void Clear()
+    {
+        OnStageClear = null;
+    }
 }
-
-// 게임오버 조건 2가지
-// 1. 타임오버 - 플레이어는 생존
-// 2. 게임오버 - 타임이 계속 흘러가는 경우
-
-// 스테이지 매니저 목표
-// 시트에서 2가지 이상 몬스터 종류를 불러오게 할 수 있다면
-// 성원님 or 국 방법 아무거나에 적용하기

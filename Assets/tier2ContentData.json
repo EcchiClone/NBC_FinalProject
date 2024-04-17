@@ -3,113 +3,113 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "Core Power Enhancement II",
-            "description": "Increase the maximum AP by 1000 by strengthening core power.",
+            "name": "코어 동력 강화 II",
+            "description": "코어 동력을 강화해서 최대 AP를 1000 증가시킵니다.",
             "type": 0,
             "value": 1000.0
         },
         {
             "contentIdx": 1,
-            "name": "Enhanced Electrical Output II",
-            "description": "Increase the electricity output to increase the speed of movement by 20%.",
+            "name": "향상된 전기 출력 II",
+            "description": "본체의 전기 출력을 강화해 이동 속도를 20% 증가시킵니다.",
             "type": 1,
             "value": 20.0
         },
         {
             "contentIdx": 2,
-            "name": "Condenser Reinforcement I",
-            "description": "Strengthen the condenser to increase the total amount of power that can be stored. Booster maximum charge increases by 10%.",
+            "name": "콘덴서 증강 I",
+            "description": "파워 출력을 저장하는 콘덴서를 강화해 저장 한도를 높입니다. 부스터 저장 한도가 10% 증가합니다.",
             "type": 2,
             "value": 10.0
         },
         {
             "contentIdx": 3,
-            "name": "Reactor Efficiency I",
-            "description": "Increase the efficiency of the reactor; increase the dash output by 10%.",
+            "name": "반응로 효율 I",
+            "description": "반응로의 효율을 증가시킵니다. 대시 출력이 10% 증가합니다.",
             "type": 3,
             "value": 10.0
         },
         {
             "contentIdx": 4,
-            "name": "Redesigned Automation System II",
-            "description": "Redesign the weapon automation system. Increases reload speed by 20%.",
+            "name": "자동화 시스템 재설계 II",
+            "description": "무기 재장전 시스템을 재설계합니다. 장전 속도가 20% 증가합니다.",
             "type": 4,
             "value": 20.0
         },
         {
             "contentIdx": 5,
-            "name": "Barrel Rotation II",
-            "description": "Increase the rotation speed by strengthening the motor of the gun row. Bullet firing speed increases by 10%.",
+            "name": "총열 회전 II",
+            "description": "총열 모터의 출력을 늘려 회전 속도를 향상시킵니다. 발사 속도가 10% 증가합니다.",
             "type": 5,
             "value": 10.0
         },
         {
             "contentIdx": 6,
-            "name": "Accelerated Elasticity II",
-            "description": "It accelerates the elasticity of the lower body material and improves the jumping power. It improves the jumping power by 20%.",
+            "name": "하체 탄력 가속 II",
+            "description": "하체 소재가 본래 상태로 되돌아갈 때의 속도를 가속시켜 점프력을 20% 강화합니다.",
             "type": 6,
             "value": 20.0
         },
         {
             "contentIdx": 7,
-            "name": "Quick Rotation I",
-            "description": "Increase the rotational speed by 5%.",
+            "name": "빠른 회전 I",
+            "description": "회전 속도가 5% 증가합니다.",
             "type": 7,
             "value": 5.0
         },
         {
             "contentIdx": 8,
-            "name": "Enhanced Gas Output II",
-            "description": "It significantly increases the power of hovering gas. Hovering power increases by 20%.",
+            "name": "향상된 가스 출력 II",
+            "description": "호버링 가스 출력을 20% 높입니다.",
             "type": 8,
             "value": 20.0
         },
         {
             "contentIdx": 9,
-            "name": "Firepower Reconstruction II",
-            "description": "Reconfigures the firepower of the weapon you use. Increases damage to all weapons by 15%.",
+            "name": "화력 재구성 II",
+            "description": "사용하는 무기의 화력을 재구성합니다. 모든 무기의 공격력이 15% 증가합니다.",
             "type": 10,
             "value": 15.0
         },
         {
             "contentIdx": 10,
-            "name": "Enhanced Radar II",
-            "description": "Strengthen radar. Rock-on distance increases by 20%.",
+            "name": "레이더 탐지 II",
+            "description": "레이더를 강화합니다. 락온 최대 거리가 20% 증가합니다.",
             "type": 11,
             "value": 20.0
         },
         {
             "contentIdx": 11,
-            "name": "Reserve Barrel Rotation I",
-            "description": "Increase the attack speed of the reserve armament by 10%.",
+            "name": "보조 총열 회전 I",
+            "description": "팔 무장의 공격 속도를 10% 증가시킵니다.",
             "type": 12,
             "value": 10.0
         },
         {
             "contentIdx": 12,
-            "name": "Reserve Aim Accuracy I",
-            "description": "Increase aiming accuracy by learning the aiming system. The firing error rate of the reserve armament is reduced by 10%.",
+            "name": "보조 정확도 향상 I",
+            "description": "자동 조준 시스템을 학습시켜 정확도를 향상시킵니다. 팔 무장의 발사 오차율이 10% 감소합니다.",
             "type": 13,
             "value": 10.0
         },
         {
             "contentIdx": 13,
-            "name": "Reserve Ammunition Capacity I",
-            "description": "The ammunition of the reserve armament increases by 20%.",
+            "name": "보조 탄약 용량 I",
+            "description": "팔 무장의 탄약 용량이 20% 증가합니다.",
             "type": 14,
             "value": 20.0
         },
         {
             "contentIdx": 14,
-            "name": "Light Armored Plate I",
-            "description": "Equipped with light protective plate, it improves defense by 5%.",
+            "name": "경량 보호 장갑 I",
+            "description": "경량 보호 장갑을 장비합니다. 방어력이 5% 증가합니다.",
             "type": 16,
             "value": 5.0
         },
         {
             "contentIdx": 15,
-            "name": "Protective Magnetic Field I",
-            "description": "Enable the protective magnetic field to ignore damage with a 5% chance of shooting.",
+            "name": "보호 자기장 I",
+            "description": "5%의 확률로 피격을 무시하는 보호 자기장을 생성합니다.",
             "type": 17,
             "value": 5.0
         }
