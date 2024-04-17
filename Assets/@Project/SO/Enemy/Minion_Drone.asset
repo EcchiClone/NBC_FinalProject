@@ -19,5 +19,5 @@ MonoBehaviour:
   fixedAltitude: 10
   maxHealth: 100
   moveSpeed: 10
-  attackInterval: 0.5
+  attackInterval: 1.5
   damage: 0

@@ -20,6 +20,7 @@ MonoBehaviour:
     spawnType1: 2
     spawnType2: 0
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 2
     spawnCount: 10
     spawnDelayTime: 1
@@ -27,6 +28,7 @@ MonoBehaviour:
     spawnType1: 2
     spawnType2: 0
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 3
     spawnCount: 10
     spawnDelayTime: 1
@@ -34,6 +36,7 @@ MonoBehaviour:
     spawnType1: 1
     spawnType2: 0
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 4
     spawnCount: 10
     spawnDelayTime: 1
@@ -41,6 +44,7 @@ MonoBehaviour:
     spawnType1: 3
     spawnType2: 0
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 5
     spawnCount: 1
     spawnDelayTime: 0
@@ -56,6 +60,7 @@ MonoBehaviour:
     spawnType1: 2
     spawnType2: 3
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 7
     spawnCount: 20
     spawnDelayTime: 1
@@ -63,6 +68,7 @@ MonoBehaviour:
     spawnType1: 2
     spawnType2: 3
     spawnType3: 0
+    enemyType: 0
   - dev_ID: 8
     spawnCount: 20
     spawnDelayTime: 1

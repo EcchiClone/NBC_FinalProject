@@ -1,6 +1,6 @@
 {
-    "point": 9710,
-    "unlockCount": 9,
+    "point": 9696,
+    "unlockCount": 10,
     "currentSeed": "A8519D80FAB8",
     "data": [
         {
@@ -76,7 +76,7 @@
             "Tier": 1,
             "PositionIdx": 5,
             "ContentIdx": 6,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 3,
