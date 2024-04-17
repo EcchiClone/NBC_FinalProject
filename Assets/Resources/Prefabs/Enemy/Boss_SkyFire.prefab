@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 2230303562356184318}
   - component: {fileID: 8668359342342015464}
   - component: {fileID: -7696913177312362176}
-  - component: {fileID: 5482983224406235388}
   m_Layer: 10
   m_Name: Boss_SkyFire
   m_TagString: Untagged
@@ -320,20 +319,6 @@ MonoBehaviour:
   ease: 5
   _inActive: 0
   _isEnemy: 1
---- !u!114 &5482983224406235388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6175972580230584608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6147f6b1374c74db87f665cb163544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskCategory: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
-  taskTarget: {fileID: 11400000, guid: cc4422af0688111499ec256dff5a7fe2, type: 2}
 --- !u!1 &7236218023459904964
 GameObject:
   m_ObjectHideFlags: 0

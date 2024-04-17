@@ -117,35 +117,9 @@ MonoBehaviour:
         _speed: 10
         _accelPlus: 0
         _accelMultiple: 1
-        _rotationSpeed: 4
+        _rotationSpeed: 2.5
       - _desc: 
-        _timer: 4
-        _changeSpeedType: 0
-        _changeRotationType: 0
-        _moveDirection: {x: 0, y: 0, z: 0}
-        _resetMoveType: 0
-        spreadA: 0
-        maxSpreadAngleA: 0
-        concentrationA: 0
-        _speed: 10
-        _accelPlus: 0
-        _accelMultiple: 1
-        _rotationSpeed: 3
-      - _desc: 
-        _timer: 6
-        _changeSpeedType: 0
-        _changeRotationType: 0
-        _moveDirection: {x: 0, y: 0, z: 0}
-        _resetMoveType: 0
-        spreadA: 0
-        maxSpreadAngleA: 0
-        concentrationA: 0
-        _speed: 10
-        _accelPlus: 0
-        _accelMultiple: 1
-        _rotationSpeed: 2
-      - _desc: 
-        _timer: 8
+        _timer: 3
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -158,7 +132,7 @@ MonoBehaviour:
         _accelMultiple: 1
         _rotationSpeed: 1
       - _desc: 
-        _timer: 9
+        _timer: 4
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -171,7 +145,7 @@ MonoBehaviour:
         _accelMultiple: 1
         _rotationSpeed: 0.5
       - _desc: 
-        _timer: 10
+        _timer: 5.5
         _changeSpeedType: 0
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -182,6 +156,6 @@ MonoBehaviour:
         _speed: 10
         _accelPlus: 0
         _accelMultiple: 1
-        _rotationSpeed: 0.1
+        _rotationSpeed: 0
       releaseMethod: 0
-      releaseTimer: 20
+      releaseTimer: 8

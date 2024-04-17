@@ -896,7 +896,6 @@ GameObject:
   - component: {fileID: 7058569769794827475}
   - component: {fileID: -841145370394927842}
   - component: {fileID: 8326404610297920683}
-  - component: {fileID: 8805595070732159694}
   m_Layer: 10
   m_Name: Minion_Spider
   m_TagString: Untagged
@@ -1060,20 +1059,6 @@ MonoBehaviour:
   ease: 5
   _inActive: 0
   _isEnemy: 1
---- !u!114 &8805595070732159694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6296827418220432883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6147f6b1374c74db87f665cb163544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskCategory: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
-  taskTarget: {fileID: 11400000, guid: 8f99d4173325b7c4c9e30e08a9fe24e7, type: 2}
 --- !u!1 &7369946773782727429
 GameObject:
   m_ObjectHideFlags: 0
