@@ -1,15 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class SkyFire_Phase1State : BaseState
+public class SkyFire_Phase3State : BaseState
 {
-    
-    public SkyFire_Phase1State(BaseStateMachine context, BaseStateProvider provider) 
+    public SkyFire_Phase3State(BaseStateMachine context, BaseStateProvider provider)
         : base(context, provider)
     {
         IsRootState = false;
@@ -17,10 +12,7 @@ public class SkyFire_Phase1State : BaseState
 
     public override void EnterState()
     {
-        // 페이즈 켜기
-        Debug.Log("Enter Phase1");
         Context.Entity.enemyPhaseStarter.isShooting = false;
-
         Context.Entity.StartCoroutine(Co_Shoot());
     }
 
@@ -30,26 +22,23 @@ public class SkyFire_Phase1State : BaseState
 
         Context.Entity.enemyPhaseStarter.isShooting = true;
 
-        Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 1); // 다연발 투사체
-        Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 2);
+        Context.Entity.enemyPhaseStarter.StartPattern(2, 6, 5); // 클러스터
+
+        Context.Entity.enemyPhaseStarter.StartPattern(3, 5, 5); // 스피어
     }
 
     public override void UpdateState()
     {
+
         CheckSwitchStates();
     }
 
     public override void ExitState()
     {
-        // 페이즈 끄기
     }
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= Context.Entity.Data.maxHealth * 0.6f)
-        {
-            SwitchState(Provider.GetState(SkyFire_States.Phase2));
-        }
     }
 
     public override void InitializeSubState()

@@ -13,6 +13,7 @@ public class SkyFire_DeadState : BaseState
 
     public override void EnterState()
     {
+        Context.Entity.enemyPhaseStarter.isShooting = false;
         Context.Entity.gameObject.SetActive(false);
     }
     public override void UpdateState()
