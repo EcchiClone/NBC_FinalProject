@@ -81,9 +81,4 @@ public abstract class Entity : MonoBehaviour, ITarget
 
         StateMachine?.Update();
     }
-
-    public void StartCoroutine(Action action)
-    {
-
-    }
 }

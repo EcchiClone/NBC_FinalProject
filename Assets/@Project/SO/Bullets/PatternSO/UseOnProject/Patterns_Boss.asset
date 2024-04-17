@@ -178,7 +178,7 @@ MonoBehaviour:
   - patternName: ClusterLerp
     Desc: "\uD074\uB7EC\uC2A4\uD130 \uC720\uB3C4"
     enemyBulletSettings:
-      enemyBulletPrefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f,
+      enemyBulletPrefab: {fileID: 417151445506548962, guid: 4019fddd342cda742af39ca638bdbcfe,
         type: 3}
       initDelay: 0
       numOfSet: 1
@@ -269,8 +269,8 @@ MonoBehaviour:
       initDelay: 0
       numOfSet: 1
       setDelay: 0
-      shotPerSet: 4
-      shotDelay: 2
+      shotPerSet: 2
+      shotDelay: 1.5
       posDirection: 0
       customPosDirection: {x: 0, y: 1, z: 0}
       spreadA: 1

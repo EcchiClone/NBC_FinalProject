@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0d765f0c-dcd3-42bd-9e22-2c3948098512}">
+		<property name="assetPath">
+			<value>One-Shots/Enemies/Spider_Laser_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.97130208333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c1e15d9c-1198-49a5-97bc-f65ab7a17f78}</destination>
+		</relationship>
+	</object>
+</objects>

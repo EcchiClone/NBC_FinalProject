@@ -16,5 +16,8 @@ MonoBehaviour:
   cognizanceRange: 40
   chasingInterval: 0.1
   rotationSpeed: 0
+  fixedAltitude: 0
   maxHealth: 100
   moveSpeed: 10
+  attackInterval: 0
+  damage: 100
