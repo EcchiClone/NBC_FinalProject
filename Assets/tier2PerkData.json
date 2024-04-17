@@ -7,7 +7,7 @@
             "Tier": 2,
             "PositionIdx": 2,
             "ContentIdx": 2,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,
@@ -76,7 +76,7 @@
             "Tier": 2,
             "PositionIdx": 8,
             "ContentIdx": 5,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,

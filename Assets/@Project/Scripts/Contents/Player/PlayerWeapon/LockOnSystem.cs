@@ -20,6 +20,7 @@ public class LockOnSystem
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
 
+    public bool IsLockon { get; private set; }
     public ITarget TargetEnemy { get; private set; }
 
     private readonly float INIT_CAM_POS_Y = 0.5f;
@@ -90,6 +91,8 @@ public class LockOnSystem
 
     public void LockOnTarget()
     {
+        IsLockon = true;
+
         float percent = TargetEnemy.AP / TargetEnemy.MaxAP;
         Managers.ActionManager.CallLockOn(TargetEnemy.Transform, percent);
         LockOnCam.gameObject.SetActive(true);
@@ -98,6 +101,7 @@ public class LockOnSystem
 
     public void ReleaseTarget()
     {
+        IsLockon = false;
         FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;        
 
         Managers.ActionManager.CallRelease();

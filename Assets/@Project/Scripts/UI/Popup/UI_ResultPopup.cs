@@ -55,6 +55,7 @@ public class UI_ResultPopup : UI_Popup
         stageData.bestStage = Mathf.Max(savedData.bestStage, stageData.bestStage);
 
         savedData = stageData;
+        Managers.StageActionManager.CallResult(savedData);
 
         GetTMP((int)Texts.Time_Value).text = $"{data.Timer}";
         GetTMP((int)Texts.Stage_Value).text = $"{data.CurrentStage}";

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minion_Ball
   m_EditorClassIdentifier: 
   stopDistance: 5
-  cognizanceRange: 40
+  cognizanceRange: 100
   chasingInterval: 0.1
   rotationSpeed: 0
   fixedAltitude: 0

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: Minion_Drone
   m_EditorClassIdentifier: 
-  stopDistance: 20
-  cognizanceRange: 40
+  stopDistance: 60
+  cognizanceRange: 100
   chasingInterval: 0.1
   rotationSpeed: 0
-  patrolDistance: 20
   fixedAltitude: 10
   maxHealth: 100
   moveSpeed: 10

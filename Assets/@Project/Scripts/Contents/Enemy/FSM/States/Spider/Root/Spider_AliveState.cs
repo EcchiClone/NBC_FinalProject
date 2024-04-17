@@ -18,7 +18,7 @@ public class Spider_AliveState : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (!Context.Entity.IsAlive)
+        if (Context.Entity.AP <= 0)
             SwitchState(Provider.GetState(Spider_States.Dead));
     }
 

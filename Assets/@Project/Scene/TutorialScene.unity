@@ -581,7 +581,6 @@ GameObject:
   - component: {fileID: 675011118}
   - component: {fileID: 675011117}
   - component: {fileID: 675011116}
-  - component: {fileID: 675011115}
   m_Layer: 13
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -604,26 +603,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &675011115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675011113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 675011117}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &675011116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -707,7 +686,6 @@ GameObject:
   - component: {fileID: 948464789}
   - component: {fileID: 948464788}
   - component: {fileID: 948464787}
-  - component: {fileID: 948464786}
   m_Layer: 13
   m_Name: DontGoBack (3)
   m_TagString: Untagged
@@ -730,26 +708,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &948464786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948464784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 948464788}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &948464787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -833,7 +791,6 @@ GameObject:
   - component: {fileID: 969321557}
   - component: {fileID: 969321556}
   - component: {fileID: 969321555}
-  - component: {fileID: 969321554}
   m_Layer: 13
   m_Name: DontFall
   m_TagString: Untagged
@@ -856,26 +813,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &969321554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969321552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 969321556}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &969321555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1445,7 +1382,6 @@ GameObject:
   - component: {fileID: 1620207069}
   - component: {fileID: 1620207068}
   - component: {fileID: 1620207067}
-  - component: {fileID: 1620207066}
   m_Layer: 13
   m_Name: DontGoBack (2)
   m_TagString: Untagged
@@ -1468,26 +1404,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1620207066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620207064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 1620207068}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &1620207067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1677,7 +1593,6 @@ GameObject:
   - component: {fileID: 1843770784}
   - component: {fileID: 1843770783}
   - component: {fileID: 1843770782}
-  - component: {fileID: 1843770781}
   m_Layer: 13
   m_Name: DontFall (1)
   m_TagString: Untagged
@@ -1700,26 +1615,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1843770781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843770779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 1843770783}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &1843770782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2041,7 +1936,6 @@ GameObject:
   - component: {fileID: 1973406681}
   - component: {fileID: 1973406680}
   - component: {fileID: 1973406679}
-  - component: {fileID: 1973406678}
   m_Layer: 13
   m_Name: DontGoBack (4)
   m_TagString: Untagged
@@ -2064,26 +1958,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973406678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973406676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 1973406680}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &1973406679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2112,7 +1986,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973406676}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2337,7 +2211,6 @@ GameObject:
   - component: {fileID: 2056966208}
   - component: {fileID: 2056966207}
   - component: {fileID: 2056966206}
-  - component: {fileID: 2056966205}
   m_Layer: 13
   m_Name: DontGoBack (1)
   m_TagString: Untagged
@@ -2360,26 +2233,6 @@ Transform:
   m_Father: {fileID: 1281655333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2056966205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056966203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer:
-  - {fileID: 2056966207}
-  _dissolve: {fileID: 2100000, guid: 26d23d70f873d334fb83a97d4ceaccb8, type: 2}
-  _splitValue: 0
-  _dissolveTime: 2
-  _delay: 1
-  _inActive: 0
-  _isEnemy: 0
 --- !u!65 &2056966206
 BoxCollider:
   m_ObjectHideFlags: 0
