@@ -34,7 +34,7 @@ public abstract class Entity : MonoBehaviour, ITarget
         {
             CurrentHelth = value;
             float percent = CurrentHelth / Data.maxHealth;
-            if (Managers.Module.CurrentModule.LockOnSystem.TargetEnemy.Transform == transform && IsAlive)
+            if (Managers.Module.CurrentModule.LockOnSystem.TargetEnemy != null && Managers.Module.CurrentModule.LockOnSystem.TargetEnemy.Transform == transform)
                 Managers.ActionManager.CallTargetAPChanged(percent);
         }
     }    
@@ -42,7 +42,7 @@ public abstract class Entity : MonoBehaviour, ITarget
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
-        //Target = GameObject.Find("Target").transform;
+        
         Target = Managers.Module.CurrentModule.transform;
         Initialize();
 
