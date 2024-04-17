@@ -55,21 +55,15 @@ public class LockOnSystem
         if (hits.Length == 0)
         {
             Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
-            //if (TargetEnemy != null)
-            //    TargetEnemy = null;
             return false;
         }
 
         int closestIndex = GetClosestTargetIndex(hits);
 
         if (hits[closestIndex].transform.TryGetComponent(out ITarget target) == false)
-        {
-            Debug.Log("여긴가 본데?");
             return false;
-        }
-            
         if (target == TargetEnemy)
-            return false;
+            return false;        
 
         TargetEnemy = hits[closestIndex].transform.GetComponent<ITarget>();
         return true;
@@ -81,6 +75,9 @@ public class LockOnSystem
         int closestIndex = -1;
         for (int i = 0; i < hits.Length; i++)
         {
+            //카메라뒤에 있는 애들 락온 못하게 하기 작업중
+            //if (hits[i].transform.position - _module.transform.position)
+
             if (hits[i].distance < closestDist)
             {
                 closestIndex = i;
@@ -109,7 +106,7 @@ public class LockOnSystem
         TargetEnemy = null;
     }
 
-    public void LockTargetChange(Test_Enemy prevTarget, UnityAction action)
+    public void LockTargetChange(ITarget prevTarget, UnityAction action)
     {
         if (TargetEnemy == null)
             return;
@@ -121,7 +118,7 @@ public class LockOnSystem
             return;
         }
 
-        TargetGroup.RemoveMember(prevTarget.transform);
+        TargetGroup.RemoveMember(prevTarget.Transform);
         LockOnTarget();
     }
 }

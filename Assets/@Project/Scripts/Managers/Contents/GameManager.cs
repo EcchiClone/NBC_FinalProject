@@ -4,14 +4,6 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class StageData // 한 판에 대한 내용
-{
-    public int level;
-    public int score;
-
-}
-
-[Serializable]
 public class PerkData
 {
     private Dictionary<PerkType, float> _perkDict;
@@ -19,7 +11,7 @@ public class PerkData
     public PerkData()
     {
         _perkDict = new Dictionary<PerkType, float>()
-        {            
+        {
             {PerkType.SuperAllow,    0f},
             {PerkType.SpeedModifier,      0f},
             {PerkType.BoosterOverload,  0f},
@@ -40,12 +32,26 @@ public class PerkData
     }
 }
 
+
+[Serializable]
+public class StageData
+{
+    public float bestTime;
+    public int bestStage;
+
+    public int highestMinionKill;
+    public int highestBossKill;
+    public int researchPoint;
+}
+
 [Serializable]
 public class GameData
 {
-    public int highestLevel;
-
-    public int achievementCoin;
+    public float bestTime;
+    public int highestStage;
+    public int highestMinionKill;
+    public int highestBossKill;
+    public int researchPoint;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
@@ -54,10 +60,13 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
+    public int achievementPoint;
+
     public bool tutorialClear;
 
     public List<int> unlockedPartsList = new List<int>();
     public PerkData perkData = new PerkData();
+    public StageData stageData = new StageData();
 }
 
 public class GameManager
@@ -78,6 +87,17 @@ public class GameManager
             gameData = LoadGame();
     }
 
+    #region StageData
+    public StageData StageData
+    {
+        get => gameData.stageData;
+        set
+        {
+            gameData.stageData = value;
+            SaveGame();
+        }
+    }
+    #endregion
     #region Parts Index
     public int PartIndex_Lower
     {
@@ -148,11 +168,10 @@ public class GameManager
     #region Rewards
     public int AchievementCoin
     {
-        get => gameData.achievementCoin;
+        get => gameData.researchPoint;
         set
         {
-            gameData.achievementCoin = value;
-            // To Do - UI든 어디든 일단 구독된 친구들에게 이벤트 Invoke
+            gameData.researchPoint = value;
             SaveGame();
         }
     }
