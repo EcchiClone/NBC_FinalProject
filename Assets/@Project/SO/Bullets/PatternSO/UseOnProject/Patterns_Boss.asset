@@ -269,8 +269,8 @@ MonoBehaviour:
       initDelay: 0
       numOfSet: 1
       setDelay: 0
-      shotPerSet: 4
-      shotDelay: 2
+      shotPerSet: 2
+      shotDelay: 1.5
       posDirection: 0
       customPosDirection: {x: 0, y: 1, z: 0}
       spreadA: 1
