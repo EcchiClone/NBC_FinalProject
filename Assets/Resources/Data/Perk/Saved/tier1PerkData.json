@@ -1,45 +1,22 @@
 {
-    "point": 9871,
-    "unlockCount": 5,
-    "currentSeed": "6C07A88EFC91",
+    "point": 9710,
+    "unlockCount": 9,
+    "currentSeed": "A8519D80FAB8",
     "data": [
         {
             "Tier": 1,
             "PositionIdx": 1,
-            "ContentIdx": 1,
+            "ContentIdx": 2,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 2,
-                    "ContentIdx": 15,
+                    "PositionIdx": 3,
+                    "ContentIdx": 17,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 6,
-                    "ContentIdx": 9,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 21,
-                    "IsActive": false
-                }
-            ]
-        },
-        {
-            "Tier": 1,
-            "PositionIdx": 2,
-            "ContentIdx": 5,
-            "IsActive": false,
-            "subPerks": [
-                {
-                    "PositionIdx": 0,
-                    "ContentIdx": 6,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 2,
-                    "ContentIdx": 1,
+                    "ContentIdx": 22,
                     "IsActive": false
                 },
                 {
@@ -51,23 +28,69 @@
         },
         {
             "Tier": 1,
-            "PositionIdx": 3,
-            "ContentIdx": 7,
+            "PositionIdx": 2,
+            "ContentIdx": 3,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 0,
-                    "ContentIdx": 4,
+                    "PositionIdx": 4,
+                    "ContentIdx": 0,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 2,
-                    "ContentIdx": 12,
+                    "PositionIdx": 5,
+                    "ContentIdx": 17,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 7,
+                    "ContentIdx": 8,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 3,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 23,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 14,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 20,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 5,
+            "ContentIdx": 6,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 10,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
                     "ContentIdx": 2,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 17,
                     "IsActive": false
                 }
             ]
@@ -75,12 +98,12 @@
         {
             "Tier": 1,
             "PositionIdx": 6,
-            "ContentIdx": 6,
+            "ContentIdx": 1,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 0,
-                    "ContentIdx": 13,
+                    "PositionIdx": 1,
+                    "ContentIdx": 7,
                     "IsActive": false
                 },
                 {
@@ -89,7 +112,7 @@
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 7,
+                    "PositionIdx": 6,
                     "ContentIdx": 4,
                     "IsActive": false
                 }
