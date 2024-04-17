@@ -23,6 +23,10 @@ public class UI_Sound : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
                 _thisEnterEvent = FMODEvents.Instance.UI_Entered;
                 _thisClickEvent = FMODEvents.Instance.UI_Clicked;
                 break;
+            case UISoundType.DENY:
+                _thisEnterEvent = FMODEvents.Instance.UI_Entered;
+                _thisClickEvent = FMODEvents.Instance.Perk_Denied;
+                break;
 
         }
     }
