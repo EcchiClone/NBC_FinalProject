@@ -1,7 +1,7 @@
 
 public enum PerkType // 수치는 저 범위중 아무거나 하면 될 것 같아요. 괜찮다 싶은게 생각나면 그 방향으로
 {
-    SuperAllow,         // AP 뻥튀기                      500 ~ 1500
+    SuperAlloy,         // AP 뻥튀기                      500 ~ 1500
     SpeedModifier,      // 이속증가                       10 ~ 20%    
     BoosterOverload,    // 부스터게이지 최대 충전량 증가    10 ~ 20
     AfterBurner,        // 대시 출력 증가                  10 ~ 20%
@@ -19,5 +19,4 @@ public enum PerkType // 수치는 저 범위중 아무거나 하면 될 것 같�
     Resupply,           // 어깨무장 장전이 가능해짐 0 off / 1 on
     ImprovedArmor,      // 방어력 증가                      5 ~ 10%
     Stealth,            // 피격시 확률적으로 데미지 무시     5 ~ 10%
-
 }
