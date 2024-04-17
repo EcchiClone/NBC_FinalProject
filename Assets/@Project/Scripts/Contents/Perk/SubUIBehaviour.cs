@@ -22,11 +22,13 @@ public class SubUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         SetSelectedPerkInfo();
         PerkManager.Instance.CallOnPerkClicked();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.UI_Clicked, transform.position);
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         _image.color = Color.red;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.UI_Entered, transform.position);
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
