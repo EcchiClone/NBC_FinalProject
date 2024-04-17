@@ -124,7 +124,8 @@ public enum PerkTier
     SUB,
     TIER1,
     TIER2,
-    TIER3
+    TIER3,
+    ORIGIN
 }
 
 [System.Serializable]

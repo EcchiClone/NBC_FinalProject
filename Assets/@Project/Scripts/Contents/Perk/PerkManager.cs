@@ -67,17 +67,7 @@ public class PerkManager : MonoBehaviour
         _tier3Contents.data = new List<ContentInfo> ();
         _subPerkContents.data = new List<ContentInfo> ();
 
-        // 변수 초기화
-        SelectedPerkInfo = new PerkInfo(PerkTier.TIER1, 0, 0, false);
-        SelectedSubInfo = null;
-
-        SelectedContentInfo = new ContentInfo();
-        SelectedContentInfo.contentIdx = 0;
-        SelectedContentInfo.name = "";
-        SelectedContentInfo.description = "";
-
-        SelectedPerkDistance = 0;
-
+        InitVars();
     }
 
     private void Start()
@@ -100,6 +90,24 @@ public class PerkManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePerkSequence();
+    }
+
+    private void InitVars()
+    {
+        // 변수 초기화
+        PointerTier = PerkTier.TIER1;
+        PointerIdx = 0;
+        PointerSubIdx = 0;
+
+        SelectedPerkInfo = new PerkInfo(PerkTier.TIER1, 0, 0, false);
+        SelectedSubInfo = null;
+
+        SelectedContentInfo = new ContentInfo();
+        SelectedContentInfo.contentIdx = 0;
+        SelectedContentInfo.name = "";
+        SelectedContentInfo.description = "";
+
+        SelectedPerkDistance = 0;
     }
 
     private void CheckDataExists()
@@ -154,9 +162,7 @@ public class PerkManager : MonoBehaviour
         CurrentSeed = _tier1Perks.currentSeed;
 
         // 퍼크 생성
-        _gen.InstantiatePerks(_tier1Perks.data);
-        _gen.InstantiatePerks(_tier2Perks.data);
-        _gen.InstantiatePerks(_tier3Perks.data);
+        GeneratePerks();
     }
 
     public void SavePerkSequence()
@@ -174,6 +180,52 @@ public class PerkManager : MonoBehaviour
         _json.SavePerkData(_json.tier1PerkData, "tier1PerkData");
         _json.SavePerkData(_json.tier2PerkData, "tier2PerkData");
         _json.SavePerkData(_json.tier3PerkData, "tier3PerkData");
+    }
+
+    public void ResetPerkSequence()
+    {
+        // 생성된 퍼크 제거
+        GameObject[] tier1Perks = GameObject.FindGameObjectsWithTag("Tier1");
+        GameObject[] tier2Perks = GameObject.FindGameObjectsWithTag("Tier2");
+        GameObject[] tier3Perks = GameObject.FindGameObjectsWithTag("Tier3");
+
+        foreach (GameObject perk in tier1Perks)
+            Destroy(perk);
+
+        foreach (GameObject perk in tier2Perks)
+            Destroy(perk);
+
+        foreach (GameObject perk in tier3Perks)
+            Destroy(perk);
+
+        // 현재 데이터 초기화
+        _tier1Perks.data.Clear();
+        _tier2Perks.data.Clear();
+        _tier3Perks.data.Clear();
+
+        _json.tier1PerkData.data.Clear();
+        _json.tier2PerkData.data.Clear();
+        _json.tier3PerkData.data.Clear();
+
+        Invoke("RerollSequence", 3f);
+    }
+
+    private void RerollSequence()
+    {
+        // 새로 생성
+        CurrentSeed = _seed.RandomSeedGenerator();
+
+        InitVars();
+        CreateNewPerkSequence();
+        GeneratePerks();
+    }
+
+    private void GeneratePerks()
+    {
+        // 퍼크 생성
+        _gen.InstantiatePerks(_tier1Perks.data);
+        _gen.InstantiatePerks(_tier2Perks.data);
+        _gen.InstantiatePerks(_tier3Perks.data);
     }
 
     public void ConvertLocToList(bool[] binaryData, PerkTier tier)
