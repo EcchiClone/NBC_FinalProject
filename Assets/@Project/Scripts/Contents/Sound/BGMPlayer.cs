@@ -25,6 +25,11 @@ public class BGMPlayer : MonoBehaviour
     private EventInstance _perkAmbience;
     private EventInstance _fieldBGM;
 
+    private bool _isLerp;
+    private float _lerpStart;
+    private float _lerpEnd;
+    
+
     private void Awake()
     {
         if (Instance != null)
@@ -35,12 +40,20 @@ public class BGMPlayer : MonoBehaviour
         Instance = this;
 
         _scene = SceneManager.GetActiveScene();
+
+        _isLerp = false;
+
     }
 
     private void Start()
     {
         SceneManager.sceneLoaded += OnLoadScene;
         GetEventInstances();
+    }
+
+    private void Update()
+    {
+        UpdateLowPassLerp();
     }
 
     private void FixedUpdate()
@@ -103,6 +116,38 @@ public class BGMPlayer : MonoBehaviour
             default:
                 StopInstances(); break;
         }
+    }
+
+    public void SetFieldBGMState(float value) 
+    {
+        _fieldBGM.setParameterByName("FieldBGMState", value);
+    }
+
+    public void SetFieldLowPass(float value)
+    {
+        _fieldBGM.setParameterByName("FieldLowPass", value);
+    }
+
+    private void UpdateLowPassLerp()
+    {
+        if (_isLerp)
+        {
+            _lerpStart = Mathf.Lerp(_lerpStart, _lerpEnd, 0.5f);
+            SetFieldLowPass(_lerpStart);
+        }
+    }
+
+    public void SetLowPassLerpVars(float start, float end, float time)
+    {
+        _isLerp = true;
+        _lerpStart = start;
+        _lerpEnd = end;
+        Invoke("StopLerp", time);
+    }
+
+    private void StopLerp()
+    {
+        _isLerp = false;
     }
 
     private void StopInstances()
