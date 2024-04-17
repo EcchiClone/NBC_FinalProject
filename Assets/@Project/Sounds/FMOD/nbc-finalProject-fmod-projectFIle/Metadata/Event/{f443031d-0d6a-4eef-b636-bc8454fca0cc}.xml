@@ -632,6 +632,9 @@
 		<property name="frequencyA">
 			<value>22000</value>
 		</property>
+		<property name="qualityA">
+			<value>1.45000005</value>
+		</property>
 		<relationship name="automators">
 			<destination>{d92f0423-cc95-4e1e-8641-50b13aa77c50}</destination>
 		</relationship>
