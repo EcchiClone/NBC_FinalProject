@@ -29,11 +29,7 @@ public class UI_HUD : UI_Scene
     [SerializeField] Image _boosterFill;
 
     [Header("Booster")]
-    [SerializeField] Image _targetAPFill;
-
-    [Header("GameOver")]
-    [SerializeField] GameObject _gameOverPanel;
-    [SerializeField] Button _returnBtn;
+    [SerializeField] Image _targetAPFill;    
 
     private Transform _target;
 
@@ -59,10 +55,7 @@ public class UI_HUD : UI_Scene
         Managers.Module.CurrentLeftArmPart.Weapon.OnWeaponFire += AmmoTextChange;
         Managers.Module.CurrentRightArmPart.Weapon.OnWeaponFire += AmmoTextChange;
         Managers.Module.CurrentLeftShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;
-        Managers.Module.CurrentRightShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;
-
-        Managers.ActionManager.OnPlayerDead += () => _gameOverPanel.SetActive(true);
-        _returnBtn.onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.MainScene));
+        Managers.Module.CurrentRightShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;        
 
         if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.Tutorial)
             Managers.UI.ShowPopupUI<UI_StageInfoPopup>();

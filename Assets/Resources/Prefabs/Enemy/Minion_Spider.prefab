@@ -1053,7 +1053,8 @@ MonoBehaviour:
   - {fileID: 5353909145743928490}
   - {fileID: 935163546351444726}
   _dissolve: {fileID: 2100000, guid: 145d721c8954bf8498ab496f71efecd9, type: 2}
-  _splitValue: 1
+  _startValue: 0
+  _endValue: 1
   _dissolveTime: 2
   _delay: 0
   ease: 5

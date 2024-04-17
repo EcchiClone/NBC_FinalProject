@@ -313,7 +313,8 @@ MonoBehaviour:
   _renderer:
   - {fileID: 8015452052536065450}
   _dissolve: {fileID: 2100000, guid: 72b79b11da1d1c64cb274321a53c7610, type: 2}
-  _splitValue: 1
+  _startValue: 0
+  _endValue: 1
   _dissolveTime: 5
   _delay: 1
   ease: 5

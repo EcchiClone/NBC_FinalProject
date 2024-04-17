@@ -10,7 +10,8 @@ public class SpawnEffect : MonoBehaviour
     [SerializeField] Material _dissolve;
 
     [Header("# Dissolve")]
-    [SerializeField] float _splitValue;
+    [SerializeField] float _startValue;
+    [SerializeField] float _endValue;
     [SerializeField] float _dissolveTime;
     [SerializeField] float _delay;
     [SerializeField] Ease ease = Ease.OutQuad;
@@ -22,7 +23,9 @@ public class SpawnEffect : MonoBehaviour
     private void Start()
     {
         foreach (var renderer in _renderer)
-            renderer.material.DOFloat(_splitValue, "_Split", _dissolveTime).SetEase(ease).SetDelay(_delay).OnComplete(() =>
+        {
+            renderer.material.SetFloat("_Split", _startValue);
+            renderer.material.DOFloat(_endValue, "_Split", _dissolveTime).SetEase(ease).SetDelay(_delay).OnComplete(() =>
             {
                 if (_inActive)
                     gameObject.SetActive(false);
@@ -30,7 +33,8 @@ public class SpawnEffect : MonoBehaviour
                 {
                     Entity enemy = gameObject.GetComponent<Entity>();
                     enemy.Activate();
-                }                    
+                }
             });
+        }   
     }
 }

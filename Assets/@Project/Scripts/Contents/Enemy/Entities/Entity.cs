@@ -43,7 +43,7 @@ public abstract class Entity : MonoBehaviour, ITarget
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         
-        Target = Managers.Module.CurrentModule.transform;
+        Target = Managers.Module.CurrentUpperPart.transform;
         Initialize();
 
         Anim = GetComponent<Animator>();
