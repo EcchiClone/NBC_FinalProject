@@ -65,12 +65,12 @@ public class BallUnitController : Controller
             return;
         }
 
-        Vector3 currentWaypoint = path[0]; // TODO : 수정 필요 -> 코루틴에서만 유효한 방식임 멤버변수화 시켜야함
+        Vector3 currentWaypoint = path[0];
         currentWaypoint.y = radius;
 
 
-        Vector3 direction = (currentWaypoint - Entity.transform.position).normalized; // 다음 노드로 속도 방향 조정      
-                
+        Vector3 direction = (currentWaypoint - Entity.transform.position).normalized;
+        
 
         if (Mathf.Abs(Entity.transform.position.x - currentWaypoint.x) <= nodeRadius && Mathf.Abs(Entity.transform.position.z - currentWaypoint.z) <= nodeRadius)
         {
@@ -83,19 +83,13 @@ public class BallUnitController : Controller
             currentWaypoint.y = radius;
 
             direction = (currentWaypoint - Entity.transform.position).normalized; // 노드 변경시 속도 방향 조정
-
             rigidbody.velocity = direction * rigidbody.velocity.magnitude;
         }
 
-
-        rigidbody.AddForce(direction * speed, ForceMode.Force);
-        //rigidbody.velocity = direction * rigidbody.velocity.magnitude;
+        rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
 
         if (rigidbody.velocity.magnitude > _maxSpeed)
             rigidbody.velocity = rigidbody.velocity.normalized * _maxSpeed;
-
-        //transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-
     }
 
     public override void Stop() 
@@ -103,25 +97,4 @@ public class BallUnitController : Controller
         IsMoving = false;
     }
 
-
-    public void OnDrawGizmos()
-    {
-        if (path != null)
-        {
-            for (int i = targetIndex; i < path.Length; i++)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawCube(path[i], Vector3.one);
-
-                if (i == targetIndex)
-                {
-                    Gizmos.DrawLine(Entity.transform.position, path[i]);
-                }
-                else
-                {
-                    Gizmos.DrawLine(path[i - 1], path[i]);
-                }
-            }
-        }
-    }
 }

@@ -15,8 +15,7 @@ public class Ball_CombatState : BaseState
 
     public override void UpdateState() 
     {
-        Debug.Log("으아아 공격");
-        // 탄막 쪼라라라락
+            
     }
 
     public override void ExitState(){}
