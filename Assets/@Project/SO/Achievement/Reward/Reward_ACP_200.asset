@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b53af65f7fe9e40bb7d97baeb4ef2d, type: 3}
-  m_Name: Reward_Part_2
+  m_Script: {fileID: 11500000, guid: 7cb4b6adc74f0da4dabeca6c1e861eeb, type: 3}
+  m_Name: Reward_ACP_200
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
-  description: Part
-  quantityOrValue: 10003004
+  icon: {fileID: 21300000, guid: 23f14c52a6ff1f1488b96e9679678e5c, type: 3}
+  description: Achievement Point
+  quantityOrValue: 200
