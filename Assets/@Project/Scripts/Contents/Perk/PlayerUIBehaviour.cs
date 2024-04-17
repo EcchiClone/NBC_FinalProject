@@ -43,7 +43,7 @@ public class PlayerUIBehaviour : MonoBehaviour
     private void UpdateTextInfos()
     {
         _pointPanelTxt.text = _currentPoint.ToString() + " Points";
-        _seedPanelTxt.text = "Current Seed: " + _currentSeed;
+        _seedPanelTxt.text = "현재 시드: " + _currentSeed;
         _positionPanelTxt.text = _currentInfos.Tier.ToString() + " - " + _currentInfos.PositionIdx.ToString();
         _positionPanelTxt.text += _currentSubInfos != null ? $" - {_currentSubInfos.PositionIdx}" : "";
         _inspectorPanelTxt.text = _currentContents.name + "\n\n" + _currentContents.description;
