@@ -34,7 +34,8 @@ public abstract class Entity : MonoBehaviour, ITarget
         {
             CurrentHelth = value;
             float percent = CurrentHelth / Data.maxHealth;
-            Managers.ActionManager.CallTargetAPChanged(percent);
+            if (Managers.Module.CurrentModule.LockOnSystem.TargetEnemy.Transform == transform && IsAlive)
+                Managers.ActionManager.CallTargetAPChanged(percent);
         }
     }    
 

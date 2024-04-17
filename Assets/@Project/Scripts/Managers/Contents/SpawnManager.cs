@@ -33,36 +33,6 @@ public class SpawnManager
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / _cellDiameter);
     }
 
-
-    public void SpawnUnits(List<UnitSpawnInfo> unitSpawnInfos)
-    {
-        DestroyAllUnit();
-
-        CreateCell();
-        DetectSpawnPoint();
-        ShuffleSpawnPoint();
-
-
-        if (_activatedUnits.Count != 0)
-            _activatedUnits.Clear();
-
-        int spawnIndex = 0;
-
-        foreach (UnitSpawnInfo spawninfo in unitSpawnInfos)
-        {
-            string unitType = spawninfo.unitType.ToString();
-            for (int i = 0; i < spawninfo.count; ++i)
-            {
-                _activatedUnits.Add(ObjectPooler.SpawnFromPool(unitType, _groundSpawnPoints[spawnIndex++]));
-            }
-        }
-    }
-
-    public void SpawnBoss()
-    {
-
-    }
-
     private void DestroyAllUnit()
     {
         if (_activatedUnits.Count > 0)

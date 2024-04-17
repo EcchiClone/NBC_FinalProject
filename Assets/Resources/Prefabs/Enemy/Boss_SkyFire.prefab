@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 912533175694282690}
   - component: {fileID: 2230303562356184318}
   - component: {fileID: 8668359342342015464}
+  - component: {fileID: -7696913177312362176}
   m_Layer: 10
   m_Name: Boss_SkyFire
   m_TagString: Untagged
@@ -237,10 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc53836e0f0e7488231422675aa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 0
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
-  <IsAlive>k__BackingField: 1
+  <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!65 &2230303562356184318
 BoxCollider:
@@ -296,6 +298,26 @@ MonoBehaviour:
   isShooting: 1
   onStartPhase: []
   onStartPattern: []
+--- !u!114 &-7696913177312362176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175972580230584608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer:
+  - {fileID: 8015452052536065450}
+  _dissolve: {fileID: 2100000, guid: 72b79b11da1d1c64cb274321a53c7610, type: 2}
+  _splitValue: 1
+  _dissolveTime: 5
+  _delay: 1
+  _inActive: 0
+  _isEnemy: 1
 --- !u!1 &7236218023459904964
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8713600609757495447}
   - component: {fileID: 4398895397077187070}
   - component: {fileID: 2305463440183455664}
+  - component: {fileID: -6120138377007823956}
   m_Layer: 10
   m_Name: Minion_Ball
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b76a44ddc3805747972c61fdf68e6d2, type: 2}
+  - {fileID: 2100000, guid: f1dd3fd3c0f54014ab39d4b48b123363, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb08025184bda7d4cb3e18c881648d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 0
   <Data>k__BackingField: {fileID: 11400000, guid: 18b9cc718017bcd459a775799a6f92f7,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
-  <IsAlive>k__BackingField: 1
+  <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!114 &2305463440183455664
 MonoBehaviour:
@@ -164,3 +166,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6120138377007823956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421490545972492356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer:
+  - {fileID: 2914912781618789607}
+  _dissolve: {fileID: 2100000, guid: f1dd3fd3c0f54014ab39d4b48b123363, type: 2}
+  _splitValue: 1
+  _dissolveTime: 1
+  _delay: 0
+  _inActive: 0
+  _isEnemy: 1

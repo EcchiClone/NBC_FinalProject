@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 5689994619206812958}
   - component: {fileID: 3081633895679878570}
   - component: {fileID: -3682715603607505633}
+  - component: {fileID: 3937746290164647927}
   m_Layer: 10
   m_Name: Minion_Drone
   m_TagString: Untagged
@@ -224,10 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28501fda1593b0742b2cb516967ed442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 0
   <Data>k__BackingField: {fileID: 11400000, guid: 1bb3f9c3cee43ed498471c5eff2b194d,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
-  <IsAlive>k__BackingField: 1
+  <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!114 &-3682715603607505633
 MonoBehaviour:
@@ -251,3 +253,23 @@ MonoBehaviour:
   isShooting: 1
   onStartPhase: []
   onStartPattern: []
+--- !u!114 &3937746290164647927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204124545279719401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6f471ff9339184499c41aa923b8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer:
+  - {fileID: 755258798460204437}
+  _dissolve: {fileID: 0}
+  _splitValue: 1
+  _dissolveTime: 1
+  _delay: 0
+  _inActive: 0
+  _isEnemy: 1

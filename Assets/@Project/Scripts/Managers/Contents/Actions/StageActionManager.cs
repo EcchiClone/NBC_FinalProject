@@ -11,7 +11,7 @@ public class StageActionManager
     public event Action<int> OnEnemySpawned;    
     public event Action<float> OnCountDownActive;
 
-    public event Action OnResult;
+    public event Action<StageData> OnResult;
 
     public void CallMinionKilled() => OnMinionKilled?.Invoke();
     public void CallBossKilled() => OnBossKilled?.Invoke();
@@ -19,7 +19,7 @@ public class StageActionManager
     public void CallEnemySpawned(int value) => OnEnemySpawned?.Invoke(value);
     public void CallCountDown(float time) => OnCountDownActive?.Invoke(time);
 
-    public void CallResulet() => OnResult?.Invoke();
+    public void CallResult(StageData data) => OnResult?.Invoke(data);
 
     public void Clear()
     {
