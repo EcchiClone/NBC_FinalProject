@@ -3,5 +3,7 @@ public enum UISoundType
 {
     DEFAULT,
     DENY,
-    MODULE
+    MODULE,
+    ACHIEVEMENT_REWARD,
+    ACHIEVEMENT_ALARM,
 }
