@@ -4,48 +4,42 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class StageData // 한 판에 대한 내용
-{
-    public int level;
-    public int score;
-
-}
-
-[Serializable]
 public class PerkData
 {
-    private Dictionary<PerkType, float> _perkDict;
+    public float[] perkValueArray = new float[18];
 
-    public PerkData()
+    public void SetActivedPerk(PerkType type, float value, PerkData data)
     {
-        _perkDict = new Dictionary<PerkType, float>()
-        {            
-            {PerkType.SuperAllow,    0f},
-            {PerkType.SpeedModifier,      0f},
-            {PerkType.BoosterOverload,  0f},
-            {PerkType.AfterBurner,      0f},
-            {PerkType.RapidFire,           0f},
-        };
-    }
-
-    public void SetActivedPerk(PerkType type, float value)
-    {
-        _perkDict[type] += value;
-        Managers.GameManager.PerkData = this;
+        perkValueArray[(int)type] += value;
+        Managers.GameManager.PerkData = data;
     }
 
     public float GetAbilityValue(PerkType type)
     {
-        return _perkDict[type];
+        return perkValueArray[(int)type];
     }
+}
+
+
+[Serializable]
+public class StageData
+{
+    public float bestTime;
+    public int bestStage;
+
+    public int highestMinionKill;
+    public int highestBossKill;
+    public int researchPoint;
 }
 
 [Serializable]
 public class GameData
 {
-    public int highestLevel;
-
-    public int achievementCoin;
+    public float bestTime;
+    public int highestStage;
+    public int highestMinionKill;
+    public int highestBossKill;
+    public int researchPoint;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
@@ -54,10 +48,13 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
+    public int achievementPoint;
+
     public bool tutorialClear;
 
-    public List<int> unlockedPartsList = new List<int>();
-    public PerkData perkData = new PerkData();
+    public List<int> unlockedPartsList;
+    public PerkData perkData;
+    public StageData stageData;
 }
 
 public class GameManager
@@ -78,6 +75,17 @@ public class GameManager
             gameData = LoadGame();
     }
 
+    #region StageData
+    public StageData StageData
+    {
+        get => gameData.stageData;
+        set
+        {
+            gameData.stageData = value;
+            SaveGame();
+        }
+    }
+    #endregion
     #region Parts Index
     public int PartIndex_Lower
     {
@@ -137,7 +145,12 @@ public class GameManager
     #region Perk
     public PerkData PerkData
     {
-        get => gameData.perkData;
+        get
+        {
+            if (gameData.perkData == null)
+                gameData.perkData = new PerkData();
+            return gameData.perkData;
+        }
         set
         {
             gameData.perkData = value;
@@ -148,16 +161,24 @@ public class GameManager
     #region Rewards
     public int AchievementCoin
     {
-        get => gameData.achievementCoin;
+        get => gameData.researchPoint;
         set
         {
-            gameData.achievementCoin = value;
-            // To Do - UI든 어디든 일단 구독된 친구들에게 이벤트 Invoke
+            gameData.researchPoint = value;
             SaveGame();
         }
     }
 
-    public List<int> UnlockedPartsIDList => gameData.unlockedPartsList;
+    public List<int> UnlockedPartsIDList
+    {
+        get
+        {
+            if (gameData.unlockedPartsList == null)
+                gameData.unlockedPartsList = new List<int>();
+            return gameData.unlockedPartsList;
+        }
+    }
+
     public void ReceivePartID(int id)
     {
         gameData.unlockedPartsList.Add(id);

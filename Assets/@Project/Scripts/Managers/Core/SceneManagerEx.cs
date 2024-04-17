@@ -8,9 +8,8 @@ public class SceneManagerEx
 
     public void LoadScene(Define.Scenes sceneType)
     {
-        SceneManager.LoadScene(GetSceneName(sceneType));
-
         CurrentScene.Clear();
+        SceneManager.LoadScene(GetSceneName(sceneType));        
     }
 
     private string GetSceneName(Define.Scenes sceneType) => Enum.GetName(typeof(Define.Scenes), sceneType);

@@ -10,8 +10,6 @@ public class BallUnitController : Controller
     Rigidbody rigidbody;
     Collider collider;
 
-    float speed = 3;
-    float _maxSpeed;
     float radius;
     float nodeRadius;
 
@@ -19,8 +17,7 @@ public class BallUnitController : Controller
     public BallUnitController(Entity entity) : base(entity)
     {
         rigidbody = Entity.GetComponent<Rigidbody>();
-        collider = Entity.GetComponent<Collider>();
-        _maxSpeed = Entity.Data.moveSpeed;
+        collider = Entity.GetComponent<Collider>();        
 
         nodeRadius = PathRequestManager.instance.grid.nodeRadius;
         radius = collider.bounds.extents.magnitude;
@@ -86,10 +83,10 @@ public class BallUnitController : Controller
             rigidbody.velocity = direction * rigidbody.velocity.magnitude;
         }
 
-        rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
+        rigidbody.AddForce(direction * Speed, ForceMode.Force);
 
-        if (rigidbody.velocity.magnitude > _maxSpeed)
-            rigidbody.velocity = rigidbody.velocity.normalized * _maxSpeed;
+        if (rigidbody.velocity.magnitude > Speed)
+            rigidbody.velocity = rigidbody.velocity.normalized * Speed;
     }
 
     public override void Stop() 

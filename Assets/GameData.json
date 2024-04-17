@@ -1,13 +1,45 @@
 {
-    "highestLevel": 0,
-    "achievementCoin": 200,
-    "partIndex_Lower": 0,
-    "partIndex_Upper": 0,
-    "partIndex_LeftArm": 1,
-    "partIndex_RightArm": 3,
+    "bestTime": 0.0,
+    "highestStage": 0,
+    "highestMinionKill": 0,
+    "highestBossKill": 0,
+    "researchPoint": 0,
+    "partIndex_Lower": 1,
+    "partIndex_Upper": 1,
+    "partIndex_LeftArm": 0,
+    "partIndex_RightArm": 0,
     "partIndex_LeftShoulder": 1,
     "partIndex_RightShoulder": 2,
-    "tutorialClear": true,
+    "achievementPoint": 0,
+    "tutorialClear": false,
     "unlockedPartsList": [],
-    "perkData": {}
+    "perkData": {
+        "perkValueArray": [
+            0.0,
+            0.0,
+            10.0,
+            0.0,
+            10.0,
+            10.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            10.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ]
+    },
+    "stageData": {
+        "bestTime": 0.0,
+        "bestStage": 0,
+        "highestMinionKill": 0,
+        "highestBossKill": 0,
+        "researchPoint": 0
+    }
 }

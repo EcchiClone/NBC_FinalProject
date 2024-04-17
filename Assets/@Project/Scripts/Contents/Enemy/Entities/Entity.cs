@@ -2,13 +2,20 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType
+{
+    Minion,
+    Boss,
+}
 
 public abstract class Entity : MonoBehaviour, ITarget
 {
+    [field: SerializeField] public EnemyType EnemyType { get; set; }
+
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
     public float CurrentHelth { get; protected set; }
-    [field: SerializeField] public bool IsAlive { get; private set; } = true; // 피격 처리 함수에서만 수정할 수 있도록
+    [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록
 
     public Controller Controller { get; protected set; }
     public BaseStateMachine StateMachine { get; set; }
@@ -24,17 +31,18 @@ public abstract class Entity : MonoBehaviour, ITarget
     {
         get => CurrentHelth;
         set
-        {            
+        {
             CurrentHelth = value;
             float percent = CurrentHelth / Data.maxHealth;
-            Managers.ActionManager.CallTargetAPChanged(percent);
+            if (Managers.Module.CurrentModule.LockOnSystem.TargetEnemy != null && Managers.Module.CurrentModule.LockOnSystem.TargetEnemy.Transform == transform)
+                Managers.ActionManager.CallTargetAPChanged(percent);
         }
     }    
 
     private void Start()
     {
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
-        //Target = GameObject.Find("Target").transform;
+        
         Target = Managers.Module.CurrentModule.transform;
         Initialize();
 
@@ -42,21 +50,33 @@ public abstract class Entity : MonoBehaviour, ITarget
     }
 
     private void OnEnable()
-    {
-        CurrentHelth = Data.maxHealth;
+    {        
         StateMachine?.Reset();
     }
 
     protected abstract void Initialize();
 
+    public void Activate()
+    {
+        IsAlive = true;
+        AP = Data.maxHealth;
+    }
 
     public void GetDamaged(float damage)
     {
-        CurrentHelth = Mathf.Max(0, CurrentHelth - damage);
-        //float percent = CurrentHelth / Data.maxHealth;
-        //Managers.ActionManager.CallBossAPChanged(percent);
-        if(CurrentHelth <= 0)
+        if (!IsAlive)
+            return;
+
+        AP = Mathf.Max(0, AP - damage);
+        if (AP <= 0)
+        {
             IsAlive = false;
+            Managers.ActionManager.CallLockTargetDestroyed(this);
+            if (EnemyType == EnemyType.Minion)
+                Managers.StageActionManager.CallMinionKilled();
+            else if (EnemyType == EnemyType.Boss)
+                Managers.StageActionManager.CallBossKilled();
+        }
     }
 
     protected virtual void Update()

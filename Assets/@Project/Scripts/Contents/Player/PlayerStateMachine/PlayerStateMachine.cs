@@ -170,11 +170,6 @@ public class PlayerStateMachine : MonoBehaviour
         IsDead = true;
         Cursor.lockState = CursorLockMode.Confined;
 
-        //Fracture fract = Resources.Load<Fracture>("Prefabs/Weapon_01_Fracture");
-        //Instantiate(fract.gameObject);
-        //fract.transform.position = transform.position;
-        //fract.Explode();
-
         gameObject.SetActive(false);
     }
 
@@ -195,13 +190,9 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    private void CheckLockTargetIsNull(Test_Enemy prevTarget)
+    private void CheckLockTargetIsNull(ITarget prevTarget)
     {
-        Module.LockOnSystem.LockTargetChange(prevTarget, () =>
-        {
-            if (!prevTarget.gameObject.activeSelf && Module.LockOnSystem.TargetEnemy == null)
-                IsLockOn = false;
-        });
+        Module.LockOnSystem.LockTargetChange(prevTarget, () => IsLockOn = false);
     }
 
     private void HandleMove()

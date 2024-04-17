@@ -206,7 +206,7 @@ MonoBehaviour:
       spreadB_FixY_Concentration: 0
       spreadB_FixX_Angle: 0
       spreadB_FixX_Concentration: 0
-      initDirectionType: 1
+      initDirectionType: 3
       initCustomDirection: {x: 0, y: 1, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 5
@@ -294,7 +294,7 @@ MonoBehaviour:
       spreadB_FixX_Concentration: 0
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 1, z: 0}
-      enemyBulletMoveType: 2
+      enemyBulletMoveType: 4
       initSpeed: 15
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
@@ -339,7 +339,7 @@ MonoBehaviour:
       spreadB_FixY_Concentration: 0
       spreadB_FixX_Angle: 0
       spreadB_FixX_Concentration: 0
-      initDirectionType: 1
+      initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
       initSpeed: 1

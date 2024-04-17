@@ -18,7 +18,7 @@ public class Drone_AliveState : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (!Context.Entity.IsAlive)
+        if (Context.Entity.AP <= 0)
             SwitchState(Provider.GetState(Minion_States.Dead));
     }
 

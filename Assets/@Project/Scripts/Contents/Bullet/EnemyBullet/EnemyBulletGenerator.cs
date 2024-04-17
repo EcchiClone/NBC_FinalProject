@@ -374,6 +374,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         public float nextCycleTime;
         public GameObject rootGo;
         public Transform masterTf;
+        public Vector3 muzzlePos;
         public List<PatternHierarchy> subPatterns;
     }
     // 탄막 생성 정보를 담은 큐
@@ -402,6 +403,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 nextCycleTime = nextCycleTime,
                 rootGo = rootGo,
                 masterTf = masterGo.transform,
+                muzzlePos = genSettings.muzzleTransform.position,
                 subPatterns = subPatterns
             };
             spawnQueue.Enqueue(spawnInfo);
@@ -431,7 +433,7 @@ public class EnemyBulletGenerator : MonoBehaviour
             EnemyBulletController enemyBulletController = enemyBulletGo.GetComponent<EnemyBulletController>();
             if (enemyBulletController != null)
             {
-                enemyBulletController.Initialize(spawnInfo.settings, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf, spawnInfo.normalizedValue);
+                enemyBulletController.Initialize(spawnInfo.settings, spawnInfo.nextCycleTime, spawnInfo.subPatterns, spawnInfo.rootGo, spawnInfo.masterTf, spawnInfo.muzzlePos, spawnInfo.normalizedValue);
             }
             else
             {
