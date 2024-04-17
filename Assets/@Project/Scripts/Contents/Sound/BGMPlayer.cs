@@ -48,6 +48,7 @@ public class BGMPlayer : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += OnLoadScene;
+        Managers.StageActionManager.OnBossKilled += () => SetFieldBGMState(0f);
         GetEventInstances();
     }
 
