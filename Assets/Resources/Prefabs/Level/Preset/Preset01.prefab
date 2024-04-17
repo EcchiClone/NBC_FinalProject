@@ -184,9 +184,13 @@ MonoBehaviour:
   - {fileID: 6166232522897167341}
   - {fileID: 8628706104750923005}
   _dissolve: {fileID: 2100000, guid: f1dd3fd3c0f54014ab39d4b48b123363, type: 2}
-  _splitValue: 1
+  _startValue: 0
+  _endValue: 1
   _dissolveTime: 3
-  _delay: 3
+  _delay: 2
+  ease: 6
+  _inActive: 0
+  _isEnemy: 0
 --- !u!1001 &22306931652181693
 PrefabInstance:
   m_ObjectHideFlags: 0

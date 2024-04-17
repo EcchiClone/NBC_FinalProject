@@ -157,8 +157,8 @@ MonoBehaviour:
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Cannon_Small_Projectile
     muzzleEffect_Path: 
-    damage: 5
-    bulletSpeed: 25
+    damage: 10
+    bulletSpeed: 35
     fireRate: 0.3
     coolDownTime: 2.5
     projectilesPerShot: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/MiniGun_Bullet
     muzzleEffect_Path: 
     damage: 2
-    bulletSpeed: 35
+    bulletSpeed: 50
     fireRate: 0.05
     coolDownTime: 5
     projectilesPerShot: 1
@@ -251,7 +251,7 @@ MonoBehaviour:
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Cannon_Large_Projectile
     muzzleEffect_Path: 
     damage: 50
-    bulletSpeed: 25
+    bulletSpeed: 30
     fireRate: 2
     coolDownTime: 5
     projectilesPerShot: 1
