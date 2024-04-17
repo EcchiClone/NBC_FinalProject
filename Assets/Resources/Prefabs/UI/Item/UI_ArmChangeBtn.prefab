@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 1295728752876613008}
   - component: {fileID: 1571368695385665379}
   - component: {fileID: 665140093018278995}
+  - component: {fileID: -3028694509548543394}
   m_Layer: 5
   m_Name: UI_ArmChangeBtn
   m_TagString: Untagged
@@ -658,3 +659,16 @@ MonoBehaviour:
   _lockText: {fileID: 1228215295756581059}
   _unlock: {fileID: 1259804183566430396}
   _equip: {fileID: 3233389000321737099}
+--- !u!114 &-3028694509548543394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365235192767605837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ecc95b08336e44fb2dc927bda2ab5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisType: 0

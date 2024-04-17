@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         OnZoomInput();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         CameraMovement();
         CameraZoom();
