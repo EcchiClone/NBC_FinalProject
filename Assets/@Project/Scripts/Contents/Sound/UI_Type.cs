@@ -1,5 +1,7 @@
 
 public enum UISoundType
 {
-    DEFAULT
+    DEFAULT,
+    DENY,
+    MODULE
 }

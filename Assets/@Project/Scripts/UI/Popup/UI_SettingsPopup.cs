@@ -9,15 +9,16 @@ public class UI_SettingsPopup : UI_Popup
 {
     enum Buttons
     {
-        Btn_BackToMain1,
-        Btn_BackToMain2,
-        Btn_BackToMain3,
-        Btn_BackToMain4,
-        Btn_BackToMain5,
-        Btn_BackToMain6,
+        Button_BackToMain,
+        //Btn_BackToMain2, // 더미 뒤로가기 버튼
+        //Btn_BackToMain3,
+        //Btn_BackToMain4,
+        //Btn_BackToMain5,
+        //Btn_BackToMain6,
+        Background,
 
-        Button_Reset1,
-        Button_Reset2,
+        //Button_Reset1,  // -> 데이터 초기화를 위한 버튼
+        //Button_Reset2,  // -> 퍼크 초기화를 위한 버튼
     }
     enum Sliders
     {
@@ -50,12 +51,13 @@ public class UI_SettingsPopup : UI_Popup
 
         try
         {
-            GetButton((int)Buttons.Btn_BackToMain1).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(BackToMain);
-            GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(BackToMain);
+            GetButton((int)Buttons.Button_BackToMain).onClick.AddListener(BackToMain);
+            GetButton((int)Buttons.Background).onClick.AddListener(BackToMain);
+            //GetButton((int)Buttons.Btn_BackToMain2).onClick.AddListener(BackToMain); // 더미 버튼, 정립 시 삭제
+            //GetButton((int)Buttons.Btn_BackToMain3).onClick.AddListener(BackToMain);
+            //GetButton((int)Buttons.Btn_BackToMain4).onClick.AddListener(BackToMain);
+            //GetButton((int)Buttons.Btn_BackToMain5).onClick.AddListener(BackToMain);
+            //GetButton((int)Buttons.Btn_BackToMain6).onClick.AddListener(BackToMain);
         }
         catch { }
 
@@ -69,16 +71,16 @@ public class UI_SettingsPopup : UI_Popup
         // SOUND
         slider = Get<Slider>((int)Sliders.Slider_Sound1);
         slider.onValueChanged.AddListener(SliderEvent_Sound1);
-        //slider.value = AudioManager.instance.masterVolume;
+        slider.value = AudioManager.Instance.masterVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound2);
         slider.onValueChanged.AddListener(SliderEvent_Sound2);
-        //slider.value = AudioManager.instance.musicVolume;
+        slider.value = AudioManager.Instance.musicVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound3);
         slider.onValueChanged.AddListener(SliderEvent_Sound3);
-        //slider.value = AudioManager.instance.ambienceVolume;
+        slider.value = AudioManager.Instance.ambienceVolume;
         slider = Get<Slider>((int)Sliders.Slider_Sound4);
         slider.onValueChanged.AddListener(SliderEvent_Sound4);
-        //slider.value = AudioManager.instance.SFXVolume;
+        slider.value = AudioManager.Instance.SFXVolume;
 
         // GRAPHICS
         slider = Get<Slider>((int)Sliders.Slider_Quality);
@@ -89,30 +91,29 @@ public class UI_SettingsPopup : UI_Popup
         //slider.value =  // 기존 값 가져오는 로직
 
         // DATA
-        GetButton((int)Buttons.Button_Reset1).onClick.AddListener(Reset1Btn);
-        GetButton((int)Buttons.Button_Reset2).onClick.AddListener(Reset2Btn);
+        //GetButton((int)Buttons.Button_Reset1).onClick.AddListener(Reset1Btn); // 게임 초기화, 미구현
     }
 
     public void SliderEvent_Sound1(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)value).ToString();
-        //AudioManager.instance.masterVolume = value;
+        AudioManager.Instance.masterVolume = value;
 
     }
     public void SliderEvent_Sound2(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)value).ToString();
-        //AudioManager.instance.musicVolume = value;
+        AudioManager.Instance.musicVolume = value;
     }
     public void SliderEvent_Sound3(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)value).ToString();
-        //AudioManager.instance.ambienceVolume = value;
+        AudioManager.Instance.ambienceVolume = value;
     }
     public void SliderEvent_Sound4(float value)
     {
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)value).ToString();
-        //AudioManager.instance.SFXVolume = value;
+        AudioManager.Instance.SFXVolume = value;
     }
     public void SliderEvent_Quality(float value)
     {
@@ -131,15 +132,15 @@ public class UI_SettingsPopup : UI_Popup
         Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_DPI).text = ((int)value).ToString();
         Debug.Log("DPI 조정: " + dpiScale);
     }
-    private void Reset1Btn()
-    {
-        // 팝업(()=>Data1 삭제 로직{});
-    }
+    //private void Reset1Btn() // 게임 초기화, 미구현
+    //{
+    //    // 팝업(()=>Data1 삭제 로직{});
+    //}
 
-    private void Reset2Btn()
-    {
-        // 팝업(()=>Data2 삭제 로직{});
-    }
+    //private void Reset2Btn() // 퍼크 초기화, 미구현
+    //{
+    //    // 팝업(()=>Data2 삭제 로직{});
+    //}
     private void BackToMain()
     {
         _previousPopup.gameObject.SetActive(true);
