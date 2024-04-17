@@ -12,8 +12,6 @@ public class Drone_ChasingState : BaseState
         IsRootState = false;
 
         chasingInterval = Context.Entity.Data.chasingInterval;
-        _entityTransform = Context.Entity.transform;
-        _targetTransform = Context.Entity.Target.transform;
     }
     public override void EnterState()
     {

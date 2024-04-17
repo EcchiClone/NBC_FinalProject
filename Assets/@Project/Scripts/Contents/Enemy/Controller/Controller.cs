@@ -10,7 +10,7 @@ public  class Controller
         this.Entity = entity;
     }
 
-    protected Entity Entity { get; set; }
+    protected Entity Entity { get; private set; }
 
     public Vector3 Destination { get; protected set; }
     public Vector3 StopPoint { get; protected set; }
@@ -19,15 +19,16 @@ public  class Controller
     public bool IsChasing { get; set; } = false;
 
     public float StopDistance { get; protected set; }
+    protected float Speed { get; set; }
 
     public Rigidbody Rigidbody { get; protected set; }
-
     protected Transform Target { get; set; }
 
     public void Initialize()
     {
         Destination = Entity.transform.position;
         StopDistance = Entity.Data.stopDistance;
+        Speed = Entity.Data.moveSpeed;
         Rigidbody = Entity.GetComponent<Rigidbody>();
         Target = Entity.Target.transform;
     }
