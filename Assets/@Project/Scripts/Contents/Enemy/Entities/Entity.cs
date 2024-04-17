@@ -50,14 +50,17 @@ public abstract class Entity : MonoBehaviour, ITarget
     }
 
     private void OnEnable()
-    {
-        AP = Data.maxHealth;
+    {        
         StateMachine?.Reset();
     }
 
     protected abstract void Initialize();
 
-    public void Activate() => IsAlive = true;    
+    public void Activate()
+    {
+        IsAlive = true;
+        AP = Data.maxHealth;
+    }
 
     public void GetDamaged(float damage)
     {

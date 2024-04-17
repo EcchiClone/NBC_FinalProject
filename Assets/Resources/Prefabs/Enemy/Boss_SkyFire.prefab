@@ -316,6 +316,7 @@ MonoBehaviour:
   _splitValue: 1
   _dissolveTime: 5
   _delay: 1
+  ease: 5
   _inActive: 0
   _isEnemy: 1
 --- !u!1 &7236218023459904964

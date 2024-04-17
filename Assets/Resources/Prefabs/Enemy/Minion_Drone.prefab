@@ -269,7 +269,8 @@ MonoBehaviour:
   - {fileID: 755258798460204437}
   _dissolve: {fileID: 0}
   _splitValue: 1
-  _dissolveTime: 1
+  _dissolveTime: 2
   _delay: 0
+  ease: 5
   _inActive: 0
   _isEnemy: 1

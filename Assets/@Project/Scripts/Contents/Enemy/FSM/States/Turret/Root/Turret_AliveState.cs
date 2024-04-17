@@ -27,7 +27,7 @@ public class Turret_AliveState : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= 0f)
+        if (Context.Entity.AP <= 0)
             SwitchState(Provider.GetState(Turret_States.Dead));
     }
 
