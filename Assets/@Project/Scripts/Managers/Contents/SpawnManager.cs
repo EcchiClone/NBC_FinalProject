@@ -164,9 +164,7 @@ public class SpawnManager
 
         while (CurrentStage <= levelCount)
         {
-            LevelData = Managers.Data.GetLevelData(CurrentStage);
-
-            Debug.Log($"{LevelData.SpawnCount} 마리 스폰 해야됨");
+            LevelData = Managers.Data.GetLevelData(CurrentStage);            
 
             yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
             yield return CoroutineManager.StartCoroutine(Co_StartCountDown());

@@ -47,7 +47,10 @@ public abstract class WeaponBase : MonoBehaviour
         _type = type;
         _partData = Managers.Data.GetPartData(partID);
         _bulletObject = Resources.Load<GameObject>(_partData.BulletPrefab_Path);
+
         Ammo = _partData.Ammo;
+        if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
+            Ammo = 9999;        
 
         OnWeaponFire += CheckReload;
     }

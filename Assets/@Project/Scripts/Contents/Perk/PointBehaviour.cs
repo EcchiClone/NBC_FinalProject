@@ -66,7 +66,7 @@ public class PointBehaviour : MonoBehaviour
 
             ContentInfo contentInfo = PerkManager.Instance.SelectedContentInfo;
             PerkType type = contentInfo.type;
-            float value = contentInfo.value;
+            float value = contentInfo.value;            
 
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
 
@@ -80,7 +80,7 @@ public class PointBehaviour : MonoBehaviour
                 Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
             }
 
-            PerkManager.Instance.perkData.SetActivedPerk(type, value);
+            PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
         }
         else
         {

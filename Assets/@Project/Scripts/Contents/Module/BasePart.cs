@@ -14,7 +14,7 @@ public class BasePart : MonoBehaviour
     public virtual void Setup(Define.Parts_Location type, Module module)
     {
         Module = module;
-        _type = type;
+        _type = type;        
     }
 
     public virtual void BoostOnOff(bool isActive)

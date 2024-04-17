@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerProjectile : Bullet
-{    
+{
     [SerializeField] GameObject _hitEffectPrefab;
     [SerializeField] TrailRenderer _trailRenderers;
     [SerializeField] protected Define.BulletType _bulletType;
@@ -14,6 +13,9 @@ public class PlayerProjectile : Bullet
     protected float _damage;
 
     protected bool _isSplash;
+
+    private Coroutine _coroutine;
+    private readonly float LIFE_TIME = 5f;
 
     private void Awake()
     {
@@ -26,19 +28,26 @@ public class PlayerProjectile : Bullet
         _damage = damage;
         _isSplash = splash;
         if (_trailRenderers != null)
-            _trailRenderers.Clear();        
+            _trailRenderers.Clear();
+
+        _coroutine = StartCoroutine(Co_LifeTime());
+    }
+
+    private IEnumerator Co_LifeTime()
+    {
+        yield return Util.GetWaitSeconds(LIFE_TIME);
+
+        CreateEffect();
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if ((_damagableLayer & (1 << collision.gameObject.layer)) != 0)
         {
-            StopAllCoroutines();            
+            StopAllCoroutines();
 
-            GameObject go = ObjectPooler.SpawnFromPool(_hitEffectPrefab.name, transform.position);            
-            EffectLifeTime hitEffect = go.GetComponent<EffectLifeTime>();
-            hitEffect.Setup();
-            hitEffect.transform.rotation = transform.rotation;
+            CreateEffect();
 
             if (_isSplash)
             {
@@ -54,14 +63,27 @@ public class PlayerProjectile : Bullet
             {
                 if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
-            }            
-            
+            }
+
             gameObject.SetActive(false);
         }
     }
 
+    private void CreateEffect()
+    {
+        GameObject go = ObjectPooler.SpawnFromPool(_hitEffectPrefab.name, transform.position);
+        EffectLifeTime hitEffect = go.GetComponent<EffectLifeTime>();
+        hitEffect.Setup();
+        hitEffect.transform.rotation = transform.rotation;
+    }
+
     private void OnDisable()
     {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
         ObjectPooler.ReturnToPool(gameObject); // 한 객체에 한번만        
         CancelInvoke();
     }

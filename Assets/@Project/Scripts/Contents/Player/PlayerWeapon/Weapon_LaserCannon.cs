@@ -57,8 +57,8 @@ public class Weapon_LaserCannon : WeaponBase
             _laser.endWidth = Mathf.Lerp(startLaserWidth, 0, _laserCurve.Evaluate(percent));
 
             if (isHit)
-                if (hit.transform.TryGetComponent(out Entity boss) == true)
-                    boss.GetDamaged(_partData.Damage);
+                if (hit.transform.TryGetComponent(out ITarget target) == true)
+                    target.GetDamaged(_partData.Damage);
 
             yield return null;
         }
