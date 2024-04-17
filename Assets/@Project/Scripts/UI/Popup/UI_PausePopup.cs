@@ -43,12 +43,19 @@ public class UI_PausePopup : UI_Popup
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // BGM Low Pass 해제
+        BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
+
         // 팝업 비활성화
         gameObject.SetActive(false);
     }
     private void Restart()
     {
         Time.timeScale = 1;
+
+        // BGM Low Pass 해제
+        BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
+
         // 씬 다시 로드        
         Managers.Scene.LoadScene(Scenes.DevScene);
     }
@@ -66,6 +73,10 @@ public class UI_PausePopup : UI_Popup
     private void Exit()
     {
         Time.timeScale = 1;
+
+        // BGM Low Pass 해제
+        BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
+
         // 메인메뉴로
         Managers.Scene.LoadScene(Scenes.MainScene);
     }

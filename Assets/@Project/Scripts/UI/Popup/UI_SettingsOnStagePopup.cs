@@ -77,23 +77,23 @@ public class UI_SettingsOnStagePopup : UI_Popup
 
     public void SliderEvent_Sound1(float value)
     {
-        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)value).ToString();
+        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound1).text = ((int)(value * 100)).ToString();
         AudioManager.Instance.masterVolume = value;
 
     }
     public void SliderEvent_Sound2(float value)
     {
-        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)value).ToString();
+        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound2).text = ((int)(value * 100)).ToString();
         AudioManager.Instance.musicVolume = value;
     }
     public void SliderEvent_Sound3(float value)
     {
-        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)value).ToString();
+        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound3).text = ((int)(value * 100)).ToString();
         AudioManager.Instance.ambienceVolume = value;
     }
     public void SliderEvent_Sound4(float value)
     {
-        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)value).ToString();
+        Get<TextMeshProUGUI>((int)TextMeshProUGUIs.Text_Sound4).text = ((int)(value * 100)).ToString();
         AudioManager.Instance.SFXVolume = value;
     }
     public void SliderEvent_Quality(float value)
