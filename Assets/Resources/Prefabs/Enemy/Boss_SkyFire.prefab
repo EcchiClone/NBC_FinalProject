@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 271065058870316089}
   - component: {fileID: 6493912144862035330}
   - component: {fileID: 912533175694282690}
-  - component: {fileID: 2230303562356184318}
+  - component: {fileID: 5579426517034781461}
   - component: {fileID: 8668359342342015464}
   - component: {fileID: -7696913177312362176}
   m_Layer: 10
@@ -244,8 +244,8 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
---- !u!65 &2230303562356184318
-BoxCollider:
+--- !u!64 &5579426517034781461
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -262,9 +262,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 32.92061, y: 9.827778, z: 48.785233}
-  m_Center: {x: -0.013079643, y: -0.046497107, z: 1.4646673}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8246533223760195538, guid: 5d98eec2139a0a24dafc310a1451754f, type: 3}
 --- !u!114 &8668359342342015464
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.UI.Image;
 
 [Serializable]
 public class LockOnSystem
@@ -20,7 +21,7 @@ public class LockOnSystem
     public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
-    
+
     public bool IsLockon { get; private set; }
     public ITarget TargetEnemy { get; private set; }
 
@@ -53,8 +54,21 @@ public class LockOnSystem
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = _module.transform.position + Camera.main.transform.forward * _scanRadius;
-        RaycastHit[] hits = Physics.SphereCastAll(origin, _scanRadius, Camera.main.transform.forward, _scanRange, _targetLayer);
+        Vector3 origin = _module.transform.position + Camera.main.transform.forward * _scanRadius + Camera.main.transform.up * _scanRadius;
+        Vector3 dir;
+        RaycastHit[] hits;
+        if (IsLockon)
+        {
+            dir = Camera.main.transform.forward;
+            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);
+        }
+        else
+        {
+            Vector3 camdir = Camera.main.transform.forward;
+            dir = new Vector3(camdir.x, 0, camdir.z).normalized;
+            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);
+        }
+
         if (hits.Length == 0)
         {
             Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
@@ -65,10 +79,10 @@ public class LockOnSystem
 
         if (hits[closestIndex].transform.TryGetComponent(out ITarget target) == false)
             return false;
-        if (target == TargetEnemy)
-            return false;        
+        if (target == TargetEnemy || !target.IsAlive)
+            return false;
 
-        TargetEnemy = hits[closestIndex].transform.GetComponent<ITarget>();
+        TargetEnemy = target;
         return true;
     }
 
@@ -78,9 +92,6 @@ public class LockOnSystem
         int closestIndex = -1;
         for (int i = 0; i < hits.Length; i++)
         {
-            //카메라뒤에 있는 애들 락온 못하게 하기 작업중
-            //if (hits[i].transform.position - _module.transform.position)
-
             if (hits[i].distance < closestDist)
             {
                 closestIndex = i;
@@ -104,7 +115,7 @@ public class LockOnSystem
     public void ReleaseTarget()
     {
         IsLockon = false;
-        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;        
+        FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
 
         Managers.ActionManager.CallRelease();
         LockOnCam.gameObject.SetActive(false);
@@ -112,7 +123,7 @@ public class LockOnSystem
         TargetEnemy = null;
     }
 
-    public void LockTargetChange(ITarget prevTarget, UnityAction action)
+    public void LockTargetChange(ITarget prevTarget)
     {
         if (TargetEnemy == null)
             return;
@@ -120,7 +131,6 @@ public class LockOnSystem
         if (!IsThereEnemyScanned())
         {
             ReleaseTarget();
-            action.Invoke();
             return;
         }
 

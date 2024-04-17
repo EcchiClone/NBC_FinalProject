@@ -30,8 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsLeftArmWeaponInputPressed { get; private set; }
     public bool IsRightArmWeaponInputPressed { get; private set; }
     public bool IsLeftShoulderWeaponInputPressed { get; private set; }
-    public bool IsRightShoulderWeaponInputPressed { get; private set; }
-    public bool IsLockOn { get; private set; }
+    public bool IsRightShoulderWeaponInputPressed { get; private set; }    
     public bool IsJumping { get; set; }
     public bool IsRun { get; set; }
     public bool IsHovering { get; set; }
@@ -175,28 +174,22 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnLockOn(InputAction.CallbackContext context)
     {
-        if (IsLockOn)
-        {
-            IsLockOn = false;
+        if (Module.LockOnSystem.IsLockon)
             Module.LockOnSystem.ReleaseTarget();
-        }
         else
         {
             if (Module.LockOnSystem.IsThereEnemyScanned())
-            {
-                IsLockOn = true;
                 Module.LockOnSystem.LockOnTarget();
-            }
-        }
+        }        
     }
 
     private void CheckLockTargetIsNull(ITarget prevTarget)
     {
-        Module.LockOnSystem.LockTargetChange(prevTarget, () => IsLockOn = false);
+        Module.LockOnSystem.LockTargetChange(prevTarget);
     }
 
     private void HandleMove()
-    {        
+    {
         Vector3 nextDir = new Vector3(
             _currentMovementDirection.x * _movementModifier * Module.ModuleStatus.MovementSpeed,
             _currentMovementDirection.y * GRAVITY_VALUE,
@@ -293,7 +286,7 @@ public class PlayerStateMachine : MonoBehaviour
         Quaternion targetRotation;
         Vector3 positionToLookAt;
 
-        if (IsLockOn)
+        if (Module.LockOnSystem.IsLockon)
         {
             Module.TiltController.CombatLockOnControl();
             positionToLookAt = Module.LockOnSystem.TargetEnemy.Transform.position - transform.position;
@@ -315,7 +308,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void StartRunAfterDash()
     {
         if (!Module.ModuleStatus.Boost())
-            return;        
+            return;
 
         IsRun = true;
         CanDash = false;
@@ -323,7 +316,7 @@ public class PlayerStateMachine : MonoBehaviour
         IsUsingBoost = true;
 
         Module.CurrentLower.BoostOnOff(true);
-        Module.CurrentUpper.BoostOnOff(true);        
+        Module.CurrentUpper.BoostOnOff(true);
         if (Controller.isGrounded)
             Module.CurrentLower.FootSparksOnOff(true);
         if (_dashCoroutine != null)
