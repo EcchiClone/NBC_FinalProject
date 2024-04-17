@@ -421,7 +421,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "[\uC5C5\uC801\uC774\uB984] \uC5C5\uC801\uBB18\uC0AC\n\uD0DC\uC2A4\uD06C
-    \uC124\uBA85\uACFC \uCE74\uC6B4\uD130 ( 3 / 5 )"
+    \uC124\uBA85\uACFC \uCE74\uC6B4\uD130 ( 123 / 456 )"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 6113153408622625231}
   - component: {fileID: 3286862892461585960}
   - component: {fileID: 3059008362752070802}
+  - component: {fileID: 1719814680286008666}
   m_Layer: 5
   m_Name: Complete
   m_TagString: Untagged
@@ -749,6 +750,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1719814680286008666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639695513190329358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ecc95b08336e44fb2dc927bda2ab5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisType: 3
 --- !u!1 &6867572642460082556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1121,8 @@ MonoBehaviour:
   _desc: {fileID: 3142351543148894784}
   _completeResult: {fileID: 796116725081515904}
   _completeBtn: {fileID: 3059008362752070802}
+  canvasGroup: {fileID: 0}
+  fadeInDuration: 1
 --- !u!225 &3646704440648567700
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Perk_Reroll { get; private set; }
     [field: SerializeField] public EventReference Weapon_Changed { get; private set; }
     [field: SerializeField] public EventReference Achivement_Success { get; private set; }
+    [field: SerializeField] public EventReference Achivement_Notification { get; private set; }
+    [field: SerializeField] public EventReference Tutorial_Dialogue { get; private set; }
 
 
     [field: Header("Player SFX(2D)")]

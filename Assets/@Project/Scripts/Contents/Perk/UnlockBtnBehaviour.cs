@@ -94,7 +94,12 @@ public class UnlockBtnBehaviour : MonoBehaviour
         HideRerollBtn();
     }
 
-    private void ShowRerollBtn() => _rerollBtn.SetActive(true);
+    private void ShowRerollBtn()
+    {
+        _beforeBtn.SetActive(false);
+        _afterBtn.SetActive(false);
+        _rerollBtn.SetActive(true);
+    }
     private void HideRerollBtn() => _rerollBtn.SetActive(false);
 
     private void UpdateRequireText()

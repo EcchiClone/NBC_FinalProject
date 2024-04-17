@@ -207,6 +207,18 @@ public class PerkManager : MonoBehaviour
         _json.tier2PerkData.data.Clear();
         _json.tier3PerkData.data.Clear();
 
+        // 현재 미달성한 퍼크 업적 카운트 0으로 초기화
+
+        // 퍼크 개방 수 업적 진행도 업데이트
+        try
+        {
+            AchievementCommonUpdater.instance.GetComponent<UpdateUnlockPerk>().ResetPerk();
+        }
+        catch
+        {
+            Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
+        }
+
         Invoke("RerollSequence", 3f);
     }
 

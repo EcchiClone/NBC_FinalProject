@@ -3,171 +3,59 @@
     "data": [
         {
             "contentIdx": 0,
-            "name": "EmptyPerk1Name",
-            "description": "EmptyPerk1Description",
+            "name": "동력 과부하 테스트",
+            "description": "코어 동력의 최대 한계를 테스트합니다. 최대 AP를 100 증가시킵니다.",
             "type": 0,
-            "value": 0.0
+            "value": 100.0
         },
         {
             "contentIdx": 1,
-            "name": "EmptyPerk2Name",
-            "description": "EmptyPerk2Description",
-            "type": 0,
-            "value": 0.0
+            "name": "출력 과부하 테스트",
+            "description": "의도된 전기 출력 과부하를 일으켜 데이터를 쌓습니다. 이동 속도가 2% 증가합니다.",
+            "type": 1,
+            "value": 2.0
         },
         {
-            "contentIdx": 2,
-            "name": "EmptyPerk3Name",
-            "description": "EmptyPerk3Description",
-            "type": 0,
-            "value": 0.0
+            "contentIdx": 2,             
+            "name": "시스템 예외 처리",
+            "description": "재장전 시스템의 누락된 예외 처리를 확보합니다. 장전 속도가 2% 증가합니다.",
+            "type": 4,
+            "value": 2.0
         },
         {
             "contentIdx": 3,
-            "name": "EmptyPerk4Name",
-            "description": "EmptyPerk4Description",
-            "type": 0,
-            "value": 0.0
+            "name": "총열 내구도 테스트",
+            "description": "총열의 내구도 실험을 진행합니다. 발사 속도가 1% 증가합니다.",
+            "type": 5,
+            "value": 1.0
         },
         {
             "contentIdx": 4,
-            "name": "EmptyPerk5Name",
-            "description": "EmptyPerk5Description",
-            "type": 0,
-            "value": 0.0
+            "name": "신소재 탄력 테스트",
+            "description": "부품 강화 시 사용할 신소재의 탄력을 테스트합니다. 점프력이 2% 증가합니다.",
+            "type": 6,
+            "value": 2.0
         },
         {
             "contentIdx": 5,
-            "name": "EmptyPerk6Name",
-            "description": "EmptyPerk6Description",
-            "type": 0,
-            "value": 0.0
+            "name": "가스 압력 실험",
+            "description": "가스 별 압력 강도를 분석해 최적의 가스를 찾습니다. 호버링 가스 출력을 2% 높입니다.",
+            "type": 8,
+            "value": 2.0
         },
         {
             "contentIdx": 6,
-            "name": "EmptyPerk7Name",
-            "description": "EmptyPerk7Description",
-            "type": 0,
-            "value": 0.0
+            "name": "화력 데이터 분석",
+            "description": "사용하는 무기에 따른 화력 데이터를 분석합니다. 모든 무기의 공격력이 2% 증가합니다.",
+            "type": 10,
+            "value": 2.0
         },
         {
             "contentIdx": 7,
-            "name": "EmptyPerk8Name",
-            "description": "EmptyPerk8Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 8,
-            "name": "EmptyPerk9Name",
-            "description": "EmptyPerk9Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 9,
-            "name": "EmptyPerk10Name",
-            "description": "EmptyPerk10Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 10,
-            "name": "EmptyPerk11Name",
-            "description": "EmptyPerk11Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 11,
-            "name": "EmptyPerk12Name",
-            "description": "EmptyPerk12Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 12,
-            "name": "EmptyPerk13Name",
-            "description": "EmptyPerk13Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 13,
-            "name": "EmptyPerk14Name",
-            "description": "EmptyPerk14Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 14,
-            "name": "EmptyPerk15Name",
-            "description": "EmptyPerk15Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 15,
-            "name": "EmptyPerk16Name",
-            "description": "EmptyPerk16Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 16,
-            "name": "EmptyPerk17Name",
-            "description": "EmptyPerk17Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 17,
-            "name": "EmptyPerk18Name",
-            "description": "EmptyPerk18Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 18,
-            "name": "EmptyPerk19Name",
-            "description": "EmptyPerk19Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 19,
-            "name": "EmptyPerk20Name",
-            "description": "EmptyPerk20Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 20,
-            "name": "EmptyPerk21Name",
-            "description": "EmptyPerk21Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 21,
-            "name": "EmptyPerk22Name",
-            "description": "EmptyPerk22Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 22,
-            "name": "EmptyPerk23Name",
-            "description": "EmptyPerk23Description",
-            "type": 0,
-            "value": 0.0
-        },
-        {
-            "contentIdx": 23,
-            "name": "EmptyPerk24Name",
-            "description": "EmptyPerk24Description",
-            "type": 0,
-            "value": 0.0
+            "name": "신호 증폭 실험",
+            "description": "신호 증폭 실험을 진행해 레이더 데이터를 축적합니다. 락온 최대 거리가 2% 증가합니다.",
+            "type": 11,
+            "value": 2.0
         }
     ]
 }
