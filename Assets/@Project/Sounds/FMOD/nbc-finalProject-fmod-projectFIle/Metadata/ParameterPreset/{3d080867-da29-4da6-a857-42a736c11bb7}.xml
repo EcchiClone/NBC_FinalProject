@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{3d080867-da29-4da6-a857-42a736c11bb7}">
+		<property name="name">
+			<value>FieldBGMState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a25fb09a-8fd2-4686-9fa6-c992002c9f5d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e31f72fb-dc7f-443b-9bad-e42df3d03612}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e31f72fb-dc7f-443b-9bad-e42df3d03612}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

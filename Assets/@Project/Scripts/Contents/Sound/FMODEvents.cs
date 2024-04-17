@@ -13,12 +13,23 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference testEvent { get; private set; }
 
 
+    [field: Header("BGM(2D)")]
+    [field: SerializeField] public EventReference Field_BGM { get; private set; }
+
+
+    [field: Header("Ambience(2D)")]
+    [field: SerializeField] public EventReference Main_Ambience { get; private set; }
+    [field: SerializeField] public EventReference Perk_Ambience { get; private set; }
+
+
     [field: Header("Perk/UI SFX(2D)")]
     [field: SerializeField] public EventReference UI_Clicked { get; private set; }
     [field: SerializeField] public EventReference UI_Entered { get; private set; }
     [field: SerializeField] public EventReference Perk_Denied { get; private set; }
     [field: SerializeField] public EventReference Perk_Released { get; private set; }
+    [field: SerializeField] public EventReference Perk_Reroll { get; private set; }
     [field: SerializeField] public EventReference Weapon_Changed { get; private set; }
+    [field: SerializeField] public EventReference Achivement_Success { get; private set; }
 
 
     [field: Header("Player SFX(2D)")]

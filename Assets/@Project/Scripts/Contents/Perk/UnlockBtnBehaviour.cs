@@ -11,6 +11,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _pointTxt;
     [SerializeField] private GameObject _beforeBtn;
     [SerializeField] private GameObject _afterBtn;
+    [SerializeField] private GameObject _rerollBtn;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
     {
         _beforeBtn.SetActive(false);
         _afterBtn.SetActive(false);
+        _rerollBtn.SetActive(false);
     }
 
     private void CheckPerkActive()
@@ -39,30 +41,39 @@ public class UnlockBtnBehaviour : MonoBehaviour
         PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
         SubPerkInfo subInfo = PerkManager.Instance.SelectedSubInfo;
 
-        if (subInfo != null)
+        if (perkInfo.Tier != PerkTier.ORIGIN)
         {
-            int realIdx = PerkManager.Instance.ReturnRealIndex(perkInfo.Tier, perkInfo.PositionIdx);
-            int subIdx = PerkManager.Instance.ReturnRealSubIndex(perkInfo.Tier, realIdx, subInfo.PositionIdx);
+            HideRerollBtn();
 
-            if (!perkInfo.subPerks[subIdx].IsActive)
+            if (subInfo != null)
             {
-                ShowBeforeBtn();
+                int realIdx = PerkManager.Instance.ReturnRealIndex(perkInfo.Tier, perkInfo.PositionIdx);
+                int subIdx = PerkManager.Instance.ReturnRealSubIndex(perkInfo.Tier, realIdx, subInfo.PositionIdx);
+
+                if (!perkInfo.subPerks[subIdx].IsActive)
+                {
+                    ShowBeforeBtn();
+                }
+                else
+                {
+                    ShowAfterBtn();
+                }
             }
             else
             {
-                ShowAfterBtn();
+                if (!perkInfo.IsActive)
+                {
+                    ShowBeforeBtn();
+                }
+                else
+                {
+                    ShowAfterBtn();
+                }
             }
         }
         else
         {
-            if (!perkInfo.IsActive)
-            {
-                ShowBeforeBtn();
-            }
-            else
-            {
-                ShowAfterBtn();
-            }
+            ShowRerollBtn();
         }
     }
 
@@ -77,6 +88,9 @@ public class UnlockBtnBehaviour : MonoBehaviour
         _beforeBtn.SetActive(false);
         _afterBtn.SetActive(true);
     }
+
+    private void ShowRerollBtn() => _rerollBtn.SetActive(true);
+    private void HideRerollBtn() => _rerollBtn.SetActive(false);
 
     private void UpdateRequireText()
     {
