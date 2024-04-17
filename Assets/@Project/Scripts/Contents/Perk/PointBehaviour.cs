@@ -82,8 +82,6 @@ public class PointBehaviour : MonoBehaviour
                 Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
             }
 
-
-            PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
         }
         else
         {
@@ -111,7 +109,7 @@ public class PointBehaviour : MonoBehaviour
             float value = contentInfo.value;
 
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
-            PerkManager.Instance.perkData.SetActivedPerk(type, value);
+            PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
         }
     }
 
