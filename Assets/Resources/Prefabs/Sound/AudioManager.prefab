@@ -58,6 +58,13 @@ MonoBehaviour:
       Data3: -2068040010
       Data4: -861864876
     Path: event:/Music/BGM/FieldBGM
+  <Credit_BGM>k__BackingField:
+    Guid:
+      Data1: 537149408
+      Data2: 1260181768
+      Data3: -257863286
+      Data4: -1795414803
+    Path: event:/Music/BGM/CreditBGM
   <Main_Ambience>k__BackingField:
     Guid:
       Data1: 1410672175

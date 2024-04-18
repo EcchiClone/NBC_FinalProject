@@ -17,9 +17,16 @@ public class UI_Credit : UI_Popup
         GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);
         GetButton((int)Buttons.Background).onClick.AddListener(BackToMain);
     }
+
+    private void OnEnable()
+    {
+        BGMPlayer.Instance.EnterCredit();
+    }
+
     private void BackToMain()
     {
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
+        BGMPlayer.Instance.ExitCredit();
     }
 }

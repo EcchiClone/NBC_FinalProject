@@ -15,6 +15,7 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("BGM(2D)")]
     [field: SerializeField] public EventReference Field_BGM { get; private set; }
+    [field: SerializeField] public EventReference Credit_BGM { get; private set; }
 
 
     [field: Header("Ambience(2D)")]
