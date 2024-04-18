@@ -16,7 +16,7 @@ public abstract class BaseStateMachine
     {
         Entity = entity;
         Initialize();
-        
+        Sound = Entity.GetComponent<Enemy_Sound>();
     }
 
     public abstract void Initialize();
