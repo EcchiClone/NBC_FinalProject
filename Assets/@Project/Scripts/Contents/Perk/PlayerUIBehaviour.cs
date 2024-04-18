@@ -33,7 +33,7 @@ public class PlayerUIBehaviour : MonoBehaviour
 
     private void GetPlayerInfos()
     {
-        _currentPoint = PerkManager.Instance.PlayerPoint;
+        _currentPoint = Managers.GameManager.ResearchPoint;
         _currentSeed = PerkManager.Instance.CurrentSeed;
         _currentInfos = PerkManager.Instance.SelectedPerkInfo;
         _currentContents = PerkManager.Instance.SelectedContentInfo;
