@@ -9,6 +9,7 @@ public class Spider_AliveState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Others_Appear, Context.Entity.transform.position);
     }
 
     public override void UpdateState()
@@ -24,6 +25,7 @@ public class Spider_AliveState : BaseState
 
     public override void ExitState()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Down, Context.Entity.transform.position);
     }
 
     public override void InitializeSubState() // 처음 적용할 상태

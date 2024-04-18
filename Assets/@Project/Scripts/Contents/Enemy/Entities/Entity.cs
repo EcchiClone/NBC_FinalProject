@@ -82,6 +82,7 @@ public abstract class Entity : MonoBehaviour, ITarget
             }
             else if (EnemyType == EnemyType.Boss)
             {
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boom_Distance, Vector3.zero);
                 Managers.StageActionManager.CallBossKilled();
                 AchievementCommonUpdater.instance.GetComponent<UpdateKillBoss>().UpdateReport();
             }

@@ -9,6 +9,7 @@ public class Ball_AliveState : BaseState
     {
         InitializeSubState();
        _currentSubState?.EnterState();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Others_Appear, Context.Entity.transform.position);
     }
 
     public override void UpdateState()
@@ -24,8 +25,7 @@ public class Ball_AliveState : BaseState
 
     public override void ExitState()
     {
-
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Down, Context.Entity.transform.position);
     }
 
     public override void InitializeSubState()

@@ -59,6 +59,7 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Others SFX(3D)")]
     [field: SerializeField] public EventReference Others_Appear { get; private set; }
     [field: SerializeField] public EventReference Others_Disappear { get; private set; }
+    [field: SerializeField] public EventReference Boom_Distance { get; private set; }
 
 
     [field: Header("Enemies SFX(3D)")]
@@ -68,7 +69,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Drone_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Footsteps { get; private set; }
+    [field: SerializeField] public EventReference Boss_Appear { get; private set; }
     [field: SerializeField] public EventReference Enemy_Hits { get; private set; }
+    [field: SerializeField] public EventReference Enemy_Down { get; private set; }
 
 
     public static FMODEvents Instance { get; private set; }
