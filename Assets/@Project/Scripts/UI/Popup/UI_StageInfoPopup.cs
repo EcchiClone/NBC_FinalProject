@@ -4,6 +4,7 @@ using UnityEngine;
 public class UI_StageInfoPopup : UI_Popup
 {
     [Header("Stage")]
+    [SerializeField] TextMeshProUGUI _currentStage;
     [SerializeField] TextMeshProUGUI _countDownTime;
     [SerializeField] TextMeshProUGUI _spawnedCount;
     [SerializeField] TextMeshProUGUI _remainCount;
@@ -13,8 +14,9 @@ public class UI_StageInfoPopup : UI_Popup
         base.Init();
 
         Managers.StageActionManager.OnEnemySpawned += CountSpawndEnemies;
-        Managers.StageActionManager.OnMinionKilled += CountRemainEnemies;
+        Managers.SpawnManager.OnUpdateEnemyKillCount += CountRemainEnemies;
         Managers.StageActionManager.OnCountDownActive += CountDownTime;
+        Managers.SpawnManager.OnStageClear += StageClear;
 
         Managers.ActionManager.OnPlayerDead += () => gameObject.SetActive(false);
     }
@@ -43,6 +45,12 @@ public class UI_StageInfoPopup : UI_Popup
         if (Managers.SpawnManager.LevelData.EnemyType == EnemyType.Minion)
             _countDownTime.text = $"다음 웨이브까지 : {minutes:00}:{seconds:00}";
         else if (Managers.SpawnManager.LevelData.EnemyType == EnemyType.Boss)
-            _countDownTime.text = $"남은 시간 : {minutes:00}:{seconds:00}";
+            _countDownTime.text = $"<color=red>남은 시간</color> : {minutes:00}:{seconds:00}";
+    }
+
+    private void StageClear()
+    {
+        _countDownTime.text = "";
+        _currentStage.text = $"현재 스테이지 : {Managers.SpawnManager.CurrentStage}";
     }
 }

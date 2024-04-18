@@ -6,6 +6,8 @@ public class UI_MainMenuPopup : UI_Popup
     private UI_Achievement _achievement;
     private UI_SettingsPopup _settings;
     private UI_StageSelectPopup _stageSelect;
+    private UI_ControlsGuide _guide;
+    private UI_Credit _credit;
 
     enum Buttons
     {
@@ -15,6 +17,8 @@ public class UI_MainMenuPopup : UI_Popup
         Achievement_Btn,
         Settings_Btn,
         Exit_Btn,
+        Guide_Btn,
+        Dev_Btn,
     }
 
     protected override void Init()
@@ -30,6 +34,8 @@ public class UI_MainMenuPopup : UI_Popup
         GetButton((int)Buttons.Achievement_Btn).onClick.AddListener(OpenAchievement);
         GetButton((int)Buttons.Settings_Btn).onClick.AddListener(OpenSettings);
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);
+        GetButton((int)Buttons.Guide_Btn).onClick.AddListener(OpenGuide);
+        GetButton((int)Buttons.Dev_Btn).onClick.AddListener(OpenCredit);
     }
 
     private void OpenStageSelect()
@@ -81,6 +87,30 @@ public class UI_MainMenuPopup : UI_Popup
 
         gameObject.SetActive(false);
     }
+    private void OpenGuide()
+    {
+        if (_guide == null)
+        {
+            _guide = Managers.UI.ShowPopupUI<UI_ControlsGuide>();
+            _guide.SetPreviousPopup(this);
+        }
+        else
+            _guide.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
+    private void OpenCredit()
+    {
+        if (_credit == null)
+        {
+            _credit = Managers.UI.ShowPopupUI<UI_Credit>();
+            _credit.SetPreviousPopup(this);
+        }
+        else
+            _credit.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
 
     #region ExitGame Method
 #if UNITY_EDITOR
@@ -88,12 +118,12 @@ public class UI_MainMenuPopup : UI_Popup
     {
         UnityEditor.EditorApplication.isPlaying = false;
     }
-#else
+#else 
     private void ExitGame()
     {
-        Application.Quit();
+        //Application.Quit();
     } 
 #endif
-#endregion
+    #endregion
 
 }
