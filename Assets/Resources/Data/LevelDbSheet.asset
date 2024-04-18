@@ -48,7 +48,7 @@ MonoBehaviour:
   - dev_ID: 5
     spawnCount: 1
     spawnDelayTime: 0
-    countDownTime: 10
+    countDownTime: 60
     spawnType1: 4
     spawnType2: 0
     spawnType3: 0
