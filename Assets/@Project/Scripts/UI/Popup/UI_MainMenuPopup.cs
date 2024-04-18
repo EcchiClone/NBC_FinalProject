@@ -121,7 +121,7 @@ public class UI_MainMenuPopup : UI_Popup
 #else 
     private void ExitGame()
     {
-        //Application.Quit();
+        Application.Quit();
     } 
 #endif
     #endregion
