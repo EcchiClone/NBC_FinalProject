@@ -48,7 +48,7 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
-    public int achievementPoint;
+    public int achievementPoint = 10000;
 
     public bool tutorialClear;
 
@@ -164,7 +164,17 @@ public class GameManager
     }
     #endregion
     #region Rewards
-    public int AchievementCoin
+    public int AchievementPoint
+    {
+        get => gameData.achievementPoint;
+        set
+        {
+            gameData.achievementPoint = value;
+            SaveGame();
+        }
+    }
+
+    public int ResearchPoint
     {
         get => gameData.researchPoint;
         set
