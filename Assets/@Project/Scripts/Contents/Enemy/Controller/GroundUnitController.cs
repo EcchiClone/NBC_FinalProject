@@ -43,12 +43,11 @@ public class GroundUnitController : Controller
 
     public override void SetDestination(Vector3 target)
     {
-        // NavMesh 위에 있는지 확인
         NavMeshPath path = new NavMeshPath();
-        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh && agent.CalculatePath(target, path))
         {
-            if (agent.CalculatePath(target, path) && path.status == NavMeshPathStatus.PathComplete)
-                agent.SetDestination(target);
+            agent.SetDestination(target);            
         }
         else
         {
