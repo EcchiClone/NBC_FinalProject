@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: Minion_Drone
   m_EditorClassIdentifier: 
-  stopDistance: 60
+  stopDistance: 40
   cognizanceRange: 100
   chasingInterval: 0.1
   rotationSpeed: 0
