@@ -36,10 +36,12 @@ public class AchievementCommonUpdater : MonoBehaviour
         {
             if (_pause == null)
             {
+                BGMPlayer.Instance.SetLowPassLerpVars(0f, 0.9f, 1.5f);
                 _pause = Managers.UI.ShowPopupUI<UI_PausePopup>();
             }
             else if (!_pause.gameObject.activeSelf)
             {
+                BGMPlayer.Instance.SetLowPassLerpVars(0f, 0.9f, 1.5f);
                 _pause.gameObject.SetActive(true);
             }
         }

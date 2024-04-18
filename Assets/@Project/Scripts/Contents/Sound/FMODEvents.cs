@@ -65,8 +65,9 @@ public class FMODEvents : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("Scene에 적어도 하나의 FMODEvents가 존재하는 지 확인하세요.");
+            Destroy(gameObject);
         }
+
         Instance = this;
     }
 }

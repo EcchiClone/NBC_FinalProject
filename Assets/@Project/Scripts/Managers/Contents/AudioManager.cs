@@ -32,9 +32,13 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("Scene에 적어도 하나의 AudioManager가 존재하는 지 확인하세요.");
+            Destroy(gameObject);
         }
-        Instance = this;
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+        }
 
         eventInstances = new List<EventInstance>();
         eventEmitters = new List<StudioEventEmitter>();

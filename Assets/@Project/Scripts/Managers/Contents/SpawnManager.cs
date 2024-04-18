@@ -232,7 +232,10 @@ public class SpawnManager
         if (LevelData.EnemyType == EnemyType.Minion)
             ObjectPooler.SpawnFromPool(unitType, GetSpawnPoint());
         else if (LevelData.EnemyType == EnemyType.Boss)
+        {
+            BGMPlayer.Instance.SetFieldBGMState(1f); // 보스 브금 재생
             ObjectPooler.SpawnFromPool(unitType, new Vector3(50, 50, 50));
+        }
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
     }
 
