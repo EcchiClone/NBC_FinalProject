@@ -6,13 +6,16 @@
     "researchPoint": 563,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
-    "partIndex_LeftArm": 0,
-    "partIndex_RightArm": 0,
-    "partIndex_LeftShoulder": 0,
-    "partIndex_RightShoulder": 0,
+    "partIndex_LeftArm": 2,
+    "partIndex_RightArm": 2,
+    "partIndex_LeftShoulder": 1,
+    "partIndex_RightShoulder": 1,
     "achievementPoint": 10000,
     "tutorialClear": true,
-    "unlockedPartsList": [],
+    "unlockedPartsList": [
+        10003003,
+        10004002
+    ],
     "perkData": {
         "perkValueArray": [
             1000.0,

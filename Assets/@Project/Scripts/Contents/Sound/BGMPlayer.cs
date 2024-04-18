@@ -47,8 +47,7 @@ public class BGMPlayer : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnLoadScene;
-        Managers.StageActionManager.OnBossKilled += () => SetFieldBGMState(0f);
+        SceneManager.sceneLoaded += OnLoadScene;        
         GetEventInstances();
     }
 
@@ -69,6 +68,8 @@ public class BGMPlayer : MonoBehaviour
         _mainAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Main_Ambience);
         _perkAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Perk_Ambience);
         _fieldBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Field_BGM);
+
+        Managers.StageActionManager.OnBossKilled += () => SetFieldBGMState(0f);
 
         // Parameter 초기화
         _fieldBGM.setParameterByName("FieldBGMState", 0f); // 0f ~ 0.50f: 필드BGM, 0.51f ~ 1.0f: 보스BGM
