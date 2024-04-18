@@ -73,7 +73,7 @@ public abstract class WeaponBase : MonoBehaviour
             CanReload = perkData.GetAbilityValue(PerkType.Resupply) == 1f ? true : false;
 
         Ammo = MaxAmmo;
-        if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.Tutorial)
+        if (Managers.Scene.CurrentScene.Scenes == Define.Scenes.TutorialScene)
             Ammo = 9999;
 
         OnWeaponFire += CheckReload;

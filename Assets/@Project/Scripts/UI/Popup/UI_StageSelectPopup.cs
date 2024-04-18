@@ -19,7 +19,7 @@ public class UI_StageSelectPopup : UI_Popup
         BindButton(typeof(Buttons));
 
         GetButton((int)Buttons.Button_GameStart).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.DevScene));
-        GetButton((int)Buttons.Button_Tutorial).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.Tutorial));
+        GetButton((int)Buttons.Button_Tutorial).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.TutorialScene));
 
         GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);
     }

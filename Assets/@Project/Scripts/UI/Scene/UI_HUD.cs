@@ -57,7 +57,7 @@ public class UI_HUD : UI_Scene
         Managers.Module.CurrentLeftShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;
         Managers.Module.CurrentRightShoulderPart.Weapon.OnWeaponFire += AmmoTextChange;        
 
-        if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.Tutorial)
+        if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.TutorialScene)
             Managers.UI.ShowPopupUI<UI_StageInfoPopup>();
 
         float ap = Managers.Module.CurrentModule.ModuleStatus.Armor;

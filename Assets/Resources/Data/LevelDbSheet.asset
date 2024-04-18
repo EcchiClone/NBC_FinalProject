@@ -14,33 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_SO:
   - dev_ID: 1
-    spawnCount: 5
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 3
-    spawnType1: 2
+    countDownTime: 2
+    spawnType1: 1
     spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 2
-    spawnCount: 5
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 3
-    spawnType1: 2
+    countDownTime: 2
+    spawnType1: 1
     spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 3
-    spawnCount: 5
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 3
+    countDownTime: 2
     spawnType1: 1
     spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 4
-    spawnCount: 5
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 3
+    countDownTime: 2
     spawnType1: 1
     spawnType2: 0
     spawnType3: 0
@@ -48,127 +48,127 @@ MonoBehaviour:
   - dev_ID: 5
     spawnCount: 1
     spawnDelayTime: 0
-    countDownTime: 120
+    countDownTime: 60
     spawnType1: 4
     spawnType2: 0
     spawnType3: 0
     enemyType: 1
   - dev_ID: 6
-    spawnCount: 20
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 5
-    spawnType1: 2
-    spawnType2: 3
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 7
-    spawnCount: 20
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 5
-    spawnType1: 2
-    spawnType2: 3
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 8
-    spawnCount: 20
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 5
-    spawnType1: 2
-    spawnType2: 1
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 9
-    spawnCount: 20
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 5
-    spawnType1: 2
-    spawnType2: 1
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 10
     spawnCount: 1
     spawnDelayTime: 0
-    countDownTime: 120
+    countDownTime: 60
     spawnType1: 4
     spawnType2: 0
     spawnType3: 0
     enemyType: 1
   - dev_ID: 11
-    spawnCount: 30
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 12
-    spawnCount: 30
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 13
-    spawnCount: 30
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 3
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 14
-    spawnCount: 30
+    spawnCount: 1
     spawnDelayTime: 2
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 3
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
     spawnType3: 0
     enemyType: 0
   - dev_ID: 15
     spawnCount: 1
     spawnDelayTime: 0
-    countDownTime: 120
+    countDownTime: 60
     spawnType1: 4
     spawnType2: 0
     spawnType3: 0
     enemyType: 1
   - dev_ID: 16
-    spawnCount: 50
-    spawnDelayTime: 1
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
-    spawnType3: 3
+    spawnCount: 1
+    spawnDelayTime: 2
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
+    spawnType3: 0
     enemyType: 0
   - dev_ID: 17
-    spawnCount: 50
-    spawnDelayTime: 1
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
-    spawnType3: 3
+    spawnCount: 1
+    spawnDelayTime: 2
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
+    spawnType3: 0
     enemyType: 0
   - dev_ID: 18
-    spawnCount: 50
-    spawnDelayTime: 1
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
-    spawnType3: 3
+    spawnCount: 1
+    spawnDelayTime: 2
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
+    spawnType3: 0
     enemyType: 0
   - dev_ID: 19
-    spawnCount: 50
-    spawnDelayTime: 1
-    countDownTime: 10
-    spawnType1: 2
-    spawnType2: 1
-    spawnType3: 3
+    spawnCount: 1
+    spawnDelayTime: 2
+    countDownTime: 2
+    spawnType1: 1
+    spawnType2: 0
+    spawnType3: 0
     enemyType: 0
   - dev_ID: 20
     spawnCount: 1
     spawnDelayTime: 0
-    countDownTime: 120
+    countDownTime: 60
     spawnType1: 4
     spawnType2: 0
     spawnType3: 0
