@@ -62,15 +62,16 @@ public class Ball_DeadState : BaseState
                     rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
                 }
 
-                entity.GetDamaged(damage); // TODO 데미지 조절 필요
+                entity.GetDamaged(damage);
             }
 
             if (hit.transform.gameObject.TryGetComponent(out Module module))
             {
-                module.ModuleStatus.GetDamage(damage); // TODO 데미지 조절 필요
+                module.ModuleStatus.GetDamage(damage);
             }
         }
         ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
         _isExplodeFinish = true;
 
         yield return null;
