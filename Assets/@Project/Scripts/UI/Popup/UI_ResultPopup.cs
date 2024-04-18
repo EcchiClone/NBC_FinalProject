@@ -45,10 +45,19 @@ public class UI_ResultPopup : UI_Popup
     }
 
     private void ShowResultAndSave()
-    {
-        SpawnManager data = Managers.SpawnManager;
+    {        
         StageData savedData = Managers.GameManager.StageData;
         StageData stageData = Managers.SpawnManager.StageData;
+
+        int minutes = (int)stageData.time / 60;
+        int seconds = (int)stageData.time % 60;
+
+        GetTMP((int)Texts.Time_Value).text = $"{minutes:00} : {seconds:00}";
+        GetTMP((int)Texts.Stage_Value).text = $"{stageData.stage}";
+        GetTMP((int)Texts.BestStage_Value).text = $"{savedData.stage}";
+        GetTMP((int)Texts.MinionKill_Value).text = $"{stageData.minionKill}";
+        GetTMP((int)Texts.BossKill_Value).text = $"{stageData.bossKill}";
+        GetTMP((int)Texts.ResearchPoint_Value).text = $"{stageData.researchPoint}";
 
         stageData.minionKill = Mathf.Max(savedData.minionKill, stageData.minionKill);
         stageData.bossKill = Mathf.Max(savedData.bossKill, stageData.bossKill);
@@ -57,15 +66,5 @@ public class UI_ResultPopup : UI_Popup
 
         Managers.GameManager.StageData = stageData;
         Managers.StageActionManager.CallResult(savedData);
-
-        int minutes = (int)data.Timer / 60;
-        int seconds = (int)data.Timer % 60;
-
-        GetTMP((int)Texts.Time_Value).text = $"{minutes:00} : {seconds:00}";
-        GetTMP((int)Texts.Stage_Value).text = $"{data.CurrentStage}";
-        GetTMP((int)Texts.BestStage_Value).text = $"{savedData.stage}";
-        GetTMP((int)Texts.MinionKill_Value).text = $"{data.MinionKillCount}";
-        GetTMP((int)Texts.BossKill_Value).text = $"{data.BossKillCount}";
-        GetTMP((int)Texts.ResearchPoint_Value).text = $"{data.ResearchPoint}";
     }
 }

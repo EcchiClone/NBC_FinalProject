@@ -136,6 +136,7 @@ public class SpawnManager
 
     #region 국 작업
     public event Action OnStageClear;
+    public event Action OnUpdateEnemyKillCount;        
 
     public StageData StageData { get; private set; }
     public LevelData LevelData { get; private set; }
@@ -145,8 +146,8 @@ public class SpawnManager
 
     public float Timer { get => StageData.time; private set { StageData.time = value; } }
     public int CurrentStage { get => StageData.stage; private set { StageData.stage = value;} }
-    public int MinionKillCount { get => StageData.minionKill; private set { StageData.minionKill = value;} }
-    public int BossKillCount { get => StageData.bossKill; private set { StageData.bossKill = value; _bossClear = true; } }
+    public int MinionKillCount { get => StageData.minionKill; private set { StageData.minionKill = value; OnUpdateEnemyKillCount?.Invoke(); } }
+    public int BossKillCount { get => StageData.bossKill; private set { StageData.bossKill = value; OnUpdateEnemyKillCount?.Invoke(); _bossClear = true;} }
     public int ResearchPoint { get => StageData.researchPoint; private set { StageData.researchPoint = value;} }
 
     private int _currentWaveSpawnCount;
@@ -187,15 +188,11 @@ public class SpawnManager
 
             yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
             yield return CoroutineManager.StartCoroutine(Co_StartCountDown());
-
-            if (LevelData.EnemyType == EnemyType.Minion || (LevelData.EnemyType == EnemyType.Boss && CheckStageClear()))
-            {
-                if (!IsStarted)
-                    yield break;
-                NextStage();
-                continue;
-            }
-            break;
+            if (LevelData.EnemyType == EnemyType.Boss && !_bossClear)
+                break;
+            if (!IsStarted)
+                yield break;
+            NextStage();            
         }
         TimeOut();
     }
@@ -204,9 +201,11 @@ public class SpawnManager
     {
         while (true)
         {
-            if (!IsStarted || _bossClear)
+            if (!IsStarted)
                 yield break;
 
+
+            Debug.Log("스폰 중");
             yield return Util.GetWaitSeconds(LevelData.SpawnDelayTime);
 
             string unitType = LevelData.SpawnTypes[UnityEngine.Random.Range(0, LevelData.SpawnTypes.Count)].ToString();
@@ -223,7 +222,7 @@ public class SpawnManager
 
         while (_timer > 0)
         {
-            if (!IsStarted)
+            if (!IsStarted || _bossClear)
                 yield break;
 
             _timer -= Time.deltaTime;
@@ -257,7 +256,7 @@ public class SpawnManager
 
     public bool CheckStageClear()
     {
-        if (CurrentSpawnCount == MinionKillCount + BossKillCount || _bossClear)
+        if (_bossClear)
             return true;
         return false;
     }
@@ -266,6 +265,12 @@ public class SpawnManager
     {
         IsStarted = false;
         Managers.ActionManager.CallPlayerDead();
+    }
+
+    public void GameOver()
+    {
+        StageData.researchPoint = CurrentStage * 2;
+        Managers.UI.ShowPopupUI<UI_ResultPopup>();
     }
     #endregion
 
@@ -276,5 +281,6 @@ public class SpawnManager
 
         StageData = null;
         OnStageClear = null;
+        OnUpdateEnemyKillCount = null;        
     }
 }

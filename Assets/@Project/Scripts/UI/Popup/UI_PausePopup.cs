@@ -56,7 +56,8 @@ public class UI_PausePopup : UI_Popup
         // BGM Low Pass 해제
         BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
 
-        // 씬 다시 로드        
+        // 씬 다시 로드
+        Managers.ActionManager.CallPlayerDead();
         Managers.Scene.LoadScene(Scenes.DevScene);
     }
     private void Settings()
@@ -78,6 +79,7 @@ public class UI_PausePopup : UI_Popup
         BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
 
         // 메인메뉴로
+        Managers.ActionManager.CallPlayerDead();
         Managers.Scene.LoadScene(Scenes.MainScene);
     }
 }

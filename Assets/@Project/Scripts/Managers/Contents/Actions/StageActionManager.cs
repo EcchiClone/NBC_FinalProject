@@ -8,7 +8,7 @@ public class StageActionManager
     public event Action OnMinionKilled;
     public event Action OnBossKilled;
 
-    public event Action<int> OnEnemySpawned;    
+    public event Action<int> OnEnemySpawned;
     public event Action<float> OnCountDownActive;
 
     public event Action<StageData> OnResult;
