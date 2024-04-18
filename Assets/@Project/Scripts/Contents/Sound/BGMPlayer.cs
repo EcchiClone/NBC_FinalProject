@@ -136,14 +136,14 @@ public class BGMPlayer : MonoBehaviour
             _lerpStart = Mathf.Lerp(_lerpStart, _lerpEnd, 0.5f);
             SetFieldLowPass(_lerpStart);
         }
-    }
+    }    
 
     public void SetLowPassLerpVars(float start, float end, float time)
-    {
+    {        
         _isLerp = true;
         _lerpStart = start;
         _lerpEnd = end;
-        Invoke("StopLerp", time);
+        Instance.Invoke("StopLerp", time);
     }
 
     private void StopLerp()
@@ -171,6 +171,7 @@ public class BGMPlayer : MonoBehaviour
 
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
+        Instance = this;
         StopInstances();
         GetEventInstances();
     }

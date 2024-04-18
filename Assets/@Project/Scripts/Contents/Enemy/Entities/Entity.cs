@@ -52,6 +52,7 @@ public abstract class Entity : MonoBehaviour, ITarget
     private void OnEnable()
     {        
         StateMachine?.Reset();
+        CurrentHelth = Data.maxHealth;
     }
 
     protected abstract void Initialize();
