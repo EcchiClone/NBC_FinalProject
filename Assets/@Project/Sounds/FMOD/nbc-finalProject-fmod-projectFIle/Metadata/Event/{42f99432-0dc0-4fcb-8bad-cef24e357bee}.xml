@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{42f99432-0dc0-4fcb-8bad-cef24e357bee}">
 		<property name="name">
-			<value>Boss_Appear</value>
+			<value>Boss_Detect</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -126,5 +126,9 @@
 			<value>-50</value>
 		</property>
 	</object>
-	<object class="SpatialiserEffect" id="{5d3cc891-24b7-45f2-a44d-4275ffa3ab39}" />
+	<object class="SpatialiserEffect" id="{5d3cc891-24b7-45f2-a44d-4275ffa3ab39}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+	</object>
 </objects>

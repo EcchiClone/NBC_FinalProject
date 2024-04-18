@@ -312,11 +312,39 @@ MonoBehaviour:
     Path: event:/SFX/Enemy/Spider_Footsteps
   <Boss_Appear>k__BackingField:
     Guid:
+      Data1: -512318822
+      Data2: 1254500550
+      Data3: -1491509879
+      Data4: -557487598
+    Path: event:/testEvent
+  <Boss_Detect>k__BackingField:
+    Guid:
       Data1: 1123652658
       Data2: 1338707392
       Data3: -221336181
       Data4: -293915314
-    Path: event:/SFX/Enemy/Boss_Appear
+    Path: event:/SFX/Enemy/Boss_Detect
+  <Boss_Phase_1>k__BackingField:
+    Guid:
+      Data1: -1966923056
+      Data2: 1238638869
+      Data3: -67322189
+      Data4: 768540822
+    Path: event:/SFX/Enemy/Boss_Phase_1
+  <Boss_Phase_2>k__BackingField:
+    Guid:
+      Data1: -95709744
+      Data2: 1291569888
+      Data3: -663332689
+      Data4: 737542610
+    Path: event:/SFX/Enemy/Boss_Phase_2
+  <Boss_Phase_3>k__BackingField:
+    Guid:
+      Data1: -325092389
+      Data2: 1224803554
+      Data3: 1020937882
+      Data4: -1372870670
+    Path: event:/SFX/Enemy/Boss_Phase_3
   <Enemy_Hits>k__BackingField:
     Guid:
       Data1: -2109992189

@@ -70,6 +70,10 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Spider_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Footsteps { get; private set; }
     [field: SerializeField] public EventReference Boss_Appear { get; private set; }
+    [field: SerializeField] public EventReference Boss_Detect { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_1 { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_2 { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_3 { get; private set; }
     [field: SerializeField] public EventReference Enemy_Hits { get; private set; }
     [field: SerializeField] public EventReference Enemy_Down { get; private set; }
 
