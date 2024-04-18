@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ public class SpawnManager
 {
     public List<Vector3> _groundCell = new List<Vector3>(); // 탐지 전의 모든 지상 셀 (어떤 요소와도 겹치지 않음)
 
-    private HashSet<Vector3> _groundTempPoint = new HashSet<Vector3>(); // 탐지 후 중복 요소 제거용
+    public HashSet<Vector3> _groundTempPoint = new HashSet<Vector3>(); // 탐지 후 중복 요소 제거용
 
     public Queue<Vector3> _groundSpawnPoints = new Queue<Vector3>(); // 탐지 후 찾아낸 스폰 포인트
 
@@ -98,13 +99,30 @@ public class SpawnManager
         _groundSpawnPoints.Clear();
 
         int groundLayer = LayerMask.GetMask("Ground");
+        int allLayers = LayerMask.GetMask("Ground", "Wall", "Unwalkable");
 
         RaycastHit hit;
         foreach (Vector3 cell in _groundCell)
         {
             if (Physics.Raycast(cell, Vector3.down, out hit, 41f, groundLayer))
-                _groundTempPoint.Add(hit.point + Vector3.up * 3);
+            {
+                Collider[] hitColliders = Physics.OverlapSphere(hit.point, cellRadius, allLayers);
+                bool onlyGround = true;
+                foreach (var hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject.layer != LayerMask.NameToLayer("Ground"))
+                    {
+                        onlyGround = false;
+                        break;
+                    }
+                }
+                if (onlyGround)
+                {
+                    _groundTempPoint.Add(hit.point + Vector3.up * 3);
+                }
+            }       
         }
+
         _groundSpawnPoints = new Queue<Vector3>(_groundTempPoint);
     }
 

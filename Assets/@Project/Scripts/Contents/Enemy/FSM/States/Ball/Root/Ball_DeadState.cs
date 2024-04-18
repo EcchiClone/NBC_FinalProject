@@ -59,7 +59,7 @@ public class Ball_DeadState : BaseState
                     Vector3 other = hit.transform.position;
                     Vector3 pushDirection = (other - _entityTransform.position).normalized;
 
-                    rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
+                    rigidbody.AddForce(pushDirection * 14, ForceMode.Impulse);
                 }
 
                 entity.GetDamaged(damage);

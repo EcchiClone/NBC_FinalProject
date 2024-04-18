@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,7 +43,18 @@ public class GroundUnitController : Controller
 
     public override void SetDestination(Vector3 target)
     {
-        agent.SetDestination(target);
+        // NavMesh 위에 있는지 확인
+        NavMeshPath path = new NavMeshPath();
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            if (agent.CalculatePath(target, path) && path.status == NavMeshPathStatus.PathComplete)
+                agent.SetDestination(target);
+        }
+        else
+        {
+            Debug.Log("네비 매쉬 오류입니다.");
+            return;
+        }
     }
 
     public override void SetStopDistance(float stopDistance)
