@@ -63,6 +63,7 @@ public class UI_ResultPopup : UI_Popup
         stageData.bossKill = Mathf.Max(savedData.bossKill, stageData.bossKill);
         stageData.time = Mathf.Max(savedData.time, stageData.time);
         stageData.stage = Mathf.Max(savedData.stage, stageData.stage);
+        Managers.GameManager.ResearchPoint += stageData.researchPoint;
 
         Managers.GameManager.StageData = stageData;
         Managers.StageActionManager.CallResult(savedData);
