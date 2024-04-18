@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029021251551cf0428d2daa833caf3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 6
   _muzzleEffect: {fileID: 0}
   _pivotVertical: {fileID: 6942246475800253607}
   _pivotHead: {fileID: 885614457704601132}

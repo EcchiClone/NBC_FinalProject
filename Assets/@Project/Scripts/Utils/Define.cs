@@ -68,4 +68,15 @@ public class Define
         plusValue,
         minusValue,
     }
+
+    public enum WeaponType
+    {
+        Arm01,
+        Arm02,
+        Arm03,
+        Arm04,
+        Shoulder01,
+        Shoulder02,
+        Shoulder03,
+    }
 }
