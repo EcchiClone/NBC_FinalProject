@@ -56,6 +56,7 @@ public class PlayerHoverState : PlayerBaseState
         Context.IsHovering = true;
         Context.IsCanHovering = false;
         Context.IsUsingBoost = true;
+        Context.Sound.IsHovering = true;
         if (!Context.IsRun)
             Context.Module.CurrentUpper.BoostOnOff(true);
     }
@@ -64,6 +65,7 @@ public class PlayerHoverState : PlayerBaseState
     {
         Context.IsHovering = false;
         Context.IsUsingBoost = false;
+        Context.Sound.IsHovering = false;
         if (!Context.IsRun)
             Context.Module.CurrentUpper.BoostOnOff(false);
     }
