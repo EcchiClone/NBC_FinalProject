@@ -9,6 +9,8 @@ public class Drone_AliveState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        Context.Sound.StartEmitter();
+
     }
 
     public override void UpdateState()
@@ -24,7 +26,7 @@ public class Drone_AliveState : BaseState
 
     public override void ExitState()
     {
-
+        Context.Sound.StopEmitter();
 
     }
 

@@ -68,6 +68,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Drone_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Footsteps { get; private set; }
+    [field: SerializeField] public EventReference Enemy_Hits { get; private set; }
 
 
     public static FMODEvents Instance { get; private set; }
