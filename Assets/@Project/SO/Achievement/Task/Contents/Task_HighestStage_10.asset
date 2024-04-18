@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef59b76c4b4e1604f88dca03e99f2847, type: 3}
-  m_Name: Task_Result_Score_10
+  m_Name: Task_HighestStage_10
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 4e423a79091540d488f3363a4b0d02b6, type: 2}
-  codeName: RESULT_SCORE_10
-  description: Result Score 10
-  action: {fileID: 11400000, guid: 881a9a66ec9244d45a2799c28e80abc1, type: 2}
+  codeName: HIGHEST_STAGE_10
+  description: "\uCD5C\uACE0 \uC2A4\uD14C\uC774\uC9C0 10"
+  action: {fileID: 11400000, guid: f4c0e090c51d1ec4fb5ef4ff3ddb7d49, type: 2}
   targets:
   - {fileID: 11400000, guid: 17e850b95b8b9c2498464851b2cb19d0, type: 2}
   initialSuccessValue: {fileID: 0}
