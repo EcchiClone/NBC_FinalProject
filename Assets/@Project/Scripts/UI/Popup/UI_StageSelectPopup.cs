@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class UI_StageSelectPopup : UI_Popup
         Button_Back,
     }
 
+    public static event Action OnPairPopup;
+
     protected override void Init()
     {
         base.Init();
@@ -21,11 +24,17 @@ public class UI_StageSelectPopup : UI_Popup
         GetButton((int)Buttons.Button_GameStart).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.DevScene));
         GetButton((int)Buttons.Button_Tutorial).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.TutorialScene));
 
-        GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);
+        GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);        
     }
     private void BackToMain()
     {
+        OnPairPopup?.Invoke();
         _previousPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        Managers.UI.ShowPopupUI<UI_ModuleACStatusPopup>(isStack: false);
     }
 }

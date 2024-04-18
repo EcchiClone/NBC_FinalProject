@@ -317,7 +317,7 @@ MonoBehaviour:
     bulletSpeed: 20
     fireRate: 0.5
     coolDownTime: 5
-    projectilesPerShot: 1
+    projectilesPerShot: 2
     shotErrorRange: 0
     ammo: 10
     isReloadable: 0

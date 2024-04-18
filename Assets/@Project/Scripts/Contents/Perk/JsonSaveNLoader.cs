@@ -19,9 +19,13 @@ public class JsonSaveNLoader : MonoBehaviour
 
     [ContextMenu("To Json Data(Save/Perk)")]
     public void SavePerkData(PerkList perkList, string name)
-    {
+    {        
         string jsonData = JsonUtility.ToJson(perkList, true);
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
+#else
+        string path = Path.Combine(Application.dataPath, $"{name}.json");
+#endif
         File.WriteAllText(path, jsonData);
         Debug.Log($"{name}.json 파일로 저장했음");
     }
@@ -29,7 +33,11 @@ public class JsonSaveNLoader : MonoBehaviour
     [ContextMenu("From Json Data(Load/Perk)")]
     public void LoadPerkData(ref PerkList perkList, string name)
     {
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
+#else
+        string path = Path.Combine(Application.dataPath, $"{name}.json");
+#endif
         if (!File.Exists(path))
         {
             Debug.Log("파일 없음 다시 확인해보셈");
@@ -46,7 +54,11 @@ public class JsonSaveNLoader : MonoBehaviour
     public void SaveContentData(ContentList contentList, string name)
     {
         string jsonData = JsonUtility.ToJson(contentList, true);
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, $"{_contentDataPath}/{name}.json");
+#else
+        string path = Path.Combine(Application.dataPath, $"{name}.json");
+#endif
         File.WriteAllText(path, jsonData);
         Debug.Log($"{name}.json 파일로 저장했음");
     }
@@ -54,22 +66,19 @@ public class JsonSaveNLoader : MonoBehaviour
     [ContextMenu("From Json Data(Load/Content)")]
     public void LoadContentData(ref ContentList contentList, string name)
     {
-        string path = Path.Combine(Application.dataPath, $"{_contentDataPath}/{name}.json");
-        if (!File.Exists(path))
-        {
-            Debug.Log("파일 없음 다시 확인해보셈");
-            contentList = new ContentList();
-            return;
-        }
-        string jsonData = File.ReadAllText(path);
+        string path = Resources.Load<TextAsset>($"Data/Perk/Content/{name}").text;
 
-        contentList = JsonUtility.FromJson<ContentList>(jsonData);
+        contentList = JsonUtility.FromJson<ContentList>(path);
         Debug.Log($"{name}.json 파일 불러왔음");
     }
 
     public bool IsPerkDataExist(string name)
     {
+#if UNITY_EDITOR
         string path = Path.Combine(Application.dataPath, $"{_perkDataPath}/{name}.json");
+#else
+        string path = Path.Combine(Application.dataPath, $"{name}.json");
+#endif
 
         if (File.Exists(path))
             return true;
