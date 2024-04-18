@@ -20,8 +20,16 @@ public class SpawnEffect : MonoBehaviour
     [SerializeField] bool _inActive;
     [SerializeField] bool _isEnemy;
 
-    private void Start()
+    private bool _isCreate = false;
+
+    private void OnEnable()
     {
+        if (!_isCreate)
+        {
+            _isCreate = true;
+            return;
+        }
+
         foreach (var renderer in _renderer)
         {
             renderer.material.SetFloat("_Split", _startValue);
