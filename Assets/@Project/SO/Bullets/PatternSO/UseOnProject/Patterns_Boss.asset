@@ -264,7 +264,7 @@ MonoBehaviour:
   - patternName: SphereRotate
     Desc: "\uAD6C\uD615 \uD68C\uC804(\uB300\uBD80\uBD84 \uD0C4\uB9C9 \uBE44\uC96C\uC5BC\uC6A9)"
     enemyBulletSettings:
-      enemyBulletPrefab: {fileID: 245006665270501150, guid: 72c56fac616920b4c842ff10df271cd2,
+      enemyBulletPrefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390,
         type: 3}
       initDelay: 0
       numOfSet: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
   - patternName: Circles
     Desc: "\uC6D0\uD615 \uBC18\uBCF5"
     enemyBulletSettings:
-      enemyBulletPrefab: {fileID: 245006665270501150, guid: 72c56fac616920b4c842ff10df271cd2,
+      enemyBulletPrefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390,
         type: 3}
       initDelay: 0
       numOfSet: 3
