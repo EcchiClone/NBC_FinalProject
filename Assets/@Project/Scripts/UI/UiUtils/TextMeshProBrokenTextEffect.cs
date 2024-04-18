@@ -14,6 +14,7 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
     [SerializeField] private int changePerOnetime=3; // 한 차례에 바꿀 글자 수
     [SerializeField] private float minTime = 0.1f; // 최소 변화 시간
     [SerializeField] private float maxTime = 0.7f; // 최대 변화 시간
+    [SerializeField] private float startDelay = 0f; // 최대 변화 시간
 
     void Awake()
     {
@@ -34,6 +35,7 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
 
     IEnumerator RandomizeText()
     {
+        yield return new WaitForSeconds(startDelay);
         while (enabled)
         {
             int changesCount = Random.Range(1, changePerOnetime + 1); // 한 번에 변화시킬 문자 수
