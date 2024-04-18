@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
   codeName: KILL_MINION_1000
-  description: Kill Minion 1000
+  description: "\uBBF8\uB2C8\uC5B8 \uD30C\uAD34 1000\uD68C"
   action: {fileID: 11400000, guid: a4e9c23ce78fa4c43b98aa66e61c219c, type: 2}
   targets:
   - {fileID: 11400000, guid: 8f99d4173325b7c4c9e30e08a9fe24e7, type: 2}

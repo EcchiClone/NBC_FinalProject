@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 131f5f2cb7f53ef4ba1f6818a9e4155f, type: 2}
   codeName: KILL_BOSS_100
-  description: Kill Boss 100
+  description: "\uBCF4\uC2A4 \uD30C\uAD34 100\uD68C"
   action: {fileID: 11400000, guid: a4e9c23ce78fa4c43b98aa66e61c219c, type: 2}
   targets:
   - {fileID: 11400000, guid: cc4422af0688111499ec256dff5a7fe2, type: 2}

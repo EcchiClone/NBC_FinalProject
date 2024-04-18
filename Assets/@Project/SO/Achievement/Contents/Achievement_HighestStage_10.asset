@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
-  m_Name: Achievement_ResultScore_1000
+  m_Name: Achievement_HighestStage_10
   m_EditorClassIdentifier: 
-  codeName: RESULT_SCORE_1000
+  codeName: HIGHEST_STAGE_10
   icon: {fileID: 21300000, guid: 4fa378b3ece048549937e894399290e0, type: 3}
-  displayName: "\uCC9C\uC810, \uCC9C\uC810\uC774\uC624!!"
-  description: "1000\uC810 \uC774\uC0C1\uC758 \uC810\uC218\uB85C \uD074\uB9AC\uC5B4"
+  displayName: ..... .....
+  description: "10\uC2A4\uD14C\uC774\uC9C0 \uC774\uC0C1\uC73C\uB85C \uC885\uB8CC"
   taskGroups:
   - tasks:
-    - {fileID: 11400000, guid: 12ad46cc585136a47afe75130e26c8c7, type: 2}
+    - {fileID: 11400000, guid: 83d745b456feb914682cafb575904d11, type: 2}
   rewards:
   - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
   useAutoComplete: 0
