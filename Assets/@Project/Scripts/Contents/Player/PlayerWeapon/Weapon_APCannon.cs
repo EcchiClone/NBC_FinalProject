@@ -34,6 +34,7 @@ public class Weapon_APCannon : WeaponBase
 
             Quaternion rotation = Util.RandomDirectionFromMuzzle(ShotError);
             bullet.transform.rotation *= rotation;
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Cannon_Shot, Vector3.zero);
 
             PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
             projectile.Setup(BulletSpeed, Damage, _partData.IsSplash, Vector3.zero, _target);

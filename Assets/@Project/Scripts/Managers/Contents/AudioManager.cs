@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -49,6 +50,11 @@ public class AudioManager : MonoBehaviour
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
     }
 
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
+
     private void Update()
     {
         masterBus.setVolume(masterVolume);
@@ -82,7 +88,7 @@ public class AudioManager : MonoBehaviour
         return emitter;
     }
 
-    private void CleanUp()
+    public void CleanUp()
     {
         foreach (EventInstance eventInstance in eventInstances)
         {
@@ -94,6 +100,11 @@ public class AudioManager : MonoBehaviour
         {
             emitter.Stop();
         }
+    }
+
+    private void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+
     }
 
     private void OnDestroy()

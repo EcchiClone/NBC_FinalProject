@@ -42,16 +42,18 @@ public class FMODEvents : MonoBehaviour
 
 
     [field: Header("Player Weapons")]
-    [field: SerializeField] public EventReference Player_Weapon1_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Weapon1_Shot { get; private set; } // Arm01
     [field: SerializeField] public EventReference Player_Weapon1_Reload { get; private set; }
-    [field: SerializeField] public EventReference Player_Weapon2_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Weapon2_Shot { get; private set; } // Arm02
     [field: SerializeField] public EventReference Player_Weapon2_Reload { get; private set; }
-    [field: SerializeField] public EventReference Player_Laser_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Laser_Shot { get; private set; } // Arm03
     [field: SerializeField] public EventReference Player_Laser_Charge { get; private set; }
     [field: SerializeField] public EventReference Player_Laser_Reload { get; private set; }
-    [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
-    [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
-    [field: SerializeField] public EventReference Player_LaunchRocket { get; private set; }
+    [field: SerializeField] public EventReference Player_Cannon_Shot { get; private set; } // Arm04
+    [field: SerializeField] public EventReference Player_Cannon_Reload { get; private set; } 
+    [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; } // Shoulder01
+    [field: SerializeField] public EventReference Player_LaunchRocket { get; private set; } // Shoulder02
+    [field: SerializeField] public EventReference Player_LaserCannon_Shot { get; private set; } // Shoulder03
 
 
     [field: Header("Others SFX(3D)")]

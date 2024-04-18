@@ -172,5 +172,6 @@ public class BGMPlayer : MonoBehaviour
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
         StopInstances();
+        GetEventInstances();
     }
 }
