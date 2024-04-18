@@ -39,7 +39,7 @@ public class GameData
     public int highestStage;
     public int highestMinionKill;
     public int highestBossKill;
-    public int researchPoint;
+    public int researchPoint = 1000;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
@@ -48,7 +48,7 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
-    public int achievementPoint;
+    public int achievementPoint = 10000;
 
     public bool tutorialClear;
 
@@ -164,7 +164,17 @@ public class GameManager
     }
     #endregion
     #region Rewards
-    public int AchievementCoin
+    public int AchievementPoint
+    {
+        get => gameData.achievementPoint;
+        set
+        {
+            gameData.achievementPoint = value;
+            SaveGame();
+        }
+    }
+
+    public int ResearchPoint
     {
         get => gameData.researchPoint;
         set

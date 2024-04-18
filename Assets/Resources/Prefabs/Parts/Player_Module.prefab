@@ -117,7 +117,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 17408
     _scanRange: 50
-    _scanRadius: 15
+    _scanRadius: 25
 --- !u!114 &5245987810503798519
 MonoBehaviour:
   m_ObjectHideFlags: 0

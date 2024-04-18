@@ -70,13 +70,18 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
             _partImage.color = Color.white;
             _isUnlockChecked = true;
             if (_changePartAction != null)
-                AddListenerToBtn(_changePartAction);
+            {
+                Button button = GetComponent<Button>();
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(_changePartAction);
+            }                
         }
     }
 
     protected void AddListenerToBtn(UnityAction action)
     {
         Button button = GetComponent<Button>();
+        _changePartAction = action;
 
         if (!currentData.IsUnlocked)
         {
@@ -84,8 +89,7 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
                 button.onClick.AddListener(() => Managers.UI.ShowPopupUI<UI_UnlockPartPopup>().AlertTextUpdate(this));
             return;
         }
-        button.onClick.AddListener(action);
-        _changePartAction = action;
+        button.onClick.AddListener(action);        
     }
 
     protected void LoadPartImage()

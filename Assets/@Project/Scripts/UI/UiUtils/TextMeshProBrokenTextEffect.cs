@@ -9,12 +9,14 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string randomChars = "x_"; // 인스펙터에서 설정한 변수
     public bool brokenStart = false;
+    public char initBrokenChar = '_';
+    public float startDelay = 0f; // 시작 전 딜레이 주기
     private string originalText; // 원본 텍스트
     private string currentText; // 현재 텍스트 상태
     [SerializeField] private int changePerOnetime=3; // 한 차례에 바꿀 글자 수
     [SerializeField] private float minTime = 0.1f; // 최소 변화 시간
     [SerializeField] private float maxTime = 0.7f; // 최대 변화 시간
-    [SerializeField] private float startDelay = 0f; // 최대 변화 시간
+
 
     void Awake()
     {
@@ -25,7 +27,7 @@ public class TextMeshProBrokenTextEffect : MonoBehaviour
         // 초기 텍스트 설정
         if (brokenStart)
         {
-            currentText = new string('_', originalText.Length);
+            currentText = new string(initBrokenChar, originalText.Length);
             textComponent.text = currentText;
         }
         else

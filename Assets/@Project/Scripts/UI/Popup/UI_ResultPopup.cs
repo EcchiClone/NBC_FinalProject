@@ -61,11 +61,11 @@ public class UI_ResultPopup : UI_Popup
         int minutes = (int)data.Timer / 60;
         int seconds = (int)data.Timer % 60;
 
-        GetTMP((int)Texts.Time_Value).text = $"{minutes} : {seconds}";
+        GetTMP((int)Texts.Time_Value).text = $"{minutes:00} : {seconds:00}";
         GetTMP((int)Texts.Stage_Value).text = $"{data.CurrentStage}";
         GetTMP((int)Texts.BestStage_Value).text = $"{savedData.stage}";
         GetTMP((int)Texts.MinionKill_Value).text = $"{data.MinionKillCount}";
         GetTMP((int)Texts.BossKill_Value).text = $"{data.BossKillCount}";
-        GetTMP((int)Texts.ResearchPoint_Value).text = $"{data.ResearchPoint}";        
+        GetTMP((int)Texts.ResearchPoint_Value).text = $"{data.ResearchPoint}";
     }
 }

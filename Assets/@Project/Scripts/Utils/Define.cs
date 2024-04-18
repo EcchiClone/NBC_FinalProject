@@ -7,6 +7,7 @@ public class Define
     public enum Scenes
     {
         Unknown,
+        TitleScene,
         Tutorial,
         MainScene,
         DevScene,

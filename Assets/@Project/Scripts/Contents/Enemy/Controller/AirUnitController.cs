@@ -31,8 +31,7 @@ public class AirUnitController : Controller
 
     protected override void Move()
     {
-        //boss.transform.position = Vector3.Lerp(boss.transform.position, stopPoint, boss.Data.moveSpeed * Time.deltaTime);
-        //boss.transform.position = Vector3.MoveTowards(boss.transform.position, StopPoint, boss.Data.moveSpeed * Time.deltaTime);
+        //Entity.transform.position = Vector3.Lerp(Entity.transform.position, StopPoint, Entity.Data.moveSpeed * Time.deltaTime);
 
         // 이동 방향 벡터 계산
         Vector3 moveDirection = (StopPoint - Entity.transform.position).normalized;

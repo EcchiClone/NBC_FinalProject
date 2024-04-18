@@ -29,6 +29,7 @@ public class Drone_CombatState : BaseState
         {
             if (!CheckObstacle())
             {
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Drone_Shot, _entityTransform.position);
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 1, true);
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 2, true);
             }

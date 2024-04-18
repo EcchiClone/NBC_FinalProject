@@ -80,7 +80,7 @@ public class BallUnitController : Controller
             currentWaypoint.y = radius;
 
             direction = (currentWaypoint - Entity.transform.position).normalized; // 노드 변경시 속도 방향 조정
-            rigidbody.velocity = direction * rigidbody.velocity.magnitude;
+            //rigidbody.velocity = direction * rigidbody.velocity.magnitude;
         }
 
         rigidbody.AddForce(direction * Speed, ForceMode.Force);
