@@ -184,6 +184,7 @@ public class ModuleManager
                 _gameManager.PartIndex_RightShoulder = index;
                 break;
         }
+        CurrentModule.Setup(CurrentLowerPart, CurrentUpperPart, CurrentLeftArmPart, CurrentRightArmPart, CurrentLeftShoulderPart, CurrentRightShoulderPart);
     }
 
     private void WeaponPartsStore()

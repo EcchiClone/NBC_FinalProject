@@ -18,6 +18,7 @@ public abstract class WeaponBase : MonoBehaviour
     public float ShotError { get; private set; }
     public int PierceCount { get; private set; }
     public int MaxAmmo { get; private set; }
+    public int PerShot {  get; private set; }
     public bool CanReload { get; private set; }
 
     protected Transform _target;
@@ -68,6 +69,7 @@ public abstract class WeaponBase : MonoBehaviour
         FireRate = _partData.FireRate * Util.GetReducePercentagePerkValue(perkData, PerkType.OverHeat);
         ShotError = _partData.ShotErrorRange * Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedBarrel);
         PierceCount = (int)perkData.GetAbilityValue(PerkType.Pierce);
+        PerShot = _partData.ProjectilesPerShot;
         CanReload = _partData.IsReloadable;
         if (_type == Define.Parts_Location.Weapon_Shoulder_L || _type == Define.Parts_Location.Weapon_Shoulder_R)
             CanReload = perkData.GetAbilityValue(PerkType.Resupply) == 1f ? true : false;

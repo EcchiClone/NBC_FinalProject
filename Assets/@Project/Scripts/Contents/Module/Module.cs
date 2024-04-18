@@ -31,14 +31,15 @@ public class Module : MonoBehaviour
         CurrentLeftShoulder = leftShoulder;
         CurrentRightShoulder = rightShoulder;
 
+        ModuleStatus = new ModuleStatus(lowerPart, upperPart, leftArm, rightArm, leftShoulder, rightShoulder);
+
         if (GetComponent<PlayerStateMachine>() == null)
             return;
 
         PlayerStateMachine = GetComponent<PlayerStateMachine>();
         transform.position = GameObject.Find("@PlayerSpawn").transform.position;
 
-        IsPlayable = true;
-        ModuleStatus = new ModuleStatus(lowerPart, upperPart, leftArm, rightArm, leftShoulder, rightShoulder);
+        IsPlayable = true;        
         TiltController = new WeaponTiltController(this);
         LockOnSystem.Setup(this);
         Skill = new RepairKit();
