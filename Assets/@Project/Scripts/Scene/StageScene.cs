@@ -3,6 +3,7 @@ using UnityEngine;
 public class StageScene : BaseScene
 {
     private UI_Scene _scene;
+    StageController _stageController;
 
     public override void Init()
     {
@@ -10,7 +11,13 @@ public class StageScene : BaseScene
 
         Managers.Module.CreatePlayerModule();
         _scene = Managers.UI.ShowSceneUI<UI_HUD>();
-        Managers.SpawnManager.Init();        
+        Managers.SpawnManager.Init();
+    }
+
+    private void Start()
+    {
+        _stageController = GetComponent<StageController>();
+        _stageController.GameStart();
     }
 
     public override void Clear()

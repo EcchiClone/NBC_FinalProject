@@ -1,12 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using static Define;
 using UnityEngine.Events;
 using System.Linq;
-using UnityEngine.UI;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class UI_Achievement : UI_Popup
 {

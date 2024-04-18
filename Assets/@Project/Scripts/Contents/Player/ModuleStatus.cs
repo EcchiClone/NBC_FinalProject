@@ -68,6 +68,9 @@ public class ModuleStatus
 
     public void GetDamage(float damage)
     {
+        if (IsDead)
+            return;
+
         float random = Random.Range(0f, 100f);
         if (random <= Stealth)
             return;

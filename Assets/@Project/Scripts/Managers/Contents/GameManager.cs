@@ -24,11 +24,11 @@ public class PerkData
 [Serializable]
 public class StageData
 {
-    public float bestTime;
-    public int bestStage;
+    public float time;
+    public int stage;
 
-    public int highestMinionKill;
-    public int highestBossKill;
+    public int minionKill;
+    public int bossKill;
     public int researchPoint;
 }
 
@@ -78,7 +78,12 @@ public class GameManager
     #region StageData
     public StageData StageData
     {
-        get => gameData.stageData;
+        get
+        {
+            if(gameData.stageData == null)
+                gameData.stageData = new StageData();
+            return gameData.stageData;
+        }
         set
         {
             gameData.stageData = value;

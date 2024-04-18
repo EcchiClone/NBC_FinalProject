@@ -143,17 +143,11 @@ public class SpawnManager
     public int CurrentSpawnCount { get; private set; }
     public bool IsStarted { get; private set; }
 
-    private float _totaltime;
-    private int _currentStage;
-    private int _minionKillCount;
-    private int _bossKillCount;
-    private int _researchPoint;
-
-    public float Timer { get => _totaltime; private set { _totaltime = value; StageData.bestTime = _totaltime; } }
-    public int CurrentStage { get => _currentStage; private set { _currentStage = value; StageData.bestStage = _currentStage; } }
-    public int MinionKillCount { get => _minionKillCount; private set { _minionKillCount = value; StageData.highestMinionKill = _minionKillCount; } }
-    public int BossKillCount { get => _bossKillCount; private set { _bossKillCount = value; StageData.highestBossKill = _bossKillCount; } }
-    public int ResearchPoint { get => _researchPoint; private set { _researchPoint = value; StageData.researchPoint = _researchPoint; } }
+    public float Timer { get => StageData.time; private set { StageData.time = value; } }
+    public int CurrentStage { get => StageData.stage; private set { StageData.stage = value;} }
+    public int MinionKillCount { get => StageData.minionKill; private set { StageData.minionKill = value;} }
+    public int BossKillCount { get => StageData.bossKill; private set { StageData.bossKill = value;} }
+    public int ResearchPoint { get => StageData.researchPoint; private set { StageData.researchPoint = value;} }
 
     private int _currentWaveSpawnCount;
     private float _timer;
@@ -199,7 +193,7 @@ public class SpawnManager
                 OnStageClear?.Invoke();
                 continue;
             }
-            yield break;
+            break;
         }
         TimeOut();
     }
@@ -261,6 +255,10 @@ public class SpawnManager
 
     public void Clear()
     {
+        CurrentSpawnCount = 0;
+        _currentWaveSpawnCount = 0;        
+
+        StageData = null;
         OnStageClear = null;
     }
 }

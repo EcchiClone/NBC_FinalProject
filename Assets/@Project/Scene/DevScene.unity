@@ -124,65 +124,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &105880551
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105880554}
-  - component: {fileID: 105880553}
-  - component: {fileID: 105880552}
-  m_Layer: 0
-  m_Name: '@StageController'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &105880552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105880551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fff982de0cc14a40a23a1c7d73f277c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obstaclePrefabs:
-  - {fileID: 3372092589995602346, guid: bd83a766ec37d904d8971e0d3f142921, type: 3}
---- !u!114 &105880553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105880551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842e1cde44cd8fd4fb8acc2f60512da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &105880554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105880551}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1346687905}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +320,8 @@ GameObject:
   m_Component:
   - component: {fileID: 763788963}
   - component: {fileID: 763788962}
+  - component: {fileID: 763788965}
+  - component: {fileID: 763788964}
   m_Layer: 0
   m_Name: '@Scene'
   m_TagString: Untagged
@@ -413,6 +356,32 @@ Transform:
   m_Father: {fileID: 1346687905}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763788964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763788961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fff982de0cc14a40a23a1c7d73f277c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstaclePrefabs:
+  - {fileID: 3372092589995602346, guid: bd83a766ec37d904d8971e0d3f142921, type: 3}
+--- !u!114 &763788965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763788961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842e1cde44cd8fd4fb8acc2f60512da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346687904
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +410,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 105880554}
   - {fileID: 763788963}
   - {fileID: 1447459407}
   - {fileID: 1953271576}
@@ -1061,32 +1029,32 @@ PrefabInstance:
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 3.655663
       objectReference: {fileID: 0}
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -8.350738
       objectReference: {fileID: 0}
     - target: {fileID: 7856613313034232340, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 3.655663
       objectReference: {fileID: 0}
     - target: {fileID: 7856613313034232340, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -8.350738
       objectReference: {fileID: 0}
     - target: {fileID: 8711542511449123582, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: 3.655663
       objectReference: {fileID: 0}
     - target: {fileID: 8711542511449123582, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -8
+      value: -8.350738
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

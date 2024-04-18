@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_Enemy : MonoBehaviour, ITarget
+public class Tutorial_Enemy : MonoBehaviour, ITarget
 {
     public float maxAP;
     public float currentAP;
+    public bool isAlive;
 
     private void Awake()
     {
+        isAlive = true;
         Managers.ActionManager.OnLockOnTarget += LockOn;
     }
 
@@ -24,7 +26,9 @@ public class Test_Enemy : MonoBehaviour, ITarget
             float percent = currentAP / maxAP;
             Managers.ActionManager.CallTargetAPChanged(percent);
         }
-    }    
+    }
+
+    public bool IsAlive => isAlive;
 
     public void GetDamaged(float damage)
     {
@@ -43,7 +47,8 @@ public class Test_Enemy : MonoBehaviour, ITarget
     }
 
     public void Dead()
-    {        
+    {
+        isAlive = false;
         gameObject.SetActive(false);
         Managers.ActionManager.CallLockTargetDestroyed(this);
         Managers.AchievementSystem.ReceiveReport("TUTO9", "Killed", 1);

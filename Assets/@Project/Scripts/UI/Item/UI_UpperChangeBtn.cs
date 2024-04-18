@@ -29,14 +29,14 @@ public class UI_UpperChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
-        if (!_currentData.IsUnlocked)
+        if (!currentData.IsUnlocked)
         {
             Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
             return;
         }
 
         UI_UpperSelector selector = _parentUI as UI_UpperSelector;
-        selector.DisPlayNextPartSpecText(_currentData);
+        selector.DisPlayNextPartSpecText(currentData);
         
         Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
@@ -44,7 +44,7 @@ public class UI_UpperChangeBtn : UI_ChangeButton
     private void ChangePart()
     {        
         Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Upper);
-        Managers.Module.CallUpperPartChange(_currentData);
+        Managers.Module.CallUpperPartChange(currentData);
         Managers.ActionManager.CallUpperEquip(_currentIndex);
     }
 }
