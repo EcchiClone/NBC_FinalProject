@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Achievement/Reward/AchievementPoint", fileName = "Reward_AchievementPoint")]
-public class RewardCoin : AchievementReward
+public class RewardPoint : AchievementReward
 {
     public override void Give(Achievement achievement)
     {
