@@ -261,6 +261,13 @@ MonoBehaviour:
       Data3: -2044975965
       Data4: 1845576716
     Path: event:/SFX/Others/Others_Disappeared
+  <Boom_Distance>k__BackingField:
+    Guid:
+      Data1: 827321789
+      Data2: 1174709794
+      Data3: -1366629964
+      Data4: -1462913910
+    Path: event:/SFX/Others/Boom_Distance
   <Ball_Drag>k__BackingField:
     Guid:
       Data1: 1726701905
@@ -291,10 +298,10 @@ MonoBehaviour:
     Path: event:/SFX/Enemy/Drone_Shot
   <Spider_Shot>k__BackingField:
     Guid:
-      Data1: 2012998256
-      Data2: 1220345003
-      Data3: -656614986
-      Data4: 1252799605
+      Data1: -122535610
+      Data2: 1148106445
+      Data3: 705473171
+      Data4: 1736756230
     Path: event:/SFX/Enemy/Spider_Shot
   <Spider_Footsteps>k__BackingField:
     Guid:
@@ -303,6 +310,27 @@ MonoBehaviour:
       Data3: 167681430
       Data4: 38947895
     Path: event:/SFX/Enemy/Spider_Footsteps
+  <Boss_Appear>k__BackingField:
+    Guid:
+      Data1: 1123652658
+      Data2: 1338707392
+      Data3: -221336181
+      Data4: -293915314
+    Path: event:/SFX/Enemy/Boss_Appear
+  <Enemy_Hits>k__BackingField:
+    Guid:
+      Data1: -2109992189
+      Data2: 1073926471
+      Data3: -940183891
+      Data4: -679955813
+    Path: event:/SFX/Enemy/Enemy_Hit
+  <Enemy_Down>k__BackingField:
+    Guid:
+      Data1: -1485294182
+      Data2: 1104491209
+      Data3: 1332182443
+      Data4: -1073933911
+    Path: event:/SFX/Enemy/Enemy_Down
 --- !u!1 &5084369939428427692
 GameObject:
   m_ObjectHideFlags: 0

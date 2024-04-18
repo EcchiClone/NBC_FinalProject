@@ -21,6 +21,12 @@ public class Enemy_Sound : MonoBehaviour
             case EnemySoundType.SPIDER:
                 _emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.Spider_Footsteps, this.gameObject);
                 break;
+            case EnemySoundType.BALL:
+                _emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.Ball_Drag, this.gameObject);
+                break;
+            case EnemySoundType.DRONE:
+                _emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.Drone_Idle, this.gameObject);
+                break;
         }
     }
 

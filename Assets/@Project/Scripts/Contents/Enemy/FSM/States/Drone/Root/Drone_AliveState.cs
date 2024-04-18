@@ -9,6 +9,8 @@ public class Drone_AliveState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Others_Appear, Context.Entity.transform.position);
+        Context.Sound.StartEmitter();
     }
 
     public override void UpdateState()
@@ -24,8 +26,8 @@ public class Drone_AliveState : BaseState
 
     public override void ExitState()
     {
-
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Down, Context.Entity.transform.position);
+        Context.Sound.StopEmitter();
     }
 
     public override void InitializeSubState()

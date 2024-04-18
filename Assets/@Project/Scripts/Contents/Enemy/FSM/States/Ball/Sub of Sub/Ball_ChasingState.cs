@@ -20,7 +20,7 @@ public class Ball_ChasingState : BaseState
     {             
         passedTime = 0f;
         Context.Entity.Controller.SetDestination(_targetTransform.position);
-        
+        Context.Sound.StartEmitter();
     }
 
     public override void UpdateState()
@@ -47,6 +47,7 @@ public class Ball_ChasingState : BaseState
 
     public override void ExitState()
     {
+        Context.Sound.StopEmitter();
     }
 
     public override void InitializeSubState()
