@@ -7,7 +7,7 @@ public class UI_TitleSceneButtons : MonoBehaviour
 {
     public void OnClickStartButton()
     {
-        if(Managers.GameManager.gameData.tutorialClear)
+        if(!Managers.GameManager.gameData.tutorialClear)
             Managers.Scene.LoadScene(Scenes.Tutorial);
         else
             Managers.Scene.LoadScene(Scenes.MainScene);
