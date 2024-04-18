@@ -36,13 +36,21 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Player SFX(2D)")]
     [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
-    [field: SerializeField] public EventReference Player_GunShot { get; private set; }
-    [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
-    [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
     [field: SerializeField] public EventReference Player_BoosterLoop { get; private set; }
-    [field: SerializeField] public EventReference Player_Reload { get; private set; }
     [field: SerializeField] public EventReference Player_Repair { get; private set; }
     [field: SerializeField] public EventReference Player_LockOn { get; private set; }
+
+
+    [field: Header("Player Weapons")]
+    [field: SerializeField] public EventReference Player_Weapon1_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Weapon1_Reload { get; private set; }
+    [field: SerializeField] public EventReference Player_Weapon2_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Weapon2_Reload { get; private set; }
+    [field: SerializeField] public EventReference Player_Laser_Shot { get; private set; }
+    [field: SerializeField] public EventReference Player_Laser_Charge { get; private set; }
+    [field: SerializeField] public EventReference Player_Laser_Reload { get; private set; }
+    [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
+    [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
 
 
     [field: Header("Others SFX(3D)")]

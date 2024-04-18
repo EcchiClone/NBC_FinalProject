@@ -32,6 +32,7 @@ public class Weapon_SingleCannon : WeaponBase
 
             Quaternion rotation = Util.RandomDirectionFromMuzzle(_partData.ShotErrorRange);
             bullet.transform.rotation *= rotation;
+            // TODO: 발사음 추가
 
             PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
             projectile.Setup(BulletSpeed, Damage, _partData.IsSplash, Vector3.zero, _target);

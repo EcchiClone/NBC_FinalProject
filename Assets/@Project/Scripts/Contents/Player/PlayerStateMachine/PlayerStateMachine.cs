@@ -14,6 +14,7 @@ public class PlayerStateMachine : MonoBehaviour
     public CharacterController Controller { get; private set; }
     public Animator Anim { get; private set; }
     public Module Module { get; private set; }
+    public Player_Sound Sound { get; private set; }
 
     // # Info
     public float InitialGravity { get; private set; }
@@ -63,6 +64,7 @@ public class PlayerStateMachine : MonoBehaviour
         P_Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
         Module = GetComponent<Module>();
+        Sound = GetComponent<Player_Sound>();
 
         // Setup
         Managers.ActionManager.OnPlayerDead += PlayerDestroyed;

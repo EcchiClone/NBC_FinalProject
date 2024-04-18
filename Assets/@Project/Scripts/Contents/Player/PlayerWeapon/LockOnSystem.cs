@@ -108,6 +108,8 @@ public class LockOnSystem
         Managers.ActionManager.CallLockOn(TargetEnemy.Transform, percent);
         LockOnCam.gameObject.SetActive(true);
         TargetGroup.AddMember(TargetEnemy.Transform, 1, 0);
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LockOn, Vector3.zero);
     }
 
     public void ReleaseTarget()

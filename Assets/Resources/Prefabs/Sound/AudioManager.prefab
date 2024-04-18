@@ -142,13 +142,6 @@ MonoBehaviour:
       Data3: 1516024728
       Data4: -1454028208
     Path: event:/SFX/Player/Player_Footsteps
-  <Player_GunShot>k__BackingField:
-    Guid:
-      Data1: -587654656
-      Data2: 1250306129
-      Data3: -2031592018
-      Data4: 893451833
-    Path: event:/SFX/Player/Player_GunShotShort
   <Player_CannonShot>k__BackingField:
     Guid:
       Data1: -1150501072
@@ -170,13 +163,6 @@ MonoBehaviour:
       Data3: 1309183386
       Data4: 186078880
     Path: event:/SFX/Player/Player_Booster
-  <Player_Reload>k__BackingField:
-    Guid:
-      Data1: -1894156397
-      Data2: 1118094475
-      Data3: -1981119054
-      Data4: -1218923327
-    Path: event:/SFX/Player/Player_Reload
   <Player_Repair>k__BackingField:
     Guid:
       Data1: -547179332
@@ -191,6 +177,55 @@ MonoBehaviour:
       Data3: 904630972
       Data4: 1833570920
     Path: event:/SFX/Player/Player_LockOn
+  <Player_Weapon1_Shot>k__BackingField:
+    Guid:
+      Data1: 1618158025
+      Data2: 1336145722
+      Data3: 423241642
+      Data4: -1414676016
+    Path: event:/SFX/Player/Player_Weapon1_Shot
+  <Player_Weapon1_Reload>k__BackingField:
+    Guid:
+      Data1: -1894156397
+      Data2: 1118094475
+      Data3: -1981119054
+      Data4: -1218923327
+    Path: event:/SFX/Player/Player_Weapon1_Reload
+  <Player_Weapon2_Shot>k__BackingField:
+    Guid:
+      Data1: -388701469
+      Data2: 1087353335
+      Data3: 1008412036
+      Data4: 808145736
+    Path: event:/SFX/Player/Player_Weapon2_Shot
+  <Player_Weapon2_Reload>k__BackingField:
+    Guid:
+      Data1: 1341307318
+      Data2: 1305119310
+      Data3: -1749916029
+      Data4: 1887990633
+    Path: event:/SFX/Player/Player_Weapon2_Reload
+  <Player_Laser_Shot>k__BackingField:
+    Guid:
+      Data1: 386401554
+      Data2: 1233014392
+      Data3: 617155228
+      Data4: -1422925028
+    Path: event:/SFX/Player/Player_Laser_Shot
+  <Player_Laser_Charge>k__BackingField:
+    Guid:
+      Data1: -674049951
+      Data2: 1310317739
+      Data3: -194076526
+      Data4: -1772969384
+    Path: event:/SFX/Player/Player_Laser_Charge
+  <Player_Laser_Reload>k__BackingField:
+    Guid:
+      Data1: -1049437087
+      Data2: 1289737821
+      Data3: 677116071
+      Data4: 199082006
+    Path: event:/SFX/Player/Player_Laser_Reload
   <Others_Appear>k__BackingField:
     Guid:
       Data1: -1782893327
@@ -323,7 +358,7 @@ Transform:
   - {fileID: 7013535449710751687}
   - {fileID: 7295514027110438490}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2041209730365144000
 MonoBehaviour:
