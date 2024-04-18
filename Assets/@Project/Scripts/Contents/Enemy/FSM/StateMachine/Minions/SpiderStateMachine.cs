@@ -1,3 +1,6 @@
+using UnityEditor.Rendering.LookDev;
+using UnityEngine;
+
 public class SpiderStateMachine : BaseStateMachine
 {
     public SpiderStateMachine(Entity entity) : base(entity)

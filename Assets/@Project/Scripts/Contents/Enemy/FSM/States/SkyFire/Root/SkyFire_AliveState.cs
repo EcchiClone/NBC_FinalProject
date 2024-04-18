@@ -13,6 +13,7 @@ public class SkyFire_AliveState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Appear, Context.Entity.transform.position);
     }
 
     public override void UpdateState()

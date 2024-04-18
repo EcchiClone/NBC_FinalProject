@@ -21,8 +21,8 @@ MonoBehaviour:
       initDelay: 0
       numOfSet: 1
       setDelay: 0
-      shotPerSet: 6
-      shotDelay: 0.05
+      shotPerSet: 5
+      shotDelay: 0.5
       posDirection: 0
       customPosDirection: {x: 0, y: 0, z: 0}
       spreadA: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
       isLoopingShape: 1
       divisionPointsPerEdge: 25
       initDistance: 0.1
-      numPerShot: 4
+      numPerShot: 3
       shotVerticalNum: 0
       spreadB: 1
       spreadB_Default_Angle: 120
@@ -67,7 +67,7 @@ MonoBehaviour:
       enemyBulletChangeMoveMethod: 0
       enemyBulletChangeMoveProperty:
       - _desc: 
-        _timer: 1
+        _timer: 2
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
         _accelMultiple: 1
         _rotationSpeed: 1.5
       - _desc: 
-        _timer: 2
+        _timer: 3
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
         _accelMultiple: 1
         _rotationSpeed: 1
       - _desc: 
-        _timer: 3
+        _timer: 4
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
         _accelMultiple: 1
         _rotationSpeed: 0.5
       - _desc: 
-        _timer: 4
+        _timer: 5
         _changeSpeedType: 3
         _changeRotationType: 0
         _moveDirection: {x: 0, y: 0, z: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
       initDelay: 0
       numOfSet: 1
       setDelay: 0
-      shotPerSet: 20
+      shotPerSet: 12
       shotDelay: 0.1
       posDirection: 1
       customPosDirection: {x: 0, y: 0, z: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
       isLoopingShape: 0
       divisionPointsPerEdge: 0
       initDistance: 0.1
-      numPerShot: 12
+      numPerShot: 8
       shotVerticalNum: 6
       spreadB: 1
       spreadB_Default_Angle: 20
@@ -283,7 +283,7 @@ MonoBehaviour:
       isLoopingShape: 0
       divisionPointsPerEdge: 0
       initDistance: 1
-      numPerShot: 12
+      numPerShot: 10
       shotVerticalNum: 7
       spreadB: 1
       spreadB_Default_Angle: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
       initDelay: 0
       numOfSet: 3
       setDelay: 0.4
-      shotPerSet: 1
+      shotPerSet: 2
       shotDelay: 0
       posDirection: 2
       customPosDirection: {x: 0, y: 0, z: 1}
@@ -330,7 +330,7 @@ MonoBehaviour:
       isLoopingShape: 0
       divisionPointsPerEdge: 0
       initDistance: 0.05
-      numPerShot: 100
+      numPerShot: 50
       shotVerticalNum: 1
       spreadB: 0
       spreadB_Default_Angle: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
       enemyBulletMoveType: 0
       initSpeed: 1
       initMoveDirection: {x: 0, y: 0, z: 0}
-      initAccelMultiple: 15
+      initAccelMultiple: 8
       initAccelPlus: 0
       minSpeed: 0
       maxSpeed: 500

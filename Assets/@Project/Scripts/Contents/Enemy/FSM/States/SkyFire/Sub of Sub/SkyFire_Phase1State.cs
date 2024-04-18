@@ -18,6 +18,8 @@ public class SkyFire_Phase1State : BaseState
 
         if(Context.Entity.gameObject.activeSelf)
             Context.Entity.StartCoroutine(Co_Shoot());
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_1, Context.Entity.transform.position);
     }
 
     IEnumerator Co_Shoot()

@@ -45,7 +45,7 @@ public class GroundUnitController : Controller
     {
         NavMeshPath path = new NavMeshPath();
 
-        if (agent.isActiveAndEnabled && agent.isOnNavMesh && agent.CalculatePath(target, path))
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             agent.SetDestination(target);            
         }

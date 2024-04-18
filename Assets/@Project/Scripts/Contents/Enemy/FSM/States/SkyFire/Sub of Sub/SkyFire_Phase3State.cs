@@ -14,6 +14,7 @@ public class SkyFire_Phase3State : BaseState
     {
         Context.Entity.enemyPhaseStarter.isShooting = false;
         Context.Entity.StartCoroutine(Co_Shoot());
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_3, Context.Entity.transform.position);
     }
 
     IEnumerator Co_Shoot()

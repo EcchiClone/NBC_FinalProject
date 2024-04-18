@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a53e03c0-ea7a-4098-b026-99d98521a1fd}">
+		<property name="assetPath">
+			<value>One-Shots/Enemies/Boss_Appear_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7259687500000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c1e15d9c-1198-49a5-97bc-f65ab7a17f78}</destination>
+		</relationship>
+	</object>
+</objects>

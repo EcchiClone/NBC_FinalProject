@@ -68,6 +68,8 @@ public abstract class Entity : MonoBehaviour, ITarget
         if (!IsAlive)
             return;
 
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Vector3.zero);
+
         AP = Mathf.Max(0, AP - damage);
         if (AP <= 0)
         {
@@ -80,6 +82,7 @@ public abstract class Entity : MonoBehaviour, ITarget
             }
             else if (EnemyType == EnemyType.Boss)
             {
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boom_Distance, Vector3.zero);
                 Managers.StageActionManager.CallBossKilled();
                 AchievementCommonUpdater.instance.GetComponent<UpdateKillBoss>().UpdateReport();
             }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1bfde30c-af09-41c7-baa9-0fa387b3d6b1}">
+		<property name="assetPath">
+			<value>One-Shots/Enemies/Boss_Growl_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.51278911564625851</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c1e15d9c-1198-49a5-97bc-f65ab7a17f78}</destination>
+		</relationship>
+	</object>
+</objects>

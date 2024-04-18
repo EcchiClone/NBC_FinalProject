@@ -7,8 +7,7 @@ public class DroneStateMachine : BaseStateMachine
     public override void Initialize()
     {
         Provider = new DroneStateProivder(this);
-        CurrentState = Provider.GetState(Minion_States.Alive);
-        CurrentState.EnterState();
+
     }
 
     public override void Reset()

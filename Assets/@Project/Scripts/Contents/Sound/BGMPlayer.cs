@@ -24,6 +24,7 @@ public class BGMPlayer : MonoBehaviour
     private EventInstance _mainAmbience;
     private EventInstance _perkAmbience;
     private EventInstance _fieldBGM;
+    private EventInstance _creditBGM;
 
     private bool _isLerp;
     private float _lerpStart;
@@ -68,6 +69,7 @@ public class BGMPlayer : MonoBehaviour
         _mainAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Main_Ambience);
         _perkAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Perk_Ambience);
         _fieldBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Field_BGM);
+        _creditBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Credit_BGM);
 
         Managers.StageActionManager.OnBossKilled += () => SetFieldBGMState(0f);
 
@@ -157,6 +159,18 @@ public class BGMPlayer : MonoBehaviour
         _mainAmbience.stop(STOP_MODE.ALLOWFADEOUT);
         _perkAmbience.stop(STOP_MODE.ALLOWFADEOUT);
         _fieldBGM.stop(STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void EnterCredit()
+    {
+        _mainAmbience.setPaused(true);
+        _creditBGM.start();
+    }
+
+    public void ExitCredit()
+    {
+        _mainAmbience.setPaused(false);
+        _creditBGM.stop(STOP_MODE.ALLOWFADEOUT);
     }
 
     private void PlayInstance(EventInstance eventInstance)

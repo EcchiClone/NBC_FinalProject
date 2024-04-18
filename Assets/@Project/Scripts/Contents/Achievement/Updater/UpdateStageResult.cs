@@ -24,18 +24,10 @@ public class UpdateStageResult : AchievementUpdater
         if (scene.name == targetSceneName)
         {
             Managers.StageActionManager.OnResult += ReportResultData;
-            Debug.Log("ReportResultData 등록!");
         }
     }
     private void ReportResultData(StageData sd)
     {
-        // 토탈 스코어, 총 킬수, 총 보스 킬수, 총 미니언 킬수 업적에 업데이트 등
-        Debug.Log("실!!행!!");
-        Managers.AchievementSystem.ReceiveReport("RESULT", "SCORE", sd.stage);
-        Debug.Log(sd.stage);
-        //Managers.AchievementSystem.ReceiveReport("RESULT", "SCORE", sd.bestTime);
-        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_ENEMY", sd.KilledBoss + sd.KilledMinion);
-        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_BOSS", sd.KilledBoss);
-        //Managers.AchievementSystem.ReceiveReport("RESULT", "KILL_MINION", sd.KilledMinion);
+        Managers.AchievementSystem.ReceiveReport("RESULT", "HIGHEST_STAGE", sd.stage);
     }
 }
