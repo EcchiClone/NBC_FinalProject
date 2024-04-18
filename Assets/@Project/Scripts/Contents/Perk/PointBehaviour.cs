@@ -63,7 +63,7 @@ public class PointBehaviour : MonoBehaviour
 
     private void PointSubtraction()
     {
-        int playerPoint = PerkManager.Instance.PlayerPoint;
+        int playerPoint = Managers.GameManager.ResearchPoint;
 
         if (playerPoint >= _requirePoint)
         {
