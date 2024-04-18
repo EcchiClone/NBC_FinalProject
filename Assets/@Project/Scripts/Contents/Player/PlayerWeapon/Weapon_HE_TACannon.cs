@@ -50,6 +50,7 @@ public class Weapon_HE_TACannon : WeaponBase
                 if (Ammo == 0)
                     continue;
                 Ammo--;
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LaserCannon_Shot, Vector3.zero);
                 Vector3 freeFireTarget = GetFreeFireDest();                        
                 GameObject bullet = CreateBullet(muzzle);
 

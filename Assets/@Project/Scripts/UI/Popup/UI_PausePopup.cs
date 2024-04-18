@@ -78,6 +78,9 @@ public class UI_PausePopup : UI_Popup
         // BGM Low Pass 해제
         BGMPlayer.Instance.SetLowPassLerpVars(0.9f, 0f, 1.5f);
 
+        // 재생되던 사운드 제거
+        AudioManager.Instance.CleanUp();
+
         // 메인메뉴로
         Managers.ActionManager.CallPlayerDead();
         Managers.Scene.LoadScene(Scenes.MainScene);
