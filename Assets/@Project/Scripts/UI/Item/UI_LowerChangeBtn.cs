@@ -29,14 +29,14 @@ public class UI_LowerChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
-        if (!_currentData.IsUnlocked)
+        if (!currentData.IsUnlocked)
         {
             Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
             return;
         }
 
         UI_LowerSelector selector = _parentUI as UI_LowerSelector;
-        selector.DisPlayNextPartSpecText(_currentData);
+        selector.DisPlayNextPartSpecText(currentData);
 
         Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
@@ -44,7 +44,7 @@ public class UI_LowerChangeBtn : UI_ChangeButton
     private void ChangePart()
     {
         Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Lower);
-        Managers.Module.CallLowerPartChange(_currentData);
+        Managers.Module.CallLowerPartChange(currentData);
         Managers.ActionManager.CallLowerEquip(_currentIndex);
     }
 }

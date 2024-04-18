@@ -6,22 +6,22 @@
         {
             "Tier": 3,
             "PositionIdx": 2,
-            "ContentIdx": 10,
+            "ContentIdx": 12,
             "IsActive": false,
             "subPerks": [
                 {
                     "PositionIdx": 1,
-                    "ContentIdx": 4,
+                    "ContentIdx": 3,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 2,
-                    "ContentIdx": 12,
+                    "ContentIdx": 3,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 5,
-                    "ContentIdx": 0,
+                    "PositionIdx": 6,
+                    "ContentIdx": 2,
                     "IsActive": false
                 }
             ]
@@ -29,22 +29,22 @@
         {
             "Tier": 3,
             "PositionIdx": 4,
-            "ContentIdx": 6,
+            "ContentIdx": 4,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 0,
-                    "ContentIdx": 7,
-                    "IsActive": false
-                },
-                {
                     "PositionIdx": 1,
-                    "ContentIdx": 23,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 4,
-                    "ContentIdx": 11,
+                    "ContentIdx": 3,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 3,
                     "IsActive": false
                 }
             ]
@@ -52,30 +52,53 @@
         {
             "Tier": 3,
             "PositionIdx": 6,
-            "ContentIdx": 12,
+            "ContentIdx": 11,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 6,
+                    "PositionIdx": 0,
+                    "ContentIdx": 2,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 5,
-                    "ContentIdx": 15,
+                    "PositionIdx": 3,
+                    "ContentIdx": 7,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 6,
-                    "ContentIdx": 17,
+                    "ContentIdx": 4,
                     "IsActive": false
                 }
             ]
         },
         {
             "Tier": 3,
-            "PositionIdx": 9,
+            "PositionIdx": 7,
             "ContentIdx": 2,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 3,
+            "PositionIdx": 8,
+            "ContentIdx": 3,
             "IsActive": false,
             "subPerks": [
                 {
@@ -84,58 +107,35 @@
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 1,
-                    "ContentIdx": 0,
+                    "PositionIdx": 5,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 6,
+                    "PositionIdx": 7,
+                    "ContentIdx": 2,
                     "IsActive": false
                 }
             ]
         },
         {
             "Tier": 3,
-            "PositionIdx": 10,
-            "ContentIdx": 5,
+            "PositionIdx": 13,
+            "ContentIdx": 10,
             "IsActive": false,
             "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 4,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 3,
+                    "IsActive": false
+                },
                 {
                     "PositionIdx": 4,
-                    "ContentIdx": 8,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 5,
-                    "ContentIdx": 6,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 8,
-                    "IsActive": false
-                }
-            ]
-        },
-        {
-            "Tier": 3,
-            "PositionIdx": 12,
-            "ContentIdx": 11,
-            "IsActive": false,
-            "subPerks": [
-                {
-                    "PositionIdx": 1,
-                    "ContentIdx": 10,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 5,
-                    "ContentIdx": 17,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
                     "ContentIdx": 4,
                     "IsActive": false
                 }
@@ -143,69 +143,23 @@
         },
         {
             "Tier": 3,
-            "PositionIdx": 14,
-            "ContentIdx": 1,
-            "IsActive": false,
-            "subPerks": [
-                {
-                    "PositionIdx": 0,
-                    "ContentIdx": 19,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 5,
-                    "ContentIdx": 6,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 8,
-                    "IsActive": false
-                }
-            ]
-        },
-        {
-            "Tier": 3,
-            "PositionIdx": 15,
-            "ContentIdx": 7,
-            "IsActive": false,
-            "subPerks": [
-                {
-                    "PositionIdx": 2,
-                    "ContentIdx": 17,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 5,
-                    "ContentIdx": 2,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 6,
-                    "ContentIdx": 13,
-                    "IsActive": false
-                }
-            ]
-        },
-        {
-            "Tier": 3,
             "PositionIdx": 16,
-            "ContentIdx": 0,
+            "ContentIdx": 9,
             "IsActive": false,
             "subPerks": [
                 {
                     "PositionIdx": 3,
-                    "ContentIdx": 3,
+                    "ContentIdx": 5,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 5,
-                    "ContentIdx": 22,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 6,
-                    "ContentIdx": 1,
+                    "ContentIdx": 4,
                     "IsActive": false
                 }
             ]
@@ -213,22 +167,91 @@
         {
             "Tier": 3,
             "PositionIdx": 17,
-            "ContentIdx": 9,
+            "ContentIdx": 1,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 1,
-                    "ContentIdx": 20,
+                    "PositionIdx": 2,
+                    "ContentIdx": 5,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 2,
-                    "ContentIdx": 3,
+                    "PositionIdx": 3,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 3,
+            "PositionIdx": 18,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 6,
-                    "ContentIdx": 19,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 3,
+            "PositionIdx": 20,
+            "ContentIdx": 8,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 4,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 3,
+            "PositionIdx": 22,
+            "ContentIdx": 5,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 4,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 2,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 2,
                     "IsActive": false
                 }
             ]

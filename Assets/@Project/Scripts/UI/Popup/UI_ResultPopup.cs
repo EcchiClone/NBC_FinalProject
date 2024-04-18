@@ -29,6 +29,7 @@ public class UI_ResultPopup : UI_Popup
         base.Init();
 
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         BindGameObject(typeof(GameObjects));
         BindButton(typeof(Buttons));
@@ -49,10 +50,10 @@ public class UI_ResultPopup : UI_Popup
         StageData savedData = Managers.GameManager.StageData;
         StageData stageData = Managers.SpawnManager.StageData;
 
-        stageData.highestMinionKill = Mathf.Max(savedData.highestMinionKill, stageData.highestMinionKill);
-        stageData.highestBossKill = Mathf.Max(savedData.highestBossKill, stageData.highestBossKill);
-        stageData.bestTime = Mathf.Max(savedData.bestTime, stageData.bestTime);
-        stageData.bestStage = Mathf.Max(savedData.bestStage, stageData.bestStage);
+        stageData.minionKill = Mathf.Max(savedData.minionKill, stageData.minionKill);
+        stageData.bossKill = Mathf.Max(savedData.bossKill, stageData.bossKill);
+        stageData.time = Mathf.Max(savedData.time, stageData.time);
+        stageData.stage = Mathf.Max(savedData.stage, stageData.stage);
 
         Managers.GameManager.StageData = stageData;
         Managers.StageActionManager.CallResult(savedData);
@@ -62,7 +63,7 @@ public class UI_ResultPopup : UI_Popup
 
         GetTMP((int)Texts.Time_Value).text = $"{minutes} : {seconds}";
         GetTMP((int)Texts.Stage_Value).text = $"{data.CurrentStage}";
-        GetTMP((int)Texts.BestStage_Value).text = $"{savedData.bestStage}";
+        GetTMP((int)Texts.BestStage_Value).text = $"{savedData.stage}";
         GetTMP((int)Texts.MinionKill_Value).text = $"{data.MinionKillCount}";
         GetTMP((int)Texts.BossKill_Value).text = $"{data.BossKillCount}";
         GetTMP((int)Texts.ResearchPoint_Value).text = $"{data.ResearchPoint}";        

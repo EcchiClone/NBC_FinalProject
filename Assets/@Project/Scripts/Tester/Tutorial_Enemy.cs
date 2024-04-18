@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_Enemy : MonoBehaviour, ITarget
+public class Tutorial_Enemy : MonoBehaviour, ITarget
 {
     public float maxAP;
     public float currentAP;

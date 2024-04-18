@@ -1,73 +1,50 @@
 {
-    "point": 9696,
-    "unlockCount": 10,
-    "currentSeed": "A8519D80FAB8",
+    "point": 9999,
+    "unlockCount": 0,
+    "currentSeed": "5C08F49CD3A0",
     "data": [
         {
             "Tier": 1,
-            "PositionIdx": 1,
-            "ContentIdx": 2,
+            "PositionIdx": 3,
+            "ContentIdx": 3,
             "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 3,
-                    "ContentIdx": 17,
+                    "PositionIdx": 1,
+                    "ContentIdx": 3,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 0,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 6,
-                    "ContentIdx": 22,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 0,
+                    "ContentIdx": 2,
                     "IsActive": false
                 }
             ]
         },
         {
             "Tier": 1,
-            "PositionIdx": 2,
-            "ContentIdx": 3,
-            "IsActive": true,
-            "subPerks": [
-                {
-                    "PositionIdx": 4,
-                    "ContentIdx": 0,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 5,
-                    "ContentIdx": 17,
-                    "IsActive": false
-                },
-                {
-                    "PositionIdx": 7,
-                    "ContentIdx": 8,
-                    "IsActive": false
-                }
-            ]
-        },
-        {
-            "Tier": 1,
-            "PositionIdx": 3,
+            "PositionIdx": 4,
             "ContentIdx": 0,
-            "IsActive": true,
+            "IsActive": false,
             "subPerks": [
                 {
                     "PositionIdx": 0,
-                    "ContentIdx": 23,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 14,
+                    "PositionIdx": 6,
+                    "ContentIdx": 5,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 7,
-                    "ContentIdx": 20,
+                    "ContentIdx": 1,
                     "IsActive": false
                 }
             ]
@@ -75,22 +52,22 @@
         {
             "Tier": 1,
             "PositionIdx": 5,
-            "ContentIdx": 6,
-            "IsActive": true,
+            "ContentIdx": 1,
+            "IsActive": false,
             "subPerks": [
                 {
-                    "PositionIdx": 3,
-                    "ContentIdx": 10,
+                    "PositionIdx": 1,
+                    "ContentIdx": 3,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 4,
-                    "ContentIdx": 2,
+                    "PositionIdx": 2,
+                    "ContentIdx": 4,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 6,
-                    "ContentIdx": 17,
+                    "PositionIdx": 5,
+                    "ContentIdx": 6,
                     "IsActive": false
                 }
             ]
@@ -98,22 +75,22 @@
         {
             "Tier": 1,
             "PositionIdx": 6,
-            "ContentIdx": 1,
-            "IsActive": true,
+            "ContentIdx": 7,
+            "IsActive": false,
             "subPerks": [
                 {
                     "PositionIdx": 1,
-                    "ContentIdx": 7,
+                    "ContentIdx": 0,
                     "IsActive": false
                 },
                 {
                     "PositionIdx": 2,
-                    "ContentIdx": 9,
+                    "ContentIdx": 1,
                     "IsActive": false
                 },
                 {
-                    "PositionIdx": 6,
-                    "ContentIdx": 4,
+                    "PositionIdx": 7,
+                    "ContentIdx": 2,
                     "IsActive": false
                 }
             ]

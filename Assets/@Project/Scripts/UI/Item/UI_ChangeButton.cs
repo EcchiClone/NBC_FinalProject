@@ -16,13 +16,16 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     public static int IndexOfArmPart = 0;
     public static int IndexOfShoulderPart = 0;
 
-    protected PartData _currentData;
+    public PartData currentData;
+
     protected int _currentIndex;
 
     protected string _displayName;
     protected string _displayDesc;
 
     private bool _isUnlockChecked = false;
+
+    private UnityAction _changePartAction;
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
@@ -42,9 +45,9 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     protected void GetCurrentPartData<T>() where T : BasePart
     {
         int partID = Managers.Module.GetPartOfIndex<T>(_currentIndex).ID;
-        _currentData = Managers.Data.GetPartData(partID);
-        _displayName = _currentData.Display_Name;
-        _displayDesc = _currentData.Display_Description;
+        currentData = Managers.Data.GetPartData(partID);
+        _displayName = currentData.Display_Name;
+        _displayDesc = currentData.Display_Description;
 
         CheckUnlockedPart();
     }
@@ -54,9 +57,9 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
         if (_isUnlockChecked)
             return;        
 
-        if (!_currentData.IsUnlocked)
+        if (!currentData.IsUnlocked)
         {
-            if (_currentData.PointUnlock)
+            if (currentData.PointUnlock)
                 _lockText.text = "업적 포인트로 잠금 해제";
             else
                 _lockText.text = "업적 보상으로 잠금 해제";
@@ -66,6 +69,8 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
             _unlock.SetActive(false);
             _partImage.color = Color.white;
             _isUnlockChecked = true;
+            if (_changePartAction != null)
+                AddListenerToBtn(_changePartAction);
         }
     }
 
@@ -73,18 +78,19 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     {
         Button button = GetComponent<Button>();
 
-        if (!_currentData.IsUnlocked)
+        if (!currentData.IsUnlocked)
         {
-            if (_currentData.PointUnlock)
-                button.onClick.AddListener(() => Managers.UI.ShowPopupUI<UI_UnlockPartPopup>().AlertTextUpdate(_currentData.Point));
+            if (currentData.PointUnlock)
+                button.onClick.AddListener(() => Managers.UI.ShowPopupUI<UI_UnlockPartPopup>().AlertTextUpdate(this));
             return;
         }
         button.onClick.AddListener(action);
+        _changePartAction = action;
     }
 
     protected void LoadPartImage()
     {
-        Sprite weaponSprite = Resources.Load<Sprite>(_currentData.Sprite_Path);
+        Sprite weaponSprite = Resources.Load<Sprite>(currentData.Sprite_Path);
         _partImage.sprite = weaponSprite;
     }
 }

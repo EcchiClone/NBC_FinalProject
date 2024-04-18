@@ -1,8 +1,6 @@
 using Cinemachine;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
-using static UnityEngine.UI.Image;
 
 [Serializable]
 public class LockOnSystem
@@ -59,14 +57,14 @@ public class LockOnSystem
         RaycastHit[] hits;
         if (IsLockon)
         {
-            dir = Camera.main.transform.forward;
+            Vector3 camdir = Camera.main.transform.forward;
+            dir = new Vector3(camdir.x, 0, camdir.z).normalized;
             hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);
         }
         else
         {
-            Vector3 camdir = Camera.main.transform.forward;
-            dir = new Vector3(camdir.x, 0, camdir.z).normalized;
-            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);
+            dir = Camera.main.transform.forward;
+            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);            
         }
 
         if (hits.Length == 0)

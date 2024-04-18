@@ -15,6 +15,8 @@ public class UI_UnlockPartPopup : UI_Popup
         No_Btn,
     }
 
+    private UI_ChangeButton partButton;
+
     protected override void Init()
     {
         base.Init();
@@ -23,10 +25,19 @@ public class UI_UnlockPartPopup : UI_Popup
         BindButton(typeof(Buttons));
 
         GetButton((int)Buttons.No_Btn).onClick.AddListener(ClosePopupUI);
+        GetButton((int)Buttons.Yes_Btn).onClick.AddListener(UnlockPart);
     }
 
-    public void AlertTextUpdate(int point)
+    public void AlertTextUpdate(UI_ChangeButton button)
     {
-        GetTMP((int)Texts.Alert_Text).text = $"업적포인트 {point} 포인트를 사용하여\n파츠 잠금을 해제하시겠습니까?";
+        partButton = button;
+        GetTMP((int)Texts.Alert_Text).text = $"업적포인트 {partButton.currentData.Point} 포인트를 사용하여\n파츠 잠금을 해제하시겠습니까?";
+    }
+
+    private void UnlockPart()
+    {
+        Managers.GameManager.ReceivePartID(partButton.currentData.Dev_ID);
+        partButton.CheckUnlockedPart();
+        ClosePopupUI();
     }
 }

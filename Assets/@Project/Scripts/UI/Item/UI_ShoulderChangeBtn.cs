@@ -53,7 +53,7 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
-        if (!_currentData.IsUnlocked)
+        if (!currentData.IsUnlocked)
         {
             Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
             return;
@@ -61,9 +61,9 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
 
         UI_ShoulderSelector selector = _parentUI as UI_ShoulderSelector;
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
-            selector.DisplayNextPartSpecText_L(_currentData);
+            selector.DisplayNextPartSpecText_L(currentData);
         else
-            selector.DisplayNextPartSpecText_R(_currentData);
+            selector.DisplayNextPartSpecText_R(currentData);
         
         Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
@@ -76,12 +76,12 @@ public class UI_ShoulderChangeBtn : UI_ChangeButton
         if (selector.CurrentChangeMode == UI_ShoulderSelector.ChangeShoulderMode.LeftShoulder)
         {
             Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Shoulder_L);
-            Managers.Module.CallLeftShoulderPartChange(_currentData);
+            Managers.Module.CallLeftShoulderPartChange(currentData);
         }
         else
         {
             Managers.Module.ChangePart(_currentIndex, Define.Parts_Location.Weapon_Shoulder_R);
-            Managers.Module.CallRightShoulderPartChange(_currentData);
+            Managers.Module.CallRightShoulderPartChange(currentData);
         }
     }
 }
