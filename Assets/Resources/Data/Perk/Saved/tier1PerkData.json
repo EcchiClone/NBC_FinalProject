@@ -1,28 +1,28 @@
 {
     "point": 9999,
-    "unlockCount": 3,
+    "unlockCount": 34,
     "currentSeed": "B249131A2789",
     "data": [
         {
             "Tier": 1,
             "PositionIdx": 0,
             "ContentIdx": 5,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 1,
                     "ContentIdx": 3,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 3,
                     "ContentIdx": 6,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 5,
                     "ContentIdx": 7,
-                    "IsActive": false
+                    "IsActive": true
                 }
             ]
         },
@@ -35,17 +35,17 @@
                 {
                     "PositionIdx": 0,
                     "ContentIdx": 3,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 4,
                     "ContentIdx": 2,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 5,
                     "ContentIdx": 7,
-                    "IsActive": false
+                    "IsActive": true
                 }
             ]
         },
@@ -76,7 +76,7 @@
             "Tier": 1,
             "PositionIdx": 4,
             "ContentIdx": 1,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 2,
@@ -99,7 +99,7 @@
             "Tier": 1,
             "PositionIdx": 5,
             "ContentIdx": 2,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,

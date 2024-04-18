@@ -7,12 +7,12 @@
             "Tier": 2,
             "PositionIdx": 0,
             "ContentIdx": 5,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,
                     "ContentIdx": 0,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 1,
@@ -22,7 +22,7 @@
                 {
                     "PositionIdx": 3,
                     "ContentIdx": 2,
-                    "IsActive": false
+                    "IsActive": true
                 }
             ]
         },
@@ -30,22 +30,22 @@
             "Tier": 2,
             "PositionIdx": 2,
             "ContentIdx": 8,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,
                     "ContentIdx": 2,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 3,
                     "ContentIdx": 2,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 5,
                     "ContentIdx": 3,
-                    "IsActive": false
+                    "IsActive": true
                 }
             ]
         },
@@ -53,22 +53,22 @@
             "Tier": 2,
             "PositionIdx": 4,
             "ContentIdx": 10,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,
                     "ContentIdx": 3,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 1,
                     "ContentIdx": 5,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 6,
                     "ContentIdx": 6,
-                    "IsActive": false
+                    "IsActive": true
                 }
             ]
         },
@@ -99,7 +99,7 @@
             "Tier": 2,
             "PositionIdx": 9,
             "ContentIdx": 6,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 3,
@@ -122,7 +122,7 @@
             "Tier": 2,
             "PositionIdx": 10,
             "ContentIdx": 3,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 0,
@@ -145,7 +145,7 @@
             "Tier": 2,
             "PositionIdx": 11,
             "ContentIdx": 7,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 1,

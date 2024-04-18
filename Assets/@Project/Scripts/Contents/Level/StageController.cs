@@ -24,4 +24,15 @@ public class StageController : MonoBehaviour
         StopAllCoroutines();
         Managers.UI.ShowPopupUI<UI_ResultPopup>();
     }
+
+    private void OnDrawGizmos()
+    {
+        if (Managers.SpawnManager._groundTempPoint.Count <= 0)
+            return;
+        Gizmos.color = Color.green;
+        foreach (Vector3 point in Managers.SpawnManager._groundTempPoint)
+        {
+            Gizmos.DrawSphere(point, 1f);
+        }
+    }
 }

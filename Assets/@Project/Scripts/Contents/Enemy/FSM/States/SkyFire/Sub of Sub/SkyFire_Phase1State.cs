@@ -16,7 +16,8 @@ public class SkyFire_Phase1State : BaseState
         Debug.Log("Enter Phase1");
         Context.Entity.enemyPhaseStarter.isShooting = false;
 
-        Context.Entity.StartCoroutine(Co_Shoot());
+        if(Context.Entity.gameObject.activeSelf)
+            Context.Entity.StartCoroutine(Co_Shoot());
     }
 
     IEnumerator Co_Shoot()
