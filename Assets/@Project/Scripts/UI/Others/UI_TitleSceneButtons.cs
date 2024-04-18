@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static Define;
 
 public class UI_TitleSceneButtons : MonoBehaviour
 {
+    [SerializeField] Button startBtn;
+
+    private void Awake()
+    {
+        startBtn.onClick.AddListener(OnClickStartButton);
+    }
+
     public void OnClickStartButton()
     {
-        if(Managers.GameManager.gameData.tutorialClear)
-            Managers.Scene.LoadScene(Scenes.Tutorial);
+        if(!Managers.GameManager.gameData.tutorialClear)
+            Managers.Scene.LoadScene(Scenes.TutorialScene);
         else
             Managers.Scene.LoadScene(Scenes.MainScene);
     }

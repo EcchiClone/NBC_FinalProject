@@ -8,7 +8,7 @@ public class Define
     {
         Unknown,
         TitleScene,
-        Tutorial,
+        TutorialScene,
         MainScene,
         DevScene,
         PerkViewerScene,
