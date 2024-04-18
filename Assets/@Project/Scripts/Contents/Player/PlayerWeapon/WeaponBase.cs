@@ -125,21 +125,19 @@ public abstract class WeaponBase : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        yield return Util.GetWaitSeconds(CoolDownTime);
-
         switch (_weaponType)
         {
             case WeaponType.Arm01:
-                //AudioManager.Instance.PlayOneShot()
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Weapon1_Reload, Vector3.zero);
                 break;
             case WeaponType.Arm02:
-               
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Weapon2_Reload, Vector3.zero);
                 break;
             case WeaponType.Arm03:
-               
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Laser_Reload, Vector3.zero);
                 break;
             case WeaponType.Arm04:
-               
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Cannon_Reload, Vector3.zero);
                 break;
             case WeaponType.Shoulder01:
                
@@ -151,6 +149,8 @@ public abstract class WeaponBase : MonoBehaviour
                 
                 break;
         }
+
+        yield return Util.GetWaitSeconds(CoolDownTime);
 
         Ammo = MaxAmmo;
     }
