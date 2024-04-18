@@ -10,6 +10,7 @@ public abstract class BaseStateMachine
     public BaseStateProvider Provider { get; protected set; }
     public BaseState CurrentState { get; set; }
     
+    public Enemy_Sound Sound { get; private set; }
 
     public BaseStateMachine(Entity entity)
     {
