@@ -68,6 +68,8 @@ public abstract class Entity : MonoBehaviour, ITarget
         if (!IsAlive)
             return;
 
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Vector3.zero);
+
         AP = Mathf.Max(0, AP - damage);
         if (AP <= 0)
         {
