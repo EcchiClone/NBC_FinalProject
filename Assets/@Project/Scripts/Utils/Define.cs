@@ -7,6 +7,7 @@ public class Define
     public enum Scenes
     {
         Unknown,
+        TitleScene,
         Tutorial,
         MainScene,
         DevScene,
@@ -66,5 +67,16 @@ public class Define
         RedusePercentage,
         plusValue,
         minusValue,
+    }
+
+    public enum WeaponType
+    {
+        Arm01,
+        Arm02,
+        Arm03,
+        Arm04,
+        Shoulder01,
+        Shoulder02,
+        Shoulder03,
     }
 }

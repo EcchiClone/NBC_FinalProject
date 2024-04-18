@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public abstract class WeaponBase : MonoBehaviour
 {
     public event Action<int, bool, bool, Define.Parts_Location> OnWeaponFire;
 
+    [SerializeField] protected Define.WeaponType _weaponType;
     [SerializeField] protected GameObject _muzzleEffect;
 
     public float Damage { get; private set; }
@@ -124,6 +126,31 @@ public abstract class WeaponBase : MonoBehaviour
     private IEnumerator Reload()
     {
         yield return Util.GetWaitSeconds(CoolDownTime);
+
+        switch (_weaponType)
+        {
+            case WeaponType.Arm01:
+                //AudioManager.Instance.PlayOneShot()
+                break;
+            case WeaponType.Arm02:
+               
+                break;
+            case WeaponType.Arm03:
+               
+                break;
+            case WeaponType.Arm04:
+               
+                break;
+            case WeaponType.Shoulder01:
+               
+                break;
+            case WeaponType.Shoulder02:
+                
+                break;
+            case WeaponType.Shoulder03:
+                
+                break;
+        }
 
         Ammo = MaxAmmo;
     }

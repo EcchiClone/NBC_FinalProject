@@ -148,5 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3adaaf7aa96734298ffa0cdd950db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 3
   _muzzleEffect: {fileID: 6446331635556650798, guid: f34de1dbbbf44ee43bb4b6599d9d08c5,
     type: 3}

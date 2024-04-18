@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class UI_MainMenuPopup : UI_Popup
 {
     private UI_SelectorMenu _selector;
@@ -92,6 +94,6 @@ public class UI_MainMenuPopup : UI_Popup
         Application.Quit();
     } 
 #endif
-    #endregion
+#endregion
 
 }

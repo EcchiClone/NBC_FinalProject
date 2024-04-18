@@ -15,6 +15,8 @@ public class UI_StageInfoPopup : UI_Popup
         Managers.StageActionManager.OnEnemySpawned += CountSpawndEnemies;
         Managers.StageActionManager.OnMinionKilled += CountRemainEnemies;
         Managers.StageActionManager.OnCountDownActive += CountDownTime;
+
+        Managers.ActionManager.OnPlayerDead += () => gameObject.SetActive(false);
     }
 
     private void CountSpawndEnemies(int value)

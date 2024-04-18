@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42349d5b91ca82e4a8a10bfff989b444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 1
   _muzzleEffect: {fileID: 2574017920228339239, guid: eb6ba978ac648754087850fc1ea5f675,
     type: 3}
   _barrelTransform: {fileID: 5079489885067110830}

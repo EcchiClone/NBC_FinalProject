@@ -24,6 +24,7 @@ public class Weapon_LaserCannon : WeaponBase
     private IEnumerator Co_ChargingLaser(Transform[] muzzlePoints)
     {        
         _chargingEffect.SetActive(true);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Laser_Charge, Vector3.zero);
         yield return Util.GetWaitSeconds(_partData.FireRate);
 
         StartCoroutine(GunFire(muzzlePoints));
@@ -33,6 +34,7 @@ public class Weapon_LaserCannon : WeaponBase
     {
         _chargingEffect.SetActive(false);
         Transform muzzle = muzzlePoints[0];
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Laser_Shot, Vector3.zero);
 
         float current = 0;
         float percent = 0;

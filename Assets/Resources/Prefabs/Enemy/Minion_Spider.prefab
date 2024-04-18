@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497201264165663287}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -648,7 +648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4933819971034064501}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -896,7 +896,8 @@ GameObject:
   - component: {fileID: 7058569769794827475}
   - component: {fileID: -841145370394927842}
   - component: {fileID: 8326404610297920683}
-  - component: {fileID: 8816191387957500646}
+  - component: {fileID: 910301827567115904}
+  - component: {fileID: 5451343963160363482}
   m_Layer: 10
   m_Name: Minion_Spider
   m_TagString: Untagged
@@ -1061,14 +1062,49 @@ MonoBehaviour:
   ease: 5
   _inActive: 0
   _isEnemy: 1
---- !u!33 &8816191387957500646
-MeshFilter:
+--- !u!114 &910301827567115904
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296827418220432883}
-  m_Mesh: {fileID: 2959467708922500008, guid: a667acf5ce4ac1449aaeaba89c7cf086, type: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1047484608
+      Data2: 1228474273
+      Data3: 167681430
+      Data4: 38947895
+    Path: event:/SFX/Enemy/Spider_Footsteps
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5451343963160363482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296827418220432883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1139d445fa8fbc84c9653a7ef2700551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
 --- !u!1 &7369946773782727429
 GameObject:
   m_ObjectHideFlags: 0

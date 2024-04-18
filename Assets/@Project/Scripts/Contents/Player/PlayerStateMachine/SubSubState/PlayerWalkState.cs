@@ -9,6 +9,7 @@ public class PlayerWalkState : PlayerBaseState
     public override void EnterState()
     {
         StartAnimation(Context.AnimationData.WalkParameterHash);
+        Context.Sound.IsWalking = true;
     }
 
     public override void UpdateState()
@@ -20,6 +21,7 @@ public class PlayerWalkState : PlayerBaseState
     public override void ExitState()
     {
         StopAnimation(Context.AnimationData.WalkParameterHash);
+        Context.Sound.IsWalking = false;
     }
 
     public override void CheckSwitchStates()

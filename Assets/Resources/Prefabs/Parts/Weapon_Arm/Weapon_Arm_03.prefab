@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102eb509fabf22e44b7f326ae0334fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 2
   _muzzleEffect: {fileID: 0}
   _chargingEffect: {fileID: 8472076251589126904}
   _laser: {fileID: 727243506265910801}

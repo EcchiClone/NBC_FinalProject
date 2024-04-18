@@ -8,7 +8,7 @@ public class AcpUpdater : MonoBehaviour
     [SerializeField] TextMeshProUGUI TmpText;
     void Update()
     {
-        TmpText.text = $"ACP : {Managers.GameManager.gameData.researchPoint.ToString()}";
+        TmpText.text = $"ACP : {Managers.GameManager.gameData.achievementPoint.ToString()}";
     }
 }
 
