@@ -1,0 +1,122 @@
+{
+    "point": 9999,
+    "unlockCount": 2,
+    "currentSeed": "829F376C1591",
+    "data": [
+        {
+            "Tier": 1,
+            "PositionIdx": 0,
+            "ContentIdx": 5,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 2,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 4,
+            "ContentIdx": 6,
+            "IsActive": true,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 2,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 5,
+            "ContentIdx": 1,
+            "IsActive": true,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 2,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 6,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 7,
+            "ContentIdx": 7,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                }
+            ]
+        }
+    ]
+}

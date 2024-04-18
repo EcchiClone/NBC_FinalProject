@@ -3,7 +3,7 @@
     "highestStage": 0,
     "highestMinionKill": 0,
     "highestBossKill": 0,
-    "researchPoint": 0,
+    "researchPoint": 989,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
     "partIndex_LeftArm": 0,
@@ -12,12 +12,11 @@
     "partIndex_RightShoulder": 0,
     "achievementPoint": 10000,
     "tutorialClear": false,
-    "unlockedPartsList": [
-        10003002
-    ],
+    "unlockedPartsList": [],
     "perkData": {
         "perkValueArray": [
             0.0,
+            10.0,
             0.0,
             0.0,
             0.0,
@@ -26,8 +25,7 @@
             0.0,
             0.0,
             0.0,
-            0.0,
-            0.0,
+            10.0,
             0.0,
             0.0,
             0.0,

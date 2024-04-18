@@ -39,7 +39,7 @@ public class GameData
     public int highestStage;
     public int highestMinionKill;
     public int highestBossKill;
-    public int researchPoint;
+    public int researchPoint = 1000;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
