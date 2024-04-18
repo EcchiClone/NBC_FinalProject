@@ -40,7 +40,7 @@ public class Weapon_GatlingGun : WeaponBase
 
             Quaternion rotation = Util.RandomDirectionFromMuzzle(ShotError);
             bullet.transform.rotation *= rotation;
-            // TODO: 발사음 추가
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Weapon2_Shot, Vector3.zero);
 
             PlayerProjectile projectile = bullet.GetComponent<PlayerProjectile>();
             projectile.Setup(BulletSpeed, Damage, _partData.IsSplash, Vector3.zero, _target);

@@ -43,6 +43,7 @@ public class Weapon_MissileLauncher : WeaponBase
                 if (Ammo == 0)
                     continue;
                 Ammo--;
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LaunchRocket, Vector3.zero);
 
                 Vector3 freeFireTarget = GetFreeFireDest();
 

@@ -142,20 +142,6 @@ MonoBehaviour:
       Data3: 1516024728
       Data4: -1454028208
     Path: event:/SFX/Player/Player_Footsteps
-  <Player_CannonShot>k__BackingField:
-    Guid:
-      Data1: -1150501072
-      Data2: 1159631594
-      Data3: -1010511956
-      Data4: -1727272662
-    Path: event:/SFX/Player/Player_CannonShot
-  <Player_LaunchMissile>k__BackingField:
-    Guid:
-      Data1: 388197540
-      Data2: 1285859612
-      Data3: -831284555
-      Data4: 1981935649
-    Path: event:/SFX/Player/Player_LaunchMissile
   <Player_BoosterLoop>k__BackingField:
     Guid:
       Data1: 492220547
@@ -226,6 +212,27 @@ MonoBehaviour:
       Data3: 677116071
       Data4: 199082006
     Path: event:/SFX/Player/Player_Laser_Reload
+  <Player_CannonShot>k__BackingField:
+    Guid:
+      Data1: -1150501072
+      Data2: 1159631594
+      Data3: -1010511956
+      Data4: -1727272662
+    Path: event:/SFX/Player/Player_CannonShot
+  <Player_LaunchMissile>k__BackingField:
+    Guid:
+      Data1: 388197540
+      Data2: 1285859612
+      Data3: -831284555
+      Data4: 1981935649
+    Path: event:/SFX/Player/Player_LaunchMissile
+  <Player_LaunchRocket>k__BackingField:
+    Guid:
+      Data1: -1728921961
+      Data2: 1102438982
+      Data3: -1494196604
+      Data4: -1152755588
+    Path: event:/SFX/Player/Player_LaunchRocket
   <Others_Appear>k__BackingField:
     Guid:
       Data1: -1782893327

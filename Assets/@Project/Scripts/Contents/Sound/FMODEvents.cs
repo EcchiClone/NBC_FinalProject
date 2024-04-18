@@ -51,6 +51,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Player_Laser_Reload { get; private set; }
     [field: SerializeField] public EventReference Player_CannonShot { get; private set; }
     [field: SerializeField] public EventReference Player_LaunchMissile { get; private set; }
+    [field: SerializeField] public EventReference Player_LaunchRocket { get; private set; }
 
 
     [field: Header("Others SFX(3D)")]
