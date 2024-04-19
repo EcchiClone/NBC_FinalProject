@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_SO:
   - dev_ID: 1
-    spawnCount: 1
+    spawnCount: 10
     spawnDelayTime: 2
     countDownTime: 0.2
     spawnType1: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     spawnType3: 0
     enemyType: 0
   - dev_ID: 2
-    spawnCount: 1
+    spawnCount: 10
     spawnDelayTime: 2
     countDownTime: 0.2
     spawnType1: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     spawnType3: 0
     enemyType: 0
   - dev_ID: 3
-    spawnCount: 1
+    spawnCount: 10
     spawnDelayTime: 2
     countDownTime: 0.2
     spawnType1: 1
@@ -38,9 +38,9 @@ MonoBehaviour:
     spawnType3: 0
     enemyType: 0
   - dev_ID: 4
-    spawnCount: 1
+    spawnCount: 10
     spawnDelayTime: 2
-    countDownTime: 0.2
+    countDownTime: 50
     spawnType1: 1
     spawnType2: 0
     spawnType3: 0
