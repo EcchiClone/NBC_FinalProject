@@ -296,6 +296,13 @@ MonoBehaviour:
       Data3: 510314628
       Data4: 735606004
     Path: event:/SFX/Enemy/Ball_Explode
+  <Ball_Alarm>k__BackingField:
+    Guid:
+      Data1: -1882084450
+      Data2: 1314890233
+      Data3: -806377813
+      Data4: 556933147
+    Path: event:/SFX/Enemy/Ball_Alarm
   <Drone_Idle>k__BackingField:
     Guid:
       Data1: -634554719

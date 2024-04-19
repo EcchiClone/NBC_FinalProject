@@ -67,6 +67,7 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Enemies SFX(3D)")]
     [field: SerializeField] public EventReference Ball_Drag { get; private set; }
     [field: SerializeField] public EventReference Ball_Explode { get; private set; }
+    [field: SerializeField] public EventReference Ball_Alarm { get; private set; }
     [field: SerializeField] public EventReference Drone_Idle { get; private set; }
     [field: SerializeField] public EventReference Drone_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Shot { get; private set; }
