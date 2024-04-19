@@ -19147,6 +19147,7 @@ GameObject:
   - component: {fileID: 964015222284425402}
   - component: {fileID: 7569290477191243831}
   - component: {fileID: 6784616474420636693}
+  - component: {fileID: 6650417389953213024}
   m_Layer: 11
   m_Name: EnemyProjectile05
   m_TagString: Untagged
@@ -19244,6 +19245,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6650417389953213024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302279346263578025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0a473dc562ef14d8549ebd9c2b016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 10
 --- !u!1 &8003287815638134047
 GameObject:
   m_ObjectHideFlags: 0

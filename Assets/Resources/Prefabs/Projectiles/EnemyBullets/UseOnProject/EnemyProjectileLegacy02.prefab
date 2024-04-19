@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 3854832394889546468}
   - component: {fileID: 3974728011485853356}
   - component: {fileID: 3250850842665894511}
+  - component: {fileID: 7442381499043614251}
   m_Layer: 11
   m_Name: EnemyProjectileLegacy02
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   - {fileID: 5201237864717169090}
   - {fileID: 6522818214734835864}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3854832394889546468
 Rigidbody:
@@ -140,6 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7442381499043614251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417151445506548962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0a473dc562ef14d8549ebd9c2b016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 15
 --- !u!1 &690709955368322330
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 2002902340400696743}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4734609430549538007}
@@ -468,7 +482,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2515382936516278252
 GameObject:
@@ -531,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 2965778821570782376}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6410762591882800270}
@@ -606,7 +620,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3312484994397523582
 GameObject:
@@ -1006,7 +1020,7 @@ Transform:
   m_GameObject: {fileID: 8951020985527945246}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3824227236773667841}
@@ -1081,5 +1095,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
