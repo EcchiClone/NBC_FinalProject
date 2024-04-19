@@ -214,7 +214,7 @@ MonoBehaviour:
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
     initialPart: 0
     pointUnlock: 1
-    point: 1000
+    point: 3000
     armor: 275
     weight: 10
     speed: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
       \uC218 \uC788\uB2E4"
     initialPart: 0
     pointUnlock: 1
-    point: 1000
+    point: 1500
     armor: 200
     weight: 8
     speed: 0

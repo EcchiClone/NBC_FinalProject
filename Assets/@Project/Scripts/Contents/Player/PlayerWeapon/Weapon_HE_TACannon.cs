@@ -55,7 +55,7 @@ public class Weapon_HE_TACannon : WeaponBase
                 GameObject bullet = CreateBullet(muzzle);
 
                 PlayerProjectile cannon = bullet.GetComponent<PlayerProjectile>();
-                cannon.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosiveRange);
+                cannon.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosionRange);
 
                 yield return Util.GetWaitSeconds(FireRate);
             }
