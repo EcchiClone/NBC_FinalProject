@@ -10,12 +10,12 @@ public class EnemyBullet : Bullet
         {
             module.ModuleStatus.GetDamage(5);
 
-            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle") || other.gameObject.layer == LayerMask.NameToLayer("Unwalkable") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("Player"))
