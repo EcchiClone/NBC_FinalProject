@@ -8,6 +8,13 @@ using static PhaseSO;
 
 public class EnemyBulletController : EnemyBullet
 {
+    public event EnemyBulletPatternStarter.BulletStoper onStopBullet;
+    public void StopBullet()
+    {
+        Debug.Log("이전 패턴 멈추기");
+        onStopBullet?.Invoke();
+    }
+
     [SerializeField] TrailRenderer[] _trailRenderers;
     private EnemyBulletParameters _currentParameters; // 현재 탄막의 파라미터
     private Coroutine _releaseCoroutine;
@@ -57,7 +64,7 @@ public class EnemyBulletController : EnemyBullet
                     isOneTime = false,
                     patternHierarchy = patternHierarchy
                 };
-                EnemyBulletGenerator.instance.StartPatternHierarchy(_genSettings);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(_genSettings, onStopBullet);
             }
         }
     }
@@ -67,6 +74,15 @@ public class EnemyBulletController : EnemyBullet
         Move();
         Accel();
     }
+    private void OnEnable()
+    {
+        onStopBullet += EnemyBulletGenerator.instance.StopAllCoroutinesPattern;
+    }
+    private void OnDisable()
+    {
+        onStopBullet -= EnemyBulletGenerator.instance.StopAllCoroutinesPattern;
+    }
+
 
     void Move()
     {
