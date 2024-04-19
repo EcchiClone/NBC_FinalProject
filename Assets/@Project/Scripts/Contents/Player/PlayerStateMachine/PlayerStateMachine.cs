@@ -189,7 +189,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void CheckLockTargetIsNull(ITarget prevTarget)
     {
-        Module.LockOnSystem.LockTargetChange(prevTarget);
+        if(IsDead) 
+            return;
+        StartCoroutine(Module.LockOnSystem.Co_LockTargetChange(prevTarget));
     }
 
     private void HandleMove()

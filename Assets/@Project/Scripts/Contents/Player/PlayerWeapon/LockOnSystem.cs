@@ -1,5 +1,6 @@
 using Cinemachine;
 using System;
+using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -48,24 +49,23 @@ public class LockOnSystem
 
         FollowCam.m_YAxis.Value = INIT_CAM_POS_Y;
         FollowCam.m_XAxis.Value = INIT_CAM_POS_X;
-    }    
+    }
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius * 0.5f;
+        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius;
         Vector3 dir;
         RaycastHit[] hits;
         if (IsLockon)
         {
             Vector3 camdir = Camera.main.transform.forward;
             dir = new Vector3(camdir.x, 0, camdir.z).normalized;
-            Debug.Log(dir);
             hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
         }
         else
         {
             dir = Camera.main.transform.forward;
-            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);            
+            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
         }
 
         if (hits.Length == 0)
@@ -74,31 +74,33 @@ public class LockOnSystem
             return false;
         }
 
-        int closestIndex = GetClosestTargetIndex(hits);
-
-        if (hits[closestIndex].transform.TryGetComponent(out ITarget target) == false)
+        GetClosestTarget(hits);
+        if (TargetEnemy == null)
             return false;
-        if (target == TargetEnemy || !target.IsAlive)
-            return false;
-
-        TargetEnemy = target;
         return true;
     }
 
-    private int GetClosestTargetIndex(RaycastHit[] hits)
+    private void GetClosestTarget(RaycastHit[] hits)
     {
         float closestDist = float.MaxValue;
         int closestIndex = -1;
+
+        ITarget target = null;
+
         for (int i = 0; i < hits.Length; i++)
         {
             if (hits[i].distance < closestDist)
             {
                 closestIndex = i;
                 closestDist = hits[i].distance;
+                if (hits[closestIndex].transform.TryGetComponent(out target) == false)
+                    continue;
+                if (target == TargetEnemy || !target.IsAlive)
+                    continue;
             }
         }
 
-        return closestIndex;
+        TargetEnemy = target;       
     }
 
     public void LockOnTarget()
@@ -124,17 +126,25 @@ public class LockOnSystem
         TargetEnemy = null;
     }
 
-    public void LockTargetChange(ITarget prevTarget)
+    public IEnumerator Co_LockTargetChange(ITarget prevTarget)
     {
-        if (TargetEnemy == null)
-            return;
+        yield return Util.GetWaitSeconds(0.05f);
+
+        if (TargetEnemy == null || TargetEnemy != prevTarget)
+        {
+            Debug.Log("콜 한 애가 락온 한 애가 아님");
+            yield break;
+        }
+            
 
         if (!IsThereEnemyScanned())
         {
+            Debug.Log("락 해제");
             ReleaseTarget();
-            return;
+            yield break;
         }
 
+        Debug.Log("이전꺼 없애고 새로운 락온");
         TargetGroup.RemoveMember(prevTarget.Transform);
         LockOnTarget();
     }

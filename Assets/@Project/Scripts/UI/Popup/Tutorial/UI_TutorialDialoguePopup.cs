@@ -44,6 +44,9 @@ public class UI_TutorialDialoguePopup : UI_Popup
 
     private void NextScript()
     {
+        if (Managers.GameManager.TutorialClear)
+            return;
+
         _dialogueText.text = string.Empty;        
         _currentScript = _currentTutoData.Scripts[++_scriptIndex];
         _coroutine = StartCoroutine(Co_Scripting());
