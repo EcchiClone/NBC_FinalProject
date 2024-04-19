@@ -11,7 +11,8 @@ public enum BGMState
     MAINSCENE,
     PERKSCENE,
     TUTORIAL,
-    FIELD
+    FIELD,
+    INTRO
 }
 
 public class BGMPlayer : MonoBehaviour
@@ -90,13 +91,17 @@ public class BGMPlayer : MonoBehaviour
         {
             _state = BGMState.PERKSCENE;
         }
-        else if (_scene.name == "Tutorial")
+        else if (_scene.name == "TutorialScene")
         {
             _state = BGMState.TUTORIAL;
         }
         else if ( _scene.name == "DevScene")
         {
             _state = BGMState.FIELD;
+        }
+        else if ( _scene.name == "TitleScene")
+        {
+            _state = BGMState.INTRO;
         }
         else
         {
@@ -106,19 +111,27 @@ public class BGMPlayer : MonoBehaviour
 
     private void UpdateSound()
     {
+        // Scene 별 Default BGM
         switch (_state)
         {
             case BGMState.MAINSCENE:
-                PlayInstance(_mainAmbience); break;
+                PlayInstance(_mainAmbience); 
+                break;
             case BGMState.PERKSCENE:
-                PlayInstance(_perkAmbience); break;
+                PlayInstance(_perkAmbience); 
+                break;
             case BGMState.TUTORIAL:
-                // PlayInstance(_mainAmbience);
+                PlayInstance(_mainAmbience); 
                 break;
             case BGMState.FIELD:
-                PlayInstance(_fieldBGM); break;
+                PlayInstance(_fieldBGM); 
+                break;
+            case BGMState.INTRO:
+                PlayInstance(_mainAmbience); 
+                break;
             default:
-                StopInstances(); break;
+                // StopInstances(); 
+                break;
         }
     }
 
@@ -187,7 +200,42 @@ public class BGMPlayer : MonoBehaviour
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
         Instance = this;
+
+        switch (_state)
+        {
+            case BGMState.MAINSCENE:
+                if (scene.name == "TutorialScene")
+                {
+                    Debug.Log("튜토리얼 씬 진입");
+                }
+                else
+                {
+                    Debug.Log("다른 씬 진입");
+                    ResetNLoadInstances();
+                }
+                break;
+            case BGMState.INTRO:
+                if (scene.name == "MainScene")
+                {
+                    Debug.Log("메인 씬 진입");
+                }
+                else
+                {
+                    Debug.Log("다른 씬 진입");
+                    ResetNLoadInstances();
+                }
+                break;
+            default:
+                Debug.Log("이전 씬이 디폴트");
+                ResetNLoadInstances();
+                break;
+        }
+    }
+
+    private void ResetNLoadInstances()
+    {
         StopInstances();
+        AudioManager.Instance.CleanUp();
         GetEventInstances();
     }
 }
