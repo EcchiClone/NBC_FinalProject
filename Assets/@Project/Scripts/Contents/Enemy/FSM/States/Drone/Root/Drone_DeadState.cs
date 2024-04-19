@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Drone_DeadState : BaseState
 {
     public Drone_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)

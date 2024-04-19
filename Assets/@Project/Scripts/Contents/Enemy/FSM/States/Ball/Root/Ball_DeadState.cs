@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Ball_DeadState : BaseState
@@ -59,7 +56,7 @@ public class Ball_DeadState : BaseState
                     Vector3 other = hit.transform.position;
                     Vector3 pushDirection = (other - _entityTransform.position).normalized;
 
-                    rigidbody.AddForce(pushDirection * 14, ForceMode.Impulse);
+                    rigidbody.AddForce(pushDirection * 20, ForceMode.Impulse);
                 }
 
                 entity.GetDamaged(damage);
