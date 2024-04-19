@@ -38,7 +38,11 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Player SFX(2D)")]
     [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
-    [field: SerializeField] public EventReference Player_BoosterLoop { get; private set; }
+    [field: SerializeField] public EventReference Player_Booster { get; private set; }
+    [field: SerializeField] public EventReference Player_Booster_End { get; private set; }
+    [field: SerializeField] public EventReference Player_Dash { get; private set; }
+    [field: SerializeField] public EventReference Player_Dash_End { get; private set; }
+    [field: SerializeField] public EventReference Player_Dragging { get; private set; }
     [field: SerializeField] public EventReference Player_Repair { get; private set; }
     [field: SerializeField] public EventReference Player_LockOn { get; private set; }
 

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Ball_DeadState : BaseState
 {
+    float explodeDelay = 1f;
+    float passedTime;
+
     public Ball_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
@@ -12,11 +15,17 @@ public class Ball_DeadState : BaseState
 
     public override void EnterState()
     {
-        Explosion();
+        passedTime = 0f;
+        
     }
 
     public override void UpdateState()
     {
+        passedTime += Time.deltaTime;
+        if(passedTime >= explodeDelay)
+        {
+            Explosion();
+        }
     }
 
     public override void CheckSwitchStates()

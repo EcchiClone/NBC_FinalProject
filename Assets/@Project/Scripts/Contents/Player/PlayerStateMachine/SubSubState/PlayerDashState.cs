@@ -10,6 +10,7 @@ public class PlayerDashState : PlayerBaseState
     {        
         StartAnimation(Context.AnimationData.DashParameterName);
         Context.StartRunAfterDash();
+        Context.Sound.IsDashing = true;
     }
 
     public override void UpdateState()
