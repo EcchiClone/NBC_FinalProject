@@ -249,10 +249,10 @@ MonoBehaviour:
   Patterns:
   - patternSO: {fileID: 11400000, guid: ceb46488945ae844387142f521a51434, type: 2}
     patternName: Drone
+  isShooting: 1
   muzzle:
   - {fileID: 5156108061444316281}
   - {fileID: 3862540445392332790}
-  isShooting: 1
   onStartPhase: []
   onStartPattern: []
 --- !u!114 &3937746290164647927
@@ -307,7 +307,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 60
+  OverrideMaxDistance: 20
 --- !u!114 &6041517926289854188
 MonoBehaviour:
   m_ObjectHideFlags: 0
