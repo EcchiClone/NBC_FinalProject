@@ -29,7 +29,7 @@ public class Weapon_RocketLauncher : WeaponBase
                 GameObject bullet = CreateBullet(muzzle);                
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
-                missile.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target);
+                missile.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosiveRange);
                 
                 yield return Util.GetWaitSeconds(FireRate);
             }

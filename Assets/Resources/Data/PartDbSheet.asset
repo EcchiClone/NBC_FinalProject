@@ -43,6 +43,7 @@ MonoBehaviour:
     ammo: 0
     isReloadable: 0
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10001002
     dev_Name: Lower_02
     prefab_Path: Prefabs/Parts/Lower/Lower_02
@@ -74,6 +75,7 @@ MonoBehaviour:
     ammo: 0
     isReloadable: 0
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10002001
     dev_Name: Upper_01
     prefab_Path: Prefabs/Parts/Upper/Upper_01
@@ -105,6 +107,7 @@ MonoBehaviour:
     ammo: 0
     isReloadable: 0
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10002002
     dev_Name: Upper_02
     prefab_Path: Prefabs/Parts/Upper/Upper_02
@@ -136,6 +139,7 @@ MonoBehaviour:
     ammo: 0
     isReloadable: 0
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10003001
     dev_Name: Arm_01
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_01
@@ -166,6 +170,7 @@ MonoBehaviour:
     ammo: 50
     isReloadable: 1
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10003002
     dev_Name: Arm_02
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_02
@@ -188,7 +193,7 @@ MonoBehaviour:
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/MiniGun_Bullet
     muzzleEffect_Path: 
-    damage: 2
+    damage: 1
     bulletSpeed: 50
     fireRate: 0.05
     coolDownTime: 5
@@ -197,6 +202,7 @@ MonoBehaviour:
     ammo: 200
     isReloadable: 1
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10003003
     dev_Name: Arm_03
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_03
@@ -229,6 +235,7 @@ MonoBehaviour:
     ammo: 1
     isReloadable: 1
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10003004
     dev_Name: Arm_04
     prefab_Path: Prefabs/Parts/Weapon_Arm/Weapon_Arm_04
@@ -250,15 +257,16 @@ MonoBehaviour:
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Cannon_Large_Projectile
     muzzleEffect_Path: 
-    damage: 50
+    damage: 75
     bulletSpeed: 30
     fireRate: 2
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 0.2
-    ammo: 10
+    ammo: 50
     isReloadable: 1
     isSplash: 0
+    explosiveRange: 0
   - dev_ID: 10004001
     dev_Name: Shoulder_01
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_01
@@ -266,7 +274,9 @@ MonoBehaviour:
     display_Name: RL-Rapid
     display_Description: "\uACE0\uC815\uD615 \uB85C\uCF13\uB7F0\uCC98\n5\uBC1C\uC744
       \uCC28\uB840\uB85C \uACF5\uC911\uC73C\uB85C \uBC1C\uC0AC \uD6C4 \uD0C0\uAC9F\uC744
-      \uD5A5\uD574 \uC720\uB3C4\uD55C\uB2E4"
+      \uD5A5\uD574 \uC720\uB3C4\uD55C\uB2E4\n\uD3ED\uBC1C \uC9C0\uC810 \uC881\uC740
+      \uBC94\uC704\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD790 \uC218
+      \uC788\uB2E4"
     initialPart: 1
     pointUnlock: 0
     point: 0
@@ -287,9 +297,10 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 5
     shotErrorRange: 1
-    ammo: 10
+    ammo: 30
     isReloadable: 0
-    isSplash: 0
+    isSplash: 1
+    explosiveRange: 0
   - dev_ID: 10004002
     dev_Name: Shoulder_02
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_02
@@ -322,6 +333,7 @@ MonoBehaviour:
     ammo: 10
     isReloadable: 0
     isSplash: 1
+    explosiveRange: 0
   - dev_ID: 10004003
     dev_Name: Shoulder_03
     prefab_Path: Prefabs/Parts/Weapon_Shoulder/Weapon_Shoulder_03
@@ -354,3 +366,4 @@ MonoBehaviour:
     ammo: 10
     isReloadable: 0
     isSplash: 1
+    explosiveRange: 0

@@ -12,6 +12,7 @@ public class PlayerProjectile : Bullet
     protected Rigidbody _rigid;
     protected float _speed;
     protected float _damage;
+    protected float _explosiveRange;
 
     protected bool _isSplash;
 
@@ -23,11 +24,12 @@ public class PlayerProjectile : Bullet
         _rigid = GetComponent<Rigidbody>();
     }
 
-    public virtual void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, Transform target = null)
+    public virtual void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, Transform target = null, float explosiveRange = 0)
     {
         _speed = speed;
         _damage = damage;
         _isSplash = splash;
+        _explosiveRange = explosiveRange;
         if (_trailRenderers != null)
             _trailRenderers.Clear();
 
@@ -52,7 +54,7 @@ public class PlayerProjectile : Bullet
 
             if (_isSplash)
             {
-                RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5/*범위지정*/, Vector3.up, 0, _damagableLayer);
+                RaycastHit[] hits = Physics.SphereCastAll(transform.position, _explosiveRange, Vector3.up, 0, _damagableLayer);
 
                 foreach (var hit in hits) // 범위에 들어간 적은 데미지 부여
                 {
