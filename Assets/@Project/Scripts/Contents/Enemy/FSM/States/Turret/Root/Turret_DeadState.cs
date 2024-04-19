@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Turret_DeadState : BaseState
 {
     public Turret_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Spider_DeadState : BaseState // TODO
 {
     public Spider_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)

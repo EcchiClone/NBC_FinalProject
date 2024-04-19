@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class SkyFire_AliveState : BaseState
 {
     public SkyFire_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
