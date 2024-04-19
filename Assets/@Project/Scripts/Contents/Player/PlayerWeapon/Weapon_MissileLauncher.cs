@@ -51,7 +51,7 @@ public class Weapon_MissileLauncher : WeaponBase
 
                 PlayerProjectile missile = bullet.GetComponent<PlayerProjectile>();
                 missile.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosionRange);
-
+                Debug.Log(Damage+_partData.ExplosionRange);
                 yield return Util.GetWaitSeconds(FireRate);
             }
         }

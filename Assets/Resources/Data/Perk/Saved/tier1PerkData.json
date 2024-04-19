@@ -1,6 +1,6 @@
 {
     "point": 9999,
-    "unlockCount": 14,
+    "unlockCount": 15,
     "currentSeed": "1D545B119D90",
     "data": [
         {
@@ -58,7 +58,7 @@
                 {
                     "PositionIdx": 0,
                     "ContentIdx": 2,
-                    "IsActive": false
+                    "IsActive": true
                 },
                 {
                     "PositionIdx": 1,
