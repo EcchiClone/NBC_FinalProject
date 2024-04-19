@@ -5,8 +5,7 @@ public class UI_MainMenuPopup : UI_Popup
     private UI_SelectorMenu _selector;
     private UI_Achievement _achievement;
     private UI_SettingsPopup _settings;
-    private UI_StageSelectPopup _stageSelect;
-    private UI_ControlsGuide _guide;
+    private UI_StageSelectPopup _stageSelect;    
     private UI_Credit _credit;
 
     enum Buttons
@@ -89,15 +88,7 @@ public class UI_MainMenuPopup : UI_Popup
     }
     private void OpenGuide()
     {
-        if (_guide == null)
-        {
-            _guide = Managers.UI.ShowPopupUI<UI_ControlsGuide>();
-            _guide.SetPreviousPopup(this);
-        }
-        else
-            _guide.gameObject.SetActive(true);
-
-        gameObject.SetActive(false);
+        Managers.UI.ShowPopupUI<UI_ControlsGuide>();
     }
     private void OpenCredit()
     {
