@@ -82,7 +82,7 @@ MonoBehaviour:
   _sfxType: 5
   _damagableLayer:
     serializedVersion: 2
-    m_Bits: 30208
+    m_Bits: 161280
 --- !u!1 &4905138874408751800
 GameObject:
   m_ObjectHideFlags: 0
