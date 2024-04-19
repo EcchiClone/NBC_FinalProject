@@ -31,8 +31,7 @@ public class UI_TutorialDialoguePopup : UI_Popup
     }
 
     private void NextScriptPhase()
-    {
-        Debug.Log("된건가?");
+    {        
         _dialogueText.text = string.Empty;
         _scriptIndex = 0;
         
