@@ -9,6 +9,7 @@ public class PlayerGroundedState : PlayerBaseState
     public override void EnterState()
     {        
         Context.IsCanHovering = false;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Land, Context.transform.position);
         if (Context.IsRun)
         {
             StopAnimation(Context.AnimationData.DashParameterName);

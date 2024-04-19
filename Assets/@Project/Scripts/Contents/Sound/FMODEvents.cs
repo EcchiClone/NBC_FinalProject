@@ -38,6 +38,8 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Player SFX(2D)")]
     [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
+    [field: SerializeField] public EventReference Player_Jump { get; private set; }
+    [field: SerializeField] public EventReference Player_Land { get; private set; }
     [field: SerializeField] public EventReference Player_Booster { get; private set; }
     [field: SerializeField] public EventReference Player_Booster_End { get; private set; }
     [field: SerializeField] public EventReference Player_Dash { get; private set; }
@@ -66,6 +68,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Others_Appear { get; private set; }
     [field: SerializeField] public EventReference Others_Disappear { get; private set; }
     [field: SerializeField] public EventReference Boom_Distance { get; private set; }
+    [field: SerializeField] public EventReference Explosion_Small { get; private set; }
+    [field: SerializeField] public EventReference Explosion_Big { get; private set; }
+    [field: SerializeField] public EventReference Bullet_Hit { get; private set; }
 
 
     [field: Header("Enemies SFX(3D)")]

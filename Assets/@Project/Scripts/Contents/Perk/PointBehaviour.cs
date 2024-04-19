@@ -71,17 +71,6 @@ public class PointBehaviour : MonoBehaviour
             Managers.GameManager.ResearchPoint -= _requirePoint;
 
             SetPerkActive();
-
-            // 퍼크 개방 수 업적 진행도 업데이트
-            try
-            {
-                AchievementCommonUpdater.instance.GetComponent<UpdateUnlockPerk>().UnlockPerk();
-            }
-            catch
-            {
-                Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
-            }
-
         }
         else
         {
@@ -111,6 +100,16 @@ public class PointBehaviour : MonoBehaviour
 
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Perk_Released, transform.position);
             PerkManager.Instance.perkData.SetActivedPerk(type, value, PerkManager.Instance.perkData);
+
+            // 퍼크 개방 수 업적 진행도 업데이트
+            try
+            {
+                AchievementCommonUpdater.instance.GetComponent<UpdateUnlockPerk>().UnlockPerk();
+            }
+            catch
+            {
+                Debug.Log("AchievementCommonUpdater 인스턴스를 찾을 수 없음");
+            }
         }
     }
 

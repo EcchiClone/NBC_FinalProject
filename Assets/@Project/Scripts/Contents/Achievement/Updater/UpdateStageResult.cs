@@ -28,6 +28,6 @@ public class UpdateStageResult : AchievementUpdater
     }
     private void ReportResultData(StageData sd)
     {
-        Managers.AchievementSystem.ReceiveReport("RESULT", "HIGHEST_STAGE", sd.stage);
+        Managers.AchievementSystem.ReceiveReport("RESULT", "HIGHEST_STAGE", Managers.SpawnManager.CurrentStage);
     }
 }
