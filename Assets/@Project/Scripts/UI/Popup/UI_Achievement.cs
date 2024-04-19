@@ -64,9 +64,27 @@ public class UI_Achievement : UI_Popup
 
         foreach (var achievement in achievements)
         {
-            var instance = Instantiate(achievementPrefab, contentPanel);
-            instance.GetComponent<UI_AchievementItem>().SetAchievementInfo(achievement);
-            activeAchievementList.Add(instance);
+            if (achievement.Icon != null)
+            {
+                if(achievement.State == AchievementState.WaitingForCompletion)
+                {
+                    var instance = Instantiate(achievementPrefab, contentPanel);
+                    instance.GetComponent<UI_AchievementItem>().SetAchievementInfo(achievement);
+                    activeAchievementList.Add(instance);
+                }
+            }
+        }
+        foreach (var achievement in achievements)
+        {
+            if (achievement.Icon != null)
+            {
+                if (achievement.State != AchievementState.WaitingForCompletion)
+                {
+                    var instance = Instantiate(achievementPrefab, contentPanel);
+                    instance.GetComponent<UI_AchievementItem>().SetAchievementInfo(achievement);
+                    activeAchievementList.Add(instance);
+                }
+            }
         }
     }
 }

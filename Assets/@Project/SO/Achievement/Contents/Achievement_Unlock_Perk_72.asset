@@ -19,7 +19,7 @@ MonoBehaviour:
     \uD574\uAE08"
   taskGroups:
   - tasks:
-    - {fileID: 11400000, guid: 21d3192592b70894db108b731af6d2e9, type: 2}
+    - {fileID: 11400000, guid: ced63c317a2789d43a5278830c281d37, type: 2}
   rewards:
   - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
   useAutoComplete: 0
