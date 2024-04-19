@@ -75,7 +75,7 @@ public class ModuleStatus
         if (random <= Stealth)
             return;
 
-        CurrentArmor -= damage * Defence;
+        CurrentArmor = Mathf.Max(0, CurrentArmor - damage * Defence);
         if (CurrentArmor <= 0)
             Dead();
         Managers.ModuleActionManager.CallChangeArmorPoint(Armor, CurrentArmor);
@@ -117,6 +117,7 @@ public class ModuleStatus
     {
         if (IsDead)
             return;
+        IsDead = true;
 
         Managers.ActionManager.CallPlayerDead();
     }
