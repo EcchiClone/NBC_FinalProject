@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef59b76c4b4e1604f88dca03e99f2847, type: 3}
-  m_Name: Task_Unlock_Perk_20
+  m_Name: Task_HighestStage_15
   m_EditorClassIdentifier: 
-  category: {fileID: 11400000, guid: 031f986a7d1b0bf44afa8c70c5a4a3d9, type: 2}
-  codeName: UNLOCK_PERK_20
-  description: "\uD37C\uD06C\uB97C 20\uAC1C \uC5F4\uAE30"
-  action: {fileID: 11400000, guid: ceb94eeff634edc4a80439ef088a9674, type: 2}
+  category: {fileID: 11400000, guid: 4e423a79091540d488f3363a4b0d02b6, type: 2}
+  codeName: HIGHEST_STAGE_15
+  description: "\uCD5C\uACE0 \uC2A4\uD14C\uC774\uC9C0 15"
+  action: {fileID: 11400000, guid: f4c0e090c51d1ec4fb5ef4ff3ddb7d49, type: 2}
   targets:
-  - {fileID: 11400000, guid: 20249daf8df8e7a40af5939af6be29ba, type: 2}
+  - {fileID: 11400000, guid: 17e850b95b8b9c2498464851b2cb19d0, type: 2}
   initialSuccessValue: {fileID: 0}
-  needSuccessToComplete: 20
+  needSuccessToComplete: 15
   canReceiveReportsDuringCompletion: 0
