@@ -221,9 +221,7 @@ public class SpawnManager
         {
             if (!IsStarted)
                 yield break;
-
-
-            Debug.Log("스폰 중");
+            
             yield return Util.GetWaitSeconds(LevelData.SpawnDelayTime);
 
             string unitType = LevelData.SpawnTypes[UnityEngine.Random.Range(0, LevelData.SpawnTypes.Count)].ToString();

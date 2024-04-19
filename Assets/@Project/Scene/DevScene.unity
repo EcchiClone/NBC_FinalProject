@@ -828,11 +828,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '# Cams'
       objectReference: {fileID: 0}
-    - target: {fileID: 2491678343067125734, guid: 96c40fec97f450a4491915124c290982,
-        type: 3}
-      propertyPath: m_CollideAgainst.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     - target: {fileID: 6630113010670400370, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: m_RootOrder

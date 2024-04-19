@@ -13,8 +13,8 @@ public class LockOnSystem
 
     [SerializeField] Transform _followOnTargetMode;
     [SerializeField] LayerMask _targetLayer;
-    [SerializeField] private float _scanRange;
-    [SerializeField] private float _scanRadius;
+    [field: SerializeField] public float ScanRange;
+    [field: SerializeField] public float ScanRadius;
 
     public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
@@ -29,7 +29,7 @@ public class LockOnSystem
     public void Setup(Module module)
     {
         _module = module;
-        _scanRange *= module.ModuleStatus.ScanRangeAdjust;
+        ScanRange *= module.ModuleStatus.ScanRangeAdjust;
 
         // 시네머신 카메라 초기화
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
@@ -48,23 +48,24 @@ public class LockOnSystem
 
         FollowCam.m_YAxis.Value = INIT_CAM_POS_Y;
         FollowCam.m_XAxis.Value = INIT_CAM_POS_X;
-    }
+    }    
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = _module.transform.position + Camera.main.transform.forward * _scanRadius + Camera.main.transform.up * _scanRadius;
+        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius * 0.5f;
         Vector3 dir;
         RaycastHit[] hits;
         if (IsLockon)
         {
             Vector3 camdir = Camera.main.transform.forward;
             dir = new Vector3(camdir.x, 0, camdir.z).normalized;
-            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);
+            Debug.Log(dir);
+            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
         }
         else
         {
             dir = Camera.main.transform.forward;
-            hits = Physics.SphereCastAll(origin, _scanRadius, dir, _scanRange, _targetLayer);            
+            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);            
         }
 
         if (hits.Length == 0)
