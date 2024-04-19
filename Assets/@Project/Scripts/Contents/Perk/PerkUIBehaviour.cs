@@ -8,6 +8,7 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private PerkVarBehaviour _var;
 
     private Color _originColor;
+    private Color _afterColor;
     private Image _image;
 
     private void Awake()
@@ -15,6 +16,7 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
         _var = GetComponent<PerkVarBehaviour>();
         _image = GetComponent<Image>();
         _originColor = _image.color;
+        _afterColor = new Color(139f / 255f, 255f / 255f, 143f / 255f);
     }
 
     private void Start()
@@ -53,10 +55,10 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         PerkInfo perkInfo = PerkManager.Instance.SelectedPerkInfo;
 
-        if (perkInfo.IsActive)
+        if (perkInfo.IsActive && perkInfo == _var.ReturnPerkInfo())
         {
-            _image.color = Color.gray;
-            _originColor = Color.gray;
+            _image.color = _afterColor;
+            _originColor = _afterColor;
         }
     }
 
@@ -68,10 +70,16 @@ public class PerkUIBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
         PerkType type = contentInfo.type;
 
         _image.sprite = Resources.Load<Sprite>($"Images/Perk/T{(int)tier}_{(int)type}");
+
+        if (perkInfo.IsActive)
+        {
+            _image.color = _afterColor;
+            _originColor = _afterColor;
+        }
     }
 
     private void OnUnlockBtnClicked(object sender, EventArgs eventArgs)
     {
-        // CheckPerkActive();
+        CheckPerkActive();
     }
 }
