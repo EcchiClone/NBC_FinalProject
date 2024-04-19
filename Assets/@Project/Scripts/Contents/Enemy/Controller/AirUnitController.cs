@@ -31,8 +31,6 @@ public class AirUnitController : Controller
 
     protected override void Move()
     {
-        //Entity.transform.position = Vector3.Lerp(Entity.transform.position, StopPoint, Entity.Data.moveSpeed * Time.deltaTime);
-
         // 이동 방향 벡터 계산
         Vector3 moveDirection = (StopPoint - Entity.transform.position).normalized;
 
@@ -40,7 +38,7 @@ public class AirUnitController : Controller
 
         float forceMagnitude = distanceToStopPoint / Entity.Data.moveSpeed;
 
-        forceMagnitude = Mathf.Clamp(forceMagnitude, 4, 10);
+        forceMagnitude = Mathf.Clamp(forceMagnitude, 4, Speed);
 
         // Rigidbody에 힘을 가해 이동
         Rigidbody.AddForce(moveDirection * forceMagnitude);
