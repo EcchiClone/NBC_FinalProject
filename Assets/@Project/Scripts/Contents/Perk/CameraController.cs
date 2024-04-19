@@ -29,12 +29,12 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         OnZoomInput();
+        CameraZoom();
     }
 
     private void FixedUpdate()
     {
         CameraMovement();
-        CameraZoom();
     }
 
     private void CameraMovement()

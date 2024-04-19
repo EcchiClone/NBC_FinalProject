@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 public class DroneStateMachine : BaseStateMachine
 {
     public DroneStateMachine(Entity entity) : base(entity)

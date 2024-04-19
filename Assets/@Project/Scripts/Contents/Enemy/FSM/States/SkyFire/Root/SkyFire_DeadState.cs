@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-
 public class SkyFire_DeadState : BaseState
 {
     public SkyFire_DeadState(BaseStateMachine context, BaseStateProvider provider) 
