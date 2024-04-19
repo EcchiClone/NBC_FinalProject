@@ -167,7 +167,7 @@ MonoBehaviour:
     coolDownTime: 2.5
     projectilesPerShot: 1
     shotErrorRange: 0.5
-    ammo: 50
+    ammo: 30
     isReloadable: 1
     isSplash: 0
     explosionRange: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
     display_Description: "\uC18C\uD615 \uAC1C\uD2C0\uB9C1\uAC74\n\uC9D1\uC911\uD3EC\uD654\uAC00
       \uAC00\uB2A5\uD558\uC9C0\uB9CC\n\uBA40\uB9AC\uC788\uB294 \uD0C0\uAC9F\uC5D0\uC11C
       \uADF8\uB2E4\uC9C0 \uC88B\uC740 \uD6A8\uACFC\uB97C \uB0B4\uC9C4 \uBABB\uD55C\uB2E4"
-    initialPart: 1
+    initialPart: 0
     pointUnlock: 1
     point: 1000
     armor: 275
@@ -214,7 +214,7 @@ MonoBehaviour:
       \uAC80\uC99D\uB418\uC5C8\uB2E4"
     initialPart: 0
     pointUnlock: 1
-    point: 3000
+    point: 2500
     armor: 275
     weight: 10
     speed: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 1
     shotErrorRange: 0.2
-    ammo: 50
+    ammo: 5
     isReloadable: 1
     isSplash: 0
     explosionRange: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
     hovering: 0
     bulletPrefab_Path: Prefabs/Projectiles/PlayerBullet/Bullet_Missile_01
     muzzleEffect_Path: 
-    damage: 5
+    damage: 22
     bulletSpeed: 15
     fireRate: 0.05
     coolDownTime: 5
