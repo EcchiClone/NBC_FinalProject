@@ -45,4 +45,10 @@ public class SpawnEffect : MonoBehaviour
             });
         }   
     }
+
+    public void DisableEffect()
+    {
+        foreach (var renderer in _renderer)
+            renderer.material.DOFloat(0, "_Split", _dissolveTime).SetEase(ease).SetDelay(_delay).OnComplete(() => gameObject.SetActive(false));
+    }
 }

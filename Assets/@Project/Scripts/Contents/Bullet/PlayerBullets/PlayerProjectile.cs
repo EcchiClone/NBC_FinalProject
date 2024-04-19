@@ -58,12 +58,16 @@ public class PlayerProjectile : Bullet
                 {
                     if (hit.transform.TryGetComponent(out ITarget entity))
                         entity.GetDamaged(_damage);
+                    if (hit.transform.TryGetComponent(out DummyController dummy))
+                        dummy.GetDamaged(_damage, transform.position);
                 }
             }
             else
             {
                 if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
+                if (collision.gameObject.TryGetComponent(out DummyController dummy))
+                    dummy.GetDamaged(_damage, transform.position);
             }            
             gameObject.SetActive(false);
         }
