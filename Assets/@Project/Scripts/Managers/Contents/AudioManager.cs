@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
-        CleanUp();
+
     }
 
     private void OnDestroy()
