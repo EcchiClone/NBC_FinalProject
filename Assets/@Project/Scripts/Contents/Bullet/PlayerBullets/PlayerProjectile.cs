@@ -6,6 +6,7 @@ public class PlayerProjectile : Bullet
     [SerializeField] GameObject _hitEffectPrefab;
     [SerializeField] TrailRenderer _trailRenderers;
     [SerializeField] protected Define.BulletType _bulletType;
+    [SerializeField] protected Define.BulletHitSounds _sfxType;
     [SerializeField] protected LayerMask _damagableLayer;
 
     protected Rigidbody _rigid;
@@ -46,8 +47,8 @@ public class PlayerProjectile : Bullet
         if ((_damagableLayer & (1 << collision.gameObject.layer)) != 0)
         {
             StopAllCoroutines();
-
             CreateEffect();
+            PlaySFX();
 
             if (_isSplash)
             {
@@ -63,9 +64,38 @@ public class PlayerProjectile : Bullet
             {
                 if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
-            }
-
+            }            
             gameObject.SetActive(false);
+        }
+    }
+
+    private void PlaySFX()
+    {
+        // 사용하는 것만 추가
+        // enum에 커서대면 어떤 순서인지 나와용
+        switch (_sfxType)
+        {            
+            case Define.BulletHitSounds.CannonSmall:
+
+                break;
+            case Define.BulletHitSounds.Gatling:
+
+                break;
+            case Define.BulletHitSounds.Laser:
+
+                break;
+            case Define.BulletHitSounds.CannonLarge:
+
+                break;
+            case Define.BulletHitSounds.Missile:
+
+                break;
+            case Define.BulletHitSounds.HellFire:
+
+                break;
+            case Define.BulletHitSounds.HECannon:
+
+                break;
         }
     }
 

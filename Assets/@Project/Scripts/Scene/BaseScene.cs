@@ -19,8 +19,7 @@ public abstract class BaseScene : MonoBehaviour
     }
 
     private void KeyGuidPanl()
-    {
-        Debug.Log("와이재키와이");
+    {        
         if(Input.GetKeyDown(KeyCode.BackQuote)) 
         {
             if (_keyGuidePanel == null)
