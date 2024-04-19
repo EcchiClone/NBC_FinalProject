@@ -11,6 +11,12 @@ public class StageScene : BaseScene
 
         Scenes = Define.Scenes.DevScene;
 
+        if (!Managers.GameManager.FirstPlayDone)
+        {
+            //Managers.UI.ShowPopupUI
+            Managers.GameManager.FirstPlayDone = true;
+        }
+
         Managers.Module.CreatePlayerModule();
         _scene = Managers.UI.ShowSceneUI<UI_HUD>();
         Managers.SpawnManager.Init();
@@ -28,9 +34,11 @@ public class StageScene : BaseScene
         Managers.Clear();
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.K))
             Managers.ActionManager.CallPlayerDead();
     }
+#endif
 }

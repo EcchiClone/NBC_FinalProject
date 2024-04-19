@@ -12,6 +12,7 @@
     "partIndex_RightShoulder": 1,
     "achievementPoint": 10000,
     "tutorialClear": true,
+    "firstPlayDone": true,
     "unlockedPartsList": [
         10004002
     ],
