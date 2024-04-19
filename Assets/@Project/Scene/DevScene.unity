@@ -996,6 +996,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultMap
       objectReference: {fileID: 0}
+    - target: {fileID: 2571851700196733534, guid: 79d3c37375d40ca4391b8dd5f2b88544,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6584055263254592866, guid: 79d3c37375d40ca4391b8dd5f2b88544,
         type: 3}
       propertyPath: m_RootOrder

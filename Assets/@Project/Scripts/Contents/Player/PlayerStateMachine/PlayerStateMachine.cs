@@ -93,7 +93,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (Module.ModuleStatus.IsDead)
+        if (Module.ModuleStatus.IsDead || !Managers.SpawnManager.IsStarted)
             return;
 
         CurrentState.UpdateStates();

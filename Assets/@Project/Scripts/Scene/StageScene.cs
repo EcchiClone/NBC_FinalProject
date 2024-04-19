@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StageScene : BaseScene
@@ -11,12 +12,6 @@ public class StageScene : BaseScene
 
         Scenes = Define.Scenes.DevScene;
 
-        if (!Managers.GameManager.FirstPlayDone)
-        {
-            //Managers.UI.ShowPopupUI
-            Managers.GameManager.FirstPlayDone = true;
-        }
-
         Managers.Module.CreatePlayerModule();
         _scene = Managers.UI.ShowSceneUI<UI_HUD>();
         Managers.SpawnManager.Init();
@@ -25,6 +20,20 @@ public class StageScene : BaseScene
     private void Start()
     {
         _stageController = GetComponent<StageController>();
+
+        if (!Managers.GameManager.FirstPlayDone)
+        {
+            Managers.UI.ShowPopupUI<UI_FirstPlayPopup>().OnGameStart += () => _stageController.GameStart();
+            Managers.GameManager.FirstPlayDone = true;
+            return;
+        }
+
+        StartCoroutine(Co_StartDelay());
+    }
+
+    private IEnumerator Co_StartDelay()
+    {
+        yield return Util.GetWaitSeconds(2f);
         _stageController.GameStart();
     }
 
