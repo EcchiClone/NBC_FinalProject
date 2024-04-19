@@ -85,6 +85,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{ee0081a2-4a01-40f3-8b72-4ced8c09f246}">
+		<property name="volume">
+			<value>-8.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{56e2644e-5000-4667-a0f4-9ec17fe4607b}</destination>
 		</relationship>
@@ -355,17 +358,42 @@
 			<value>11</value>
 		</property>
 		<property name="filterTypeB">
-			<value>11</value>
+			<value>9</value>
+		</property>
+		<property name="filterTypeE">
+			<value>3</value>
 		</property>
 		<property name="frequencyA">
 			<value>447.46637</value>
 		</property>
 		<property name="frequencyB">
-			<value>3073.21704</value>
+			<value>5489.62793</value>
+		</property>
+		<property name="frequencyE">
+			<value>9215.05566</value>
 		</property>
 		<property name="qualityA">
-			<value>0.434896529</value>
+			<value>0.519999981</value>
+		</property>
+		<property name="qualityB">
+			<value>0.929931104</value>
+		</property>
+		<property name="qualityE">
+			<value>0.100000001</value>
+		</property>
+		<property name="gainB">
+			<value>10.3448257</value>
 		</property>
 	</object>
-	<object class="FlangerEffect" id="{08fcac52-db3f-4e4a-af83-81381a674897}" />
+	<object class="FlangerEffect" id="{08fcac52-db3f-4e4a-af83-81381a674897}">
+		<property name="rate">
+			<value>0.699999988</value>
+		</property>
+		<property name="delay">
+			<value>0.399999976</value>
+		</property>
+		<property name="mix">
+			<value>74</value>
+		</property>
+	</object>
 </objects>

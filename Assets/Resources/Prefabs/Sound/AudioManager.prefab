@@ -156,6 +156,20 @@ MonoBehaviour:
       Data3: 1516024728
       Data4: -1454028208
     Path: event:/SFX/Player/Player_Footsteps
+  <Player_Jump>k__BackingField:
+    Guid:
+      Data1: 1382635708
+      Data2: 1158018557
+      Data3: 274496156
+      Data4: 486536437
+    Path: event:/SFX/Player/Player_Jump
+  <Player_Land>k__BackingField:
+    Guid:
+      Data1: 488394455
+      Data2: 1250698309
+      Data3: -1657715523
+      Data4: -273679326
+    Path: event:/SFX/Player/Player_Land
   <Player_Booster>k__BackingField:
     Guid:
       Data1: 492220547
@@ -310,6 +324,27 @@ MonoBehaviour:
       Data3: -1366629964
       Data4: -1462913910
     Path: event:/SFX/Others/Boom_Distance
+  <Explosion_Small>k__BackingField:
+    Guid:
+      Data1: 1136053175
+      Data2: 1181938762
+      Data3: -2025254502
+      Data4: -41811344
+    Path: event:/SFX/Hits/Explosion_Small
+  <Explosion_Big>k__BackingField:
+    Guid:
+      Data1: 1481730948
+      Data2: 1093117902
+      Data3: 522298262
+      Data4: -364591752
+    Path: event:/SFX/Hits/Explosion_Big
+  <Bullet_Hit>k__BackingField:
+    Guid:
+      Data1: 1609056924
+      Data2: 1251263872
+      Data3: -874647645
+      Data4: -604772164
+    Path: event:/SFX/Hits/Bullet_Hit
   <Ball_Drag>k__BackingField:
     Guid:
       Data1: 1726701905

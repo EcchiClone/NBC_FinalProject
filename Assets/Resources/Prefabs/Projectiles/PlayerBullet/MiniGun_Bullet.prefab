@@ -9742,7 +9742,7 @@ MonoBehaviour:
   _sfxType: 1
   _damagableLayer:
     serializedVersion: 2
-    m_Bits: 30208
+    m_Bits: 161280
 --- !u!1 &2572414840198452862
 GameObject:
   m_ObjectHideFlags: 0

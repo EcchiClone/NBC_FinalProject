@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c813bd4b-61e1-4d12-82e8-c8e02ab6fc06}">
+		<property name="assetPath">
+			<value>One-Shots/Hits/ESM_PG_cinematic_fx_weapons_warefare_flintlock_bullet_impact_ricochet_metal_smack_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.1178125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c1e15d9c-1198-49a5-97bc-f65ab7a17f78}</destination>
+		</relationship>
+	</object>
+</objects>

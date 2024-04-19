@@ -58,12 +58,16 @@ public class PlayerProjectile : Bullet
                 {
                     if (hit.transform.TryGetComponent(out ITarget entity))
                         entity.GetDamaged(_damage);
+                    if (hit.transform.TryGetComponent(out DummyController dummy))
+                        dummy.GetDamaged(_damage, transform.position);
                 }
             }
             else
             {
                 if (collision.gameObject.TryGetComponent(out ITarget entity))
                     entity.GetDamaged(_damage);
+                if (collision.gameObject.TryGetComponent(out DummyController dummy))
+                    dummy.GetDamaged(_damage, transform.position);
             }            
             gameObject.SetActive(false);
         }
@@ -76,25 +80,25 @@ public class PlayerProjectile : Bullet
         switch (_sfxType)
         {            
             case Define.BulletHitSounds.CannonSmall:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Bullet_Hit, transform.position);
                 break;
             case Define.BulletHitSounds.Gatling:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Bullet_Hit, transform.position);
                 break;
             case Define.BulletHitSounds.Laser:
 
                 break;
             case Define.BulletHitSounds.CannonLarge:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Bullet_Hit, transform.position);
                 break;
             case Define.BulletHitSounds.Missile:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Explosion_Small, transform.position);
                 break;
             case Define.BulletHitSounds.HellFire:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Explosion_Small, transform.position);
                 break;
             case Define.BulletHitSounds.HECannon:
-
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Explosion_Big, transform.position);
                 break;
         }
     }

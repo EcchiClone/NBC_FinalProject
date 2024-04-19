@@ -9822,9 +9822,10 @@ MonoBehaviour:
     type: 3}
   _trailRenderers: {fileID: 0}
   _bulletType: 1
+  _sfxType: 0
   _damagableLayer:
     serializedVersion: 2
-    m_Bits: 30208
+    m_Bits: 161280
 --- !u!1 &7455679494138116750
 GameObject:
   m_ObjectHideFlags: 0
