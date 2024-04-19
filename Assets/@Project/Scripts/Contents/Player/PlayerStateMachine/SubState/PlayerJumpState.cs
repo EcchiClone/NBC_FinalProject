@@ -10,6 +10,7 @@ public class PlayerJumpState : PlayerBaseState
     {
         Context.IsJumping = true;
         Context.Sound.IsWalking = false;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Jump, Context.transform.position);
         HandleJump();
         InitailizeSubState();
         StartAnimation(Context.AnimationData.JumpParameterName);

@@ -17,7 +17,7 @@ MonoBehaviour:
   chasingInterval: 0.1
   rotationSpeed: 0
   fixedAltitude: 10
-  maxHealth: 100
+  maxHealth: 5
   moveSpeed: 10
   attackInterval: 1.5
   damage: 0

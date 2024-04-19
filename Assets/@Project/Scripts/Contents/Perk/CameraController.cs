@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         _cameraHolder = transform;
         _mainCamera = GetComponentInChildren<Camera>();
         _speed = 50.0f;
-        _zoomAmount = 45.0f;
+        _zoomAmount = 80.0f;
         _zoomSensitivity = 10f;
         _scrollY = 0f;
     }
