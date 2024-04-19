@@ -44,7 +44,7 @@ public class PartData : IEntity
     [SerializeField] private int ammo;
     [SerializeField] private bool isReloadable;
     [SerializeField] private bool isSplash;
-    [SerializeField] private float explosiveRange;
+    [SerializeField] private float explosionRange;
 
     public int Dev_ID => dev_ID;
     public string Dev_Name => dev_Name;
@@ -80,7 +80,7 @@ public class PartData : IEntity
     public int Ammo => ammo;
     public bool IsReloadable => isReloadable;
     public bool IsSplash => isSplash;
-    public float ExplosiveRange => explosiveRange;
+    public float ExplosionRange => explosionRange;
 
     public bool IsUnlocked { get; private set; } = false;
     public void Unlock() => IsUnlocked = true;    

@@ -31,7 +31,7 @@ public class UI_TutorialDialoguePopup : UI_Popup
     }
 
     private void NextScriptPhase()
-    {
+    {        
         _dialogueText.text = string.Empty;
         _scriptIndex = 0;
         

@@ -1,0 +1,30 @@
+{
+    "point": 9999,
+    "unlockCount": 0,
+    "currentSeed": "34BFF22D4084",
+    "data": [
+        {
+            "Tier": 1,
+            "PositionIdx": 3,
+            "ContentIdx": 7,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 4,
+                    "IsActive": false
+                }
+            ]
+        }
+    ]
+}

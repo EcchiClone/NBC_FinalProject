@@ -61,18 +61,18 @@ public class UI_ModuleArmStatusPopup : UI_Popup
         PerkData perkData = Managers.GameManager.PerkData;
 
         _statusTexts[(int)statType.L_DMG].text = $"{arm_L.Damage} [{arm_L.Damage / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedBullet)}] [<color=green>+{AbilityValue(PerkType.ImprovedBullet)}%</color>]";
-        _statusTexts[(int)statType.L_FIRE_RATE].text = $"{arm_L.FireRate} [{arm_L.FireRate / Util.GetIncreasePercentagePerkValue(perkData, PerkType.OverHeat)}] [<color=green>+{AbilityValue(PerkType.OverHeat)}%</color>]";
+        _statusTexts[(int)statType.L_FIRE_RATE].text = $"{arm_L.FireRate} [{arm_L.FireRate / Util.GetReducePercentagePerkValue(perkData, PerkType.OverHeat)}] [<color=green>+{AbilityValue(PerkType.OverHeat)}%</color>]";
         _statusTexts[(int)statType.L_BULLET_SPD].text = $"{arm_L.BulletSpeed} [{arm_L.BulletSpeed / Util.GetIncreasePercentagePerkValue(perkData, PerkType.RapidFire)}] [<color=green>+{AbilityValue(PerkType.RapidFire)}%</color>]";
         _statusTexts[(int)statType.L_AMMO].text = $"{arm_L.Ammo} [{arm_L.Ammo / Util.GetIncreasePercentagePerkValue(perkData, PerkType.SpareAmmunition)}] [<color=green>+{AbilityValue(PerkType.SpareAmmunition)}%</color>]";
-        _statusTexts[(int)statType.L_RELOAD].text = $"{arm_L.CoolDownTime} [{arm_L.CoolDownTime / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedReload)}] [<color=green>+{AbilityValue(PerkType.ImprovedReload)}%</color>]";
+        _statusTexts[(int)statType.L_RELOAD].text = $"{arm_L.CoolDownTime} [{arm_L.CoolDownTime / Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedReload)}] [<color=green>+{AbilityValue(PerkType.ImprovedReload)}%</color>]";
         _statusTexts[(int)statType.L_PIERCE].text = $"[미적용]";
-        _statusTexts[(int)statType.L_SHOTERROR].text = $"{arm_L.ShotError} [{arm_L.ShotError / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedBarrel)}] [<color=green>+{AbilityValue(PerkType.ImprovedBarrel)}%</color>]";
+        _statusTexts[(int)statType.L_SHOTERROR].text = $"{arm_L.ShotError} [{arm_L.ShotError / Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedBarrel)}] [<color=green>+{AbilityValue(PerkType.ImprovedBarrel)}%</color>]";
 
         _statusTexts[(int)statType.R_DMG].text = $"{arm_R.Damage} [{arm_R.Damage / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedBullet)}] [<color=green>+{AbilityValue(PerkType.ImprovedBullet)}%</color>]";
-        _statusTexts[(int)statType.R_FIRE_RATE].text = $"{arm_R.FireRate} [{arm_R.FireRate / Util.GetIncreasePercentagePerkValue(perkData, PerkType.OverHeat)}] [<color=green>+{AbilityValue(PerkType.OverHeat)}%</color>]";
+        _statusTexts[(int)statType.R_FIRE_RATE].text = $"{arm_R.FireRate} [{arm_R.FireRate / Util.GetReducePercentagePerkValue(perkData, PerkType.OverHeat)}] [<color=green>+{AbilityValue(PerkType.OverHeat)}%</color>]";
         _statusTexts[(int)statType.R_BULLET_SPD].text = $"{arm_R.BulletSpeed} [{arm_R.BulletSpeed / Util.GetIncreasePercentagePerkValue(perkData, PerkType.RapidFire)}] [<color=green>+{AbilityValue(PerkType.RapidFire)}%</color>]";
         _statusTexts[(int)statType.R_AMMO].text = $"{arm_R.Ammo} [{arm_R.Ammo / Util.GetIncreasePercentagePerkValue(perkData, PerkType.SpareAmmunition)}] [<color=green>+{AbilityValue(PerkType.SpareAmmunition)}%</color>]";
-        _statusTexts[(int)statType.R_RELOAD].text = $"{arm_R.CoolDownTime} [{arm_R.CoolDownTime / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedReload)}] [<color=green>+{AbilityValue(PerkType.ImprovedReload)}%</color>]";
+        _statusTexts[(int)statType.R_RELOAD].text = $"{arm_R.CoolDownTime} [{arm_R.CoolDownTime / Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedReload)}] [<color=green>+{AbilityValue(PerkType.ImprovedReload)}%</color>]";
         _statusTexts[(int)statType.R_PIERCE].text = $"[미적용]";
         _statusTexts[(int)statType.R_SHOTERROR].text = $"{arm_R.ShotError} [{arm_R.ShotError / Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedBarrel)}] [<color=green>+{AbilityValue(PerkType.ImprovedBarrel)}%</color>]";
     }

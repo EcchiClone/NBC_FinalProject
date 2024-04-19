@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Achievement_HighestStage_10
   m_EditorClassIdentifier: 
   codeName: HIGHEST_STAGE_10
-  icon: {fileID: 21300000, guid: 4fa378b3ece048549937e894399290e0, type: 3}
-  displayName: ..... .....
-  description: "10\uC2A4\uD14C\uC774\uC9C0 \uC774\uC0C1\uC73C\uB85C \uC885\uB8CC"
+  icon: {fileID: 21300000, guid: e3123bceb272fdb4a88af6945c8aa195, type: 3}
+  displayName: "QA\uC120\uC0DD\uB2D8"
+  description: "10\uC2A4\uD14C\uC774\uC9C0 \uC774\uC0C1\uC73C\uB85C \uC885\uB8CC(\uB2EC\uC131\uD558\uC5EC
+    \uC124\uBB38\uC9C0\uC5D0 \uB123\uC5B4\uC8FC\uC138\uC694)"
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 83d745b456feb914682cafb575904d11, type: 2}

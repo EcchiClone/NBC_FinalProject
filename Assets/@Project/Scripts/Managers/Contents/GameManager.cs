@@ -20,7 +20,6 @@ public class PerkData
     }
 }
 
-
 [Serializable]
 public class StageData
 {
@@ -39,7 +38,7 @@ public class GameData
     public int highestStage;
     public int highestMinionKill;
     public int highestBossKill;
-    public int researchPoint = 1000;
+    public int researchPoint = 700;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
@@ -48,7 +47,7 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
-    public int achievementPoint = 10000;
+    public int achievementPoint = 3000;
 
     public bool tutorialClear;
     public bool firstPlayDone;
