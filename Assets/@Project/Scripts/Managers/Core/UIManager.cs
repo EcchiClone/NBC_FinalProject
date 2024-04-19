@@ -95,14 +95,15 @@ public class UIManager
         return scene;
     }
 
-    public T ShowPopupUI<T>(string name = null) where T : UI_Popup
+    public T ShowPopupUI<T>(string name = null, bool isStack = true) where T : UI_Popup
     {
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
         GameObject go = Managers.RM.Instantiate($"UI/Popup/{name}");
         T popup = go.GetOrAddComponent<T>();
-        _popupStack.Push(popup);
+        if (isStack)
+            _popupStack.Push(popup);
 
         go.transform.SetParent(Root.transform);
 

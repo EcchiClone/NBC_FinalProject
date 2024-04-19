@@ -3,16 +3,20 @@
     "highestStage": 0,
     "highestMinionKill": 0,
     "highestBossKill": 0,
-    "researchPoint": 1040,
+    "researchPoint": 1190,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
-    "partIndex_LeftArm": 0,
-    "partIndex_RightArm": 0,
-    "partIndex_LeftShoulder": 0,
-    "partIndex_RightShoulder": 0,
-    "achievementPoint": 10000,
-    "tutorialClear": false,
-    "unlockedPartsList": [],
+    "partIndex_LeftArm": 1,
+    "partIndex_RightArm": 2,
+    "partIndex_LeftShoulder": 1,
+    "partIndex_RightShoulder": 1,
+    "achievementPoint": 10200,
+    "tutorialClear": true,
+    "firstPlayDone": true,
+    "unlockedPartsList": [
+        10004002,
+        10003003
+    ],
     "perkData": {
         "perkValueArray": [
             0.0,
@@ -36,10 +40,10 @@
         ]
     },
     "stageData": {
-        "time": 149.89297485351563,
-        "stage": 15,
-        "minionKill": 11,
-        "bossKill": 2,
-        "researchPoint": 30
+        "time": 402.0758972167969,
+        "stage": 9,
+        "minionKill": 103,
+        "bossKill": 1,
+        "researchPoint": 18
     }
 }

@@ -79,4 +79,19 @@ public class Define
         Shoulder02,
         Shoulder03,
     }
+
+    /// <summary>
+    /// 순서대로 팔 1, 2, 3, 4 / 어깨 1, 2, 3 번 입니다.
+    /// 쓰시는 것만 사용하시면 될듯
+    /// </summary>
+    public enum BulletHitSounds
+    {
+        CannonSmall,
+        Gatling,        
+        Laser,
+        CannonLarge, 
+        Missile, // 어깨 1번
+        HellFire,
+        HECannon,
+    }
 }

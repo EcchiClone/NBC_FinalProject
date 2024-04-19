@@ -68,14 +68,14 @@ public class Managers : MonoBehaviour
     /// 씬이 넘어갈 때 각 매니저의 초기화를 실행
     /// </summary>
     public static void Clear()
-    {             
+    {
         ActionManager.Clear();
         ModuleActionManager.Clear();
         StageActionManager.Clear();        
-        SpawnManager.Clear();
-        Tutorial.Clear();
+        SpawnManager.Clear();        
         Input.Clear();
         Module.Clear();
+        Tutorial.Clear();
         CoroutineManager.StopAllCoroutine();
     }
 }

@@ -66,6 +66,7 @@ public class PlayerHoverState : PlayerBaseState
         Context.IsHovering = false;
         Context.IsUsingBoost = false;
         Context.Sound.IsHovering = false;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Booster_End, Vector3.zero);
         if (!Context.IsRun)
             Context.Module.CurrentUpper.BoostOnOff(false);
     }

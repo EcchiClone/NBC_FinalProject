@@ -16,12 +16,7 @@ public class UI_ControlsGuide : UI_Popup
         base.Init();
 
         BindButton(typeof(Buttons));
-        GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);
-        GetButton((int)Buttons.Background).onClick.AddListener(BackToMain);
-    }
-    private void BackToMain()
-    {
-        _previousPopup.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        GetButton((int)Buttons.Button_Back).onClick.AddListener(() => ClosePopupUI());
+        GetButton((int)Buttons.Background).onClick.AddListener(() => ClosePopupUI());
     }
 }

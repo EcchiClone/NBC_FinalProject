@@ -9,6 +9,7 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState()
     {
         Context.IsJumping = true;
+        Context.Sound.IsWalking = false;
         HandleJump();
         InitailizeSubState();
         StartAnimation(Context.AnimationData.JumpParameterName);

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SkyFire_Phase1State : BaseState
 {
-    
-    public SkyFire_Phase1State(BaseStateMachine context, BaseStateProvider provider) 
+
+    public SkyFire_Phase1State(BaseStateMachine context, BaseStateProvider provider)
         : base(context, provider)
     {
         IsRootState = false;
@@ -22,6 +22,8 @@ public class SkyFire_Phase1State : BaseState
             Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 1); // 다연발 투사체
             Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 2);
         }
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_1, Context.Entity.transform.position);
     }
 
     public override void UpdateState()

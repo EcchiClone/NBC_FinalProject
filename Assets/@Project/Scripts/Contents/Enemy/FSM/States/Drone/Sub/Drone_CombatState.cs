@@ -33,7 +33,7 @@ public class Drone_CombatState : BaseState
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 1, true);
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 2, true);
             }
-                
+
             _passedTime = 0;
         }
 

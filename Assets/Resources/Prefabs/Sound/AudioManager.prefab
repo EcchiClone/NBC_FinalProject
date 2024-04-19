@@ -51,6 +51,13 @@ MonoBehaviour:
       Data3: -1491509879
       Data4: -557487598
     Path: event:/testEvent
+  <Main_BGM>k__BackingField:
+    Guid:
+      Data1: 1410672175
+      Data2: 1315475349
+      Data3: -465758830
+      Data4: 796471616
+    Path: event:/Music/BGM/Main_BGM
   <Field_BGM>k__BackingField:
     Guid:
       Data1: -196934883
@@ -58,13 +65,20 @@ MonoBehaviour:
       Data3: -2068040010
       Data4: -861864876
     Path: event:/Music/BGM/FieldBGM
-  <Main_Ambience>k__BackingField:
+  <Credit_BGM>k__BackingField:
     Guid:
-      Data1: 1410672175
-      Data2: 1315475349
-      Data3: -465758830
-      Data4: 796471616
-    Path: event:/Ambience/Main_Ambience
+      Data1: 537149408
+      Data2: 1260181768
+      Data3: -257863286
+      Data4: -1795414803
+    Path: event:/Music/BGM/CreditBGM
+  <Tutorial_Ambience>k__BackingField:
+    Guid:
+      Data1: 1387889563
+      Data2: 1148514931
+      Data3: 800482694
+      Data4: -1856636694
+    Path: event:/Ambience/Tutorial_Ambience
   <Perk_Ambience>k__BackingField:
     Guid:
       Data1: -1890350218
@@ -142,13 +156,41 @@ MonoBehaviour:
       Data3: 1516024728
       Data4: -1454028208
     Path: event:/SFX/Player/Player_Footsteps
-  <Player_BoosterLoop>k__BackingField:
+  <Player_Booster>k__BackingField:
     Guid:
       Data1: 492220547
       Data2: 1175195071
       Data3: 1309183386
       Data4: 186078880
     Path: event:/SFX/Player/Player_Booster
+  <Player_Booster_End>k__BackingField:
+    Guid:
+      Data1: -1906452327
+      Data2: 1172307752
+      Data3: 1204230583
+      Data4: 31027229
+    Path: event:/SFX/Player/Player_Booster_End
+  <Player_Dash>k__BackingField:
+    Guid:
+      Data1: -1948089995
+      Data2: 1175835440
+      Data3: 226625921
+      Data4: 1854068074
+    Path: event:/SFX/Player/Player_Dash
+  <Player_Dash_End>k__BackingField:
+    Guid:
+      Data1: -2110315663
+      Data2: 1263775104
+      Data3: -338004570
+      Data4: -1862890880
+    Path: event:/SFX/Player/Player_Dash_End
+  <Player_Dragging>k__BackingField:
+    Guid:
+      Data1: -1442489900
+      Data2: 1167170505
+      Data3: -451744594
+      Data4: -1033138441
+    Path: event:/SFX/Player/Player_Dragging
   <Player_Repair>k__BackingField:
     Guid:
       Data1: -547179332
@@ -282,6 +324,13 @@ MonoBehaviour:
       Data3: 510314628
       Data4: 735606004
     Path: event:/SFX/Enemy/Ball_Explode
+  <Ball_Alarm>k__BackingField:
+    Guid:
+      Data1: -1882084450
+      Data2: 1314890233
+      Data3: -806377813
+      Data4: 556933147
+    Path: event:/SFX/Enemy/Ball_Alarm
   <Drone_Idle>k__BackingField:
     Guid:
       Data1: -634554719
@@ -312,11 +361,39 @@ MonoBehaviour:
     Path: event:/SFX/Enemy/Spider_Footsteps
   <Boss_Appear>k__BackingField:
     Guid:
+      Data1: -512318822
+      Data2: 1254500550
+      Data3: -1491509879
+      Data4: -557487598
+    Path: event:/testEvent
+  <Boss_Detect>k__BackingField:
+    Guid:
       Data1: 1123652658
       Data2: 1338707392
       Data3: -221336181
       Data4: -293915314
-    Path: event:/SFX/Enemy/Boss_Appear
+    Path: event:/SFX/Enemy/Boss_Detect
+  <Boss_Phase_1>k__BackingField:
+    Guid:
+      Data1: -1966923056
+      Data2: 1238638869
+      Data3: -67322189
+      Data4: 768540822
+    Path: event:/SFX/Enemy/Boss_Phase_1
+  <Boss_Phase_2>k__BackingField:
+    Guid:
+      Data1: -95709744
+      Data2: 1291569888
+      Data3: -663332689
+      Data4: 737542610
+    Path: event:/SFX/Enemy/Boss_Phase_2
+  <Boss_Phase_3>k__BackingField:
+    Guid:
+      Data1: -325092389
+      Data2: 1224803554
+      Data3: 1020937882
+      Data4: -1372870670
+    Path: event:/SFX/Enemy/Boss_Phase_3
   <Enemy_Hits>k__BackingField:
     Guid:
       Data1: -2109992189

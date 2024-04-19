@@ -51,6 +51,7 @@ public class GameData
     public int achievementPoint = 10000;
 
     public bool tutorialClear;
+    public bool firstPlayDone;
 
     public List<int> unlockedPartsList;
     public PerkData perkData;
@@ -208,6 +209,16 @@ public class GameManager
         set
         {
             gameData.tutorialClear = value;
+            SaveGame();
+        }
+    }
+
+    public bool FirstPlayDone
+    {
+        get => gameData.firstPlayDone;
+        set
+        {
+            gameData.firstPlayDone = value;
             SaveGame();
         }
     }

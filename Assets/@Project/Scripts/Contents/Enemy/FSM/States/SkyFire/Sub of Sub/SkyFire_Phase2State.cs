@@ -26,6 +26,8 @@ public class SkyFire_Phase2State : BaseState
         Context.Entity.enemyPhaseStarter.StartPattern(1, 6, 4);
 
         Context.Entity.enemyPhaseStarter.StartPattern(4, 4, 5); // 서클
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_2, Context.Entity.transform.position);
     }
 
     public override void UpdateState()

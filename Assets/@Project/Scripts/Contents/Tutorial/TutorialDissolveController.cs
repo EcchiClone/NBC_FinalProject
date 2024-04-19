@@ -21,6 +21,7 @@ public class TutorialDissolveController : MonoBehaviour
 
     public void Dissolve()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Others_Appear, transform.position);
         foreach (var renderer in _renderers)
             renderer.material.DOFloat(_value, "_Split", _time).SetEase(_outQuad ? Ease.OutQuad : Ease.InQuad).OnComplete(() => { if (_inActive) gameObject.SetActive(false); });
     }

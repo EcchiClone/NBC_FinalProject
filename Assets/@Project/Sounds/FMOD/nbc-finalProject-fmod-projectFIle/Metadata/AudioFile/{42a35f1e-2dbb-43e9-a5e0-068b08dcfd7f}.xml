@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{42a35f1e-2dbb-43e9-a5e0-068b08dcfd7f}">
 		<property name="assetPath">
-			<value>One-Shots/Enemies/Boss_Appear.wav</value>
+			<value>One-Shots/Enemies/Boss_Detect.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

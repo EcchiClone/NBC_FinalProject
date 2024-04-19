@@ -14,11 +14,13 @@ public class FMODEvents : MonoBehaviour
 
 
     [field: Header("BGM(2D)")]
+    [field: SerializeField] public EventReference Main_BGM { get; private set; }
     [field: SerializeField] public EventReference Field_BGM { get; private set; }
+    [field: SerializeField] public EventReference Credit_BGM { get; private set; }
 
 
     [field: Header("Ambience(2D)")]
-    [field: SerializeField] public EventReference Main_Ambience { get; private set; }
+    [field: SerializeField] public EventReference Tutorial_Ambience { get; private set; }
     [field: SerializeField] public EventReference Perk_Ambience { get; private set; }
 
 
@@ -36,7 +38,11 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Player SFX(2D)")]
     [field: SerializeField] public EventReference Player_Footsteps { get; private set; }
-    [field: SerializeField] public EventReference Player_BoosterLoop { get; private set; }
+    [field: SerializeField] public EventReference Player_Booster { get; private set; }
+    [field: SerializeField] public EventReference Player_Booster_End { get; private set; }
+    [field: SerializeField] public EventReference Player_Dash { get; private set; }
+    [field: SerializeField] public EventReference Player_Dash_End { get; private set; }
+    [field: SerializeField] public EventReference Player_Dragging { get; private set; }
     [field: SerializeField] public EventReference Player_Repair { get; private set; }
     [field: SerializeField] public EventReference Player_LockOn { get; private set; }
 
@@ -65,11 +71,16 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Enemies SFX(3D)")]
     [field: SerializeField] public EventReference Ball_Drag { get; private set; }
     [field: SerializeField] public EventReference Ball_Explode { get; private set; }
+    [field: SerializeField] public EventReference Ball_Alarm { get; private set; }
     [field: SerializeField] public EventReference Drone_Idle { get; private set; }
     [field: SerializeField] public EventReference Drone_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Shot { get; private set; }
     [field: SerializeField] public EventReference Spider_Footsteps { get; private set; }
     [field: SerializeField] public EventReference Boss_Appear { get; private set; }
+    [field: SerializeField] public EventReference Boss_Detect { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_1 { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_2 { get; private set; }
+    [field: SerializeField] public EventReference Boss_Phase_3 { get; private set; }
     [field: SerializeField] public EventReference Enemy_Hits { get; private set; }
     [field: SerializeField] public EventReference Enemy_Down { get; private set; }
 
