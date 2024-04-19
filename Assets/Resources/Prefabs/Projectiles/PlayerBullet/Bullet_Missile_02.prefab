@@ -79,6 +79,7 @@ MonoBehaviour:
     type: 3}
   _trailRenderers: {fileID: 0}
   _bulletType: 2
+  _sfxType: 5
   _damagableLayer:
     serializedVersion: 2
     m_Bits: 30208
