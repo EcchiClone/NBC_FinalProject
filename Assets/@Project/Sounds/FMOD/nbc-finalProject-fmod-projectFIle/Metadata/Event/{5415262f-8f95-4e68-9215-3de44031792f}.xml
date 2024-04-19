@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{5415262f-8f95-4e68-9215-3de44031792f}">
 		<property name="name">
-			<value>Main_Ambience</value>
+			<value>Main_BGM</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{6d1c8d40-0bcb-4621-81df-61c8ae8b5d16}</destination>
+			<destination>{8be9fe00-1f60-4943-82f1-14080f72e070}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{67980a2b-1a6d-48b3-b9d8-d7cd15824428}</destination>
@@ -33,6 +33,7 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{35e3ed6d-157e-4531-9fa5-502660c84f17}</destination>
+			<destination>{0cba4822-152a-4954-aa96-a13e704ee504}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{67980a2b-1a6d-48b3-b9d8-d7cd15824428}">
@@ -57,7 +58,7 @@
 			<destination>{20977c50-87f9-470f-9a4d-8f1c9d1658cd}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{b3b1eda8-ed7d-4904-9e45-f003afb7e244}</destination>
+			<destination>{b0763699-fce9-4657-af0c-e7fbe507d9aa}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{9106bcc9-d41e-4e13-823d-97c4ae7d7e96}" />

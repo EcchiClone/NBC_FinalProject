@@ -24,7 +24,7 @@ public class Drone_CombatState : BaseState
 
     public override void UpdateState()
     {
-        _passedTime += Time.deltaTime;
+        /*_passedTime += Time.deltaTime;
         if (_passedTime > _attackInterval)
         {
             if (!CheckObstacle())
@@ -33,9 +33,9 @@ public class Drone_CombatState : BaseState
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 1, true);
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 2, true);
             }
-                
+
             _passedTime = 0;
-        }
+        }*/
 
         CheckSwitchStates();
     }

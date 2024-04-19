@@ -18,6 +18,8 @@ public class Drone_ChasingState : BaseState
         passedTime = 0f;
 
         Context.Entity.Controller.IsChasing = true;
+
+        Context.Sound.StartEmitter();
     }
 
     public override void UpdateState()
@@ -50,6 +52,8 @@ public class Drone_ChasingState : BaseState
     public override void ExitState()
     {
         Context.Entity.Controller.IsChasing = false;
+
+        Context.Sound.StopEmitter();
     }
 
     public override void InitializeSubState()

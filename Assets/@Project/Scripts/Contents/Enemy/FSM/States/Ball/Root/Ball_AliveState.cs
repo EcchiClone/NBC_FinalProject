@@ -25,7 +25,7 @@ public class Ball_AliveState : BaseState
 
     public override void ExitState()
     {
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Down, Context.Entity.transform.position);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Alarm, Context.Entity.transform.position);
     }
 
     public override void InitializeSubState()
