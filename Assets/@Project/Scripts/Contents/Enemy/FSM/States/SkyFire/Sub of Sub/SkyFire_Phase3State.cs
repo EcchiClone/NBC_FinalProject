@@ -12,20 +12,16 @@ public class SkyFire_Phase3State : BaseState
 
     public override void EnterState()
     {
-        Context.Entity.enemyPhaseStarter.isShooting = false;
-        Context.Entity.StartCoroutine(Co_Shoot());
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_3, Context.Entity.transform.position);
-    }
+        Debug.Log("Enter Phase3");
 
-    IEnumerator Co_Shoot()
-    {
-        yield return Util.GetWaitSeconds(3f);
-
-        Context.Entity.enemyPhaseStarter.isShooting = true;
+        // 이전 사용중인 패턴 멈추기
+        Context.Entity.enemyPhaseStarter.StopBullet();
 
         Context.Entity.enemyPhaseStarter.StartPattern(2, 6, 5); // 클러스터
 
         Context.Entity.enemyPhaseStarter.StartPattern(3, 5, 5); // 스피어
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_3, Context.Entity.transform.position);
     }
 
     public override void UpdateState()

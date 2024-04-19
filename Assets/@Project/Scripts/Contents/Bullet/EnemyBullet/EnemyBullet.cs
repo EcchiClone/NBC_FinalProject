@@ -10,19 +10,19 @@ public class EnemyBullet : Bullet
         {
             module.ModuleStatus.GetDamage(5);
 
-            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle") || other.gameObject.layer == LayerMask.NameToLayer("Unwalkable") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("플레이어 태그를 가진 오브젝트에게 데미지를 주는 로직 대신 Debug Log를 실행하고 있습니다.");
 
-            ObjectPooler.SpawnFromPool("Test_Copied_Explosion01_Effect", transform.position);
+            ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }
   

@@ -9783,7 +9783,7 @@ GameObject:
   - component: {fileID: 515775307960944229}
   - component: {fileID: 1875891275598471831}
   m_Layer: 0
-  m_Name: Test_Copied_Explosion01_Effect
+  m_Name: Default_Explosion01_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

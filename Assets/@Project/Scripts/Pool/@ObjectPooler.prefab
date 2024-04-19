@@ -61,41 +61,44 @@ MonoBehaviour:
   - tag: Boss_SkyFire
     prefab: {fileID: 6175972580230584608, guid: 9ea452715658ead49ac6a04c934ba8c1,
       type: 3}
-    size: 1
+    size: 10
   - tag: EnemyExplosion01
     prefab: {fileID: 4748817850868222153, guid: 69edc9b1d390fde48b226844102e54c4,
       type: 3}
-    size: 2500
+    size: 2000
   - tag: EnemyProjectile01
     prefab: {fileID: 8136854467646802062, guid: 9cf3aea5cd73d9744999943a0eb6f366,
       type: 3}
-    size: 5000
+    size: 500
   - tag: EnemyProjectile02
     prefab: {fileID: 245006665270501150, guid: 72c56fac616920b4c842ff10df271cd2, type: 3}
+    size: 500
+  - tag: EnemyProjectile02_Large
+    prefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390, type: 3}
     size: 2500
   - tag: EnemyProjectile03
     prefab: {fileID: 7488779171184577920, guid: bf40293e9c29b534b8ebfa5e6c4067e0,
       type: 3}
-    size: 2500
+    size: 1000
   - tag: EnemyProjectile04
     prefab: {fileID: 6531017631556436741, guid: 130a1e71f76159d4383e1b7c5c261357,
       type: 3}
-    size: 2500
+    size: 1000
   - tag: EnemyProjectile05
     prefab: {fileID: 7302279346263578025, guid: 218ed4df05778764fb1aa37c52945842,
       type: 3}
-    size: 2500
+    size: 500
   - tag: EnemyProjectileLegacy01
     prefab: {fileID: 8213430085926567989, guid: a0ca0a13a66e09c4684136fcdb206ce5,
       type: 3}
-    size: 2500
+    size: 2000
   - tag: EnemyProjectileLegacy02
     prefab: {fileID: 417151445506548962, guid: 4019fddd342cda742af39ca638bdbcfe, type: 3}
-    size: 2500
-  - tag: Test_Copied_Explosion01_Effect
+    size: 500
+  - tag: Default_Explosion01_Effect
     prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
       type: 3}
-    size: 2500
+    size: 2000
   - tag: Cannon_Small_Projectile
     prefab: {fileID: 4457461763584704974, guid: dcdec3ea93dbd4041be8d2b1dc3e9f69,
       type: 3}
@@ -159,9 +162,6 @@ MonoBehaviour:
   - tag: EnemyBulletCluster_Triangle
     prefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
     size: 100
-  - tag: EnemyProjectile02_Large
-    prefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390, type: 3}
-    size: 2500
 --- !u!114 &5360624033526740394
 MonoBehaviour:
   m_ObjectHideFlags: 0

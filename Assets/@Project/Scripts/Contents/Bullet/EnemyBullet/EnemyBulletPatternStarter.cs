@@ -4,9 +4,25 @@ using System.Collections.Generic;
 using static UnityEngine.UIElements.VisualElement;
 using static PhaseSO;
 using System;
+using System.Runtime.CompilerServices;
+using static Achievement;
+using Unity.VisualScripting;
 
 public class EnemyBulletPatternStarter : MonoBehaviour
 {
+    public delegate void BulletStoper();
+    public event BulletStoper onStopBullet;
+    public void StopBullet()
+    {
+        Debug.Log("이전 패턴 멈추기");
+        onStopBullet?.Invoke();
+    }
+
+    private void Update()
+    {
+        Debug.Log(onStopBullet);
+    }
+
     [System.Serializable]
     private struct TestPhaseStarter
     {
@@ -28,17 +44,18 @@ public class EnemyBulletPatternStarter : MonoBehaviour
         public PatternSO patternSO;
         public string patternName;
     }
-    // 여러 페이즈 넣어 관리 할 수 있도록 하기
-    public PhaseSO[] Phases;    // PhaseSO 넣기
-    public PatternEntry[] Patterns;    // 단일 패턴 사용만을 위한 Patterns 넣기
+
+    public PhaseSO[] Phases;    // PhaseSO 목록을 인덱스로 관리
+    public PatternEntry[] Patterns;    // (PatternSO,이름) 목록을 인덱스로 관리
+
+    public bool isShooting = true;
 
     [SerializeField] private Transform[] muzzle = { }; // 총구 위치
 
-    public bool isShooting = true;         // false가 되면 EnemyBulletGenerator에서 생성 작업을 멈춘다. 코루틴이 종료됨.
-                                           //public bool[] isTriggerOn;      // 탄막 일괄 이벤트를 위한 트리거를 위해 추후 준비.
-
     [SerializeField] private List<TestPhaseStarter> onStartPhase = new List<TestPhaseStarter>();
     [SerializeField] private List<TestPatternStarter> onStartPattern = new List<TestPatternStarter>();
+
+    private List<IEnumerator> activeCoroutine = new List<IEnumerator>();
 
     private void Awake()
     {
@@ -54,7 +71,7 @@ public class EnemyBulletPatternStarter : MonoBehaviour
 
     private void OnEnable()
     {
-        isShooting = true;
+        onStopBullet += EnemyBulletGenerator.instance.StopAllCoroutinesPattern;
 
         foreach (TestPhaseStarter t in onStartPhase)
         {
@@ -65,15 +82,16 @@ public class EnemyBulletPatternStarter : MonoBehaviour
             StartPattern(t.patternNum, t.cycleTime, t.muzzleNum, t.isOneTime);
         }
     }
+    private void OnDisable()
+    {
+        onStopBullet -= EnemyBulletGenerator.instance.StopAllCoroutinesPattern;
+    }
 
     public void StartPhase(int PhaseNum, int muzzleNum = 0, bool isOneTime = false) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
     {
-        StartCoroutine(Co_StartPhase(PhaseNum, muzzleNum, isOneTime));
-    }
-
-    public void StopPhase()
-    {
-        isShooting = false;
+        IEnumerator myCoroutine = Co_StartPhase(PhaseNum, muzzleNum, isOneTime);
+        StartCoroutine(myCoroutine);
+        activeCoroutine.Add(myCoroutine);
     }
 
     private IEnumerator Co_StartPhase(int PhaseNum, int muzzleNum, bool isOneTime)
@@ -96,13 +114,33 @@ public class EnemyBulletPatternStarter : MonoBehaviour
                     isOneTime = isOneTime,
                     patternHierarchy = patternHierarchy
                 };
-                EnemyBulletGenerator.instance.StartPatternHierarchy(genSettings);
+                EnemyBulletGenerator.instance.StartPatternHierarchy(genSettings, onStopBullet);
             }
         }
     }
-
-    public void StartPattern(int PatternNum, float cycleTime, int muzzleNum = 0, bool isOneTime = false)
+    public void StartPattern(int PatternNum, float cycleTime, int muzzleNum = 0, bool isOneTime = false) // 페이즈 인덱스 및 총구 인덱스 전달받아 실행
     {
+        IEnumerator myCoroutine = Co_StartPattern(PatternNum, cycleTime, muzzleNum, isOneTime);
+        StartCoroutine(myCoroutine);
+        activeCoroutine.Add(myCoroutine);
+    }
+
+    public void StopPattern()
+    {
+        foreach (IEnumerator co in activeCoroutine)
+        {
+            if (co != null)
+            {
+                StopAllCoroutines();
+            }
+        }
+        activeCoroutine.Clear();
+    }
+
+    public IEnumerator Co_StartPattern(int PatternNum, float cycleTime, int muzzleNum = 0, bool isOneTime = false)
+    {
+        
+        yield return Util.GetWaitSeconds(0.01f);
         if (PatternNum < Patterns.Length)
         {
             int _muzzleNum = (muzzle[muzzleNum] != null) ? muzzleNum : 0;
@@ -124,7 +162,7 @@ public class EnemyBulletPatternStarter : MonoBehaviour
                     subPatterns = new List<PatternHierarchy>()
                 }
             };
-            EnemyBulletGenerator.instance.StartPatternHierarchy(genSettings);
+            EnemyBulletGenerator.instance.StartPatternHierarchy(genSettings, onStopBullet);
         }
     }
 }
