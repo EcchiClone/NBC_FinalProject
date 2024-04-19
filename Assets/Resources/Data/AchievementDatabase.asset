@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievements:
   - {fileID: 11400000, guid: 402a99c629a4ed745ad62e8cc8dd14a3, type: 2}
+  - {fileID: 11400000, guid: 9a118227ca0877e4db8096cdfb08c492, type: 2}
+  - {fileID: 11400000, guid: 347199dec4d5aa74e9338c9020193c92, type: 2}
+  - {fileID: 11400000, guid: 78661d8183ee1b846bdb7c2d9ed4ff30, type: 2}
+  - {fileID: 11400000, guid: 7a4d28dc92043ad4899b9e3d5477b2b1, type: 2}
+  - {fileID: 11400000, guid: 784587b35e2cfa048878c7a51460468a, type: 2}
+  - {fileID: 11400000, guid: e754aab8a24b0e04ea17649e528cc946, type: 2}
+  - {fileID: 11400000, guid: 6fd6166953c736e4e91bddafa0c172dd, type: 2}
   - {fileID: 11400000, guid: 8d89baafc92ed7048b7c7cd193daa4ee, type: 2}
   - {fileID: 11400000, guid: b0028ac3472e7804fb7722ffd92ebd80, type: 2}
   - {fileID: 11400000, guid: e76cd8128244321488690e1607f865c5, type: 2}
@@ -26,12 +33,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8370d4725d3bdc41af830cbe3fbaff8, type: 2}
   - {fileID: 11400000, guid: 6f11e30e2b8016a4e903cd90f1f5dd71, type: 2}
   - {fileID: 11400000, guid: f8a397505e1c9324aa048518d80d05cf, type: 2}
-  - {fileID: 11400000, guid: 9a118227ca0877e4db8096cdfb08c492, type: 2}
-  - {fileID: 11400000, guid: 78661d8183ee1b846bdb7c2d9ed4ff30, type: 2}
-  - {fileID: 11400000, guid: 784587b35e2cfa048878c7a51460468a, type: 2}
-  - {fileID: 11400000, guid: 6fd6166953c736e4e91bddafa0c172dd, type: 2}
   - {fileID: 11400000, guid: d68527cb9b78b8b4f8890c9b1b73efb5, type: 2}
   - {fileID: 11400000, guid: 593f55ad2ebbd4446bd6de2cb0e130af, type: 2}
   - {fileID: 11400000, guid: 0f71f61cddbe543498ad66de6ff6a75b, type: 2}
   - {fileID: 11400000, guid: c80d46fcb8851804198a504e2ed87a14, type: 2}
   - {fileID: 11400000, guid: c5011619d4e34414e8c5ec1791f52bb0, type: 2}
+  - {fileID: 11400000, guid: 0a3fd3199286b4e46a520227de98793f, type: 2}
