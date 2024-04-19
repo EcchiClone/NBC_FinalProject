@@ -70,6 +70,8 @@ public class UI_PausePopup : UI_Popup
         }
         else
             _settings.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
     }
     private void Exit()
     {
