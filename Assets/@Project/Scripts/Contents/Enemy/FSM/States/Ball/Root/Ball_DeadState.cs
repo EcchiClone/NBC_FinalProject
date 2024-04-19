@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Ball_DeadState : BaseState
 {
-
-    bool _isExplodeFinish = false;
-
     public Ball_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
@@ -15,15 +12,11 @@ public class Ball_DeadState : BaseState
 
     public override void EnterState()
     {
-        Context.Entity.StartCoroutine(Co_Explosion());        
+        Explosion();
     }
 
     public override void UpdateState()
     {
-        if(_isExplodeFinish)
-        {
-            Context.Entity.gameObject.SetActive(false);
-        }
     }
 
     public override void CheckSwitchStates()
@@ -40,13 +33,11 @@ public class Ball_DeadState : BaseState
     {
     }
 
-    IEnumerator Co_Explosion()
+    private void Explosion()
     {
         float damage = Context.Entity.Data.damage;
 
         RaycastHit[] hits = Physics.SphereCastAll(Context.Entity.transform.position, 10, Vector3.up, 0f);
-
-        yield return new WaitForSeconds(0.5f);
 
         foreach (RaycastHit hit in hits) 
         {           
@@ -72,8 +63,6 @@ public class Ball_DeadState : BaseState
         }
         ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
-        _isExplodeFinish = true;
-
-        yield return null;
+        Context.Entity.gameObject.SetActive(false);
     }
 }
