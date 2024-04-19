@@ -22,7 +22,7 @@ public class UI_StageSelectPopup : UI_Popup
         BindButton(typeof(Buttons));
 
         GetButton((int)Buttons.Button_GameStart).onClick.AddListener(() => { OnPairPopup = null; Managers.Scene.LoadScene(Define.Scenes.DevScene); });
-        GetButton((int)Buttons.Button_Tutorial).onClick.AddListener(() => { OnPairPopup = null; Managers.Scene.LoadScene(Define.Scenes.TutorialScene); });
+        GetButton((int)Buttons.Button_Tutorial).onClick.AddListener(() => { OnPairPopup = null; Managers.GameManager.TutorialClear = false; Managers.Scene.LoadScene(Define.Scenes.TutorialScene); });
 
         GetButton((int)Buttons.Button_Back).onClick.AddListener(BackToMain);        
     }
