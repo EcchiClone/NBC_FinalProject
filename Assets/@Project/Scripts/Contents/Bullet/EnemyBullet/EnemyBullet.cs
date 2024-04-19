@@ -8,8 +8,11 @@ public class EnemyBullet : Bullet
     {
         if (other.gameObject.TryGetComponent(out Module module) == true)
         {
-            module.ModuleStatus.GetDamage(5);
-
+            DamageValue damageValue = GetComponent<DamageValue>();
+            if (damageValue != null)
+                module.ModuleStatus.GetDamage(damageValue.value);
+            else
+                module.ModuleStatus.GetDamage(1);
             ObjectPooler.SpawnFromPool("Default_Explosion01_Effect", transform.position);
             gameObject.SetActive(false);
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1403283103577067688}
   - component: {fileID: 6738969178755901392}
   - component: {fileID: 6371574853565039121}
+  - component: {fileID: -4742309918367593712}
   m_Layer: 11
   m_Name: EnemyProjectile02_Large
   m_TagString: Untagged
@@ -110,6 +111,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4742309918367593712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245006665270501150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0a473dc562ef14d8549ebd9c2b016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 10
 --- !u!1 &1359580894192444135
 GameObject:
   m_ObjectHideFlags: 0
