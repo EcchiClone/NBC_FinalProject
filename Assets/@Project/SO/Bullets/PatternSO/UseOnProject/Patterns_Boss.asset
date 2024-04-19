@@ -76,8 +76,8 @@ MonoBehaviour:
         maxSpreadAngleA: 0
         concentrationA: 0
         _speed: 0
-        _accelPlus: 2
-        _accelMultiple: 1
+        _accelPlus: 0
+        _accelMultiple: 3
         _rotationSpeed: 1.5
       - _desc: 
         _timer: 3
@@ -90,7 +90,7 @@ MonoBehaviour:
         concentrationA: 0
         _speed: 0
         _accelPlus: 0
-        _accelMultiple: 1
+        _accelMultiple: 3
         _rotationSpeed: 1
       - _desc: 
         _timer: 4
@@ -103,7 +103,7 @@ MonoBehaviour:
         concentrationA: 0
         _speed: 0
         _accelPlus: 0
-        _accelMultiple: 1
+        _accelMultiple: 3
         _rotationSpeed: 0.5
       - _desc: 
         _timer: 5
@@ -116,7 +116,7 @@ MonoBehaviour:
         concentrationA: 0
         _speed: 0
         _accelPlus: 0
-        _accelMultiple: 1
+        _accelMultiple: 3
         _rotationSpeed: 0
       releaseMethod: 0
       releaseTimer: 8
