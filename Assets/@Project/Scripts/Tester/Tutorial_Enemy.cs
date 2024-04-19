@@ -32,6 +32,8 @@ public class Tutorial_Enemy : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, transform.position);
+
         if (!Managers.Tutorial.IsMissioning)
             return;
 

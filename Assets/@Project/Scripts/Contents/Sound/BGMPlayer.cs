@@ -22,8 +22,9 @@ public class BGMPlayer : MonoBehaviour
     private Scene _scene;
     private BGMState _state;
 
-    private EventInstance _mainAmbience;
     private EventInstance _perkAmbience;
+    private EventInstance _tutorialAmbience;
+    private EventInstance _mainBGM;
     private EventInstance _fieldBGM;
     private EventInstance _creditBGM;
 
@@ -67,8 +68,9 @@ public class BGMPlayer : MonoBehaviour
     private void GetEventInstances()
     {
         // BGM & Ambience 가져오기
-        _mainAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Main_Ambience);
         _perkAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Perk_Ambience);
+        _tutorialAmbience = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Tutorial_Ambience);
+        _mainBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Main_BGM);
         _fieldBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Field_BGM);
         _creditBGM = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Credit_BGM);
 
@@ -115,19 +117,19 @@ public class BGMPlayer : MonoBehaviour
         switch (_state)
         {
             case BGMState.MAINSCENE:
-                PlayInstance(_mainAmbience); 
+                PlayInstance(_mainBGM); 
                 break;
             case BGMState.PERKSCENE:
                 PlayInstance(_perkAmbience); 
                 break;
             case BGMState.TUTORIAL:
-                PlayInstance(_mainAmbience); 
+                PlayInstance(_tutorialAmbience); 
                 break;
             case BGMState.FIELD:
                 PlayInstance(_fieldBGM); 
                 break;
             case BGMState.INTRO:
-                PlayInstance(_mainAmbience); 
+                PlayInstance(_mainBGM); 
                 break;
             default:
                 // StopInstances(); 
@@ -169,20 +171,21 @@ public class BGMPlayer : MonoBehaviour
 
     private void StopInstances()
     {
-        _mainAmbience.stop(STOP_MODE.ALLOWFADEOUT);
         _perkAmbience.stop(STOP_MODE.ALLOWFADEOUT);
+        _tutorialAmbience.stop(STOP_MODE.ALLOWFADEOUT);
+        _mainBGM.stop(STOP_MODE.ALLOWFADEOUT);
         _fieldBGM.stop(STOP_MODE.ALLOWFADEOUT);
     }
 
     public void EnterCredit()
     {
-        _mainAmbience.setPaused(true);
+        _mainBGM.setPaused(true);
         _creditBGM.start();
     }
 
     public void ExitCredit()
     {
-        _mainAmbience.setPaused(false);
+        _mainBGM.setPaused(false);
         _creditBGM.stop(STOP_MODE.ALLOWFADEOUT);
     }
 
@@ -203,17 +206,6 @@ public class BGMPlayer : MonoBehaviour
 
         switch (_state)
         {
-            case BGMState.MAINSCENE:
-                if (scene.name == "TutorialScene")
-                {
-                    Debug.Log("튜토리얼 씬 진입");
-                }
-                else
-                {
-                    Debug.Log("다른 씬 진입");
-                    ResetNLoadInstances();
-                }
-                break;
             case BGMState.INTRO:
                 if (scene.name == "MainScene")
                 {
