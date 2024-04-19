@@ -51,6 +51,13 @@ MonoBehaviour:
       Data3: -1491509879
       Data4: -557487598
     Path: event:/testEvent
+  <Main_BGM>k__BackingField:
+    Guid:
+      Data1: 1410672175
+      Data2: 1315475349
+      Data3: -465758830
+      Data4: 796471616
+    Path: event:/Music/BGM/Main_BGM
   <Field_BGM>k__BackingField:
     Guid:
       Data1: -196934883
@@ -65,13 +72,13 @@ MonoBehaviour:
       Data3: -257863286
       Data4: -1795414803
     Path: event:/Music/BGM/CreditBGM
-  <Main_Ambience>k__BackingField:
+  <Tutorial_Ambience>k__BackingField:
     Guid:
-      Data1: 1410672175
-      Data2: 1315475349
-      Data3: -465758830
-      Data4: 796471616
-    Path: event:/Ambience/Main_Ambience
+      Data1: 1387889563
+      Data2: 1148514931
+      Data3: 800482694
+      Data4: -1856636694
+    Path: event:/Ambience/Tutorial_Ambience
   <Perk_Ambience>k__BackingField:
     Guid:
       Data1: -1890350218

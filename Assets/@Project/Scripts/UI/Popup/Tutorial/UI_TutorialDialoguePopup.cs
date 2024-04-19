@@ -100,6 +100,7 @@ public class UI_TutorialDialoguePopup : UI_Popup
             }
                 
             _dialogueText.text += c;
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Tutorial_Dialogue, Vector3.zero);
             yield return Util.GetWaitSeconds(SCRIPTING_INTERVAL_TIME);
         }
 

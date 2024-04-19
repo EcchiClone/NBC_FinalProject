@@ -14,12 +14,13 @@ public class FMODEvents : MonoBehaviour
 
 
     [field: Header("BGM(2D)")]
+    [field: SerializeField] public EventReference Main_BGM { get; private set; }
     [field: SerializeField] public EventReference Field_BGM { get; private set; }
     [field: SerializeField] public EventReference Credit_BGM { get; private set; }
 
 
     [field: Header("Ambience(2D)")]
-    [field: SerializeField] public EventReference Main_Ambience { get; private set; }
+    [field: SerializeField] public EventReference Tutorial_Ambience { get; private set; }
     [field: SerializeField] public EventReference Perk_Ambience { get; private set; }
 
 
