@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using static PhaseSO;
+using static EnemyBulletPatternStarter;
 
 public class EnemyBulletGenerator : MonoBehaviour
 {
     public static EnemyBulletGenerator instance;
+    private List<Coroutine> activeCoroutines = new List<Coroutine>();
     public GameObject playerGo { get; set; }
 
     private void Awake()
@@ -16,12 +20,27 @@ public class EnemyBulletGenerator : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-    // 탄막 생성 및 하위 패턴 실행
-    public void StartPatternHierarchy(BulletGenerationSettings genSettings) // PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false
+    public void StopAllCoroutinesPattern()
     {
+        foreach (Coroutine coroutine in activeCoroutines)
+        {
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
+        }
+        activeCoroutines.Clear();
+    }
+
+    // 탄막 생성 및 하위 패턴 실행
+    public void StartPatternHierarchy(BulletGenerationSettings genSettings, BulletStoper onStopBullet = null) // PatternHierarchy hierarchy, float cycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null, bool isOneTime = false
+    {
+        onStopBullet += StopAllCoroutinesPattern; // Todo - 필요한 구문인지 다시 확인 작업이 필요
+
         if (genSettings.patternHierarchy.patternSO != null)
         {
-            StartCoroutine(Co_ExecutePatternForCycleTime(genSettings));
+            Coroutine coroutine = StartCoroutine(Co_ExecutePatternForCycleTime(genSettings));
+            activeCoroutines.Add(coroutine);
         }
     }
 

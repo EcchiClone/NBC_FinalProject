@@ -156,13 +156,41 @@ MonoBehaviour:
       Data3: 1516024728
       Data4: -1454028208
     Path: event:/SFX/Player/Player_Footsteps
-  <Player_BoosterLoop>k__BackingField:
+  <Player_Booster>k__BackingField:
     Guid:
       Data1: 492220547
       Data2: 1175195071
       Data3: 1309183386
       Data4: 186078880
     Path: event:/SFX/Player/Player_Booster
+  <Player_Booster_End>k__BackingField:
+    Guid:
+      Data1: -1906452327
+      Data2: 1172307752
+      Data3: 1204230583
+      Data4: 31027229
+    Path: event:/SFX/Player/Player_Booster_End
+  <Player_Dash>k__BackingField:
+    Guid:
+      Data1: -1948089995
+      Data2: 1175835440
+      Data3: 226625921
+      Data4: 1854068074
+    Path: event:/SFX/Player/Player_Dash
+  <Player_Dash_End>k__BackingField:
+    Guid:
+      Data1: -2110315663
+      Data2: 1263775104
+      Data3: -338004570
+      Data4: -1862890880
+    Path: event:/SFX/Player/Player_Dash_End
+  <Player_Dragging>k__BackingField:
+    Guid:
+      Data1: -1442489900
+      Data2: 1167170505
+      Data3: -451744594
+      Data4: -1033138441
+    Path: event:/SFX/Player/Player_Dragging
   <Player_Repair>k__BackingField:
     Guid:
       Data1: -547179332

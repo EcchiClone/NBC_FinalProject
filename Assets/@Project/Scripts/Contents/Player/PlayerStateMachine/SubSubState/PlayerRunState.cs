@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class PlayerRunState : PlayerBaseState
     public override void ExitState()
     {
         StopAnimation(Context.AnimationData.RunParameterName);
+        Context.Sound.IsDashing = false;
         Context.StopRun();
     }
 

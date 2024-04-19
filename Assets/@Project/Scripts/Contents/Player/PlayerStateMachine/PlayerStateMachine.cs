@@ -320,7 +320,10 @@ public class PlayerStateMachine : MonoBehaviour
         Module.CurrentLower.BoostOnOff(true);
         Module.CurrentUpper.BoostOnOff(true);
         if (Controller.isGrounded)
+        {
+            Sound.IsDragging = true;
             Module.CurrentLower.FootSparksOnOff(true);
+        }
         if (_dashCoroutine != null)
         {
             StopCoroutine(_dashCoroutine);
@@ -336,6 +339,7 @@ public class PlayerStateMachine : MonoBehaviour
         Module.CurrentLower.BoostOnOff(false);
         Module.CurrentUpper.BoostOnOff(false);
         Module.CurrentLower.FootSparksOnOff(false);
+        Sound.IsDragging = false;
     }
 
     private IEnumerator CoBoostOn()

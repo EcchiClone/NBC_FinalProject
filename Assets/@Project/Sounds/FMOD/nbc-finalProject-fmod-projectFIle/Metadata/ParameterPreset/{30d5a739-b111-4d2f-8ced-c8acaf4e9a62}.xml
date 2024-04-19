@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{30d5a739-b111-4d2f-8ced-c8acaf4e9a62}">
+		<property name="name">
+			<value>isDashLoop</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a25fb09a-8fd2-4686-9fa6-c992002c9f5d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1b0632a1-24ab-4222-a14a-102ed668863f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1b0632a1-24ab-4222-a14a-102ed668863f}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

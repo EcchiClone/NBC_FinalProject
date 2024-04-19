@@ -17,21 +17,17 @@ public class SkyFire_Phase2State : BaseState
 
     public override void EnterState()
     {
-        Context.Entity.enemyPhaseStarter.isShooting = false;
-        Context.Entity.StartCoroutine(Co_Shoot());
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_2, Context.Entity.transform.position);
-    }
+        Debug.Log("Enter Phase2");
 
-    IEnumerator Co_Shoot()
-    {
-        yield return Util.GetWaitSeconds(3f);
-
-        Context.Entity.enemyPhaseStarter.isShooting = true;
+        // 이전 사용중인 패턴 멈추기
+        Context.Entity.enemyPhaseStarter.StopBullet();
 
         Context.Entity.enemyPhaseStarter.StartPattern(1, 6, 3); //플라즈마
         Context.Entity.enemyPhaseStarter.StartPattern(1, 6, 4);
 
         Context.Entity.enemyPhaseStarter.StartPattern(4, 4, 5); // 서클
+
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_2, Context.Entity.transform.position);
     }
 
     public override void UpdateState()
