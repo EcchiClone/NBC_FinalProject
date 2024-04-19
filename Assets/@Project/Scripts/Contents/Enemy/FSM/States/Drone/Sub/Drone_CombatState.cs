@@ -24,7 +24,7 @@ public class Drone_CombatState : BaseState
 
     public override void UpdateState()
     {
-        /*_passedTime += Time.deltaTime;
+        _passedTime += Time.deltaTime;
         if (_passedTime > _attackInterval)
         {
             if (!CheckObstacle())
@@ -35,7 +35,7 @@ public class Drone_CombatState : BaseState
             }
 
             _passedTime = 0;
-        }*/
+        }
 
         CheckSwitchStates();
     }
