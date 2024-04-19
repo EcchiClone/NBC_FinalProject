@@ -22,19 +22,13 @@ public class StageScene : BaseScene
         _stageController = GetComponent<StageController>();
 
         if (!Managers.GameManager.FirstPlayDone)
-        {
+        {            
+            Managers.UI.ShowPopupUI<UI_BlinderPopup>(isStack: false).DoOpenBlind(2f);
             Managers.UI.ShowPopupUI<UI_FirstPlayPopup>().OnGameStart += () => _stageController.GameStart();
             Managers.GameManager.FirstPlayDone = true;
             return;
         }
-
-        StartCoroutine(Co_StartDelay());
-    }
-
-    private IEnumerator Co_StartDelay()
-    {
-        yield return Util.GetWaitSeconds(2f);
-        _stageController.GameStart();
+        Managers.UI.ShowPopupUI<UI_BlinderPopup>(isStack: false).DoOpenBlind(2f, () => _stageController.GameStart());        
     }
 
     public override void Clear()

@@ -25,7 +25,7 @@ public class Spider_CombatState : BaseState
         _passedTime += Time.deltaTime;
         if (_passedTime > _attackInterval)
         {
-            if (!CheckObstacle())
+            if (!CheckObstacle() && Context.Entity.gameObject.activeSelf)
             {
                 AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Spider_Shot, _entityTransform.position);
                 Context.Entity.enemyPhaseStarter.StartPattern(0, 1, 1, true);

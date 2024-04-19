@@ -93,7 +93,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (Module.ModuleStatus.IsDead || !Managers.SpawnManager.IsStarted)
+        if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.TutorialScene && !Managers.SpawnManager.IsStarted)
+            return;
+        if (Module.ModuleStatus.IsDead)
             return;
 
         CurrentState.UpdateStates();
@@ -187,7 +189,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void CheckLockTargetIsNull(ITarget prevTarget)
     {
-        Module.LockOnSystem.LockTargetChange(prevTarget);
+        if(IsDead) 
+            return;
+        StartCoroutine(Module.LockOnSystem.Co_LockTargetChange(prevTarget));
     }
 
     private void HandleMove()

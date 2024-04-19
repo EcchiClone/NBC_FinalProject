@@ -1011,10 +1011,10 @@ MonoBehaviour:
   Patterns:
   - patternSO: {fileID: 11400000, guid: ceb46488945ae844387142f521a51434, type: 2}
     patternName: Spider
+  isShooting: 1
   muzzle:
   - {fileID: 8440490075170009458}
   - {fileID: 7911522603296387778}
-  isShooting: 1
   onStartPhase: []
   onStartPattern: []
 --- !u!65 &-841145370394927842
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 80
+  OverrideMaxDistance: 60
 --- !u!114 &5451343963160363482
 MonoBehaviour:
   m_ObjectHideFlags: 0

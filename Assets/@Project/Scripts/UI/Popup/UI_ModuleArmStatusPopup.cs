@@ -74,7 +74,7 @@ public class UI_ModuleArmStatusPopup : UI_Popup
         _statusTexts[(int)statType.R_AMMO].text = $"{arm_R.Ammo} [{arm_R.Ammo / Util.GetIncreasePercentagePerkValue(perkData, PerkType.SpareAmmunition)}] [<color=green>+{AbilityValue(PerkType.SpareAmmunition)}%</color>]";
         _statusTexts[(int)statType.R_RELOAD].text = $"{arm_R.CoolDownTime} [{arm_R.CoolDownTime / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedReload)}] [<color=green>+{AbilityValue(PerkType.ImprovedReload)}%</color>]";
         _statusTexts[(int)statType.R_PIERCE].text = $"[미적용]";
-        _statusTexts[(int)statType.R_SHOTERROR].text = $"{arm_R.ShotError} [{arm_R.ShotError / Util.GetIncreasePercentagePerkValue(perkData, PerkType.ImprovedBarrel)}] [<color=green>+{AbilityValue(PerkType.ImprovedBarrel)}%</color>]";
+        _statusTexts[(int)statType.R_SHOTERROR].text = $"{arm_R.ShotError} [{arm_R.ShotError / Util.GetReducePercentagePerkValue(perkData, PerkType.ImprovedBarrel)}] [<color=green>+{AbilityValue(PerkType.ImprovedBarrel)}%</color>]";
     }
 
     private float AbilityValue(PerkType type)
