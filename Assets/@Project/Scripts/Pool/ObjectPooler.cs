@@ -216,7 +216,7 @@ public class ObjectPooler : MonoBehaviour
 
        foreach (Pool pool in pools)
        {
-           StartCoroutine(InitializePoolAsync(pool, 10, 1000)); // 한 번에 10개씩 오브젝트 생성
+           StartCoroutine(InitializePoolAsync(pool, 5, 1000)); // 한 번에 5개씩 오브젝트 생성
        }
     }
     IEnumerator InitializePoolAsync(Pool pool, int chunkSize, int logInterval)
