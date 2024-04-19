@@ -7,6 +7,8 @@ public class SelectorScene : BaseScene
 
     public override void Init()
     {
+        base.Init();
+
         Scenes = Scenes.MainScene;
         Cursor.lockState = CursorLockMode.Confined;
 

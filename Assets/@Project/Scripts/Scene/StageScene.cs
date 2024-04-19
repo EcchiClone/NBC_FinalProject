@@ -7,6 +7,8 @@ public class StageScene : BaseScene
 
     public override void Init()
     {
+        base.Init();
+
         Scenes = Define.Scenes.DevScene;
 
         Managers.Module.CreatePlayerModule();
