@@ -18,6 +18,8 @@ public class TitleScene : BaseScene
     }
     public override void Init()
     {
+        base.Init();
+
         Scenes = Define.Scenes.TitleScene;
     }
 

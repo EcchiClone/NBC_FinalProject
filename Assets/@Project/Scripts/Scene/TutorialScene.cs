@@ -8,6 +8,8 @@ public class TutorialScene : BaseScene
 
     public override void Init()
     {
+        base.Init();
+
         Scenes = Define.Scenes.TutorialScene;
 
         Managers.Module.CreatePlayerModule();
