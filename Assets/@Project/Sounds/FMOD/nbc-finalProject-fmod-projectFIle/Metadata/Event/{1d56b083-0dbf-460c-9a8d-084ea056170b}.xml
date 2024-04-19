@@ -80,6 +80,7 @@
 			<destination>{156bc012-010f-404f-b011-3c06c861f7ed}</destination>
 			<destination>{e0aeb39c-3cd9-4d9d-966c-4fa04217f172}</destination>
 			<destination>{a23f7d97-408a-46e1-ae48-c1c59533fa73}</destination>
+			<destination>{e2ce8fa7-c4ae-4de9-9429-2e5979052905}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{16073727-96bd-4d58-b213-5f5b8799fa5a}">
@@ -140,7 +141,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="length">
-			<value>2</value>
+			<value>2.4000000000000004</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{70e06aa1-e9a6-45a0-9bce-cb71a9a76db7}</destination>
@@ -165,7 +166,7 @@
 	</object>
 	<object class="NamedMarker" id="{a23f7d97-408a-46e1-ae48-c1c59533fa73}">
 		<property name="position">
-			<value>2.5</value>
+			<value>2.9000000000000004</value>
 		</property>
 		<property name="name">
 			<value>End</value>
@@ -175,6 +176,26 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{a9072c0a-6a3a-428a-b98e-2ff892054850}</destination>
+		</relationship>
+	</object>
+	<object class="TransitionRegion" id="{e2ce8fa7-c4ae-4de9-9429-2e5979052905}">
+		<property name="position">
+			<value>0.050000000000000003</value>
+		</property>
+		<property name="length">
+			<value>2.8500000000000005</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{70e06aa1-e9a6-45a0-9bce-cb71a9a76db7}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{1f9898b9-a736-4118-bcd4-ef13ee09c74d}</destination>
+		</relationship>
+		<relationship name="destination">
+			<destination>{a23f7d97-408a-46e1-ae48-c1c59533fa73}</destination>
+		</relationship>
+		<relationship name="triggerConditions">
+			<destination>{9fc84f03-c55f-4b13-bb6a-3bec43e20957}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{1b74fa3f-13b3-44ad-87ef-677cb6a3c8bd}">
@@ -192,6 +213,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{17368aa7-9892-4ebf-a211-7098be2eb57a}" />
+	<object class="EventCondition" id="{9fc84f03-c55f-4b13-bb6a-3bec43e20957}">
+		<property name="eventState">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{d529a780-c3b5-4e3a-b061-bc7b09d691af}" />
 	<object class="ThreeEQEffect" id="{dcb0fc69-7084-47a4-86ec-8b15feec1b47}">
 		<property name="midGain">

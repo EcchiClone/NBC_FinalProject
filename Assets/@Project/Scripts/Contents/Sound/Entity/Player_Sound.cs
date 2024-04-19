@@ -7,19 +7,29 @@ public class Player_Sound : MonoBehaviour
 {
     private EventInstance _playerFootsteps;
     private EventInstance _playerHovering;
+    private EventInstance _playerDash;
+    private EventInstance _playerDragging;
+
     public bool IsWalking { get; set; }
     public bool IsHovering { get; set; }
+    public bool IsDashing { get; set; }
+    public bool IsDragging { get; set; }
 
     private void Start()
     {
         _playerFootsteps = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Footsteps);
-        _playerHovering = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_BoosterLoop);
+        _playerHovering = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Booster);
+        _playerDash = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Dash);
+        _playerDragging = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Dragging);
+
     }
 
     private void FixedUpdate()
     {
-        UpdateInstance(_playerFootsteps, IsWalking);
+        UpdateInstance(_playerFootsteps, IsWalking, STOP_MODE.IMMEDIATE);
         UpdateInstance(_playerHovering, IsHovering, STOP_MODE.IMMEDIATE);
+        UpdateInstance(_playerDash, IsDashing, STOP_MODE.IMMEDIATE);
+        UpdateInstance(_playerDragging, IsDragging, STOP_MODE.IMMEDIATE);
     }
 
     private void UpdateInstance(EventInstance instance, bool state, STOP_MODE stopMode = STOP_MODE.ALLOWFADEOUT)
@@ -38,5 +48,10 @@ public class Player_Sound : MonoBehaviour
         {
             instance.stop(stopMode);
         }
+    }
+
+    private void StopInstance(EventInstance instance, STOP_MODE stopMode = STOP_MODE.IMMEDIATE)
+    {
+        instance.stop(stopMode);
     }
 }

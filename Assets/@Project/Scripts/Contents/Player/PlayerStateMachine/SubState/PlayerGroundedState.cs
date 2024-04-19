@@ -13,6 +13,7 @@ public class PlayerGroundedState : PlayerBaseState
         {
             StopAnimation(Context.AnimationData.DashParameterName);
             Context.Module.CurrentLower.FootSparksOnOff(true);
+            Context.Sound.IsDragging = true;
         }            
         InitailizeSubState();
     }
@@ -25,7 +26,10 @@ public class PlayerGroundedState : PlayerBaseState
     public override void ExitState()
     {
         if (Context.IsRun)
+        {
+            Context.Sound.IsDragging = false;
             Context.Module.CurrentLower.FootSparksOnOff(false);        
+        }
     }
 
     public override void InitailizeSubState()
