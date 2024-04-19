@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 4e423a79091540d488f3363a4b0d02b6, type: 2}
   codeName: HIGHEST_STAGE_20
-  description: "\uCD5C\uACE0 \uC2A4\uD14C\uC774\uC9C0 20"
+  description: "\uCD5C\uACE0 \uC2A4\uD14C\uC774\uC9C0 20 \uB2EC\uC131"
   action: {fileID: 11400000, guid: f4c0e090c51d1ec4fb5ef4ff3ddb7d49, type: 2}
   targets:
   - {fileID: 11400000, guid: 17e850b95b8b9c2498464851b2cb19d0, type: 2}
