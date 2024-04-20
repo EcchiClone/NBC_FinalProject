@@ -21,6 +21,12 @@ public class TitleScene : BaseScene
         base.Init();
 
         Scenes = Define.Scenes.TitleScene;
+
+        if (!Managers.GameManager.InitGame)
+        {
+            PlayerPrefs.DeleteAll();
+            Managers.GameManager.InitGame = true;
+        }        
     }
 
     public override void Clear()

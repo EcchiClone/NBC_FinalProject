@@ -34,6 +34,8 @@ public class StageData
 [Serializable]
 public class GameData
 {
+    public bool initGame;
+
     public float bestTime;
     public int highestStage;
     public int highestMinionKill;
@@ -75,12 +77,22 @@ public class GameManager
             gameData = LoadGame();
     }
 
+    public bool InitGame
+    {
+        get => gameData.initGame;
+        set
+        {
+            gameData.initGame = value;
+            SaveGame();
+        }
+    }
+
     #region StageData
     public StageData StageData
     {
         get
         {
-            if(gameData.stageData == null)
+            if (gameData.stageData == null)
                 gameData.stageData = new StageData();
             return gameData.stageData;
         }
