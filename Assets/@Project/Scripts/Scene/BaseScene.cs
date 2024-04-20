@@ -9,7 +9,7 @@ public abstract class BaseScene : MonoBehaviour
     private UI_ControlsGuide _keyGuidePanel;
 
     private void Awake()
-    {
+    {        
         Init();
     }
 

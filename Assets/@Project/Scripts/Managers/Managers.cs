@@ -76,6 +76,7 @@ public class Managers : MonoBehaviour
         Input.Clear();
         Module.Clear();
         Tutorial.Clear();
+        GameManager.Clear();
         CoroutineManager.StopAllCoroutine();
     }
 }

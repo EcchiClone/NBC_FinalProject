@@ -5,8 +5,9 @@ using static Define;
 
 public class TitleScene : BaseScene
 {
-    private void Awake()
+    public override void Init()
     {
+        base.Init();
         // 저장된 해상도 사용
         int width = PlayerPrefs.GetInt("ResolutionWidth", 0);
         int height = PlayerPrefs.GetInt("ResolutionHeight", 0);
@@ -15,18 +16,8 @@ public class TitleScene : BaseScene
             FullScreenMode mode = (FullScreenMode)PlayerPrefs.GetInt("FullscreenMode", (int)FullScreenMode.FullScreenWindow);
             Screen.SetResolution(width, height, mode);
         }
-    }
-    public override void Init()
-    {
-        base.Init();
 
         Scenes = Define.Scenes.TitleScene;
-
-        if (!Managers.GameManager.InitGame)
-        {
-            PlayerPrefs.DeleteAll();
-            Managers.GameManager.InitGame = true;
-        }        
     }
 
     public override void Clear()

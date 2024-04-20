@@ -6,9 +6,10 @@ using UnityEngine;
 public class AcpUpdater : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI TmpText;
-    void Update()
+    void Start()
     {
-        TmpText.text = $"ACP : {Managers.GameManager.gameData.achievementPoint.ToString()}";
+        TmpText.text = $"ACP : {Managers.GameManager.AchievementPoint}";
+        Managers.GameManager.OnACPChanged += (acp) => TmpText.text = $"ACP : {acp}";
     }
 }
 

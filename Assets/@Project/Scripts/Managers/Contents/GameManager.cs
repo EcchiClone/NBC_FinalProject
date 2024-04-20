@@ -67,6 +67,7 @@ public class GameManager
 
     #region Events
     public event Action<int> OnReceivePartID;
+    public event Action<int> OnACPChanged;
     #endregion
 
     public void Init()
@@ -75,6 +76,13 @@ public class GameManager
 
         if (File.Exists(_filePath))
             gameData = LoadGame();
+
+        if (!InitGame)
+        {
+            Debug.Log("데이터 초기화");
+            PlayerPrefs.DeleteAll();
+            InitGame = true;
+        }
     }
 
     public bool InitGame
@@ -182,6 +190,7 @@ public class GameManager
         set
         {
             gameData.achievementPoint = value;
+            OnACPChanged?.Invoke(value);
             SaveGame();
         }
     }
@@ -249,5 +258,10 @@ public class GameManager
 
         GameData loadedGameData = JsonUtility.FromJson<GameData>(json);
         return loadedGameData;
+    }
+
+    public void Clear()
+    {
+        OnACPChanged = null;        
     }
 }
