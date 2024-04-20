@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "\uD37C\uD06C 30\uAC1C\uB97C \uD574\uAE08"
   taskGroups:
   - tasks:
-    - {fileID: 11400000, guid: 7d812144229610848b7ee844189fbbf3, type: 2}
+    - {fileID: 11400000, guid: 21d3192592b70894db108b731af6d2e9, type: 2}
   rewards:
   - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
   useAutoComplete: 0

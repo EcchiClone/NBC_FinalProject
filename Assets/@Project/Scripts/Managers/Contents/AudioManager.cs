@@ -12,13 +12,13 @@ public class AudioManager : MonoBehaviour
 
     [Header("Volume")]
     [Range(0f, 1f)]
-    public float masterVolume = 1f;
+    public float masterVolume = 0.5f;
     [Range(0f, 1f)]
-    public float musicVolume = 1f;
+    public float musicVolume = 0.5f;
     [Range(0f, 1f)]
-    public float ambienceVolume = 1f;
+    public float ambienceVolume = 0.5f;
     [Range(0f, 1f)]
-    public float SFXVolume = 1f;
+    public float SFXVolume = 0.5f;
 
 
     private Bus masterBus;

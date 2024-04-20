@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD50C\uB808\uC774\uC5B4, \uB370\uC774\uD130, 3D\uBAA8\uB378\uB9C1\n\uD0C4\uB9C9
     \uC2DC\uC2A4\uD15C, \uD018\uC2A4\uD2B8 \uC2DC\uC2A4\uD15C\n\uC801 \uBC0F \uC0C1\uD0DC
-    AI\n\uC0AC\uC6B4\uB4DC, \uAC15\uD654 \uD14C\uD06C\uD2B8\uB9AC(Perk)"
+    AI, UI\uC2DC\uC2A4\uD15C\n\uC0AC\uC6B4\uB4DC, \uAC15\uD654 \uD14C\uD06C\uD2B8\uB9AC(Perk)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f48e647e9f00dab4d837400562e64712, type: 2}
   m_sharedMaterial: {fileID: 1998036413265977320, guid: f48e647e9f00dab4d837400562e64712,
@@ -1308,7 +1308,7 @@ RectTransform:
   - {fileID: 5478448108737576397}
   - {fileID: 8182468888962718236}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
