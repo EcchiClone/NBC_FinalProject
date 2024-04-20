@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeName: UNLOCK_PERK_120
   icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
-  displayName: "\uB85C\uB610\uC6B4\uC744 \uC5EC\uAE30\uC5D0.."
+  displayName: "\uAC15\uC6B4"
   description: "\uD37C\uD06C\uB97C 120\uAC1C(\uC644\uC131 \uC2DC \uCD5C\uB313\uAC12)
     \uD574\uAE08"
   taskGroups:
