@@ -297,7 +297,7 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 5
     shotErrorRange: 1
-    ammo: 30
+    ammo: 250
     isReloadable: 0
     isSplash: 1
     explosionRange: 3
@@ -330,7 +330,7 @@ MonoBehaviour:
     coolDownTime: 5
     projectilesPerShot: 2
     shotErrorRange: 0
-    ammo: 10
+    ammo: 100
     isReloadable: 0
     isSplash: 1
     explosionRange: 13
@@ -363,7 +363,7 @@ MonoBehaviour:
     coolDownTime: 3
     projectilesPerShot: 1
     shotErrorRange: 0
-    ammo: 10
+    ammo: 50
     isReloadable: 0
     isSplash: 1
     explosionRange: 8
