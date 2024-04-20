@@ -47,7 +47,7 @@ MonoBehaviour:
       initDirectionType: 3
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 0
-      initSpeed: 30
+      initSpeed: 70
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
       initDirectionType: 4
       initCustomDirection: {x: 0, y: 0, z: 0}
       enemyBulletMoveType: 1
-      initSpeed: 10
+      initSpeed: 20
       initMoveDirection: {x: 0, y: 0, z: 0}
       initAccelMultiple: 1
       initAccelPlus: 0

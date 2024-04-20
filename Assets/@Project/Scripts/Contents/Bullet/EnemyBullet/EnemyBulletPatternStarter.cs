@@ -18,11 +18,6 @@ public class EnemyBulletPatternStarter : MonoBehaviour
         onStopBullet?.Invoke();
     }
 
-    private void Update()
-    {
-        Debug.Log(onStopBullet);
-    }
-
     [System.Serializable]
     private struct TestPhaseStarter
     {

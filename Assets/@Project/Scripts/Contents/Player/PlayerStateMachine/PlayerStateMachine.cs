@@ -349,7 +349,7 @@ public class PlayerStateMachine : MonoBehaviour
     private IEnumerator CoBoostOn()
     {
         float startSpeed = _movementModifier * Module.ModuleStatus.BoostPower;
-        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.5f;
+        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.35f;
 
         float current = 0f;
         float percent = 0f;
