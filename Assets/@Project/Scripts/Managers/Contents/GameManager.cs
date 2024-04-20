@@ -49,7 +49,7 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
-    public int achievementPoint = 4000;
+    public int achievementPoint = 3000;
 
     public bool tutorialClear;
     public bool firstPlayDone;
