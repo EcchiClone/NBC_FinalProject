@@ -36,13 +36,13 @@ public class UI_UnlockPartPopup : UI_Popup
 
     private void UnlockPart()
     {
-        Managers.GameManager.ReceivePartID(partButton.currentData.Dev_ID);
-        if(Managers.GameManager.AchievementPoint < partButton.currentData.Point)
+        if (Managers.GameManager.AchievementPoint < partButton.currentData.Point)
         {
             Managers.UI.ShowPopupUI<UI_AlertACPPointPopup>();
             return;
         }
 
+        Managers.GameManager.ReceivePartID(partButton.currentData.Dev_ID);
         Managers.GameManager.AchievementPoint -= partButton.currentData.Point;
         partButton.CheckUnlockedPart();
         ClosePopupUI();
