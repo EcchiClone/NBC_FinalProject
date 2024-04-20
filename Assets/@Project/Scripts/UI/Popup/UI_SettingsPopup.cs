@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static Define;
-using static UnityEngine.Rendering.DebugUI;
 
 public class UI_SettingsPopup : UI_Popup
 {

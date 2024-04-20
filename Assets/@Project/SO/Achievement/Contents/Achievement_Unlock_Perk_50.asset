@@ -15,7 +15,7 @@ MonoBehaviour:
   codeName: UNLOCK_PERK_50
   icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
   displayName: P.5050
-  description: "\uD37C\uD06C\uB97C 50\uAC1C \uD574\uAE08"
+  description: "\uD37C\uD06C 50\uAC1C\uB97C \uD574\uAE08"
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 447c3ae855de34f45b271ecd5c006474, type: 2}

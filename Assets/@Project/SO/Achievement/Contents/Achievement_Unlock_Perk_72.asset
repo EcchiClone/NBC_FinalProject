@@ -15,7 +15,7 @@ MonoBehaviour:
   codeName: UNLOCK_PERK_72
   icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
   displayName: 3.72
-  description: "\uD37C\uD06C\uB97C 72\uAC1C(\uC644\uC131 \uC2DC \uCD5C\uC19F\uAC12)
+  description: "\uD37C\uD06C 72\uAC1C\uB97C(\uC644\uC131 \uC2DC \uCD5C\uC19F\uAC12)
     \uD574\uAE08"
   taskGroups:
   - tasks:

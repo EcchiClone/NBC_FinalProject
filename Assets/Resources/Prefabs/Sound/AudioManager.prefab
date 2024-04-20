@@ -519,7 +519,7 @@ Transform:
   - {fileID: 7013535449710751687}
   - {fileID: 7295514027110438490}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2041209730365144000
 MonoBehaviour:
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776880a24c2bf6a468e84e9f359daafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  musicVolume: 1
-  ambienceVolume: 1
-  SFXVolume: 1
+  masterVolume: 0.3
+  musicVolume: 0.5
+  ambienceVolume: 0.5
+  SFXVolume: 0.5

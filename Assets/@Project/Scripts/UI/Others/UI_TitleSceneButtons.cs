@@ -7,10 +7,18 @@ using static Define;
 public class UI_TitleSceneButtons : MonoBehaviour
 {
     [SerializeField] Button startBtn;
+    [SerializeField] Button optionBtn;
 
     private void Awake()
     {
         startBtn.onClick.AddListener(OnClickStartButton);
+        optionBtn.onClick.AddListener(() => Managers.UI.ShowPopupUI<UI_SettingsPopup>());
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Managers.UI.ClosePopupUI();
     }
 
     public void OnClickStartButton()
