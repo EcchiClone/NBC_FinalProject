@@ -3,7 +3,7 @@ using static Define;
 
 public class UI_WorldUICanvas : UI_Popup
 {
-    private UI_SettingsPopup _settings;
+    private UI_SettingsOnStagePopup _settings;
 
     enum Buttons
     {
@@ -34,7 +34,7 @@ public class UI_WorldUICanvas : UI_Popup
     {
         if (_settings == null)
         {
-            _settings = Managers.UI.ShowPopupUI<UI_SettingsPopup>();
+            _settings = Managers.UI.ShowPopupUI<UI_SettingsOnStagePopup>();
             _settings.SetPreviousPopup(this);
         }
         else
