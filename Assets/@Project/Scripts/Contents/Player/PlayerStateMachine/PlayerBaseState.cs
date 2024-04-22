@@ -39,8 +39,6 @@ public abstract class PlayerBaseState : IPlayerState
 
     protected void SwitchState(PlayerBaseState newState) // 상태 전환
     {
-        //Debug.Log($"상태 전환 : {newState.GetType().Name}");
-
         // 현재 상태 종료 로직 수행
         ExitState();
 
@@ -62,6 +60,11 @@ public abstract class PlayerBaseState : IPlayerState
     {
         _currentSubState = newSubState;        
         _currentSubState.SetSuperState(this);        
+    }
+
+    protected void ResetSubState()
+    {
+        _currentSubState = null;
     }
 
     protected void StartAnimation(int animationHash)

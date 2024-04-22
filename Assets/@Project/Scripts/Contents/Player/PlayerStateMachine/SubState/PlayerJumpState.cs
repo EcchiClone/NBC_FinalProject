@@ -37,7 +37,7 @@ public class PlayerJumpState : PlayerBaseState
                 SetSubState(Factory.Walk());
             else
                 SetSubState(Factory.Run());
-        }
+        }        
     }
 
     public override void CheckSwitchStates()
@@ -46,6 +46,8 @@ public class PlayerJumpState : PlayerBaseState
             SwitchState(Factory.Grounded());
         else if (Context.IsJumpInputPressed && Context.IsCanHovering)
             SwitchState(Factory.Hover());
+        else if(Context._currentMovementDirection.y < 0)
+            SwitchState(Factory.Fall());
     }
 
     private void HandleJump()

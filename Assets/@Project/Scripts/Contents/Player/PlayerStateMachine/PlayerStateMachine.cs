@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -24,34 +25,32 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector3 _cameraRelativeMovement;
 
     // # States
-    public bool IsDead { get; private set; } = false;
-    public bool IsMoveInputPressed { get; private set; }
-    public bool IsJumpInputPressed { get; private set; }
-    public bool IsDashInputPressed { get; private set; }
-    public bool IsLeftArmWeaponInputPressed { get; private set; }
-    public bool IsRightArmWeaponInputPressed { get; private set; }
-    public bool IsLeftShoulderWeaponInputPressed { get; private set; }
-    public bool IsRightShoulderWeaponInputPressed { get; private set; }    
-    public bool IsJumping { get; set; }
-    public bool IsRun { get; set; }
-    public bool IsHovering { get; set; }
-    public bool IsCanHovering { get; set; }
-    public bool CanDash { get; set; }
-    public bool CanJudgeDashing { get; set; }
-    public bool IsUsingBoost { get; set; }
+    [field: SerializeField] public bool IsDead { get; private set; } = false;
+    [field: SerializeField] public bool IsMoveInputPressed { get; private set; }
+    [field: SerializeField] public bool IsJumpInputPressed { get; private set; }
+    [field: SerializeField] public bool IsDashInputPressed { get; private set; }
+    [field: SerializeField] public bool IsLeftArmWeaponInputPressed { get; private set; }
+    [field: SerializeField] public bool IsRightArmWeaponInputPressed { get; private set; }
+    [field: SerializeField] public bool IsLeftShoulderWeaponInputPressed { get; private set; }
+    [field: SerializeField] public bool IsRightShoulderWeaponInputPressed { get; private set; }
+    [field: SerializeField] public bool IsJumping { get; set; }
+    [field: SerializeField] public bool IsRun { get; set; }
+    [field: SerializeField] public bool IsHovering { get; set; }
+    [field: SerializeField] public bool IsCanHovering { get; set; }
+    [field: SerializeField] public bool CanDash { get; set; }
+    [field: SerializeField] public bool CanJudgeDashing { get; set; }
+    [field: SerializeField] public bool IsUsingBoost { get; set; }
 
     public PlayerBaseState CurrentState { get; set; }
     public PlayerStateFactory StateFactory { get; private set; }
 
-    public readonly float TIME_TO_NON_COMBAT_MODE = 5f;
-    public readonly float TIME_TO_DASH_TO_RUN_STATE = 0.5f;
+    public readonly float TIME_TO_NON_COMBAT_MODE = 5f;    
     public readonly float GRAVITY_VALUE = 4f; // 중력배율
     public readonly float MIN_GRAVITY_VALUE = -1f; // 접지 중일 때 최소 중력배율
     public readonly float MAX_HOVER_VALUE = 5f; // 최대 호버링 상승률
 
-    private float _movementModifier = 1;
-
-    private Coroutine _dashCoroutine = null;
+    private float _movementModifier = 1f;
+    private readonly float DEFAULT_SPEED_MODIFIER = 1f;    
 
     private void Awake()
     {
@@ -73,7 +72,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Start()
     {
-        PlayerSetting();
+        PlayerSetting();        
     }
 
     private void PlayerSetting()
@@ -99,6 +98,7 @@ public class PlayerStateMachine : MonoBehaviour
             return;
 
         CurrentState.UpdateStates();
+
 
         HandleMove();
         HandleRotation();
@@ -184,12 +184,12 @@ public class PlayerStateMachine : MonoBehaviour
         {
             if (Module.LockOnSystem.IsThereEnemyScanned())
                 Module.LockOnSystem.LockOnTarget();
-        }        
+        }
     }
 
     private void CheckLockTargetIsNull(ITarget prevTarget)
     {
-        if(IsDead) 
+        if (IsDead)
             return;
         Module.LockOnSystem.LockTargetChange(prevTarget);
     }
@@ -286,7 +286,7 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region CombatMode
-    private void CombatRotation() // 컴뱃 + 락온일 때 틸트 조절 << 작업해야함
+    private void CombatRotation()
     {
         Quaternion currentRotation = transform.rotation;
         Quaternion targetRotation;
@@ -311,31 +311,6 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region Dash
-    public void StartRunAfterDash()
-    {
-        if (!Module.ModuleStatus.Boost())
-            return;
-
-        IsRun = true;
-        CanDash = false;
-        CanJudgeDashing = false;
-        IsUsingBoost = true;
-
-        Module.CurrentLower.BoostOnOff(true);
-        Module.CurrentUpper.BoostOnOff(true);
-        if (Controller.isGrounded)
-        {
-            Sound.IsDragging = true;
-            Module.CurrentLower.FootSparksOnOff(true);
-        }
-        if (_dashCoroutine != null)
-        {
-            StopCoroutine(_dashCoroutine);
-            _movementModifier = 1f;
-        }
-        _dashCoroutine = StartCoroutine(CoBoostOn());
-    }
-
     public void StopRun()
     {
         IsRun = false;
@@ -346,26 +321,44 @@ public class PlayerStateMachine : MonoBehaviour
         Sound.IsDragging = false;
     }
 
-    private IEnumerator CoBoostOn()
+    public IEnumerator Co_BoostOn(UnityAction changeStateAction)
     {
-        float startSpeed = _movementModifier * Module.ModuleStatus.BoostPower;
-        float endSpeed = (_movementModifier + _movementModifier * startSpeed) * 0.35f;
+        Module.CurrentLower.BoostOnOff(true);
+        Module.CurrentUpper.BoostOnOff(true);
+        if (Controller.isGrounded)
+        {
+            Sound.IsDragging = true;
+            Module.CurrentLower.FootSparksOnOff(true);
+        }
+
+        IsRun = true;
+        CanDash = false;
+        CanJudgeDashing = false;
+        IsUsingBoost = true;
+
+        float startSpeed = DEFAULT_SPEED_MODIFIER * Module.ModuleStatus.BoostPower;
+        float endSpeed = (DEFAULT_SPEED_MODIFIER + DEFAULT_SPEED_MODIFIER * startSpeed) * 0.35f;
 
         float current = 0f;
         float percent = 0f;
+        float timeToRun = Util.GetCurrentAnimationClipLength(Anim);
 
         while (percent < 1f)
         {
             current += Time.deltaTime;
-            percent = current / TIME_TO_DASH_TO_RUN_STATE;
+            percent = current / timeToRun;
 
+            if (!IsMoveInputPressed)
+                break;
             _movementModifier = Mathf.Lerp(startSpeed, endSpeed, _boostDragCurve.Evaluate(percent));
 
             yield return null;
         }
         _movementModifier = endSpeed;
         CanJudgeDashing = true;
-        IsUsingBoost = false;
+        IsUsingBoost = false;        
+
+        changeStateAction.Invoke();
     }
     #endregion
 }

@@ -9,7 +9,8 @@ public class PlayerWalkState : PlayerBaseState
     public override void EnterState()
     {
         StartAnimation(Context.AnimationData.WalkParameterHash);
-        Context.Sound.IsWalking = true;
+        if (Context.Controller.isGrounded)
+            Context.Sound.IsWalking = true;
     }
 
     public override void UpdateState()
@@ -28,7 +29,7 @@ public class PlayerWalkState : PlayerBaseState
     {
         if (!Context.IsMoveInputPressed)
             SwitchState(Factory.Idle());
-        if (Context.IsDashInputPressed)
+        if (Context.IsDashInputPressed && Context.CanDash && Context.Module.ModuleStatus.Boost())
             SwitchState(Factory.Dash());
     }
 
