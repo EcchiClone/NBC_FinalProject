@@ -1,7 +1,6 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class UI_DmagePopup : UI_Popup
 {
