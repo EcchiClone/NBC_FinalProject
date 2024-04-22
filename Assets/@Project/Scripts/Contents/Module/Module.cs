@@ -44,4 +44,12 @@ public class Module : MonoBehaviour
         LockOnSystem.Setup(this);
         Skill = new RepairKit();
     }
+
+    void OnDrawGizmos()
+    {
+        
+        Gizmos.color = Color.red; // Gizmo의 색상 설정
+        Gizmos.DrawSphere(transform.position + Camera.main.transform.forward * 2.5f + Camera.main.transform.up * 2.5f, 5f); // 현재 오브젝트 위치에 구형 Gizmo 그리기
+        
+    }
 }

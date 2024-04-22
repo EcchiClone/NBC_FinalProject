@@ -10,9 +10,4 @@ public class PayerHETAShell : PlayerProjectile
 
         _rigid.velocity = transform.forward * _speed;
     }
-
-    private void Update()
-    {
-        // 중력효과
-    }
 }

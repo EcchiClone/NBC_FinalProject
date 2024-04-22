@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc53836e0f0e7488231422675aa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 1
+  <EnemyType>k__BackingField: 2
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
@@ -290,13 +290,13 @@ MonoBehaviour:
     patternName: SphereRotate
   - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
     patternName: Circles
+  isShooting: 1
   muzzle:
   - {fileID: 4131979109430668379}
   - {fileID: 6344135578830141157}
   - {fileID: 914009330045182397}
   - {fileID: 6852587962440331802}
   - {fileID: 339223587707635729}
-  isShooting: 1
   onStartPhase: []
   onStartPattern: []
 --- !u!114 &-7696913177312362176

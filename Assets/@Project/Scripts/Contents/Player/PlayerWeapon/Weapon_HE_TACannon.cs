@@ -73,10 +73,10 @@ public class Weapon_HE_TACannon : WeaponBase
         if (_target == null)
             yield break;
 
-        Vector3 leftArmToLookAt = _target.position - transform.position;
+        Vector3 weaponToLookAt = _target.position - transform.position;
         
         Quaternion currentHeadRot = transform.rotation;
-        Quaternion targetHeadRotation = Quaternion.LookRotation(leftArmToLookAt);
+        Quaternion targetHeadRotation = Quaternion.LookRotation(weaponToLookAt);
         _SteadyPos = transform.localRotation;
 
         float current = 0;

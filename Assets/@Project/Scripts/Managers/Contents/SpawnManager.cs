@@ -206,7 +206,7 @@ public class SpawnManager
 
             yield return CoroutineManager.StartCoroutine(Co_SpawnEnemies());
             yield return CoroutineManager.StartCoroutine(Co_StartCountDown());
-            if (LevelData.EnemyType == EnemyType.Boss && !_bossClear)
+            if (LevelData.EnemyType == Define.EnemyType.Boss && !_bossClear)
                 break;
             if (!IsStarted)
                 yield break;
@@ -260,9 +260,9 @@ public class SpawnManager
         _currentWaveSpawnCount++;
         CurrentSpawnCount++;
 
-        if (LevelData.EnemyType == EnemyType.Minion)
+        if (LevelData.EnemyType == Define.EnemyType.Minion)
             ObjectPooler.SpawnFromPool(unitType, GetSpawnPoint());
-        else if (LevelData.EnemyType == EnemyType.Boss)
+        else if (LevelData.EnemyType == Define.EnemyType.Boss)
         {
             BGMPlayer.Instance.SetFieldBGMState(1f); // 보스 브금 재생
             ObjectPooler.SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));

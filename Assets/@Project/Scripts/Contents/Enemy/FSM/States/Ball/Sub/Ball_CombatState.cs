@@ -7,7 +7,7 @@ public class Ball_CombatState : BaseState
     }
     public override void EnterState()
     {
-        Context.Entity.GetDamaged(99999);
+        Context.Entity.GetDamaged(100);
     }
 
     public override void UpdateState() 

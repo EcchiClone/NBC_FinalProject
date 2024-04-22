@@ -94,4 +94,11 @@ public class Define
         HellFire,
         HECannon,
     }
+
+    public enum EnemyType
+    {
+        Tutorial,
+        Minion,
+        Boss,
+    }
 }

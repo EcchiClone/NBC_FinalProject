@@ -30,6 +30,8 @@ public class Tutorial_Enemy : MonoBehaviour, ITarget
 
     public bool IsAlive => isAlive;
 
+    public Define.EnemyType EnemyType { get; set; } = Define.EnemyType.Tutorial;
+
     public void GetDamaged(float damage)
     {
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, transform.position);

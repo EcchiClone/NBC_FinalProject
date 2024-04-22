@@ -1,14 +1,8 @@
 using UnityEngine;
 
-public enum EnemyType
-{
-    Minion,
-    Boss,
-}
-
 public abstract class Entity : MonoBehaviour, ITarget
 {
-    [field: SerializeField] public EnemyType EnemyType { get; set; }
+    [field: SerializeField] public Define.EnemyType EnemyType { get; set; }
 
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
@@ -66,19 +60,22 @@ public abstract class Entity : MonoBehaviour, ITarget
         if (!IsAlive)
             return;
 
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Vector3.zero);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Target.transform.position);
+        GameObject go = ObjectPooler.SpawnFromPool("UI_DamagePopup", transform.position);
+        UI_DmagePopup damageUI = go.GetComponent<UI_DmagePopup>();
+        damageUI.Setup(transform.position, Mathf.RoundToInt(damage));
 
         AP = Mathf.Max(0, AP - damage);
         if (AP <= 0)
         {
             IsAlive = false;
             Managers.ActionManager.CallLockTargetDestroyed(this);
-            if (EnemyType == EnemyType.Minion)
+            if (EnemyType == Define.EnemyType.Minion)
             {
                 Managers.StageActionManager.CallMinionKilled();
                 AchievementCommonUpdater.instance.GetComponent<UpdateKillMinion>().UpdateReport();
             }
-            else if (EnemyType == EnemyType.Boss)
+            else if (EnemyType == Define.EnemyType.Boss)
             {
                 AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boom_Distance, Vector3.zero);
                 Managers.StageActionManager.CallBossKilled();
