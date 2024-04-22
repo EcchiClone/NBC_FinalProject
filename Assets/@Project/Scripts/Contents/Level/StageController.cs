@@ -13,8 +13,8 @@ public class StageController : MonoBehaviour
         _obstacleManager = GetComponent<ObstacleSpawner>();
         _obstacleManager.SpawnObstacle();        
 
-        //StartCoroutine(_spawnManager.Co_TimerOn());
-        //StartCoroutine(_spawnManager.GameStart());        
+        StartCoroutine(_spawnManager.Co_TimerOn());
+        StartCoroutine(_spawnManager.GameStart());        
     }
 
     private void GameOver()
