@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class PlayerCombatState : PlayerBaseState
@@ -27,6 +26,7 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void ExitState()
     {
+        ResetSubState();
         StopAnimation(Context.AnimationData.CombatParameterName);
     }
 
@@ -39,7 +39,12 @@ public class PlayerCombatState : PlayerBaseState
             if (Context.IsJumping)
                 SetSubState(Factory.Jump());
             else
-                SetSubState(Factory.Fall());
+            {
+                if (Context.IsHovering)
+                    SetSubState(Factory.Hover());
+                else
+                    SetSubState(Factory.Fall());
+            }
         }
     }
 
