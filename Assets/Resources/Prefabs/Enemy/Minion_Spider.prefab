@@ -955,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555e57c6f376b174987cd3928fc3f758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 0
+  <EnemyType>k__BackingField: 1
   <Data>k__BackingField: {fileID: 11400000, guid: 95de0680af586c849ab1abd68e1da0a0,
     type: 2}
   <Target>k__BackingField: {fileID: 0}

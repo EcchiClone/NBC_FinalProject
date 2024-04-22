@@ -191,7 +191,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if(IsDead) 
             return;
-        StartCoroutine(Module.LockOnSystem.Co_LockTargetChange(prevTarget));
+        Module.LockOnSystem.LockTargetChange(prevTarget);
     }
 
     private void HandleMove()

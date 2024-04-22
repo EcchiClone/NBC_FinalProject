@@ -26,7 +26,9 @@ public class Ball_ChasingState : BaseState
         passedTime += Time.deltaTime;
         if (passedTime >= chasingInterval)
         {
-            Context.Entity.Controller.SetDestination(Context.Entity.Target.position);
+            Vector3 dest = Context.Entity.Target.position;
+            dest.y = 0;
+            Context.Entity.Controller.SetDestination(dest);
             passedTime = 0f;
         }
 

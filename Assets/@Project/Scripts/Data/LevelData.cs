@@ -11,13 +11,13 @@ public class LevelData : IEntity
     [SerializeField] UnitType spawnType1;
     [SerializeField] UnitType spawnType2;
     [SerializeField] UnitType spawnType3;
-    [SerializeField] EnemyType enemyType;
+    [SerializeField] Define.EnemyType enemyType;
 
     public int Dev_ID => dev_ID; // lv
     public int SpawnCount => spawnCount;
     public float SpawnDelayTime => spawnDelayTime;
     public float CountDownTime => countDownTime;
-    public EnemyType EnemyType => enemyType;
+    public Define.EnemyType EnemyType => enemyType;
 
     private List<UnitType> spawnTypes;
 

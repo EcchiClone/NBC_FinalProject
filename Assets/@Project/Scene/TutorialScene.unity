@@ -347,6 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 166350085}
   - component: {fileID: 166350086}
+  - component: {fileID: 166350087}
   m_Layer: 0
   m_Name: '@SceneTutorial'
   m_TagString: Untagged
@@ -385,6 +386,20 @@ MonoBehaviour:
   _linkedWall: {fileID: 1451859083}
   _dontGoBackWall: {fileID: 2018758327}
   _dummy: {fileID: 8494032060487081292}
+--- !u!114 &166350087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166350084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3db63e0170f91a4898f1e01a597abc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskCategory: {fileID: 11400000, guid: 9866768e36bff5e418972a342f5427f4, type: 2}
+  taskTarget: {fileID: 11400000, guid: 3065e4f268625a44bab32a4d8ce45a96, type: 2}
 --- !u!1 &238106254
 GameObject:
   m_ObjectHideFlags: 0

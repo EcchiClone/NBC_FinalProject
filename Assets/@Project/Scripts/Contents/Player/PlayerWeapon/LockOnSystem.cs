@@ -53,7 +53,7 @@ public class LockOnSystem
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius;
+        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius + Camera.main.transform.up * ScanRadius * 0.5f;
         Vector3 dir;
         RaycastHit[] hits;
         if (IsLockon)
@@ -74,33 +74,37 @@ public class LockOnSystem
             return false;
         }
 
-        GetClosestTarget(hits);
-        if (TargetEnemy == null)
+        ITarget newTarget = GetClosestTarget(hits);
+        if (newTarget == null)
             return false;
+
+        TargetEnemy = newTarget;
         return true;
     }
 
-    private void GetClosestTarget(RaycastHit[] hits)
-    {
+    private ITarget GetClosestTarget(RaycastHit[] hits)
+    {        
         float closestDist = float.MaxValue;
         int closestIndex = -1;
 
-        ITarget target = null;
-
         for (int i = 0; i < hits.Length; i++)
         {
+            if (hits[i].transform.TryGetComponent(out ITarget target) == false)
+                continue;
+            if (target == TargetEnemy || !target.IsAlive)
+                continue;
+            if (target.EnemyType == Define.EnemyType.Boss)
+                return target;
             if (hits[i].distance < closestDist)
             {
                 closestIndex = i;
                 closestDist = hits[i].distance;
-                if (hits[closestIndex].transform.TryGetComponent(out target) == false)
-                    continue;
-                if (target == TargetEnemy || !target.IsAlive)
-                    continue;
             }
         }
-
-        TargetEnemy = target;       
+        if (closestIndex == -1)
+            return null;
+        
+        return hits[closestIndex].transform.GetComponent<ITarget>();
     }
 
     public void LockOnTarget()
@@ -126,22 +130,19 @@ public class LockOnSystem
         TargetEnemy = null;
     }
 
-    public IEnumerator Co_LockTargetChange(ITarget prevTarget)
+    public void LockTargetChange(ITarget prevTarget)
     {
-        yield return Util.GetWaitSeconds(0.05f);
-
         if (TargetEnemy == null || TargetEnemy != prevTarget)
         {
             Debug.Log("콜 한 애가 락온 한 애가 아님");
-            yield break;
+            return;
         }
-            
 
         if (!IsThereEnemyScanned())
         {
             Debug.Log("락 해제");
             ReleaseTarget();
-            yield break;
+            return;
         }
 
         Debug.Log("이전꺼 없애고 새로운 락온");

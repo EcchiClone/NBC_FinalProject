@@ -42,9 +42,9 @@ public class UI_StageInfoPopup : UI_Popup
         int minutes = (int)remianTime / 60;
         int seconds = (int)remianTime % 60;
 
-        if (Managers.SpawnManager.LevelData.EnemyType == EnemyType.Minion)
+        if (Managers.SpawnManager.LevelData.EnemyType == Define.EnemyType.Minion)
             _countDownTime.text = $"다음 웨이브까지 : {minutes:00}:{seconds:00}";
-        else if (Managers.SpawnManager.LevelData.EnemyType == EnemyType.Boss)
+        else if (Managers.SpawnManager.LevelData.EnemyType == Define.EnemyType.Boss)
             _countDownTime.text = $"<color=red>남은 시간</color> : {minutes:00}:{seconds:00}";
     }
 
