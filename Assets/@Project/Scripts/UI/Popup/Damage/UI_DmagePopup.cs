@@ -8,8 +8,6 @@ public class UI_DmagePopup : UI_Popup
     [SerializeField] float _fadeTime;
 
     private RectTransform _rect;
-    private Vector3 _hitPos;
-    private Vector3 _startPos;
 
     private void Awake()
     {
@@ -18,8 +16,7 @@ public class UI_DmagePopup : UI_Popup
 
     public void Setup(Vector3 pos, int damage)
     {
-        _damageText.fontSize = damage <= 50 ? 30 : damage <= 100 ? 50 : 80;
-        _hitPos = pos;
+        _damageText.fontSize = damage <= 50 ? 30 : damage <= 100 ? 50 : 80;        
 
         _damageText.text = $"{damage}";
         _damageText.transform.position = Camera.main.WorldToScreenPoint(RandomizePosition(pos));

@@ -93,8 +93,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        //if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.TutorialScene/* && !Managers.SpawnManager.IsStarted*/)
-        //    return;
+        if (Managers.Scene.CurrentScene.Scenes != Define.Scenes.TutorialScene && !Managers.SpawnManager.IsStarted)
+            return;
         if (Module.ModuleStatus.IsDead)
             return;
 
