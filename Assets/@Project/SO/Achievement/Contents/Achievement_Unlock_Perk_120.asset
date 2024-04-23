@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf4425667b3c144a92e7a8b0ccb5807, type: 3}
+  m_Name: Achievement_Unlock_Perk_120
+  m_EditorClassIdentifier: 
+  codeName: UNLOCK_PERK_120
+  icon: {fileID: 21300000, guid: a35356700deb7c74b91502c064fab629, type: 3}
+  displayName: "\uAC15\uC6B4"
+  description: "\uD37C\uD06C\uB97C 120\uAC1C(\uC644\uC131 \uC2DC \uCD5C\uB313\uAC12)
+    \uD574\uAE08"
+  taskGroups:
+  - tasks:
+    - {fileID: 11400000, guid: 7f42a084ed1795a40bf34e7f6c4ae0a4, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: c486a0536e72a7148af90f4a781b6881, type: 2}
+  useAutoComplete: 0
