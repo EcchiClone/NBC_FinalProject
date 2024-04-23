@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 
 public class UI_MainMenuPopup : UI_Popup
@@ -19,12 +21,17 @@ public class UI_MainMenuPopup : UI_Popup
         Guide_Btn,
         Dev_Btn,
     }
+    enum Images
+    {
+        NoticeAchievement_Img,
+    }
 
     protected override void Init()
     {
         base.Init();
 
-        BindButton(typeof(Buttons));        
+        BindButton(typeof(Buttons));
+        BindImage(typeof(Images));
 
         GetButton((int)Buttons.GameStart_Btn).onClick.AddListener(OpenStageSelect);
         GetButton((int)Buttons.Perk_Btn).onClick.AddListener(() => Managers.Scene.LoadScene(Define.Scenes.PerkViewerScene));
@@ -35,6 +42,12 @@ public class UI_MainMenuPopup : UI_Popup
         GetButton((int)Buttons.Exit_Btn).onClick.AddListener(ExitGame);
         GetButton((int)Buttons.Guide_Btn).onClick.AddListener(OpenGuide);
         GetButton((int)Buttons.Dev_Btn).onClick.AddListener(OpenCredit);
+
+
+    }
+    private void OnEnable()
+    {
+        NoticeAchievementImg();
     }
 
     private void OpenStageSelect()
@@ -109,12 +122,37 @@ public class UI_MainMenuPopup : UI_Popup
     {
         UnityEditor.EditorApplication.isPlaying = false;
     }
-#else 
+#else
     private void ExitGame()
     {
         Application.Quit();
     } 
 #endif
     #endregion
+
+    private void NoticeAchievementImg()
+    {
+        bool waiting = Managers.AchievementSystem.ActiveAchievements.Any(achievement =>
+            achievement.Icon != null && achievement.State == AchievementState.WaitingForCompletion);
+
+        var image = GetImage((int)Images.NoticeAchievement_Img);
+
+        // 이미 루프 동작 중인 애니메이션 취소 (중복 실행 방지)
+        image.DOKill();
+
+        if (waiting)
+        {
+            // 불투명도를 1로 설정 후, 불투명도가 0.2에서 1로 변경되는 애니메이션 반복
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+            image.DOFade(0.2f, 0.75f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
+        }
+        else
+        {
+            // 애니메이션 비활성화 시 불투명도를 0으로 설정
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.0f);
+        }
+    }
 
 }
