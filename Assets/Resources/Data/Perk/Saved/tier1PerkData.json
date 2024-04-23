@@ -1,0 +1,76 @@
+{
+    "point": 9999,
+    "unlockCount": 0,
+    "currentSeed": "0590EF3FDFA9",
+    "data": [
+        {
+            "Tier": 1,
+            "PositionIdx": 1,
+            "ContentIdx": 7,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 6,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 7,
+            "ContentIdx": 6,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 2,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                }
+            ]
+        }
+    ]
+}
