@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tab \uD0A4\uB85C \uC2A4\uD0B5_"
+  m_text: "Tab \uD0A4\uB85C \uB118\uAE30\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
   m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,
