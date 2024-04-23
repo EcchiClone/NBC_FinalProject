@@ -31,7 +31,7 @@ public class UI_AchievementAlarm : MonoBehaviour
     private void OnEnable()
     {
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
-
+        canvasGroup.alpha = 0;
         Fade();
     }
 
