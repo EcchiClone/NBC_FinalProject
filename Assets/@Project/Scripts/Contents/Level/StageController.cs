@@ -6,7 +6,7 @@ public class StageController : MonoBehaviour
     private ObstacleSpawner _obstacleManager;
     
     public void GameStart()
-    {
+    {        
         Managers.ActionManager.OnPlayerDead += GameOver;
 
         _spawnManager = Managers.SpawnManager;

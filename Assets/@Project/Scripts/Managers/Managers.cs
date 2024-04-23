@@ -77,6 +77,7 @@ public class Managers : MonoBehaviour
         Module.Clear();
         Tutorial.Clear();
         GameManager.Clear();
+        Util.ClearPooler();
         //CoroutineManager.StopAllCoroutine();
     }
 }

@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371b925ddbf8ef64084a4c53785a8863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingType: 2
+  <PoolingType>k__BackingField: 2
   pools:
   - tag: Cannon_Small_Projectile
     prefab: {fileID: 4457461763584704974, guid: dcdec3ea93dbd4041be8d2b1dc3e9f69,
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371b925ddbf8ef64084a4c53785a8863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingType: 1
+  <PoolingType>k__BackingField: 1
   pools:
   - tag: Minion_Spider
     prefab: {fileID: 6296827418220432883, guid: 625920ff42a9df940ad13ce88a40d424,
@@ -1030,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: 6880601041426012601, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7309713425400221342, guid: 96c40fec97f450a4491915124c290982,
         type: 3}
