@@ -35,9 +35,9 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (!Context.IsMoveInputPressed)
+        if (Context._currentMovementInput.x == 0 && Context._currentMovementInput.y == 0)
             SetSubState(Factory.Idle());
-        else if (Context.IsMoveInputPressed)
+        else
         {
             if (!Context.IsRun)
                 SetSubState(Factory.Walk());

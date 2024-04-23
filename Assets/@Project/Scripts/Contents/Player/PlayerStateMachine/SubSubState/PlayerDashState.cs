@@ -6,17 +6,20 @@ public class PlayerDashState : PlayerBaseState
 {
     public PlayerDashState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
 
+    private Coroutine _dashRoutine;
+
     public override void EnterState()
-    {        
+    {            
         StartAnimation(Context.AnimationData.DashParameterName);
-        Context.StartRunAfterDash();
+        if (_dashRoutine != null)
+            CoroutineManager.StopCoroutine(_dashRoutine);
+        _dashRoutine = CoroutineManager.StartCoroutine(Context.Co_BoostOn(CheckSwitchStates));
         Context.Sound.IsDashing = true;
     }
 
     public override void UpdateState()
     {
-        HandleGravity();        
-        CheckSwitchStates();        
+        HandleGravity();
     }
 
     public override void ExitState()
@@ -26,19 +29,16 @@ public class PlayerDashState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.CanJudgeDashing)
-        {
-            if(!Context.IsMoveInputPressed)
-                SwitchState(Factory.Idle());
-            else
-                SwitchState(Factory.Run());
-        }
+        if (!Context.IsMoveInputPressed)
+            SwitchState(Factory.Idle());
+        else
+            SwitchState(Factory.Run());
     }
 
     private void HandleGravity()
     {
         if (!Context.Controller.isGrounded)
-            Context._currentMovementDirection.y += Context.MIN_GRAVITY_VALUE * Time.deltaTime;
+            Context._currentMovementDirection.y += Context.InitialGravity * Time.deltaTime;
         else
         {
             if (Context.IsJumping == false)

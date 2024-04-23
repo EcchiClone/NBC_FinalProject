@@ -50,12 +50,19 @@ public class Weapon_HE_TACannon : WeaponBase
                 if (Ammo == 0)
                     continue;
                 Ammo--;
-                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LaserCannon_Shot, Vector3.zero);
-                Vector3 freeFireTarget = GetFreeFireDest();                        
-                GameObject bullet = CreateBullet(muzzle);
 
-                PlayerProjectile cannon = bullet.GetComponent<PlayerProjectile>();
-                cannon.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosionRange);
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LaserCannon_Shot, Vector3.zero);
+                Vector3 freeFireTarget = GetFreeFireDest();
+                if (_target != null)
+                    transform.rotation = Quaternion.LookRotation(_target.position - transform.position);
+                GameObject bullet;
+                if (IsHitTarget(muzzle, out Transform target))
+                    bullet = CreateBullet(target);
+                else
+                    bullet = CreateBullet(muzzle);
+
+                PlayerProjectile projectileCannon = bullet.GetComponent<PlayerProjectile>();
+                projectileCannon.Setup(BulletSpeed, Damage, _partData.IsSplash, freeFireTarget, _target, _partData.ExplosionRange);
 
                 yield return Util.GetWaitSeconds(FireRate);
             }
@@ -89,7 +96,9 @@ public class Weapon_HE_TACannon : WeaponBase
 
             transform.rotation = Quaternion.Slerp(currentHeadRot, targetHeadRotation, percent);
             yield return null;
-        }        
+        }
+
+        transform.rotation = targetHeadRotation;
     }
 
     private IEnumerator Co_Release()
@@ -110,5 +119,15 @@ public class Weapon_HE_TACannon : WeaponBase
             transform.localRotation = Quaternion.Slerp(currentHeadRot, targetHeadRotation, percent);
             yield return null;
         }
+    }
+
+    private Transform IsHitTarget(Transform muzzle, out Transform hitTarget)
+    {        
+        if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hit, 100f))
+        {
+            if (hit.transform.TryGetComponent(out ITarget target) == true)
+                return hitTarget = target.Transform;             
+        }
+        return hitTarget = null;
     }
 }
