@@ -40,7 +40,10 @@ public class AchievementSystem
     //    }
     //}
 
-    private GameObject CompleteAlarmUI;
+
+    private GameObject Prefab_AchievementAlarmTable { get; set; }
+    public GameObject Prefab_CompleteAlarmUI { get; private set; }
+    public GameObject Go_CurrentAchievementAlarmTable { get; private set; }
 
     private List<Achievement> activeAchievements = new List<Achievement>();
     private List<Achievement> completedAchievements = new List<Achievement>();
@@ -58,7 +61,8 @@ public class AchievementSystem
     public void Init()
     {
         achievementDatabase = Resources.Load<AchievementDatabase>("Data/AchievementDatabase");
-        CompleteAlarmUI = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarm");
+        Prefab_CompleteAlarmUI = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarm");
+        Prefab_AchievementAlarmTable = Resources.Load<GameObject>("Prefabs/UI/Others/UI_AchievementAlarmTable");
 
         GameObject achievementUpdater = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Common/@AchievementCommonUpdater"));
         achievementUpdater.name = achievementUpdater.name.Replace("(Clone)", "");
@@ -259,13 +263,22 @@ public class AchievementSystem
     #endregion
     private void DisplayCompleteAlarm(Achievement achievement)
     {
-        string desc = $"[{achievement.DisplayName}] {achievement.Description}";
-        GameObject go = MonoBehaviour.Instantiate(CompleteAlarmUI);
-        try
+        if (Go_CurrentAchievementAlarmTable != null)
         {
-            go.transform.SetParent(GameObject.Find("@UI_Root").transform, false);
+            // 해당 Table에 Item 추가
         }
-        catch { }
-        go.GetComponent<UI_AchievementAlarm>().DescriptionMsg = desc;
+        else
+        {
+            // UI_AchievementAlarmTable 생성, 초기화
+            Go_CurrentAchievementAlarmTable = MonoBehaviour.Instantiate(Prefab_AchievementAlarmTable);
+            try { Go_CurrentAchievementAlarmTable.transform.SetParent(GameObject.Find("@UI_Root").transform, false); }
+            catch { }
+            // 해당 Table에 Item 추가
+        }
+
+        string desc = $"[{achievement.DisplayName}] {achievement.Description}";
+        
+        Go_CurrentAchievementAlarmTable.GetComponent<UI_AchievementAlarmTable>().AddItem(desc);
     }
+
 }

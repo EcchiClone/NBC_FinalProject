@@ -11,6 +11,9 @@ public class UI_AchievementAlarm : MonoBehaviour
     // **진짜진짜 구조 내려놓고 일단 필요한것만**
     // Description 적기
     // Dotween 애니메이션(화면 위쪽에서 내려왔다가 다시 올라가기 or FadeIn과 FadeOut으로 화면 중앙에서 나타났다가 사라지기)
+    public GameObject Parent { get; set; }
+    private CanvasGroup canvasGroup;
+
     [SerializeField] private GameObject completeMsg;
     [SerializeField] private TextMeshProUGUI descriptionMsg;
 
@@ -27,6 +30,8 @@ public class UI_AchievementAlarm : MonoBehaviour
 
     private void OnEnable()
     {
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
         Fade();
     }
 
@@ -64,6 +69,8 @@ public class UI_AchievementAlarm : MonoBehaviour
     private IEnumerator DoDisable(float fadeTime)
     {
         yield return Util.GetWaitSeconds(fadeTime);
+
+        Parent.GetComponent<UI_AchievementAlarmTable>().RemoveItem(gameObject);
 
         Destroy(gameObject, 0.1f);
 
