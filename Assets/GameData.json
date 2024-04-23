@@ -4,7 +4,7 @@
     "highestStage": 0,
     "highestMinionKill": 0,
     "highestBossKill": 0,
-    "researchPoint": 580,
+    "researchPoint": 642,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
     "partIndex_LeftArm": 1,
@@ -48,6 +48,6 @@
         "stage": 14,
         "minionKill": 265,
         "bossKill": 2,
-        "researchPoint": 16
+        "researchPoint": 10
     }
 }
