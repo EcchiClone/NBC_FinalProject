@@ -53,28 +53,28 @@ public class LockOnSystem
 
     public bool IsThereEnemyScanned()
     {
-        Vector3 origin = _module.transform.position + Camera.main.transform.forward * ScanRadius + Camera.main.transform.up * ScanRadius * 0.5f;
+        Vector3 origin;
         Vector3 dir;
-        RaycastHit[] hits;
+        RaycastHit[] hitsRay = null;
+        Collider[] hitsColl = null;
+
+        bool isLockon;
+
         if (IsLockon)
         {
-            Vector3 camdir = Camera.main.transform.forward;
-            dir = new Vector3(camdir.x, 0, camdir.z).normalized;
-            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
+            origin = TargetEnemy.Transform.position;
+            hitsColl = Physics.OverlapSphere(origin, ScanRadius, _targetLayer);
+            isLockon = true;
         }
         else
         {
+            origin = _module.transform.position + Camera.main.transform.forward * ScanRadius + Camera.main.transform.up * ScanRadius * 0.5f;
             dir = Camera.main.transform.forward;
-            hits = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
+            hitsRay = Physics.SphereCastAll(origin, ScanRadius, dir, ScanRange, _targetLayer);
+            isLockon = false;
         }
 
-        if (hits.Length == 0)
-        {
-            Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
-            return false;
-        }
-
-        ITarget newTarget = GetClosestTarget(hits);
+        ITarget newTarget = isLockon ? GetClosestTarget(hitsColl) : GetClosestTarget(hitsRay);
         if (newTarget == null)
             return false;
 
@@ -83,7 +83,13 @@ public class LockOnSystem
     }
 
     private ITarget GetClosestTarget(RaycastHit[] hits)
-    {        
+    {
+        if (hits == null)
+        {
+            Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
+            return null;
+        }
+
         float closestDist = float.MaxValue;
         int closestIndex = -1;
 
@@ -105,6 +111,36 @@ public class LockOnSystem
             return null;
         
         return hits[closestIndex].transform.GetComponent<ITarget>();
+    }
+
+    private ITarget GetClosestTarget(Collider[] hits)
+    {
+        if (hits == null)
+        {
+            Debug.Log("현재 조준시스템에 포착된 적이 없습니다.");
+            return null;
+        }
+
+        float closestDist = float.MaxValue;
+        ITarget ClosestTarget = null;
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.transform.TryGetComponent(out ITarget target) == false)
+                continue;
+            if (target == TargetEnemy || !target.IsAlive)
+                continue;
+            if (target.EnemyType == Define.EnemyType.Boss)
+                return target;
+
+            float dist = Vector3.Distance(TargetEnemy.Transform.position, hit.transform.position);
+            if (dist < closestDist)
+            {
+                ClosestTarget = target;
+                closestDist = dist;
+            }
+        }
+        return ClosestTarget;
     }
 
     public void LockOnTarget()

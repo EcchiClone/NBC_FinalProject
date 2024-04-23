@@ -115,7 +115,7 @@ MonoBehaviour:
     _followOnTargetMode: {fileID: 330272713035144040}
     _targetLayer:
       serializedVersion: 2
-      m_Bits: 17408
+      m_Bits: 1024
     ScanRange: 50
     ScanRadius: 15
 --- !u!114 &5245987810503798519
@@ -201,6 +201,21 @@ MonoBehaviour:
   _currentMovementInput: {x: 0, y: 0}
   _currentMovementDirection: {x: 0, y: 0, z: 0}
   _cameraRelativeMovement: {x: 0, y: 0, z: 0}
+  <IsDead>k__BackingField: 0
+  <IsMoveInputPressed>k__BackingField: 0
+  <IsJumpInputPressed>k__BackingField: 0
+  <IsDashInputPressed>k__BackingField: 0
+  <IsLeftArmWeaponInputPressed>k__BackingField: 0
+  <IsRightArmWeaponInputPressed>k__BackingField: 0
+  <IsLeftShoulderWeaponInputPressed>k__BackingField: 0
+  <IsRightShoulderWeaponInputPressed>k__BackingField: 0
+  <IsJumping>k__BackingField: 0
+  <IsRun>k__BackingField: 0
+  <IsHovering>k__BackingField: 0
+  <IsCanHovering>k__BackingField: 0
+  <CanDash>k__BackingField: 0
+  <CanJudgeDashing>k__BackingField: 0
+  <IsUsingBoost>k__BackingField: 0
 --- !u!114 &2197579354297049829
 MonoBehaviour:
   m_ObjectHideFlags: 0
