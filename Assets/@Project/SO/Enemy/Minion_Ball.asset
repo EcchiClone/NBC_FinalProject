@@ -18,6 +18,6 @@ MonoBehaviour:
   rotationSpeed: 0
   fixedAltitude: 0
   maxHealth: 5
-  moveSpeed: 10
+  moveSpeed: 20
   attackInterval: 0.7
   damage: 100
