@@ -1,26 +1,26 @@
 using UnityEngine;
 
-public class Spider_CombatState : BaseState
+public class WarMachine_CombatState : BaseState
 {
     private float _passedTime;
     private float _attackInterval;
 
-    public Spider_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public WarMachine_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
         _attackInterval = Context.Entity.Data.attackInterval;
-    }    
+    }
 
     public override void EnterState()
     {
-        InitializeSubState();        
+        InitializeSubState();
 
         _passedTime = 0;
     }
 
     public override void UpdateState()
     {
-        _passedTime += Time.deltaTime;
+       /* _passedTime += Time.deltaTime;
         if (_passedTime > _attackInterval)
         {
             if (!CheckObstacle() && Context.Entity.gameObject.activeSelf)
@@ -31,13 +31,13 @@ public class Spider_CombatState : BaseState
             }
             _passedTime = 0;
         }
-
+*/
         CheckSwitchStates();
     }
 
     public override void ExitState()
     {
-        
+
     }
 
     public override void CheckSwitchStates()
@@ -51,5 +51,5 @@ public class Spider_CombatState : BaseState
 
     public override void InitializeSubState()
     {
-    }    
+    }
 }

@@ -523,8 +523,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6414125040336359270}
+  - component: {fileID: 6752702596789145026}
+  - component: {fileID: -3432255157176285288}
+  - component: {fileID: 1170111364107385224}
+  - component: {fileID: 5256515567415116285}
+  - component: {fileID: 3474307933903912938}
+  - component: {fileID: 7315607717796096567}
   m_Layer: 0
-  m_Name: WarMachine
+  m_Name: Minion_WarMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,8 +551,120 @@ Transform:
   - {fileID: 1085095651889737725}
   - {fileID: 1598220654083779203}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6752702596789145026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3432255157176285288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8489298b2ca5e458f918d04a0110cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyType>k__BackingField: 1
+  <Data>k__BackingField: {fileID: 11400000, guid: afb6af8ea75e70942ba933b1203ec267,
+    type: 2}
+  <Target>k__BackingField: {fileID: 0}
+  <IsAlive>k__BackingField: 0
+  enemyPhaseStarter: {fileID: 0}
+--- !u!195 &1170111364107385224
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5256515567415116285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dbd7d239a8d9744a01ca16d1c8a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3474307933903912938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases: []
+  Patterns: []
+  isShooting: 1
+  muzzle: []
+  onStartPhase: []
+  onStartPattern: []
+--- !u!65 &7315607717796096567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375647844545556878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6462804133850636660
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class Ball_NonCombatState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if(Context.Entity.Data.stopDistance > distance)
         {
-            SwitchState(Context.Provider.GetState(Ball_States.Combat));
+            SwitchState(Context.Provider.GetState(Minion_States.Combat));
         }
     }
 
@@ -42,7 +42,7 @@ public class Ball_NonCombatState : BaseState
     public override void InitializeSubState()
     {
         // Idle 설정
-        SetSubState(Provider.GetState(Ball_States.Idle));
+        SetSubState(Provider.GetState(Minion_States.Idle));
     }
 
 }

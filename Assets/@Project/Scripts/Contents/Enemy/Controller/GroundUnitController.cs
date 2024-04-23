@@ -14,6 +14,7 @@ public class GroundUnitController : Controller
     {
         agent = entity.GetComponent<NavMeshAgent>();
         agent.speed = entity.Data.moveSpeed;
+        agent.angularSpeed = entity.Data.rotationSpeed;
         agent.stoppingDistance = entity.Data.stopDistance;
 
         // Must Fix This.
@@ -63,6 +64,9 @@ public class GroundUnitController : Controller
 
     protected override void Look()
     {
+        if (null == head || null == weapon)
+            return;
+
         Quaternion currentLocalRotation = head.localRotation;
         head.localRotation = Quaternion.identity;
         Vector3 targetWorldLookDir = Target.position - head.position;

@@ -17,7 +17,7 @@ public class Ball_IdleState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if (Context.Entity.Data.cognizanceRange >= distance)
         {
-            SwitchState(Context.Provider.GetState(Ball_States.Chasing));
+            SwitchState(Context.Provider.GetState(Minion_States.Chasing));
         }
     }    
 

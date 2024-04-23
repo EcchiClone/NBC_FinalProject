@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Spider_IdleState : BaseState
+public class WarMachine_IdleState : BaseState
 {
-    public Spider_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public WarMachine_IdleState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
     }
@@ -30,7 +30,7 @@ public class Spider_IdleState : BaseState
         {
             SwitchState(Context.Provider.GetState(Minion_States.Chasing));
         }
-    }    
+    }
 
-    public override void InitializeSubState() {}    
+    public override void InitializeSubState() { }
 }

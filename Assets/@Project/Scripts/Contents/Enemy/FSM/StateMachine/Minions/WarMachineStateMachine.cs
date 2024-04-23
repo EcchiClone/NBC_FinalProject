@@ -1,15 +1,14 @@
-public class BallStateMachine : BaseStateMachine
+public class WarMachineStateMachine : BaseStateMachine
 {
-    public BallStateMachine(Entity boss) : base(boss)
+    public WarMachineStateMachine(Entity entity) : base(entity)
     {
     }
 
     public override void Initialize()
     {
-        Provider = new BallStateProvider(this);
+        Provider = new WarMachineStateProvider(this);
         CurrentState = Provider.GetState(Minion_States.Alive);
         CurrentState.EnterState();
-
     }
 
     public override void Reset()

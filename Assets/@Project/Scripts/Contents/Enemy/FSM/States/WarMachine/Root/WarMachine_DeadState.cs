@@ -1,6 +1,6 @@
-public class Spider_DeadState : BaseState
+public class WarMachine_DeadState : BaseState
 {
-    public Spider_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public WarMachine_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
     }
@@ -25,5 +25,4 @@ public class Spider_DeadState : BaseState
     public override void InitializeSubState()
     {
     }
-
 }

@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class Spider_NonCombatState : BaseState
+public class WarMachine_NonCombatState : BaseState
 {
-
-    public Spider_NonCombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public WarMachine_NonCombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
     }
@@ -35,5 +34,5 @@ public class Spider_NonCombatState : BaseState
     public override void InitializeSubState()
     {
         SetSubState(Provider.GetState(Minion_States.Idle));
-    }    
+    }
 }

@@ -1,6 +1,6 @@
-public class Ball_AliveState : BaseState
+public class WarMachine_AliveState : BaseState
 {
-    public Ball_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
+    public WarMachine_AliveState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = true;
     }
@@ -8,7 +8,7 @@ public class Ball_AliveState : BaseState
     public override void EnterState()
     {
         InitializeSubState();
-       _currentSubState?.EnterState();
+        _currentSubState?.EnterState();
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Others_Appear, Context.Entity.transform.position);
     }
 
@@ -25,12 +25,11 @@ public class Ball_AliveState : BaseState
 
     public override void ExitState()
     {
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Alarm, Context.Entity.transform.position);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Down, Context.Entity.transform.position);
     }
 
     public override void InitializeSubState()
     {
         SetSubState(Provider.GetState(Minion_States.NonCombat));
     }
-
 }
