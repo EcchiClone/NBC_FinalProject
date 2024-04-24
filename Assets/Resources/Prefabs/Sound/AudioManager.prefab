@@ -184,6 +184,13 @@ MonoBehaviour:
       Data3: 1204230583
       Data4: 31027229
     Path: event:/SFX/Player/Player_Booster_End
+  <Player_Damaged>k__BackingField:
+    Guid:
+      Data1: -1562112872
+      Data2: 1276064444
+      Data3: -1911275859
+      Data4: 532676152
+    Path: event:/SFX/Hits/Player_Damaged
   <Player_Dash>k__BackingField:
     Guid:
       Data1: -1948089995
