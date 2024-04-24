@@ -57,7 +57,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
-        if (!IsAlive)
+        if (!IsAlive || AP <= 0)
             return;
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Target.transform.position);

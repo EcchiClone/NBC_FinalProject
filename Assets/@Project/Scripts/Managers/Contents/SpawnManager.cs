@@ -254,6 +254,7 @@ public class SpawnManager
         else if (LevelData.EnemyType == Define.EnemyType.Boss)
         {
             BGMPlayer.Instance.SetFieldBGMState(1f); // 보스 브금 재생
+            Managers.StageActionManager.CallBossStage();
             Util.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));
         }
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
