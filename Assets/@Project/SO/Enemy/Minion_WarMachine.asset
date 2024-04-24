@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f9c2c7dcdd4fd43895bb1f7c1b36a5, type: 3}
   m_Name: Minion_WarMachine
   m_EditorClassIdentifier: 
-  stopDistance: 0
-  cognizanceRange: 0
-  chasingInterval: 0
-  rotationSpeed: 0
+  stopDistance: 40
+  cognizanceRange: 100
+  chasingInterval: 0.5
+  rotationSpeed: 50
   fixedAltitude: 0
-  maxHealth: 0
-  moveSpeed: 0
-  attackInterval: 0
+  maxHealth: 200
+  moveSpeed: 7
+  attackInterval: 0.5
   damage: 0

@@ -17,6 +17,8 @@ public class WarMachine_ChasingState : BaseState
         passedTime = 0f;
         Context.Entity.Controller.SetDestination(_targetTransform.position);
         //Context.Sound.StartEmitter();
+
+        Debug.Log("추격 진입");
     }
 
     public override void UpdateState()

@@ -4,7 +4,7 @@
     "highestStage": 0,
     "highestMinionKill": 0,
     "highestBossKill": 0,
-    "researchPoint": 409,
+    "researchPoint": 453,
     "partIndex_Lower": 0,
     "partIndex_Upper": 0,
     "partIndex_LeftArm": 0,
@@ -40,10 +40,10 @@
         ]
     },
     "stageData": {
-        "time": 138.79505920410157,
-        "stage": 5,
-        "minionKill": 44,
-        "bossKill": 0,
-        "researchPoint": 10
+        "time": 143.29563903808595,
+        "stage": 6,
+        "minionKill": 66,
+        "bossKill": 1,
+        "researchPoint": 4
     }
 }
