@@ -42,11 +42,13 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Player_Land { get; private set; }
     [field: SerializeField] public EventReference Player_Booster { get; private set; }
     [field: SerializeField] public EventReference Player_Booster_End { get; private set; }
+    [field: SerializeField] public EventReference Player_Damaged { get; private set; }
     [field: SerializeField] public EventReference Player_Dash { get; private set; }
     [field: SerializeField] public EventReference Player_Dash_End { get; private set; }
     [field: SerializeField] public EventReference Player_Dragging { get; private set; }
     [field: SerializeField] public EventReference Player_Repair { get; private set; }
     [field: SerializeField] public EventReference Player_LockOn { get; private set; }
+    [field: SerializeField] public EventReference Player_AirPressure { get; private set; }
 
 
     [field: Header("Player Weapons")]
