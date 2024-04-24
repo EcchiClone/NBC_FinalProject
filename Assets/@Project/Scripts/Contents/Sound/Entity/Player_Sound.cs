@@ -22,6 +22,7 @@ public class Player_Sound : MonoBehaviour
         _playerDash = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Dash);
         _playerDragging = AudioManager.Instance.CreateInstace(FMODEvents.Instance.Player_Dragging);
 
+        Managers.ModuleActionManager.OnChangeArmorPoint += OnChangeArmorPoint;
     }
 
     private void FixedUpdate()
@@ -53,5 +54,10 @@ public class Player_Sound : MonoBehaviour
     private void StopInstance(EventInstance instance, STOP_MODE stopMode = STOP_MODE.IMMEDIATE)
     {
         instance.stop(stopMode);
+    }
+
+    private void OnChangeArmorPoint(float totalAP, float remainAP)
+    {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_Damaged, Vector3.zero);
     }
 }
