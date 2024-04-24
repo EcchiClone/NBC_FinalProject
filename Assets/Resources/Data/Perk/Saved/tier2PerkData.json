@@ -145,7 +145,7 @@
             "Tier": 2,
             "PositionIdx": 11,
             "ContentIdx": 8,
-            "IsActive": false,
+            "IsActive": true,
             "subPerks": [
                 {
                     "PositionIdx": 1,
