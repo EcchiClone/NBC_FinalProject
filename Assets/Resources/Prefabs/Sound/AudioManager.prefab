@@ -219,6 +219,13 @@ MonoBehaviour:
       Data3: 904630972
       Data4: 1833570920
     Path: event:/SFX/Player/Player_LockOn
+  <Player_AirPressure>k__BackingField:
+    Guid:
+      Data1: 1568847110
+      Data2: 1324705774
+      Data3: -819938130
+      Data4: -1730907920
+    Path: event:/SFX/Player/Player_AirPressure
   <Player_Weapon1_Shot>k__BackingField:
     Guid:
       Data1: 1618158025
@@ -519,7 +526,7 @@ Transform:
   - {fileID: 7013535449710751687}
   - {fileID: 7295514027110438490}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2041209730365144000
 MonoBehaviour:
