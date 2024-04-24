@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class BaseState
 {
@@ -10,6 +11,7 @@ public abstract class BaseState
 
     protected Transform _entityTransform;
     protected Transform _targetTransform;
+
 
     public BaseState(BaseStateMachine context, BaseStateProvider provider)
     {

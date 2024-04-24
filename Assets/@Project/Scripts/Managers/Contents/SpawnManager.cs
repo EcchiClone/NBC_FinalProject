@@ -18,53 +18,40 @@ public class SpawnManager
 
     public Vector3 gridWorldSize; // 맵의 3차원 크기
     public float cellRadius;
-    int gridSizeX, gridSizeY, gridSizeZ;
+    int gridSizeX, gridSizeZ;
     private float _cellDiameter;
 
-    private List<GameObject> _activatedUnits = new List<GameObject>();
 
     public SpawnManager()
     {
-        gridWorldSize = new Vector3(200, 200, 200);
+        gridWorldSize = new Vector3(140, 140, 140);
         cellRadius = 5;
 
         _cellDiameter = cellRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / _cellDiameter);
-        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / _cellDiameter);
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / _cellDiameter);
     }
 
-    private void DestroyAllUnit()
-    {
-        if (_activatedUnits.Count > 0)
-        {
-            foreach (GameObject obj in _activatedUnits)
-            {
-                obj.SetActive(false);
-            }
-            _activatedUnits.Clear();
-        }
-    }
-
-    public bool AllUnitDisabled()
-    {
-        if (_activatedUnits.Count == 0) return true; // 임시
-
-        foreach (GameObject unit in _activatedUnits)
-        {
-            if (unit.activeSelf) return false;
-        }
-
-        return true;
-    }
 
     private Vector3 GetSpawnPoint()
     {
+        /*Vector3 spawnPoint = _groundSpawnPoints.Dequeue();
+        _groundSpawnPoints.Enqueue(spawnPoint);
+
+        return spawnPoint;*/
+
         Vector3 spawnPoint = _groundSpawnPoints.Dequeue();
         _groundSpawnPoints.Enqueue(spawnPoint);
 
+        if(Physics.CheckSphere(new Vector3(spawnPoint.x, 1f, spawnPoint.z), 1f, LayerMask.GetMask("Target")))
+        {
+            spawnPoint.x = spawnPoint.x + UnityEngine.Random.Range((int)-cellRadius, (int)cellRadius + 1);
+            spawnPoint.z = spawnPoint.z + UnityEngine.Random.Range((int)-cellRadius, (int)cellRadius + 1);
+        }
+
         return spawnPoint;
     }
+
 
     #region 스폰 포인트 연산
     public void CreateCell() // 스폰 가능한 위치 선정
@@ -93,7 +80,8 @@ public class SpawnManager
         ShuffleSpawnPoint();
     }
 
-    public void DetectSpawnPoint() // 중복 없는 스폰 포인트 탐지
+
+    public void DetectSpawnPoint()
     {
         _groundTempPoint.Clear();
         _groundSpawnPoints.Clear();
@@ -105,7 +93,8 @@ public class SpawnManager
         foreach (Vector3 cell in _groundCell)
         {
             if (Physics.Raycast(cell, Vector3.down, out hit, 41f, groundLayer))
-            {
+            {       
+
                 Collider[] hitColliders = Physics.OverlapSphere(hit.point, cellRadius, allLayers);
                 bool onlyGround = true;
                 foreach (var hitCollider in hitColliders)
@@ -116,7 +105,7 @@ public class SpawnManager
                         break;
                     }
                 }
-                if (onlyGround)
+                if (onlyGround && hit.point.y <= 0.1f)
                 {
                     _groundTempPoint.Add(hit.point + Vector3.up * 3);
                 }

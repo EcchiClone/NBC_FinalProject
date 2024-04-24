@@ -28,12 +28,12 @@ public class Spider_NonCombatState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if (Context.Entity.Data.stopDistance > distance)
         {
-            SwitchState(Context.Provider.GetState(Spider_States.Combat));
+            SwitchState(Context.Provider.GetState(Minion_States.Combat));
         }
     }
 
     public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(Spider_States.Idle));
+        SetSubState(Provider.GetState(Minion_States.Idle));
     }    
 }

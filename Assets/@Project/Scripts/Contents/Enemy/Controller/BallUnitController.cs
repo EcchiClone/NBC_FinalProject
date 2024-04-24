@@ -65,7 +65,7 @@ public class BallUnitController : Controller
 
 
         Vector3 direction = (currentWaypoint - Entity.transform.position).normalized;
-        
+        float distanceToWaypoint = Vector3.Distance(Entity.transform.position, currentWaypoint);
 
         if (Mathf.Abs(Entity.transform.position.x - currentWaypoint.x) <= nodeRadius && Mathf.Abs(Entity.transform.position.z - currentWaypoint.z) <= nodeRadius)
         {
@@ -81,7 +81,9 @@ public class BallUnitController : Controller
             //rigidbody.velocity = direction * rigidbody.velocity.magnitude;
         }
 
-        rigidbody.AddForce(direction * Speed, ForceMode.Force);
+        float forceAdjustmentFactor = Mathf.Max(distanceToWaypoint / 5.0f, 0.1f);
+
+        rigidbody.AddForce(direction * Speed * forceAdjustmentFactor, ForceMode.Force);
 
         if (rigidbody.velocity.magnitude > Speed)
             rigidbody.velocity = rigidbody.velocity.normalized * Speed;

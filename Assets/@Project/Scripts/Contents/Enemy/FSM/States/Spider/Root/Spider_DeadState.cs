@@ -1,4 +1,4 @@
-public class Spider_DeadState : BaseState // TODO
+public class Spider_DeadState : BaseState
 {
     public Spider_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {

@@ -62,22 +62,22 @@ public class AirUnitController : Controller
     private void AltitudeAdjustment()
     {
         Vector3 nowPosition = Entity.transform.position;
-        if(IsChasing)
-        {
-            Entity.transform.position = 
-                Vector3.Lerp(
-                    nowPosition, 
-                    new Vector3(nowPosition.x, TargetAltitude + Entity.Target.position.y, nowPosition.z),
-                    Time.deltaTime);
-        }
+        float maxHeight = 75;
+
+        float targetAltitude;
+
+        if (IsChasing)
+            targetAltitude = TargetAltitude + Entity.Target.position.y;
         else
-        {
-            Entity.transform.position = 
+            targetAltitude = TargetAltitude;
+
+        targetAltitude = Mathf.Min(maxHeight, targetAltitude);
+
+        Entity.transform.position =
                 Vector3.Lerp(
-                    nowPosition, 
-                    new Vector3(nowPosition.x, TargetAltitude, nowPosition.z), 
+                    nowPosition,
+                    new Vector3(nowPosition.x, targetAltitude, nowPosition.z),
                     Time.deltaTime);
-        }
     }
 
     public override void SetDestination(Vector3 target)
