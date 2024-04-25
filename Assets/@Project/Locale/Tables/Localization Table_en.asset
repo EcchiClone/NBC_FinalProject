@@ -360,7 +360,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 70148260646915
-    m_Localized: Press the SpaceBar key to skip.
+    m_Localized: Press SpaceBar to continue.
     m_Metadata:
       m_Items: []
   - m_Id: 70148260646916
@@ -445,16 +445,16 @@ MonoBehaviour:
     m_Localized: AP
     m_Metadata:
       m_Items: []
-  - m_Id: 163816682311684
-    m_Localized: Defence
+  - m_Id: 179608454975488
+    m_Localized: Press Tab key to continue.
     m_Metadata:
       m_Items: []
   - m_Id: 163816682311685
     m_Localized: Move Speed
     m_Metadata:
       m_Items: []
-  - m_Id: 163816682311686
-    m_Localized: Jump
+  - m_Id: 180699078873088
+    m_Localized: Yes
     m_Metadata:
       m_Items: []
   - m_Id: 163816682311687
@@ -547,6 +547,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 167840424939526
     m_Localized: Shot Error[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069810536448
+    m_Localized: Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069839896576
+    m_Localized: Jump Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873089
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873090
+    m_Localized: Do you want to skip the tutorial?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873091
+    m_Localized: You can restart it at any time from the main menu.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332352
+    m_Localized: Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332353
+    m_Localized: Cancel
     m_Metadata:
       m_Items: []
   references:
