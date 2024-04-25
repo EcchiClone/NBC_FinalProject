@@ -366,12 +366,13 @@ MonoBehaviour:
   - m_Id: 70148260646916
     m_Localized: 'Survive the oncoming waves of enemies.
 
+      
 
-      There are a total
-      of <color=red>100</color> levels of waves.
+      There are
+      a total of <color=red>100</color> levels of waves.
 
-      Boss stages occur every <color=red>5
-      stages</color>.'
+      Boss stages occur
+      every <color=red>5 stages</color>.'
     m_Metadata:
       m_Items: []
   - m_Id: 70148260646917
@@ -387,20 +388,22 @@ MonoBehaviour:
   - m_Id: 70148260646918
     m_Localized: 'The types of minions that appear are as follows:
 
+      
 
-      (1) Ball
-      (close-range explosive)
+      (1)
+      Ball (close-range explosive)
 
       (2) Drone (aerial long-range)
 
-      (3) Spider
-      (ground long-range)'
+      (3)
+      Spider (ground long-range)'
     m_Metadata:
       m_Items: []
   - m_Id: 70148260646919
     m_Localized: 'Boss monsters employ various patterns towards the player from the
       air.
 
+      
 
       If the boss monster is not defeated within the <color=red>time
       limit, it is game over</color>.'
@@ -409,6 +412,7 @@ MonoBehaviour:
   - m_Id: 70148260646920
     m_Localized: 'Weapons cannot be reloaded until they are out of ammunition.
 
+      
 
       Shoulder
       weapons become <color=red>unusable after all provided ammunition is spent.</color>
@@ -419,6 +423,130 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 70148260646921
     m_Localized: Clear all stages and become an elite unit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816644562944
+    m_Localized: Total Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311680
+    m_Localized: AC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311681
+    m_Localized: Main Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311682
+    m_Localized: Sub Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311683
+    m_Localized: AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311684
+    m_Localized: Defence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311685
+    m_Localized: Move Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311686
+    m_Localized: Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311687
+    m_Localized: Boost Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311688
+    m_Localized: Boost Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505984
+    m_Localized: Hover Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505985
+    m_Localized: Rotation Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505986
+    m_Localized: Evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505987
+    m_Localized: Damage[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505991
+    m_Localized: Reload Time[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505992
+    m_Localized: Penetrate[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505994
+    m_Localized: Damage[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505996
+    m_Localized: Bullet Speed[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505998
+    m_Localized: Reload Time[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505999
+    m_Localized: Penetrate[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506001
+    m_Localized: Shot per One Time[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506002
+    m_Localized: Refill[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506003
+    m_Localized: Shot per One Time[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506004
+    m_Localized: Refill[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939520
+    m_Localized: Fire Rate[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939521
+    m_Localized: Bullet Speed[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939522
+    m_Localized: Bullet Ammo[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939523
+    m_Localized: Shot Error[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939524
+    m_Localized: FireRate[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939525
+    m_Localized: Bullet Ammo[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939526
+    m_Localized: Shot Error[R]
     m_Metadata:
       m_Items: []
   references:

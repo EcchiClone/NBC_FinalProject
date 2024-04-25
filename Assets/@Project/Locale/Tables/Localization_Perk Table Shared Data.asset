@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Localization_Perk Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Localization_Perk Table
+  m_TableCollectionNameGuidString: f9cfcbaa16b92bc4da1ee0c550ac320a
+  m_Entries:
+  - m_Id: 7258787840
+    m_Key: Keyee
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5160939920919363725
+  references:
+    version: 2
+    RefIds:
+    - rid: 5160939920919363725
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1714042256119

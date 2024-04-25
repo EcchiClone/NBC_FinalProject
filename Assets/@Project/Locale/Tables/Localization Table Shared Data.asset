@@ -359,8 +359,128 @@ MonoBehaviour:
     m_Key: UI-FirstInfo6
     m_Metadata:
       m_Items: []
-  - m_Id: 70148260646922
-    m_Key: New Entry
+  - m_Id: 163816644562944
+    m_Key: UI-StatsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311680
+    m_Key: UI-StatsTabAC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311681
+    m_Key: UI-StatsTabMainWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311682
+    m_Key: UI-StatsTabSubWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311683
+    m_Key: Ui-Stats-AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311684
+    m_Key: UI-Stats-Defence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311685
+    m_Key: UI-Stats-MoveSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311686
+    m_Key: UI-Stats-Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311687
+    m_Key: UI-Stats-BoostPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311688
+    m_Key: UI-Stats-BoostCharge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505984
+    m_Key: UI-Stats-HoverPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505985
+    m_Key: UI-Stats-RotationSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505986
+    m_Key: UI-Stats-Evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505987
+    m_Key: UI-Stats-DamageL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939520
+    m_Key: UI-Stats-FireRateL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939521
+    m_Key: UI-Stats-BulletSpeedL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939522
+    m_Key: UI-Stats-BulletAmmoL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505991
+    m_Key: UI-Stats-ReloadTimeL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505992
+    m_Key: UI-Stats-PenetrateL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939523
+    m_Key: UI-Stats-ShotErrorL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505994
+    m_Key: UI-Stats-DamageR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939524
+    m_Key: UI-Stats-FireRateR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505996
+    m_Key: UI-Stats-BulletSpeedR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939525
+    m_Key: UI-Stats-BulletAmmoR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505998
+    m_Key: UI-Stats-ReloadTimeR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505999
+    m_Key: UI-Stats-PenetrateR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939526
+    m_Key: UI-Stats-ShotErrorR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506001
+    m_Key: UI-Stats-ShotPerOneTimeL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506002
+    m_Key: UI-Stats-RefillL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506003
+    m_Key: UI-Stats-ShotPerOneTimeR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506004
+    m_Key: UI-Stats-RefillR
     m_Metadata:
       m_Items: []
   m_Metadata:
