@@ -17,7 +17,7 @@ public class SkyFire_Phase3State : BaseState
 
         Context.Entity.enemyPhaseStarter.StartPattern(2, 6, 5); // 클러스터
 
-        Context.Entity.enemyPhaseStarter.StartPhase(0, 5); // MG Special
+        Context.Entity.enemyPhaseStarter.StartPhase(0, 5); // MG Special 
 
 
 
