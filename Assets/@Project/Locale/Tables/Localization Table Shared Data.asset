@@ -511,6 +511,30 @@ MonoBehaviour:
     m_Key: UI-Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 201404331872256
+    m_Key: Text-CurrentStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009600
+    m_Key: Text-SpawnedEnemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009601
+    m_Key: Text-KilledEnemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202640628142080
+    m_Key: Text-NextWave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203348114952192
+    m_Key: Text-Remain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206001783984128
+    m_Key: Text-CurrentStage1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
