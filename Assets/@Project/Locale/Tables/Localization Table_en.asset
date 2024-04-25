@@ -81,8 +81,8 @@ MonoBehaviour:
   - m_Id: 13129134657543
     m_Localized: 'Abnormalities may occur at
 
-      resolutions other than 1920 x
-      1080.'
+      resolutions other than 1920
+      x 1080.'
     m_Metadata:
       m_Items: []
   - m_Id: 13129134657544
@@ -98,6 +98,62 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15155260313600
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534075928576
+    m_Localized: Game Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871616
+    m_Localized: Option
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871617
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534452752384
+    m_Localized: Game Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946688
+    m_Localized: Module
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946689
+    m_Localized: Perk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946690
+    m_Localized: Achievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946691
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946692
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946693
+    m_Localized: Control Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946694
+    m_Localized: Dev.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946695
+    m_Localized: Go Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946696
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946697
     m_Localized: Back
     m_Metadata:
       m_Items: []

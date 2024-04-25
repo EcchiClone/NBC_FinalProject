@@ -1,23 +1,37 @@
 ﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
-"UI-AchievementList",484763521024,"","Achievement List","","업적 목록",""
-"UI-AchievementAll",772824125440,"","All","","전체보기",""
-"UI-AchievementInProgress",3662821216256,"","In Progress","","진행중",""
-"UI-AchievementCompleted",5493408419840,"","Completed","","완료",""
-"UI-AchievementBack",5692189069312,"","Back","","뒤로가기",""
-"UI-SettingsSound",13129130463232,"","# Sound","","# 사운드",""
-"UI-SettingsGraphics",13129130463233,"","# Graphics","","# 그래픽",""
-"UI-SettingsData",13129130463234,"","# Data","","# 데이터",""
-"UI-SettingsMaster",13129134657536,"","Master","","마스터볼륨",""
-"UI-SettingsMusic",13129134657537,"","Music","","Music",""
-"UI-SettingsAmbience",13129134657538,"","Ambience","","Ambience",""
-"UI-SettingsSFX",13129134657539,"","SFX","","SFX",""
-"UI-SettingsResolution",13129134657540,"","Resolution","","해상도",""
-"UI-SettingsQuality",13129134657541,"","Quality","","품질",""
-"UI-SettingsLanguage",13129134657542,"","Language","","언어",""
-"UI-SettingsResolutionNotice",13129134657543,"","Abnormalities may occur at
-resolutions other than 1920 x 1080.","","1920 x 1080 이외의 해상도에서
-이상현상이 발생할 수 있습니다",""
-"UI-SettingsEnglishBtn",13129134657544,"","English","","영어",""
-"UI-SettingsKoreanBtn",13129134657545,"","Korean","","한국어",""
-"UI-SettingsBanner",14255598882816,"","Settings","","환경 설정",""
-"UI-SettingsBackBtn",15155260313600,"","Back","","뒤로가기",""
+UI-AchievementList,4.84764E+11,,Achievement List,,업적 목록,
+UI-AchievementAll,7.72824E+11,,All,,전체보기,
+UI-AchievementInProgress,3.66282E+12,,In Progress,,진행중,
+UI-AchievementCompleted,5.49341E+12,,Completed,,완료,
+UI-AchievementBack,5.69219E+12,,Back,,뒤로가기,
+UI-SettingsSound,1.31291E+13,,# Sound,,# 사운드,
+UI-SettingsGraphics,1.31291E+13,,# Graphics,,# 그래픽,
+UI-SettingsData,1.31291E+13,,# Data,,# 데이터,
+UI-SettingsMaster,1.31291E+13,,Master,,마스터볼륨,
+UI-SettingsMusic,1.31291E+13,,Music,,Music,
+UI-SettingsAmbience,1.31291E+13,,Ambience,,Ambience,
+UI-SettingsSFX,1.31291E+13,,SFX,,SFX,
+UI-SettingsResolution,1.31291E+13,,Resolution,,해상도,
+UI-SettingsQuality,1.31291E+13,,Quality,,품질,
+UI-SettingsLanguage,1.31291E+13,,Language,,언어,
+UI-SettingsResolutionNotice,1.31291E+13,,"Abnormalities may occur at
+resolutions other than 1920 x 1080.",,"1920 x 1080 이외의 해상도에서
+이상현상이 발생할 수 있습니다",
+UI-SettingsEnglishBtn,1.31291E+13,,English,,영어,
+UI-SettingsKoreanBtn,1.31291E+13,,Korean,,한국어,
+UI-SettingsBanner,1.42556E+13,,Settings,,환경 설정,
+UI-SettingsBackBtn,1.51553E+13,,Back,,뒤로가기,
+UI-GameStart,,,Game Start,,Game Start,
+UI-Option,,,Option,,Option,
+UI-Exit,,,Exit,,Exit,
+UI-MainGameStart,,,Game Start,,게임 시작,
+UI-MainModule,,,Module,,모듈 관리,
+UI-MainPerk,,,Perk,,강화 센터,
+UI-MainAchievement,,,Achievement,,업적,
+UI-MainSettings,,,Settings,,환경 설정,
+UI-MainExit,,,Exit,,게임 종료,
+UI-MainControl,,,Control Guide,,조작 가이드,
+UI-MainDev,,,Dev.,,개발자,
+UI-MainStageStart,,,Go Stage,,훈련 시작,
+UI-MainTutorial,,,Tutorial,,튜토리얼,
+UI-MainBack,,,Back,,이전으로,

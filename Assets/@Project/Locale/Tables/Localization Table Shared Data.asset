@@ -95,6 +95,62 @@ MonoBehaviour:
     m_Key: UI-SettingsBackBtn
     m_Metadata:
       m_Items: []
+  - m_Id: 38534075928576
+    m_Key: UI-GameStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871616
+    m_Key: UI-Option
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871617
+    m_Key: UI-Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534452752384
+    m_Key: UI-MainGameStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946688
+    m_Key: UI-MainModule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946689
+    m_Key: UI-MainPerk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946690
+    m_Key: UI-MainAchievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946691
+    m_Key: UI-MainSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946692
+    m_Key: UI-MainExit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946693
+    m_Key: UI-MainControl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946694
+    m_Key: UI-MainDev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946695
+    m_Key: UI-MainStageStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946696
+    m_Key: UI-MainTutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946697
+    m_Key: UI-MainBack
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
