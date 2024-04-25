@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Localization_Scripting Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 5272abb69ca5bef43aa2d3d7c67b03e4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 13852233728
+    m_Localized: Identification number NRE-IV-072 Main system access.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721984
+    m_Localized: 'Core operating normally. HUD working normally. infallibility.
+
+      Start
+      initialization test.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721985
+    m_Localized: 'From now on, before starting the combat training course.
+
+      We
+      proceed with basic testing procedures.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721986
+    m_Localized: 'Module joint test in progress.
+
+      <color=red>Press the [W]
+      [A] [S] [D]</color> keys to move the module.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721987
+    m_Localized: Check that the module joints are normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721988
+    m_Localized: 'Shock absorber test in progress.
+
+      Press <color=red>[SpaceBar]</color>
+      to jump.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721989
+    m_Localized: Check that the shock absorber is normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721990
+    m_Localized: 'Booster system testing in progress.
+
+      While moving, enter
+      the <color=red>[LShift]</color> key to dash.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721991
+    m_Localized: Check that the booster system is normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721992
+    m_Localized: 'Vertical output test in progress.
+
+      While jumping, press the
+      <color=red>[SpaceBar]</color> key to hover.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908663721993
+    m_Localized: Check vertical output is normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916288
+    m_Localized: We will now proceed with testing the armament system.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916289
+    m_Localized: 'Go to the following locations for testing:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916290
+    m_Localized: Entering the armed test area.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916291
+    m_Localized: 'Testing of left and right arm armament systems in progress.
+
+      Use
+      a weapon by clicking the mouse <color=red>[left] [right]</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916292
+    m_Localized: Confirmed that the arm armament system is normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916293
+    m_Localized: 'Testing of left and right shoulder armament systems in progress.
+
+      <color=red>Press
+      the [Q] [E]</color> keys to use your weapon.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916294
+    m_Localized: Shoulder arming system confirmed normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916295
+    m_Localized: 'Next is for precision shooting.
+
+      We are conducting a lock-on
+      system test.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916296
+    m_Localized: Aim at the dummy by clicking the mouse <color=red>[wheel]</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916297
+    m_Localized: Check that the lock-on system is normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916298
+    m_Localized: 'Automatically tracks enemies when aiming.
+
+      Use the armament
+      system to destroy the dummy.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916299
+    m_Localized: Confirm pile removal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916300
+    m_Localized: Check all systems are normal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4908667916301
+    m_Localized: 'You have completed the basic test.
+
+      End test.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
