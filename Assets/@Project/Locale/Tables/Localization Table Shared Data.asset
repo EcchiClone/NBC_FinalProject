@@ -211,6 +211,58 @@ MonoBehaviour:
     m_Key: UI-CreditName
     m_Metadata:
       m_Items: []
+  - m_Id: 56737032327168
+    m_Key: UI-ModuleBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075904
+    m_Key: UI-ModuleBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075905
+    m_Key: UI-ModuleUpper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075906
+    m_Key: UI-ModuleLower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075907
+    m_Key: UI-ModuleMainWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075908
+    m_Key: UI-ModuleSubWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075909
+    m_Key: UI-ModuleLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075910
+    m_Key: UI-ModuleRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206400
+    m_Key: UI-WeaponStatusLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206401
+    m_Key: UI-WeaponStatusRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830912
+    m_Key: UI-LowerStatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830913
+    m_Key: UI-UpperStatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59062673231872
+    m_Key: UI-ModuleStatus
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

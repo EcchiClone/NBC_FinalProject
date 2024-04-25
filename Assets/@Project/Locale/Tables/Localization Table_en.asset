@@ -160,13 +160,14 @@ MonoBehaviour:
   - m_Id: 49868268130304
     m_Localized: 'Controls
 
+      
 
       [W, A, S, D] - Move
 
-      [Wheel] - Zoom In/Out
+      [Wheel] -
+      Zoom In/Out
 
-      [Click]
-      - Select a perk'
+      [Click] - Select a perk'
     m_Metadata:
       m_Items: []
   - m_Id: 49868310073344
@@ -236,6 +237,58 @@ MonoBehaviour:
       KANG
 
       CHU'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737032327168
+    m_Localized: Module
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075904
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075905
+    m_Localized: Upper Parts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075906
+    m_Localized: Lower Parts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075907
+    m_Localized: Main Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075908
+    m_Localized: Sub Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075909
+    m_Localized: Left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075910
+    m_Localized: Right
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206400
+    m_Localized: Weapon Status [L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206401
+    m_Localized: Weapon Status [R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830912
+    m_Localized: Part Status [Lower]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830913
+    m_Localized: Part Status [Upper]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59062673231872
+    m_Localized: Module Status
     m_Metadata:
       m_Items: []
   references:
