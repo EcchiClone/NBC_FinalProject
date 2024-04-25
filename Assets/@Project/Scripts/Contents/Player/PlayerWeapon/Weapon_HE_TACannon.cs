@@ -55,7 +55,7 @@ public class Weapon_HE_TACannon : WeaponBase
                 AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LaserCannon_Shot, Vector3.zero);
                 Vector3 freeFireTarget = GetFreeFireDest();
                 if (_target != null)
-                    transform.rotation = Quaternion.LookRotation(_target.position - transform.position);
+                    transform.rotation = Quaternion.LookRotation(_target.Transform.position - transform.position);
                 GameObject bullet;
                 if (IsHitTarget(muzzle, out Transform target))
                     bullet = CreateBullet(target);
@@ -81,7 +81,7 @@ public class Weapon_HE_TACannon : WeaponBase
         if (_target == null)
             yield break;
 
-        Vector3 weaponToLookAt = _target.position - transform.position;
+        Vector3 weaponToLookAt = _target.Transform.position - transform.position;
         
         Quaternion currentHeadRot = transform.rotation;
         Quaternion targetHeadRotation = Quaternion.LookRotation(weaponToLookAt);

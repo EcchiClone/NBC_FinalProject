@@ -1,4 +1,5 @@
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
 
 public class UI_ArmChangeBtn : UI_ChangeButton
 {
@@ -53,9 +54,10 @@ public class UI_ArmChangeBtn : UI_ChangeButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         base.OnPointerEnter(eventData);
+
         if (!currentData.IsUnlocked)
         {
-            Managers.Module.CallInfoChange("Locked", "잠금 해제 후 정보 확인 가능");
+            Managers.Module.CallInfoChange("Locked", $"{LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Module Table", "UI-PartsInfo", LocalizationSettings.SelectedLocale)}");
             return;
         }
 
@@ -64,7 +66,7 @@ public class UI_ArmChangeBtn : UI_ChangeButton
             selector.DisplayNextPartSpecText_L(currentData);
         else
             selector.DisplayNextPartSpecText_R(currentData);
-
+        
         Managers.Module.CallInfoChange(_displayName, _displayDesc);
     }
 

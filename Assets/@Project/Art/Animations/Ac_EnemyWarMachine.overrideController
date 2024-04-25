@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ac_EnemyWarMachine
+  m_Controller: {fileID: 9100000, guid: 5915e96393f0e2e439e7511ba7ba5422, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -8945691123924629249, guid: a667acf5ce4ac1449aaeaba89c7cf086,
+      type: 3}
+    m_OverrideClip: {fileID: 1950352769891539503, guid: 28856c6a27776634495c41032e1d32dd,
+      type: 3}
+  - m_OriginalClip: {fileID: -5913978943142729594, guid: a667acf5ce4ac1449aaeaba89c7cf086,
+      type: 3}
+    m_OverrideClip: {fileID: -6623500796042477113, guid: 28856c6a27776634495c41032e1d32dd,
+      type: 3}

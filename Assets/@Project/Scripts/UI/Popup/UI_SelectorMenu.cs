@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using static Define;
 
 public class UI_SelectorMenu : UI_Popup

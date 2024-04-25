@@ -7,10 +7,12 @@ public class TitleRainy : MonoBehaviour
     public GameObject[] go;
     public float waitTime;
     public int numPerGen;
+    GameObject parent;
 
     private void Start()
     {
         StartCoroutine(SpawnRandomObjects());
+        parent = GameObject.Find("Rains");
     }
 
     private IEnumerator SpawnRandomObjects()
@@ -26,7 +28,7 @@ public class TitleRainy : MonoBehaviour
                 float z = Random.Range(-300.0f, 300.0f);
                 Vector3 spawnPosition = new Vector3(x, 100.0f, z);
                 GameObject randomObject = go[Random.Range(0, go.Length)];
-                Instantiate(randomObject, spawnPosition, Quaternion.identity);
+                Instantiate(randomObject, spawnPosition, Quaternion.identity).transform.SetParent(parent.transform);
             }
         }
     }
