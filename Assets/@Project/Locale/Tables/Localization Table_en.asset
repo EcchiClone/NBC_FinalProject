@@ -291,6 +291,58 @@ MonoBehaviour:
     m_Localized: Module Status
     m_Metadata:
       m_Items: []
+  - m_Id: 63753658322944
+    m_Localized: RESULT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265984
+    m_Localized: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265985
+    m_Localized: Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568832
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265987
+    m_Localized: Minion Kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265988
+    m_Localized: Boss Kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265989
+    m_Localized: Research Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265990
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265991
+    m_Localized: Back Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64404459114496
+    m_Localized: Best Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568833
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568834
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568835
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

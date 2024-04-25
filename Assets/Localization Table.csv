@@ -1,85 +1,98 @@
 ﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
-"UI-AchievementList",484763521024,"","Achievement List","","업적 목록",""
-"UI-AchievementAll",772824125440,"","All","","전체보기",""
-"UI-AchievementInProgress",3662821216256,"","In Progress","","진행중",""
-"UI-AchievementCompleted",5493408419840,"","Completed","","완료",""
-"UI-AchievementBack",5692189069312,"","Back","","뒤로가기",""
-"UI-SettingsSound",13129130463232,"","# Sound","","# 사운드",""
-"UI-SettingsGraphics",13129130463233,"","# Graphics","","# 그래픽",""
-"UI-SettingsData",13129130463234,"","# Data","","# 데이터",""
-"UI-SettingsMaster",13129134657536,"","Master","","마스터볼륨",""
-"UI-SettingsMusic",13129134657537,"","Music","","Music",""
-"UI-SettingsAmbience",13129134657538,"","Ambience","","Ambience",""
-"UI-SettingsSFX",13129134657539,"","SFX","","SFX",""
-"UI-SettingsResolution",13129134657540,"","Resolution","","해상도",""
-"UI-SettingsQuality",13129134657541,"","Quality","","품질",""
-"UI-SettingsLanguage",13129134657542,"","Language","","언어",""
-"UI-SettingsResolutionNotice",13129134657543,"","Abnormalities may occur at
-resolutions other than 1920 x 1080.","","1920 x 1080 이외의 해상도에서
-이상현상이 발생할 수 있습니다",""
-"UI-SettingsEnglishBtn",13129134657544,"","English","","영어",""
-"UI-SettingsKoreanBtn",13129134657545,"","Korean","","한국어",""
-"UI-SettingsBanner",14255598882816,"","Settings","","환경 설정",""
-"UI-SettingsBackBtn",15155260313600,"","Back","","뒤로가기",""
-"UI-GameStart",38534075928576,"","Game Start","","Game Start",""
-"UI-Option",38534117871616,"","Option","","Option",""
-"UI-Exit",38534117871617,"","Exit","","Exit",""
-"UI-MainGameStart",40534452752384,"","Game Start","","게임 시작",""
-"UI-MainModule",40534456946688,"","Module","","모듈 관리",""
-"UI-MainPerk",40534456946689,"","Perk","","강화 센터",""
-"UI-MainAchievement",40534456946690,"","Achievement","","업적",""
-"UI-MainSettings",40534456946691,"","Settings","","환경 설정",""
-"UI-MainExit",40534456946692,"","Exit","","게임 종료",""
-"UI-MainControl",40534456946693,"","Control Guide","","조작 가이드",""
-"UI-MainDev",40534456946694,"","Dev.","","개발자",""
-"UI-MainStageStart",40534456946695,"","Go Stage","","훈련 시작",""
-"UI-MainTutorial",40534456946696,"","Tutorial","","튜토리얼",""
-"UI-MainBack",40534456946697,"","Back","","이전으로",""
-"UI-PerkControlGuide",49868268130304,"","Controls
+UI-AchievementList,4.84764E+11,,Achievement List,,업적 목록,
+UI-AchievementAll,7.72824E+11,,All,,전체보기,
+UI-AchievementInProgress,3.66282E+12,,In Progress,,진행중,
+UI-AchievementCompleted,5.49341E+12,,Completed,,완료,
+UI-AchievementBack,5.69219E+12,,Back,,뒤로가기,
+UI-SettingsSound,1.31291E+13,,# Sound,,# 사운드,
+UI-SettingsGraphics,1.31291E+13,,# Graphics,,# 그래픽,
+UI-SettingsData,1.31291E+13,,# Data,,# 데이터,
+UI-SettingsMaster,1.31291E+13,,Master,,마스터볼륨,
+UI-SettingsMusic,1.31291E+13,,Music,,Music,
+UI-SettingsAmbience,1.31291E+13,,Ambience,,Ambience,
+UI-SettingsSFX,1.31291E+13,,SFX,,SFX,
+UI-SettingsResolution,1.31291E+13,,Resolution,,해상도,
+UI-SettingsQuality,1.31291E+13,,Quality,,품질,
+UI-SettingsLanguage,1.31291E+13,,Language,,언어,
+UI-SettingsResolutionNotice,1.31291E+13,,"Abnormalities may occur at
+resolutions other than 1920 x 1080.",,"1920 x 1080 이외의 해상도에서
+이상현상이 발생할 수 있습니다",
+UI-SettingsEnglishBtn,1.31291E+13,,English,,영어,
+UI-SettingsKoreanBtn,1.31291E+13,,Korean,,한국어,
+UI-SettingsBanner,1.42556E+13,,Settings,,환경 설정,
+UI-SettingsBackBtn,1.51553E+13,,Back,,뒤로가기,
+UI-GameStart,3.85341E+13,,Game Start,,Game Start,
+UI-Option,3.85341E+13,,Option,,Option,
+UI-Exit,3.85341E+13,,Exit,,Exit,
+UI-MainGameStart,4.05345E+13,,Game Start,,게임 시작,
+UI-MainModule,4.05345E+13,,Module,,모듈 관리,
+UI-MainPerk,4.05345E+13,,Perk,,강화 센터,
+UI-MainAchievement,4.05345E+13,,Achievement,,업적,
+UI-MainSettings,4.05345E+13,,Settings,,환경 설정,
+UI-MainExit,4.05345E+13,,Exit,,게임 종료,
+UI-MainControl,4.05345E+13,,Control Guide,,조작 가이드,
+UI-MainDev,4.05345E+13,,Dev.,,개발자,
+UI-MainStageStart,4.05345E+13,,Go Stage,,훈련 시작,
+UI-MainTutorial,4.05345E+13,,Tutorial,,튜토리얼,
+UI-MainBack,4.05345E+13,,Back,,이전으로,
+UI-PerkControlGuide,4.98683E+13,,"Controls
 
 [W, A, S, D] - Move
 [Wheel] - Zoom In/Out
-[Click] - Select a perk","","조작법
+[Click] - Select a perk",,"조작법
 
 [W, A, S, D] - 이동
 [마우스 휠] - 줌 In/Out
-[마우스 클릭] - 퍼크 선택",""
-"UI-GuideESC",49868310073344,"","[ESC] Pause","","[ESC] 일시정지",""
-"UI-GuideOpenGuide",49868310073345,"","[`] Control Guide","","[`] 조작가이드 열기",""
-"UI-GuideQE",49868310073346,"","[Q, E] Sub Weapon","","[Q, E] 어깨 무장 공격",""
-"UI-GuideWASD",49868310073347,"","[W, A, S, D] Move","","[W, A, S, D] 플레이어 이동",""
-"UI-GuideLR",49868310073348,"","[Click L/R] Main Weapon","","[클릭LR] 팔 무장 공격",""
-"UI-GuideWheel",49868310073349,"","[Click Wheel] Lock On","","[휠클릭] 자동 조준",""
-"UI-GuideDrag",49868310073350,"","[Drag] Move Camera","","[드래그] 시야 조절",""
-"UI-GuideShift",49868310073351,"","[Shift] Booster","","[Shift] 부스터",""
-"UI-GuideSpace",49868310073352,"","[Spacebar] Jump, Hover","","[Spacebar] 점프, 비행",""
-"UI-Back",49868310073353,"","Back","","뒤로가기",""
-"UI-ControlGuide",49868310073354,"","Control Guide","","조작 가이드",""
-"UI-CreditBanner",53455501152256,"","Developer","","개발자",""
-"UI-CreditContent",53455501152257,"","Player, Data, 3D Model
+[마우스 클릭] - 퍼크 선택",
+UI-GuideESC,4.98683E+13,,[ESC] Pause,,[ESC] 일시정지,
+UI-GuideOpenGuide,4.98683E+13,,[`] Control Guide,,[`] 조작가이드 열기,
+UI-GuideQE,4.98683E+13,,"[Q, E] Sub Weapon",,"[Q, E] 어깨 무장 공격",
+UI-GuideWASD,4.98683E+13,,"[W, A, S, D] Move",,"[W, A, S, D] 플레이어 이동",
+UI-GuideLR,4.98683E+13,,[Click L/R] Main Weapon,,[클릭LR] 팔 무장 공격,
+UI-GuideWheel,4.98683E+13,,[Click Wheel] Lock On,,[휠클릭] 자동 조준,
+UI-GuideDrag,4.98683E+13,,[Drag] Move Camera,,[드래그] 시야 조절,
+UI-GuideShift,4.98683E+13,,[Shift] Booster,,[Shift] 부스터,
+UI-GuideSpace,4.98683E+13,,"[Spacebar] Jump, Hover",,"[Spacebar] 점프, 비행",
+UI-Back,4.98683E+13,,Back,,뒤로가기,
+UI-ControlGuide,4.98683E+13,,Control Guide,,조작 가이드,
+UI-CreditBanner,5.34555E+13,,Developer,,개발자,
+UI-CreditContent,5.34555E+13,,"Player, Data, 3D Model
 Bullet Gen, Achievement
 Enemy AI, UI Core
-Sound, Perk","","플레이어, 데이터, 3D모델링
+Sound, Perk",,"플레이어, 데이터, 3D모델링
 탄막 시스템, 퀘스트 시스템
 적 및 상태 AI, UI시스템
-사운드, 강화 테크트리(Perk)",""
-"UI-CreditName",53455501152258,"","GUK
+사운드, 강화 테크트리(Perk)",
+UI-CreditName,5.34555E+13,,"GUK
 LEE
 KANG
-CHU","","국 지윤
+CHU",,"국 지윤
 이 도현
 강 성원
-추 민규",""
-"UI-ModuleBanner",56737032327168,"","Module","","모듈 관리",""
-"UI-ModuleBack",56737070075904,"","Back","","뒤로",""
-"UI-ModuleUpper",56737070075905,"","Upper Parts","","상 체",""
-"UI-ModuleLower",56737070075906,"","Lower Parts","","하 체",""
-"UI-ModuleMainWeapon",56737070075907,"","Main Weapon","","무장 [팔]",""
-"UI-ModuleSubWeapon",56737070075908,"","Sub Weapon","","무장 [어깨]",""
-"UI-ModuleLeft",56737070075909,"","Left","","좌",""
-"UI-ModuleRight",56737070075910,"","Right","","우",""
-"UI-WeaponStatusLeft",57761839206400,"","Weapon Status [L]","","무장 능력치 [좌]",""
-"UI-WeaponStatusRight",57761839206401,"","Weapon Status [R]","","무장 능력치 [우]",""
-"UI-LowerStatus",58623361830912,"","Part Status [Lower]","","파츠 능력치 [하체]",""
-"UI-UpperStatus",58623361830913,"","Part Status [Upper]","","파츠 능력치 [상체]",""
-"UI-ModuleStatus",59062673231872,"","Module Status","","모듈 능력치",""
+추 민규",
+UI-ModuleBanner,5.6737E+13,,Module,,모듈 관리,
+UI-ModuleBack,5.67371E+13,,Back,,뒤로,
+UI-ModuleUpper,5.67371E+13,,Upper Parts,,상 체,
+UI-ModuleLower,5.67371E+13,,Lower Parts,,하 체,
+UI-ModuleMainWeapon,5.67371E+13,,Main Weapon,,무장 [팔],
+UI-ModuleSubWeapon,5.67371E+13,,Sub Weapon,,무장 [어깨],
+UI-ModuleLeft,5.67371E+13,,Left,,좌,
+UI-ModuleRight,5.67371E+13,,Right,,우,
+UI-WeaponStatusLeft,5.77618E+13,,Weapon Status [L],,무장 능력치 [좌],
+UI-WeaponStatusRight,5.77618E+13,,Weapon Status [R],,무장 능력치 [우],
+UI-LowerStatus,5.86234E+13,,Part Status [Lower],,파츠 능력치 [하체],
+UI-UpperStatus,5.86234E+13,,Part Status [Upper],,파츠 능력치 [상체],
+UI-ModuleStatus,5.90627E+13,,Module Status,,모듈 능력치,
+UI-ResultTitle,,,RESULT,,훈련 결과,
+UI-ResultTimer,,,Time,,경과 시간,
+UI-ResultStage,,,Stage,,스테이지,
+UI-ResultBestStage,,,Best Stage,,최고 스테이지,
+UI-ResultMinion,,,Minion Kill,,미니언 처치,
+UI-ResultBoss,,,Boss Kill,,보스 처치,
+UI-ResultPoint,,,Research Point,,연구 포인트,
+UI-ResultRestart,,,Restart,,재시도,
+UI-ResultBack,,,Back Menu,,돌아가기,
+UI-PauseResume,,,Resume,,계속하기,
+UI-PauseRestart,,,Restart,,다시하기,
+UI-PauseSettings,,,Settings,,환경 설정,
+UI-PauseExit,,,Exit,,나가기,

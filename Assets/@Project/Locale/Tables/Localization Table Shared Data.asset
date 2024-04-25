@@ -263,6 +263,58 @@ MonoBehaviour:
     m_Key: UI-ModuleStatus
     m_Metadata:
       m_Items: []
+  - m_Id: 63753658322944
+    m_Key: UI-ResultTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265984
+    m_Key: UI-ResultTimer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265985
+    m_Key: UI-ResultStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64404459114496
+    m_Key: UI-ResultBestStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265987
+    m_Key: UI-ResultMinion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265988
+    m_Key: UI-ResultBoss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265989
+    m_Key: UI-ResultPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265990
+    m_Key: UI-ResultRestart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265991
+    m_Key: UI-ResultBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568832
+    m_Key: UI-PauseResume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568833
+    m_Key: UI-PauseRestart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568834
+    m_Key: UI-PauseSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568835
+    m_Key: UI-PauseExit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
