@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class UI_TutorialDialoguePopup : UI_Popup
 {
@@ -36,7 +37,8 @@ public class UI_TutorialDialoguePopup : UI_Popup
         _scriptIndex = 0;
         
         _currentTutoData = Managers.Data.GetTutorialData(_scriptPhase);        
-        _currentScript = _currentTutoData.Scripts[_scriptIndex];
+        //_currentScript = _currentTutoData.Scripts[_scriptIndex];
+        _currentScript = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Scripting Table", $"T{_scriptPhase}{_scriptIndex}", LocalizationSettings.SelectedLocale);
         _currentScriptLength = _currentTutoData.Scripts.Count;
 
         _coroutine = StartCoroutine(Co_Scripting());
@@ -48,7 +50,8 @@ public class UI_TutorialDialoguePopup : UI_Popup
             return;
 
         _dialogueText.text = string.Empty;        
-        _currentScript = _currentTutoData.Scripts[++_scriptIndex];
+        //_currentScript = _currentTutoData.Scripts[++_scriptIndex];
+        _currentScript = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Scripting Table", $"T{_scriptPhase}{++_scriptIndex}", LocalizationSettings.SelectedLocale);
         _coroutine = StartCoroutine(Co_Scripting());
     }
 

@@ -9,5 +9,5 @@ public class PlayerBullet : PlayerProjectile
         base.Setup(speed, damage, splash, groundTargetPos, target, explosiveRange);
 
         _rigid.velocity = transform.forward * _speed;        
-    }    
+    }
 }

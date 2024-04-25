@@ -79,8 +79,6 @@ public class PlayerProjectile : Bullet
 
     private void PlaySFX()
     {
-        // 사용하는 것만 추가
-        // enum에 커서대면 어떤 순서인지 나와용
         switch (_sfxType)
         {            
             case Define.BulletHitSounds.CannonSmall:
@@ -109,20 +107,20 @@ public class PlayerProjectile : Bullet
 
     private void CreateEffect()
     {
-        GameObject go = ObjectPooler.SpawnFromPool(_hitEffectPrefab.name, transform.position);
+        GameObject go = Util.GetPooler(PoolingType.Player).SpawnFromPool(_hitEffectPrefab.name, transform.position);
         EffectLifeTime hitEffect = go.GetComponent<EffectLifeTime>();
         hitEffect.Setup();
         hitEffect.transform.rotation = transform.rotation;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        ObjectPooler.ReturnToPool(gameObject); // 한 객체에 한번만        
+        Util.GetPooler(PoolingType.Player).ReturnToPool(gameObject); // 한 객체에 한번만        
         CancelInvoke();
     }
 }

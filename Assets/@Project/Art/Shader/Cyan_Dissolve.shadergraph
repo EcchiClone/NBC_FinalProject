@@ -1037,7 +1037,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Emmision Color",
     "m_DefaultReferenceName": "_Emmision_Color",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_EmmisionColor",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",

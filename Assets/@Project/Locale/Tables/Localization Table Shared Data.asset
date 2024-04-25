@@ -1,0 +1,549 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Localization Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Localization Table
+  m_TableCollectionNameGuidString: 292507985b4940c46b15bf6eda383c11
+  m_Entries:
+  - m_Id: 484763521024
+    m_Key: UI-AchievementList
+    m_Metadata:
+      m_Items: []
+  - m_Id: 772824125440
+    m_Key: UI-AchievementAll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3662821216256
+    m_Key: UI-AchievementInProgress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5493408419840
+    m_Key: UI-AchievementCompleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5692189069312
+    m_Key: UI-AchievementBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463232
+    m_Key: UI-SettingsSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463233
+    m_Key: UI-SettingsGraphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463234
+    m_Key: UI-SettingsData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657536
+    m_Key: UI-SettingsMaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657537
+    m_Key: UI-SettingsMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657538
+    m_Key: UI-SettingsAmbience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657539
+    m_Key: UI-SettingsSFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657540
+    m_Key: UI-SettingsResolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657541
+    m_Key: UI-SettingsQuality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657542
+    m_Key: UI-SettingsLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657543
+    m_Key: UI-SettingsResolutionNotice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657544
+    m_Key: UI-SettingsEnglishBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657545
+    m_Key: UI-SettingsKoreanBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14255598882816
+    m_Key: UI-SettingsBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15155260313600
+    m_Key: UI-SettingsBackBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534075928576
+    m_Key: UI-GameStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871616
+    m_Key: UI-Option
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871617
+    m_Key: UI-Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534452752384
+    m_Key: UI-MainGameStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946688
+    m_Key: UI-MainModule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946689
+    m_Key: UI-MainPerk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946690
+    m_Key: UI-MainAchievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946691
+    m_Key: UI-MainSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946692
+    m_Key: UI-MainExit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946693
+    m_Key: UI-MainControl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946694
+    m_Key: UI-MainDev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946695
+    m_Key: UI-MainStageStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946696
+    m_Key: UI-MainTutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946697
+    m_Key: UI-MainBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868268130304
+    m_Key: UI-PerkControlGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073344
+    m_Key: UI-GuideESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073345
+    m_Key: UI-GuideOpenGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073346
+    m_Key: UI-GuideQE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073347
+    m_Key: UI-GuideWASD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073348
+    m_Key: UI-GuideLR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073349
+    m_Key: UI-GuideWheel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073350
+    m_Key: UI-GuideDrag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073351
+    m_Key: UI-GuideShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073352
+    m_Key: UI-GuideSpace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073353
+    m_Key: UI-Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073354
+    m_Key: UI-ControlGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152256
+    m_Key: UI-CreditBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152257
+    m_Key: UI-CreditContent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152258
+    m_Key: UI-CreditName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737032327168
+    m_Key: UI-ModuleBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075904
+    m_Key: UI-ModuleBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075905
+    m_Key: UI-ModuleUpper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075906
+    m_Key: UI-ModuleLower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075907
+    m_Key: UI-ModuleMainWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075908
+    m_Key: UI-ModuleSubWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075909
+    m_Key: UI-ModuleLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075910
+    m_Key: UI-ModuleRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206400
+    m_Key: UI-WeaponStatusLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206401
+    m_Key: UI-WeaponStatusRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830912
+    m_Key: UI-LowerStatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830913
+    m_Key: UI-UpperStatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59062673231872
+    m_Key: UI-ModuleStatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753658322944
+    m_Key: UI-ResultTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265984
+    m_Key: UI-ResultTimer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265985
+    m_Key: UI-ResultStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64404459114496
+    m_Key: UI-ResultBestStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265987
+    m_Key: UI-ResultMinion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265988
+    m_Key: UI-ResultBoss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265989
+    m_Key: UI-ResultPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265990
+    m_Key: UI-ResultRestart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265991
+    m_Key: UI-ResultBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568832
+    m_Key: UI-PauseResume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568833
+    m_Key: UI-PauseRestart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568834
+    m_Key: UI-PauseSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568835
+    m_Key: UI-PauseExit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148256452608
+    m_Key: Text-Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646912
+    m_Key: Text-Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646913
+    m_Key: UI-NotEnoughAchievementPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646914
+    m_Key: UI-FirstTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646915
+    m_Key: UI-FirstSkipGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646916
+    m_Key: UI-FirstInfo1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646917
+    m_Key: UI-FirstInfo2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646918
+    m_Key: UI-FirstInfo3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646919
+    m_Key: UI-FirstInfo4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646920
+    m_Key: UI-FirstInfo5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646921
+    m_Key: UI-FirstInfo6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816644562944
+    m_Key: UI-StatsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311680
+    m_Key: UI-StatsTabAC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311681
+    m_Key: UI-StatsTabMainWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311682
+    m_Key: UI-StatsTabSubWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311683
+    m_Key: Ui-Stats-AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069810536448
+    m_Key: UI-Stats-Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311685
+    m_Key: UI-Stats-MoveSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069839896576
+    m_Key: UI-Stats-JumpPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311687
+    m_Key: UI-Stats-BoostPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311688
+    m_Key: UI-Stats-BoostCharge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505984
+    m_Key: UI-Stats-HoverPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505985
+    m_Key: UI-Stats-RotationSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505986
+    m_Key: UI-Stats-Evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505987
+    m_Key: UI-Stats-DamageL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939520
+    m_Key: UI-Stats-FireRateL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939521
+    m_Key: UI-Stats-BulletSpeedL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939522
+    m_Key: UI-Stats-BulletAmmoL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505991
+    m_Key: UI-Stats-ReloadTimeL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505992
+    m_Key: UI-Stats-PenetrateL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939523
+    m_Key: UI-Stats-ShotErrorL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505994
+    m_Key: UI-Stats-DamageR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939524
+    m_Key: UI-Stats-FireRateR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505996
+    m_Key: UI-Stats-BulletSpeedR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939525
+    m_Key: UI-Stats-BulletAmmoR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505998
+    m_Key: UI-Stats-ReloadTimeR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505999
+    m_Key: UI-Stats-PenetrateR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939526
+    m_Key: UI-Stats-ShotErrorR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506001
+    m_Key: UI-Stats-ShotPerOneTimeL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506002
+    m_Key: UI-Stats-RefillL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506003
+    m_Key: UI-Stats-ShotPerOneTimeR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506004
+    m_Key: UI-Stats-RefillR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179608454975488
+    m_Key: UI-TabContinue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873088
+    m_Key: UI-Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873089
+    m_Key: UI-No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873090
+    m_Key: UI-TutorialSkipAlert1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873091
+    m_Key: UI-TutorialSkipAlert2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332352
+    m_Key: UI-Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332353
+    m_Key: UI-Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404331872256
+    m_Key: Text-CurrentStage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009600
+    m_Key: Text-SpawnedEnemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009601
+    m_Key: Text-KilledEnemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202640628142080
+    m_Key: Text-NextWave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203348114952192
+    m_Key: Text-Remain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206001783984128
+    m_Key: Text-CurrentStage1
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5160939920919363610
+  references:
+    version: 2
+    RefIds:
+    - rid: 5160939920919363610
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1714000554753

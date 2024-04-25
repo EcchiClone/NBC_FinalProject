@@ -1,0 +1,606 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Localization Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 292507985b4940c46b15bf6eda383c11, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 484763521024
+    m_Localized: Achievement List
+    m_Metadata:
+      m_Items: []
+  - m_Id: 772824125440
+    m_Localized: All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3662821216256
+    m_Localized: In Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5493408419840
+    m_Localized: Completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5692189069312
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463232
+    m_Localized: '# Sound'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463233
+    m_Localized: '# Graphics'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463234
+    m_Localized: '# Data'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657536
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657537
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657538
+    m_Localized: Ambience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657539
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657540
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657541
+    m_Localized: Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657542
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657543
+    m_Localized: 'Abnormalities may occur at
+
+      resolutions other than 1920
+      x 1080.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657544
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657545
+    m_Localized: Korean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14255598882816
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15155260313600
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534075928576
+    m_Localized: Game Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871616
+    m_Localized: Option
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38534117871617
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534452752384
+    m_Localized: Game Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946688
+    m_Localized: Module
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946689
+    m_Localized: Perk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946690
+    m_Localized: Achievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946691
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946692
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946693
+    m_Localized: Control Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946694
+    m_Localized: Dev.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946695
+    m_Localized: Go Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946696
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40534456946697
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868268130304
+    m_Localized: 'Controls
+
+      
+
+      [W, A, S, D] - Move
+
+      [Wheel] -
+      Zoom In/Out
+
+      [Click] - Select a perk'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073344
+    m_Localized: '[ESC] Pause'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073345
+    m_Localized: '[`] Control Guide'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073346
+    m_Localized: '[Q, E] Sub Weapon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073347
+    m_Localized: '[W, A, S, D] Move'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073348
+    m_Localized: '[Click L/R] Main Weapon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073349
+    m_Localized: '[Click Wheel] Lock On'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073350
+    m_Localized: '[Drag] Move Camera'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073351
+    m_Localized: '[Shift] Booster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073352
+    m_Localized: '[Spacebar] Jump, Hover'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073353
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073354
+    m_Localized: Control Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152256
+    m_Localized: Developer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152257
+    m_Localized: 'Player, Data, 3D Model
+
+      Bullet Gen, Achievement
+
+      Enemy
+      AI, UI Core
+
+      Sound, Perk'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152258
+    m_Localized: 'GUK
+
+      LEE
+
+      KANG
+
+      CHU'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737032327168
+    m_Localized: Module
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075904
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075905
+    m_Localized: Upper Parts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075906
+    m_Localized: Lower Parts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075907
+    m_Localized: Main Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075908
+    m_Localized: Sub Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075909
+    m_Localized: Left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56737070075910
+    m_Localized: Right
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206400
+    m_Localized: Weapon Status [L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57761839206401
+    m_Localized: Weapon Status [R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830912
+    m_Localized: Part Status [Lower]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58623361830913
+    m_Localized: Part Status [Upper]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59062673231872
+    m_Localized: Module Status
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753658322944
+    m_Localized: RESULT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265984
+    m_Localized: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265985
+    m_Localized: Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568832
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265987
+    m_Localized: Minion Kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265988
+    m_Localized: Boss Kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265989
+    m_Localized: Research Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265990
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63753700265991
+    m_Localized: Back Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64404459114496
+    m_Localized: Best Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568833
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568834
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64926792568835
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148256452608
+    m_Localized: Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646912
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646913
+    m_Localized: There are not enough achievement points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646914
+    m_Localized: How To Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646915
+    m_Localized: Press SpaceBar to continue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646916
+    m_Localized: 'Survive the oncoming waves of enemies.
+
+      
+
+      There are
+      a total of <color=red>100</color> levels of waves.
+
+      Boss stages occur
+      every <color=red>5 stages</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646917
+    m_Localized: 'Stage information is located at the top left of the screen.
+
+      After
+      the designated number of enemies appear in each wave,
+
+      a timer for the
+      next wave starts.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646918
+    m_Localized: 'The types of minions that appear are as follows:
+
+      
+
+      (1)
+      Ball (close-range explosive)
+
+      (2) Drone (aerial long-range)
+
+      (3)
+      Spider (ground long-range)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646919
+    m_Localized: 'Boss monsters employ various patterns towards the player from the
+      air.
+
+      
+
+      If the boss monster is not defeated within the <color=red>time
+      limit, it is game over</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646920
+    m_Localized: 'Weapons cannot be reloaded until they are out of ammunition.
+
+      
+
+      Shoulder
+      weapons become <color=red>unusable after all provided ammunition is spent.</color>
+
+      [Reloadable
+      with perk abilities]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646921
+    m_Localized: Clear all stages and become an elite unit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816644562944
+    m_Localized: Total Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311680
+    m_Localized: AC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311681
+    m_Localized: Main Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311682
+    m_Localized: Sub Weapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311683
+    m_Localized: AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179608454975488
+    m_Localized: Press Tab key to continue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311685
+    m_Localized: Move Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873088
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311687
+    m_Localized: Boost Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816682311688
+    m_Localized: Boost Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505984
+    m_Localized: Hover Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505985
+    m_Localized: Rotation Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505986
+    m_Localized: Evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505987
+    m_Localized: Damage[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505991
+    m_Localized: Reload Time[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505992
+    m_Localized: Penetrate[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505994
+    m_Localized: Damage[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505996
+    m_Localized: Bullet Speed[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505998
+    m_Localized: Reload Time[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686505999
+    m_Localized: Penetrate[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506001
+    m_Localized: Shot per One Time[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506002
+    m_Localized: Refill[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506003
+    m_Localized: Shot per One Time[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 163816686506004
+    m_Localized: Refill[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939520
+    m_Localized: Fire Rate[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939521
+    m_Localized: Bullet Speed[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939522
+    m_Localized: Bullet Ammo[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939523
+    m_Localized: Shot Error[L]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939524
+    m_Localized: FireRate[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939525
+    m_Localized: Bullet Ammo[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 167840424939526
+    m_Localized: Shot Error[R]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069810536448
+    m_Localized: Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 177069839896576
+    m_Localized: Jump Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873089
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873090
+    m_Localized: Do you want to skip the tutorial?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180699078873091
+    m_Localized: You can restart it at any time from the main menu.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332352
+    m_Localized: Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 181271039332353
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404331872256
+    m_Localized: Current Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009600
+    m_Localized: Spawned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009601
+    m_Localized: Killed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202640628142080
+    m_Localized: Next Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203348114952192
+    m_Localized: Remain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206001783984128
+    m_Localized: 'Current Stage : 1'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

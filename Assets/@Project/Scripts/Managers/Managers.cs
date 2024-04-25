@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Managers : MonoBehaviour
@@ -77,6 +75,6 @@ public class Managers : MonoBehaviour
         Module.Clear();
         Tutorial.Clear();
         GameManager.Clear();
-        CoroutineManager.StopAllCoroutine();
+        Util.ClearPooler();        
     }
 }

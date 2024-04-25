@@ -68,7 +68,7 @@ public class Ball_DeadState : BaseState
                 module.ModuleStatus.GetDamage(damage);
             }
         }
-        ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        Util.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
     }

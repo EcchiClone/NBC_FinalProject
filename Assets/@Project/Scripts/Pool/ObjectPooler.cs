@@ -21,11 +21,15 @@ public class ObjectPoolerEditor : Editor
 }
 #endif
 
+public enum PoolingType
+{
+    UI,
+    Enemy,
+    Player,
+}
+
 public class ObjectPooler : MonoBehaviour
 {
-    static ObjectPooler inst;
-    void Awake() => inst = this;
-
     [Serializable]
     public class Pool
     {
@@ -33,6 +37,8 @@ public class ObjectPooler : MonoBehaviour
         public GameObject prefab;
         public int size;
     }
+
+    [field: SerializeField] public PoolingType PoolingType { get; private set; }
 
     [SerializeField] Pool[] pools;
     List<GameObject> spawnObjects;
@@ -43,15 +49,15 @@ public class ObjectPooler : MonoBehaviour
 
 
 
-    public static GameObject SpawnFromPool(string tag, Vector3 position) =>
-        inst._SpawnFromPool(tag, position, Quaternion.identity);
+    public GameObject SpawnFromPool(string tag, Vector3 position) =>
+        _SpawnFromPool(tag, position, Quaternion.identity);
 
-    public static GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation) =>
-        inst._SpawnFromPool(tag, position, rotation);
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation) =>
+        _SpawnFromPool(tag, position, rotation);
 
-    public static T SpawnFromPool<T>(string tag, Vector3 position) where T : Component
+    public T SpawnFromPool<T>(string tag, Vector3 position) where T : Component
     {
-        GameObject obj = inst._SpawnFromPool(tag, position, Quaternion.identity);
+        GameObject obj = _SpawnFromPool(tag, position, Quaternion.identity);
         if (obj.TryGetComponent(out T component))
             return component;
         else
@@ -61,9 +67,9 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public static T SpawnFromPool<T>(string tag, Vector3 position, Quaternion rotation) where T : Component
+    public T SpawnFromPool<T>(string tag, Vector3 position, Quaternion rotation) where T : Component
     {
-        GameObject obj = inst._SpawnFromPool(tag, position, rotation);
+        GameObject obj = _SpawnFromPool(tag, position, rotation);
         if (obj.TryGetComponent(out T component))
             return component;
         else
@@ -73,15 +79,15 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public static List<GameObject> GetAllPools(string tag)
+    public List<GameObject> GetAllPools(string tag)
     {
-        if (!inst.poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(tag))
             throw new Exception($"Pool with tag {tag} doesn't exist.");
 
-        return inst.spawnObjects.FindAll(x => x.name == tag);
+        return spawnObjects.FindAll(x => x.name == tag);
     }
 
-    public static List<T> GetAllPools<T>(string tag) where T : Component
+    public List<T> GetAllPools<T>(string tag) where T : Component
     {
         List<GameObject> objects = GetAllPools(tag);
 
@@ -91,24 +97,9 @@ public class ObjectPooler : MonoBehaviour
         return objects.ConvertAll(x => x.GetComponent<T>());
     }
 
-    public static void ReturnToPool(GameObject obj)
-    {
-        if (!inst.poolDictionary.ContainsKey(obj.name))
-            throw new Exception($"Pool with tag {obj.name} doesn't exist.");
+    public void ReturnToPool(GameObject obj) =>
+        _ReturnToPool(obj);
 
-        // 오브젝트의 위치와 회전을 초기화
-        obj.transform.position = Vector3.zero;
-        obj.transform.rotation = Quaternion.identity;
-
-        // Rigidbody가 있다면 velocity와 angularVelocity 초기화
-        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-
-        inst.poolDictionary[obj.name].Enqueue(obj);
-    }
 
     [ContextMenu("GetSpawnObjectsInfo")]
     void GetSpawnObjectsInfo()
@@ -123,7 +114,7 @@ public class ObjectPooler : MonoBehaviour
     GameObject _SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
-            throw new Exception($"Pool with tag {tag} doesn't exist.");
+            throw new Exception($"Pool with tag {tag} doesn't exist.");        
 
         // 큐에 없으면 새로 추가
         Queue<GameObject> poolQueue = poolDictionary[tag];
@@ -143,74 +134,98 @@ public class ObjectPooler : MonoBehaviour
         return objectToSpawn;
     }
 
-//     void Start()
-//     {
-//         spawnObjects = new List<GameObject>();
-//         poolDictionary = new Dictionary<string, Queue<GameObject>>();
+    void _ReturnToPool(GameObject obj)
+    {
+        if (!poolDictionary.ContainsKey(obj.name))
+            throw new Exception($"Pool with tag {obj.name} doesn't exist.");        
 
-//         // 미리 생성
-//         foreach (Pool pool in pools)
-//         {
-//             poolDictionary.Add(pool.tag, new Queue<GameObject>());
-//             for (int i = 0; i < pool.size; i++)
-//             {
-//                 var obj = CreateNewObject(pool.tag, pool.prefab);
-//                 ArrangePool(obj);
-//             }
+        // 오브젝트의 위치와 회전을 초기화
+        obj.transform.position = Vector3.zero;
+        obj.transform.rotation = Quaternion.identity;
 
-//             // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
-//             if (poolDictionary[pool.tag].Count <= 0)
-//                 Debug.LogError($"{pool.tag}{INFO}");
-//             else if (poolDictionary[pool.tag].Count != pool.size)
-//                 Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
-//         }
-//     }
+        // Rigidbody가 있다면 velocity와 angularVelocity 초기화
+        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
 
-//     GameObject CreateNewObject(string tag, GameObject prefab)
-//     {
-//         var obj = Instantiate(prefab, transform);
-//         obj.name = tag;
-//         obj.SetActive(false); // 비활성화시 ReturnToPool을 하므로 Enqueue가 됨
-//         return obj;
-//     }
+        poolDictionary[obj.name].Enqueue(obj);
+    }
 
-//     void ArrangePool(GameObject obj)
-//     {
-// <<<<<<< HEAD
-//         // 추가된 오브젝트 묶어서 정렬
-//         bool isFind = false;
-//         for (int i = 0; i < transform.childCount; i++)
-// =======
-//         // 오브젝트를 풀에 추가
-//         obj.transform.SetParent(transform);
-//         //poolDictionary[obj.name].Enqueue(obj);
-//     }
-//     IEnumerator TrackAllPoolsCompletion()
-//     {
-//         bool allDone = false;
-//         while (!allDone)
-// >>>>>>> Dev
-//         {
-//             if (i == transform.childCount - 1)
-//             {
-//                 obj.transform.SetSiblingIndex(i);
-//                 spawnObjects.Insert(i, obj);
-//                 break;
-//             }
-//             else if (transform.GetChild(i).name == obj.name)
-//                 isFind = true;
-//             else if (isFind)
-//             {
-//                 obj.transform.SetSiblingIndex(i);
-//                 spawnObjects.Insert(i, obj);
-//                 break;
-//             }
-//         }
-//     }
+    //     void Start()
+    //     {
+    //         spawnObjects = new List<GameObject>();
+    //         poolDictionary = new Dictionary<string, Queue<GameObject>>();
+
+    //         // 미리 생성
+    //         foreach (Pool pool in pools)
+    //         {
+    //             poolDictionary.Add(pool.tag, new Queue<GameObject>());
+    //             for (int i = 0; i < pool.size; i++)
+    //             {
+    //                 var obj = CreateNewObject(pool.tag, pool.prefab);
+    //                 ArrangePool(obj);
+    //             }
+
+    //             // OnDisable에 ReturnToPool 구현여부와 중복구현 검사
+    //             if (poolDictionary[pool.tag].Count <= 0)
+    //                 Debug.LogError($"{pool.tag}{INFO}");
+    //             else if (poolDictionary[pool.tag].Count != pool.size)
+    //                 Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
+    //         }
+    //     }
+
+    //     GameObject CreateNewObject(string tag, GameObject prefab)
+    //     {
+    //         var obj = Instantiate(prefab, transform);
+    //         obj.name = tag;
+    //         obj.SetActive(false); // 비활성화시 ReturnToPool을 하므로 Enqueue가 됨
+    //         return obj;
+    //     }
+
+    //     void ArrangePool(GameObject obj)
+    //     {
+    // <<<<<<< HEAD
+    //         // 추가된 오브젝트 묶어서 정렬
+    //         bool isFind = false;
+    //         for (int i = 0; i < transform.childCount; i++)
+    // =======
+    //         // 오브젝트를 풀에 추가
+    //         obj.transform.SetParent(transform);
+    //         //poolDictionary[obj.name].Enqueue(obj);
+    //     }
+    //     IEnumerator TrackAllPoolsCompletion()
+    //     {
+    //         bool allDone = false;
+    //         while (!allDone)
+    // >>>>>>> Dev
+    //         {
+    //             if (i == transform.childCount - 1)
+    //             {
+    //                 obj.transform.SetSiblingIndex(i);
+    //                 spawnObjects.Insert(i, obj);
+    //                 break;
+    //             }
+    //             else if (transform.GetChild(i).name == obj.name)
+    //                 isFind = true;
+    //             else if (isFind)
+    //             {
+    //                 obj.transform.SetSiblingIndex(i);
+    //                 spawnObjects.Insert(i, obj);
+    //                 break;
+    //             }
+    //         }
+    //     }
+
+    private void Awake()
+    {
+        Util.SetPooler(this);
+    }
 
     void Start()
-    {
-       spawnObjects = new List<GameObject>();
+    {        
+        spawnObjects = new List<GameObject>();
        poolDictionary = new Dictionary<string, Queue<GameObject>>();
        StartCoroutine(TrackAllPoolsCompletion());
 
