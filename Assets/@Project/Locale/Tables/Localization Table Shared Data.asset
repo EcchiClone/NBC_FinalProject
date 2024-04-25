@@ -315,6 +315,54 @@ MonoBehaviour:
     m_Key: UI-PauseExit
     m_Metadata:
       m_Items: []
+  - m_Id: 70148256452608
+    m_Key: Text-Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646912
+    m_Key: Text-Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646913
+    m_Key: UI-NotEnoughAchievementPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646914
+    m_Key: UI-FirstTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646915
+    m_Key: UI-FirstSkipGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646916
+    m_Key: UI-FirstInfo1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646917
+    m_Key: UI-FirstInfo2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646918
+    m_Key: UI-FirstInfo3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646919
+    m_Key: UI-FirstInfo4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646920
+    m_Key: UI-FirstInfo5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646921
+    m_Key: UI-FirstInfo6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646922
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -343,6 +343,84 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 70148256452608
+    m_Localized: Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646912
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646913
+    m_Localized: There are not enough achievement points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646914
+    m_Localized: How To Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646915
+    m_Localized: Press the SpaceBar key to skip.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646916
+    m_Localized: 'Survive the oncoming waves of enemies.
+
+
+      There are a total
+      of <color=red>100</color> levels of waves.
+
+      Boss stages occur every <color=red>5
+      stages</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646917
+    m_Localized: 'Stage information is located at the top left of the screen.
+
+      After
+      the designated number of enemies appear in each wave,
+
+      a timer for the
+      next wave starts.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646918
+    m_Localized: 'The types of minions that appear are as follows:
+
+
+      (1) Ball
+      (close-range explosive)
+
+      (2) Drone (aerial long-range)
+
+      (3) Spider
+      (ground long-range)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646919
+    m_Localized: 'Boss monsters employ various patterns towards the player from the
+      air.
+
+
+      If the boss monster is not defeated within the <color=red>time
+      limit, it is game over</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646920
+    m_Localized: 'Weapons cannot be reloaded until they are out of ammunition.
+
+
+      Shoulder
+      weapons become <color=red>unusable after all provided ammunition is spent.</color>
+
+      [Reloadable
+      with perk abilities]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70148260646921
+    m_Localized: Clear all stages and become an elite unit.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
