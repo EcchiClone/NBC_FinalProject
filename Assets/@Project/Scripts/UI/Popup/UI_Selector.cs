@@ -12,7 +12,9 @@ public class UI_Selector : UI_Popup
         if (_isInit)
         {
             foreach (var changeBtn in _changeBtns)
-                changeBtn.CheckUnlockedPart();
+            {
+                changeBtn.CheckUnlockedPart();            
+            }                
         }            
     }
 }

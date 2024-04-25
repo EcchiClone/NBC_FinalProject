@@ -402,9 +402,9 @@ MonoBehaviour:
   m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
@@ -659,6 +659,37 @@ MonoBehaviour:
   _lockText: {fileID: 1228215295756581059}
   _unlock: {fileID: 1259804183566430396}
   _equip: {fileID: 3233389000321737099}
+  currentData:
+    dev_ID: 0
+    dev_Name: 
+    prefab_Path: 
+    sprite_Path: 
+    display_Name: 
+    display_Description: 
+    initialPart: 0
+    pointUnlock: 0
+    point: 0
+    armor: 0
+    weight: 0
+    speed: 0
+    jumpPower: 0
+    boosterPower: 0
+    canJump: 0
+    smoothRotation: 0
+    boosterGauge: 0
+    hovering: 0
+    bulletPrefab_Path: 
+    muzzleEffect_Path: 
+    damage: 0
+    bulletSpeed: 0
+    fireRate: 0
+    coolDownTime: 0
+    projectilesPerShot: 0
+    shotErrorRange: 0
+    ammo: 0
+    isReloadable: 0
+    isSplash: 0
+    explosionRange: 0
 --- !u!114 &-3028694509548543394
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,9 @@ public class PartData : IEntity
 
     [SerializeField] private string display_Name;
     [TextArea]
-    [SerializeField] private string display_Description;
+    [SerializeField] private string display_Description_EN;    
+    [TextArea]
+    [SerializeField] private string display_Description_KO;
 
     [SerializeField] private bool initialPart;
     [SerializeField] private bool pointUnlock;
@@ -51,7 +53,8 @@ public class PartData : IEntity
     public string Prefab_Path => prefab_Path;
     public string Sprite_Path => sprite_Path;
     public string Display_Name => display_Name;
-    public string Display_Description=> display_Description;    
+    public string Display_Description_EN => display_Description_EN;    
+    public string Display_Description_KO => display_Description_KO;
 
     public bool InitialPart => initialPart;
     public bool PointUnlock => pointUnlock;

@@ -16,7 +16,113 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 9b965192b4ffde24c99236f09b62e511
   m_Entries:
   - m_Id: 5216161792
-    m_Key: Keyeee
+    m_Key: UI-SelectorMenu_AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22163581976576
+    m_Key: 'UI-SelectorMenu_Weight
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22261414117376
+    m_Key: UI-SelectorMenu_MoveSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22263674847232
+    m_Key: UI-SelectorMenu_Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22359359504384
+    m_Key: UI-SelectorMenu_Hover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22365139255296
+    m_Key: UI-SelectorMenu_RotateSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22366649204736
+    m_Key: UI-SelectorMenu_BoosterGauge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22367920078848
+    m_Key: UI-SelectorMenu_BoosterPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22369195147264
+    m_Key: UI-AlertACPPopup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26895998402560
+    m_Key: UI-ArmSelector_Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26899181879296
+    m_Key: UI-ArmSelector_ATK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26899945242624
+    m_Key: UI-ArmSelector_BulletSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26900658274304
+    m_Key: UI-ArmSelector_FireRate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26901291614208
+    m_Key: UI-ArmSelector_ReloadSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26901971091456
+    m_Key: UI-ArmSelector_ShotsPerFire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26902721871872
+    m_Key: UI-ArmSelector_Accuracy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26903430709248
+    m_Key: UI-LowerSelector_AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26904110186496
+    m_Key: UI-LowerSelector_Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26904844189696
+    m_Key: UI-LowerSelector_MovementSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26905527861248
+    m_Key: UI-LowerSelector_JumpPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26906224115712
+    m_Key: UI-LowerSelector_BoosterPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26906966507520
+    m_Key: UI-UnlockPartPopup_Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26907654373376
+    m_Key: UI-UnlockPartPopup_Alert1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37870243823616
+    m_Key: UI-UnlockPartPopup_Alert2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42933796356096
+    m_Key: UI-ChangeBtn_Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43009759395840
+    m_Key: UI-ChangeBtn_Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59091719176192
+    m_Key: UI-PartsInfo
     m_Metadata:
       m_Items: []
   m_Metadata:
