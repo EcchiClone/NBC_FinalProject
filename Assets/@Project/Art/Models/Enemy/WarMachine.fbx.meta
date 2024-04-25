@@ -33,8 +33,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WM_Armature|WM_Idle.002
-      takeName: WM_Armature|WM_Idle.002
+      name: WM_Armature|WM_Idle.001
+      takeName: WM_Armature|WM_Idle.001
       internalID: 1950352769891539503
       firstFrame: 0
       lastFrame: 23
