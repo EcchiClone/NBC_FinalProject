@@ -157,6 +157,87 @@ MonoBehaviour:
     m_Localized: Back
     m_Metadata:
       m_Items: []
+  - m_Id: 49868268130304
+    m_Localized: 'Controls
+
+
+      [W, A, S, D] - Move
+
+      [Wheel] - Zoom In/Out
+
+      [Click]
+      - Select a perk'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073344
+    m_Localized: '[ESC] Pause'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073345
+    m_Localized: '[`] Control Guide'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073346
+    m_Localized: '[Q, E] Sub Weapon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073347
+    m_Localized: '[W, A, S, D] Move'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073348
+    m_Localized: '[Click L/R] Main Weapon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073349
+    m_Localized: '[Click Wheel] Lock On'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073350
+    m_Localized: '[Drag] Move Camera'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073351
+    m_Localized: '[Shift] Booster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073352
+    m_Localized: '[Spacebar] Jump, Hover'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073353
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073354
+    m_Localized: Control Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152256
+    m_Localized: Developer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152257
+    m_Localized: 'Player, Data, 3D Model
+
+      Bullet Gen, Achievement
+
+      Enemy
+      AI, UI Core
+
+      Sound, Perk'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152258
+    m_Localized: 'GUK
+
+      LEE
+
+      KANG
+
+      CHU'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

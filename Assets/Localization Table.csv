@@ -1,26 +1,26 @@
 ﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
-UI-AchievementList,4.84764E+11,,Achievement List,,업적 목록,
-UI-AchievementAll,7.72824E+11,,All,,전체보기,
-UI-AchievementInProgress,3.66282E+12,,In Progress,,진행중,
-UI-AchievementCompleted,5.49341E+12,,Completed,,완료,
-UI-AchievementBack,5.69219E+12,,Back,,뒤로가기,
-UI-SettingsSound,1.31291E+13,,# Sound,,# 사운드,
-UI-SettingsGraphics,1.31291E+13,,# Graphics,,# 그래픽,
-UI-SettingsData,1.31291E+13,,# Data,,# 데이터,
-UI-SettingsMaster,1.31291E+13,,Master,,마스터볼륨,
-UI-SettingsMusic,1.31291E+13,,Music,,Music,
-UI-SettingsAmbience,1.31291E+13,,Ambience,,Ambience,
-UI-SettingsSFX,1.31291E+13,,SFX,,SFX,
-UI-SettingsResolution,1.31291E+13,,Resolution,,해상도,
-UI-SettingsQuality,1.31291E+13,,Quality,,품질,
-UI-SettingsLanguage,1.31291E+13,,Language,,언어,
-UI-SettingsResolutionNotice,1.31291E+13,,"Abnormalities may occur at
+UI-AchievementList,4.85E+11,,Achievement List,,업적 목록,
+UI-AchievementAll,7.73E+11,,All,,전체보기,
+UI-AchievementInProgress,3.66E+12,,In Progress,,진행중,
+UI-AchievementCompleted,5.49E+12,,Completed,,완료,
+UI-AchievementBack,5.69E+12,,Back,,뒤로가기,
+UI-SettingsSound,1.31E+13,,# Sound,,# 사운드,
+UI-SettingsGraphics,1.31E+13,,# Graphics,,# 그래픽,
+UI-SettingsData,1.31E+13,,# Data,,# 데이터,
+UI-SettingsMaster,1.31E+13,,Master,,마스터볼륨,
+UI-SettingsMusic,1.31E+13,,Music,,Music,
+UI-SettingsAmbience,1.31E+13,,Ambience,,Ambience,
+UI-SettingsSFX,1.31E+13,,SFX,,SFX,
+UI-SettingsResolution,1.31E+13,,Resolution,,해상도,
+UI-SettingsQuality,1.31E+13,,Quality,,품질,
+UI-SettingsLanguage,1.31E+13,,Language,,언어,
+UI-SettingsResolutionNotice,1.31E+13,,"Abnormalities may occur at
 resolutions other than 1920 x 1080.",,"1920 x 1080 이외의 해상도에서
 이상현상이 발생할 수 있습니다",
-UI-SettingsEnglishBtn,1.31291E+13,,English,,영어,
-UI-SettingsKoreanBtn,1.31291E+13,,Korean,,한국어,
-UI-SettingsBanner,1.42556E+13,,Settings,,환경 설정,
-UI-SettingsBackBtn,1.51553E+13,,Back,,뒤로가기,
+UI-SettingsEnglishBtn,1.31E+13,,English,,영어,
+UI-SettingsKoreanBtn,1.31E+13,,Korean,,한국어,
+UI-SettingsBanner,1.43E+13,,Settings,,환경 설정,
+UI-SettingsBackBtn,1.52E+13,,Back,,뒤로가기,
 UI-GameStart,,,Game Start,,Game Start,
 UI-Option,,,Option,,Option,
 UI-Exit,,,Exit,,Exit,
@@ -35,3 +35,46 @@ UI-MainDev,,,Dev.,,개발자,
 UI-MainStageStart,,,Go Stage,,훈련 시작,
 UI-MainTutorial,,,Tutorial,,튜토리얼,
 UI-MainBack,,,Back,,이전으로,
+UI-PerkControlGuide,,,"Controls
+
+[W, A, S, D] - Move
+[Wheel] - Zoom In/Out
+[Click] - Select a perk",,"조작법
+
+[W, A, S, D] - 이동
+[마우스 휠] - 줌 In/Out
+[마우스 클릭] - 퍼크 선택",
+UI-GuideESC,,,[ESC] Pause,,[ESC] 일시정지,
+UI-GuideOpenGuide,,,[`] Control Guide,,[`] 조작가이드 열기,
+UI-GuideQE,,,"[Q, E] Sub Weapon",,"[Q, E] 어깨 무장 공격",
+UI-GuideWASD,,,"[W, A, S, D] Move",,"[W, A, S, D] 플레이어 이동",
+UI-GuideLR,,,[Click L/R] Main Weapon,,[클릭LR] 팔 무장 공격,
+UI-GuideWheel,,,[Click Wheel] Lock On,,[휠클릭] 자동 조준,
+UI-GuideDrag,,,[Drag] Move Camera,,[드래그] 시야 조절,
+UI-GuideShift,,,[Shift] Booster,,[Shift] 부스터,
+UI-GuideSpace,,,"[Spacebar] Jump, Hover",,"[Spacebar] 점프, 비행",
+UI-Back,,,Back,,뒤로가기,
+UI-ControlGuide,,,Control Guide,,조작 가이드,
+UI-CreditBanner,,,Developer,,개발자,
+UI-CreditContent,,,"Player, Data, 3D Model
+Bullet Gen, Achievement
+Enemy AI, UI Core
+Sound, Perk",,"플레이어, 데이터, 3D모델링
+탄막 시스템, 퀘스트 시스템
+적 및 상태 AI, UI시스템
+사운드, 강화 테크트리(Perk)",
+UI-CreditName,,,"GUK
+LEE
+KANG
+CHU",,"국 지윤
+이 도현
+강 성원
+추 민규",
+UI-ModuleBanner,,,m,,m,
+UI-ModuleBack,,,m,,m,
+UI-ModuleBottom,,,m,,m,
+UI-ModuleTop,,,m,,m,
+UI-ModuleMainWeapon,,,m,,m,
+UI-ModuleSubWeapon,,,m,,m,
+UI-ModuleLeft,,,m,,m,
+UI-ModuleRight,,,m,,m,

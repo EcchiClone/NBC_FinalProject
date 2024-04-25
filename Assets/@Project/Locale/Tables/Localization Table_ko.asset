@@ -155,6 +155,70 @@ MonoBehaviour:
     m_Localized: "\uC774\uC804\uC73C\uB85C"
     m_Metadata:
       m_Items: []
+  - m_Id: 49868268130304
+    m_Localized: "\uC870\uC791\uBC95\n\n[W, A, S, D] - \uC774\uB3D9\n[\uB9C8\uC6B0\uC2A4
+      \uD720] - \uC90C In/Out\n[\uB9C8\uC6B0\uC2A4 \uD074\uB9AD] - \uD37C\uD06C \uC120\uD0DD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073344
+    m_Localized: "[ESC] \uC77C\uC2DC\uC815\uC9C0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073345
+    m_Localized: "[`] \uC870\uC791\uAC00\uC774\uB4DC \uC5F4\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073346
+    m_Localized: "[Q, E] \uC5B4\uAE68 \uBB34\uC7A5 \uACF5\uACA9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073347
+    m_Localized: "[W, A, S, D] \uD50C\uB808\uC774\uC5B4 \uC774\uB3D9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073348
+    m_Localized: "[\uD074\uB9ADLR] \uD314 \uBB34\uC7A5 \uACF5\uACA9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073349
+    m_Localized: "[\uD720\uD074\uB9AD] \uC790\uB3D9 \uC870\uC900"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073350
+    m_Localized: "[\uB4DC\uB798\uADF8] \uC2DC\uC57C \uC870\uC808"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073351
+    m_Localized: "[Shift] \uBD80\uC2A4\uD130"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073352
+    m_Localized: "[Spacebar] \uC810\uD504, \uBE44\uD589"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073353
+    m_Localized: "\uB4A4\uB85C\uAC00\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073354
+    m_Localized: "\uC870\uC791 \uAC00\uC774\uB4DC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152256
+    m_Localized: "\uAC1C\uBC1C\uC790"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152257
+    m_Localized: "\uD50C\uB808\uC774\uC5B4, \uB370\uC774\uD130, 3D\uBAA8\uB378\uB9C1\n\uD0C4\uB9C9
+      \uC2DC\uC2A4\uD15C, \uD018\uC2A4\uD2B8 \uC2DC\uC2A4\uD15C\n\uC801 \uBC0F \uC0C1\uD0DC
+      AI, UI\uC2DC\uC2A4\uD15C\n\uC0AC\uC6B4\uB4DC, \uAC15\uD654 \uD14C\uD06C\uD2B8\uB9AC(Perk)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152258
+    m_Localized: "\uAD6D \uC9C0\uC724\n\uC774 \uB3C4\uD604\n\uAC15 \uC131\uC6D0\n\uCD94
+      \uBBFC\uADDC"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

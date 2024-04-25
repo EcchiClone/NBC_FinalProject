@@ -151,6 +151,66 @@ MonoBehaviour:
     m_Key: UI-MainBack
     m_Metadata:
       m_Items: []
+  - m_Id: 49868268130304
+    m_Key: UI-PerkControlGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073344
+    m_Key: UI-GuideESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073345
+    m_Key: UI-GuideOpenGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073346
+    m_Key: UI-GuideQE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073347
+    m_Key: UI-GuideWASD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073348
+    m_Key: UI-GuideLR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073349
+    m_Key: UI-GuideWheel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073350
+    m_Key: UI-GuideDrag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073351
+    m_Key: UI-GuideShift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073352
+    m_Key: UI-GuideSpace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073353
+    m_Key: UI-Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49868310073354
+    m_Key: UI-ControlGuide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152256
+    m_Key: UI-CreditBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152257
+    m_Key: UI-CreditContent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53455501152258
+    m_Key: UI-CreditName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
