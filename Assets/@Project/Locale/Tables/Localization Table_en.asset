@@ -577,6 +577,30 @@ MonoBehaviour:
     m_Localized: Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 201404331872256
+    m_Localized: Current Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009600
+    m_Localized: Spawned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201404378009601
+    m_Localized: Killed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202640628142080
+    m_Localized: Next Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203348114952192
+    m_Localized: Remain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 206001783984128
+    m_Localized: 'Current Stage : 1'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
