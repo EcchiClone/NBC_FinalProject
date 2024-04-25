@@ -23,7 +23,7 @@ public class ObstacleSpawner : MonoBehaviour // 스태틱으로 부르면 사용
         GetOrAddComponent(out navMeshSurface);
         _groundLayer = LayerMask.NameToLayer("Ground");
         _unwalkableLayer = LayerMask.NameToLayer("Unwalkable");
-        combinedLayerMask = (1 << _groundLayer) | (1 << _unwalkableLayer);
+        combinedLayerMask = (1 << _groundLayer) | (1 << _unwalkableLayer);        
     }
 
     public void SpawnObstacle()

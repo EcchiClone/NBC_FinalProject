@@ -11,8 +11,6 @@ public class Spider_ChasingState : BaseState
         IsRootState = false;
 
         chasingInterval = Context.Entity.Data.chasingInterval;
-        _entityTransform = Context.Entity.transform;
-        _targetTransform = Context.Entity.Target.transform;
     }
     public override void EnterState()
     {
@@ -38,7 +36,7 @@ public class Spider_ChasingState : BaseState
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
         if (Context.Entity.Data.cognizanceRange < distance)
         {
-            SwitchState(Context.Provider.GetState(Spider_States.Idle));
+            SwitchState(Context.Provider.GetState(Minion_States.Idle));
         }
     }
 

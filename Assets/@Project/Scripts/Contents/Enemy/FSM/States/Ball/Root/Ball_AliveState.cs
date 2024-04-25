@@ -20,7 +20,7 @@ public class Ball_AliveState : BaseState
     public override void CheckSwitchStates()
     {
         if (Context.Entity.AP <= 0)
-            SwitchState(Provider.GetState(Ball_States.Dead));
+            SwitchState(Provider.GetState(Minion_States.Dead));
     }
 
     public override void ExitState()
@@ -30,7 +30,7 @@ public class Ball_AliveState : BaseState
 
     public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(Ball_States.NonCombat));
+        SetSubState(Provider.GetState(Minion_States.NonCombat));
     }
 
 }

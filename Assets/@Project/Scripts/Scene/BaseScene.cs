@@ -15,10 +15,11 @@ public abstract class BaseScene : MonoBehaviour
 
     public virtual void Init() 
     {
-        Managers.Input.OnInputKeyDown += KeyGuidPanl;
+        Managers.Input.OnInputKeyDown += KeyGuidPanel;
+        Util.IsCleared = false;
     }
 
-    private void KeyGuidPanl()
+    private void KeyGuidPanel()
     {        
         if(Input.GetKeyDown(KeyCode.BackQuote)) 
         {

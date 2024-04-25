@@ -33,6 +33,7 @@ public class Weapon_MissileLauncher : WeaponBase
         IsCoolDown = true;
         _anim.Play(_upHash);
         _anim.SetBool(_usingHash, true);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_AirPressure, Vector3.zero);
         float animLength = Util.GetCurrentAnimationClipLength(_anim);        
         yield return Util.GetWaitSeconds(animLength + 0.5f);
 

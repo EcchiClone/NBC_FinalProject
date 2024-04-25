@@ -20,7 +20,7 @@ public class Spider_AliveState : BaseState
     public override void CheckSwitchStates()
     {
         if (Context.Entity.AP <= 0)
-            SwitchState(Provider.GetState(Spider_States.Dead));
+            SwitchState(Provider.GetState(Minion_States.Dead));
     }
 
     public override void ExitState()
@@ -30,7 +30,7 @@ public class Spider_AliveState : BaseState
 
     public override void InitializeSubState() // 처음 적용할 상태
     {
-        SetSubState(Provider.GetState(Spider_States.NonCombat));
+        SetSubState(Provider.GetState(Minion_States.NonCombat));
     }
 
 }

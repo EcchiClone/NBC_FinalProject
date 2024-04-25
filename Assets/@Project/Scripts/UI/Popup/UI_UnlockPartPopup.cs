@@ -7,6 +7,7 @@ public class UI_UnlockPartPopup : UI_Popup
     enum Texts
     {
         Alert_Text,
+        AchievementPoint_Text,
     }
 
     enum Buttons
@@ -32,13 +33,15 @@ public class UI_UnlockPartPopup : UI_Popup
     {
         partButton = button;
         GetTMP((int)Texts.Alert_Text).text = $"업적포인트 [<color=green>{partButton.currentData.Point}</color>] 포인트를 사용하여\n파츠 잠금을 해제하시겠습니까?";
+        GetTMP((int)Texts.AchievementPoint_Text).text = $"현재 업적포인트 : {Managers.GameManager.AchievementPoint}";
     }
 
     private void UnlockPart()
     {
         if (Managers.GameManager.AchievementPoint < partButton.currentData.Point)
         {
-            Managers.UI.ShowPopupUI<UI_AlertACPPointPopup>();
+            ClosePopupUI();
+            Managers.UI.ShowPopupUI<UI_AlertACPPointPopup>();            
             return;
         }
 

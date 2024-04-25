@@ -57,11 +57,11 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
-        if (!IsAlive)
+        if (!IsAlive || AP <= 0)
             return;
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, Target.transform.position);
-        GameObject go = ObjectPooler.SpawnFromPool("UI_DamagePopup", transform.position);
+        GameObject go = Util.GetPooler(PoolingType.Enemy).SpawnFromPool("UI_DamagePopup", transform.position);
         UI_DmagePopup damageUI = go.GetComponent<UI_DmagePopup>();
         damageUI.Setup(transform.position, Mathf.RoundToInt(damage));
 

@@ -57,7 +57,7 @@ MonoBehaviour:
     point: 0
     armor: 2500
     weight: 350
-    speed: 4
+    speed: 5
     jumpPower: 3
     boosterPower: 4
     canJump: 1

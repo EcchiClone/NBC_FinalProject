@@ -30,6 +30,7 @@ public class CameraController : MonoBehaviour
     {
         OnZoomInput();
         CameraZoom();
+        CameraPosClamp();
     }
 
     private void FixedUpdate()
@@ -72,6 +73,13 @@ public class CameraController : MonoBehaviour
             _zoomAmount += -_scrollY * _zoomSensitivity;
             _mainCamera.fieldOfView = Mathf.Clamp(_zoomAmount, 30, 120);
         }
+    }
+
+    private void CameraPosClamp()
+    {
+        float clampedX = Mathf.Clamp(_cameraHolder.position.x, -3200f, 3200f);
+        float clampedY = Mathf.Clamp(_cameraHolder.position.y, -3200f, 3200f);
+        _cameraHolder.position = new Vector3(clampedX, clampedY, -1000f);
     }
 
     private void OnZoomInput()

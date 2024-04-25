@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Ball_DeadState : BaseState
 {
-    float explodeDelay = 1f;
     float passedTime;
 
     public Ball_DeadState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
@@ -19,7 +18,7 @@ public class Ball_DeadState : BaseState
     public override void UpdateState()
     {
         passedTime += Time.deltaTime;
-        if(passedTime >= explodeDelay)
+        if(passedTime >= Context.Entity.Data.attackInterval)
         {
             Explosion();
         }
@@ -57,6 +56,7 @@ public class Ball_DeadState : BaseState
                     Vector3 pushDirection = (other - _entityTransform.position).normalized;
 
                     rigidbody.AddForce(pushDirection * 20, ForceMode.Impulse);
+                    rigidbody.AddForce(Vector3.up * 20, ForceMode.Impulse);
                 }
 
                 entity.GetDamaged(damage);
@@ -67,7 +67,7 @@ public class Ball_DeadState : BaseState
                 module.ModuleStatus.GetDamage(damage);
             }
         }
-        ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        Util.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
     }

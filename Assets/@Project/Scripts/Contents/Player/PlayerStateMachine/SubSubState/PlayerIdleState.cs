@@ -6,6 +6,12 @@ public class PlayerIdleState : PlayerBaseState
 {
     public PlayerIdleState(PlayerStateMachine context, PlayerStateFactory factory) : base(context, factory) { }
 
+    public override void EnterState()
+    {        
+        Context.StopRun();
+        Context.Sound.IsDashing = false;
+    }
+
     public override void UpdateState()
     {
         HandleGravity();

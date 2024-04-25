@@ -14,6 +14,7 @@ public class GroundUnitController : Controller
     {
         agent = entity.GetComponent<NavMeshAgent>();
         agent.speed = entity.Data.moveSpeed;
+        agent.angularSpeed = entity.Data.rotationSpeed;
         agent.stoppingDistance = entity.Data.stopDistance;
 
         // Must Fix This.
@@ -28,11 +29,11 @@ public class GroundUnitController : Controller
         IsMoving = (agent.velocity.magnitude > 0.1f);
         Look();
 
-        if(agent.velocity.sqrMagnitude > 0.01f && !Entity.Anim.GetBool("Walk")) // 속도 0.1 이상 && Walk false
+        if(agent.velocity.sqrMagnitude >= 0.01f && true != Entity.Anim.GetBool("Walk")) // 속도 0.1 이상 && Walk false
         {
             Entity.Anim.SetBool("Walk", true);
         }
-        else if(agent.velocity.sqrMagnitude < 0.01f && Entity.Anim.GetBool("Walk"))
+        else if(agent.velocity.sqrMagnitude < 0.01f && true == Entity.Anim.GetBool("Walk"))
         {
             Entity.Anim.SetBool("Walk", false);
         }
@@ -63,6 +64,9 @@ public class GroundUnitController : Controller
 
     protected override void Look()
     {
+        if (null == head || null == weapon)
+            return;
+
         Quaternion currentLocalRotation = head.localRotation;
         head.localRotation = Quaternion.identity;
         Vector3 targetWorldLookDir = Target.position - head.position;

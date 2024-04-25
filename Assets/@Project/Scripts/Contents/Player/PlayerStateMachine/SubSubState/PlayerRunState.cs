@@ -1,4 +1,3 @@
-using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,16 +19,14 @@ public class PlayerRunState : PlayerBaseState
 
     public override void ExitState()
     {
-        StopAnimation(Context.AnimationData.RunParameterName);
-        Context.Sound.IsDashing = false;
-        Context.StopRun();
+        StopAnimation(Context.AnimationData.RunParameterName);                
     }
 
     public override void CheckSwitchStates()
     {
         if (!Context.IsMoveInputPressed)
             SwitchState(Factory.Idle());
-        if (Context.IsDashInputPressed && Context.CanDash)
+        if (Context.IsDashInputPressed && Context.CanDash && Context.Module.ModuleStatus.Boost())
             SwitchState(Factory.Dash());
     }
 

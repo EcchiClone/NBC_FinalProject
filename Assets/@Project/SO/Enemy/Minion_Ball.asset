@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDistance: 5
   cognizanceRange: 100
-  chasingInterval: 0.5
+  chasingInterval: 1
   rotationSpeed: 0
   fixedAltitude: 0
   maxHealth: 5
-  moveSpeed: 10
-  attackInterval: 0
+  moveSpeed: 20
+  attackInterval: 0.7
   damage: 100

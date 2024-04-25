@@ -11,7 +11,7 @@ public class ModuleStatus
     #endregion
 
     #region Lower
-    public float MovementSpeed { get; private set; }
+    public float MovementSpeed { get; private set; }    
     public float JumpPower { get; private set; }
     public float BoostPower { get; private set; }
     public bool CanJump { get; private set; }

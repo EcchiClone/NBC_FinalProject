@@ -24,7 +24,8 @@ public class PlayerNonCombatState : PlayerBaseState
 
     public override void ExitState()
     {
-        Context.StopResetWeaponTilt(); // 정지 안 되는 버그있음.
+        Context.StopResetWeaponTilt();
+        ResetSubState();
         StopAnimation(Context.AnimationData.NonCombatParameterName);
     }
 
@@ -37,7 +38,12 @@ public class PlayerNonCombatState : PlayerBaseState
             if (Context.IsJumping)
                 SetSubState(Factory.Jump());
             else
-                SetSubState(Factory.Fall());
+            {
+                if (Context.IsHovering)
+                    SetSubState(Factory.Hover());
+                else
+                    SetSubState(Factory.Fall());
+            }
         }
     }
 
