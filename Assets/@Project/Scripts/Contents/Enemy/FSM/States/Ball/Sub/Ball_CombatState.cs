@@ -7,12 +7,13 @@ public class Ball_CombatState : BaseState
     }
     public override void EnterState()
     {
-        Context.Entity.GetDamaged(100);
+        
     }
 
     public override void UpdateState() 
     {
-            
+        if(Context.Entity.IsAlive)
+            Context.Entity.GetDamaged(Context.Entity.Data.maxHealth);
     }
 
     public override void ExitState(){}
