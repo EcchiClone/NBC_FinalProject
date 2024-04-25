@@ -31,7 +31,7 @@ public class UI_HUD : UI_Scene
     [Header("Booster")]
     [SerializeField] Image _targetAPFill;    
 
-    private Transform _target;
+    private ITarget _target;
 
     protected override void Init()
     {
@@ -70,7 +70,7 @@ public class UI_HUD : UI_Scene
             text.text = ammo > 0 ? isCoolDown ? $"<color=red>{ammo}</color>" : $"{ammo}" : isReloadable ? "<color=red>RELOAD</color>" : $"<color=red>EMPTY</color>";
     }
 
-    private void GetTargetedEnemy(Transform target, float percent)
+    private void GetTargetedEnemy(ITarget target, float percent)
     {
         _target = target;
         _crossHair.SetActive(false);
@@ -103,6 +103,6 @@ public class UI_HUD : UI_Scene
         if (!_lockOnIndicator.activeSelf || _target == null)
             return;
 
-        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.position);
+        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.Center);
     }
 }

@@ -17,7 +17,7 @@ public class ActionManager
     public event Action<float> OnCoolDownRepair;
 
     // # LockOn System
-    public event Action<Transform, float> OnLockOnTarget;
+    public event Action<ITarget, float> OnLockOnTarget;
     public event Action OnReleaseTarget;
     public event Action<float> OnTargetAPChanged;
 
@@ -44,7 +44,7 @@ public class ActionManager
 
     public void CallUseRePair(float percent) => OnCoolDownRepair?.Invoke(percent);
 
-    public void CallLockOn(Transform target, float percent) => OnLockOnTarget?.Invoke(target, percent);
+    public void CallLockOn(ITarget target, float percent) => OnLockOnTarget?.Invoke(target, percent);
     public void CallRelease() => OnReleaseTarget?.Invoke();
     public void CallTargetAPChanged(float percent) => OnTargetAPChanged?.Invoke(percent);
 

@@ -24,7 +24,7 @@ public class PlayerProjectile : Bullet
         _rigid = GetComponent<Rigidbody>();
     }
 
-    public virtual void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, Transform target = null, float explosiveRange = 0)
+    public virtual void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, ITarget target = null, float explosiveRange = 0)
     {
         _speed = speed;
         _damage = damage;
