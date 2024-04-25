@@ -544,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6375647844545556878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.4581308, z: -0.115219794}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -590,6 +590,7 @@ MonoBehaviour:
   <Data>k__BackingField: {fileID: 11400000, guid: afb6af8ea75e70942ba933b1203ec267,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
+  <Height>k__BackingField: 8
   <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!195 &1170111364107385224

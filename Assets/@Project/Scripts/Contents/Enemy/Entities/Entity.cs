@@ -32,7 +32,7 @@ public abstract class Entity : MonoBehaviour, ITarget
         }
     }
 
-    public Vector3 Center => transform.position += Vector3.up * Height;
+    public Vector3 Center => transform.position + Vector3.up * Height;
 
     private void Start()
     {
