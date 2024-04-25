@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Localization Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Localization Table
+  m_TableCollectionNameGuidString: 292507985b4940c46b15bf6eda383c11
+  m_Entries:
+  - m_Id: 484763521024
+    m_Key: UI-AchievementList
+    m_Metadata:
+      m_Items: []
+  - m_Id: 772824125440
+    m_Key: UI-AchievementAll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3662821216256
+    m_Key: UI-AchievementInProgress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5493408419840
+    m_Key: UI-AchievementCompleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5692189069312
+    m_Key: UI-AchievementBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463232
+    m_Key: UI-SettingsSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463233
+    m_Key: UI-SettingsGraphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129130463234
+    m_Key: UI-SettingsData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657536
+    m_Key: UI-SettingsMaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657537
+    m_Key: UI-SettingsMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657538
+    m_Key: UI-SettingsAmbience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657539
+    m_Key: UI-SettingsSFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657540
+    m_Key: UI-SettingsResolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657541
+    m_Key: UI-SettingsQuality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657542
+    m_Key: UI-SettingsLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657543
+    m_Key: UI-SettingsResolutionNotice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657544
+    m_Key: UI-SettingsEnglishBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13129134657545
+    m_Key: UI-SettingsKoreanBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14255598882816
+    m_Key: UI-SettingsBanner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15155260313600
+    m_Key: UI-SettingsBackBtn
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5160939920919363610
+  references:
+    version: 2
+    RefIds:
+    - rid: 5160939920919363610
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1714000554753

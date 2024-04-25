@@ -20,4 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/@Project/Scene/PerkViewerScene.unity
     guid: 2897129b948c7ab478a21ab36825a1ce
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: bc745b5a53bdd3645a15b65d1823b746,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: c0ac3f8290d87df49874624d880e7728,
+      type: 2}
