@@ -143,10 +143,18 @@ public class PatternSOEditor : Editor
             //Debug.Log(settingsProperty.propertyPath);
             // 조건부로 그리기 스킵
             if (property.name == "customPosDirection") // 현재 프로퍼티
-                if (!EnumMatchCheck("posDirection", PosDirection.CustomWorld)) continue; // 조건 프로퍼티
-            if (property.name == "maxSpreadAngleA")
+                if (!(EnumMatchCheck("posDirection", PosDirection.CustomWorld)|| EnumMatchCheck("posDirection", PosDirection.CustomLocal))) continue; // 조건 프로퍼티
+            if (property.name == "spreadA_Default_Angle")
                 if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
-            if (property.name == "concentrationA")
+            if (property.name == "spreadA_Default_Concentration")
+                if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
+            if (property.name == "spreadA_FixX_Angle")
+                if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
+            if (property.name == "spreadA_FixX_Concentration")
+                if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
+            if (property.name == "spreadA_FixY_Angle")
+                if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
+            if (property.name == "spreadA_FixY_Concentration")
                 if (!EnumMatchCheck("spreadA", SpreadType.Spread)) continue;
 
             if (property.name == "useVelocityScalerFromMuzzleDist")
@@ -193,8 +201,12 @@ public class PatternSOEditor : Editor
             if (property.name == "posDirection") { EditorGUILayout.PropertyField(property, new GUIContent("패턴 방향")); continue; }
             if (property.name == "customPosDirection") { EditorGUILayout.PropertyField(property, new GUIContent("직접 지정")); continue; }
             if (property.name == "spreadA") { EditorGUILayout.PropertyField(property, new GUIContent("기준벡터 오차 적용")); continue; }
-            if (property.name == "maxSpreadAngleA") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(0~360)")); continue; }
-            if (property.name == "concentrationA") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
+            if (property.name == "spreadA_Default_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(0~360)")); continue; }
+            if (property.name == "spreadA_Default_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도(1:높음~0:낮음)")); continue; }
+            if (property.name == "spreadA_FixY_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(Y고정) - Main")); continue; }
+            if (property.name == "spreadA_FixY_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도")); continue; }
+            if (property.name == "spreadA_FixX_Angle") { EditorGUILayout.PropertyField(property, new GUIContent("범위각(X고정)")); continue; }
+            if (property.name == "spreadA_FixX_Concentration") { EditorGUILayout.PropertyField(property, new GUIContent("응집도")); continue; }
 
             if (property.name == "enemyBulletShape") { EditorGUILayout.PropertyField(property, new GUIContent("탄막 형태")); continue; }
             if (property.name == "useVelocityScalerFromMuzzleDist") { EditorGUILayout.PropertyField(property, new GUIContent("초기 거리 비례 모양 유지")); continue; }

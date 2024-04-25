@@ -9,9 +9,9 @@ using UnityEditor;
 [CustomEditor(typeof(ObjectPooler))]
 public class ObjectPoolerEditor : Editor
 {
-    const string INFO = "풀링한 오브젝트에 다음을 적으세요 \nvoid OnDisable()\n{\n" +
-        "    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 \n" +
-        "    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 \n}";
+    const string INFO = " Pool 오브젝트에 해당 내용 기재 요망 \nvoid OnDisable()\n{\n" +
+        "    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 사용하도록 \n" +
+        "    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 사용 \n}";
 
     public override void OnInspectorGUI()
     {
@@ -43,9 +43,9 @@ public class ObjectPooler : MonoBehaviour
     [SerializeField] Pool[] pools;
     List<GameObject> spawnObjects;
     Dictionary<string, Queue<GameObject>> poolDictionary;
-    readonly string INFO = " 오브젝트에 다음을 적으세요 \nvoid OnDisable()\n{\n" +
-        "    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 \n" +
-        "    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 \n}";
+    readonly string INFO = " Pool 오브젝트에 해당 내용 기재 요망 \nvoid OnDisable()\n{\n" +
+        "    ObjectPooler.ReturnToPool(gameObject);    // 한 객체에 한번만 사용하도록 \n" +
+        "    CancelInvoke();    // Monobehaviour에 Invoke가 있다면 사용 \n}";
 
 
 
@@ -257,10 +257,10 @@ public class ObjectPooler : MonoBehaviour
         //Debug.Log($"{pool.tag} 의 풀 생성 완료 : {count} 개의 오브젝트.");
 
         //OnDisable에 ReturnToPool 구현여부와 중복구현 검사 : ReturnToPool 중복검출 오류가 있는 듯 하여 주석처리
-        if (poolDictionary[pool.tag].Count <= 0)
-           Debug.LogError($"{pool.tag}{INFO}");
-       //else if (poolDictionary[pool.tag].Count != pool.size)
-       //    Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
+        //if (poolDictionary[pool.tag].Count <= 0) // 해당  ObjectPooler.ReturnToPool(gameObject);   구문에 if문이 들어가게 되어 오류 메시지를 띄우게 되기 때문에 주석
+        //   Debug.LogError($"{pool.tag}{INFO}");
+        //else if (poolDictionary[pool.tag].Count != pool.size)
+        //    Debug.LogError($"{pool.tag}에 ReturnToPool이 중복됩니다");
     }
     GameObject CreateNewObject(string tag, GameObject prefab)
     {

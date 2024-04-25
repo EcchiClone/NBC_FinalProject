@@ -17,7 +17,10 @@ public class SkyFire_Phase3State : BaseState
 
         Context.Entity.enemyPhaseStarter.StartPattern(2, 6, 5); // 클러스터
 
-        Context.Entity.enemyPhaseStarter.StartPattern(3, 5, 5); // 스피어
+        Context.Entity.enemyPhaseStarter.StartPhase(0, 5); // MG Special
+
+
+
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_3, Context.Entity.transform.position);
     }

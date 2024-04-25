@@ -985,12 +985,16 @@ MonoBehaviour:
   - tag: EnemyProjectile03
     prefab: {fileID: 7488779171184577920, guid: bf40293e9c29b534b8ebfa5e6c4067e0,
       type: 3}
-    size: 100
-  - tag: EnemyProjectile04
+    size: 150
+  - tag: EnemyProjectile03_Large
+    prefab: {fileID: 7488779171184577920, guid: 5fd193fe903f5d647bfc1b748c272bf6,
+      type: 3}
+    size: 500
+  - tag: EnemyProjectile04_Large
     prefab: {fileID: 6531017631556436741, guid: 130a1e71f76159d4383e1b7c5c261357,
       type: 3}
     size: 100
-  - tag: EnemyProjectile05
+  - tag: EnemyProjectile05_Large
     prefab: {fileID: 7302279346263578025, guid: 218ed4df05778764fb1aa37c52945842,
       type: 3}
     size: 100

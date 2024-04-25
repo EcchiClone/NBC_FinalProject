@@ -80,9 +80,15 @@ public class EnemyBulletGenerator : MonoBehaviour
     IEnumerator Co_ExecutePattern(BulletGenerationSettings genSettings) // EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         EnemyBulletSettings settings = genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName).enemyBulletSettings;
-
-        Vector3 FixedPlayerPos = instance.playerGo.transform.position;
-
+        Vector3 FixedPlayerPos;
+        try
+        {
+            FixedPlayerPos = instance.playerGo.transform.position;
+        }
+        catch
+        {
+            FixedPlayerPos = new Vector3(0, 0, 0);
+        }
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
             for (int shotNum = 0; shotNum < settings.shotPerSet; ++shotNum)
@@ -169,7 +175,11 @@ public class EnemyBulletGenerator : MonoBehaviour
 
         // 1. 기준 방향 벡터 오차 주기
         if (settings.spreadA == SpreadType.Spread)
-            pivotDirection = BulletMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
+        {
+            pivotDirection = BulletMathUtils.CalculateSpreadDirection(pivotDirection, settings.spreadA_Default_Angle, settings.spreadA_Default_Concentration);
+            pivotDirection = BulletMathUtils.CalculateSpreadDirectionFixX(pivotDirection, settings.spreadA_FixX_Angle, settings.spreadA_FixX_Concentration);
+            pivotDirection = BulletMathUtils.CalculateSpreadDirectionFixY(pivotDirection, settings.spreadA_FixY_Angle, settings.spreadA_FixY_Concentration);
+        }
 
         Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.forward, pivotDirection.normalized);
 

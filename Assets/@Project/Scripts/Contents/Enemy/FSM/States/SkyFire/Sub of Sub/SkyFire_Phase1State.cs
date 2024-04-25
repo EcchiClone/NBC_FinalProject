@@ -20,6 +20,7 @@ public class SkyFire_Phase1State : BaseState
         {
             Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 1); // 다연발 투사체
             Context.Entity.enemyPhaseStarter.StartPattern(0, 4, 2);
+            Context.Entity.enemyPhaseStarter.StartPattern(4, 4, 5); // 서클
         }
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_1, Context.Entity.transform.position);

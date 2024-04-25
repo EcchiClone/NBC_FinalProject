@@ -23,7 +23,7 @@ public class SkyFire_Phase2State : BaseState
         Context.Entity.enemyPhaseStarter.StartPattern(1, 6, 3); //플라즈마
         Context.Entity.enemyPhaseStarter.StartPattern(1, 6, 4);
 
-        Context.Entity.enemyPhaseStarter.StartPattern(4, 4, 5); // 서클
+        Context.Entity.enemyPhaseStarter.StartPattern(3, 5, 5); // 스피어
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_2, Context.Entity.transform.position);
     }
