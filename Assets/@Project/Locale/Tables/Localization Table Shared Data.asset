@@ -535,6 +535,18 @@ MonoBehaviour:
     m_Key: Text-CurrentStage1
     m_Metadata:
       m_Items: []
+  - m_Id: 497186385711104
+    m_Key: Text-InProgress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 497186436042752
+    m_Key: UI-GetRewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 497186436042753
+    m_Key: UI-Complete
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class AchievementSystem
@@ -276,7 +277,12 @@ public class AchievementSystem
             // 해당 Table에 Item 추가
         }
 
-        string desc = $"[{achievement.DisplayName}] {achievement.Description}";
+        string TCodeName = $"ACHIEVEMENT-{achievement.CodeName}-NAME";
+        string TCodeDesc = $"ACHIEVEMENT-{achievement.CodeName}-DESC";
+        string TName = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Achievement Table", TCodeName, LocalizationSettings.SelectedLocale);
+        string TDesc = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Achievement Table", TCodeDesc, LocalizationSettings.SelectedLocale);
+
+        string desc = $"[{TName}] {TDesc}";
         
         Go_CurrentAchievementAlarmTable.GetComponent<UI_AchievementAlarmTable>().AddItem(desc);
     }

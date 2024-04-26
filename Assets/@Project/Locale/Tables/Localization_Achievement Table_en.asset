@@ -1,0 +1,335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Localization_Achievement Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: d8f1a8606e760784daabf88d8bbcd5c2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 728221896708
+    m_Localized: Complete the tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896709
+    m_Localized: Reach Stage 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896710
+    m_Localized: Achieve highest stage 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896711
+    m_Localized: Achieve highest stage 10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896712
+    m_Localized: Achieve highest stage 15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896713
+    m_Localized: Achieve highest stage 20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896714
+    m_Localized: Achieve highest stage 25
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896715
+    m_Localized: Achieve highest stage 30
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896716
+    m_Localized: Boss destroyed 1 time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896717
+    m_Localized: Destroy boss 3 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896718
+    m_Localized: Destroy boss 10 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896719
+    m_Localized: Destroy boss 20 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896720
+    m_Localized: Destroy boss 50 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896721
+    m_Localized: Destroy boss 100 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896722
+    m_Localized: Destroy a minion 1 time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896723
+    m_Localized: Destroy minions 20 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896724
+    m_Localized: Destroy minions 100 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896725
+    m_Localized: Destroy minions 200 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896726
+    m_Localized: Destroy minions 500 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896727
+    m_Localized: Destroy minions 1000 times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896728
+    m_Localized: Open 1 perk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896729
+    m_Localized: Open 10 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896730
+    m_Localized: Open 30 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896731
+    m_Localized: Open 50 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896732
+    m_Localized: Open 72 Perks (minimum completed)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 728221896733
+    m_Localized: Unlock 120 Perks (maximum completed)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573686734848
+    m_Localized: mite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573690929152
+    m_Localized: Start training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573690929153
+    m_Localized: another enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573690929154
+    m_Localized: QA teacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123456
+    m_Localized: 15th floor climber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123457
+    m_Localized: 20th floor climber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123458
+    m_Localized: 25th floor climber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123459
+    m_Localized: end of the world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123460
+    m_Localized: That big one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123461
+    m_Localized: Is it okay if I break it?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123462
+    m_Localized: big guys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123463
+    m_Localized: The lab is full of scrap metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573695123464
+    m_Localized: Is this the end?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317760
+    m_Localized: "\u201Cweak\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317761
+    m_Localized: first kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317762
+    m_Localized: Little Destroyer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317763
+    m_Localized: Someone please clean these up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317764
+    m_Localized: It's being massacred
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317765
+    m_Localized: ruler of the battlefield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317766
+    m_Localized: over budget
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317767
+    m_Localized: P.E.R.K.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317768
+    m_Localized: PIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317769
+    m_Localized: 3030
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317770
+    m_Localized: P.5050
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317771
+    m_Localized: 3.72
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317772
+    m_Localized: good luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317773
+    m_Localized: Completed the tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317774
+    m_Localized: Finish training for the first time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317775
+    m_Localized: End with stage 5 or higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317776
+    m_Localized: Clear stage 10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317777
+    m_Localized: End with stage 15 or higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317778
+    m_Localized: End with stage 20 or more
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317779
+    m_Localized: End with stage 25 or higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317780
+    m_Localized: End with stage 30 or more
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317781
+    m_Localized: Destroy the Boss for the first time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573699317782
+    m_Localized: Destroy 3 Bosses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512064
+    m_Localized: Destroy 10 Bosses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512065
+    m_Localized: Destroy 20 Bosses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512066
+    m_Localized: Destroy 50 Bosses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512067
+    m_Localized: Destroy 100 Bosses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512068
+    m_Localized: Destroy a Minion for the first time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512069
+    m_Localized: Destroy 20 Minions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512070
+    m_Localized: Destroy 100 Minions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512071
+    m_Localized: Destroy 200 Minions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512072
+    m_Localized: Destroy 500 Minions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512073
+    m_Localized: Destroy 1000 Minions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512074
+    m_Localized: Unlock Perc for the first time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512075
+    m_Localized: Unlock 10 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512076
+    m_Localized: Unlock 30 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512077
+    m_Localized: Unlock 50 Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512078
+    m_Localized: Unlock 72 Perks (minimum upon completion)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7573703512079
+    m_Localized: Unlock 120 Perks (maximum upon completion)
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

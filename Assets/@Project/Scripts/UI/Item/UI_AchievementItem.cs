@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Localization.Settings;
 
 public class UI_AchievementItem : UI_Item
 {
@@ -46,11 +47,21 @@ public class UI_AchievementItem : UI_Item
             try { _rewardNum.text = achievement.Rewards[0].QuantityOrValue.ToString(); } catch { }
         }
 
-        _desc.text = $"[{achievement.DisplayName}] {achievement.Description}{CurrentTaskProgressText(achievement)}";
+        string TCodeName = $"ACHIEVEMENT-{achievement.CodeName}-NAME";
+        string TCodeDesc = $"ACHIEVEMENT-{achievement.CodeName}-DESC";
+        string TName = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Achievement Table", TCodeName, LocalizationSettings.SelectedLocale);
+        string TDesc = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Achievement Table", TCodeDesc, LocalizationSettings.SelectedLocale);
+        string TInProgress = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "Text-InProgress", LocalizationSettings.SelectedLocale);
+        string TGetRewards = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "UI-GetRewards", LocalizationSettings.SelectedLocale);
+        string TComplete = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "UI-Complete", LocalizationSettings.SelectedLocale);
+
+        //_desc.text = $"[{achievement.DisplayName}] {achievement.Description}{CurrentTaskProgressText(achievement)}";
+        _desc.text = $"[{TName}] {TDesc}{CurrentTaskProgressText(achievement)}";
+
         Dictionary<AchievementState,string> keyValuePairs = new Dictionary<AchievementState, string>(){
-            {AchievementState.Running, "진행중" },
-            {AchievementState.WaitingForCompletion, "보 상\n받 기" },
-            {AchievementState.Complete, "완 료" },
+            {AchievementState.Running, TInProgress },
+            {AchievementState.WaitingForCompletion, TGetRewards },
+            {AchievementState.Complete, TComplete },
         };
         _completeResult.text = keyValuePairs[achievement.State];
         if (achievement.State == AchievementState.WaitingForCompletion)
@@ -58,7 +69,7 @@ public class UI_AchievementItem : UI_Item
             _completeBtn.interactable = true;
             _completeBtn.onClick.AddListener(() => {
                 Managers.AchievementSystem.ReceiveRewardsAndCompleteAchievement(achievement.CodeName);
-                _completeResult.text = "완 료";
+                _completeResult.text = TComplete;
                 _completeBtn.interactable = false;
             });
         }
@@ -68,10 +79,13 @@ public class UI_AchievementItem : UI_Item
         string nowProgressText = "";
         foreach (AchievementTask task in achievement.CurrentTaskGroup.Tasks)
         {
+            string TCodeDesc = $"TASK-{achievement.CodeName}-DESC";
+            string TDesc = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Achievement Table", TCodeDesc, LocalizationSettings.SelectedLocale);
+
             if (task.NeedSuccessToComplete != 1)
-                nowProgressText += $"\n  {task.Description} ( {task.CurrentSuccess} / {task.NeedSuccessToComplete} )";
+                nowProgressText += $"\n  {TDesc} ( {task.CurrentSuccess} / {task.NeedSuccessToComplete} )";
             else
-                nowProgressText += $"\n  {task.Description}";
+                nowProgressText += $"\n  {TDesc}";
         }
         return nowProgressText;
     }
