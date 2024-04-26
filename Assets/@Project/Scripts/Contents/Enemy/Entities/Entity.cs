@@ -64,7 +64,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
-        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP}");
+        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf}");
 
         if (!IsAlive || AP <= 0)
             return;
@@ -83,7 +83,7 @@ public abstract class Entity : MonoBehaviour, ITarget
             {
                 ++killcount;
                 Debug.Log(killcount);
-                Debug.LogError($"2 tag : {_tag} isAlive: {IsAlive} ap : {AP}");
+                Debug.LogError($"2 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf}");
             }
             
 
