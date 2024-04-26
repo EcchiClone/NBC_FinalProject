@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SkyFire_Phase1State : BaseState
 {
-
     public SkyFire_Phase1State(BaseStateMachine context, BaseStateProvider provider)
         : base(context, provider)
     {
@@ -11,7 +10,6 @@ public class SkyFire_Phase1State : BaseState
 
     public override void EnterState()
     {
-
         // 이전 사용중인 패턴 멈추기
         Context.Entity.enemyPhaseStarter.StopBullet();
 

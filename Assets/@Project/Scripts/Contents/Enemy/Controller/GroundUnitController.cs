@@ -6,8 +6,8 @@ public class GroundUnitController : Controller
     private NavMeshAgent agent;
 
     // Must Fix This.
-    Transform head;
-    Transform weapon;
+    private Transform _head;
+    private Transform _weapon;
     
 
     public GroundUnitController(Entity entity) : base(entity)
@@ -15,13 +15,11 @@ public class GroundUnitController : Controller
         agent = entity.GetComponent<NavMeshAgent>();
         agent.speed = entity.FinalMoveSPD;
         agent.angularSpeed = entity.Stat.rotationSpeed;
-        agent.stoppingDistance = entity.Stat.stopDistance;
+        agent.stoppingDistance = entity.Stat.stopDistance -1;
 
         // Must Fix This.
-        head = entity.transform.Find("Armature/Body/Head");
-        weapon = entity.transform.Find("Armature/Body/Head/Weapon");
-
-
+        _head = entity.transform.Find("Armature/Body/Head");
+        _weapon = entity.transform.Find("Armature/Body/Head/Weapon");
     }
 
     public override void Update()
@@ -41,8 +39,6 @@ public class GroundUnitController : Controller
 
     public override void SetDestination(Vector3 target)
     {
-        NavMeshPath path = new NavMeshPath();
-
         if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             agent.SetDestination(target);            
@@ -64,13 +60,13 @@ public class GroundUnitController : Controller
 
     protected override void Look()
     {
-        if (null == head || null == weapon)
+        if (null == _head || null == _weapon)
             return;
 
-        Quaternion currentLocalRotation = head.localRotation;
-        head.localRotation = Quaternion.identity;
-        Vector3 targetWorldLookDir = Target.position - head.position;
-        Vector3 targetLocalLookDir = head.InverseTransformDirection(targetWorldLookDir);
+        Quaternion currentLocalRotation = _head.localRotation;
+        _head.localRotation = Quaternion.identity;
+        Vector3 targetWorldLookDir = Target.position - _head.position;
+        Vector3 targetLocalLookDir = _head.InverseTransformDirection(targetWorldLookDir);
 
         Quaternion targetLocalRotation = Quaternion.LookRotation(targetLocalLookDir, Vector3.up);
 
@@ -82,17 +78,17 @@ public class GroundUnitController : Controller
         // Euler -> Quaternion
         targetLocalRotation = Quaternion.Euler(euler);
 
-        head.localRotation = Quaternion.Slerp(
+        _head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
             1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)
             );
 
 
-        currentLocalRotation = weapon.localRotation;
-        weapon.localRotation = Quaternion.identity;
-        targetWorldLookDir = Target.position - weapon.position;
-        targetLocalLookDir = weapon.InverseTransformDirection(targetWorldLookDir);
+        currentLocalRotation = _weapon.localRotation;
+        _weapon.localRotation = Quaternion.identity;
+        targetWorldLookDir = Target.position - _weapon.position;
+        targetLocalLookDir = _weapon.InverseTransformDirection(targetWorldLookDir);
         targetLocalRotation = Quaternion.LookRotation(targetLocalLookDir, Vector3.up);
 
         euler = targetLocalRotation.eulerAngles;
@@ -101,7 +97,7 @@ public class GroundUnitController : Controller
 
         targetLocalRotation = Quaternion.Euler(euler);
 
-        weapon.localRotation = Quaternion.Slerp(
+        _weapon.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
             1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)

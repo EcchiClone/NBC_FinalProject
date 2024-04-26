@@ -35,11 +35,7 @@ public class EntityStat
 }
 
 public abstract class Entity : MonoBehaviour, ITarget
-{
-    static int index = 0;
-    public string _tag;
-    static int killcount = 0;
-    
+{    
     [field: SerializeField] public Transform Target { get; set; }
     [field: SerializeField] public float Height { get; private set; }    
     [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록
@@ -75,7 +71,6 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     private void Start()
     {
-        _tag = "e" + index++;
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         Anim = GetComponent<Animator>();
         Target = Managers.Module.CurrentUpperPart.transform;
