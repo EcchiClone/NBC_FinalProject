@@ -1,12 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using static UnityEngine.UIElements.VisualElement;
 using static PhaseSO;
-using System;
-using System.Runtime.CompilerServices;
-using static Achievement;
-using Unity.VisualScripting;
 
 public class EnemyBulletPatternStarter : MonoBehaviour
 {
@@ -119,7 +114,7 @@ public class EnemyBulletPatternStarter : MonoBehaviour
         StartCoroutine(myCoroutine);
         activeCoroutine.Add(myCoroutine);
     }
-
+    
     public void StopPattern()
     {
         foreach (IEnumerator co in activeCoroutine)

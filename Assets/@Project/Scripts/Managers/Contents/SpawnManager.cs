@@ -185,6 +185,7 @@ public class SpawnManager
         {
             IsStarted = true;
             CurrentStage = 1;
+            yield break;
         }
         int levelCount = Managers.Data.GetLevelDataDictCount();
         CreateCell();

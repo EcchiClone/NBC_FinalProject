@@ -32,7 +32,7 @@ public class SkyFire_CombatState : BaseState
         float distance = Vector3.Distance(entity, target);
         if (Context.Entity.Stat.stopDistance <= distance)
         {
-            SwitchState(Context.Provider.GetState(Minion_States.NonCombat));
+            SwitchState(Context.Provider.GetState(SkyFire_States.NonCombat));
         }
     }
 

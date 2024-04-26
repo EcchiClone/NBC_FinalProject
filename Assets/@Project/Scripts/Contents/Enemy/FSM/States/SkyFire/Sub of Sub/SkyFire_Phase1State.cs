@@ -34,11 +34,12 @@ public class SkyFire_Phase1State : BaseState
     public override void ExitState()
     {
         // 페이즈 끄기
+        Context.Entity.enemyPhaseStarter.StopPattern();
     }
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.AP <= Context.Entity.Stat.maxHealth * 0.6f)
+        if (Context.Entity.AP <= Context.Entity.FinalAP * 0.6f)
         {
             SwitchState(Provider.GetState(SkyFire_States.Phase2));
         }

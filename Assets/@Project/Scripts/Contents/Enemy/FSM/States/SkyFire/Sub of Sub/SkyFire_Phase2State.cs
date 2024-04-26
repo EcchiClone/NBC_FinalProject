@@ -37,11 +37,12 @@ public class SkyFire_Phase2State : BaseState
 
     public override void ExitState()
     {
+        Context.Entity.enemyPhaseStarter.StopPattern();
     }
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.AP <= Context.Entity.Stat.maxHealth * 0.3f)
+        if (Context.Entity.AP <= Context.Entity.FinalAP * 0.3f)
         {
             SwitchState(Provider.GetState(SkyFire_States.Phase3));
         }
