@@ -204,8 +204,13 @@ public class PlayerStateMachine : MonoBehaviour
         Controller.Move(_cameraRelativeMovement * Time.deltaTime);
     }
 
-    private void HandleUseWeapon()
+    private void HandleUseWeapon() // 대시 중 팔 무기 사용 불가
     {
+        if (IsLeftShoulderWeaponInputPressed)
+            Module.CurrentLeftShoulder.UseWeapon();
+        if (IsRightShoulderWeaponInputPressed)
+            Module.CurrentRightShoulder.UseWeapon();
+        
         if (!CanJudgeDashing)
             return;
 
@@ -213,10 +218,6 @@ public class PlayerStateMachine : MonoBehaviour
             Module.CurrentLeftArm.UseWeapon();
         if (IsRightArmWeaponInputPressed)
             Module.CurrentRightArm.UseWeapon();
-        if (IsLeftShoulderWeaponInputPressed)
-            Module.CurrentLeftShoulder.UseWeapon();
-        if (IsRightShoulderWeaponInputPressed)
-            Module.CurrentRightShoulder.UseWeapon();
     }
 
     // 회전 제어

@@ -20,9 +20,12 @@ public class LockOnSystem
     public CinemachineFreeLook FollowCam { get; private set; }
     public CinemachineVirtualCamera LockOnCam { get; private set; }
     public CinemachineTargetGroup TargetGroup { get; private set; }
+    public CinemachineStateDrivenCamera StateDrivenCam { get; private set; }
 
     public bool IsLockon { get; private set; }
     public ITarget TargetEnemy { get; private set; }
+
+    private Animator _stateAnimator;
 
     private readonly float INIT_CAM_POS_Y = 0.5f;
     private readonly float INIT_CAM_POS_X = -8f;
@@ -36,13 +39,16 @@ public class LockOnSystem
         FollowCam = GameObject.Find("@FollowCam").GetComponent<CinemachineFreeLook>();
         LockOnCam = GameObject.Find("@LockOnCam").GetComponent<CinemachineVirtualCamera>();
         TargetGroup = GameObject.Find("@TargetGroup").GetComponent<CinemachineTargetGroup>();
+        StateDrivenCam = GameObject.Find("@StateCam").GetComponent<CinemachineStateDrivenCamera>();
+
+        _stateAnimator = StateDrivenCam.GetComponent<Animator>();
 
         FollowCam.Follow = _module.transform;
         FollowCam.LookAt = _module.transform;
 
         LockOnCam.Follow = _followOnTargetMode;
         LockOnCam.LookAt = TargetGroup.transform;
-        LockOnCam.gameObject.SetActive(false);
+        //LockOnCam.gameObject.SetActive(false);
 
         TargetGroup.AddMember(_module.transform, 1, 0);
         TargetGroup.AddMember(_followOnTargetMode, 1, 0);
@@ -149,7 +155,8 @@ public class LockOnSystem
 
         float percent = TargetEnemy.AP / TargetEnemy.MaxAP;
         Managers.ActionManager.CallLockOn(TargetEnemy, percent);
-        LockOnCam.gameObject.SetActive(true);
+        //LockOnCam.gameObject.SetActive(true);
+        _stateAnimator.Play("LockOnCam");
         TargetGroup.AddMember(TargetEnemy.Transform, 1, 0);
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LockOn, Vector3.zero);
@@ -161,7 +168,8 @@ public class LockOnSystem
         FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
 
         Managers.ActionManager.CallRelease();
-        LockOnCam.gameObject.SetActive(false);
+        //LockOnCam.gameObject.SetActive(false);
+        _stateAnimator.Play("FollowCam");
         TargetGroup.RemoveMember(TargetEnemy.Transform);
         TargetEnemy = null;
     }

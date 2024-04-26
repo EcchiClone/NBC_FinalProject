@@ -204,7 +204,7 @@ MonoBehaviour:
     apModValue: 2
     moveSpdModValue: 1.5
   - dev_ID: 20
-    spawnCount: 30
+    spawnCount: 1
     spawnDelayTime: 0
     countDownTime: 120
     spawnType1: 5
