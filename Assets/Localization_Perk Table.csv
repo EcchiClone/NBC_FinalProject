@@ -1,2 +1,18 @@
 ﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
 "Keyee",7258787840,"","EnglishTranslate","","KoreanTranslate",""
+"ControlInfo",230489613201408,"","How to Control
+
+W A S D - To move perk map
+Mouse Wheel - To zoom In and Out
+Mouse Click - To select perk","","조작법
+
+W A S D - 퍼크 맵 이동
+마우스 휠 - 퍼크 맵 줌 In/Out
+마우스 클릭 - 퍼크 선택",""
+"CurrentPoints",230517098475520,""," Points Exist",""," 포인트 소유",""
+"CurrentSeed",230579111260160,"","Current Seed: ","","현재 시드: ",""
+"RequirePoints",230604172226560,""," Points to Unlock",""," 포인트 필요",""
+"UnlockBtnBefore",230656101904384,"","Unlock","","해금하기",""
+"UnlockBtnAfter",230835047690240,"","Unlocked","","해금 완료",""
+"RerollBtn",230882879533056,"","Reset","","구성 초기화",""
+"Require",237693674254336,"","Require ","","해금에 ",""��에 ",""

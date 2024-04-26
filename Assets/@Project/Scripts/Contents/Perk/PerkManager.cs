@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class PerkManager : MonoBehaviour
 {
@@ -77,11 +78,8 @@ public class PerkManager : MonoBehaviour
         UnlockCount = 0;
         CurrentSeed = _seed.RandomSeedGenerator();
 
-        // 컨텐츠 json 파일 먼저 불러오기
-        _json.LoadContentData(ref _tier1Contents, "tier1ContentData");
-        _json.LoadContentData(ref _tier2Contents, "tier2ContentData");
-        _json.LoadContentData(ref _tier3Contents, "tier3ContentData");
-        _json.LoadContentData(ref _subPerkContents, "subPerkContentData");
+        // 컨텐츠 json 파일 설정한 언어에 따라 먼저 불러오기
+        CheckContentLocale();
 
         // 퍼크 데이터 존재 여부 확인
         CheckDataExists();
@@ -126,6 +124,30 @@ public class PerkManager : MonoBehaviour
         }
 
         LoadPerkSequence();
+    }
+
+    private void CheckContentLocale()
+    {
+        string currentLocale = LocalizationSettings.SelectedLocale.ToString();
+
+        if (currentLocale == "English (en)")
+        {
+            _json.LoadContentData(ref _tier1Contents, "en/tier1ContentData");
+            _json.LoadContentData(ref _tier2Contents, "en/tier2ContentData");
+            _json.LoadContentData(ref _tier3Contents, "en/tier3ContentData");
+            _json.LoadContentData(ref _subPerkContents, "en/subPerkContentData");
+        }
+        else if (currentLocale == "Korean (ko)")
+        {
+            _json.LoadContentData(ref _tier1Contents, "ko/tier1ContentData");
+            _json.LoadContentData(ref _tier2Contents, "ko/tier2ContentData");
+            _json.LoadContentData(ref _tier3Contents, "ko/tier3ContentData");
+            _json.LoadContentData(ref _subPerkContents, "ko/subPerkContentData");
+        }
+        else
+        {
+            // 다른 언어 지원 시 추가
+        }
     }
 
     private void CreateNewPerkSequence()
