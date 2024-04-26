@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_SO:
   - dev_ID: 1
-    spawnCount: 20
+    spawnCount: 5
     spawnDelayTime: 1
     countDownTime: 5
     spawnType1: 2
@@ -22,9 +22,9 @@ MonoBehaviour:
     spawnType3: 0
     enemyType: 1
   - dev_ID: 2
-    spawnCount: 20
+    spawnCount: 5
     spawnDelayTime: 1
-    countDownTime: 5
+    countDownTime: 30
     spawnType1: 2
     spawnType2: 0
     spawnType3: 0

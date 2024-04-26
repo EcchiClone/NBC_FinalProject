@@ -12,7 +12,6 @@ public class Ball_DeadState : BaseState
     public override void EnterState()
     {
         passedTime = 0f;
-        
     }
 
     public override void UpdateState()
@@ -59,7 +58,8 @@ public class Ball_DeadState : BaseState
                     rigidbody.AddForce(Vector3.up * 20, ForceMode.Impulse);
                 }
 
-                entity.GetDamaged(damage);
+                if(entity.IsAlive) 
+                    entity.GetDamaged(damage);
             }
 
             if (hit.transform.gameObject.TryGetComponent(out Module module))
