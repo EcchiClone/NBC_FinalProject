@@ -47,8 +47,7 @@ public class LockOnSystem
         FollowCam.LookAt = _module.transform;
 
         LockOnCam.Follow = _followOnTargetMode;
-        LockOnCam.LookAt = TargetGroup.transform;
-        //LockOnCam.gameObject.SetActive(false);
+        LockOnCam.LookAt = TargetGroup.transform;        
 
         TargetGroup.AddMember(_module.transform, 1, 0);
         TargetGroup.AddMember(_followOnTargetMode, 1, 0);
@@ -155,9 +154,8 @@ public class LockOnSystem
 
         float percent = TargetEnemy.AP / TargetEnemy.MaxAP;
         Managers.ActionManager.CallLockOn(TargetEnemy, percent);
-        //LockOnCam.gameObject.SetActive(true);
-        _stateAnimator.Play("LockOnCam");
         TargetGroup.AddMember(TargetEnemy.Transform, 1, 0);
+        _stateAnimator.Play("LockOnCam");        
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Player_LockOn, Vector3.zero);
     }
@@ -167,10 +165,10 @@ public class LockOnSystem
         IsLockon = false;
         FollowCam.m_XAxis.Value = LockOnCam.transform.rotation.eulerAngles.y;
 
-        Managers.ActionManager.CallRelease();
-        //LockOnCam.gameObject.SetActive(false);
-        _stateAnimator.Play("FollowCam");
+        Managers.ActionManager.CallRelease();        
         TargetGroup.RemoveMember(TargetEnemy.Transform);
+        _stateAnimator.Play("FollowCam");
+
         TargetEnemy = null;
     }
 
