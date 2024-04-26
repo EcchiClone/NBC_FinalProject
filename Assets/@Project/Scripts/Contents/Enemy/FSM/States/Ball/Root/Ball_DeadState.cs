@@ -12,7 +12,6 @@ public class Ball_DeadState : BaseState
     public override void EnterState()
     {
         passedTime = 0f;
-        
     }
 
     public override void UpdateState()
