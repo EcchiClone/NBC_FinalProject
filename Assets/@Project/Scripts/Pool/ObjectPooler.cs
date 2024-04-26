@@ -111,6 +111,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    private int enemyIndex = 0;
     GameObject _SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))

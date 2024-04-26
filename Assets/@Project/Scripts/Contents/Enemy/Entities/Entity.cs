@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, ITarget
 {
+    static int index = 0;
+    public string _tag;
     static int killcount = 0;
     [field: SerializeField] public Define.EnemyType EnemyType { get; set; }
 
@@ -37,6 +39,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     private void Start()
     {
+        _tag = "e" + index++;
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         
         Target = Managers.Module.CurrentUpperPart.transform;
@@ -61,6 +64,8 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
+        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP}");
+
         if (!IsAlive || AP <= 0)
             return;
 
@@ -78,6 +83,7 @@ public abstract class Entity : MonoBehaviour, ITarget
             {
                 ++killcount;
                 Debug.Log(killcount);
+                Debug.LogError($"2 tag : {_tag} isAlive: {IsAlive} ap : {AP}");
             }
             
 
