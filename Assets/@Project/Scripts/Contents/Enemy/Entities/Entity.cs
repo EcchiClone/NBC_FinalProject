@@ -108,12 +108,6 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void GetDamaged(float damage)
     {
-        if(!IsInit)
-        {
-            return;
-        }
-        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf} IsInit : {IsInit}");
-
         if (!IsAlive || AP <= 0)
             return;
 
@@ -127,14 +121,6 @@ public abstract class Entity : MonoBehaviour, ITarget
 
         if (!IsAlive)
         {
-            if(this is Ball)
-            {
-                ++killcount;
-                Debug.Log(killcount);
-                Debug.LogError($"2 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf}");
-            }
-            
-
             Managers.ActionManager.CallLockTargetDestroyed(this);
             if (EnemyType == Define.EnemyType.Minion)
             {

@@ -25,7 +25,6 @@ MonoBehaviour:
     attackInterval: 0.7
     damage: 100
     enemyType: 1
-    entityType: 0
   - dev_ID: 1
     dev_Name: Spider
     stopDistance: 40
@@ -38,7 +37,6 @@ MonoBehaviour:
     attackInterval: 0.7
     damage: 0
     enemyType: 1
-    entityType: 1
   - dev_ID: 2
     dev_Name: Drone
     stopDistance: 40
@@ -51,7 +49,6 @@ MonoBehaviour:
     attackInterval: 1.5
     damage: 0
     enemyType: 1
-    entityType: 2
   - dev_ID: 3
     dev_Name: WarMachine
     stopDistance: 40
@@ -64,7 +61,6 @@ MonoBehaviour:
     attackInterval: 0.5
     damage: 0
     enemyType: 1
-    entityType: 3
   - dev_ID: 4
     dev_Name: Sky_Fire
     stopDistance: 70
@@ -77,4 +73,3 @@ MonoBehaviour:
     attackInterval: 5
     damage: 0
     enemyType: 2
-    entityType: 4
