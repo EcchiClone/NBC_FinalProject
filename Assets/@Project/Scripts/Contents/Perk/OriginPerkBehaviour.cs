@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.Localization.Settings;
 
 public class OriginPerkBehaviour : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
@@ -26,7 +27,15 @@ public class OriginPerkBehaviour : MonoBehaviour, IPointerClickHandler, IPointer
         _perkInfo = new PerkInfo(PerkTier.ORIGIN, 0, 0, false);
         _contentInfo = new ContentInfo();
         _contentInfo.name = "[CORE X7-9900K]";
-        _contentInfo.description = "기체의 핵심 프로세서입니다. 현재 진행상황을 초기화 할 수 있습니다. 해금으로 얻은 능력치는 유지되며, 사용한 포인트는 돌려받을 수 없습니다.";
+
+        if (LocalizationSettings.SelectedLocale.ToString() == "English (en)")
+        {
+            _contentInfo.description = "It's the core processor of the machine. It can reset the current progress. The capabilities you get from the release will be maintained, and the points you use will not be returned.";
+        }
+        else
+        {
+            _contentInfo.description = "기체의 핵심 프로세서입니다. 현재 진행상황을 초기화 할 수 있습니다. 해금으로 얻은 능력치는 유지되며, 사용한 포인트는 돌려받을 수 없습니다.";
+        }
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)

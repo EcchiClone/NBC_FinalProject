@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class UnlockBtnBehaviour : MonoBehaviour
@@ -20,6 +21,7 @@ public class UnlockBtnBehaviour : MonoBehaviour
 
     private void Start()
     {
+        SetLocaleString();
         PerkManager.Instance.OnPerkClicked += OnPerkClicked;
     }
 
@@ -34,6 +36,13 @@ public class UnlockBtnBehaviour : MonoBehaviour
         _beforeBtn.SetActive(false);
         _afterBtn.SetActive(false);
         _rerollBtn.SetActive(false);
+    }
+
+    private void SetLocaleString()
+    {
+        _beforeBtn.GetComponentInChildren<TextMeshProUGUI>().text = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Perk Table", "UnlockBtnBefore", LocalizationSettings.SelectedLocale);
+        _afterBtn.GetComponentInChildren<TextMeshProUGUI>().text = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Perk Table", "UnlockBtnAfter", LocalizationSettings.SelectedLocale);
+        _rerollBtn.GetComponentInChildren<TextMeshProUGUI>().text = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Perk Table", "RerollBtn", LocalizationSettings.SelectedLocale);
     }
 
     private void CheckPerkActive()
@@ -104,7 +113,9 @@ public class UnlockBtnBehaviour : MonoBehaviour
 
     private void UpdateRequireText()
     {
-        _pointTxt.text = "해금에 " + PerkManager.Instance.RequirePoint.ToString() + " 포인트 필요";
+        string requireTxt = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Perk Table", "RequirePoints", LocalizationSettings.SelectedLocale);
+        string require = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Perk Table", "Require", LocalizationSettings.SelectedLocale);
+        _pointTxt.text = require + PerkManager.Instance.RequirePoint.ToString() + requireTxt;
     }
 
     private void OnPerkClicked(object sender, EventArgs eventArgs)
