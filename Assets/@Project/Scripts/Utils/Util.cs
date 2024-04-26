@@ -6,8 +6,7 @@ using Random = UnityEngine.Random;
 
 public static class Util
 {
-    private static Dictionary<float, WaitForSeconds> WaitDict = new Dictionary<float, WaitForSeconds>();
-    private static Dictionary<PoolingType, ObjectPooler> PoolDict = new Dictionary<PoolingType, ObjectPooler>();
+    private static Dictionary<float, WaitForSeconds> WaitDict = new Dictionary<float, WaitForSeconds>();    
 
     public static WaitForSeconds GetWaitSeconds(float seconds)
     {
@@ -18,15 +17,6 @@ public static class Util
         }
         return wait;
     }
-
-    public static void SetPooler(ObjectPooler pooler) => PoolDict.Add(pooler.PoolingType, pooler);
-    public static ObjectPooler GetPooler(PoolingType type) => PoolDict[type];
-    public static void ClearPooler()
-    {
-        IsCleared = true;
-        PoolDict.Clear();
-    }
-    public static bool IsCleared { get; set; }
 
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {

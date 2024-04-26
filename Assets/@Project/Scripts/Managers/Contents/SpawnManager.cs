@@ -250,12 +250,12 @@ public class SpawnManager
         CurrentSpawnCount++;
 
         if (LevelData.EnemyType == Define.EnemyType.Minion)
-            Util.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, GetSpawnPoint());
+            Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, GetSpawnPoint());
         else if (LevelData.EnemyType == Define.EnemyType.Boss)
         {
             BGMPlayer.Instance.SetFieldBGMState(1f); // 보스 브금 재생
             Managers.StageActionManager.CallBossStage();
-            Util.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));
+            Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));
         }
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
     }

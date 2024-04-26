@@ -107,7 +107,7 @@ public class PlayerProjectile : Bullet
 
     private void CreateEffect()
     {
-        GameObject go = Util.GetPooler(PoolingType.Player).SpawnFromPool(_hitEffectPrefab.name, transform.position);
+        GameObject go = Managers.Pool.GetPooler(PoolingType.Player).SpawnFromPool(_hitEffectPrefab.name, transform.position);
         EffectLifeTime hitEffect = go.GetComponent<EffectLifeTime>();
         hitEffect.Setup();
         hitEffect.transform.rotation = transform.rotation;
@@ -120,7 +120,7 @@ public class PlayerProjectile : Bullet
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
-        Util.GetPooler(PoolingType.Player).ReturnToPool(gameObject); // 한 객체에 한번만        
+        Managers.Pool.GetPooler(PoolingType.Player).ReturnToPool(gameObject); // 한 객체에 한번만        
         CancelInvoke();
     }
 }

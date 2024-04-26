@@ -7,7 +7,7 @@ public class Drone_DeadState : BaseState
 
     public override void EnterState()
     {
-        Util.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
     }
     public override void UpdateState()
