@@ -249,14 +249,24 @@ public class SpawnManager
         _currentWaveSpawnCount++;
         CurrentSpawnCount++;
 
+        GameObject go = null;
+
         if (LevelData.EnemyType == Define.EnemyType.Minion)
-            Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, GetSpawnPoint());
+            go = Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, GetSpawnPoint());
         else if (LevelData.EnemyType == Define.EnemyType.Boss)
-        {
+        {            
             BGMPlayer.Instance.SetFieldBGMState(1f); // 보스 브금 재생
             Managers.StageActionManager.CallBossStage();
-            Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));
+            go = Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool(unitType, new Vector3(UnityEngine.Random.Range(0f, 50f), 50f, UnityEngine.Random.Range(0f, 50f)));
         }
+
+        if(go == null)
+        {
+            Debug.LogError($"적 풀링에 실패했습니다. : {unitType}");
+            return;
+        }
+
+        go.GetComponent<Entity>().Setup(LevelData);
         Managers.StageActionManager.CallEnemySpawned(CurrentSpawnCount);
     }
 

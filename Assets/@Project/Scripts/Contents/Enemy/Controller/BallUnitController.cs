@@ -30,7 +30,7 @@ public class BallUnitController : Controller
     public override void SetStopDistance(float stopDistance)
     {
         if (0 > stopDistance)
-            StopDistance = Entity.Data.stopDistance;
+            StopDistance = Entity.Stat.stopDistance;
         else
             StopDistance = stopDistance;
     }

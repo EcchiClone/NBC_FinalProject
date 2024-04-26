@@ -38,7 +38,7 @@ public class SkyFire_Phase1State : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= Context.Entity.Data.maxHealth * 0.6f)
+        if (Context.Entity.AP <= Context.Entity.Stat.maxHealth * 0.6f)
         {
             SwitchState(Provider.GetState(SkyFire_States.Phase2));
         }

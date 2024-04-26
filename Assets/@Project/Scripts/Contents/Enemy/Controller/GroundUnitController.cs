@@ -13,9 +13,9 @@ public class GroundUnitController : Controller
     public GroundUnitController(Entity entity) : base(entity)
     {
         agent = entity.GetComponent<NavMeshAgent>();
-        agent.speed = entity.Data.moveSpeed;
-        agent.angularSpeed = entity.Data.rotationSpeed;
-        agent.stoppingDistance = entity.Data.stopDistance;
+        agent.speed = entity.FinalMoveSPD;
+        agent.angularSpeed = entity.Stat.rotationSpeed;
+        agent.stoppingDistance = entity.Stat.stopDistance;
 
         // Must Fix This.
         head = entity.transform.Find("Armature/Body/Head");
@@ -57,7 +57,7 @@ public class GroundUnitController : Controller
     public override void SetStopDistance(float stopDistance)
     {
         if(0 > stopDistance)
-            agent.stoppingDistance = StopDistance = Entity.Data.stopDistance;
+            agent.stoppingDistance = StopDistance = Entity.Stat.stopDistance;
         else
             agent.stoppingDistance = StopDistance = stopDistance;
     }
@@ -85,7 +85,7 @@ public class GroundUnitController : Controller
         head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)
             );
 
 
@@ -104,7 +104,7 @@ public class GroundUnitController : Controller
         weapon.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)
             );
     }
 

@@ -24,8 +24,8 @@ public  class Controller
     public void Initialize()
     {
         Destination = Entity.transform.position;
-        StopDistance = Entity.Data.stopDistance;
-        Speed = Entity.Data.moveSpeed;
+        StopDistance = Entity.Stat.stopDistance;
+        Speed = Entity.FinalMoveSPD;
         Rigidbody = Entity.GetComponent<Rigidbody>();
         Target = Entity.Target.transform;
     }

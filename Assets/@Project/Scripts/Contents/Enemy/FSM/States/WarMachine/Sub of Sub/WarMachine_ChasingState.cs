@@ -10,7 +10,7 @@ public class WarMachine_ChasingState : BaseState
     {
         IsRootState = false;
 
-        chasingInterval = Context.Entity.Data.chasingInterval;
+        chasingInterval = Context.Entity.Stat.chasingInterval;
     }
     public override void EnterState()
     {
@@ -36,7 +36,7 @@ public class WarMachine_ChasingState : BaseState
     public override void CheckSwitchStates()
     {
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
-        if (Context.Entity.Data.cognizanceRange < distance)
+        if (Context.Entity.Stat.cognizanceRange < distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.Idle));
         }

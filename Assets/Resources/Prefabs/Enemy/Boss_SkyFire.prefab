@@ -238,12 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bc53836e0f0e7488231422675aa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 2
-  <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
-    type: 2}
   <Target>k__BackingField: {fileID: 0}
   <Height>k__BackingField: 0
   <IsAlive>k__BackingField: 0
+  <EntityType>k__BackingField: 4
   enemyPhaseStarter: {fileID: 0}
 --- !u!64 &5579426517034781461
 MeshCollider:

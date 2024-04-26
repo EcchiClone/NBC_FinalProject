@@ -9,7 +9,7 @@ public class SkyFire_Phase2State : BaseState
         : base(context, provider)
     {
         IsRootState = false;
-        _attackInterval = Context.Entity.Data.attackInterval;
+        _attackInterval = Context.Entity.Stat.attackInterval;
     }
 
 
@@ -41,7 +41,7 @@ public class SkyFire_Phase2State : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= Context.Entity.Data.maxHealth * 0.3f)
+        if (Context.Entity.AP <= Context.Entity.Stat.maxHealth * 0.3f)
         {
             SwitchState(Provider.GetState(SkyFire_States.Phase3));
         }

@@ -17,7 +17,7 @@ public class Ball_DeadState : BaseState
     public override void UpdateState()
     {
         passedTime += Time.deltaTime;
-        if(passedTime >= Context.Entity.Data.attackInterval)
+        if(passedTime >= Context.Entity.Stat.attackInterval)
         {
             Explosion();
         }
@@ -39,7 +39,7 @@ public class Ball_DeadState : BaseState
 
     private void Explosion()
     {
-        float damage = Context.Entity.Data.damage;
+        float damage = Context.Entity.Stat.damage;
 
         RaycastHit[] hits = Physics.SphereCastAll(Context.Entity.transform.position, 10, Vector3.up, 0f);
 
