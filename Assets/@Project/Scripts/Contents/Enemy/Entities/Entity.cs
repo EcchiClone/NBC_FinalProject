@@ -36,6 +36,8 @@ public class EntityStat
 
 public abstract class Entity : MonoBehaviour, ITarget
 {
+    static int index = 0;
+    public string _tag;
     static int killcount = 0;
     
     [field: SerializeField] public Transform Target { get; set; }
@@ -73,6 +75,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     private void Start()
     {
+        _tag = "e" + index++;
         enemyPhaseStarter = GetComponent<EnemyBulletPatternStarter>();
         Anim = GetComponent<Animator>();
         Target = Managers.Module.CurrentUpperPart.transform;
@@ -80,17 +83,13 @@ public abstract class Entity : MonoBehaviour, ITarget
         Initialize();        
     }
 
-    private void OnEnable()
-    {        
-        StateMachine?.Reset();        
-    }
-
     protected abstract void Initialize();
 
     public void Activate()
     {        
-        AP = Stat.maxHealth;
-        IsAlive = true;
+        AP = Stat.maxHealth;          
+        IsAlive = true;        
+        StateMachine?.Activate();
     }
 
     public void Setup(LevelData levelData)
@@ -105,10 +104,16 @@ public abstract class Entity : MonoBehaviour, ITarget
         AP = 1; // Ball 자폭 방지
         FinalAP = Stat.maxHealth * levelData.ApModValue;
         FinalMoveSPD = Stat.moveSpeed * levelData.MoveSpdModValue;
-    }
+    }    
 
     public void GetDamaged(float damage)
     {
+        if(!IsInit)
+        {
+            return;
+        }
+        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf} IsInit : {IsInit}");
+
         if (!IsAlive || AP <= 0)
             return;
 
@@ -126,6 +131,7 @@ public abstract class Entity : MonoBehaviour, ITarget
             {
                 ++killcount;
                 Debug.Log(killcount);
+                Debug.LogError($"2 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf}");
             }
             
 

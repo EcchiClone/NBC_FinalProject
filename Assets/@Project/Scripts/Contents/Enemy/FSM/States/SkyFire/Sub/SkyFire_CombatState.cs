@@ -12,6 +12,7 @@ public class SkyFire_CombatState : BaseState
         InitializeSubState();
         _currentSubState?.EnterState();
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Detect, Context.Entity.transform.position);
+        UnityEngine.Debug.Log("보스 전투 입장");
     }
 
     public override void UpdateState()

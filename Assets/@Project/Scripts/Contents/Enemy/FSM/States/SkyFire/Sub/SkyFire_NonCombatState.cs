@@ -11,6 +11,7 @@ public class SkyFire_NonCombatState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        UnityEngine.Debug.Log("보스 비전투 입장");
     }
 
     public override void UpdateState()

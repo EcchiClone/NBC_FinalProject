@@ -1,3 +1,4 @@
+using FMOD;
 using UnityEngine;
 
 public class Ball_DeadState : BaseState
@@ -70,5 +71,6 @@ public class Ball_DeadState : BaseState
         Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
+        UnityEngine.Debug.LogError($"tag : {Context.Entity._tag} Explosion");
     }
 }
