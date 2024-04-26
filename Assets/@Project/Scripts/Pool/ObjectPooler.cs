@@ -148,6 +148,9 @@ public class ObjectPooler : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+
+            rb.isKinematic = false;  // 중력 영향을 받도록 다시 설정
+            rb.useGravity = false;    // 중력 사용 여부를 활성화
         }
 
         poolDictionary[obj.name].Enqueue(obj);

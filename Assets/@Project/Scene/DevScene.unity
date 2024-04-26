@@ -982,6 +982,9 @@ MonoBehaviour:
   - tag: EnemyProjectile02_Large
     prefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390, type: 3}
     size: 300
+  - tag: EnemyProjectile02_Large2_Nature
+    prefab: {fileID: 245006665270501150, guid: b6488d8083b24654e952d3d6754f4a18, type: 3}
+    size: 50
   - tag: EnemyProjectile03
     prefab: {fileID: 7488779171184577920, guid: bf40293e9c29b534b8ebfa5e6c4067e0,
       type: 3}

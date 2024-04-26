@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4989b36fd917d3a4ca6531177c2f6be5, type: 3}
+  m_Name: Patterns_Chain
+  m_EditorClassIdentifier: 
+  patternDatas:
+  - patternName: Throw
+    Desc: "\uACF5\uB358\uC9C0\uAE30"
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 245006665270501150, guid: b6488d8083b24654e952d3d6754f4a18,
+        type: 3}
+      initDelay: 0
+      numOfSet: 5
+      setDelay: 0.2
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 3
+      customPosDirection: {x: 0, y: 1, z: 0}
+      spreadA: 1
+      spreadA_Default_Angle: 60
+      spreadA_Default_Concentration: 0
+      spreadA_FixY_Angle: 0
+      spreadA_FixY_Concentration: 0
+      spreadA_FixX_Angle: 0
+      spreadA_FixX_Concentration: 0
+      enemyBulletShape: 0
+      useVelocityScalerFromMuzzleDist: 0
+      customBulletPosList: []
+      numOfVertex: 0
+      isLoopingShape: 0
+      divisionPointsPerEdge: 0
+      initDistance: 8
+      numPerShot: 1
+      shotVerticalNum: 1
+      spreadB: 0
+      spreadB_Default_Angle: 0
+      spreadB_Default_Concentration: 0
+      spreadB_FixY_Angle: 0
+      spreadB_FixY_Concentration: 0
+      spreadB_FixX_Angle: 0
+      spreadB_FixX_Concentration: 0
+      initDirectionType: 1
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 5
+      initSpeed: 20
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      gravity: 19.6
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: 0
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 10
+  - patternName: Circle
+    Desc: "\uC6D0\uD615 \uBC18\uBCF5"
+    enemyBulletSettings:
+      enemyBulletPrefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390,
+        type: 3}
+      initDelay: 0
+      numOfSet: 1
+      setDelay: 0
+      shotPerSet: 1
+      shotDelay: 0
+      posDirection: 3
+      customPosDirection: {x: 0, y: 0, z: 1}
+      spreadA: 0
+      spreadA_Default_Angle: 0
+      spreadA_Default_Concentration: 0
+      spreadA_FixY_Angle: 0
+      spreadA_FixY_Concentration: 0
+      spreadA_FixX_Angle: 0
+      spreadA_FixX_Concentration: 0
+      enemyBulletShape: 1
+      useVelocityScalerFromMuzzleDist: 0
+      customBulletPosList: []
+      numOfVertex: 0
+      isLoopingShape: 0
+      divisionPointsPerEdge: 0
+      initDistance: 0.05
+      numPerShot: 20
+      shotVerticalNum: 1
+      spreadB: 0
+      spreadB_Default_Angle: 0
+      spreadB_Default_Concentration: 0
+      spreadB_FixY_Angle: 0
+      spreadB_FixY_Concentration: 0
+      spreadB_FixX_Angle: 0
+      spreadB_FixX_Concentration: 0
+      initDirectionType: 1
+      initCustomDirection: {x: 0, y: 0, z: 0}
+      enemyBulletMoveType: 0
+      initSpeed: 20
+      initMoveDirection: {x: 0, y: 0, z: 0}
+      gravity: 0
+      initAccelMultiple: 1
+      initAccelPlus: 0
+      minSpeed: 0
+      maxSpeed: 100
+      initRotationSpeed: 0
+      isCluster: 0
+      initLocalYRotationSpeed: 0
+      enemyBulletChangeMoveMethod: 0
+      enemyBulletChangeMoveProperty: []
+      releaseMethod: 0
+      releaseTimer: 3

@@ -64,7 +64,10 @@ public class EnemyBulletGenerator : MonoBehaviour
         //yield return new WaitForSeconds(genSettings.patternHierarchy.startTime);
         yield return Util.GetWaitSeconds(genSettings.patternHierarchy.startTime);
         if (genSettings.masterObject != null)
+        {
+
             ExecutePattern(genSettings); // hierarchy.patternSO, hierarchy.patternName, hierarchy.subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform
+        }
     }
 
     public void ExecutePattern(BulletGenerationSettings genSettings) // PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null
@@ -96,6 +99,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 // masterObject의 상태 및 컴포넌트의 존재 여부 확인
                 if (genSettings.masterObject == null || !genSettings.masterObject.activeInHierarchy)
                 {
+                    Debug.Log(genSettings.patternHierarchy.patternSO.name);
                     yield break; // masterObject가 비활성화되거나 파괴되면 코루틴 중단
                 }
                 var enemyPhaseStarter = genSettings.masterObject.GetComponent<EnemyBulletPatternStarter>();

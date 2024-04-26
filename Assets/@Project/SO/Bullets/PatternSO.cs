@@ -122,6 +122,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public EnemyBulletMoveType enemyBulletMoveType; // 움직임 타입(트리거로 변화 요소)
     public float initSpeed;                         // 시작속도. 일단은 정속으로 테스트, 추후 수정.
     public Vector3 initMoveDirection;               // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
+    public float gravity;
     public float initAccelMultiple;                         // 가속도(곱)(트리거로 변화요소)
     public float initAccelPlus;                         // 가속도(합)(트리거로 변화요소)
     public float minSpeed;
@@ -219,6 +220,7 @@ public enum EnemyBulletMoveType
     MasterCenter,
     LerpToPlayerNoise,
     MuzzleCenter,
+    Nature,
     //CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 public enum EnemyBulletChangeMoveMethod
