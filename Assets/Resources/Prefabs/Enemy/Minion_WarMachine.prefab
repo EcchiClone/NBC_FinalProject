@@ -586,12 +586,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8489298b2ca5e458f918d04a0110cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 1
-  <Data>k__BackingField: {fileID: 11400000, guid: afb6af8ea75e70942ba933b1203ec267,
-    type: 2}
   <Target>k__BackingField: {fileID: 0}
   <Height>k__BackingField: 8
   <IsAlive>k__BackingField: 0
+  <EntityType>k__BackingField: 3
   enemyPhaseStarter: {fileID: 0}
 --- !u!195 &1170111364107385224
 NavMeshAgent:

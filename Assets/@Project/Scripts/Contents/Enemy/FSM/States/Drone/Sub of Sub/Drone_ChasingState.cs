@@ -9,7 +9,7 @@ public class Drone_ChasingState : BaseState
     {
         IsRootState = false;
 
-        chasingInterval = Context.Entity.Data.chasingInterval;
+        chasingInterval = Context.Entity.Stat.chasingInterval;
     }
     public override void EnterState()
     {
@@ -41,7 +41,7 @@ public class Drone_ChasingState : BaseState
         Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
 
         float distance = Vector3.Distance(entity, target);
-        if (Context.Entity.Data.cognizanceRange < distance)
+        if (Context.Entity.Stat.cognizanceRange < distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.Idle));
         }

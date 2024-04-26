@@ -7,8 +7,8 @@ public  class Controller
         Entity = entity;
 
         Destination = Entity.transform.position;
-        StopDistance = Entity.Data.stopDistance;
-        Speed = Entity.Data.moveSpeed;
+        StopDistance = Entity.Stat.stopDistance;
+        Speed = Entity.FinalMoveSPD;
         Rigidbody = Entity.GetComponent<Rigidbody>();
         Target = Entity.Target.transform;
     }
@@ -29,7 +29,6 @@ public  class Controller
 
     public Transform XRotationPart { get; protected set; }
     public Transform YRotationPart { get; protected set; }
-
 
     public virtual void Update() { }
 

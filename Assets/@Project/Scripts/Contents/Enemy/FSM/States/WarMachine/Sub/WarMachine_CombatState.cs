@@ -8,7 +8,7 @@ public class WarMachine_CombatState : BaseState
     public WarMachine_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
-        _attackInterval = Context.Entity.Data.attackInterval;
+        _attackInterval = Context.Entity.Stat.attackInterval;
     }
 
     public override void EnterState()
@@ -45,7 +45,7 @@ public class WarMachine_CombatState : BaseState
     public override void CheckSwitchStates()
     {
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
-        if (Context.Entity.Data.stopDistance <= distance)
+        if (Context.Entity.Stat.stopDistance <= distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.NonCombat));
         }

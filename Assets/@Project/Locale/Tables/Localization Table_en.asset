@@ -90,7 +90,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13129134657545
-    m_Localized: Korean
+    m_Localized: "\uD55C\uAD6D\uC5B4"
     m_Metadata:
       m_Items: []
   - m_Id: 14255598882816
@@ -599,6 +599,20 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 206001783984128
     m_Localized: 'Current Stage : 1'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 497186385711104
+    m_Localized: In Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 497186436042752
+    m_Localized: 'Get
+
+      Rewards'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 497186436042753
+    m_Localized: Complete
     m_Metadata:
       m_Items: []
   references:

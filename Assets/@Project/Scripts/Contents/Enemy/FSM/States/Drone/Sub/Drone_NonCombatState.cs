@@ -28,7 +28,7 @@ public class Drone_NonCombatState : BaseState
         Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
 
         float distance = Vector3.Distance(entity, target);
-        if (Context.Entity.Data.stopDistance > distance)
+        if (Context.Entity.Stat.stopDistance > distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.Combat));
         }

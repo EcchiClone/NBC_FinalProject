@@ -9,7 +9,7 @@ public class SkyFire_ChasingState : BaseState
         : base(context, provider) 
     {
         IsRootState = false;
-        chasingInterval = Context.Entity.Data.chasingInterval;
+        chasingInterval = Context.Entity.Stat.chasingInterval;
     }
 
     public override void EnterState()

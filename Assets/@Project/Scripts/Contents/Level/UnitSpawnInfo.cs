@@ -9,6 +9,7 @@ public enum UnitType
     Minion_Spider,
     Minion_Ball,
     Minion_Drone,
+    Minion_WarMachine,
 
     Boss_SkyFire,
 }

@@ -22,7 +22,7 @@ public class Ball_NonCombatState : BaseState
     {
         // 목표물과 거리 차 Stop Distance 이하면 컴뱃으로 변경.
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
-        if(Context.Entity.Data.stopDistance > distance)
+        if(Context.Entity.Stat.stopDistance > distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.Combat));
         }

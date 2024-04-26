@@ -36,6 +36,6 @@ public class UI_DmagePopup : UI_Popup
     {
         _damageText.color = Color.white;
         _rect.anchoredPosition = Vector2.zero;
-        Util.GetPooler(PoolingType.Enemy).ReturnToPool(gameObject);        
+        Managers.Pool.GetPooler(PoolingType.Enemy).ReturnToPool(gameObject);        
     }
 }

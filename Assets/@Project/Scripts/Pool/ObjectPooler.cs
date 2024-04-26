@@ -224,7 +224,7 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
-        Util.SetPooler(this);
+        Managers.Pool.SetPooler(this);
     }
 
     void Start()

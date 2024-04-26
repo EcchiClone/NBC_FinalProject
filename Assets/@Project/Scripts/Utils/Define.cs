@@ -101,4 +101,13 @@ public class Define
         Minion,
         Boss,
     }
+
+    public enum EntityType
+    {
+        Ball,
+        Spider,
+        Drone,
+        WarMachine,
+        SkyFire,
+    }
 }
