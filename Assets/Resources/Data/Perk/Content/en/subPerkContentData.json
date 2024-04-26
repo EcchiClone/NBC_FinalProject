@@ -1,0 +1,61 @@
+{
+    "contentTier": 0,
+    "data": [
+        {
+            "contentIdx": 0,
+            "name": "Power Overload Test",
+            "description": "Test the maximum limit of core power; increase the maximum AP by 100.",
+            "type": 0,
+            "value": 100.0
+        },
+        {
+            "contentIdx": 1,
+            "name": "Output Overload Test",
+            "description": "It will cause an intended electrical output overload to accumulate data. It will increase the speed of movement by 2%.",
+            "type": 1,
+            "value": 2.0
+        },
+        {
+            "contentIdx": 2,             
+            "name": "Handling System Exception",
+            "description": "Secure the missing exception handling of the reload system; increase the loading speed by 2%.",
+            "type": 4,
+            "value": 2.0
+        },
+        {
+            "contentIdx": 3,
+            "name": "Barrel Durability Test",
+            "description": "Conduct a durability test of the barrel. Launch speed increases by 1%.",
+            "type": 5,
+            "value": 1.0
+        },
+        {
+            "contentIdx": 4,
+            "name": "New Material Elasticity Test",
+            "description": "Test the elasticity of the new material to be used when strengthening parts. Increases jump power by 2%.",
+            "type": 6,
+            "value": 2.0
+        },
+        {
+            "contentIdx": 5,
+            "name": "Gas Pressure Experiment",
+            "description": "Analyze the pressure intensity for each gas to find the optimal gas. Increase the hovering gas output by 2%.",
+            "type": 8,
+            "value": 2.0
+        },
+        {
+            "contentIdx": 6,
+            "name": "Thermal Power Data Analysis",
+            "description": "Analyze the firepower data according to the weapon you use. Increases the attack power of all weapons by 2%.",
+            "type": 10,
+            "value": 2.0
+        },
+        {
+            "contentIdx": 7,
+            "name": "Signal Amplification Experiment",
+            "description": "It conducts signal amplification experiments to accumulate radar data. Rock-on maximum distance increases by 2%.",
+            "type": 11,
+            "value": 2.0
+        }
+    ]
+}

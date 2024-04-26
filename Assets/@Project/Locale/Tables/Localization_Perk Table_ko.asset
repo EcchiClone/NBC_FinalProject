@@ -22,6 +22,40 @@ MonoBehaviour:
     m_Localized: KoreanTranslate
     m_Metadata:
       m_Items: []
+  - m_Id: 230489613201408
+    m_Localized: "\uC870\uC791\uBC95\n\nW A S D - \uD37C\uD06C \uB9F5 \uC774\uB3D9\n\uB9C8\uC6B0\uC2A4
+      \uD720 - \uD37C\uD06C \uB9F5 \uC90C In/Out\n\uB9C8\uC6B0\uC2A4 \uD074\uB9AD
+      - \uD37C\uD06C \uC120\uD0DD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230517098475520
+    m_Localized: " \uD3EC\uC778\uD2B8 \uC18C\uC720"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230579111260160
+    m_Localized: "\uD604\uC7AC \uC2DC\uB4DC: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230604172226560
+    m_Localized: " \uD3EC\uC778\uD2B8 \uD544\uC694"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230656101904384
+    m_Localized: "\uD574\uAE08\uD558\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230835047690240
+    m_Localized: "\uD574\uAE08 \uC644\uB8CC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230882879533056
+    m_Localized: "\uAD6C\uC131 \uCD08\uAE30\uD654"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 237693674254336
+    m_Localized: "\uD574\uAE08\uC5D0 "
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

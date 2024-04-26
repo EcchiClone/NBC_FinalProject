@@ -1,0 +1,96 @@
+{
+    "contentTier": 3,
+    "data": [
+        {
+            "contentIdx": 0,
+            "name": "Core Power Enhancement III",
+            "description": "Increase the maximum AP by 1500 by strengthening core power.",
+            "type": 0,
+            "value": 1500.0
+        },
+        {
+            "contentIdx": 1,
+            "name": "Condenser Reinforcement II",
+            "description": "Strengthen the condenser to increase the total amount of power that can be stored. Booster maximum charge increases by 20%.",
+            "type": 2,
+            "value": 20.0
+        },
+        {
+            "contentIdx": 2,
+            "name": "Reactor Efficiency II",
+            "description": "Increase the efficiency of the reactor; increase the dash output by 20%.",
+            "type": 3,
+            "value": 20.0
+        },
+        {
+            "contentIdx": 3,
+            "name": "Quick Rotation II",
+            "description": "Increase the rotational speed by 10%.",
+            "type": 7,
+            "value": 10.0
+        },
+        {
+            "contentIdx": 4,
+            "name": "High Energy Rail",
+            "description": "Enables rail output to the gun row, allowing bullets to penetrate one enemy.",
+            "type": 9,
+            "value": 1.0
+        },
+        {
+            "contentIdx": 5,
+            "name": "Firepower Reconstruction III",
+            "description": "Reconfigures the firepower of the weapon you use. Increases damage to all weapons by 20%.",
+            "type": 10,
+            "value": 20.0
+        },
+        {
+            "contentIdx": 6,
+            "name": "Enhanced Radar III",
+            "description": "Strengthen radar. Rock-on distance increases by 30%.",
+            "type": 11,
+            "value": 30.0
+        },
+        {
+            "contentIdx": 7,
+            "name": "Reserve Barrel Rotation II",
+            "description": "Increase the attack speed of the reserve armament by 20%.",
+            "type": 12,
+            "value": 20.0
+        },
+        {
+            "contentIdx": 8,
+            "name": "Reserve Aim Accuracy II",
+            "description": "Increase aiming accuracy by learning the aiming system. The firing error rate of the reserve armament is reduced by 20%.",
+            "type": 13,
+            "value": 20.0
+        },
+        {
+            "contentIdx": 9,
+            "name": "Reserve Ammunition Capacity II",
+            "description": "The ammunition of the reserve armament increases by 40%.",
+            "type": 14,
+            "value": 40.0
+        },
+        {
+            "contentIdx": 10,
+            "name": "Enable Resupply",
+            "description": "It can be loaded with shoulder arms.",
+            "type": 15,
+            "value": 1.0
+        },
+        {
+            "contentIdx": 11,
+            "name": "Heavy Armored Plate II",
+            "description": "Equipped with heavy protective plate, it improves defense by 10%.",
+            "type": 16,
+            "value": 10.0
+        },
+        {
+            "contentIdx": 12,
+            "name": "Protective Magnetic Field II",
+            "description": "Enable the protective magnetic field to ignore damage with a 10% chance of shooting.",
+            "type": 17,
+            "value": 10.0
+        }
+    ]
+}
