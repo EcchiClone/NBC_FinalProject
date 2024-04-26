@@ -137,16 +137,12 @@ public class PerkManager : MonoBehaviour
             _json.LoadContentData(ref _tier3Contents, "en/tier3ContentData");
             _json.LoadContentData(ref _subPerkContents, "en/subPerkContentData");
         }
-        else if (currentLocale == "Korean (ko)")
+        else
         {
             _json.LoadContentData(ref _tier1Contents, "ko/tier1ContentData");
             _json.LoadContentData(ref _tier2Contents, "ko/tier2ContentData");
             _json.LoadContentData(ref _tier3Contents, "ko/tier3ContentData");
             _json.LoadContentData(ref _subPerkContents, "ko/subPerkContentData");
-        }
-        else
-        {
-            // 다른 언어 지원 시 추가
         }
     }
 
