@@ -8,7 +8,7 @@ public class Drone_CombatState : BaseState
     public Drone_CombatState(BaseStateMachine context, BaseStateProvider provider) : base(context, provider)
     {
         IsRootState = false;
-        _attackInterval = Context.Entity.Data.attackInterval;
+        _attackInterval = Context.Entity.Stat.attackInterval;
     }
 
     public override void EnterState()
@@ -49,7 +49,7 @@ public class Drone_CombatState : BaseState
         Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
 
         float distance = Vector3.Distance(entity, target);
-        if (Context.Entity.Data.stopDistance <= distance)
+        if (Context.Entity.Stat.stopDistance <= distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.NonCombat));
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMissile : PlayerProjectile
 {
-    private Transform _target;
+    private ITarget _target;
     private Vector3 _groundTargetPos;    
 
     private bool _isTracking = false;
@@ -14,7 +14,7 @@ public class PlayerMissile : PlayerProjectile
     {
         base.Setup(speed, damage, splash, groundTargetPos, target, explosiveRange);
         _isTracking = false;
-        _target = target.Transform;
+        _target = target;
         _groundTargetPos = groundTargetPos;
         StartCoroutine(CoTracking());
     }
@@ -24,7 +24,7 @@ public class PlayerMissile : PlayerProjectile
         if (_isTracking)
         {
             if (_target != null)
-                TrackingTarget(_target.position);
+                TrackingTarget(_target.Transform.position);
             else
                 TrackingTarget(_groundTargetPos);
         }        

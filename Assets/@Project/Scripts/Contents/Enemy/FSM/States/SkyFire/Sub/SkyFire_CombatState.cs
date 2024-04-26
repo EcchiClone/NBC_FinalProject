@@ -12,6 +12,7 @@ public class SkyFire_CombatState : BaseState
         InitializeSubState();
         _currentSubState?.EnterState();
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Detect, Context.Entity.transform.position);
+        UnityEngine.Debug.Log("보스 전투 입장");
     }
 
     public override void UpdateState()
@@ -29,7 +30,7 @@ public class SkyFire_CombatState : BaseState
         Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
 
         float distance = Vector3.Distance(entity, target);
-        if (Context.Entity.Data.stopDistance <= distance)
+        if (Context.Entity.Stat.stopDistance <= distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.NonCombat));
         }

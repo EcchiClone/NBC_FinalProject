@@ -12,12 +12,17 @@ public class LevelData : IEntity
     [SerializeField] UnitType spawnType2;
     [SerializeField] UnitType spawnType3;
     [SerializeField] Define.EnemyType enemyType;
+    [SerializeField] private float apModValue;    
+    [SerializeField] private float moveSpdModValue;
 
     public int Dev_ID => dev_ID; // lv
     public int SpawnCount => spawnCount;
     public float SpawnDelayTime => spawnDelayTime;
     public float CountDownTime => countDownTime;
     public Define.EnemyType EnemyType => enemyType;
+    public float ApModValue => apModValue;
+    public float MoveSpdModValue => moveSpdModValue;
+
 
     private List<UnitType> spawnTypes;
 

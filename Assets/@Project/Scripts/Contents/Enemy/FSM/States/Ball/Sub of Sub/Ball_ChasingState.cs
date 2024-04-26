@@ -9,7 +9,7 @@ public class Ball_ChasingState : BaseState
     {
         IsRootState = false;
 
-        chasingInterval = Context.Entity.Data.chasingInterval;
+        chasingInterval = Context.Entity.Stat.chasingInterval;
         _entityTransform = Context.Entity.transform;
         _targetTransform = Context.Entity.Target.transform;
     }
@@ -39,7 +39,7 @@ public class Ball_ChasingState : BaseState
     {
         // 거리 멀어지면 다시 Idle로
         float distance = Vector3.Distance(_entityTransform.position, _targetTransform.position);
-        if (Context.Entity.Data.cognizanceRange < distance)
+        if (Context.Entity.Stat.cognizanceRange < distance)
         {
             SwitchState(Context.Provider.GetState(Minion_States.Idle));
         }

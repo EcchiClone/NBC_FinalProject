@@ -40,7 +40,7 @@ public class TurretUnitController : Controller
         head.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)
             );
 
 
@@ -63,7 +63,7 @@ public class TurretUnitController : Controller
         armPivot.localRotation = Quaternion.Slerp(
             currentLocalRotation,
             targetLocalRotation,
-            1 - Mathf.Exp(-Entity.Data.rotationSpeed * Time.deltaTime)
+            1 - Mathf.Exp(-Entity.Stat.rotationSpeed * Time.deltaTime)
             );
     }
 

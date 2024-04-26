@@ -1,3 +1,4 @@
+using FMOD;
 using UnityEngine;
 
 public class Ball_DeadState : BaseState
@@ -17,7 +18,7 @@ public class Ball_DeadState : BaseState
     public override void UpdateState()
     {
         passedTime += Time.deltaTime;
-        if(passedTime >= Context.Entity.Data.attackInterval)
+        if(passedTime >= Context.Entity.Stat.attackInterval)
         {
             Explosion();
         }
@@ -39,7 +40,7 @@ public class Ball_DeadState : BaseState
 
     private void Explosion()
     {
-        float damage = Context.Entity.Data.damage;
+        float damage = Context.Entity.Stat.damage;
 
         RaycastHit[] hits = Physics.SphereCastAll(Context.Entity.transform.position, 10, Vector3.up, 0f);
 
@@ -67,8 +68,9 @@ public class Ball_DeadState : BaseState
                 module.ModuleStatus.GetDamage(damage);
             }
         }
-        Util.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        Managers.Pool.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Ball_Explode, _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
+        UnityEngine.Debug.LogError($"tag : {Context.Entity._tag} Explosion");
     }
 }

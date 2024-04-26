@@ -111,6 +111,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    private int enemyIndex = 0;
     GameObject _SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -223,7 +224,7 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
-        Util.SetPooler(this);
+        Managers.Pool.SetPooler(this);
     }
 
     void Start()

@@ -11,6 +11,7 @@ public class SkyFire_NonCombatState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        UnityEngine.Debug.Log("보스 비전투 입장");
     }
 
     public override void UpdateState()
@@ -28,7 +29,7 @@ public class SkyFire_NonCombatState : BaseState
         Vector3 target = new Vector3(_targetTransform.position.x, 0, _targetTransform.position.z);
 
         float distance = Vector3.Distance(entity, target);
-        if (Context.Entity.Data.stopDistance > distance)
+        if (Context.Entity.Stat.stopDistance > distance)
         {
             SwitchState(Context.Provider.GetState(SkyFire_States.Combat));
         }

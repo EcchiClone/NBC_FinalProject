@@ -11,7 +11,6 @@ public class SkyFire_Phase1State : BaseState
 
     public override void EnterState()
     {
-        Debug.Log("Enter Phase1");
 
         // 이전 사용중인 패턴 멈추기
         Context.Entity.enemyPhaseStarter.StopBullet();
@@ -24,6 +23,7 @@ public class SkyFire_Phase1State : BaseState
         }
 
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Phase_1, Context.Entity.transform.position);
+        Debug.Log("Enter Phase1");
     }
 
     public override void UpdateState()
@@ -38,7 +38,7 @@ public class SkyFire_Phase1State : BaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.Entity.CurrentHelth <= Context.Entity.Data.maxHealth * 0.6f)
+        if (Context.Entity.AP <= Context.Entity.Stat.maxHealth * 0.6f)
         {
             SwitchState(Provider.GetState(SkyFire_States.Phase2));
         }

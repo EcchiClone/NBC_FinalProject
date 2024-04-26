@@ -103,7 +103,6 @@ public class UI_HUD : UI_Scene
         if (!_lockOnIndicator.activeSelf || _target == null)
             return;
 
-        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.Center);
-        Debug.Log(_target.Center);
+        _lockOnIndicator.transform.position = Camera.main.WorldToScreenPoint(_target.Center);        
     }
 }

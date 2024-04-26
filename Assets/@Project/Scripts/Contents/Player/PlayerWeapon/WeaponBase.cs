@@ -88,7 +88,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected GameObject CreateBullet(Transform muzzle)
     {
-        GameObject bullet = Util.GetPooler(PoolingType.Player).SpawnFromPool(_bulletObject.name, muzzle.position);
+        GameObject bullet = Managers.Pool.GetPooler(PoolingType.Player).SpawnFromPool(_bulletObject.name, muzzle.position);
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;
@@ -96,7 +96,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected EffectLifeTime CreateMuzzleEffect(Transform muzzle)
     {
-        EffectLifeTime effect = Util.GetPooler(PoolingType.Player).SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
+        EffectLifeTime effect = Managers.Pool.GetPooler(PoolingType.Player).SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
         effect.transform.rotation = muzzle.rotation;
 
         return effect;

@@ -16,7 +16,7 @@ public abstract class BaseScene : MonoBehaviour
     public virtual void Init() 
     {
         Managers.Input.OnInputKeyDown += KeyGuidPanel;
-        Util.IsCleared = false;
+        Managers.Pool.IsCleared = false;
     }
 
     private void KeyGuidPanel()

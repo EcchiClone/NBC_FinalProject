@@ -4,7 +4,7 @@ public class AirUnitController : Controller
 {
     public AirUnitController(Entity entity) : base(entity)
     {
-        TargetAltitude = Entity.Data.fixedAltitude;
+        TargetAltitude = Entity.Stat.fixedAltitude;
     }
 
     public float TargetAltitude { get; set; }
@@ -34,7 +34,7 @@ public class AirUnitController : Controller
 
         float distanceToStopPoint = Vector3.Distance(Entity.transform.position, StopPoint);
 
-        float forceMagnitude = distanceToStopPoint / Entity.Data.moveSpeed;
+        float forceMagnitude = distanceToStopPoint / Entity.FinalMoveSPD;
 
         forceMagnitude = Mathf.Clamp(forceMagnitude, 4, Speed);
 
@@ -94,7 +94,7 @@ public class AirUnitController : Controller
     public override void SetStopDistance(float stopDistance)
     {
         if (0 > stopDistance)
-            StopDistance = Entity.Data.stopDistance;
+            StopDistance = Entity.Stat.stopDistance;
         else
             StopDistance = stopDistance;
     }

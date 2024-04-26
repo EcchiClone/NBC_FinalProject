@@ -9,12 +9,14 @@ public class Managers : MonoBehaviour
     DataManager _dataManager = new DataManager();
     ResourceManager _resouceManager = new ResourceManager();
     InputManager _inputManager = new InputManager();
+    PoolManager _poolManager = new PoolManager();
     SceneManagerEx _sceneManager = new SceneManagerEx();
     UIManager _uiManager = new UIManager();
 
     public static DataManager Data => Instance?._dataManager;
     public static ResourceManager RM => Instance?._resouceManager;
     public static InputManager Input => Instance?._inputManager;
+    public static PoolManager Pool => Instance?._poolManager;
     public static SceneManagerEx Scene => Instance?._sceneManager;
     public static UIManager UI => Instance?._uiManager;
     #endregion
@@ -75,6 +77,6 @@ public class Managers : MonoBehaviour
         Module.Clear();
         Tutorial.Clear();
         GameManager.Clear();
-        Util.ClearPooler();        
+        Pool.Clear();          
     }
 }

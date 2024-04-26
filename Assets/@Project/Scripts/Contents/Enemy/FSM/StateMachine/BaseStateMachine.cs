@@ -15,13 +15,13 @@ public abstract class BaseStateMachine
     public BaseStateMachine(Entity entity)
     {
         Entity = entity;
-        Initialize();
+        //Initialize();
         Sound = Entity.GetComponent<Enemy_Sound>();
     }
 
     public abstract void Initialize();
 
-    public abstract void Reset();
+    public abstract void Activate();
 
     public void Update()
     {
