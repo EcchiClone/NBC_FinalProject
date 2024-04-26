@@ -5,6 +5,12 @@ public  class Controller
     public Controller(Entity entity)
     {
         Entity = entity;
+
+        Destination = Entity.transform.position;
+        StopDistance = Entity.Data.stopDistance;
+        Speed = Entity.Data.moveSpeed;
+        Rigidbody = Entity.GetComponent<Rigidbody>();
+        Target = Entity.Target.transform;
     }
 
     protected Entity Entity { get; private set; }
@@ -21,14 +27,6 @@ public  class Controller
     public Rigidbody Rigidbody { get; protected set; }
     protected Transform Target { get; set; }
 
-    public void Initialize()
-    {
-        Destination = Entity.transform.position;
-        StopDistance = Entity.Data.stopDistance;
-        Speed = Entity.Data.moveSpeed;
-        Rigidbody = Entity.GetComponent<Rigidbody>();
-        Target = Entity.Target.transform;
-    }
 
     public virtual void Update() { }
 

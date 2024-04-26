@@ -11,6 +11,7 @@ public abstract class Entity : MonoBehaviour, ITarget
     [field: SerializeField] public Transform Target { get; set; }
     [field: SerializeField] public float Height { get; private set; }
     public float CurrentHelth { get; protected set; }
+    public bool IsInit { get; private set; } = false;
     [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록
 
     public Controller Controller { get; protected set; }
@@ -46,25 +47,39 @@ public abstract class Entity : MonoBehaviour, ITarget
         Initialize();
 
         Anim = GetComponent<Animator>();
+        Debug.LogError($"tag : {_tag} IsInit : {IsInit}");
     }
 
     private void OnEnable()
-    {        
-        StateMachine?.Reset();
-        CurrentHelth = Data.maxHealth;
+    {
+        IsInit = false;
+        Debug.LogError($"tag : {_tag} OnEnable");
+        
+    }
+
+    private void OnDisable()
+    {
+        IsInit = false;
     }
 
     protected abstract void Initialize();
 
     public void Activate()
     {
+        IsInit = true;
+        Debug.LogError($"tag : {_tag} Activate");
         IsAlive = true;
         AP = Data.maxHealth;
+        StateMachine?.Activate();
     }
 
     public void GetDamaged(float damage)
     {
-        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf}");
+        if(!IsInit)
+        {
+            return;
+        }
+        Debug.LogError($"1 tag : {_tag} isAlive: {IsAlive} ap : {AP} Active : {gameObject.activeSelf} IsInit : {IsInit}");
 
         if (!IsAlive || AP <= 0)
             return;

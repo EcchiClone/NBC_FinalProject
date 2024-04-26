@@ -10,6 +10,7 @@ public class SkyFire_DeadState : BaseState
     {
         Context.Entity.enemyPhaseStarter.isShooting = false;
         Context.Entity.gameObject.SetActive(false);
+        UnityEngine.Debug.Log("보스 죽음 입장");
     }
     public override void UpdateState()
     {

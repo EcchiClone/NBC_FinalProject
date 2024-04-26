@@ -10,6 +10,7 @@ public class SkyFire_AliveState : BaseState
         InitializeSubState();
         _currentSubState?.EnterState();
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Boss_Appear, Context.Entity.transform.position);
+        UnityEngine.Debug.Log("보스 생존 입장");
     }
 
     public override void UpdateState()
@@ -31,7 +32,7 @@ public class SkyFire_AliveState : BaseState
 
     public override void InitializeSubState()
     {
-        SetSubState(Provider.GetState(SkyFire_States.Chasing));
+        SetSubState(Provider.GetState(SkyFire_States.NonCombat));
     }
 
 }
