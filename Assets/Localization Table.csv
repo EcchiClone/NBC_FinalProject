@@ -17,8 +17,8 @@ UI-SettingsLanguage,1.31E+13,,Language,,언어,
 UI-SettingsResolutionNotice,1.31E+13,,"Abnormalities may occur at
 resolutions other than 1920 x 1080.",,"1920 x 1080 이외의 해상도에서
 이상현상이 발생할 수 있습니다",
-UI-SettingsEnglishBtn,1.31E+13,,English,,영어,
-UI-SettingsKoreanBtn,1.31E+13,,Korean,,한국어,
+UI-SettingsEnglishBtn,1.31E+13,,English,,English,
+UI-SettingsKoreanBtn,1.31E+13,,한국어,,한국어,
 UI-SettingsBanner,1.43E+13,,Settings,,환경 설정,
 UI-SettingsBackBtn,1.52E+13,,Back,,뒤로가기,
 UI-GameStart,3.85E+13,,Game Start,,Game Start,
@@ -180,3 +180,8 @@ Text-KilledEnemy,,,Killed,,처치한 적,
 Text-NextWave,,,Next Wave,,다음 웨이브까지,
 Text-Remain,,,Remain,,남은 시간,
 Text-CurrentStage1,,,Current Stage : 1,,현재 스테이지 : 1,
+Text-InProgress,,,In Progress,,진행중,
+UI-GetRewards,,,"Get
+Rewards",,"보 상
+받 기",
+UI-Complete,,,Complete,,완 료,
