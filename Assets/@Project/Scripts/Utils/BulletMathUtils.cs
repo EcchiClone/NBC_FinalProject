@@ -137,7 +137,7 @@ public class BulletMathUtils
     public static Vector3 CalculateSpreadDirectionFixY(Vector3 originalDirection, float maxSpreadAngle, float concentration)
     {
         // 랜덤 각도를 계산
-        float spreadAngle = Random.Range(0, maxSpreadAngle / 2.0f);
+        float spreadAngle = Random.Range(-maxSpreadAngle / 2.0f, maxSpreadAngle / 2.0f);
         spreadAngle *= Mathf.Lerp(1.0f, 0.0f, concentration); // 집중 정도에 따라 스케일 조정
 
         // Y축을 회전 축으로 사용

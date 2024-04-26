@@ -242,6 +242,7 @@ MonoBehaviour:
   <Data>k__BackingField: {fileID: 11400000, guid: e59ab9092f5d02b4fae83eba680c5223,
     type: 2}
   <Target>k__BackingField: {fileID: 0}
+  <Height>k__BackingField: 0
   <IsAlive>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!64 &5579426517034781461
@@ -278,7 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac5717e67e6184781a0f6a89d8153b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Phases: []
+  Phases:
+  - {fileID: 11400000, guid: 500f8f46ed924f74ca8286be78109f2e, type: 2}
   Patterns:
   - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
     patternName: RocketLerp
@@ -290,6 +292,8 @@ MonoBehaviour:
     patternName: SphereRotate
   - patternSO: {fileID: 11400000, guid: ae17864f08c691344a825f2814cd8788, type: 2}
     patternName: Circles
+  - patternSO: {fileID: 11400000, guid: cafdedfcb8f3c764099f8f32e3a8cfee, type: 2}
+    patternName: Throw
   isShooting: 1
   muzzle:
   - {fileID: 4131979109430668379}

@@ -7,6 +7,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     [field: SerializeField] public EntityDataSO Data { get; set; }
     [field: SerializeField] public Transform Target { get; set; }
+    [field: SerializeField] public float Height { get; private set; }
     public float CurrentHelth { get; protected set; }
     [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록
 
@@ -30,7 +31,9 @@ public abstract class Entity : MonoBehaviour, ITarget
             if (Managers.Module.CurrentModule.LockOnSystem.TargetEnemy != null && Managers.Module.CurrentModule.LockOnSystem.TargetEnemy.Transform == transform)
                 Managers.ActionManager.CallTargetAPChanged(percent);
         }
-    }    
+    }
+
+    public Vector3 Center => transform.position + Vector3.up * Height;
 
     private void Start()
     {

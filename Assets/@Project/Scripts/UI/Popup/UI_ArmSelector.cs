@@ -58,7 +58,7 @@ public class UI_ArmSelector : UI_Selector
         GetButton((int)Buttons.BackToSelector).onClick.AddListener(BackToSelector);
         GetButton((int)Buttons.L_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeArmMode.LeftArm; Managers.ActionManager.CallArmModeChange(CurrentChangeMode); });
         GetButton((int)Buttons.R_Btn).onClick.AddListener(() => { CurrentChangeMode = ChangeArmMode.RightArm; Managers.ActionManager.CallArmModeChange(CurrentChangeMode); });
-    }
+    }    
 
     public void ResetText()
     {

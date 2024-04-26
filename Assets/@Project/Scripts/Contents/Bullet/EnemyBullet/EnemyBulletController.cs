@@ -27,13 +27,14 @@ public class EnemyBulletController : EnemyBullet
     private Vector3 playerPos;
     private Vector3 fixedMuzzlePos;
     private float _normalizedValue;
-
+    private bool initialized;
     // private float levelCoefficient; // 레벨에 따른 속도 계수. 1.0 이상.
 
     public void Initialize(EnemyBulletSettings settings, float cycleTime, List<PatternHierarchy> subPatterns, GameObject rootGo, Transform masterTf, Vector3 muzzlePos, float normalizedValue)
     {
+        initialized = false;
         // Trail 궤적 초기화
-        foreach(TrailRenderer t in _trailRenderers)
+        foreach (TrailRenderer t in _trailRenderers)
         {
             t.Clear();
         }
@@ -90,7 +91,7 @@ public class EnemyBulletController : EnemyBullet
         Vector3 centerPosition;
         Vector3 directionFromCenter;
         Vector3 horizontalDirection;
-            Vector3 outwardDirection;
+        Vector3 outwardDirection;
         float heightFactor;
         Vector3 verticalDirection;
         Vector3 tangentDirection;
@@ -168,10 +169,26 @@ public class EnemyBulletController : EnemyBullet
                 _rb.velocity = finalVelocity; // 탄환의 속도를 최종 계산된 벡터로 설정
                 break;
 
+            case EnemyBulletMoveType.Nature:
+                if (!initialized)
+                {
+                    // 초기 방향과 속도 설정
+                    _rb.velocity = transform.forward * _currentParameters.Speed; // 예시로 transform.forward를 사용
+                    initialized = true; // 초기화 완료 표시
+                }
+                // 이후에는 중력 및 Unity 물리 엔진에 의해 자동으로 처리
+                break;
 
 
         }
         _rb.velocity *= _normalizedValue;
+
+        // 중력 가속도 적용: _currentParameters.Gravity 값을 사용하여 -Y 방향으로 가속
+        if (_currentParameters.Gravity != 0)
+        {
+            _rb.velocity += Vector3.down * _currentParameters.Gravity * Time.deltaTime;
+        }
+
         // LocalYRotation
         float speedInRadiansPerSecond = _currentParameters.LocalYRotationSpeed * 2 * Mathf.PI; // 바퀴 수를 라디안/초로 변환
         float rotationThisFrame = speedInRadiansPerSecond * Time.deltaTime; // 현재 프레임에서의 회전량 계산
@@ -188,6 +205,8 @@ public class EnemyBulletController : EnemyBullet
         _currentParameters.Speed += _currentParameters.AccelPlus * Time.deltaTime;
         // Clamp
         _currentParameters.Speed = Mathf.Clamp(_currentParameters.Speed, _currentParameters.MinSpeed, _currentParameters.MaxSpeed);
+
+        // _currentParameters.Gravity 수치로 -Y방향의 속력에 적용되도록.
     }
 
     void UpdateMoveParameter()

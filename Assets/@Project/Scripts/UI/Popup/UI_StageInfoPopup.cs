@@ -50,14 +50,14 @@ public class UI_StageInfoPopup : UI_Popup
         if (Managers.SpawnManager.LevelData.EnemyType == Define.EnemyType.Minion)
         {
 
-            string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", $"Text-NextWave", LocalizationSettings.SelectedLocale);
+            string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "Text-NextWave", LocalizationSettings.SelectedLocale);
             //_countDownTime.text = $"다음 웨이브까지 : {minutes:00}:{seconds:00}"; // Localizing 이전
             _countDownTime.text = $"{translatedText} : {minutes:00}:{seconds:00}";
         }
         else if (Managers.SpawnManager.LevelData.EnemyType == Define.EnemyType.Boss)
         {
 
-            string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localizationg Table", $"Text-Remain", LocalizationSettings.SelectedLocale);
+            string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "Text-Remain", LocalizationSettings.SelectedLocale);
             //_countDownTime.text = $"<color=red>남은 시간</color> : {minutes:00}:{seconds:00}"; // Localizing 이전
             _countDownTime.text = $"<color=red>{translatedText}</color> : {minutes:00}:{seconds:00}";
         }
@@ -65,7 +65,7 @@ public class UI_StageInfoPopup : UI_Popup
 
     private void StageClear()
     {
-        string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localizationg Table", $"Text-CurrentStage", LocalizationSettings.SelectedLocale);
+        string translatedText = LocalizationSettings.StringDatabase.GetLocalizedString("Localization Table", "Text-CurrentStage", LocalizationSettings.SelectedLocale);
         _countDownTime.text = "";
         //_currentStage.text = $"현재 스테이지 : {Managers.SpawnManager.CurrentStage}"; // Localizing 이전
         _currentStage.text = $"{translatedText} : {Managers.SpawnManager.CurrentStage}";

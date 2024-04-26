@@ -981,16 +981,27 @@ MonoBehaviour:
     size: 100
   - tag: EnemyProjectile02_Large
     prefab: {fileID: 245006665270501150, guid: 55a57f9bb1f41714bbb8c387f04a2390, type: 3}
-    size: 100
+    size: 300
+  - tag: EnemyProjectile02_Large2_Nature
+    prefab: {fileID: 245006665270501150, guid: b6488d8083b24654e952d3d6754f4a18, type: 3}
+    size: 50
   - tag: EnemyProjectile03
     prefab: {fileID: 7488779171184577920, guid: bf40293e9c29b534b8ebfa5e6c4067e0,
       type: 3}
-    size: 100
-  - tag: EnemyProjectile04
+    size: 150
+  - tag: EnemyProjectile03_Large
+    prefab: {fileID: 7488779171184577920, guid: 5fd193fe903f5d647bfc1b748c272bf6,
+      type: 3}
+    size: 500
+  - tag: EnemyProjectile04_Large
     prefab: {fileID: 6531017631556436741, guid: 130a1e71f76159d4383e1b7c5c261357,
       type: 3}
     size: 100
   - tag: EnemyProjectile05
+    prefab: {fileID: 7302279346263578025, guid: 019f065fcee2fb34791acb01edeca54c,
+      type: 3}
+    size: 200
+  - tag: EnemyProjectile05_Large
     prefab: {fileID: 7302279346263578025, guid: 218ed4df05778764fb1aa37c52945842,
       type: 3}
     size: 100
@@ -1004,7 +1015,7 @@ MonoBehaviour:
   - tag: Default_Explosion01_Effect
     prefab: {fileID: 3045799783980963711, guid: eb78b01fc45fe4f4b8423cfdfcd77129,
       type: 3}
-    size: 2000
+    size: 1500
   - tag: EnemyBulletCluster_Triangle
     prefab: {fileID: 417151445506548962, guid: 26002aec90ae8954cadd806fbf31fd4f, type: 3}
     size: 100

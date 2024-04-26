@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBullet : Bullet
 {
+    public event Action OnCol;
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.TryGetComponent(out Module module) == true)
@@ -18,8 +21,17 @@ public class EnemyBullet : Bullet
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Obstacle") || other.gameObject.layer == LayerMask.NameToLayer("Unwalkable") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
+            OnCol?.Invoke();
             Util.GetPooler(PoolingType.Enemy).SpawnFromPool("Default_Explosion01_Effect", transform.position);
-            gameObject.SetActive(false);
+            if (OnCol != null)
+            {
+                OnCol = null;
+                StartCoroutine(SetActiveFalseAfterFrames());
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
         else if (other.gameObject.CompareTag("Player"))
         {
@@ -29,5 +41,19 @@ public class EnemyBullet : Bullet
             gameObject.SetActive(false);
         }
   
+    }
+
+    IEnumerator SetActiveFalseAfterFrames()
+    {
+        yield return null;
+        yield return null;
+
+        // 2프레임 후 메소드 실행
+        SetActiveFalse();
+    }
+
+    void SetActiveFalse()
+    {
+        gameObject.SetActive(false);
     }
 }

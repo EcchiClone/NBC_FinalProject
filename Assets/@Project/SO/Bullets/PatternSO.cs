@@ -55,8 +55,12 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     // a-Add. 기준 방향 지정 시 탄퍼짐
     //[Header("오차")]
     public SpreadType spreadA;                  // 기준방향벡터 오차의 유무
-    public float maxSpreadAngleA;               // > 최대 퍼짐 각도
-    public float concentrationA;                // > 집중 정도 (0.0 ~ 1.0)
+    public float spreadA_Default_Angle;               // > 최대 퍼짐 각도
+    public float spreadA_Default_Concentration;                // > 집중 정도 (0.0 ~ 1.0)
+    public float spreadA_FixY_Angle;            
+    public float spreadA_FixY_Concentration;
+    public float spreadA_FixX_Angle;
+    public float spreadA_FixX_Concentration;
                                                 // public PosDirectionRandomType posDirectionRandomType;    // > 랜덤성이 직선인지, 평면인지. 이후에 고려할 사항도 다수
                                                 // >a> 랜덤성이 직선일 경우, 그 직선의 형태
                                                 // >a> 랜덤성이 직선일 경우, 그 직선의 범위 또는 양 방향 각각의 범위(각도가 될 듯)
@@ -118,6 +122,7 @@ public struct EnemyBulletSettings // 추가 할 게 진짜 많다.. 트리 이�
     public EnemyBulletMoveType enemyBulletMoveType; // 움직임 타입(트리거로 변화 요소)
     public float initSpeed;                         // 시작속도. 일단은 정속으로 테스트, 추후 수정.
     public Vector3 initMoveDirection;               // 시작이동방향. 일단 보는방향으로 테스트, 추후 수정.
+    public float gravity;
     public float initAccelMultiple;                         // 가속도(곱)(트리거로 변화요소)
     public float initAccelPlus;                         // 가속도(합)(트리거로 변화요소)
     public float minSpeed;
@@ -215,6 +220,7 @@ public enum EnemyBulletMoveType
     MasterCenter,
     LerpToPlayerNoise,
     MuzzleCenter,
+    Nature,
     //CompletelyRandom,   // 완전히 랜덤한 방향으로
 }
 public enum EnemyBulletChangeMoveMethod

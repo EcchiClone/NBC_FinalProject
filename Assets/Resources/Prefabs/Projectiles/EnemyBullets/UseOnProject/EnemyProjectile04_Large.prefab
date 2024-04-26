@@ -14403,7 +14403,7 @@ GameObject:
   - component: {fileID: 2545428923503178340}
   - component: {fileID: -4210495391618014149}
   m_Layer: 11
-  m_Name: EnemyProjectile04
+  m_Name: EnemyProjectile04_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

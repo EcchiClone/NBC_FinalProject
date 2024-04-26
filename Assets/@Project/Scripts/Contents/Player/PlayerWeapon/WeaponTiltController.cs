@@ -33,9 +33,9 @@ public class WeaponTiltController
 
     public void CombatLockOnControl()
     {
-        Vector3 headToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _module.transform.position;        
-        Vector3 leftArmToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _arms[0].transform.position;
-        Vector3 rightArmToLookAt = _module.LockOnSystem.TargetEnemy.Transform.position - _arms[1].transform.position;
+        Vector3 headToLookAt = _module.LockOnSystem.TargetEnemy.Center - _module.transform.position;        
+        Vector3 leftArmToLookAt = _module.LockOnSystem.TargetEnemy.Center - _arms[0].transform.position;
+        Vector3 rightArmToLookAt = _module.LockOnSystem.TargetEnemy.Center - _arms[1].transform.position;
         headToLookAt.y = 0;
 
         LookRotationToTarget(headToLookAt, leftArmToLookAt, rightArmToLookAt);
