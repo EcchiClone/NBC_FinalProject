@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, ITarget
 {
+    static int killcount = 0;
     [field: SerializeField] public Define.EnemyType EnemyType { get; set; }
 
     [field: SerializeField] public EntityDataSO Data { get; set; }
@@ -69,9 +70,17 @@ public abstract class Entity : MonoBehaviour, ITarget
         damageUI.Setup(transform.position, Mathf.RoundToInt(damage));
 
         AP = Mathf.Max(0, AP - damage);
-        if (AP <= 0)
+        IsAlive = AP > 0;
+
+        if (!IsAlive)
         {
-            IsAlive = false;
+            if(this is Ball)
+            {
+                ++killcount;
+                Debug.Log(killcount);
+            }
+            
+
             Managers.ActionManager.CallLockTargetDestroyed(this);
             if (EnemyType == Define.EnemyType.Minion)
             {
