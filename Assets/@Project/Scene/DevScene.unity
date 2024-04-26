@@ -964,6 +964,10 @@ MonoBehaviour:
     prefab: {fileID: 6204124545279719401, guid: 7c22c9308d3027f43a0410e30cc9789c,
       type: 3}
     size: 20
+  - tag: Minion_WarMachine
+    prefab: {fileID: 6375647844545556878, guid: 85c84ed3cc7599a49857d6e8120dde91,
+      type: 3}
+    size: 10
   - tag: Boss_SkyFire
     prefab: {fileID: 6175972580230584608, guid: 9ea452715658ead49ac6a04c934ba8c1,
       type: 3}

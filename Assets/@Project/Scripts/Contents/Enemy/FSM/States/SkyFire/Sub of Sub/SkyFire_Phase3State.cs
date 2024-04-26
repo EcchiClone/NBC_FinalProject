@@ -33,6 +33,7 @@ public class SkyFire_Phase3State : BaseState
 
     public override void ExitState()
     {
+        Context.Entity.enemyPhaseStarter.StopPattern();
     }
 
     public override void CheckSwitchStates()

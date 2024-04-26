@@ -31,8 +31,9 @@ public class ModuleStatus
 
     public bool IsDead { get; private set; } = false;
 
-    private readonly float DASH_BOOSTER_CONSUME = 20f;
+    private readonly float DASH_BOOSTER_CONSUME = 40f;
     private readonly float HOVER_BOOSTER_CONSUME = 100f;
+    private readonly float HOVER_BOOSTER_RECHARGE = 20f;
 
     public ModuleStatus(LowerPart lower, UpperPart upper, WeaponPart leftArm, WeaponPart rightArm, WeaponPart leftShoulder, WeaponPart rightShoulder)
     {
@@ -109,7 +110,7 @@ public class ModuleStatus
 
     public void BoosterRecharge()
     {
-        CurrentBooster = Mathf.Min(BoosterGauge, CurrentBooster + 0.5f);
+        CurrentBooster = Mathf.Min(BoosterGauge, CurrentBooster + HOVER_BOOSTER_RECHARGE * Time.deltaTime);
         Managers.ModuleActionManager.CallChangeBoosterGauge(BoosterGauge, CurrentBooster);
     }
 

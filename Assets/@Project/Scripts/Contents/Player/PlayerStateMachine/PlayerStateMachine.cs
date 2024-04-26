@@ -99,7 +99,6 @@ public class PlayerStateMachine : MonoBehaviour
 
         CurrentState.UpdateStates();
 
-
         HandleMove();
         HandleRotation();
         HandleUseWeapon();
@@ -207,7 +206,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void HandleUseWeapon()
     {
-        // To Do - 각 무기 파츠들 공격 입력 시 공격 로직... 근데 로직을 다른 클래스로 옮기는 것도 고려를 해봐야함.
+        if (!CanJudgeDashing)
+            return;
 
         if (IsLeftArmWeaponInputPressed)
             Module.CurrentLeftArm.UseWeapon();

@@ -87,7 +87,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 
     public void Activate()
     {        
-        AP = Stat.maxHealth;          
+        AP = FinalAP;
         IsAlive = true;        
         StateMachine?.Activate();
     }
