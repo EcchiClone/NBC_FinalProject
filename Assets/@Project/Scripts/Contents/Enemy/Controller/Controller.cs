@@ -27,6 +27,9 @@ public  class Controller
     public Rigidbody Rigidbody { get; protected set; }
     protected Transform Target { get; set; }
 
+    public Transform XRotationPart { get; protected set; }
+    public Transform YRotationPart { get; protected set; }
+
 
     public virtual void Update() { }
 
