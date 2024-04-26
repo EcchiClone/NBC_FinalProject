@@ -1792,7 +1792,7 @@ RectTransform:
   m_Children:
   - {fileID: 5615085482407071281}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2212,9 +2212,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uBAB0\uB824\uC624\uB294 \uC801 \uC6E8\uC774\uBE0C\uB97C \uBC84\uD2F0\uBA70
-    \uC0DD\uC874\uD558\uC138\uC694\n\n\uC6E8\uC774\uBE0C\uB294 \uCD1D  <color=red>100</color>
+    \uC0DD\uC874\uD558\uC138\uC694\n\n\uC6E8\uC774\uBE0C\uB294 \uCD1D  <color=red>30</color>
     \uB2E8\uACC4\uAE4C\uC9C0 \uC788\uC2B5\uB2C8\uB2E4.\n\uBCF4\uC2A4 \uB2E8\uACC4\uB294
-    <color=red>5\uC2A4\uD14C\uC774\uC9C0</color> \uB9C8\uB2E4 \uC788\uC2B5\uB2C8\uB2E4. "
+    <color=red>10\uC2A4\uD14C\uC774\uC9C0</color> \uB9C8\uB2E4 \uC788\uC2B5\uB2C8\uB2E4. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1003a561a695c845ba627e586047303, type: 2}
   m_sharedMaterial: {fileID: -7654052900554001780, guid: d1003a561a695c845ba627e586047303,

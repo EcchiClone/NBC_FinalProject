@@ -18,10 +18,18 @@ public class SpawnEffect : MonoBehaviour
 
     [Header("# Setting")]
     [SerializeField] bool _inActive;
-    [SerializeField] bool _isEnemy;    
+    [SerializeField] bool _isEnemy;
+
+    private bool _isPooling = false;
 
     private void OnEnable()
-    {        
+    {
+        if (!_isPooling)
+        {
+            _isPooling = true;
+            return;
+        }            
+
         foreach (var renderer in _renderer)
         {
             renderer.material.SetFloat("_Split", _startValue);

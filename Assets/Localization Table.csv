@@ -1,187 +1,192 @@
 ﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
-UI-AchievementList,4.85E+11,,Achievement List,,업적 목록,
-UI-AchievementAll,7.73E+11,,All,,전체보기,
-UI-AchievementInProgress,3.66E+12,,In Progress,,진행중,
-UI-AchievementCompleted,5.49E+12,,Completed,,완료,
-UI-AchievementBack,5.69E+12,,Back,,뒤로가기,
-UI-SettingsSound,1.31E+13,,# Sound,,# 사운드,
-UI-SettingsGraphics,1.31E+13,,# Graphics,,# 그래픽,
-UI-SettingsData,1.31E+13,,# Data,,# 데이터,
-UI-SettingsMaster,1.31E+13,,Master,,마스터볼륨,
-UI-SettingsMusic,1.31E+13,,Music,,Music,
-UI-SettingsAmbience,1.31E+13,,Ambience,,Ambience,
-UI-SettingsSFX,1.31E+13,,SFX,,SFX,
-UI-SettingsResolution,1.31E+13,,Resolution,,해상도,
-UI-SettingsQuality,1.31E+13,,Quality,,품질,
-UI-SettingsLanguage,1.31E+13,,Language,,언어,
-UI-SettingsResolutionNotice,1.31E+13,,"Abnormalities may occur at
-resolutions other than 1920 x 1080.",,"1920 x 1080 이외의 해상도에서
-이상현상이 발생할 수 있습니다",
-UI-SettingsEnglishBtn,1.31E+13,,English,,English,
-UI-SettingsKoreanBtn,1.31E+13,,한국어,,한국어,
-UI-SettingsBanner,1.43E+13,,Settings,,환경 설정,
-UI-SettingsBackBtn,1.52E+13,,Back,,뒤로가기,
-UI-GameStart,3.85E+13,,Game Start,,Game Start,
-UI-Option,3.85E+13,,Option,,Option,
-UI-Exit,3.85E+13,,Exit,,Exit,
-UI-MainGameStart,4.05E+13,,Game Start,,게임 시작,
-UI-MainModule,4.05E+13,,Module,,모듈 관리,
-UI-MainPerk,4.05E+13,,Perk,,강화 센터,
-UI-MainAchievement,4.05E+13,,Achievement,,업적,
-UI-MainSettings,4.05E+13,,Settings,,환경 설정,
-UI-MainExit,4.05E+13,,Exit,,게임 종료,
-UI-MainControl,4.05E+13,,Control Guide,,조작 가이드,
-UI-MainDev,4.05E+13,,Dev.,,개발자,
-UI-MainStageStart,4.05E+13,,Go Stage,,훈련 시작,
-UI-MainTutorial,4.05E+13,,Tutorial,,튜토리얼,
-UI-MainBack,4.05E+13,,Back,,이전으로,
-UI-PerkControlGuide,4.99E+13,,"Controls
+"UI-AchievementList",484763521024,"","Achievement List","","업적 목록",""
+"UI-AchievementAll",772824125440,"","All","","전체보기",""
+"UI-AchievementInProgress",3662821216256,"","In Progress","","진행중",""
+"UI-AchievementCompleted",5493408419840,"","Completed","","완료",""
+"UI-AchievementBack",5692189069312,"","Back","","뒤로가기",""
+"UI-SettingsSound",13129130463232,"","# Sound","","# 사운드",""
+"UI-SettingsGraphics",13129130463233,"","# Graphics","","# 그래픽",""
+"UI-SettingsData",13129130463234,"","# Data","","# 데이터",""
+"UI-SettingsMaster",13129134657536,"","Master","","마스터볼륨",""
+"UI-SettingsMusic",13129134657537,"","Music","","Music",""
+"UI-SettingsAmbience",13129134657538,"","Ambience","","Ambience",""
+"UI-SettingsSFX",13129134657539,"","SFX","","SFX",""
+"UI-SettingsResolution",13129134657540,"","Resolution","","해상도",""
+"UI-SettingsQuality",13129134657541,"","Quality","","품질",""
+"UI-SettingsLanguage",13129134657542,"","Language","","언어",""
+"UI-SettingsResolutionNotice",13129134657543,"","Abnormalities may occur at
+resolutions other than 1920 x 1080.","","1920 x 1080 이외의 해상도에서
+이상현상이 발생할 수 있습니다",""
+"UI-SettingsEnglishBtn",13129134657544,"","English","","English",""
+"UI-SettingsKoreanBtn",13129134657545,"","한국어","","한국어",""
+"UI-SettingsBanner",14255598882816,"","Settings","","환경 설정",""
+"UI-SettingsBackBtn",15155260313600,"","Back","","뒤로가기",""
+"UI-GameStart",38534075928576,"","Game Start","","Game Start",""
+"UI-Option",38534117871616,"","Option","","Option",""
+"UI-Exit",38534117871617,"","Exit","","Exit",""
+"UI-MainGameStart",40534452752384,"","Game Start","","게임 시작",""
+"UI-MainModule",40534456946688,"","Module","","모듈 관리",""
+"UI-MainPerk",40534456946689,"","Perk","","강화 센터",""
+"UI-MainAchievement",40534456946690,"","Achievement","","업적",""
+"UI-MainSettings",40534456946691,"","Settings","","환경 설정",""
+"UI-MainExit",40534456946692,"","Exit","","게임 종료",""
+"UI-MainControl",40534456946693,"","Control Guide","","조작 가이드",""
+"UI-MainDev",40534456946694,"","Dev.","","개발자",""
+"UI-MainStageStart",40534456946695,"","Go Stage","","훈련 시작",""
+"UI-MainTutorial",40534456946696,"","Tutorial","","튜토리얼",""
+"UI-MainBack",40534456946697,"","Back","","이전으로",""
+"UI-PerkControlGuide",49868268130304,"","Controls
+
 
 [W, A, S, D] - Move
 [Wheel] - Zoom In/Out
-[Click] - Select a perk",,"조작법
+[Click] - Select a perk","","조작법
 
 [W, A, S, D] - 이동
 [마우스 휠] - 줌 In/Out
-[마우스 클릭] - 퍼크 선택",
-UI-GuideESC,4.99E+13,,[ESC] Pause,,[ESC] 일시정지,
-UI-GuideOpenGuide,4.99E+13,,[`] Control Guide,,[`] 조작가이드 열기,
-UI-GuideQE,4.99E+13,,"[Q, E] Sub Weapon",,"[Q, E] 어깨 무장 공격",
-UI-GuideWASD,4.99E+13,,"[W, A, S, D] Move",,"[W, A, S, D] 플레이어 이동",
-UI-GuideLR,4.99E+13,,[Click L/R] Main Weapon,,[클릭LR] 팔 무장 공격,
-UI-GuideWheel,4.99E+13,,[Click Wheel] Lock On,,[휠클릭] 자동 조준,
-UI-GuideDrag,4.99E+13,,[Drag] Move Camera,,[드래그] 시야 조절,
-UI-GuideShift,4.99E+13,,[Shift] Booster,,[Shift] 부스터,
-UI-GuideSpace,4.99E+13,,"[Spacebar] Jump, Hover",,"[Spacebar] 점프, 비행",
-UI-Back,4.99E+13,,Back,,뒤로가기,
-UI-ControlGuide,4.99E+13,,Control Guide,,조작 가이드,
-UI-CreditBanner,5.35E+13,,Developer,,개발자,
-UI-CreditContent,5.35E+13,,"Player, Data, 3D Model
+[마우스 클릭] - 퍼크 선택",""
+"UI-GuideESC",49868310073344,"","[ESC] Pause","","[ESC] 일시정지",""
+"UI-GuideOpenGuide",49868310073345,"","[`] Control Guide","","[`] 조작가이드 열기",""
+"UI-GuideQE",49868310073346,"","[Q, E] Sub Weapon","","[Q, E] 어깨 무장 공격",""
+"UI-GuideWASD",49868310073347,"","[W, A, S, D] Move","","[W, A, S, D] 플레이어 이동",""
+"UI-GuideLR",49868310073348,"","[Click L/R] Main Weapon","","[클릭LR] 팔 무장 공격",""
+"UI-GuideWheel",49868310073349,"","[Click Wheel] Lock On","","[휠클릭] 자동 조준",""
+"UI-GuideDrag",49868310073350,"","[Drag] Move Camera","","[드래그] 시야 조절",""
+"UI-GuideShift",49868310073351,"","[Shift] Booster","","[Shift] 부스터",""
+"UI-GuideSpace",49868310073352,"","[Spacebar] Jump, Hover","","[Spacebar] 점프, 비행",""
+"UI-Back",49868310073353,"","Back","","뒤로가기",""
+"UI-ControlGuide",49868310073354,"","Control Guide","","조작 가이드",""
+"UI-CreditBanner",53455501152256,"","Developer","","개발자",""
+"UI-CreditContent",53455501152257,"","Player, Data, 3D Model
 Bullet Gen, Achievement
 Enemy AI, UI Core
-Sound, Perk",,"플레이어, 데이터, 3D모델링
+Sound, Perk","","플레이어, 데이터, 3D모델링
 탄막 시스템, 퀘스트 시스템
 적 및 상태 AI, UI시스템
-사운드, 강화 테크트리(Perk)",
-UI-CreditName,5.35E+13,,"GUK
+사운드, 강화 테크트리(Perk)",""
+"UI-CreditName",53455501152258,"","GUK
 LEE
 KANG
-CHU",,"국 지윤
+CHU","","국 지윤
 이 도현
 강 성원
-추 민규",
-UI-ModuleBanner,5.67E+13,,Module,,모듈 관리,
-UI-ModuleBack,5.67E+13,,Back,,뒤로,
-UI-ModuleUpper,5.67E+13,,Upper Parts,,상 체,
-UI-ModuleLower,5.67E+13,,Lower Parts,,하 체,
-UI-ModuleMainWeapon,5.67E+13,,Main Weapon,,무장 [팔],
-UI-ModuleSubWeapon,5.67E+13,,Sub Weapon,,무장 [어깨],
-UI-ModuleLeft,5.67E+13,,Left,,좌,
-UI-ModuleRight,5.67E+13,,Right,,우,
-UI-WeaponStatusLeft,5.78E+13,,Weapon Status [L],,무장 능력치 [좌],
-UI-WeaponStatusRight,5.78E+13,,Weapon Status [R],,무장 능력치 [우],
-UI-LowerStatus,5.86E+13,,Part Status [Lower],,파츠 능력치 [하체],
-UI-UpperStatus,5.86E+13,,Part Status [Upper],,파츠 능력치 [상체],
-UI-ModuleStatus,5.91E+13,,Module Status,,모듈 능력치,
-UI-ResultTitle,,,RESULT,,훈련 결과,
-UI-ResultTimer,,,Time,,경과 시간,
-UI-ResultStage,,,Stage,,스테이지,
-UI-ResultBestStage,,,Best Stage,,최고 스테이지,
-UI-ResultMinion,,,Minion Kill,,미니언 처치,
-UI-ResultBoss,,,Boss Kill,,보스 처치,
-UI-ResultPoint,,,Research Point,,연구 포인트,
-UI-ResultRestart,,,Restart,,재시도,
-UI-ResultBack,,,Back Menu,,돌아가기,
-UI-PauseResume,,,Resume,,계속하기,
-UI-PauseRestart,,,Restart,,다시하기,
-UI-PauseSettings,,,Settings,,환경 설정,
-UI-PauseExit,,,Exit,,나가기,
-Text-Complete,,,Complete,,완료,
-Text-Cancel,,,Cancel,,닫기,
-UI-NotEnoughAchievementPoint,,,There are not enough achievement points.,,업적 포인트가 부족합니다.,
-UI-FirstTitle,,,How To Play,,게임 설명,
-UI-FirstSkipGuide,,,Press SpaceBar to continue.,,SpaceBar 키를 눌러 넘기기.,
-UI-FirstInfo1,,,"Survive the oncoming waves of enemies.
+추 민규",""
+"UI-ModuleBanner",56737032327168,"","Module","","모듈 관리",""
+"UI-ModuleBack",56737070075904,"","Back","","뒤로",""
+"UI-ModuleUpper",56737070075905,"","Upper Parts","","상 체",""
+"UI-ModuleLower",56737070075906,"","Lower Parts","","하 체",""
+"UI-ModuleMainWeapon",56737070075907,"","Main Weapon","","무장 [팔]",""
+"UI-ModuleSubWeapon",56737070075908,"","Sub Weapon","","무장 [어깨]",""
+"UI-ModuleLeft",56737070075909,"","Left","","좌",""
+"UI-ModuleRight",56737070075910,"","Right","","우",""
+"UI-WeaponStatusLeft",57761839206400,"","Weapon Status [L]","","무장 능력치 [좌]",""
+"UI-WeaponStatusRight",57761839206401,"","Weapon Status [R]","","무장 능력치 [우]",""
+"UI-LowerStatus",58623361830912,"","Part Status [Lower]","","파츠 능력치 [하체]",""
+"UI-UpperStatus",58623361830913,"","Part Status [Upper]","","파츠 능력치 [상체]",""
+"UI-ModuleStatus",59062673231872,"","Module Status","","모듈 능력치",""
+"UI-ResultTitle",63753658322944,"","RESULT","","훈련 결과",""
+"UI-ResultTimer",63753700265984,"","Time","","경과 시간",""
+"UI-ResultStage",63753700265985,"","Stage","","스테이지",""
+"UI-ResultBestStage",64404459114496,"","Best Stage","","최고 스테이지",""
+"UI-ResultMinion",63753700265987,"","Minion Kill","","미니언 처치",""
+"UI-ResultBoss",63753700265988,"","Boss Kill","","보스 처치",""
+"UI-ResultPoint",63753700265989,"","Research Point","","연구 포인트",""
+"UI-ResultRestart",63753700265990,"","Restart","","재시도",""
+"UI-ResultBack",63753700265991,"","Back Menu","","돌아가기",""
+"UI-PauseResume",64926792568832,"","Resume","","계속하기",""
+"UI-PauseRestart",64926792568833,"","Restart","","다시하기",""
+"UI-PauseSettings",64926792568834,"","Settings","","환경 설정",""
+"UI-PauseExit",64926792568835,"","Exit","","나가기",""
+"Text-Complete",70148256452608,"","Complete","","완료",""
+"Text-Cancel",70148260646912,"","Cancel","","닫기",""
+"UI-NotEnoughAchievementPoint",70148260646913,"","There are not enough achievement points.","","업적 포인트가 부족합니다.",""
+"UI-FirstTitle",70148260646914,"","How To Play","","게임 설명",""
+"UI-FirstSkipGuide",70148260646915,"","Press SpaceBar to continue.","","SpaceBar 키를 눌러 넘기기.",""
+"UI-FirstInfo1",70148260646916,"","Survive the oncoming waves of enemies.
 
-There are a total of <color=red>100</color> levels of waves.
-Boss stages occur every <color=red>5 stages</color>.",,"몰려오는 적 웨이브를 버티며 생존하세요
 
-웨이브는 총  <color=red>100</color> 단계까지 있습니다.
-보스 단계는 <color=red>5스테이지</color> 마다 있습니다. ",
-UI-FirstInfo2,,,"Stage information is located at the top left of the screen.
+There are a total of <color=red>30</color> levels of waves.
+Boss stages occur every <color=red>10 stages</color>.","","몰려오는 적 웨이브를 버티며 생존하세요
+
+웨이브는 총  <color=red>30</color> 단계까지 있습니다.
+보스 단계는 <color=red>10스테이지</color> 마다 있습니다. ",""
+"UI-FirstInfo2",70148260646917,"","Stage information is located at the top left of the screen.
 After the designated number of enemies appear in each wave,
-a timer for the next wave starts.",,"스테이지 정보는 화면 좌측 상단에 있습니다.
+a timer for the next wave starts.","","스테이지 정보는 화면 좌측 상단에 있습니다.
 각 웨이브 주어진 수 만큼 적 등장 후
-다음 웨이브 타이머가 작동됩니다.",
-UI-FirstInfo3,,,"The types of minions that appear are as follows:
+다음 웨이브 타이머가 작동됩니다.",""
+"UI-FirstInfo3",70148260646918,"","The types of minions that appear are as follows:
+
 
 (1) Ball (close-range explosive)
 (2) Drone (aerial long-range)
-(3) Spider (ground long-range)",,"등장하는 미니언의 종류는 다음과 같습니다.
+(3) Spider (ground long-range)","","등장하는 미니언의 종류는 다음과 같습니다.
 
 1. 볼 (근접 폭발형)
 2. 드론 (공중 원거리)
-3. 스파이더 (지상 원거리)",
-UI-FirstInfo4,,,"Boss monsters employ various patterns towards the player from the air.
+3. 스파이더 (지상 원거리)",""
+"UI-FirstInfo4",70148260646919,"","Boss monsters employ various patterns towards the player from the air.
 
-If the boss monster is not defeated within the <color=red>time limit, it is game over</color>.",,"보스 몬스터는 공중에서 플레이어를 향해
+
+If the boss monster is not defeated within the <color=red>time limit, it is game over</color>.","","보스 몬스터는 공중에서 플레이어를 향해
 다양한 패턴을 구사합니다.
 
-보스 몬스터는 <color=red>제한시간 내에 처치하지 못하면 게임오버</color> 입니다.",
-UI-FirstInfo5,,,"Weapons cannot be reloaded until they are out of ammunition.
+보스 몬스터는 <color=red>제한시간 내에 처치하지 못하면 게임오버</color> 입니다.",""
+"UI-FirstInfo5",70148260646920,"","Weapons cannot be reloaded until they are out of ammunition.
+
 
 Shoulder weapons become <color=red>unusable after all provided ammunition is spent.</color>
-[Reloadable with perk abilities]",,"무기는 탄약 소진 시 까지 <color=red>재장전이 불가능합니다.</color>
+[Reloadable with perk abilities]","","무기는 탄약 소진 시 까지 <color=red>재장전이 불가능합니다.</color>
 
 어깨 무기는 주어진 탄약을 모두 사용하면 <color=red>사용이 불가능합니다.</color>
-[퍼크 능력으로 재장전 가능]",
-UI-FirstInfo6,,,Clear all stages and become an elite unit.,,모든 스테이지를 클리어하고 엘리트 기체가 되십시오.,
-UI-StatsTitle,,,Total Stats,,모듈 종합 능력치,
-UI-StatsTabAC,,,AC,,기체,
-UI-StatsTabMainWeapon,,,Main Weapon,,무장 [팔],
-UI-StatsTabSubWeapon,,,Sub Weapon,,무장 [어깨],
-Ui-Stats-AP,,,AP,,장 갑,
-UI-Stats-Defense,,,Defense,,방어력,
-UI-Stats-MoveSpeed,,,Move Speed,,이동 속도,
-UI-Stats-JumpPower,,,Jump Power,,점프력,
-UI-Stats-BoostPower,,,Boost Power,,부스터 출력,
-UI-Stats-BoostCharge,,,Boost Charge,,부스터 충전량,
-UI-Stats-HoverPower,,,Hover Power,,호버링 출력,
-UI-Stats-RotationSpeed,,,Rotation Speed,,회전 속도,
-UI-Stats-Evasion,,,Evasion,,회피,
-UI-Stats-DamageL,,,Damage[L],,데미지[L],
-UI-Stats-FireRateL,,,Fire Rate[L],,공격 속도[L],
-UI-Stats-BulletSpeedL,,,Bullet Speed[L],,탄 속[L],
-UI-Stats-BulletAmmoL,,,Bullet Ammo[L],,탄 창[L],
-UI-Stats-ReloadTimeL,,,Reload Time[L],,재장전 속도[L],
-UI-Stats-PenetrateL,,,Penetrate[L],,관통 수[L],
-UI-Stats-ShotErrorL,,,Shot Error[L],,오차 범위[L],
-UI-Stats-DamageR,,,Damage[R],,데미지[R],
-UI-Stats-FireRateR,,,FireRate[R],,공격 속도[R],
-UI-Stats-BulletSpeedR,,,Bullet Speed[R],,탄 속[R],
-UI-Stats-BulletAmmoR,,,Bullet Ammo[R],,탄 창[R],
-UI-Stats-ReloadTimeR,,,Reload Time[R],,재장전 속도[R],
-UI-Stats-PenetrateR,,,Penetrate[R],,관통 수[R],
-UI-Stats-ShotErrorR,,,Shot Error[R],,오차 범위[R],
-UI-Stats-ShotPerOneTimeL,,,Shot per One Time[L],,발사 수[L],
-UI-Stats-RefillL,,,Refill[L],,재보급[L],
-UI-Stats-ShotPerOneTimeR,,,Shot per One Time[R],,발사 수[R],
-UI-Stats-RefillR,,,Refill[R],,재보급[R],
-UI-TabContinue,,,Press Tab key to continue.,,Tab 키를 눌러 넘기기,
-UI-Yes,,,Yes,,네,
-UI-No,,,No,,아니오,
-UI-TutorialSkipAlert1,,,Do you want to skip the tutorial?,,튜토리얼을 스킵하시겠습니까?,
-UI-TutorialSkipAlert2,,,You can restart it at any time from the main menu.,,메인메뉴에서 언제든지 다시 진행 하실 수 있습니다.,
-UI-Accept,,,Accept,,승인,
-UI-Cancel,,,Cancel,,취소,
-Text-CurrentStage,,,Current Stage,,현재 스테이지,
-Text-SpawnedEnemy,,,Spawned,,소환된 적,
-Text-KilledEnemy,,,Killed,,처치한 적,
-Text-NextWave,,,Next Wave,,다음 웨이브까지,
-Text-Remain,,,Remain,,남은 시간,
-Text-CurrentStage1,,,Current Stage : 1,,현재 스테이지 : 1,
-Text-InProgress,,,In Progress,,진행중,
-UI-GetRewards,,,"Get
-Rewards",,"보 상
-받 기",
-UI-Complete,,,Complete,,완 료,
+[퍼크 능력으로 재장전 가능]",""
+"UI-FirstInfo6",70148260646921,"","Clear all stages and become an elite unit.","","모든 스테이지를 클리어하고 엘리트 기체가 되십시오.",""
+"UI-StatsTitle",163816644562944,"","Total Stats","","모듈 종합 능력치",""
+"UI-StatsTabAC",163816682311680,"","AC","","기체",""
+"UI-StatsTabMainWeapon",163816682311681,"","Main Weapon","","무장 [팔]",""
+"UI-StatsTabSubWeapon",163816682311682,"","Sub Weapon","","무장 [어깨]",""
+"Ui-Stats-AP",163816682311683,"","AP","","장 갑",""
+"UI-Stats-Defense",177069810536448,"","Defense","","방어력",""
+"UI-Stats-MoveSpeed",163816682311685,"","Move Speed","","이동 속도",""
+"UI-Stats-JumpPower",177069839896576,"","Jump Power","","점프력",""
+"UI-Stats-BoostPower",163816682311687,"","Boost Power","","부스터 출력",""
+"UI-Stats-BoostCharge",163816682311688,"","Boost Charge","","부스터 충전량",""
+"UI-Stats-HoverPower",163816686505984,"","Hover Power","","호버링 출력",""
+"UI-Stats-RotationSpeed",163816686505985,"","Rotation Speed","","회전 속도",""
+"UI-Stats-Evasion",163816686505986,"","Evasion","","회피",""
+"UI-Stats-DamageL",163816686505987,"","Damage[L]","","데미지[L]",""
+"UI-Stats-FireRateL",167840424939520,"","Fire Rate[L]","","공격 속도[L]",""
+"UI-Stats-BulletSpeedL",167840424939521,"","Bullet Speed[L]","","탄 속[L]",""
+"UI-Stats-BulletAmmoL",167840424939522,"","Bullet Ammo[L]","","탄 창[L]",""
+"UI-Stats-ReloadTimeL",163816686505991,"","Reload Time[L]","","재장전 속도[L]",""
+"UI-Stats-PenetrateL",163816686505992,"","Penetrate[L]","","관통 수[L]",""
+"UI-Stats-ShotErrorL",167840424939523,"","Shot Error[L]","","오차 범위[L]",""
+"UI-Stats-DamageR",163816686505994,"","Damage[R]","","데미지[R]",""
+"UI-Stats-FireRateR",167840424939524,"","FireRate[R]","","공격 속도[R]",""
+"UI-Stats-BulletSpeedR",163816686505996,"","Bullet Speed[R]","","탄 속[R]",""
+"UI-Stats-BulletAmmoR",167840424939525,"","Bullet Ammo[R]","","탄 창[R]",""
+"UI-Stats-ReloadTimeR",163816686505998,"","Reload Time[R]","","재장전 속도[R]",""
+"UI-Stats-PenetrateR",163816686505999,"","Penetrate[R]","","관통 수[R]",""
+"UI-Stats-ShotErrorR",167840424939526,"","Shot Error[R]","","오차 범위[R]",""
+"UI-Stats-ShotPerOneTimeL",163816686506001,"","Shot per One Time[L]","","발사 수[L]",""
+"UI-Stats-RefillL",163816686506002,"","Refill[L]","","재보급[L]",""
+"UI-Stats-ShotPerOneTimeR",163816686506003,"","Shot per One Time[R]","","발사 수[R]",""
+"UI-Stats-RefillR",163816686506004,"","Refill[R]","","재보급[R]",""
+"UI-TabContinue",179608454975488,"","Press Tab key to continue.","","Tab 키를 눌러 넘기기",""
+"UI-Yes",180699078873088,"","Yes","","네",""
+"UI-No",180699078873089,"","No","","아니오",""
+"UI-TutorialSkipAlert1",180699078873090,"","Do you want to skip the tutorial?","","튜토리얼을 스킵하시겠습니까?",""
+"UI-TutorialSkipAlert2",180699078873091,"","You can restart it at any time from the main menu.","","메인메뉴에서 언제든지 다시 진행 하실 수 있습니다.",""
+"UI-Accept",181271039332352,"","Accept","","승인",""
+"UI-Cancel",181271039332353,"","Cancel","","취소",""
+"Text-CurrentStage",201404331872256,"","Current Stage","","현재 스테이지",""
+"Text-SpawnedEnemy",201404378009600,"","Spawned","","소환된 적",""
+"Text-KilledEnemy",201404378009601,"","Killed","","처치한 적",""
+"Text-NextWave",202640628142080,"","Next Wave","","다음 웨이브까지",""
+"Text-Remain",203348114952192,"","Remain","","남은 시간",""
+"Text-CurrentStage1",206001783984128,"","Current Stage : 1","","현재 스테이지 : 1",""
+"Text-InProgress",497186385711104,"","In Progress","","진행중",""
+"UI-GetRewards",497186436042752,"","Get
+Rewards","","보 상
+받 기",""
+"UI-Complete",497186436042753,"","Complete","","완 료",""
