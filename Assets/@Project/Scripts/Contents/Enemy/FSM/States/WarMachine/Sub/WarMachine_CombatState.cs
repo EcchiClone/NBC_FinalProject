@@ -16,6 +16,8 @@ public class WarMachine_CombatState : BaseState
         InitializeSubState();
 
         _passedTime = 0;
+
+        Debug.Log("전투 진입");
     }
 
     public override void UpdateState()

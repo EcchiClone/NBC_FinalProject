@@ -17,6 +17,6 @@ public class EffectLifeTime : MonoBehaviour
 
     private void OnDisable()
     {
-        ObjectPooler.ReturnToPool(gameObject);
+        Util.GetPooler(PoolingType.Player).ReturnToPool(gameObject);
     }
 }

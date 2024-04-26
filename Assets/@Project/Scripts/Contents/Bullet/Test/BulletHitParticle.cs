@@ -15,8 +15,4 @@ public class BulletHitParticle : MonoBehaviour
 
         gameObject.SetActive(false);
     }
-    private void OnDisable()
-    {
-        ObjectPooler.ReturnToPool(gameObject);
-    }
 }

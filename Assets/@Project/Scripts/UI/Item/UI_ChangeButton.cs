@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandler
@@ -34,7 +35,7 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
             UI_PartsInfo info = Managers.UI.ShowPopupUI<UI_PartsInfo>();
             _parentUI.SetSidePopup(info);                        
         }
-        _parentUI._sidePopup.gameObject.SetActive(true);
+        _parentUI._sidePopup.gameObject.SetActive(true);        
     }
 
     public virtual void OnPointerExit(PointerEventData eventData)
@@ -46,23 +47,35 @@ public class UI_ChangeButton : UI_Item, IPointerEnterHandler, IPointerExitHandle
     {
         int partID = Managers.Module.GetPartOfIndex<T>(_currentIndex).ID;
         currentData = Managers.Data.GetPartData(partID);
+
         _displayName = currentData.Display_Name;
-        _displayDesc = currentData.Display_Description;
+        if (LocalizationSettings.SelectedLocale.name == "Korean (ko)")
+            _displayDesc = currentData.Display_Description_KO;
+        else if(LocalizationSettings.SelectedLocale.name == "English (en)")
+            _displayDesc = currentData.Display_Description_EN;
+
 
         CheckUnlockedPart();
     }
 
+    public virtual void GetCurrentPartData() { }    
+
     public void CheckUnlockedPart()
     {
+        if (LocalizationSettings.SelectedLocale.name == "Korean (ko)")
+            _displayDesc = currentData.Display_Description_KO;
+        else if (LocalizationSettings.SelectedLocale.name == "English (en)")
+            _displayDesc = currentData.Display_Description_EN;
+
         if (_isUnlockChecked)
             return;        
 
         if (!currentData.IsUnlocked)
         {
             if (currentData.PointUnlock)
-                _lockText.text = "업적 포인트로 잠금 해제";
+                _lockText.text = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Module Table", "UI-ChangeBtn_Point", LocalizationSettings.SelectedLocale);
             else
-                _lockText.text = "업적 보상으로 잠금 해제";
+                _lockText.text = LocalizationSettings.StringDatabase.GetLocalizedString("Localization_Module Table", "UI-ChangeBtn_Reward", LocalizationSettings.SelectedLocale);            
         }
         else
         {

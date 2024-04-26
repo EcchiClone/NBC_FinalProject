@@ -64,7 +64,10 @@ public class EnemyBulletGenerator : MonoBehaviour
         //yield return new WaitForSeconds(genSettings.patternHierarchy.startTime);
         yield return Util.GetWaitSeconds(genSettings.patternHierarchy.startTime);
         if (genSettings.masterObject != null)
+        {
+
             ExecutePattern(genSettings); // hierarchy.patternSO, hierarchy.patternName, hierarchy.subPatterns, nextCycleTime, rootObject, masterObject, muzzleTransform
+        }
     }
 
     public void ExecutePattern(BulletGenerationSettings genSettings) // PatternSO patternSO, string patternName, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootObject, GameObject masterObject, Transform muzzleTransform = null
@@ -80,9 +83,15 @@ public class EnemyBulletGenerator : MonoBehaviour
     IEnumerator Co_ExecutePattern(BulletGenerationSettings genSettings) // EnemyBulletSettings settings, List<PatternHierarchy> subPatterns, float nextCycleTime, GameObject rootGo, GameObject masterGo, Transform muzzleTransform = null
     {
         EnemyBulletSettings settings = genSettings.patternHierarchy.patternSO.GetSpawnInfoByPatternName(genSettings.patternHierarchy.patternName).enemyBulletSettings;
-
-        Vector3 FixedPlayerPos = instance.playerGo.transform.position;
-
+        Vector3 FixedPlayerPos;
+        try
+        {
+            FixedPlayerPos = instance.playerGo.transform.position;
+        }
+        catch
+        {
+            FixedPlayerPos = new Vector3(0, 0, 0);
+        }
         for (int setNum = 0; setNum < settings.numOfSet; ++setNum)
         {
             for (int shotNum = 0; shotNum < settings.shotPerSet; ++shotNum)
@@ -90,6 +99,7 @@ public class EnemyBulletGenerator : MonoBehaviour
                 // masterObject의 상태 및 컴포넌트의 존재 여부 확인
                 if (genSettings.masterObject == null || !genSettings.masterObject.activeInHierarchy)
                 {
+                    Debug.Log(genSettings.patternHierarchy.patternSO.name);
                     yield break; // masterObject가 비활성화되거나 파괴되면 코루틴 중단
                 }
                 var enemyPhaseStarter = genSettings.masterObject.GetComponent<EnemyBulletPatternStarter>();
@@ -169,7 +179,11 @@ public class EnemyBulletGenerator : MonoBehaviour
 
         // 1. 기준 방향 벡터 오차 주기
         if (settings.spreadA == SpreadType.Spread)
-            pivotDirection = BulletMathUtils.CalculateSpreadDirection(pivotDirection, settings.maxSpreadAngleA, settings.concentrationA);
+        {
+            pivotDirection = BulletMathUtils.CalculateSpreadDirection(pivotDirection, settings.spreadA_Default_Angle, settings.spreadA_Default_Concentration);
+            pivotDirection = BulletMathUtils.CalculateSpreadDirectionFixX(pivotDirection, settings.spreadA_FixX_Angle, settings.spreadA_FixX_Concentration);
+            pivotDirection = BulletMathUtils.CalculateSpreadDirectionFixY(pivotDirection, settings.spreadA_FixY_Angle, settings.spreadA_FixY_Concentration);
+        }
 
         Quaternion rotationToPivotDirection = Quaternion.FromToRotation(Vector3.forward, pivotDirection.normalized);
 
@@ -440,7 +454,7 @@ public class EnemyBulletGenerator : MonoBehaviour
         {
             EnemyBulletSpawnInfo spawnInfo = spawnQueue.Dequeue();
 
-            GameObject enemyBulletGo = ObjectPooler.SpawnFromPool(spawnInfo.prefabName, Vector3.zero);
+            GameObject enemyBulletGo = Util.GetPooler(PoolingType.Enemy).SpawnFromPool(spawnInfo.prefabName, Vector3.zero);
 
             enemyBulletGo.transform.position = spawnInfo.position;
             enemyBulletGo.transform.rotation = spawnInfo.rotation;

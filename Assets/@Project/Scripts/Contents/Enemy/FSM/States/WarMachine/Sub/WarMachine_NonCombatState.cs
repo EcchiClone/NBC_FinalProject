@@ -11,6 +11,7 @@ public class WarMachine_NonCombatState : BaseState
     {
         InitializeSubState();
         _currentSubState?.EnterState();
+        Debug.Log("비전투 진입");
     }
 
     public override void UpdateState()

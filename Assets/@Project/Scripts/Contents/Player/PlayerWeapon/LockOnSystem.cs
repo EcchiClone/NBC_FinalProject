@@ -148,7 +148,7 @@ public class LockOnSystem
         IsLockon = true;
 
         float percent = TargetEnemy.AP / TargetEnemy.MaxAP;
-        Managers.ActionManager.CallLockOn(TargetEnemy.Transform, percent);
+        Managers.ActionManager.CallLockOn(TargetEnemy, percent);
         LockOnCam.gameObject.SetActive(true);
         TargetGroup.AddMember(TargetEnemy.Transform, 1, 0);
 

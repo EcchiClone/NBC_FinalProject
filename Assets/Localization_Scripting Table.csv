@@ -1,0 +1,48 @@
+﻿Key,Id,Shared Comments,English(en),English(en) Comments,Korean(ko),Korean(ko) Comments
+T00,13852233728,,Identification number NRE-IV-072 Main system access.,,"식별번호 NRE-IV-072 메인 시스템 접속.",
+T01,,,"Core operating normally. HUD working normally. infallibility.
+Start initialization test.",,"코어 정상 작동. HUD 정상 작동. 오류 없음.
+초기화 테스트 시작.",
+T02,2.22037E+11,,"From now on, before starting the combat training course.
+We proceed with basic testing procedures.",,"지금부터 전투 훈련 코스 실행 전
+기초 테스트 절차를 진행합니다.",
+T03,2.78756E+11,,"Module joint test in progress.
+<color=red>Press the [W] [A] [S] [D]</color> keys to move the module.",,"모듈관절 테스트 진행.
+<color=red>[W] [A] [S] [D]</color> 키를 입력해 모듈을 움직이십시오.",
+T10,,,Check that the module joints are normal.,,모듈 관절 정상 확인.,
+T11,,,"Shock absorber test in progress.
+Press <color=red>[SpaceBar]</color> to jump.",,"완충장치 테스트 진행.
+<color=red>[SpaceBar]</color>키를 입력해 점프하십시오.",
+T20,,,Check that the shock absorber is normal.,,완충장치 정상 확인.,
+T21,,,"Booster system testing in progress.
+While moving, enter the <color=red>[LShift]</color> key to dash.",,"부스터 시스템 테스트 진행.
+이동 중 <color=red>[LShift]</color> 키를 입력해 Dash 하십시오.",
+T30,,,Check that the booster system is normal.,,부스터 시스템 정상 확인.,
+T31,,,"Vertical output test in progress.
+While jumping, press the <color=red>[SpaceBar]</color> key to hover.",,"버티컬 출력 테스트 진행.
+점프 중 <color=red>[SpaceBar]</color> 키를 입력해 호버링 하십시오.",
+T40,,,Check vertical output is normal.,,버티컬 출력 정상 확인.,
+T41,,,We will now proceed with testing the armament system.,,지금부터 무장 시스템 테스트를 진행합니다.,
+T42,,,Go to the following locations for testing:,,테스트를 위해 다음 장소로 이동하십시오.,
+T50,,,Entering the armed test area.,,무장 테스트 지역 진입.,
+T51,,,"Testing of left and right arm armament systems in progress.
+Use a weapon by clicking the mouse <color=red>[left] [right]</color>.",,"좌, 우 팔 무장 시스템 테스트 진행.
+마우스 <color=red>[좌] [우]</color> 클릭으로 무기를 사용하십시오.",
+T60,,,Confirmed that the arm armament system is normal.,,팔 무장 시스템 정상 확인.,
+T61,,,"Testing of left and right shoulder armament systems in progress.
+<color=red>Press the [Q] [E]</color> keys to use your weapon.",,"좌, 우 어깨 무장 시스템 테스트 진행.
+<color=red>[Q] [E]</color> 키를 입력해 무기를 사용하십시오.",
+T70,,,Shoulder arming system confirmed normal.,,어깨 무장 시스템 정상 확인.,
+T71,,,"Next is for precision shooting.
+We are conducting a lock-on system test.",,"다음은 정밀 사격을 위한
+Lock-On 시스템 테스트를 진행합니다.",
+T72,,,Aim at the dummy by clicking the mouse <color=red>[wheel]</color>.,,마우스 <color=red>[휠]</color> 클릭으로 더미를 조준하십시오.,
+T80,,,Check that the lock-on system is normal.,,Lock-On 시스템 정상 확인.,
+T81,,,"Automatically tracks enemies when aiming.
+Use the armament system to destroy the dummy.",,"적을 조준 시 자동으로 추적합니다.
+무장 시스템을 사용하여 더미를 파괴하십시오.",
+T90,,,Confirm pile removal.,,더미 제거 확인.,
+T91,,,Check all systems are normal.,,모든 시스템 정상 확인.,
+T92,,,"You have completed the basic test.
+End test.",,"기초 테스트를 완료했습니다.
+테스트를 종료합니다.",

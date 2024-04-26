@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Localization_Module Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 9b965192b4ffde24c99236f09b62e511, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5216161792
+    m_Localized: AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22367920078848
+    m_Localized: Booster Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22366649204736
+    m_Localized: Booster Gauge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22365139255296
+    m_Localized: Rotate SPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22359359504384
+    m_Localized: VTOL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22263674847232
+    m_Localized: Jump Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22261414117376
+    m_Localized: Movement SPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22163581976576
+    m_Localized: Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22369195147264
+    m_Localized: Insufficient achievement points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26902721871872
+    m_Localized: Accuracy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26901971091456
+    m_Localized: ShotsPerFire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26901291614208
+    m_Localized: ReloadSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26900658274304
+    m_Localized: FireRate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26899945242624
+    m_Localized: BulletSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26899181879296
+    m_Localized: ATK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26895998402560
+    m_Localized: Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26903430709248
+    m_Localized: AP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26904110186496
+    m_Localized: Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26904844189696
+    m_Localized: MovementSPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26905527861248
+    m_Localized: JumpPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26906224115712
+    m_Localized: BoosterPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26906966507520
+    m_Localized: 'Current achievement points :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26907654373376
+    m_Localized: Would you like to use
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37870243823616
+    m_Localized: achievement points to unlock the part?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43009759395840
+    m_Localized: Unlocked as an achievement reward.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42933796356096
+    m_Localized: Unlocked with achievement points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59091719176192
+    m_Localized: Unlock to access information
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

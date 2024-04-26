@@ -10,6 +10,8 @@ public class WarMachine_IdleState : BaseState
     public override void EnterState()
     {
         Context.Entity.Controller.SetStopDistance(0f);
+
+        Debug.Log("기본상태 진입");
     }
 
     public override void UpdateState()

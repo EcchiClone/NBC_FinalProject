@@ -47,7 +47,7 @@ public class Achievement : ScriptableObject
     // 부가옵션, 미사용 예정
     [Header("Option")]
     [SerializeField]
-    private bool useAutoComplete; // 삭제... 했었으나 일단 되살림. 문제 없을듯.
+    private bool useAutoComplete;
     //[SerializeField]
     //private bool isCancelable; // 삭제
     //[SerializeField]
@@ -60,8 +60,8 @@ public class Achievement : ScriptableObject
     //[SerializeField]
     //private AchievementCondition[] cancelConditions;
 
-    private AchievementState state;
-    private int currentTaskGroupIndex;
+    private AchievementState state; // Save측, 대신 초기화는 필요
+    private int currentTaskGroupIndex; // Save측
 
     public string CodeName => codeName;
     public Sprite Icon => icon;
@@ -81,8 +81,8 @@ public class Achievement : ScriptableObject
     public IReadOnlyList<AchievementTaskGroup> TaskGroups => taskGroups;
     public IReadOnlyList<AchievementReward> Rewards => rewards;
     public bool IsAutoComplete => useAutoComplete;
-    public bool IsRegistered => State != AchievementState.Inactive;
-    public bool IsWaitingForCompletion => State == AchievementState.WaitingForCompletion;
+    public bool IsRegistered => State != AchievementState.Inactive; // Save측 또는 초기화측
+    public bool IsWaitingForCompletion => State == AchievementState.WaitingForCompletion; // Save측
     public bool IsComplete => State == AchievementState.Complete;
     public bool IsCancel => State == AchievementState.Cancel;
     //public virtual bool IsCancelable => isCancelable && cancelConditions.All(x => x.IsPass(this));

@@ -6,17 +6,27 @@ using Random = UnityEngine.Random;
 
 public static class Util
 {
-    private static Dictionary<float, WaitForSeconds> _waitDict = new Dictionary<float, WaitForSeconds>();
+    private static Dictionary<float, WaitForSeconds> WaitDict = new Dictionary<float, WaitForSeconds>();
+    private static Dictionary<PoolingType, ObjectPooler> PoolDict = new Dictionary<PoolingType, ObjectPooler>();
 
     public static WaitForSeconds GetWaitSeconds(float seconds)
     {
-        if (_waitDict.TryGetValue(seconds, out var wait) == false)
+        if (WaitDict.TryGetValue(seconds, out var wait) == false)
         {
-            _waitDict.Add(seconds, new WaitForSeconds(seconds));
-            return _waitDict[seconds];
+            WaitDict.Add(seconds, new WaitForSeconds(seconds));
+            return WaitDict[seconds];
         }
         return wait;
     }
+
+    public static void SetPooler(ObjectPooler pooler) => PoolDict.Add(pooler.PoolingType, pooler);
+    public static ObjectPooler GetPooler(PoolingType type) => PoolDict[type];
+    public static void ClearPooler()
+    {
+        IsCleared = true;
+        PoolDict.Clear();
+    }
+    public static bool IsCleared { get; set; }
 
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {

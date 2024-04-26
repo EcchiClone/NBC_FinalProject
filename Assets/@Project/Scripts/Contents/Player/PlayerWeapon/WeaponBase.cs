@@ -21,7 +21,7 @@ public abstract class WeaponBase : MonoBehaviour
     public int PerShot {  get; private set; }
     public bool CanReload { get; private set; }
 
-    protected Transform _target;
+    protected ITarget _target;
     protected LayerMask _groundLayer;
     protected PartData _partData;
 
@@ -88,7 +88,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected GameObject CreateBullet(Transform muzzle)
     {
-        GameObject bullet = ObjectPooler.SpawnFromPool(_bulletObject.name, muzzle.position);
+        GameObject bullet = Util.GetPooler(PoolingType.Player).SpawnFromPool(_bulletObject.name, muzzle.position);
         bullet.transform.rotation = muzzle.rotation;
 
         return bullet;
@@ -96,7 +96,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected EffectLifeTime CreateMuzzleEffect(Transform muzzle)
     {
-        EffectLifeTime effect = ObjectPooler.SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
+        EffectLifeTime effect = Util.GetPooler(PoolingType.Player).SpawnFromPool(_muzzleEffect.name, muzzle.position).GetComponent<EffectLifeTime>();
         effect.transform.rotation = muzzle.rotation;
 
         return effect;
@@ -116,7 +116,7 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     public abstract void UseWeapon(Transform[] muzzlePoints);
-    private void Targeting(Transform target, float percent) => _target = target;
+    private void Targeting(ITarget target, float percent) => _target = target;
     private void Release() => _target = null;
 
     private void CheckReload(int ammo, bool isCoolDown, bool isReloadable, Define.Parts_Location type)

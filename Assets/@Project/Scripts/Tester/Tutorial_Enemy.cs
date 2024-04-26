@@ -32,6 +32,8 @@ public class Tutorial_Enemy : MonoBehaviour, ITarget
 
     public Define.EnemyType EnemyType { get; set; } = Define.EnemyType.Tutorial;
 
+    public Vector3 Center => transform.position += Vector3.up * 0.5f;
+
     public void GetDamaged(float damage)
     {
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Enemy_Hits, transform.position);
@@ -44,9 +46,9 @@ public class Tutorial_Enemy : MonoBehaviour, ITarget
             Dead();
     }
 
-    private void LockOn(Transform transform, float t)
+    private void LockOn(ITarget transform, float t)
     {
-        if (transform == this.transform)
+        if (transform.Transform == this.transform)
             Managers.AchievementSystem.ReceiveReport("TUTO8", "Locked", 1);
     }
 

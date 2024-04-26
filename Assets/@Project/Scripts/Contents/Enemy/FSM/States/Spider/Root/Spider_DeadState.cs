@@ -7,7 +7,7 @@ public class Spider_DeadState : BaseState
 
     public override void EnterState()
     {
-        ObjectPooler.SpawnFromPool("EnemyExplosion01", _entityTransform.position);
+        Util.GetPooler(PoolingType.Enemy).SpawnFromPool("EnemyExplosion01", _entityTransform.position);
         Context.Entity.gameObject.SetActive(false);
     }
     public override void UpdateState()

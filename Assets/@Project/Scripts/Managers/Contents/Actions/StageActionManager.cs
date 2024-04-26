@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StageActionManager
-{    
+{
+    public event Action OnBossStage;
+
     public event Action OnMinionKilled;
     public event Action OnBossKilled;
 
@@ -12,6 +14,8 @@ public class StageActionManager
     public event Action<float> OnCountDownActive;
 
     public event Action<StageData> OnResult;
+
+    public void CallBossStage() => OnBossStage?.Invoke();
 
     public void CallMinionKilled() => OnMinionKilled?.Invoke();
     public void CallBossKilled() => OnBossKilled?.Invoke();
@@ -23,6 +27,7 @@ public class StageActionManager
 
     public void Clear()
     {
+        OnBossStage = null;
         OnMinionKilled = null;
         OnBossKilled = null;           
         OnEnemySpawned = null;
