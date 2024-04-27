@@ -9,6 +9,9 @@ public class PlayerProjectile : Bullet
     [SerializeField] protected Define.BulletHitSounds _sfxType;
     [SerializeField] protected LayerMask _damagableLayer;
 
+    protected ITarget _target;
+    protected Vector3 _groundTargetPos;
+
     protected Rigidbody _rigid;
     protected float _speed;
     protected float _damage;
@@ -30,6 +33,9 @@ public class PlayerProjectile : Bullet
         _damage = damage;
         _isSplash = splash;
         _explosiveRange = explosiveRange;
+        _groundTargetPos = groundTargetPos;
+        _target = target;
+
         if (_trailRenderers != null)
             _trailRenderers.Clear();
 
@@ -40,7 +46,8 @@ public class PlayerProjectile : Bullet
     {
         yield return Util.GetWaitSeconds(LIFE_TIME);
 
-        CreateEffect();
+        if (_isSplash)
+            Explode();        
         gameObject.SetActive(false);
     }
 
@@ -48,25 +55,14 @@ public class PlayerProjectile : Bullet
     {
         if ((_damagableLayer & (1 << collision.gameObject.layer)) != 0)
         {
-            StopAllCoroutines();
-            CreateEffect();
-            PlaySFX();            
-
             if (_isSplash)
-            {
-                RaycastHit[] hits = Physics.SphereCastAll(transform.position, _explosiveRange, Vector3.up, 0, _damagableLayer);
-
-                foreach (var hit in hits) // 범위에 들어간 적은 데미지 부여
-                {
-                    if (hit.transform.TryGetComponent(out ITarget target))
-                        target.GetDamaged(_damage);
-
-                    else if (hit.transform.TryGetComponent(out DummyController dummy))
-                        dummy.GetDamaged(_damage, transform.position);
-                }
-            }
+                Explode();
             else
             {
+                StopAllCoroutines();
+                CreateEffect();
+                PlaySFX();
+
                 if (collision.gameObject.TryGetComponent(out ITarget target))
                     target.GetDamaged(_damage);
 
@@ -74,6 +70,24 @@ public class PlayerProjectile : Bullet
                     dummy.GetDamaged(_damage, transform.position);
             }
             gameObject.SetActive(false);
+        }
+    }
+
+    protected void Explode()
+    {
+        StopAllCoroutines();
+        CreateEffect();
+        PlaySFX();
+
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, _explosiveRange, Vector3.up, 0, _damagableLayer);
+
+        foreach (var hit in hits) // 범위에 들어간 적은 데미지 부여
+        {
+            if (hit.transform.TryGetComponent(out ITarget target))
+                target.GetDamaged(_damage);
+
+            else if (hit.transform.TryGetComponent(out DummyController dummy))
+                dummy.GetDamaged(_damage, transform.position);
         }
     }
 
