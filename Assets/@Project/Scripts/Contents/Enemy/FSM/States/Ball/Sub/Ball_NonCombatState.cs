@@ -30,8 +30,6 @@ public class Ball_NonCombatState : BaseState
 
     public override void ExitState()
     {
-        // 컨트롤러에서 스탑
-        Context.Entity.Controller.Stop();
     }
 
     public override void InitializeSubState()

@@ -32,6 +32,8 @@ public  class Controller
 
     public virtual void Update() { }
 
+    public virtual void FixedUpdate() { }
+
     protected virtual void Move() { }
 
     protected virtual void Look() { }

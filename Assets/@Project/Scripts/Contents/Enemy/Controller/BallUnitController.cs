@@ -6,7 +6,7 @@ public class BallUnitController : Controller
     int targetIndex;
 
     Rigidbody rigidbody;
-    Collider collider;
+    Transform transform;
 
     float radius;
     float nodeRadius;
@@ -15,10 +15,10 @@ public class BallUnitController : Controller
     public BallUnitController(Entity entity) : base(entity)
     {
         rigidbody = Entity.GetComponent<Rigidbody>();
-        collider = Entity.GetComponent<Collider>();        
+        transform = Entity.GetComponent<Transform>();        
 
         nodeRadius = PathRequestManager.instance.grid.nodeRadius;
-        radius = collider.bounds.extents.magnitude;
+        radius = Entity.GetComponent<SphereCollider>().radius;
     }
 
     public override void SetDestination(Vector3 target)
@@ -44,13 +44,22 @@ public class BallUnitController : Controller
         }
     }
 
-
-
     public override void Update()
     {
-        if (!IsMoving) return;
+        
+    }
 
-        Move();
+    public override void FixedUpdate()
+    {
+        if (!IsGround()) return;
+        Move();        
+    }
+
+    private bool IsGround()
+    {
+        bool grounded = Physics.CheckSphere(transform.position, radius*transform.localScale.y, LayerMask.GetMask("Ground"));
+
+        return grounded;
     }
 
     protected override void Move()
@@ -61,8 +70,6 @@ public class BallUnitController : Controller
         }
 
         Vector3 currentWaypoint = path[0];
-        currentWaypoint.y = radius;
-
 
         Vector3 direction = (currentWaypoint - Entity.transform.position).normalized;
         float distanceToWaypoint = Vector3.Distance(Entity.transform.position, currentWaypoint);
@@ -75,7 +82,6 @@ public class BallUnitController : Controller
                 return;
             }
             currentWaypoint = path[targetIndex];
-            currentWaypoint.y = radius;
 
             direction = (currentWaypoint - Entity.transform.position).normalized; // 노드 변경시 속도 방향 조정
             //rigidbody.velocity = direction * rigidbody.velocity.magnitude;
@@ -88,10 +94,4 @@ public class BallUnitController : Controller
         if (rigidbody.velocity.magnitude > Speed)
             rigidbody.velocity = rigidbody.velocity.normalized * Speed;
     }
-
-    public override void Stop() 
-    {
-        IsMoving = false;
-    }
-
 }

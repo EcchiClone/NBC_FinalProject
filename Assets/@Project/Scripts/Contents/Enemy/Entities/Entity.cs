@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 
 public class EntityStat
 {
@@ -136,5 +137,10 @@ public abstract class Entity : MonoBehaviour, ITarget
         Controller?.Update();
 
         StateMachine?.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        Controller.FixedUpdate();
     }
 }

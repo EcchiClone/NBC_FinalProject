@@ -145,7 +145,7 @@ public class ObjectPooler : MonoBehaviour
         obj.transform.rotation = Quaternion.identity;
 
         // Rigidbody가 있다면 velocity와 angularVelocity 초기화
-        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb) && obj.layer == LayerMask.GetMask("Bullet"))
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;

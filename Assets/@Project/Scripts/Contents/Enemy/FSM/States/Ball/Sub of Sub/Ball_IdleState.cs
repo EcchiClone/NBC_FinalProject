@@ -8,7 +8,6 @@ public class Ball_IdleState : BaseState
     }
     public override void EnterState()
     {
-        Context.Entity.Controller.Stop();
     }
 
     public override void CheckSwitchStates()

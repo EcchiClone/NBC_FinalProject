@@ -960,8 +960,6 @@ MonoBehaviour:
   <IsAlive>k__BackingField: 0
   <EntityType>k__BackingField: 1
   enemyPhaseStarter: {fileID: 0}
-  <XRotationPart>k__BackingField: {fileID: 6474279005424547601}
-  <YRotationPart>k__BackingField: {fileID: 2447487677817587911}
 --- !u!195 &3592014728632222735
 NavMeshAgent:
   m_ObjectHideFlags: 0

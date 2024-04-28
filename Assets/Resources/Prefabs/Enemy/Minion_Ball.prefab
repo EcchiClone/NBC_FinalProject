@@ -150,11 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb08025184bda7d4cb3e18c881648d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 1
-  <Data>k__BackingField: {fileID: 11400000, guid: 18b9cc718017bcd459a775799a6f92f7,
-    type: 2}
   <Target>k__BackingField: {fileID: 0}
+  <Height>k__BackingField: 0
   <IsAlive>k__BackingField: 0
+  <EntityType>k__BackingField: 0
   enemyPhaseStarter: {fileID: 0}
 --- !u!114 &2305463440183455664
 MonoBehaviour:
