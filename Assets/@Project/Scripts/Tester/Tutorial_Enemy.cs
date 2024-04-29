@@ -32,7 +32,7 @@ public class Tutorial_Enemy : MonoBehaviour, ITarget
 
     public Define.EnemyType EnemyType { get; set; } = Define.EnemyType.Tutorial;
 
-    public Vector3 Center => transform.position += Vector3.up * 0.5f;
+    public Vector3 Center => transform.position + Vector3.up;
 
     public void GetDamaged(float damage)
     {

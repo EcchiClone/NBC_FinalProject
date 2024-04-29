@@ -45,7 +45,7 @@ public class Weapon_LaserCannon : WeaponBase
         {
             current += LASER_DAMAGING_TIME;
             percent = current / LASER_CUT_TIME;
-
+            
             float maxLength = 100f;
             Ray ray = new Ray(muzzle.position, muzzle.forward);
             bool isHit = Physics.Raycast(ray, out RaycastHit hit, maxLength, _enemyLayer);

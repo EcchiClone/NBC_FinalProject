@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class PlayerHellFire : PlayerProjectile
 {
-    private Transform _target;
-    private Vector3 _groundTargetPos;    
-
     private bool _isTracking = false;
     private readonly float TRAKING_RATIO = 5f;
 
     public override void Setup(float speed, float damage, bool splash, Vector3 groundTargetPos, ITarget target = null, float explosiveRange = 0)
     {
         base.Setup(speed, damage, splash, groundTargetPos, target, explosiveRange);
-        _isTracking = false;
-        _target = target.Transform;
-        _groundTargetPos = groundTargetPos;
+        _isTracking = false;        
         StartCoroutine(CoTracking());
     }
 
@@ -24,7 +19,7 @@ public class PlayerHellFire : PlayerProjectile
         if (_isTracking)
         {
             if (_target != null)
-                TrackingTarget(_target.position);
+                TrackingTarget(_target.Transform.position);
             else
                 TrackingTarget(_groundTargetPos);
         }

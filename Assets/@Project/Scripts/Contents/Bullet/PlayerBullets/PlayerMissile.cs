@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlayerMissile : PlayerProjectile
 {
-    private ITarget _target;
-    private Vector3 _groundTargetPos;    
-
     private bool _isTracking = false;
     private readonly float TRAKING_RATIO = 5f;
     private readonly float TRAKING_DELAY = 1f;
@@ -13,9 +10,7 @@ public class PlayerMissile : PlayerProjectile
     public override void Setup(float speed, float damage, bool splash,Vector3 groundTargetPos, ITarget target = null, float explosiveRange = 0)
     {
         base.Setup(speed, damage, splash, groundTargetPos, target, explosiveRange);
-        _isTracking = false;
-        _target = target;
-        _groundTargetPos = groundTargetPos;
+        _isTracking = false;                
         StartCoroutine(CoTracking());
     }
 
