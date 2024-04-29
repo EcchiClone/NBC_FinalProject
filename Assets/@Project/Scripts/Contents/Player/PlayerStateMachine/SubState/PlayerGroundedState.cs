@@ -35,15 +35,20 @@ public class PlayerGroundedState : PlayerBaseState
 
     public override void InitailizeSubState()
     {
-        if (Context._currentMovementInput.x == 0 && Context._currentMovementInput.y == 0)
+        if (!Context.IsMoveInputPressed)
             SetSubState(Factory.Idle());
         else
         {
-            if (!Context.IsRun)
-                SetSubState(Factory.Walk());
+            if (!Context.CanJudgeDashing)
+                SetSubState(Factory.Dash());
             else
-                SetSubState(Factory.Run());
-        }        
+            {
+                if (!Context.IsRun)
+                    SetSubState(Factory.Walk());
+                else
+                    SetSubState(Factory.Run());
+            }
+        }
     }
 
     public override void CheckSwitchStates()

@@ -31,13 +31,18 @@ public class PlayerJumpState : PlayerBaseState
     {
         if (!Context.IsMoveInputPressed)
             SetSubState(Factory.Idle());
-        else if (Context.IsMoveInputPressed)
+        else
         {
-            if (!Context.IsRun)
-                SetSubState(Factory.Walk());
+            if (!Context.CanJudgeDashing)
+                SetSubState(Factory.Dash());
             else
-                SetSubState(Factory.Run());
-        }        
+            {
+                if (!Context.IsRun)
+                    SetSubState(Factory.Walk());
+                else
+                    SetSubState(Factory.Run());
+            }
+        }
     }
 
     public override void CheckSwitchStates()
