@@ -71,4 +71,4 @@
 ### Localization
 - Localization 패키지 활용, csv파일로 데이터 관리, 한/영 지원
 
-
+프로젝트의 개발과정 및 게임의 상세내용은 [Null Reference Exception Wiki](https://github.com/JY-LemongO/NBC_1st_FinalProject/wiki)에서 확인
