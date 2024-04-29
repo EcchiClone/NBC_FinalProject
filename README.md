@@ -7,8 +7,10 @@
 - 개발인원 : 4인
 - 소개
     > 고도화된 실험실에서 모듈을 조합하며 전투 훈련을 받는 3D 탄막 액션 게임입니다. 플레이어는 먼 미래의 AI로서 전투 시뮬레이션에 참여합니다. 다양한 모듈을 교체하고 조합해가며 훈련을 반복합니다. 플레이어는 자신만의 모듈 조합을 가지고 3D 탄막 액션을 경험합니다.
-- 게임 다운로드 : [itch.io - Null Reference Exception](https://ecchiclone.itch.io/null-reference-exception)
+- [게임 다운로드 - itch.io](https://ecchiclone.itch.io/null-reference-exception)
+- [Wiki - 프로젝트 상세](https://github.com/JY-LemongO/NBC_1st_FinalProject/wiki)
 - 소개영상 : https://www.youtube.com/watch?v=XH0-N9iOdQI
+- [![Null Reference Exception Trailer](https://img.youtube.com/vi/XH0-N9iOdQI/0.jpg)](https://www.youtube.com/watch?v=XH0-N9iOdQI "Null Reference Exception Trailer")
 - QA 진행 : 1주, 16인 의견 수렴
   
 ## 2. 게임 소개 상세
