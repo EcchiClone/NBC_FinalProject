@@ -51,15 +51,7 @@ public class BallUnitController : Controller
 
     public override void FixedUpdate()
     {
-        if (!IsGround()) return;
         Move();        
-    }
-
-    private bool IsGround()
-    {
-        bool grounded = Physics.CheckSphere(transform.position, radius*transform.localScale.y, LayerMask.GetMask("Ground"));
-
-        return grounded;
     }
 
     protected override void Move()

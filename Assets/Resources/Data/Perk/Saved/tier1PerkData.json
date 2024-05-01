@@ -1,0 +1,99 @@
+{
+    "point": 9999,
+    "unlockCount": 0,
+    "currentSeed": "6D713E050DE2",
+    "data": [
+        {
+            "Tier": 1,
+            "PositionIdx": 0,
+            "ContentIdx": 6,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 2,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 2,
+            "ContentIdx": 4,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 0,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 3,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 3,
+            "ContentIdx": 0,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 1,
+                    "ContentIdx": 0,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 3,
+                    "ContentIdx": 7,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 6,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                }
+            ]
+        },
+        {
+            "Tier": 1,
+            "PositionIdx": 6,
+            "ContentIdx": 3,
+            "IsActive": false,
+            "subPerks": [
+                {
+                    "PositionIdx": 4,
+                    "ContentIdx": 1,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 5,
+                    "ContentIdx": 6,
+                    "IsActive": false
+                },
+                {
+                    "PositionIdx": 7,
+                    "ContentIdx": 5,
+                    "IsActive": false
+                }
+            ]
+        }
+    ]
+}
