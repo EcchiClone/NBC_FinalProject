@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 
 public class EntityStat
 {
@@ -39,7 +38,7 @@ public abstract class Entity : MonoBehaviour, ITarget
 {    
     [field: SerializeField] public Transform Target { get; set; }
     [field: SerializeField] public float Height { get; private set; }    
-    [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록
+    [field: SerializeField] public bool IsAlive { get; private set; }// 피격 처리 함수에서만 수정할 수 있도록    
     [field: SerializeField] public Define.EntityType EntityType { get; private set; }
 
     public EnemyBulletPatternStarter enemyPhaseStarter; // TODO : 어디로 가야할지     

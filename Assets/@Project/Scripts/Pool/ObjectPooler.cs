@@ -97,8 +97,8 @@ public class ObjectPooler : MonoBehaviour
         return objects.ConvertAll(x => x.GetComponent<T>());
     }
 
-    public void ReturnToPool(GameObject obj) =>
-        _ReturnToPool(obj);
+    public void ReturnToPool(GameObject obj, bool isUsingGravity = false) =>
+        _ReturnToPool(obj, isUsingGravity);
 
 
     [ContextMenu("GetSpawnObjectsInfo")]
@@ -135,7 +135,7 @@ public class ObjectPooler : MonoBehaviour
         return objectToSpawn;
     }
 
-    void _ReturnToPool(GameObject obj)
+    void _ReturnToPool(GameObject obj, bool isUsingGravity = false)
     {
         if (!poolDictionary.ContainsKey(obj.name))
             throw new Exception($"Pool with tag {obj.name} doesn't exist.");        
@@ -145,8 +145,8 @@ public class ObjectPooler : MonoBehaviour
         obj.transform.rotation = Quaternion.identity;
 
         // Rigidbody가 있다면 velocity와 angularVelocity 초기화
-        if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb) && obj.layer == LayerMask.GetMask("Bullet"))
-        {
+        if (obj.TryGetComponent(out Rigidbody rb) && isUsingGravity == false)
+        {            
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 

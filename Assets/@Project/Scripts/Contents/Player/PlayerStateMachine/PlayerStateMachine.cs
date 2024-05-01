@@ -82,6 +82,7 @@ public class PlayerStateMachine : MonoBehaviour
         StateFactory = new PlayerStateFactory(this);
 
         Anim = GetComponentInChildren<Animator>();
+        CanJudgeDashing = true;
         CurrentState = StateFactory.NonCombat();
         CurrentState.EnterState();
 
