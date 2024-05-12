@@ -40,7 +40,7 @@ public class GameData
     public int highestStage;
     public int highestMinionKill;
     public int highestBossKill;
-    public int researchPoint = 700;
+    public int researchPoint = 200;
 
     public int partIndex_Lower;
     public int partIndex_Upper;
@@ -49,7 +49,7 @@ public class GameData
     public int partIndex_LeftShoulder;
     public int partIndex_RightShoulder;
 
-    public int achievementPoint = 3000;
+    public int achievementPoint = 0;
 
     public bool tutorialClear;
     public bool firstPlayDone;

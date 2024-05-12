@@ -285,7 +285,7 @@ public class SpawnManager
 
     public void GameOver()
     {
-        StageData.researchPoint = CurrentStage * 2;
+        StageData.researchPoint = CurrentStage * 5;
         Managers.UI.ShowPopupUI<UI_ResultPopup>();
     }
     #endregion
