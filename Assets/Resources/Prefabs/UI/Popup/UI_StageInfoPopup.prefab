@@ -874,7 +874,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:292507985b4940c46b15bf6eda383c11
     m_TableEntryReference:
-      m_KeyId: 203348114952192
+      m_KeyId: 201404378009601
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -935,7 +935,7 @@ RectTransform:
   - {fileID: 9057826720924223075}
   - {fileID: 632820535333056051}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
